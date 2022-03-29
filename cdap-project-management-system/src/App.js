@@ -11,6 +11,7 @@ function App() {
     <h1> Hello World ! </h1>
     <h3>Hello Chamath </h3> 
     <h10> by Chamath</h10>
+    <h2>Hello by Buddhisha!</h2>
     </div>
   );
 }
