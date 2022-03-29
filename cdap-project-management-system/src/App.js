@@ -12,7 +12,7 @@ function App() {
     <h3>Hello Chamath </h3> 
     <h10> by Chamath</h10>
     <h2>Hello by Buddhisha!</h2>
-    <h1>By Buddhisha</h1>
+    <h10>By Buddhisha</h10>
     </div>
   );
 }
