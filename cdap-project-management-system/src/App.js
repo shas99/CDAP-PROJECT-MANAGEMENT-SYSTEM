@@ -5,14 +5,44 @@ function App() {
   return (
     <div className="App">
     <h1> Hello World ! </h1>
-    <h3>Hello Chathushka </h3> 
-    <h10> by Chathushka</h10> 
-    <br></br>
- 
-    <h3>Hello Chamath </h3> 
-    <h10> by Chamath</h10>
-    <h2>Hello by Buddhisha!</h2>
-    <h10>By Buddhisha</h10>
+
+    
+    <table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Where from</th>
+  </tr>
+  <tr>
+    <td>Chathushka Rodrigo</td>
+    <td>21</td>
+    <td>Hokandara</td>
+  </tr>
+  <tr>
+    <td>Chamath Ramawickrama</td>
+    <td>22</td>
+    <td>Kelaniya</td>
+  </tr>
+  <tr>
+    <td>Buddhisha Dharmaratne</td>
+    <td>21</td>
+    <td>Matale</td>
+  </tr>
+  <tr>
+    <td>Shasvathan Pathmanabn</td>
+    <td>22</td>
+    <td>Kotahena</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+</table>
+
+
+
     </div>
   );
 }
