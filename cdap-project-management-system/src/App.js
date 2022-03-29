@@ -29,7 +29,7 @@ function App() {
     <td>Matale</td>
   </tr>
   <tr>
-    <td>Shasvathan Pathmanabn</td>
+    <td>Shasvathan Pathmanaban</td>
     <td>22</td>
     <td>Kotahena</td>
   </tr>
