@@ -8,9 +8,11 @@ function App() {
     <h3>Hello Chathushka </h3> 
     <h10> by Chathushka</h10> 
     <br></br>
-    
+ 
     <h3>Hello Chamath </h3> 
     <h10> by Chamath</h10>
+    <h2>Hello by Buddhisha!</h2>
+    <h1>By Buddhisha</h1>
     </div>
   );
 }
