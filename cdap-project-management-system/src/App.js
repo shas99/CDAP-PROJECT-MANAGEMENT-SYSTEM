@@ -34,9 +34,9 @@ function App() {
     <td>Kotahena</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>Pasindu Vinod</td>
+    <td>23</td>
+    <td>Chilaw</td>
   </tr>
   
 </table>
