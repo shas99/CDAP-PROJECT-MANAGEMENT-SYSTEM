@@ -71,14 +71,23 @@ const RegisterScreen = ({ history}) => {
           onChange={(e)=>setEmail(e.target.value)}/>
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input type="password"
           required
-          id="confirmpassword"
+          id="password"
           autoComplete="true"
-          placeholder="Confirm Password"
+          placeholder="Enter password"
+          value={password}
+          onChange={(e)=>setPassword(e.target.value)}/>
+        </div>
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input type="password"
+          requiredid="confirmpassword"
+          autoComplete="true"
+          placeholder="Confirm password"
           value={confirmpassword}
-          onChange={(e)=>setConfirmPassword(e.target.value)}/>
+          onChange={(e)=> setConfirmPassword(e.target.value)}/>
         </div>
         <button type="submit" className="btn btn-primary">
           Register
