@@ -4,6 +4,8 @@ const App = () =>{
   return (
     <Router>
       <div className="app">
+        <h1>me</h1>
+        
         <Routes>
           <Route path='/login' element={<LoginScreen/>} exact/>
           <Route path='/register'element={<RegisterScreen/>} exact/>
