@@ -17,11 +17,12 @@ const App = () =>{
         
         
         <Routes>
-          <Route path='/' element={<PrivateRoute component={PrivateScreen}/>}/>
-          <Route path='/login' element={<LoginScreen/>} exact/>
+          
+        <Route path='/'element={<PrivateRoute component={PrivateScreen}/>}/>
+          <Route path='/login'element={<LoginScreen/>} exact/>
           <Route path='/register'element={<RegisterScreen/>} exact/> 
-          <Route path='/forgotpassword' element={<ForgotPasswordScreen/>}exact/>
-          <Route path='/passwordreset/:resetToken' element={<ResetPasswordScreen/>}exact/>
+          <Route path='/forgotpassword'element={<ForgotPasswordScreen/>}exact/>
+          <Route path='/passwordreset/:resetToken'element={<ResetPasswordScreen/>}exact/>
          
 
         </Routes>
