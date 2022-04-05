@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
 
-const PrivateScreen = () => {
+const PrivateScreen = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
 
@@ -25,11 +25,21 @@ const PrivateScreen = () => {
     };
 
     fetchPrivateDate();
-  }, []);
+  }, [history]);
+
+  //Logout feature
+  const logOutHandler=()=>{
+    localStorage.setItem("authToken", null);
+    history.push("/login");
+  };
   return error ? (
     <span className="error-message">{error}</span>
   ) : (
-    <div>{privateData}</div>
+    <>
+    <div style={{background:"green",color:"white"}}>{privateData}</div>
+   
+    <button onClick={logOutHandler}>Log Out</button>
+    </>
   );
 };
 

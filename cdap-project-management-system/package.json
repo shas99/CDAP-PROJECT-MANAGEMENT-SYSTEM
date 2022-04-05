@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js --ignore client"
   },
   "eslintConfig": {
     "extends": [
