@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './PrivateScreen.css';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./PrivateScreen.css";
 
 const PrivateScreen = () => {
-  const [error, setError]=useState("");
+  const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
 
   useEffect(() => {
@@ -11,23 +11,26 @@ const PrivateScreen = () => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          Authorization: ` Bearer ${localStorage.getItem("authToken")}`,
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
-        }
-        try{
-          const { data } = await axios.get("/api/private",config);
-          setPrivateData(data.data);
-        }catch(error){
-          localStorage.removeItem("authToken");
-          setError("You are not authorized please login");
-        }
+      };
+
+      try {
+        const { data } = await axios.get("/api/private", config);
+        setPrivateData(data.data);
+      } catch (error) {
+        localStorage.removeItem("authToken");
+        setError("You are not authorized please login");
       }
-      fetchPrivateDate();
-    },[]);
+    };
+
+    fetchPrivateDate();
+  }, []);
   return error ? (
-    <span className ="error-message">{error}</span>
-  ):(
+    <span className="error-message">{error}</span>
+  ) : (
     <div>{privateData}</div>
-  )
-}
+  );
+};
+
 export default PrivateScreen;

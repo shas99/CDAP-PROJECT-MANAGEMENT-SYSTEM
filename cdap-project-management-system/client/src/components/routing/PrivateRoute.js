@@ -1,23 +1,4 @@
-
-//original code
-/*
-import { Navigate, Route } from 'react-router-dom';
- const PrivateRoute = ({ component: Component, ...rest}) =>{
-   return(
-     <Route
-     {...rest}
-     render={(props) =>
-    localStorage.getItem("authToken") ? (
-      <Component {...props} />
-    ):(
-      <Navigate to="/login" />
-    )}
-    />
-   )
- }
- export default PrivateRoute;*/
-
- import { Navigate, Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
@@ -27,7 +8,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         localStorage.getItem("authToken") ? (
           <Component {...props} />
         ) : (
-          <Navigate to="/login" />
+          <Redirect to="/login" />
         )
       }
     />
@@ -35,7 +16,3 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 export default PrivateRoute;
-
-
-
-
