@@ -21,7 +21,7 @@
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "engines": {
-    "node": "14.17.1"
+    "node": "16.14.2"
   },
   "eslintConfig": {
     "extends": [
