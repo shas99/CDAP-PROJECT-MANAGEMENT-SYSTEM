@@ -9,6 +9,22 @@ const app = express();
 
 app.use(express.json())
 
+// ... other imports 
+const path = require("path")
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+
+
+
+
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/private', require('./routes/private'))
 

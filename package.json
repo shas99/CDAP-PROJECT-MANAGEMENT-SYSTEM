@@ -17,8 +17,12 @@
   },
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js --ignore client"
+    "server": "nodemon server.js --ignore client",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
+  "engines": {
+    "node": "14.17.1"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
