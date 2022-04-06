@@ -29,14 +29,14 @@ const PrivateScreen = ({history}) => {
 
   //Logout feature
   const logOutHandler=()=>{
-    localStorage.setItem("authToken", null);
+    localStorage.removeItem("authToken");
     history.push("/login");
   };
   return  error ? ( 
   
     <span className="error-message">{error}</span>
   ) : ( 
-    
+
     <>
     <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
