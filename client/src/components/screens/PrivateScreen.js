@@ -40,7 +40,9 @@ const PrivateScreen = ({history}) => {
     <>
     <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
-   
+   <h1><center>
+     Welcome user!</center>
+   </h1>
     <button onClick={logOutHandler} id="logout">Log Out</button>
     </div>
     </>
