@@ -36,9 +36,11 @@ const PrivateScreen = ({history}) => {
     <span className="error-message">{error}</span>
   ) : (
     <>
+    <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
    
-    <button onClick={logOutHandler}>Log Out</button>
+    <button onClick={logOutHandler} id="logout">Log Out</button>
+    </div>
     </>
   );
 };
