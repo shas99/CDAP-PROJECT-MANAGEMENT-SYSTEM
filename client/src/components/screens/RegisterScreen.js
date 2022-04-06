@@ -60,7 +60,7 @@ const RegisterScreen = ({ history }) => {
           <input
             type="text"
             required
-            id="name"
+            id="name" className="inputs"
             placeholder="Enter username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -71,7 +71,7 @@ const RegisterScreen = ({ history }) => {
           <input
             type="email"
             required
-            id="email"
+            id="email" className="inputs"
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +82,7 @@ const RegisterScreen = ({ history }) => {
           <input
             type="password"
             required
-            id="password"
+            id="password" className="inputs"
             autoComplete="true"
             placeholder="Enter password"
             value={password}
@@ -94,14 +94,14 @@ const RegisterScreen = ({ history }) => {
           <input
             type="password"
             required
-            id="confirmpassword"
+            id="confirmpassword" className="inputs"
             autoComplete="true"
             placeholder="Confirm password"
             value={confirmpassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-success" id="btn">
           Register
         </button>
 
