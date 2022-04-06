@@ -1,5 +1,6 @@
 #back{
     background-color: #22272E;
+    height: 1000px;
 }
 
 #login{
@@ -7,4 +8,5 @@
   color: #fff;
   border-radius: 5px;
   margin-top: 8px;
+  margin: 0 auto;
 }

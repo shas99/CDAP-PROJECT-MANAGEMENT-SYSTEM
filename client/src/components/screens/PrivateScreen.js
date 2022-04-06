@@ -32,9 +32,11 @@ const PrivateScreen = ({history}) => {
     localStorage.setItem("authToken", null);
     history.push("/login");
   };
-  return error ? (
+  return  error ? ( 
+  
     <span className="error-message">{error}</span>
-  ) : (
+  ) : ( 
+    
     <>
     <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
