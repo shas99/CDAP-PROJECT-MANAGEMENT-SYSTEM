@@ -47,7 +47,7 @@ const LoginScreen = ({ history }) => {
         <h3 className="login-screen__title">Login</h3>
         {error && <span className="error-message">{error}</span>}
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email" id="EmailID">Email:</label>
           <input
             type="email"
             required
@@ -59,7 +59,7 @@ const LoginScreen = ({ history }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">
+          <label htmlFor="password" id="PasswordID">
             Password:{" "}
             <Link to="/forgotpassword" className="login-screen__forgotpassword">
               Forgot Password?
@@ -76,12 +76,12 @@ const LoginScreen = ({ history }) => {
             tabIndex={2}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" id="LogButton">
           Login
         </button>
 
         <span className="login-screen__subtext">
-          Don't have an account? <Link to="/register">Register</Link>
+          Don't have an account? <Link to="/register" id="Regs">Register</Link>
         </span>
       </form>
     </div>

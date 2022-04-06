@@ -57,7 +57,7 @@ const ForgotPasswordScreen = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" id="FogButt">
           Send Email
         </button>
       </form>
