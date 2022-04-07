@@ -9,13 +9,13 @@ const app = express();
 
 app.use(express.json())
 
-// ... other imports 
-const path = require("path")
+// // ... other imports 
+// const path = require("path")
 
-// ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
+// // ... other app.use middleware 
+// app.use(express.static(path.join(__dirname, "client", "build")))
 
-// ...
+
 
 
 
