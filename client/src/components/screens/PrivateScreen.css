@@ -1,0 +1,20 @@
+#back{
+    background-color: #22272E;
+    height: 1000px;
+    text-align: center;
+}
+
+#logout{
+    background-color: #4CAF50;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 8px;
+  width: 100px;
+  height: 20px;
+  
+}
+
+#headert{
+    padding-top: 400px;
+    color: #fff;
+}
