@@ -31,7 +31,10 @@ const PrivateScreen = ({history}) => {
   const logOutHandler=()=>{
     localStorage.removeItem("authToken");
     history.push("/login");
+
   };
+
+  
   return  error ? ( 
   
     <span className="error-message">{error}</span>
@@ -41,7 +44,7 @@ const PrivateScreen = ({history}) => {
     <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
    <h1 id="headert">
-     Welcome user!
+     Welcome User
    </h1>
     <button onClick={logOutHandler} id="logout">Log Out</button>
     </div>
