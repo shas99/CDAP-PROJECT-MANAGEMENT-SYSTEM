@@ -17,6 +17,13 @@ const GroupSchema = new mongoose.Schema({//Group model
     },
     member_5: {
         type: String
+    },
+    g_approval:{
+        type:Boolean
+    },
+    suggestions:
+    {
+        type:String
     }
 
   

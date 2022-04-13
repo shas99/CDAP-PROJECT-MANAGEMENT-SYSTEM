@@ -25,7 +25,7 @@ exports.register = async(req,res,next) => {
 
 exports.login = async (req, res, next) => {
     const {email,password} = req.body
-    console.log("mmmm"+email)
+
     if(!email || !password){
        return next(new ErrorResponse("Please provide an email and password",400))
     }
@@ -33,8 +33,6 @@ exports.login = async (req, res, next) => {
     try{
         const user = await User.findOne({email}).select("+password")
 
-        
-        
         if(!user){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
@@ -44,7 +42,7 @@ exports.login = async (req, res, next) => {
         if(!isMatch){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
-
+        
         sendToken(user, 200, res)
     }catch(error){
         res.status(500).json({success:false, error:error.message})
@@ -143,9 +141,34 @@ exports.groupregister = async(req,res,next) => {//group registration
     }
 };
 
+exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
+    const {member_1} = req.body
+
+
+    const g_approval =true//check if group is approved by coordinator
+
+    try{
+
+        const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
+        console.log(group[0].suggestions)
+
+        res.status(201).json({
+            success: true,
+            data: "retreived success"
+        })
+
+
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+};
+
 
 
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
     res.status(statusCode).json({success: true,token})
+   
 }
