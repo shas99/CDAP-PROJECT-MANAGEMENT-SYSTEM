@@ -37,7 +37,24 @@ exports.viewfeedback =async(req,res,next) => {
     }catch(error){
         next(error)
     }
-}
+};
+
+//To view marks
+exports.viewmarks =async(req,res,next) => {
+    const{username}=req.body;
+
+    try{
+        const studentmarks = await User.findOne({
+            username
+
+        })
+        const marks = studentmarks.marks
+        console.log(marks)
+    }catch(error){
+        next(error)
+    }
+};
+
 
 exports.login = async (req, res, next) => {
     const {email,password} = req.body

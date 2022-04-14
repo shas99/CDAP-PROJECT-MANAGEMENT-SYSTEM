@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const { register,viewfeedback, login,forgotpassword,resetpassword,groupregister,suggestsupervisor } = require('../controllers/auth')
+const { register,viewfeedback,viewmarks, login,forgotpassword,resetpassword,groupregister,suggestsupervisor } = require('../controllers/auth')
 
 router.route("/register").post(register)
 
@@ -16,5 +16,7 @@ router.route("/groupregister").post(groupregister)//Group reg route
 
 router.route("/suggestsupervisor").get(suggestsupervisor)//suggested supervisor
 
-router.route("/viewfeedback").get(viewfeedback)
+router.route("/viewfeedback").get(viewfeedback)//to view feedback
+
+router.route("/viewmarks").get(viewmarks)//to view marks
 module.exports = router
