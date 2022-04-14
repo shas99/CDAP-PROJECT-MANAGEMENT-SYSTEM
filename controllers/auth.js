@@ -23,6 +23,21 @@ exports.register = async(req,res,next) => {
 };
 //first change
 
+//To view feedback
+exports.viewfeedback =async(req,res,next) => {
+    const{feedback,marks}=req.body;
+
+    try{
+        const studentfeedback = await User.findOne({
+            feedback,marks
+
+        })
+        sendToken(studentfeedback,201,res)
+    }catch(error){
+        next(error)
+    }
+}
+
 exports.login = async (req, res, next) => {
     const {email,password} = req.body
 
@@ -164,6 +179,9 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
     }
 
 };
+
+//To view feedback
+
 
 
 

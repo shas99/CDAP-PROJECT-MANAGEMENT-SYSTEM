@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const { register, login,forgotpassword,resetpassword,groupregister,suggestsupervisor } = require('../controllers/auth')
+const { register,viewfeedback, login,forgotpassword,resetpassword,groupregister,suggestsupervisor, viewfeedback } = require('../controllers/auth')
 
 router.route("/register").post(register)
 
@@ -15,4 +15,6 @@ router.route("/resetpassword/:resetToken").put(resetpassword)
 router.route("/groupregister").post(groupregister)//Group reg route
 
 router.route("/suggestsupervisor").get(suggestsupervisor)//suggested supervisor
+
+router.route("/viewfeedback").get(viewfeedback)
 module.exports = router
