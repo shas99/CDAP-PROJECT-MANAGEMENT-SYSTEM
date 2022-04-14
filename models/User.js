@@ -26,11 +26,11 @@ const UserSchema = new mongoose.Schema({
     },
     feedback:{
         type:String,
-        required:true
+        required:false
     },
     marks:{
         type:Number,
-        required:true
+        required:false
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date

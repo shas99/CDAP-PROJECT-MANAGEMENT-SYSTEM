@@ -25,14 +25,15 @@ exports.register = async(req,res,next) => {
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
-    const{feedback,marks}=req.body;
+    const{username}=req.body;
 
     try{
         const studentfeedback = await User.findOne({
-            feedback,marks
+            username
 
         })
-        sendToken(studentfeedback,201,res)
+        const feedback = studentfeedback.feedback
+        console.log(feedback)
     }catch(error){
         next(error)
     }

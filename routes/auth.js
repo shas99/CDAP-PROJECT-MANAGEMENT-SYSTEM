@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const { register,viewfeedback, login,forgotpassword,resetpassword,groupregister,suggestsupervisor, viewfeedback } = require('../controllers/auth')
+const { register,viewfeedback, login,forgotpassword,resetpassword,groupregister,suggestsupervisor } = require('../controllers/auth')
 
 router.route("/register").post(register)
 
