@@ -201,8 +201,23 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
 exports.group = async (req, res, next) => {//suggest supervisor
     // const {member_1} = req.body
 
+    let token//to retreive username in backend
 
-    member_1="Gnanakka"//this line should be assigned back to current user's username
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    console.log(decoded+"fdofjd")
+    const user = await User.findById(decoded.id)
+    console.log(user.username+"jkl")
+
+
+    member_1=user.username//this line should be assigned back to current user's username
         
     const g_approval =true//check if group is approved by coordinator
 

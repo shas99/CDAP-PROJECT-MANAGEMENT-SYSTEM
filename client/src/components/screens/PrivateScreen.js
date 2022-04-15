@@ -28,15 +28,15 @@ const PrivateScreen = ({history}) => {
     };
 
     const fetchGroupData = async () => {
-      // const config = {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      //   },
-      // };
+      const groupconfig = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
 
       try {
-        const { data} = await axios.get("/api/auth/group");
+        const { data} = await axios.get("/api/auth/group",groupconfig);
         
         setGroupData(data.data);
       } catch (error) {
