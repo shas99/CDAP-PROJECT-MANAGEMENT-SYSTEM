@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const PrivateScreen = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
+  const [fetchGroupData, setGroupData] = useState("")
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -26,6 +27,24 @@ const PrivateScreen = ({history}) => {
       }
     };
 
+    const fetchGroupData = async () => {
+      // const config = {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      //   },
+      // };
+
+      try {
+        const { data} = await axios.get("/api/auth/group");
+        
+        setGroupData(data.data);
+      } catch (error) {
+
+        setError("Oops couldn't retreive group data");
+      }
+    };
+    fetchGroupData()
     fetchPrivateDate();
   }, [history]);
 
@@ -57,6 +76,12 @@ const PrivateScreen = ({history}) => {
         <button onClick="/viewmarks "><Link to="/viewmarks" id="Regs">View marks</Link></button>
 
       </div>
+      <p style={{color:"#FF0"}}>
+
+      <h1>Your group members are</h1>
+      {fetchGroupData}
+        
+      </p>
     
     </div>
     </>

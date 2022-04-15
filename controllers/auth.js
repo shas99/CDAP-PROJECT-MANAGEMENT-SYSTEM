@@ -3,7 +3,7 @@ const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
-
+const jwt = require("jsonwebtoken");
 
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
@@ -183,11 +183,37 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
     try{
 
         const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
-        console.log(group[0].suggestions)
+        console.log(group[0].suggestions)// 
 
         res.status(201).json({
             success: true,
             data: "retreived success"
+        })
+
+
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+};
+
+exports.group = async (req, res, next) => {//suggest supervisor
+    // const {member_1} = req.body
+
+
+    member_1="Gnanakka"//this line should be assigned back to current user's username
+        
+    const g_approval =true//check if group is approved by coordinator
+
+    try{
+
+        const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
+        console.log(group[0].suggestions)// 
+        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_4
+        res.status(201).json({
+            success: true,
+            data: setdata
         })
 
 
