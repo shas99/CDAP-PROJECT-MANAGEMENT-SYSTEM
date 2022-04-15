@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
+import { Link } from "react-router-dom";
 
 const PrivateScreen = ({history}) => {
   const [error, setError] = useState("");
@@ -44,12 +45,18 @@ const PrivateScreen = ({history}) => {
     <>
     <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
-    <p style={{color:"#FF0000",textAlign:"right"}}>
+    <p style={{color:"#FF0",textAlign:"right"}}>
     Hello, {privateData}  
     &nbsp;&nbsp;&nbsp;&nbsp;
   
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
+      <div className="button">
+        <button onClick="/viewfeedback "><Link to="/viewfeedback" id="Regs">View Feedback</Link></button>
+        <br/>
+        <button onClick="/viewmarks "><Link to="/viewmarks" id="Regs">View marks</Link></button>
+
+      </div>
     
     </div>
     </>

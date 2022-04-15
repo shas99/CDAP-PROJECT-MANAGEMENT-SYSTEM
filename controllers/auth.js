@@ -23,6 +23,39 @@ exports.register = async(req,res,next) => {
 };
 //first change
 
+//To view feedback
+exports.viewfeedback =async(req,res,next) => {
+    const{username}=req.body;
+
+    try{
+        const studentfeedback = await User.findOne({
+            username
+
+        })
+        const feedback = studentfeedback.feedback
+        console.log(feedback)
+    }catch(error){
+        next(error)
+    }
+};
+
+//To view marks 
+exports.viewmarks =async(req,res,next) => {
+    const{username}=req.body;
+
+    try{
+        const studentmarks = await User.findOne({
+            username
+
+        })
+        const marks = studentmarks.marks
+        console.log(marks)
+    }catch(error){
+        next(error)
+    }
+};
+
+
 exports.login = async (req, res, next) => {
     const {email,password} = req.body
 
@@ -164,6 +197,9 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
     }
 
 };
+
+//To view feedback
+
 
 
 
