@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./RegisterScreen.css";
+import PasswordChecklist from "react-password-checklist"
+
 
 
 const RegisterScreen = ({ history }) => {
@@ -31,22 +33,22 @@ const RegisterScreen = ({ history }) => {
       return setError("Passwords do not match");
     }
 
-    const pw = password;
-    var check = Object.assign([], pw);
-    var l = check.length;
-    var n = [];
+    // const pw = password;
+    // var check = Object.assign([], pw);
+    // var l = check.length;
+    // //var n = [];
     
-    for (var i = 0; i <= l; i++){
-      var k = check[i].charCodeAt(0);
-      n[i] = k;
+    // // for (var i = 0; i <= l; i++){
+    //   var k = check.charCodeAt();
+    //   //n[i] = k;
       
-    }
-    console.log(n);
+    // //}
+    // console.log(n);
 
-    //Password length check
-    if (check.length < 8){
-      return setError("Password is too short");
-    }
+    // //Password length check
+    // if (check.length < 8){
+    //   return setError("Password is too short");
+    // }
   
     
     
@@ -177,6 +179,22 @@ const RegisterScreen = ({ history }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
+        <PasswordChecklist
+        className ="message"
+				rules={["minLength","specialChar","number","capital","lowercase"]}
+				minLength={8}
+				value={password}
+				valueAgain={confirmpassword}
+        iconSize={10}
+				messages={{
+					minLength: "Password must include atleast 8 characters.",
+					specialChar: "Password must include atleast 1 special character.",
+					number: "Password must include atleast 1 number.",
+					capital: "Password must include atleast 1 capital letter.",
+          lowercase: "Password must include atleast 1 lowercase letter."
+				}}
+        />
+
         <button type="submit" className="btn btn-success" id="btn">
           Register
         </button>
