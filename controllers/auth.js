@@ -39,7 +39,7 @@ exports.viewfeedback =async(req,res,next) => {
     }
 };
 
-//To view marks
+//To view marks 
 exports.viewmarks =async(req,res,next) => {
     const{username}=req.body;
 

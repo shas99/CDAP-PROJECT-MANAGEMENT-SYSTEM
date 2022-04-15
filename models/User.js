@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema({
         required:false
     },
     marks:{
-        type:Number,
+        type:String,
         required:false
     },
     resetPasswordToken: String,
