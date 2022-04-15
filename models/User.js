@@ -2,6 +2,7 @@ const crypto = require('crypto')
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const { match } = require('assert')
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -20,8 +21,8 @@ const UserSchema = new mongoose.Schema({
     password:{
         type:String,
         required:[true, "Please add a password"],
-        minlength: 6,
-        select: false
+        minlength: 8,
+        select: false,
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date
