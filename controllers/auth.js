@@ -216,14 +216,18 @@ exports.group = async (req, res, next) => {//suggest supervisor
     const user = await User.findById(decoded.id)
     console.log(user.username+"jkl")
 
-
     member_1=user.username//this line should be assigned back to current user's username
-        
+    member_2=user.username
+    member_3=user.username
+    member_4=user.username
+    member_5=user.username
     const g_approval =true//check if group is approved by coordinator
-
+    
     try{
+        
+        const group = await Group.find({g_approval,$or:[{member_1},{member_2},{member_3},{member_4},{member_5}]})//group that is approved and have this perticular member
+        console.log(group[0].g_members+"fffggdf")
 
-        const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
         console.log(group[0].suggestions)// 
         const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_4
         res.status(201).json({
