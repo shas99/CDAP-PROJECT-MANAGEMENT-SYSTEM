@@ -3,7 +3,7 @@ const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
-
+const jwt = require("jsonwebtoken");
 
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
@@ -25,15 +25,33 @@ exports.register = async(req,res,next) => {
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
-    const{email}=req.body;
 
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    console.log(user.feedback+"fdofjdfdofjd")
+    // const{email}=req.body;
+    
     try{
-        const studentfeedback = await User.findOne({
-            email
 
+
+
+        
+
+        res.status(201).json({
+            success: true,
+            data: user.feedback
         })
-        const feedback = studentfeedback.feedback
-        console.log(feedback)
     }catch(error){
         next(error)
     }
@@ -50,6 +68,7 @@ exports.viewmarks =async(req,res,next) => {
         })
         const marks = studentmarks.marks
         console.log(marks)
+        
     }catch(error){
         next(error)
     }
@@ -113,7 +132,7 @@ exports.forgotpassword = async(req, res, next) => {
             text: message
         })
 
-        res.status(200).json({success:true,data:"Email Send"})
+        res.status(200).json({success:true,data:"Passowrd reset link sent"})
     }catch(error){
         user.getResetPasswordToken = undefined
         user.resetPasswordExpire = undefined

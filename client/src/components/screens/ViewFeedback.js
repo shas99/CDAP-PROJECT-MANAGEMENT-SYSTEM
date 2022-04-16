@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -11,11 +11,13 @@ const ViewFeedback = ({history}) => {
     const fetchFeedbackData = async () => {
       const feedbackconfig = {
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
       };
 
       try {
+          
         const {data} = await axios.get("/api/auth/viewfeedback",feedbackconfig);
        
         setFeedbackData(data.data);
