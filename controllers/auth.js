@@ -57,47 +57,80 @@ exports.viewfeedback =async(req,res,next) => {
     }
 };
 
+
 // old view marks method
-/*
+
 exports.viewmarks =async(req,res,next) => {
-    const{email}=req.body;
+    //const{email}=req.body;
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+   
 
     try{
-        const studentmarks = await User.findOne({
+     /*   const studentmarks = await User.findOne({
             email
 
+        })*/
+        // const marks = studentmarks.marks
+        // console.log(marks)
+        res.status(201).json({
+            success: true,
+            data: user.marks
         })
-        const marks = studentmarks.marks
-        console.log(marks)
         
     }catch(error){
         next(error)
     }
-};*/
+};
 
-//modified view marks method
-exports.viewmarks = async(req,res,next) => {
 
-    let token//To retrieve username in backend
+
+
+
+
+//modified view marks
+
+/*exports.viewmarks =async(req,res,next) => {
+    let token  //To retrieve username in backend
 
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
         token = req.headers.authorization.split(" ")[1]
     }
 
     const decoded = jwt.verify(token,process.nextTick.JWT_SECRET)
-    const user = await User.findById(decoded.id)
-    console.log(user.marks+"dfgdfgd")
-    //const{email} = req.body;
-
+    const studentmarks = await User.findOne(decoded.email)
+    const marks = studentmarks.marks
+    console.log(marks)
     try{
         res.status(201).json({
-            success:true,
-            data:user.marks
+            success: true,
+            data: studentmarks.marks
         })
+
+        
     }catch(error){
         next(error)
     }
-}
+    }
+
+    
+//modified view marks method
+/*
+
+}*/
+
+
 
 
 exports.login = async (req, res, next) => {
