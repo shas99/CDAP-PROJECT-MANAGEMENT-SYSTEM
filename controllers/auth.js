@@ -57,13 +57,48 @@ exports.viewfeedback =async(req,res,next) => {
     }
 };
 
+
 // old view marks method
 
 exports.viewmarks =async(req,res,next) => {
     const{email}=req.body;
-    const studentmarks = await User.findOne({
-        email
-    })
+
+
+ 
+
+    try{
+        const studentmarks = await User.findOne({
+            email
+
+        })
+        const marks = studentmarks.marks
+        console.log(marks)
+        res.status(201).json({
+            success: true,
+            data: studentmarks.marks
+        })
+        
+    }catch(error){
+        next(error)
+    }
+};
+
+
+
+
+
+
+//modified view marks
+
+/*exports.viewmarks =async(req,res,next) => {
+    let token  //To retrieve username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const decoded = jwt.verify(token,process.nextTick.JWT_SECRET)
+    const studentmarks = await User.findOne(decoded.email)
     const marks = studentmarks.marks
     console.log(marks)
     try{
@@ -81,30 +116,7 @@ exports.viewmarks =async(req,res,next) => {
     
 //modified view marks method
 /*
-exports.viewmarks = async(req,res,next) => {
 
-    let token  //To retrieve username in backend
-
-    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
-        token = req.headers.authorization.split(" ")[1]
-    }
-
-    const decoded = jwt.verify(token,process.nextTick.JWT_SECRET)
-    const studentmarks = await User.findOne({
-        email
-    })
-    const marks = studentmarks.marks
-        console.log(marks)
-
-        try{
-
-            res.status(201).json({
-                success: true,
-                data: studentmarks.marks
-            })
-        }catch(error){
-            next(error)
-        }
 }*/
 
 
