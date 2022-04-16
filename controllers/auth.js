@@ -57,7 +57,8 @@ exports.viewfeedback =async(req,res,next) => {
     }
 };
 
-//To view marks 
+// old view marks method
+/*
 exports.viewmarks =async(req,res,next) => {
     const{email}=req.body;
 
@@ -72,7 +73,31 @@ exports.viewmarks =async(req,res,next) => {
     }catch(error){
         next(error)
     }
-};
+};*/
+
+//modified view marks method
+exports.viewmarks = async(req,res,next) => {
+
+    let token//To retrieve username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const decoded = jwt.verify(token,process.nextTick.JWT_SECRET)
+    const user = await User.findById(decoded.id)
+    console.log(user.marks+"dfgdfgd")
+    //const{email} = req.body;
+
+    try{
+        res.status(201).json({
+            success:true,
+            data:user.marks
+        })
+    }catch(error){
+        next(error)
+    }
+}
 
 
 exports.login = async (req, res, next) => {
