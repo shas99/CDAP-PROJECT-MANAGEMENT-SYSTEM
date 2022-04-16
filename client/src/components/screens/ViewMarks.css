@@ -1,0 +1,25 @@
+.styled-table {
+    /* border-collapse: collapse; */
+    margin: 22px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 100px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+    /* width: 100%; */
+    text-align: center;
+    background-color: #0666a3
+    
+}
+
+#outer-div {
+    width: 100%;
+    text-align: center;
+    background-color: #0666a3
+  }
+  
+  #inner-div {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 3px;
+    background-color: #8ebf42
+  }

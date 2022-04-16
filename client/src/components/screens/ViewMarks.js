@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css"
+import "./ViewMarks.css"
 
 const ViewMarks = ({history}) =>{
   const [fetchMarksData, setMarksData] = useState("")
@@ -25,12 +26,26 @@ const ViewMarks = ({history}) =>{
     fetchMarksData()
   }, [history])
 
-  return(
+   return(
     <>
-    <div id="back">
+    <div id="back" class="inner-div">
       <div style={{background:"green",color:"white"}}>{}</div>
-      <p class="column2" style={{color:"#FF0",textAlign:"center"}}>
-        Hello, Your marks are {fetchMarksData}
+      <p  class="column2" style={{color:"#FF0",textAlign:"center"}}>
+       
+        <table className="styled-table"  >
+                <thead>
+                <tr>
+                <th scope='col'>Project milestone</th>
+              <th scope='col'> marks</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                  <td>1</td>
+                  <td>{fetchMarksData}</td>
+
+                </tbody>
+                </table>
        
       </p>
     </div>
