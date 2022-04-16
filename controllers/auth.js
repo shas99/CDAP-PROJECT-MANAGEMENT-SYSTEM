@@ -98,9 +98,13 @@ exports.forgotpassword = async(req, res, next) => {
 
     const resetUrl = `https://cdap-app.herokuapp.com/passwordreset/${resetToken}`
   
-    const message = `<h1>You have requested a password reset</h1>
+    const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
+    <h3>Hello ${email} ,</h3>
     <p>Please go to this link to reset your password</p>
-    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>`
+    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+    <p>Thank you,<br/> Best Regards <br/> Developer Team
+    </p>
+    `
 
     try{
         await sendEmail({
