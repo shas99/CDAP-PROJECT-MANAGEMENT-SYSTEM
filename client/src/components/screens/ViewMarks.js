@@ -29,13 +29,9 @@ const ViewMarks = ({history}) =>{
     <>
     <div id="back">
       <div style={{background:"green",color:"white"}}>{}</div>
-      <p style={{color:"#FF0",textAlign:"right"}}>
-        Hello, {}
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <h1>Your marks are</h1>
-          {fetchMarksData}<br/><br/><br/><br/>
-        </div>
+      <p class="column2" style={{color:"#FF0",textAlign:"center"}}>
+        Hello, Your marks are {fetchMarksData}
+       
       </p>
     </div>
     
