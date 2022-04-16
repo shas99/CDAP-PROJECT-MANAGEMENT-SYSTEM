@@ -24,8 +24,11 @@ const GroupSchema = new mongoose.Schema({//Group model
     suggestions:
     {
         type:String
+    },
+    g_members:
+    {
+        type:Array
     }
-
   
 
 
