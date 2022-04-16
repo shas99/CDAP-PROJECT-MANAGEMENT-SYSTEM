@@ -61,18 +61,32 @@ exports.viewfeedback =async(req,res,next) => {
 // old view marks method
 
 exports.viewmarks =async(req,res,next) => {
-    const{email}=req.body;
+    //const{email}=req.body;
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+   
 
     try{
-        const studentmarks = await User.findOne({
+     /*   const studentmarks = await User.findOne({
             email
 
-        })
-        const marks = studentmarks.marks
-        console.log(marks)
+        })*/
+        // const marks = studentmarks.marks
+        // console.log(marks)
         res.status(201).json({
             success: true,
-            data: studentmarks.marks
+            data: user.marks
         })
         
     }catch(error){
