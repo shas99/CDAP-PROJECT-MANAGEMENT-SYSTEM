@@ -35,7 +35,7 @@ const ViewMarks = ({history}) => {
         Hello,{}
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div>
-          <h1>Your feedbacks are</h1>
+          <h1>Your marks are</h1>
           {fetchMarksData}<br/><br/><nr/><br/>
         </div>
       </p>
