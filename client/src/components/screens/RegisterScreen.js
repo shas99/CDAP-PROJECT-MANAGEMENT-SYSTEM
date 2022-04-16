@@ -104,6 +104,8 @@ const RegisterScreen = ({ history }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
+                
+        {/* Pasindu Vinod added password validation for reset password component on 17/04/2022 */}
         <PasswordChecklist
         className ="message"
 				rules={["minLength","specialChar","number","capital","lowercase"]}
