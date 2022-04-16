@@ -25,35 +25,112 @@ exports.register = async(req,res,next) => {
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
-    const{username}=req.body;
 
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    console.log(user.feedback)
+    // const{email}=req.body;
+    
     try{
-        const studentfeedback = await User.findOne({
-            username
 
+
+
+        
+
+        res.status(201).json({
+            success: true,
+            data: user.feedback
         })
-        const feedback = studentfeedback.feedback
-        console.log(feedback)
     }catch(error){
         next(error)
     }
 };
 
-//To view marks 
+
+// old view marks method
+
 exports.viewmarks =async(req,res,next) => {
-    const{username}=req.body;
+    //const{email}=req.body;
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+   
 
     try{
-        const studentmarks = await User.findOne({
-            username
+     /*   const studentmarks = await User.findOne({
+            email
 
+        })*/
+        // const marks = studentmarks.marks
+        // console.log(marks)
+        res.status(201).json({
+            success: true,
+            data: user.marks
         })
-        const marks = studentmarks.marks
-        console.log(marks)
+        
     }catch(error){
         next(error)
     }
 };
+
+
+
+
+
+
+//modified view marks
+
+/*exports.viewmarks =async(req,res,next) => {
+    let token  //To retrieve username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const decoded = jwt.verify(token,process.nextTick.JWT_SECRET)
+    const studentmarks = await User.findOne(decoded.email)
+    const marks = studentmarks.marks
+    console.log(marks)
+    try{
+        res.status(201).json({
+            success: true,
+            data: studentmarks.marks
+        })
+
+        
+    }catch(error){
+        next(error)
+    }
+    }
+
+    
+//modified view marks method
+/*
+
+}*/
+
+
 
 
 exports.login = async (req, res, next) => {
@@ -98,9 +175,13 @@ exports.forgotpassword = async(req, res, next) => {
 
     const resetUrl = `https://cdap-app.herokuapp.com/passwordreset/${resetToken}`
   
-    const message = `<h1>You have requested a password reset</h1>
+    const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
+    <h3>Hello ${email} ,</h3>
     <p>Please go to this link to reset your password</p>
-    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>`
+    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+    <p>Thank you,<br/> Best Regards <br/> Developer Team
+    </p>
+    `
 
     try{
         await sendEmail({
@@ -109,7 +190,7 @@ exports.forgotpassword = async(req, res, next) => {
             text: message
         })
 
-        res.status(200).json({success:true,data:"Email Send"})
+        res.status(200).json({success:true,data:"Passowrd reset link sent"})
     }catch(error){
         user.getResetPasswordToken = undefined
         user.resetPasswordExpire = undefined
