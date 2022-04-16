@@ -63,9 +63,6 @@ exports.viewfeedback =async(req,res,next) => {
 exports.viewmarks =async(req,res,next) => {
     const{email}=req.body;
 
-
- 
-
     try{
         const studentmarks = await User.findOne({
             email
