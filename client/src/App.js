@@ -17,6 +17,7 @@ import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen";
 import ResetPasswordScreen from "./components/screens/ResetPasswordScreen";
 import ViewFeedback from "./components/screens/ViewFeedback";
 import ViewMarks from "./components/screens/ViewFeedback";
+import MatchedSupervisors from "./components/screens/MatchedSupervisors";
 const App = () => {
   return (
     <Router>
@@ -38,6 +39,7 @@ const App = () => {
           />
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
+         <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
         </Switch>
       </div>
       <Footer />
