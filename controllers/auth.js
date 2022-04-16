@@ -25,15 +25,33 @@ exports.register = async(req,res,next) => {
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
-    const{username}=req.body;
 
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    console.log(user.feedback+"fdofjdfdofjd")
+    // const{email}=req.body;
+    
     try{
-        const studentfeedback = await User.findOne({
-            username
 
+
+
+        
+
+        res.status(201).json({
+            success: true,
+            data: user.feedback
         })
-        const feedback = studentfeedback.feedback
-        console.log(feedback)
     }catch(error){
         next(error)
     }
@@ -41,15 +59,16 @@ exports.viewfeedback =async(req,res,next) => {
 
 //To view marks 
 exports.viewmarks =async(req,res,next) => {
-    const{username}=req.body;
+    const{email}=req.body;
 
     try{
         const studentmarks = await User.findOne({
-            username
+            email
 
         })
         const marks = studentmarks.marks
         console.log(marks)
+        
     }catch(error){
         next(error)
     }
@@ -98,9 +117,13 @@ exports.forgotpassword = async(req, res, next) => {
 
     const resetUrl = `https://cdap-app.herokuapp.com/passwordreset/${resetToken}`
   
-    const message = `<h1>You have requested a password reset</h1>
+    const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
+    <h3>Hello ${email} ,</h3>
     <p>Please go to this link to reset your password</p>
-    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>`
+    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+    <p>Thank you,<br/> Best Regards <br/> Developer Team
+    </p>
+    `
 
     try{
         await sendEmail({
@@ -109,7 +132,7 @@ exports.forgotpassword = async(req, res, next) => {
             text: message
         })
 
-        res.status(200).json({success:true,data:"Email Send"})
+        res.status(200).json({success:true,data:"Passowrd reset link sent"})
     }catch(error){
         user.getResetPasswordToken = undefined
         user.resetPasswordExpire = undefined
