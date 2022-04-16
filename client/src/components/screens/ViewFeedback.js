@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./PrivateScreen.css";
-import { Link } from "react-router-dom";
+import "./ViewFeedback.css";
+// import { Link } from "react-router-dom";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -36,21 +36,21 @@ const ViewFeedback = ({history}) => {
   
   return   ( 
   
-    <>
-    <div id="back">
-    <div style={{background:"green",color:"white"}}>{}</div>
-    <p style={{color:"#FF0",textAlign:"right"}}>
-    Hello, {}  
-    &nbsp;&nbsp;&nbsp;&nbsp;
    
-   <div>
-      <h1>Your Feedbacks are</h1>
+<div className="view-feedback">
+  <center>
+      <h1>My Feedbacks</h1>
+      <div class="card">
+  <div class="container">
+    <h4><b>John Doe</b></h4> 
+    <p>Architect & Engineer</p> 
+  </div>
+</div>
+      
       {fetchFeedbackData}<br/><br/><br/><br/>
-    </div> 
-      </p>
+  </center>
+</div> 
     
-    </div>
-    </>
   )  
 };
 
