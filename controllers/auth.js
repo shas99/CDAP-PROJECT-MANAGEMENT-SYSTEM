@@ -25,11 +25,11 @@ exports.register = async(req,res,next) => {
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
-    const{username}=req.body;
+    const{email}=req.body;
 
     try{
         const studentfeedback = await User.findOne({
-            username
+            email
 
         })
         const feedback = studentfeedback.feedback
@@ -41,11 +41,11 @@ exports.viewfeedback =async(req,res,next) => {
 
 //To view marks 
 exports.viewmarks =async(req,res,next) => {
-    const{username}=req.body;
+    const{email}=req.body;
 
     try{
         const studentmarks = await User.findOne({
-            username
+            email
 
         })
         const marks = studentmarks.marks
