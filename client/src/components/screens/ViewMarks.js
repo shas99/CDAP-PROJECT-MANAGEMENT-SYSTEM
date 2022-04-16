@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-import "./PrivateScreen.css";
-
-=======
 import "./PrivateScreen.css"
->>>>>>> 3cf73e3c511169efb9861304ad4c8b67af0b45fe
 
 const ViewMarks = ({history}) =>{
   const [fetchMarksData, setMarksData] = useState("")
