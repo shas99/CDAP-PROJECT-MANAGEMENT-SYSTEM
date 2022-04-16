@@ -3,6 +3,9 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+const { match } = require('assert')
+const { inflateSync } = require('zlib')
+
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -20,8 +23,16 @@ const UserSchema = new mongoose.Schema({
     password:{
         type:String,
         required:[true, "Please add a password"],
-        minlength: 6,
-        select: false
+        minlength: 8,
+        select: false,
+    },
+    feedback:{
+        type:String,
+        required:false
+    },
+    marks:{
+        type:String,
+        required:false
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date

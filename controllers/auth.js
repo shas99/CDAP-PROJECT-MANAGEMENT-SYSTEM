@@ -2,15 +2,19 @@ const crypto = require('crypto')
 const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
-
+const Group = require('../models/Group')
+const jwt = require("jsonwebtoken");
 
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
 
+    
     try{
+
         const user = await User.create({
             username,email,password
         })
+
 
         sendToken(user, 201, res)
     }catch(error){
@@ -18,6 +22,39 @@ exports.register = async(req,res,next) => {
     }
 };
 //first change
+
+//To view feedback
+exports.viewfeedback =async(req,res,next) => {
+    const{username}=req.body;
+
+    try{
+        const studentfeedback = await User.findOne({
+            username
+
+        })
+        const feedback = studentfeedback.feedback
+        console.log(feedback)
+    }catch(error){
+        next(error)
+    }
+};
+
+//To view marks 
+exports.viewmarks =async(req,res,next) => {
+    const{username}=req.body;
+
+    try{
+        const studentmarks = await User.findOne({
+            username
+
+        })
+        const marks = studentmarks.marks
+        console.log(marks)
+    }catch(error){
+        next(error)
+    }
+};
+
 
 exports.login = async (req, res, next) => {
     const {email,password} = req.body
@@ -28,7 +65,7 @@ exports.login = async (req, res, next) => {
 
     try{
         const user = await User.findOne({email}).select("+password")
-        
+
         if(!user){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
@@ -38,7 +75,7 @@ exports.login = async (req, res, next) => {
         if(!isMatch){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
-
+        
         sendToken(user, 200, res)
     }catch(error){
         res.status(500).json({success:false, error:error.message})
@@ -119,7 +156,102 @@ exports.resetpassword = async(req, res, next) => {
     }
 }
 
+exports.groupregister = async(req,res,next) => {//group registration
+    const {member_1, member_2,member_3,member_4,member_5} = req.body
+    const testing ="hooray"
+    
+    try{
+        const group = await Group.create({
+            member_1, member_2,member_3,member_4,member_5//new
+        })
+        res.status(201).json({
+            success: true,
+            data: "Submission Success"
+        })
+
+    }catch(error){
+        next(error)
+    }
+};
+
+exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
+    const {member_1} = req.body
+
+
+    const g_approval =true//check if group is approved by coordinator
+
+    try{
+
+        const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
+        console.log(group[0].suggestions)// 
+
+        res.status(201).json({
+            success: true,
+            data: "retreived success"
+        })
+
+
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+};
+
+exports.group = async (req, res, next) => {//suggest supervisor
+    // const {member_1} = req.body
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    console.log(decoded+"fdofjd")
+    const user = await User.findById(decoded.id)
+    console.log(user.username+"jkl")
+
+    member_1=user.username//this line should be assigned back to current user's username
+    member_2=user.username
+    member_3=user.username
+    member_4=user.username
+    member_5=user.username
+    const g_approval =true//check if group is approved by coordinator
+    
+    try{
+        
+        const group = await Group.find({g_approval,$or:[{member_1},{member_2},{member_3},{member_4},{member_5}]})//group that is approved and have this perticular member
+        console.log(group[0].g_members+"fffggdf")
+
+        console.log(group[0].suggestions)// 
+
+
+        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_4+"/"+group[0].suggestions
+        res.status(201).json({
+            success: true,
+            data: setdata
+        })
+
+
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+};
+
+//To view feedback
+
+
+
+
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
     res.status(statusCode).json({success: true,token})
+   
 }

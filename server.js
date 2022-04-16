@@ -15,11 +15,7 @@ app.use(express.json())
 // // ... other app.use middleware 
 // app.use(express.static(path.join(__dirname, "client", "build")))
 
-// // ...
-// // Right before your app.listen(), add this:
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+
 
 
 
@@ -34,6 +30,11 @@ app.use(errorHandler)
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
+// Right before your app.listen(), add this:
+/*app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});*/
 
 process.on("unhandledRejection", (err,promise)=>{
     console.log(`Logged Error: ${err}`)
