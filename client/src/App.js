@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Routing
 import PrivateRoute from "./components/routing/PrivateRoute";
 
+//Footer
+import Footer from "./components/Footer/Footer";
+
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
@@ -33,6 +36,7 @@ const App = () => {
          <Route exact path="/viewmarks" component={ViewMarks}/>
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 };
