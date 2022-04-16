@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
-import { Link } from "react-router-dom";
-
-
+// import { Link } from "react-router-dom";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -13,15 +11,15 @@ const ViewFeedback = ({history}) => {
     const fetchFeedbackData = async () => {
       const feedbackconfig = {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          "Content-Type": "application/json"
         },
       };
 
       try {
-        const { data} = await axios.get("/api/auth/viewfeedback",feedbackconfig);
-        const groupArray = data.data.split("/")
-        setFeedbackData(groupArray[0]);
+        const {data} = await axios.get("/api/auth/viewfeedback",feedbackconfig);
+       
+        setFeedbackData(data.data);
+        
       } catch (error) {
 
         // setError("Oops couldn't retreive group data");//fix this
@@ -31,8 +29,8 @@ const ViewFeedback = ({history}) => {
     fetchFeedbackData()
 
   }, [history]);
-
   
+
   
   return   ( 
   
@@ -43,10 +41,10 @@ const ViewFeedback = ({history}) => {
     Hello, {}  
     &nbsp;&nbsp;&nbsp;&nbsp;
    
-   
+   <div>
       <h1>Your Feedbacks are</h1>
       {fetchFeedbackData}<br/><br/><br/><br/>
-     
+    </div> 
       </p>
     
     </div>
