@@ -39,7 +39,7 @@ exports.viewfeedback =async(req,res,next) => {
 
 
     const user = await User.findById(decoded.id)
-    console.log(user.feedback+"fdofjdfdofjd")
+    console.log(user.feedback)
     // const{email}=req.body;
     
     try{

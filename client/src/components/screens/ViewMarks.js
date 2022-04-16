@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
-import { Link } from "react-router-dom";
+
 
 const ViewMarks = ({history}) => {
   const [fetchMarksData, setMarksData] = useState("")
@@ -31,7 +31,7 @@ const ViewMarks = ({history}) => {
     <>
     <div id="back">
       <div style={{background:"green", color:"white"}}>{}</div>
-      <p style={{color:"#FFO", textAlign:"right"}}>
+      <p style={{color:"#FF0", textAlign:"right"}}>
         Hello,{}
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div>
@@ -41,7 +41,7 @@ const ViewMarks = ({history}) => {
       </p>
     </div>
     
-    
+  
     </>
   )
 
