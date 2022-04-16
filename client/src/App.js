@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Routing
 import PrivateRoute from "./components/routing/PrivateRoute";
 
+//Header
+import Header from "./components/Header/Header";
+
 //Footer
 import Footer from "./components/Footer/Footer";
 
@@ -17,6 +20,7 @@ import ViewMarks from "./components/screens/ViewFeedback";
 const App = () => {
   return (
     <Router>
+      <Header />
       <div className="app">
         <Switch>
           <PrivateRoute exact path="/" component={PrivateScreen} />
