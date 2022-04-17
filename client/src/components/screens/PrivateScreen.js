@@ -117,7 +117,7 @@ const PrivateScreen = ({history}) => {
 
   
     <Footer/>
-
+  </p>
     </div>
     </>
   );
