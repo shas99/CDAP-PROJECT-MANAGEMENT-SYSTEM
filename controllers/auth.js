@@ -241,9 +241,16 @@ exports.groupregister = async(req,res,next) => {//group registration
     const {member_1, member_2,member_3,member_4,member_5} = req.body
     const testing ="hooray"
     
+    // const member_1 = "sgsjgjf"
+    // const member_2 = "hsdfgwshehgsjgjf"
+    // const member_3 = "regedsgsjgjf"
+    // const member_4 = "dgfdgersgssfsdfsdjgjf"
+    // const member_5 = "sgsjgsfdsjf"
+
+    
     try{
         const group = await Group.create({
-            member_1, member_2,member_3,member_4,member_5//new
+            member_1,member_2,member_3,member_4,member_5//new
         })
         res.status(201).json({
             success: true,
@@ -328,6 +335,29 @@ exports.group = async (req, res, next) => {//suggest supervisor
 
 //To view feedback
 
+
+// exports.groupregister = async(req,res,next) => {
+//     const member_1 = "ok1"
+//     const member_2 = "ok2"
+//     const member_3 = "ok3"
+//     const member_4 = "ok4"
+//     const member_5 = "ok5"
+//     const g_approval = true
+//     const suggestions = "hsdlfjjsl"
+//     const g_members = [1,2,5,5]
+    
+//     try{
+
+//         const user = await Group.create({
+//             member_1,member_2,member_3,member_4,member_5,g_approval,suggestions,g_members
+//         })
+
+
+       
+//     }catch(error){
+//         next(error)
+//     }
+// };//Group creation
 
 
 
