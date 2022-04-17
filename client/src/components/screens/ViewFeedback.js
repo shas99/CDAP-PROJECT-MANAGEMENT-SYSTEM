@@ -36,22 +36,51 @@ const ViewFeedback = ({history}) => {
   
   return   ( 
   
-   
+
 <div className="view-feedback">
-  <center>
-      <h1>My Feedbacks</h1>
-      <div class="card">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
-</div>
+  <br/>
+      <h1 id="caption">My Feedbacks</h1>
+      <br/><br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 1 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> {fetchFeedbackData}</p> 
+      </div>
+      </div>
+      <br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 2 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+      </div>
+      <br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 3 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+      </div>
+      <br/><br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 4 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+     
+      </div>
+
+
+      <br/>
       
-      {fetchFeedbackData}<br/><br/><br/><br/>
-  </center>
-</div> 
+</div>
+ 
     
-  )  
+)  
 };
 
 export default ViewFeedback;
