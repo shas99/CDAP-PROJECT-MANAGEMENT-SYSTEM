@@ -38,7 +38,9 @@ const ViewFeedback = ({history}) => {
   
 
 <div className="view-feedback">
+  <br/>
       <h1 id="caption">My Feedbacks</h1>
+      <br/><br/>
       <div className="card">
       <div className="container">
         <h4 id="feedback-topic"><b>Milestone 1 </b></h4> 
@@ -47,8 +49,36 @@ const ViewFeedback = ({history}) => {
       </div>
       </div>
       <br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 2 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+      </div>
+      <br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 3 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+      </div>
+      <br/><br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 4 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+     
+      </div>
+
+
+      <br/>
       
-</div> 
+</div>
+ 
     
 )  
 };
