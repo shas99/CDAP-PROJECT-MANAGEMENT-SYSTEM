@@ -1,11 +1,16 @@
 .view-feedback{
-height: 1000;
+height: 1000px;
+background-color: #22272E;
 }
 
 #caption{
-  margin-top: 40px;
+  
   text-align: center;
+  color: white;
+  font-size: xx-large;
 }
+
+
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -14,12 +19,15 @@ height: 1000;
     transition: 0.3s;
     width: 60%;
     height: 200px;
+    background-color: white;
+    border-radius: 20px;
     
     
   }
 
+  
   .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 20px 126px 0 rgba(246, 244, 244, 0.82);
   }
   
   .container {
@@ -27,7 +35,7 @@ height: 1000;
   }
 
   #feedback-topic{
-      font-size: x-large;
+      font-size: larger;
   }
   #feedbackcontent{
       margin-top: 10px;
