@@ -11,6 +11,7 @@ const MatchedSupervisors = ({history}) => {
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
     const [suggestions,setsuggestions] = useState("")
+    
     useEffect(() => {
       const fetchPrivateDate = async () => {
         const config = {
@@ -30,23 +31,7 @@ const MatchedSupervisors = ({history}) => {
         }
       };
   
-    //   const fetchGroupData = async () => {
-    //     const groupconfig = {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //       },
-    //     };
-  
-    //     try {
-    //       const { data} = await axios.get("/api/auth/group",groupconfig);
-    //       const groupArray = data.data.split("/")
-    //       setGroupData(groupArray[0]);
-    //     } catch (error) {
-  
-    //       // setError("Oops couldn't retreive group data");//fix this
-    //     }
-    //   };
+
       const fetchsuggestions = async () => {
         const suggestconfig = {
           headers: {
@@ -58,7 +43,10 @@ const MatchedSupervisors = ({history}) => {
         try {
           const { data} = await axios.get("/api/auth/group",suggestconfig);
           const sugArray = data.data.split("/")
-          setsuggestions(sugArray[1]);
+          const suggArray = sugArray[1].split(",")
+          // console.log(suggArray)
+          suggArray.map((a) => console.log(a))
+          setsuggestions(suggArray);
         } catch (error) {
           console.log(error)
           // setError("Oops couldn't retreive suggestions");//fix this
@@ -75,6 +63,25 @@ const MatchedSupervisors = ({history}) => {
       history.push("/login");
   
     };
+
+    const listHandler=()=>{
+      try{
+
+        const lists = suggestions.map((n)=>
+        <li>{n}</li>)
+        return(
+          <ul>{lists}</ul>
+        )
+      }catch(e){
+        console.error(e)
+      }
+      // <ul>
+      // {suggestions.map((m) => <li>{m}</li>)}
+      // </ul>
+  
+    };
+
+
   
     return  error ? ( 
   
@@ -96,7 +103,11 @@ const MatchedSupervisors = ({history}) => {
           <br/><br/><br/><br/>
           
           <h1 id="caption">Your Supervisor suggestions are</h1>
-          <p id="data">{suggestions}</p>
+          <div className="MatchedSupervisorsDiv">
+          
+          {listHandler()}
+          
+          </div>
           </p>
         <Footer/>
         </div>

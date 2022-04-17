@@ -20,6 +20,7 @@ import GroupConfiguration from "./components/screens/GroupConfiguration";
 
 import ViewMarks from "./components/screens/ViewMarks";
 import MatchedSupervisors from "./components/screens/MatchedSupervisors";
+import GroupScreen from "./components/screens/GroupScreen"
 
 const App = () => {
   return (
@@ -43,9 +44,15 @@ const App = () => {
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
+
+         <Route exact path="/GroupScreen" component={GroupScreen}/>
+
          <Route exact path="/groupconfiguration" component={GroupConfiguration}/>
+
         </Switch>
+
       </div>
+
       {/* <Footer /> */}
     </Router>
   );
