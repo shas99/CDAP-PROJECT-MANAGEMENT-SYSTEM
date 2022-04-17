@@ -100,8 +100,11 @@ const MatchedSupervisors = ({history}) => {
           <br/><br/><br/><br/>
           
           <h1 id="caption">Your Supervisor suggestions are</h1>
-    
+          <div className="MatchedSupervisorsDiv">
+          
           {listHandler()}
+          
+          </div>
           </p>
         
         </div>

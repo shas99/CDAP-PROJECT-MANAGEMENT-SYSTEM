@@ -132,19 +132,20 @@ const PrivateScreen = ({history}) => {
    
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
-      <div className="button">
-        <button onClick="/viewfeedback "><Link to="/viewfeedback" id="Regs">View Feedback</Link></button>
+      
+      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
         <br/>
-        <button onClick="/viewmarks "><Link to="/viewmarks" id="Regs">View marks</Link></button>
+        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View marks</button></Link>
 
-      </div>
+      
       <p style={{color:"#FF0"}}>
 
 
-
+      <Link to="groupconfiguration" id="GroupConfig"><button className="buttons" onClick="groupconfiguration">Group Configuration</button></Link>
+        <br></br><Link to="matchedsupervisors" id="MatchedS"><button className="buttons" onClick="matchedsupervisors">Matched supervisors</button></Link><br></br>
       
-        <br></br><Link to="matchedsupervisors" id="MatchedS"><button onClick="matchedsupervisors">Matched supervisors</button></Link><br></br>
-        <br></br><Link to="GroupScreen" id="MatchedS"><button onClick="GroupScreen">Group</button></Link><br></br>
+        
+        <Link to="GroupScreen" id="MatchedS"><button className="buttons" onClick="GroupScreen">Group</button></Link><br></br>
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
       
       </p>

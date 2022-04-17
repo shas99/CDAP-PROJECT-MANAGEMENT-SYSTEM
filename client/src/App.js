@@ -24,7 +24,7 @@ import GroupScreen from "./components/screens/GroupScreen"
 const App = () => {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <div className="app">
         <Switch>
           <PrivateRoute exact path="/" component={PrivateScreen} />
@@ -46,7 +46,7 @@ const App = () => {
          <Route exact path="/GroupScreen" component={GroupScreen}/>
         </Switch>
       </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 };

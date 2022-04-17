@@ -3,6 +3,11 @@ import axios from "axios";
 import "./MatchedSupervisors.css";
 import { Link } from "react-router-dom";
 import "./LoginScreen.css";
+//Header
+import Header from "../Header/Header";
+
+//Footer
+import Footer from "../Footer/Footer";
 
 const GroupScreen = ({history}) => {
     const [error, setError] = useState("");
@@ -119,6 +124,7 @@ const GroupScreen = ({history}) => {
       ) : ( 
     
         <>
+        <Header />
         <div id="back">
         
         <p style={{color:"#FF0",textAlign:"right"}}>
@@ -197,6 +203,7 @@ const GroupScreen = ({history}) => {
           </div>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
+        <Footer />
         </>
       );
     };
