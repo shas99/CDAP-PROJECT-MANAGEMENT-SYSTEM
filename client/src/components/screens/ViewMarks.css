@@ -44,6 +44,7 @@
         height: 200px;
         
         
+        
       }
     
       .card:hover {
@@ -52,6 +53,7 @@
       
       .container {
         padding: 2px 16px;
+       
       }
     
       #marks-topic{
@@ -60,7 +62,9 @@
       #markscontent{
           margin-top: 10px;
       }
-    
+    .back{
+      background-color: black;
+    }
 
   
     
