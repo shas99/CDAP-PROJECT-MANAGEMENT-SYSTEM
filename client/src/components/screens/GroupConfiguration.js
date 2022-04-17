@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./GroupConfiguration.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 
 
@@ -9,7 +11,7 @@ const GroupConfiguration = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [fetchGroupData, setGroupData] = useState("")
-  //const [suggestions,setsuggestions] = useState("")
+  
   useEffect(() => {
     const fetchPrivateDate = async () => {
       const config = {
@@ -46,25 +48,9 @@ const GroupConfiguration = ({history}) => {
         // setError("Oops couldn't retreive group data");//fix this
       }
     };
-    // const fetchsuggestions = async () => {
-    //   const suggestconfig = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //     },
-    //   };
-
-    //   try {
-    //     const { data} = await axios.get("/api/auth/group",suggestconfig);
-    //     const sugArray = data.data.split("/")
-    //     setsuggestions(sugArray[1]);
-    //   } catch (error) {
-    //     console.log(error)
-    //     // setError("Oops couldn't retreive suggestions");//fix this
-    //   }
-    // };
+  
     fetchGroupData()
-    // fetchsuggestions()
+    
     fetchPrivateDate();
   }, [history]);
 
@@ -83,8 +69,8 @@ const GroupConfiguration = ({history}) => {
 
     <>
     <div id="back">
-    <div style={{background:"green",color:"white"}}>{privateData}</div>
-    <p style={{color:"#FF0",textAlign:"right"}}>
+   <Header/>
+    <p style={{color:"#FFF",textAlign:"right"}}>
     Hello, {privateData}  
     &nbsp;&nbsp;&nbsp;&nbsp;
    
@@ -95,10 +81,9 @@ const GroupConfiguration = ({history}) => {
       <br/><br/><br/><br/>
       <h1>Your group members are</h1>
       {fetchGroupData}<br/><br/><br/><br/>
-      {/* <h1>Your Supervisor suggestions are</h1>
-      {suggestions} */}
+     
       </p>
-    
+    <Footer/>
     </div>
     </>
   );

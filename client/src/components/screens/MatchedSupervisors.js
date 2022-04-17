@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 // import { Link } from "react-router-dom";
 
 
@@ -81,6 +83,7 @@ const MatchedSupervisors = ({history}) => {
     
         <>
         <div id="back">
+          <Header/>
         
         <p style={{color:"#FF0",textAlign:"right"}}>
         Hello, {privateData}  
@@ -95,7 +98,7 @@ const MatchedSupervisors = ({history}) => {
           <h1 id="caption">Your Supervisor suggestions are</h1>
           <p id="data">{suggestions}</p>
           </p>
-        
+        <Footer/>
         </div>
         </>
       );

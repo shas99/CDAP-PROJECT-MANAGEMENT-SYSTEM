@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Routing
 import PrivateRoute from "./components/routing/PrivateRoute";
 
-//Header
-import Header from "./components/Header/Header";
+// //Header
+// import Header from "./components/Header/Header";
 
-//Footer
-import Footer from "./components/Footer/Footer";
+// //Footer
+// import Footer from "./components/Footer/Footer";
 
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
@@ -24,7 +24,7 @@ import MatchedSupervisors from "./components/screens/MatchedSupervisors";
 const App = () => {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <div className="app">
         <Switch>
           <PrivateRoute exact path="/" component={PrivateScreen} />
@@ -46,7 +46,7 @@ const App = () => {
          <Route exact path="/groupconfiguration" component={GroupConfiguration}/>
         </Switch>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 };

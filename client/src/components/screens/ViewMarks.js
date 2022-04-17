@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css"
 import "./ViewMarks.css"
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+
 
 const ViewMarks = ({history}) =>{
   const [fetchMarksData, setMarksData] = useState("")
@@ -28,6 +31,7 @@ const ViewMarks = ({history}) =>{
 
    return(
     <div className="view-feedback">
+      <Header/>
   <br/>
       <h1 id="caption">My Marks</h1>
       <br/><br/>
@@ -66,6 +70,7 @@ const ViewMarks = ({history}) =>{
 
 
       <br/>
+      <Footer/>
       
 </div>
     

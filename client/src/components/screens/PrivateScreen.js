@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 
 
@@ -30,45 +32,7 @@ const PrivateScreen = ({history}) => {
       }
     };
 
-    // const fetchGroupData = async () => {
-    //   const groupconfig = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //     },
-    //   };
-
-    //   try {
-    //     const { data} = await axios.get("/api/auth/group",groupconfig);
-    //     const groupArray = data.data.split("/")
-    //     setGroupData(groupArray[0]);
-    //   } catch (error) {
-
-    //     // setError("Oops couldn't retreive group data");//fix this
-    //   }
-    // };
-
-    //Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022
-    // const fetchsuggestions = async () => {
-    //   const suggestconfig = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //     },
-    //   };
-
-    //   try {
-    //     const { data} = await axios.get("/api/auth/group",suggestconfig);
-    //     const sugArray = data.data.split("/")
-    //     setsuggestions(sugArray[1]);
-    //   } catch (error) {
-    //     console.log(error)
-    //     // setError("Oops couldn't retreive suggestions");//fix this
-    //   }
-    // };
-    // fetchGroupData()
-    //Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022
-    // fetchsuggestions()
+    
     fetchPrivateDate();
   }, [history]);
 
@@ -87,6 +51,7 @@ const PrivateScreen = ({history}) => {
 
     <>
     <div id="back">
+      <Header/>
     <h1 id="caption">Welcome to your dashboard {privateData}</h1>
     <p style={{color:"#FFF",textAlign:"right"}}>
     
@@ -103,7 +68,7 @@ const PrivateScreen = ({history}) => {
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
       
   
-    
+    <Footer/>
     </div>
     </>
   );
