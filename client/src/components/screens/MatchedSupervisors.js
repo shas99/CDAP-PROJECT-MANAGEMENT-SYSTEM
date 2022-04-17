@@ -56,7 +56,10 @@ const MatchedSupervisors = ({history}) => {
         try {
           const { data} = await axios.get("/api/auth/group",suggestconfig);
           const sugArray = data.data.split("/")
-          setsuggestions(sugArray[1]);
+          const suggArray = sugArray[1].split(",")
+          // console.log(suggArray)
+          suggArray.map((a) => console.log(a))
+          setsuggestions(suggArray);
         } catch (error) {
           console.log(error)
           // setError("Oops couldn't retreive suggestions");//fix this
@@ -73,6 +76,25 @@ const MatchedSupervisors = ({history}) => {
       history.push("/login");
   
     };
+
+    const listHandler=()=>{
+      try{
+
+        const lists = suggestions.map((n)=>
+        <li>{n}</li>)
+        return(
+          <ul>{lists}</ul>
+        )
+      }catch(e){
+        console.error(e)
+      }
+      // <ul>
+      // {suggestions.map((m) => <li>{m}</li>)}
+      // </ul>
+  
+    };
+
+
   
     return  error ? ( 
   
@@ -93,7 +115,8 @@ const MatchedSupervisors = ({history}) => {
           <br/><br/><br/><br/>
           
           <h1 id="caption">Your Supervisor suggestions are</h1>
-          <p id="data">{suggestions}</p>
+    
+          {listHandler()}
           </p>
         
         </div>
