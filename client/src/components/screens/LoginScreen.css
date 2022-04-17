@@ -1,6 +1,6 @@
 .login-screen {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,8 @@
   border-width: 2px;
   border-style: solid;
   border-color: #21262d;
+  margin-bottom: 72px;
+  margin-top: 75px;
 }
 
 .login-screen__title {
