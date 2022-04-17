@@ -5,12 +5,13 @@
 }
 
 #logout{
-    background-color: #4CAF50;
+  background-color: #8256D0;
   color: #fff;
   border-radius: 5px;
   margin-top: 8px;
   width: 100px;
-  height: 20px;
+  height: 40px;
+  margin-right: 30px;
   
 }
 

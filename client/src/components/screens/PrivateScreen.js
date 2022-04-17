@@ -88,7 +88,7 @@ const PrivateScreen = ({history}) => {
     <>
     <div id="back">
     <div style={{background:"green",color:"white"}}>{privateData}</div>
-    <p style={{color:"#FF0",textAlign:"right"}}>
+    <p style={{color:"#FFF",textAlign:"right"}}>
     Hello, {privateData}  
     &nbsp;&nbsp;&nbsp;&nbsp;
    
