@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 
 
@@ -36,48 +38,8 @@ const PrivateScreen = ({history}) => {
       }
     };
 
-    const fetchGroupData = async () => {
-      const groupconfig = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
 
-      try {
-        const { data} = await axios.get("/api/auth/group",groupconfig);
-        const groupArray = data.data.split("/")
-        console.log(groupArray[0])
-        const group1 = groupArray[0].split(",")
-        setgroup(group1)
-        setGroupData(groupArray[0]);
-      } catch (error) {
 
-        // setError("Oops couldn't retreive group data");//fix this
-      }
-    };
-
-    // Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022
-    const fetchsuggestions = async () => {
-      const suggestconfig = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
-
-      try {
-        const { data} = await axios.get("/api/auth/group",suggestconfig);
-        const sugArray = data.data.split("/")
-        setsuggestions(sugArray[1]);
-      } catch (error) {
-        console.log(error)
-        // setError("Oops couldn't retreive suggestions");//fix this
-      }
-    };
-    fetchGroupData()
-    // Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022
-    fetchsuggestions()
     fetchPrivateDate();
   }, [history]);
 
@@ -126,12 +88,10 @@ const PrivateScreen = ({history}) => {
     <>
     <div id="back">
 
-   
-    <p style={{color:"#FF0",textAlign:"right"}}>
-
-    Hello, {privateData}  
-    &nbsp;&nbsp;&nbsp;&nbsp;
-   
+      <Header/>
+    <h1 id="caption">Welcome to your dashboard {privateData}</h1>
+    <p style={{color:"#FFF",textAlign:"right"}}>
+ 
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
       
@@ -139,6 +99,8 @@ const PrivateScreen = ({history}) => {
       <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
         <br/>
         <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View marks</button></Link>
+
+          <br/>
 
       
       <p style={{color:"#FF0"}}>
@@ -152,10 +114,9 @@ const PrivateScreen = ({history}) => {
 
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
       
-      </p>
 
-
-
+  
+    <Footer/>
 
     </div>
     </>

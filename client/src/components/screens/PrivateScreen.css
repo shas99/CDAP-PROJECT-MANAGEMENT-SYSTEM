@@ -2,13 +2,13 @@
     background-color: #22272E;
     height: 1000px;
     text-align: center;
+    /* position: fixed; */
 }
 
 #logout{
   background-color: #8256D0;
   color: #fff;
-  border-radius: 5px;
-  margin-top: 8px;
+  border-radius: 10px;
   width: 100px;
   height: 40px;
   margin-right: 30px;

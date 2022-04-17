@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ViewFeedback.css";
 // import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -38,6 +40,7 @@ const ViewFeedback = ({history}) => {
   
 
 <div className="view-feedback">
+  <Header/>
   <br/>
       <h1 id="caption">My Feedbacks</h1>
       <br/><br/>
@@ -76,7 +79,7 @@ const ViewFeedback = ({history}) => {
 
 
       <br/>
-      
+      <Footer/>
 </div>
  
     
