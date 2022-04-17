@@ -99,7 +99,7 @@ const PrivateScreen = ({history}) => {
 
     try {
       const { data } = await axios.post(
-        "/api/auth//groupregister",
+        "/api/auth/groupregister",
         { member_1,member_2,member_3,member_4,member_5 },
         config
       );
@@ -116,22 +116,6 @@ const PrivateScreen = ({history}) => {
   };
 
 
-  const listHandler=()=>{
-    try{
-
-      const lists = group.map((n)=>
-      <li>{n}</li>)
-      return(
-        <ul>{lists}</ul>
-      )
-    }catch(e){
-      console.error(e)
-    }
-    // <ul>
-    // {suggestions.map((m) => <li>{m}</li>)}
-    // </ul>
-
-  };
 
   
   return  error ? ( 
@@ -155,73 +139,16 @@ const PrivateScreen = ({history}) => {
 
       </div>
       <p style={{color:"#FF0"}}>
-      <br/><br/><br/><br/>
-      <br/><br/>
 
-      {listHandler()}
+
+
       
         <br></br><Link to="matchedsupervisors" id="MatchedS"><button onClick="matchedsupervisors">Matched supervisors</button></Link><br></br>
         <br></br><Link to="GroupScreen" id="MatchedS"><button onClick="GroupScreen">Group</button></Link><br></br>
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
       
       </p>
-      <form onSubmit={groupregisterHandler} className="login-screen__form">
-      <h3 className="login-screen__title">Group registration</h3>
-      {error && <span className="error-message">{error}</span>}
-      <div className="form-group">
-        <label>
-           Member 1:
-          <input type="text" 
-          name="name" 
-          onChange={(e) => setMember1(e.target.value)}
-          value={member_1} />
-          
-        </label>
-        </div>
-        <div className="form-group">
-        <label>
-           Member 2:
-          <input type="text" 
-          name="name" 
-          onChange={(e) => setMember2(e.target.value)}
-          value={member_2} />
-          
-        </label>
-          </div>
-          <div className="form-group">
-        <label>
-           Member 3:
-          <input type="text" 
-          name="name" 
-          onChange={(e) => setMember3(e.target.value)}
-          value={member_3} />
-                  </label>
-                  </div>
-                  <div className="form-group">
-        <label>
-           Member 4:
-          <input type="text" 
-          name="name" 
-          onChange={(e) => setMember4(e.target.value)}
-          value={member_4} />
-                  </label>
-                  </div>
-                  <div className="form-group">
-        <label>
-           Member 5:
-          <input type="text" 
-          name="name" 
-          onChange={(e) => setMember5(e.target.value)}
-          value={member_5} />
-        </label>
-        </div>
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
-          group reg
-        </button>
-
-        
-      </form>
 
 
 

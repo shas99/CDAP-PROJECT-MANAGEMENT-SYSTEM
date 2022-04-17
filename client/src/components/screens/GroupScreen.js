@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
 import { Link } from "react-router-dom";
+import "./LoginScreen.css";
 
 const GroupScreen = ({history}) => {
     const [error, setError] = useState("");
@@ -54,45 +55,10 @@ const GroupScreen = ({history}) => {
         }
       };
   
-    //   const fetchGroupData = async () => {
-    //     const groupconfig = {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //       },
-    //     };
-  
-    //     try {
-    //       const { data} = await axios.get("/api/auth/group",groupconfig);
-    //       const groupArray = data.data.split("/")
-    //       setGroupData(groupArray[0]);
-    //     } catch (error) {
-  
-    //       // setError("Oops couldn't retreive group data");//fix this
-    //     }
-    //   };
-      const fetchsuggestions = async () => {
-        const suggestconfig = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        };
-  
-        try {
-          const { data} = await axios.get("/api/auth/group",suggestconfig);
-          const sugArray = data.data.split("/")
-          const suggArray = sugArray[1].split(",")
-          // console.log(suggArray)
-          suggArray.map((a) => console.log(a))
-          setsuggestions(suggArray);
-        } catch (error) {
-          console.log(error)
-          // setError("Oops couldn't retreive suggestions");//fix this
-        }
-      };
+
+
     //   fetchGroupData()
-      fetchsuggestions()
+
       fetchPrivateDate();
       fetchGroupData()
     }, [history]);
@@ -141,9 +107,7 @@ const GroupScreen = ({history}) => {
         }catch(e){
           console.error(e)
         }
-        // <ul>
-        // {suggestions.map((m) => <li>{m}</li>)}
-        // </ul>
+
     
       };
 
@@ -167,11 +131,71 @@ const GroupScreen = ({history}) => {
           <p style={{color:"#FF0"}}>
           <br/><br/><br/><br/>
           
-          <h1 id="caption">Your Supervisor suggestions are</h1>
+          <h1 id="caption">Your group members are</h1>
     
           {listHandler()}
           </p>
+          <div className="login-screen">
+
+          <form onSubmit={groupregisterHandler} className="login-screen__form">
+      <h3 className="login-screen__title">Group registration</h3>
+      {error && <span className="error-message">{error}</span>}
+      <div className="form-group">
+        <label>
+           Member 1:</label>
+          <input type="text" 
+          name="name" 
+          onChange={(e) => setMember1(e.target.value)}
+          value={member_1} />
+          
         
+        </div>
+        <div className="form-group">
+        <label>
+           Member 2:</label>
+          <input type="text" 
+          name="name" 
+          onChange={(e) => setMember2(e.target.value)}
+          value={member_2} />
+          
+        
+          </div>
+          <div className="form-group">
+        <label>
+           Member 3:</label>
+          <input type="text" 
+          name="name" 
+          onChange={(e) => setMember3(e.target.value)}
+          value={member_3} />
+                  
+                  </div>
+                  <div className="form-group">
+        <label>
+           Member 4:</label>
+          <input type="text" 
+          name="name" 
+          onChange={(e) => setMember4(e.target.value)}
+          value={member_4} />
+                  
+                  </div>
+                  <div className="form-group">
+        <label>
+           Member 5:</label>
+          <input type="text" 
+          name="name" 
+          onChange={(e) => setMember5(e.target.value)}
+          value={member_5} />
+        
+        </div>
+
+      <button type="submit" className="btn btn-primary1" id="Log1Button">
+          Group Registration
+        </button>
+
+        
+      </form>
+          </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
         </>
       );

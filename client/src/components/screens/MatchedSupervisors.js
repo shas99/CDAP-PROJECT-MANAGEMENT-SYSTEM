@@ -9,6 +9,7 @@ const MatchedSupervisors = ({history}) => {
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
     const [suggestions,setsuggestions] = useState("")
+    
     useEffect(() => {
       const fetchPrivateDate = async () => {
         const config = {
@@ -28,23 +29,7 @@ const MatchedSupervisors = ({history}) => {
         }
       };
   
-    //   const fetchGroupData = async () => {
-    //     const groupconfig = {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //       },
-    //     };
-  
-    //     try {
-    //       const { data} = await axios.get("/api/auth/group",groupconfig);
-    //       const groupArray = data.data.split("/")
-    //       setGroupData(groupArray[0]);
-    //     } catch (error) {
-  
-    //       // setError("Oops couldn't retreive group data");//fix this
-    //     }
-    //   };
+
       const fetchsuggestions = async () => {
         const suggestconfig = {
           headers: {

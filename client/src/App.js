@@ -45,7 +45,7 @@ const App = () => {
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
          <Route exact path="/GroupScreen" component={GroupScreen}/>
         </Switch>
-      </div>
+      </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <Footer />
     </Router>
   );
