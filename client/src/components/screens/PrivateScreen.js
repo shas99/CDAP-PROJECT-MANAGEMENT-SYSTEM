@@ -14,6 +14,7 @@ const PrivateScreen = ({history}) => {
   const [member_3, setMember3] = useState("");
   const [member_4, setMember4] = useState("");
   const [member_5, setMember5] = useState("");
+  const [group,setgroup] = useState("")
   //Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022
   const [suggestions,setsuggestions] = useState("")
   useEffect(() => {
@@ -46,6 +47,9 @@ const PrivateScreen = ({history}) => {
       try {
         const { data} = await axios.get("/api/auth/group",groupconfig);
         const groupArray = data.data.split("/")
+        console.log(groupArray[0])
+        const group1 = groupArray[0].split(",")
+        setgroup(group1)
         setGroupData(groupArray[0]);
       } catch (error) {
 
@@ -111,6 +115,24 @@ const PrivateScreen = ({history}) => {
     }
   };
 
+
+  const listHandler=()=>{
+    try{
+
+      const lists = group.map((n)=>
+      <li>{n}</li>)
+      return(
+        <ul>{lists}</ul>
+      )
+    }catch(e){
+      console.error(e)
+    }
+    // <ul>
+    // {suggestions.map((m) => <li>{m}</li>)}
+    // </ul>
+
+  };
+
   
   return  error ? ( 
   
@@ -119,7 +141,7 @@ const PrivateScreen = ({history}) => {
 
     <>
     <div id="back">
-    <div style={{background:"green",color:"white"}}>{privateData}</div>
+   
     <p style={{color:"#FF0",textAlign:"right"}}>
     Hello, {privateData}  
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -135,7 +157,8 @@ const PrivateScreen = ({history}) => {
       <p style={{color:"#FF0"}}>
       <br/><br/><br/><br/>
       <br/><br/>
-      {fetchGroupData}
+
+      {listHandler()}
       
         <br></br><Link to="matchedsupervisors" id="MatchedS"><button onClick="matchedsupervisors">Matched supervisors</button></Link><br></br>
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
