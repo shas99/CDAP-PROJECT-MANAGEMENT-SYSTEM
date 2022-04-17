@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PasswordChecklist from "react-password-checklist"//password validation
 
 import "./ResetPasswordScreen.css";
 
@@ -83,6 +84,23 @@ const ResetPasswordScreen = ({ history, match }) => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+
+        {/* Pasindu Vinod added password validation for reset password component on 16/04/2022 */}
+        <PasswordChecklist
+        className ="message"
+				rules={["minLength","specialChar","number","capital","lowercase"]}
+				minLength={8}
+				value={password}
+				valueAgain={confirmPassword}
+        iconSize={10}
+				messages={{
+					minLength: "Password must include atleast 8 characters.",
+					specialChar: "Password must include atleast 1 special character.",
+					number: "Password must include atleast 1 number.",
+					capital: "Password must include atleast 1 capital letter.",
+          lowercase: "Password must include atleast 1 lowercase letter."
+				}}
+        />
         </div>
         <button type="submit" className="btn btn-primary">
           Reset Password

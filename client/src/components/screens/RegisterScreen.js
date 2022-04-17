@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./RegisterScreen.css";
+import PasswordChecklist from "react-password-checklist"
 
 const RegisterScreen = ({ history }) => {
   const [username, setUsername] = useState("");
@@ -27,7 +28,8 @@ const RegisterScreen = ({ history }) => {
       }, 5000);
       return setError("Passwords do not match");
     }
-
+    
+    
     try {
       const { data } = await axios.post(
         "/api/auth/register",
@@ -49,7 +51,7 @@ const RegisterScreen = ({ history }) => {
       }, 5000);
     }
   };
-
+  
   return (
     <div className="register-screen">
       <form onSubmit={registerHandler} className="register-screen__form">
@@ -87,6 +89,7 @@ const RegisterScreen = ({ history }) => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            
           />
         </div>
         <div className="form-group">
@@ -101,6 +104,24 @@ const RegisterScreen = ({ history }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
+                
+        {/* Pasindu Vinod added password validation for reset password component on 17/04/2022 */}
+        <PasswordChecklist
+        className ="message"
+				rules={["minLength","specialChar","number","capital","lowercase"]}
+				minLength={8}
+				value={password}
+				valueAgain={confirmpassword}
+        iconSize={10}
+				messages={{
+					minLength: "Password must include atleast 8 characters.",
+					specialChar: "Password must include atleast 1 special character.",
+					number: "Password must include atleast 1 number.",
+					capital: "Password must include atleast 1 capital letter.",
+          lowercase: "Password must include atleast 1 lowercase letter."
+				}}
+        />
+
         <button type="submit" className="btn btn-success" id="btn">
           Register
         </button>
