@@ -10,12 +10,12 @@ const app = express();
 app.use(express.json())
 
 
-//Uncomment me for Deployment
-// // ... other imports 
-// const path = require("path")
+// ... other imports 
+const path = require("path")
 
-// // ... other app.use middleware 
-// app.use(express.static(path.join(__dirname, "client", "build")))
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
@@ -33,11 +33,10 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
-//Uncomment me for Deployment
-// Right before your app.listen(), add this:
-/*app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});*/
+// //Uncomment me for Deployment
+// // Right before your app.listen(), add this:
+app.get("*", (req, res) => {    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+
 
 process.on("unhandledRejection", (err,promise)=>{
     console.log(`Logged Error: ${err}`)
