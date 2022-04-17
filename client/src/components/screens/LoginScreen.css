@@ -1,6 +1,6 @@
 .login-screen {
   width: 100%;
-  height: 100%;
+  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +42,7 @@
 }
 
 #LogButton{
-  background-color: #4CAF50;
+  background-color: #8256D0;
   color: white;
   font-weight: bold;
   border-radius: 5px;

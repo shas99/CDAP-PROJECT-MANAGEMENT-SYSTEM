@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 const Header = () => (
     <div class="header">
-  <a href="#default" class="logo">CDAP</a>
+  <a href="#default" class="logo">Calibre</a>
   <div class="header-right">
     <a class="active" href="#home">Home</a>
     <a href="#portal">Portal</a>

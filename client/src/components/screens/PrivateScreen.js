@@ -125,14 +125,17 @@ const PrivateScreen = ({history}) => {
 
     <>
     <div id="back">
+
    
     <p style={{color:"#FF0",textAlign:"right"}}>
+
     Hello, {privateData}  
     &nbsp;&nbsp;&nbsp;&nbsp;
    
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
       
+
       <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
         <br/>
         <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View marks</button></Link>
@@ -146,6 +149,7 @@ const PrivateScreen = ({history}) => {
       
         
         <Link to="GroupScreen" id="MatchedS"><button className="buttons" onClick="GroupScreen">Group</button></Link><br></br>
+
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
       
       </p>
