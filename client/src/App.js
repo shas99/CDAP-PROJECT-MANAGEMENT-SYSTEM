@@ -19,6 +19,7 @@ import ViewFeedback from "./components/screens/ViewFeedback";
 
 import ViewMarks from "./components/screens/ViewFeedback";
 import MatchedSupervisors from "./components/screens/MatchedSupervisors";
+import GroupScreen from "./components/screens/GroupScreen"
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
+         <Route exact path="/GroupScreen" component={GroupScreen}/>
         </Switch>
       </div>
       <Footer />

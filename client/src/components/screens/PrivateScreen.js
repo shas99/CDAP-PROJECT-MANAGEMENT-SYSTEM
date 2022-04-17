@@ -161,50 +161,60 @@ const PrivateScreen = ({history}) => {
       {listHandler()}
       
         <br></br><Link to="matchedsupervisors" id="MatchedS"><button onClick="matchedsupervisors">Matched supervisors</button></Link><br></br>
+        <br></br><Link to="GroupScreen" id="MatchedS"><button onClick="GroupScreen">Group</button></Link><br></br>
       {/* Supervisor suggestions moved to MatchedSupervisors component by Pasindu Vinod on 16/04/2022 */}
       
       </p>
-      <form onSubmit={groupregisterHandler}>
+      <form onSubmit={groupregisterHandler} className="login-screen__form">
+      <h3 className="login-screen__title">Group registration</h3>
+      {error && <span className="error-message">{error}</span>}
+      <div className="form-group">
         <label>
-           Name:
+           Member 1:
           <input type="text" 
           name="name" 
           onChange={(e) => setMember1(e.target.value)}
           value={member_1} />
           
         </label>
-
+        </div>
+        <div className="form-group">
         <label>
-           Name:
+           Member 2:
           <input type="text" 
           name="name" 
           onChange={(e) => setMember2(e.target.value)}
           value={member_2} />
           
-          
         </label>
+          </div>
+          <div className="form-group">
         <label>
-           Name:
+           Member 3:
           <input type="text" 
           name="name" 
           onChange={(e) => setMember3(e.target.value)}
           value={member_3} />
                   </label>
+                  </div>
+                  <div className="form-group">
         <label>
-           Name:
+           Member 4:
           <input type="text" 
           name="name" 
           onChange={(e) => setMember4(e.target.value)}
           value={member_4} />
                   </label>
+                  </div>
+                  <div className="form-group">
         <label>
-           Name:
+           Member 5:
           <input type="text" 
           name="name" 
           onChange={(e) => setMember5(e.target.value)}
           value={member_5} />
         </label>
-
+        </div>
 
       <button type="submit" className="btn btn-primary1" id="Log1Button">
           group reg
@@ -212,49 +222,7 @@ const PrivateScreen = ({history}) => {
 
         
       </form>
-      {/* <div className="group-registration">
-      <form onSubmit={groupregisterHandler} className="login-screen__form">
-        <h3 className="login-screen__title">Login</h3>
-        {error && <span className="error-message">{error}</span>}
-        <div className="form-group">
-          <label htmlFor="email" id="EmailID">Email:</label>
-          <input
-            type="email"
-            required
-            id="email"
-            placeholder="Email address"
-            onChange={(e) => setMember1(e.target.value)}
-            value={email}
-            tabIndex={1}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password" id="PasswordID">
-            Password:{" "}
-            <Link to="/forgotpassword" className="login-screen__forgotpassword">
-              Forgot Password?
-            </Link>
-          </label>
-          <input
-            type="password"
-            required
-            id="password"
-            autoComplete="true"
-            placeholder="Enter password"
-            onChange={(e) => setMember2(e.target.value)}
-            value={password}
-            tabIndex={2}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary" id="LogButton">
-          Login
-        </button>
 
-        <span className="login-screen__subtext">
-          Don't have an account? <Link to="/register" id="Regs">Register</Link>
-        </span>
-      </form>
-    </div> */}
 
 
     </div>
