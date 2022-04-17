@@ -1,11 +1,12 @@
-.styled-table {
-    /* border-collapse: collapse; */
-    margin: 22px 0;
+.styled-table { 
+    border-collapse: collapse; 
+    margin: 27px 0;
     font-size: 0.9em;
     font-family: sans-serif;
+
     min-width: 100px; 
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
-    /* width: 100%; */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); 
+     width: 100%; 
     text-align: center;
     background-color: #0666a3
     
@@ -23,3 +24,43 @@
     padding: 3px;
     background-color: #8ebf42
   }
+
+
+  .view-marks{
+    height: 1000;
+    }
+    
+    #caption{
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        margin-top: 20px;
+        margin-left: 20%;
+        transition: 0.3s;
+        width: 60%;
+        height: 200px;
+        
+        
+      }
+    
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      .container {
+        padding: 2px 16px;
+      }
+    
+      #marks-topic{
+          font-size: x-large;
+      }
+      #markscontent{
+          margin-top: 10px;
+      }
+    
+
+  
+    

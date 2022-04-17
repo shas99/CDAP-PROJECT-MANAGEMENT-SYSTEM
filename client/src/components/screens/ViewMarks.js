@@ -27,32 +27,22 @@ const ViewMarks = ({history}) =>{
   }, [history])
 
    return(
-    <>
-    <div id="back" class="inner-div">
-      <div style={{background:"green",color:"white"}}>{}</div>
-      <p  class="column2" style={{color:"#FF0",textAlign:"center"}}>
-       
-        <table className="styled-table"  >
-                <thead>
-                <tr>
-                <th scope='col'>Project milestone</th>
-              <th scope='col'> marks</th>
-                   
-                </tr>
-                </thead>
-                <tbody>
-                  <td>1</td>
-                  <td>{fetchMarksData}</td>
-
-                </tbody>
-                </table>
-       
-      </p>
+    <div className="view-marks">
+    <h1 id="caption">My marks</h1>
+    <div className="card">
+    <div className="container">
+      <h4 id="marks-topic"><b>Milestone 1 </b></h4> 
+      <hr id="hr1"></hr>
+      <p className="markscontent"> {fetchMarksData}</p> 
     </div>
+    </div>
+    <br/>
+    
+</div> 
     
     
     
-    </>
+    
   )
 }
 export default ViewMarks;
