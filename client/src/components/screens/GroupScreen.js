@@ -151,8 +151,7 @@ const GroupScreen = ({history}) => {
           {fetchGroupData == "" &&
           <div className="group-screen">
             
-          <div>
-          
+          <div>        
           <form onSubmit={groupregisterHandler} className="group-screen__form">
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
