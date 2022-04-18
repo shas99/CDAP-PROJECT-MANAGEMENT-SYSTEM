@@ -143,10 +143,14 @@ const GroupScreen = ({history}) => {
           </div>
           
           }
+           {fetchGroupData == "" &&
+           <><h1>You are not in a group. Fill this form to register to a group</h1></>
+           }
           {fetchGroupData == "" &&
           <div className="group-screen">
+            
           <div>
-          <h1>You are not a member of any group. Please fill the form to register</h1>
+          
           <form onSubmit={groupregisterHandler} className="group-screen__form">
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
