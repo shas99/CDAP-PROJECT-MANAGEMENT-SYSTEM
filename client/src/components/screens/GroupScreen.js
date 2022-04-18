@@ -113,7 +113,7 @@ const GroupScreen = ({history}) => {
     
       };
 
-
+      
   
     return  error ? ( 
   
@@ -133,12 +133,20 @@ const GroupScreen = ({history}) => {
           <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
-          <h1 id="caption">Your group members are</h1>
-    
-          {listHandler()}
           </p>
-          <div className="group-screen">
+          {fetchGroupData != "" &&
+          <div>
 
+            <h1 id="caption">Your group members are</h1>
+            
+            {listHandler()}
+          </div>
+          
+          }
+          {fetchGroupData == "" &&
+          <div className="group-screen">
+          <div>
+          <h1>You are not a member of any group. Please fill the form to register</h1>
           <form onSubmit={groupregisterHandler} className="group-screen__form">
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
@@ -195,8 +203,9 @@ const GroupScreen = ({history}) => {
         </button>
 
         
-      </form>
+      </form></div>
           </div>
+      }
           <Footer/>
         </div>
         </>
