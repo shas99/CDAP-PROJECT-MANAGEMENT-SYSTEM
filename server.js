@@ -32,7 +32,9 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
+
+//This code causes the PROXY CRASH !!!!!
 process.on("unhandledRejection", (err,promise)=>{
     console.log(`Logged Error: ${err}`)
-    server.close(()=> process.exit(1))
+    // server.close(()=> process.exit(1))
 })

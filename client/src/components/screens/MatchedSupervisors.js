@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
 import { Link } from "react-router-dom";
-
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const MatchedSupervisors = ({history}) => {
     const [error, setError] = useState("");
@@ -88,22 +89,22 @@ const MatchedSupervisors = ({history}) => {
     
         <>
         <div id="back">
-        
-        <p style={{color:"#FF0",textAlign:"right"}}>
-        Hello, {privateData}  
+        <Header/>
+        <p style={{color:"#FFF",textAlign:"right"}}>
+        {privateData}  
         &nbsp;&nbsp;&nbsp;&nbsp;
        
         <button onClick={logOutHandler} id="logout">Log Out</button>
           </p>
           
-          <p style={{color:"#FF0"}}>
+          <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
           <h1 id="caption">Your Supervisor suggestions are</h1>
     
           {listHandler()}
           </p>
-        
+        <Footer/>
         </div>
         </>
       );
