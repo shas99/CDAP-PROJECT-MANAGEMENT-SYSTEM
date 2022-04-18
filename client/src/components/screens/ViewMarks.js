@@ -8,8 +8,28 @@ import Footer from "../Footer/Footer";
 
 const ViewMarks = ({history}) =>{
   const [fetchMarksData, setMarksData] = useState("")
-
+  const [error, setError] = useState("");
+  const [privateData, setPrivateData] = useState("");
   useEffect(() => {
+
+    const fetchPrivateDate = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+        const { data} = await axios.get("/api/private", config);
+        
+        setPrivateData(data.data);
+      } catch (error) {
+        localStorage.removeItem("authToken");
+        setError("You are not authorized please login");
+      }
+    };
+
     const fetchMarksData = async () =>{
       const marksconfig = {
         headers: {
@@ -27,9 +47,13 @@ const ViewMarks = ({history}) =>{
       }
     }
     fetchMarksData()
+    fetchPrivateDate()
   }, [history])
 
-   return(
+  return  error ? ( 
+  
+    <span className="error-message">{error}</span>
+  ) :(
     <div className="view-feedback">
       <Header/>
   <br/>
