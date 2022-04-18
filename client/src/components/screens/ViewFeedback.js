@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ViewFeedback.css";
 // import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -36,22 +38,52 @@ const ViewFeedback = ({history}) => {
   
   return   ( 
   
-   
+
 <div className="view-feedback">
-  <center>
-      <h1>My Feedbacks</h1>
-      <div class="card">
-  <div class="container">
-    <h4><b>John Doe</b></h4> 
-    <p>Architect & Engineer</p> 
-  </div>
+  <Header/>
+  <br/>
+      <h1 id="caption">My Feedbacks</h1>
+      <br/><br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 1 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> {fetchFeedbackData}</p> 
+      </div>
+      </div>
+      <br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 2 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+      </div>
+      <br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 3 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+      </div>
+      <br/><br/>
+      <div className="card">
+      <div className="container">
+        <h4 id="feedback-topic"><b>Milestone 4 </b></h4> 
+        <hr id="hr1"></hr>
+        <p className="feedbackcontent"> Not available</p> 
+      </div>
+     
+      </div>
+
+
+      <br/>
+      <Footer/>
 </div>
-      
-      {fetchFeedbackData}<br/><br/><br/><br/>
-  </center>
-</div> 
+ 
     
-  )  
+)  
 };
 
 export default ViewFeedback;

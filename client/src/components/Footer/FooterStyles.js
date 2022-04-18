@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
-padding: 5px;
-background: black;
-position: relative;
+padding: 10px;
+background: #161b22;
+position: fixed;
 bottom: 0;
 width: 100%;
+
 
 
 @media (max-width: 1000px) {
@@ -27,6 +28,8 @@ display: flex;
 flex-direction: column;
 font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 text-align: justify;
+font-weight:bolder;
+font-size:larger;
 margin-left:100px;
 `;
 
@@ -47,7 +50,7 @@ color: #fff;
 margin-top:0px;
 margin-bottom: 0px;
 font-weight:bold;
-font-size:small;
+font-size:medium;
 text-decoration: none;
 font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 

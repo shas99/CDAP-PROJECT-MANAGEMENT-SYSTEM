@@ -12,7 +12,7 @@ exports.getPrivateData = async (req,res,next) => {
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
     
     const user = await User.findById(decoded.id)
-    console.log(user.email+"lkj")
+    console.log("Logged in user-email : "+user.email)
     
     res.status(200).json({
         sucess: true,
