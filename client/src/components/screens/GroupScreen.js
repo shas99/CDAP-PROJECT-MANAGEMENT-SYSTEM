@@ -146,7 +146,7 @@ const GroupScreen = ({history}) => {
           
           }
            {fetchGroupData == "" &&
-           <><h1>You are not in a group. Fill this form to register to a group</h1></>
+           <><h1 id="caption">You are not in a group. Fill this form to register to a group</h1></>
            }
           {fetchGroupData == "" &&
           <div className="group-screen">
@@ -160,6 +160,7 @@ const GroupScreen = ({history}) => {
         <label>
            Member 1:</label>
           <input type="text" 
+          className = "input"
           name="name" 
           onChange={(e) => setMember1(e.target.value)}
           value={member_1} />
@@ -171,6 +172,7 @@ const GroupScreen = ({history}) => {
            Member 2:</label>
           <input type="text" 
           name="name" 
+          className = "input"
           onChange={(e) => setMember2(e.target.value)}
           value={member_2} />
           
@@ -181,6 +183,7 @@ const GroupScreen = ({history}) => {
            Member 3:</label>
           <input type="text" 
           name="name" 
+          className = "input"
           onChange={(e) => setMember3(e.target.value)}
           value={member_3} />
                   
@@ -190,6 +193,7 @@ const GroupScreen = ({history}) => {
            Member 4:</label>
           <input type="text" 
           name="name" 
+          className = "input"
           onChange={(e) => setMember4(e.target.value)}
           value={member_4} />
                   
@@ -198,7 +202,8 @@ const GroupScreen = ({history}) => {
         <label>
            Member 5:</label>
           <input type="text" 
-          name="name" 
+          name="name"
+          className = "input"
           onChange={(e) => setMember5(e.target.value)}
           value={member_5} />
         
