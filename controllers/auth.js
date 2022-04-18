@@ -37,7 +37,10 @@ exports.viewfeedback =async(req,res,next) => {
         token = req.headers.authorization.split(" ")[1]
     }
 
-    
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
 
 
@@ -58,6 +61,7 @@ exports.viewfeedback =async(req,res,next) => {
     }catch(error){
         next(error)
     }
+}
 };
 
 
@@ -73,7 +77,10 @@ exports.viewmarks =async(req,res,next) => {
         token = req.headers.authorization.split(" ")[1]
     }
 
-    
+    if(token){
+        logged(token,res)
+    }
+    else{
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
 
 
@@ -95,43 +102,8 @@ exports.viewmarks =async(req,res,next) => {
     }catch(error){
         next(error)
     }
+}
 };
-
-
-
-
-
-
-//modified view marks
-
-/*exports.viewmarks =async(req,res,next) => {
-    let token  //To retrieve username in backend
-    
-    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
-        token = req.headers.authorization.split(" ")[1]
-    }
-
-    const decoded = jwt.verify(token,process.nextTick.JWT_SECRET)
-    const studentmarks = await User.findOne(decoded.email)
-    const marks = studentmarks.marks
-    console.log(marks)
-    try{
-        res.status(201).json({
-            success: true,
-            data: studentmarks.marks
-        })
-
-        
-    }catch(error){
-        next(error)
-    }
-    }
-    
-    
-    //modified view marks method
-/*
-
-}*/
 
 
 
@@ -242,14 +214,8 @@ exports.resetpassword = async(req, res, next) => {
 
 exports.groupregister = async(req,res,next) => {//group registration
     const {member_1, member_2,member_3,member_4,member_5} = req.body
-    const testing ="hooray"
-    
-    // const member_1 = "sgsjgjf"
-    // const member_2 = "hsdfgwshehgsjgjf"
-    // const member_3 = "regedsgsjgjf"
-    // const member_4 = "dgfdgersgssfsdfsdjgjf"
-    // const member_5 = "sgsjgsfdsjf"
 
+    
     
     try{
         const group = await Group.create({
