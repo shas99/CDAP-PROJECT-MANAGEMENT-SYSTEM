@@ -96,14 +96,14 @@ const PrivateScreen = ({history}) => {
       </p>
       
 
-      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
+      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
         <br/>
-        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View marks</button></Link>
+        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View marks</button></Link>
 
           <br/>
 
       
-      <p style={{color:"#FF0"}}>
+     
 
 
       <Link to="groupconfiguration" id="GroupConfig"><button className="buttons" onClick="groupconfiguration">Group Configuration</button></Link>
@@ -117,8 +117,8 @@ const PrivateScreen = ({history}) => {
 
   
     <Footer/>
-  </p>
-    </div>
+
+     </div>
     </>
   );
 };

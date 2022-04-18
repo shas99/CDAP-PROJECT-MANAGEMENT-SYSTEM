@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
-import { Link } from "react-router-dom";
-import "./LoginScreen.css";
+// import { Link } from "react-router-dom";
+import "./GroupScreen.css";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const GroupScreen = ({history}) => {
     const [error, setError] = useState("");
@@ -120,24 +122,24 @@ const GroupScreen = ({history}) => {
     
         <>
         <div id="back">
-        
-        <p style={{color:"#FF0",textAlign:"right"}}>
-        Hello, {privateData}  
+        <Header/>
+        <p style={{color:"#FFF",textAlign:"right"}}>
+        {privateData}  
         &nbsp;&nbsp;&nbsp;&nbsp;
        
         <button onClick={logOutHandler} id="logout">Log Out</button>
           </p>
           
-          <p style={{color:"#FF0"}}>
+          <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
           <h1 id="caption">Your group members are</h1>
     
           {listHandler()}
           </p>
-          <div className="login-screen">
+          <div className="group-screen">
 
-          <form onSubmit={groupregisterHandler} className="login-screen__form">
+          <form onSubmit={groupregisterHandler} className="group-screen__form">
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
@@ -195,7 +197,7 @@ const GroupScreen = ({history}) => {
         
       </form>
           </div>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <Footer/>
         </div>
         </>
       );
