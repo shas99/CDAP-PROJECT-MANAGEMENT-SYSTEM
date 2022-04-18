@@ -7,8 +7,27 @@ import Footer from "../Footer/Footer";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
-
+  const [privateData, setPrivateData] = useState("");
+  const [error, setError] = useState("");
   useEffect(() => {
+
+    const fetchPrivateDate = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+        const { data} = await axios.get("/api/private", config);
+        
+        setPrivateData(data.data);
+      } catch (error) {
+        localStorage.removeItem("authToken");
+        setError("You are not authorized please login");
+      }
+    };
 
     const fetchFeedbackData = async () => {
       const feedbackconfig = {
@@ -31,13 +50,16 @@ const ViewFeedback = ({history}) => {
     };
   
     fetchFeedbackData()
-
+    fetchPrivateDate()
   }, [history]);
   
 
   
-  return   ( 
+  return  error ? ( 
   
+    <span className="error-message">{error}</span>
+  ) :
+  (
 
 <div className="view-feedback">
   <Header/>
