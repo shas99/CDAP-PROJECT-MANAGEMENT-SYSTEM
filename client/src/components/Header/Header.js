@@ -24,7 +24,7 @@ const Header = ({history}) => {
   <div class="header-right">
   <a class="active" href="#home">Home</a>
   <a href="#portal">Portal</a>
-  <button onClick={logOutHandler} id="logout">Log Out</button>
+  {/* <button onClick={logOutHandler} id="logout">Log Out</button> */}
  </div>
 </div>
    
