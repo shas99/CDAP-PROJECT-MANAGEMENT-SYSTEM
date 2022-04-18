@@ -4,6 +4,8 @@ const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
+const { Console } = require('console')
+
 
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
@@ -296,10 +298,18 @@ exports.group = async (req, res, next) => {//suggest supervisor
         token = req.headers.authorization.split(" ")[1]
     }
 
+    console.log("This is the token : "+token)
+
+    if(token == null){
+        console.log("Please login !!")
+        res.status(201).json({
+            success: true,
+            data: "Data1/Data2/Data3/Data4"
+        })
+    }
+    else{
     
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
-
-
     console.log(decoded+"fdofjd")
     const user = await User.findById(decoded.id)
     console.log(user.username+"jkl")
@@ -330,34 +340,8 @@ exports.group = async (req, res, next) => {//suggest supervisor
     }catch(error){
         res.status(500).json({success:false, error:error.message})
     }
-
+    }
 };
-
-//To view feedback
-
-
-// exports.groupregister = async(req,res,next) => {
-//     const member_1 = "ok1"
-//     const member_2 = "ok2"
-//     const member_3 = "ok3"
-//     const member_4 = "ok4"
-//     const member_5 = "ok5"
-//     const g_approval = true
-//     const suggestions = "hsdlfjjsl"
-//     const g_members = [1,2,5,5]
-    
-//     try{
-
-//         const user = await Group.create({
-//             member_1,member_2,member_3,member_4,member_5,g_approval,suggestions,g_members
-//         })
-
-
-       
-//     }catch(error){
-//         next(error)
-//     }
-// };//Group creation
 
 
 
