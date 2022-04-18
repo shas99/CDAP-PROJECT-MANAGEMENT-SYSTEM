@@ -71,15 +71,15 @@ const GroupConfiguration = ({history}) => {
     <div id="back">
    <Header/>
     <p style={{color:"#FFF",textAlign:"right"}}>
-    Hello, {privateData}  
+    {privateData}  
     &nbsp;&nbsp;&nbsp;&nbsp;
    
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
      
-      <p style={{color:"#FF0"}}>
+      <p style={{color:"#FFF"}}>
       <br/><br/><br/><br/>
-      <h1>Your group members are</h1>
+      <h1>Your group members are</h1> <br/>
       {fetchGroupData}<br/><br/><br/><br/>
      
       </p>
