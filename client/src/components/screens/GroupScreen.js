@@ -10,7 +10,7 @@ const GroupScreen = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
-    const [suggestions,setsuggestions] = useState("")
+    // const [suggestions,setsuggestions] = useState("")
     const [member_1, setMember1] = useState("");
     const [member_2, setMember2] = useState("");
     const [member_3, setMember3] = useState("");
@@ -135,11 +135,13 @@ const GroupScreen = ({history}) => {
           
           </p>
           {fetchGroupData != "" &&
-          <div>
+          <div id="card">
 
             <h1 id="caption">Your group members are</h1>
-            
+            <hr id="hr"></hr>
+            <p id="List">
             {listHandler()}
+            </p>
           </div>
           
           }
