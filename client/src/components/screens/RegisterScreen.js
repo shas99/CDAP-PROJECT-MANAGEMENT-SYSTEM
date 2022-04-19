@@ -42,7 +42,7 @@ const RegisterScreen = ({ history }) => {
       );
 
       localStorage.setItem("authToken", data.token);
-
+//push to private screen
       history.push("/");
     } catch (error) {
       setError(error.response.data.error);

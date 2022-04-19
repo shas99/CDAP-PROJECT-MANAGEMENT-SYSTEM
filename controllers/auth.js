@@ -10,15 +10,10 @@ const { Console } = require('console')
 
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
-    
-    
     try{
-
         const user = await User.create({
             username,email,password
         })
-        
-
         sendToken(user, 201, res)
     }catch(error){
         next(error)
@@ -77,12 +72,12 @@ exports.viewmarks =async(req,res,next) => {
         token = req.headers.authorization.split(" ")[1]
     }
 
-    if(token){
+    if(token == "null"){
         logged(token,res)
     }
     else{
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
-
+    console.log(decoded)
 
     const user = await User.findById(decoded.id)
    

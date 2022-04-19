@@ -17,7 +17,6 @@ import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen";
 import ResetPasswordScreen from "./components/screens/ResetPasswordScreen";
 import ViewFeedback from "./components/screens/ViewFeedback";
 import GroupConfiguration from "./components/screens/GroupConfiguration";
-
 import ViewMarks from "./components/screens/ViewMarks";
 import MatchedSupervisors from "./components/screens/MatchedSupervisors";
 import GroupScreen from "./components/screens/GroupScreen"

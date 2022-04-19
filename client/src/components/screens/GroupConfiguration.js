@@ -5,8 +5,6 @@ import "./GroupConfiguration.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-
-
 const GroupConfiguration = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
