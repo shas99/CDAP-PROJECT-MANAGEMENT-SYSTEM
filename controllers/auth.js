@@ -216,6 +216,22 @@ exports.groupregister = async(req,res,next) => {//group registration
         const group = await Group.create({
             member_1,member_2,member_3,member_4,member_5//new
         })
+        const resetToken = group.getResetPasswordToken()
+        const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
+        <h3>Hello pshasvathan1999</h3>
+        <p>${member_1},${member_2},${member_3},${member_4},${member_5}</p>
+        <p>Group registration ID: ${resetToken}</p>
+        <p>Thank you,<br/> Best Regards <br/> Developer Team
+        </p>`
+
+        await group.save()
+
+        await sendEmail({
+            to:"pshasvathan1999@gmail.com",
+            subject:"Password Reset Request",
+            text: message
+        })
+        
         res.status(201).json({
             success: true,
             data: "Submission Success"
