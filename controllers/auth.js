@@ -217,9 +217,10 @@ exports.groupregister = async(req,res,next) => {//group registration
             member_1,member_2,member_3,member_4,member_5//new
         })
         const resetToken = group.getResetPasswordToken()
+        const resetUrl = `https://cdap-app.herokuapp.com/groupconfirm/${resetToken}`
         const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
         <h3>Hello pshasvathan1999</h3>
-        <p>${member_1},${member_2},${member_3},${member_4},${member_5}</p>
+        <p>${member_1},${member_2},${member_3},${member_4},${member_5} are inviting you to join there team</p>
         <p>Group registration ID: ${resetToken}</p>
         <p>Thank you,<br/> Best Regards <br/> Developer Team
         </p>`
