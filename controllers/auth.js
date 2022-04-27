@@ -210,11 +210,15 @@ exports.resetpassword = async(req, res, next) => {
 exports.groupregister = async(req,res,next) => {//group registration
     const {member_1, member_2,member_3,member_4,member_5} = req.body
 
-    
+    const mem1_approve = false
+    const mem2_approve = false
+    const mem3_approve = false
+    const mem4_approve = false
+    const mem5_approve = false
     
     try{
         const group = await Group.create({
-            member_1,member_2,member_3,member_4,member_5//new
+            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve//new
         })
         const resetToken = group.getResetPasswordToken()
         const resetUrl = `https://cdap-app.herokuapp.com/groupconfirm/${resetToken}`
@@ -340,9 +344,8 @@ exports.GroupregisterConfirm = async(req, res, next) => {
         if(!group){
             return next(new ErrorResponse("Invalid Reset Token",400))
         }
-        group.member_2 = "test success"
-
-        
+       group.mem1_approve=true
+        console.log(group+"this is group")
         await group.save()
 
         res.status(201).json({

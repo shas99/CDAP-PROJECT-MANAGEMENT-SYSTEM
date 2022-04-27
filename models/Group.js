@@ -32,6 +32,21 @@ const GroupSchema = new mongoose.Schema({//Group model
     {
         type:Array
     },
+    mem1_approve:{
+        type: Boolean
+    },
+    mem2_approve:{
+        type: Boolean
+    },
+    mem3_approve:{
+        type: Boolean
+    },
+    mem4_approve:{
+        type: Boolean
+    },
+    mem5_approve:{
+        type: Boolean
+    },
   
     resetPasswordToken: String,
     resetPasswordExpire: Date
