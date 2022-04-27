@@ -221,7 +221,7 @@ exports.groupregister = async(req,res,next) => {//group registration
         const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
         <h3>Hello pshasvathan1999</h3>
         <p>${member_1},${member_2},${member_3},${member_4},${member_5} are inviting you to join there team</p>
-        <p>Group registration ID: ${resetToken}</p>
+        <p>Group registration ID: ${resetUrl}</p>
         <p>Thank you,<br/> Best Regards <br/> Developer Team
         </p>`
 
@@ -325,6 +325,37 @@ exports.group = async (req, res, next) => {//suggest supervisor
 
 }
 };
+
+
+exports.GroupregisterConfirm = async(req, res, next) => {
+    const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
+    ("hex")
+    try{
+        console.log("goupregID"+req.params.resetToken)
+        
+        const group = await Group.findOne({
+            resetPasswordToken,
+            resetPasswordExpire:{$gt: Date.now()}
+        })
+        if(!group){
+            return next(new ErrorResponse("Invalid Reset Token",400))
+        }
+        group.member_2 = "test success"
+
+        
+        await group.save()
+
+        res.status(201).json({
+            success: true,
+            data: "Password Reset Success"
+        })
+
+    }catch(error){
+        next(error)
+    }
+}
+
+
 
 
 

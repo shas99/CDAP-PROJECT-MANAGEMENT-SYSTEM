@@ -33,7 +33,7 @@ const GroupSchema = new mongoose.Schema({//Group model
         type:Array
     },
   
-    groupregister: String,
+    resetPasswordToken: String,
     resetPasswordExpire: Date
 
 })
