@@ -20,6 +20,7 @@ export const Container = styled.div`
 	justify-content: center;
 	max-width: 1000px;
 	margin: 0 auto;
+	color: #fff;
 	/* background: red; */
 `
 

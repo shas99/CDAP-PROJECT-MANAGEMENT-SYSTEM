@@ -96,14 +96,18 @@ const MatchedSupervisors = ({history}) => {
        
         <button onClick={logOutHandler} id="logout">Log Out</button>
           </p>
-          
+          <div id="card">
+
           <p style={{color:"#FFF"}}>
-          <br/><br/><br/><br/>
+          
           
           <h1 id="caption">Your Supervisor suggestions are</h1>
-    
+          <hr id="hr"></hr>
+          <p id="List">
           {listHandler()}
           </p>
+          </p>
+          </div>
         <Footer/>
         </div>
         </>

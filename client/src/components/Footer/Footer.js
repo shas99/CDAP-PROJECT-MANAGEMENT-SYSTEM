@@ -12,7 +12,7 @@ const Footer = () => {
 return (
 	<Box>
 	<Container>
-		<Row>
+		{/* <Row>
 		<Column>
 			<Heading>About Us</Heading>
 			<FooterLink href="#">Vision</FooterLink>
@@ -28,7 +28,8 @@ return (
 			<FooterLink href="#">Staff Services</FooterLink>
 		</Column>
 		
-		</Row>
+		</Row> */}
+		Developed by: SD01
 	</Container>
 	</Box>
 );
