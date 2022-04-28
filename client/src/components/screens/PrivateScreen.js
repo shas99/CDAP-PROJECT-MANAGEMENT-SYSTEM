@@ -100,8 +100,11 @@ const PrivateScreen = ({history}) => {
       <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
         <br/>
         <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View Marks</button></Link>
-
+        
+       
           <br/>
+          
+          
 
       
      
@@ -109,6 +112,7 @@ const PrivateScreen = ({history}) => {
 
       <Link to="groupscreen" id="GroupConfig"><button className="buttons" onClick="groupscreen">My Group</button></Link>
         <br></br><Link to="matchedsupervisors" id="MatchedS"><button className="buttons" onClick="matchedsupervisors">Matched Supervisors</button></Link><br></br>
+        <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Student - Topic Registration Form</button></Link>
       
         
         {/* <Link to="GroupScreen" id="MatchedS"><button className="buttons" onClick="GroupScreen">Group</button></Link><br></br> */}
