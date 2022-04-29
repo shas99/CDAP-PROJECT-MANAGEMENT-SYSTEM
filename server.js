@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/private', require('./routes/private'))
+app.use('/api/student', require('./routes/student'))
 
 // Error handler(Should be the last piece of middleware)
 app.use(errorHandler)

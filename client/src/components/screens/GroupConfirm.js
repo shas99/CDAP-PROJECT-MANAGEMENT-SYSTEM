@@ -47,16 +47,16 @@ const GroupConfirm = ({ history, match }) => {
         onSubmit={resetPasswordHandler}
         className="resetpassword-screen__form"
       >
-        <h3 className="resetpassword-screen__title">Group Registration confirmation<br/>Click button below to confirm your registration</h3>
+        <h3 className="resetpassword-screen__title">Group Registration confirmation<br/><br/>Click button below to confirm your registration</h3>
         {error && <span className="error-message">{error} </span>}
         {success && (
           <span className="success-message">
-            {success} <Link to="/login">Login</Link>
+            {success}
           </span>
         )}
         
         <button type="submit" className="btn btn-primary" id="btn">
-          Reset Password
+          Join Group
         </button>
       </form>
     </div>
