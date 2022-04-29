@@ -24,7 +24,7 @@ const GroupConfirm = ({ history, match }) => {
 
     try {
       const { data } = await axios.put(
-        `/api/auth/groupconfirm/${match.params.resetToken}`,
+        `/api/group/groupconfirm/${match.params.resetToken}`,
         {
           password,
         },
@@ -62,5 +62,7 @@ const GroupConfirm = ({ history, match }) => {
     </div>
   );
 };
+
+
 
 export default GroupConfirm;

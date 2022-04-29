@@ -40,7 +40,7 @@ const MatchedSupervisors = ({history}) => {
         };
   
         try {
-          const { data} = await axios.get("/api/auth/group",suggestconfig);
+          const { data} = await axios.get("/api/group/group",suggestconfig);
           const sugArray = data.data.split("/")
           const suggArray = sugArray[1].split(",")
           // console.log(suggArray)

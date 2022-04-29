@@ -38,7 +38,7 @@ const GroupConfiguration = ({history}) => {
       };
 
       try {
-        const { data} = await axios.get("/api/auth/group",groupconfig);
+        const { data} = await axios.get("/api/group/group",groupconfig);
         const groupArray = data.data.split("/")
         setGroupData(groupArray[0]);
       } catch (error) {
