@@ -9,8 +9,8 @@ import Footer from "../Footer/Footer";
 const GroupScreen = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
-    // const [fetchGroupData, setGroupData] = useState("")
-    // const [suggestions,setsuggestions] = useState("")
+
+
     const [member_1, setMember1] = useState("");
     const [member_2, setMember2] = useState("");
     const [member_3, setMember3] = useState("");

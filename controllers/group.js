@@ -5,6 +5,7 @@ const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
+const Mail = require('nodemailer/lib/mailer')
 
 
 exports.GroupregisterConfirm = async(req, res, next) => {
@@ -47,22 +48,25 @@ exports.groupregister = async(req,res,next) => {//group registration
         const group = await Group.create({
             member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve//new
         })
+        var email = []
+        email[0] = member_1
+        email[1] = member_2
+        email[2] = member_3
+        email[3] = member_4
+        email[4] = member_5
+        
         const resetToken = group.getResetPasswordToken()
         const resetUrl = `https://cdap-app.herokuapp.com/groupconfirm/${resetToken}`
-        const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
-        <h3>Hello pshasvathan1999</h3>
-        <p>${member_1},${member_2},${member_3},${member_4},${member_5} are inviting you to join there team</p>
-        <p>Group registration ID: ${resetUrl}</p>
-        <p>Thank you,<br/> Best Regards <br/> Developer Team
-        </p>`
+        
 
-        await group.save()
+        for(var i =0;i<5;i++){
+            console.log("testing"+email[i]);
+            
+            await group.save()
+            mail(email[i],resetUrl,email[0])
 
-        await sendEmail({
-            to:"pshasvathan1999@gmail.com",
-            subject:"Password Reset Request",
-            text: message
-        })
+        }
+
         
         res.status(201).json({
             success: true,
@@ -190,4 +194,18 @@ const logged = (token,res) => {//check if token is null
         console.log("You are not logged in")
         res.status(500).json({success:false})
     }
+}
+
+const mail = async(email,resetUrl,leader) => {
+    const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
+    <h3>Hello ${email}</h3>
+    <p>${leader} is inviting you to join their team</p>
+    <p>Group registration ID: ${resetUrl}</p>
+    <p>Thank you,<br/> Best Regards <br/> Developer Team
+    </p>`
+    await sendEmail({
+        to:`${email}@my.sliit.lk`,
+        subject:"Password Reset Request",
+        text: message
+    })
 }
