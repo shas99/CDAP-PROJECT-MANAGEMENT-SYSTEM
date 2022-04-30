@@ -5,20 +5,16 @@ const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
+const TopicReg = require('../models/TopicReg')
 
 
 
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
-    
-    
     try{
-
         const user = await User.create({
             username,email,password
         })
-        
-
         sendToken(user, 201, res)
     }catch(error){
         next(error)
@@ -77,12 +73,12 @@ exports.viewmarks =async(req,res,next) => {
         token = req.headers.authorization.split(" ")[1]
     }
 
-    if(token){
+    if(token == "null"){
         logged(token,res)
     }
     else{
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
-
+    console.log(decoded)
 
     const user = await User.findById(decoded.id)
    
@@ -314,7 +310,24 @@ exports.group = async (req, res, next) => {//suggest supervisor
 }
 };
 
+exports.topicregister = async(req,res,next) => {//group registration
+    const {groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5} = req.body
 
+    
+    console.log("Error Finding"+groupleader)
+    try{
+        const topicR = await TopicReg.create({
+            groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5//new
+        })
+        res.status(201).json({
+            success: true,
+            data: "Submission Success"
+        })
+
+    }catch(error){
+        next(error)
+    }
+};
 
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
