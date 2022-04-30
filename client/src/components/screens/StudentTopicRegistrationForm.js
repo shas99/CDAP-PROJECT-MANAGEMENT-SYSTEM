@@ -84,7 +84,7 @@ const TopicRegistration = ({history}) => {
     
         try {
           const { data } = await axios.post(
-            "/api/auth/topicregister",
+            "/api/group/topicregister",
             { groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5 },
             config
           );
