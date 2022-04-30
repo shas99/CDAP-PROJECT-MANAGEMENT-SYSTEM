@@ -62,7 +62,7 @@ const StaffLoginScreen = ({ history }) => {
         <div className="form-group">
           <label htmlFor="password" id="PasswordID">
             Password:{" "}
-            <Link to="/forgotpassword" className="login-screen__forgotpassword">
+            <Link to="/Staffforgotpassword" className="login-screen__forgotpassword">
               Forgot Password?
             </Link>
           </label>
@@ -82,7 +82,7 @@ const StaffLoginScreen = ({ history }) => {
         </button>
 
         <span className="login-screen__subtext">
-          Don't have an account? <Link to="/register" id="Regs">Register</Link>
+          Don't have an account? <Link to="/Staffregister" id="Regs">Register</Link>
         </span>
       </form>
     </div>
