@@ -35,7 +35,7 @@ const GroupConfirm = ({ history, match }) => {
         config
       );
       setlogged("Logged")
-      localStorage.setItem("authokeTn", data.token);
+      localStorage.setItem("authToken", data.token);
       
 
     } catch (error) {
@@ -45,6 +45,7 @@ const GroupConfirm = ({ history, match }) => {
       }, 5000);
     }
   };
+
 
 
   const resetPasswordHandler = async (e) => {
@@ -67,6 +68,13 @@ const GroupConfirm = ({ history, match }) => {
         config
       );
 
+      const { data1 } = await axios.put(
+        `/api/group/autoapprove/${match.params.resetToken}`,
+        {
+          password,
+        },
+        config
+      );
       console.log(data);
       setSuccess(data.data);
     } catch (error) {

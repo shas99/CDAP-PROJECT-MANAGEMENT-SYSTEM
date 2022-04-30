@@ -44,10 +44,10 @@ exports.groupregister = async(req,res,next) => {//group registration
     const mem3_approve = false
     const mem4_approve = false
     const mem5_approve = false
-    
+    const g_approval = false
     try{
         const group = await Group.create({
-            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve//new
+            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve,g_approval//new
         })
         var email = []
         email[0] = member_1
@@ -183,6 +183,38 @@ exports.topicregister = async(req,res,next) => {//group registration
         next(error)
     }
 };
+
+exports.autoapprove = async(req, res, next) => {
+    const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
+    ("hex")
+    try{
+        console.log("goupregID"+req.params.resetToken)
+        
+        const group = await Group.findOne({
+            resetPasswordToken,
+            resetPasswordExpire:{$gt: Date.now()}
+        })
+        if(!group){
+            return next(new ErrorResponse("Invalid Reset Token",400))
+        }
+        if(group.mem1_approve == true && group.mem2_approve == true && group.mem3_approve == true && group.mem4_approve == true && group.mem5_approve == true){
+            group.g_approval = true
+        }
+        console.log(group+"this is group")
+        await group.save()
+        
+        res.status(201).json({
+            success: true,
+            data: "Password Reset Success"
+        })
+        
+    }catch(error){
+        next(error)
+    }
+    
+}
+
+
 
 const logged = (token,res) => {//check if token is null
     if(token == "null"){
