@@ -9,15 +9,11 @@ const app = express();
 
 app.use(express.json())
 
-// // ... other imports 
-// const path = require("path")
+// ... other imports 
+const path = require("path")
 
-// // ... other app.use middleware 
-// app.use(express.static(path.join(__dirname, "client", "build")))
-
-
-
-
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
@@ -32,11 +28,13 @@ const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 // Right before your app.listen(), add this:
-/*app.get("*", (req, res) => {
+app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});*/
+});
 
+
+//This code causes the PROXY CRASH !!!!!
 process.on("unhandledRejection", (err,promise)=>{
     console.log(`Logged Error: ${err}`)
-    server.close(()=> process.exit(1))
+    // server.close(()=> process.exit(1))
 })
