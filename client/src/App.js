@@ -20,7 +20,11 @@ import GroupConfiguration from "./components/screens/GroupConfiguration";
 import ViewMarks from "./components/screens/ViewMarks";
 import MatchedSupervisors from "./components/screens/MatchedSupervisors";
 import GroupScreen from "./components/screens/GroupScreen"
+
 import GroupConfirm from "./components/screens/GroupConfirm";
+
+import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
+
 
 const App = () => {
   return (
@@ -49,7 +53,11 @@ const App = () => {
 
          <Route exact path="/groupconfiguration" component={GroupConfiguration}/>
 
+
          <Route exact path="/groupconfirm/:resetToken" component={GroupConfirm}/>
+
+         <Route exact path="/topicregistration" component={TopicRegistration}/>
+
         </Switch>
 
       </div>
