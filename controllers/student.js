@@ -40,12 +40,6 @@ exports.viewfeedback =async(req,res,next) => {
 }
 };
 
-const logged = (token,res) => {//check if token is null
-    if(token == "null"){
-        console.log("You are not logged in")
-        res.status(500).json({success:false})
-    }
-}
 
 // old view marks method
 
@@ -63,16 +57,16 @@ exports.viewmarks =async(req,res,next) => {
         logged(token,res)
     }
     else{
-    const decoded = jwt.verify(token,process.env.JWT_SECRET)
-    console.log(decoded)
-
-    const user = await User.findById(decoded.id)
+        const decoded = jwt.verify(token,process.env.JWT_SECRET)
+        console.log(decoded)
+        
+        const user = await User.findById(decoded.id)
    
 
-    try{
+        try{
      /*   const studentmarks = await User.findOne({
-            email
-
+         email
+         
         })*/
         // const marks = studentmarks.marks
         // console.log(marks)
@@ -86,3 +80,11 @@ exports.viewmarks =async(req,res,next) => {
     }
 }
 };
+
+
+const logged = (token,res) => {//check if token is null
+    if(token == "null"){
+        console.log("You are not logged in")
+        res.status(500).json({success:false})
+    }
+}

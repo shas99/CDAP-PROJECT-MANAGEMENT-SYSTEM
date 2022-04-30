@@ -6,7 +6,7 @@ const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
 const Mail = require('nodemailer/lib/mailer')
-
+const TopicReg = require("../models/TopicReg")
 
 exports.GroupregisterConfirm = async(req, res, next) => {
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
@@ -21,18 +21,19 @@ exports.GroupregisterConfirm = async(req, res, next) => {
         if(!group){
             return next(new ErrorResponse("Invalid Reset Token",400))
         }
-       group.mem1_approve=true
+        group.mem1_approve=true
         console.log(group+"this is group")
         await group.save()
-
+        
         res.status(201).json({
             success: true,
             data: "Password Reset Success"
         })
-
+        
     }catch(error){
         next(error)
     }
+    
 }
 
 exports.groupregister = async(req,res,next) => {//group registration
@@ -43,10 +44,10 @@ exports.groupregister = async(req,res,next) => {//group registration
     const mem3_approve = false
     const mem4_approve = false
     const mem5_approve = false
-    
+    const g_approval = false
     try{
         const group = await Group.create({
-            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve//new
+            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve,g_approval//new
         })
         var email = []
         email[0] = member_1
@@ -162,7 +163,28 @@ exports.group = async (req, res, next) => {//suggest supervisor
 };
 
 
-exports.GroupregisterConfirm = async(req, res, next) => {
+
+
+exports.topicregister = async(req,res,next) => {//group registration
+    const {groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5} = req.body
+
+    
+    console.log("Error Finding"+groupleader)
+    try{
+        const topicR = await TopicReg.create({
+            groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5//new
+        })
+        res.status(201).json({
+            success: true,
+            data: "Submission Success"
+        })
+
+    }catch(error){
+        next(error)
+    }
+};
+
+exports.autoapprove = async(req, res, next) => {
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
     ("hex")
     try{
@@ -175,19 +197,24 @@ exports.GroupregisterConfirm = async(req, res, next) => {
         if(!group){
             return next(new ErrorResponse("Invalid Reset Token",400))
         }
-       group.mem1_approve=true
+        if(group.mem1_approve == true && group.mem2_approve == true && group.mem3_approve == true && group.mem4_approve == true && group.mem5_approve == true){
+            group.g_approval = true
+        }
         console.log(group+"this is group")
         await group.save()
-
+        
         res.status(201).json({
             success: true,
             data: "Password Reset Success"
         })
-
+        
     }catch(error){
         next(error)
     }
+    
 }
+
+
 
 const logged = (token,res) => {//check if token is null
     if(token == "null"){
