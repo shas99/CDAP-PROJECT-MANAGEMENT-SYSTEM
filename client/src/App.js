@@ -24,6 +24,7 @@ import GroupScreen from "./components/screens/GroupScreen"
 import GroupConfirm from "./components/screens/GroupConfirm";
 
 import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
+import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 
 
 const App = () => {
@@ -57,7 +58,7 @@ const App = () => {
          <Route exact path="/groupconfirm/:resetToken" component={GroupConfirm}/>
 
          <Route exact path="/topicregistration" component={TopicRegistration}/>
-
+         <Route exact path="/stafflogin" component={StaffLoginScreen}/>
         </Switch>
 
       </div>
