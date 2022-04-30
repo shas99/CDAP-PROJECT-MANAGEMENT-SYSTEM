@@ -5,6 +5,7 @@ const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
+const TopicReg = require('../models/TopicReg')
 
 
 
@@ -309,7 +310,24 @@ exports.group = async (req, res, next) => {//suggest supervisor
 }
 };
 
+exports.topicregister = async(req,res,next) => {//group registration
+    const {groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5} = req.body
 
+    
+    console.log("Error Finding"+groupleader)
+    try{
+        const topicR = await TopicReg.create({
+            groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5//new
+        })
+        res.status(201).json({
+            success: true,
+            data: "Submission Success"
+        })
+
+    }catch(error){
+        next(error)
+    }
+};
 
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
