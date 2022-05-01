@@ -22,8 +22,39 @@ const nexmo = new Nexmo({
     apiSecret:'NiSs1FWkyG1tp72S'
 })
 
+app.get('/', (req,res) => {
+    res.render('index.html', {message: 'Hello world'})
+})
+
+app.post('/verify',(req,res) => {
+    nexmo.verify.request({
+        number:req.body.number,
+        brand: 'ACME corp'}
+    , (error, result)=>{
+        if(result.status != 0){
+            res.render('index.html', {message:result.error_text})
+        }else{
+            res.render('check.html',{requestId: result.request_id})
+        }
+
+    })
+})
+
+app.post('/check', (req,res)=>{
+    nexmo.verify.check({
+        request_id: req.body.requestId,
+        code: req.body.code
+    }, (error, result)=>{
+        if(result.status != 0 ){
+            res.render('index.html', {message : result.error_text})
+        }else{
+            res.render('success.html')
+        }
+    })
+})
 // ... other imports 
-const path = require("path")
+const path = require("path");
+const { e } = require('nunjucks/src/filters');
 
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
