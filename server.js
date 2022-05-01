@@ -21,10 +21,13 @@ const nexmo = new Nexmo({
     apiKey:'1d0d5bcd',
     apiSecret:'NiSs1FWkyG1tp72S'
 })
-
+//1st
 app.get('/', (req,res) => {
     res.render('index.html', {message: 'Hello world'})
 })
+
+
+//2nd
 
 app.post('/verify',(req,res) => {
     nexmo.verify.request({
@@ -40,6 +43,7 @@ app.post('/verify',(req,res) => {
     })
 })
 
+//3rd
 app.post('/check', (req,res)=>{
     nexmo.verify.check({
         request_id: req.body.requestId,
