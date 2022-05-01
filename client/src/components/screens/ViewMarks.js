@@ -39,7 +39,7 @@ const ViewMarks = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.get("/api/auth/viewmarks",marksconfig);
+        const{data} = await axios.get("/api/student/viewmarks",marksconfig);
         setMarksData(data.data);
       }catch(error){
 

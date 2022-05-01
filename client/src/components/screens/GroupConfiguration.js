@@ -5,8 +5,6 @@ import "./GroupConfiguration.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-
-
 const GroupConfiguration = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
@@ -40,7 +38,7 @@ const GroupConfiguration = ({history}) => {
       };
 
       try {
-        const { data} = await axios.get("/api/auth/group",groupconfig);
+        const { data} = await axios.get("/api/group/group",groupconfig);
         const groupArray = data.data.split("/")
         setGroupData(groupArray[0]);
       } catch (error) {

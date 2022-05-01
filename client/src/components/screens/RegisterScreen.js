@@ -42,7 +42,7 @@ const RegisterScreen = ({ history }) => {
       );
 
       localStorage.setItem("authToken", data.token);
-
+//push to private screen
       history.push("/");
     } catch (error) {
       setError(error.response.data.error);
@@ -108,7 +108,7 @@ const RegisterScreen = ({ history }) => {
         {/* Pasindu Vinod added password validation for reset password component on 17/04/2022 */}
         <PasswordChecklist
         className ="message"
-				rules={["minLength","specialChar","number","capital","lowercase"]}
+				rules={["minLength","specialChar","number","capital","lowercase","match"]}
 				minLength={8}
 				value={password}
 				valueAgain={confirmpassword}
@@ -118,7 +118,8 @@ const RegisterScreen = ({ history }) => {
 					specialChar: "Password must include atleast 1 special character.",
 					number: "Password must include atleast 1 number.",
 					capital: "Password must include atleast 1 capital letter.",
-          lowercase: "Password must include atleast 1 lowercase letter."
+          lowercase: "Password must include atleast 1 lowercase letter.",
+          match: "New Password and Confirm New Password fields must be same."
 				}}
         />
 
