@@ -29,15 +29,15 @@ exports.login = async (req, res, next) => {
     if(!email || !password){
        return next(new ErrorResponse("Please provide an email and password",400))
     }
-
     try{
         const user = await Staff.findOne({email}).select("+password")
-
+        
         if(!user){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
         
         const isMatch = await user.matchPasswords(password);
+        console.log(user)
 
         if(!isMatch){
             return next(new ErrorResponse("Invalid Credentials",401))

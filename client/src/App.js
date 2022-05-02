@@ -24,6 +24,7 @@ import GroupConfirm from "./components/screens/GroupConfirm";
 import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
 import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
+import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 
 const App = () => {
   return (
@@ -60,6 +61,8 @@ const App = () => {
          <Route exact path="/stafflogin" component={StaffLoginScreen}/>
          
          <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
+
+         <Route exact path="/staffPrivate" component={StaffPrivateScreen}/>
         </Switch>
 
       </div>

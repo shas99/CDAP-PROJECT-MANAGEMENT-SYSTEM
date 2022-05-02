@@ -11,7 +11,7 @@ const StaffLoginScreen = ({ history }) => {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/");
+      history.push("/staffPrivate");
     }
   }, [history]);
 
@@ -33,7 +33,7 @@ const StaffLoginScreen = ({ history }) => {
 
       localStorage.setItem("authToken", data.token);
 
-      history.push("/");
+      history.push("/staffPrivate");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
