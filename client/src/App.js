@@ -17,10 +17,14 @@ import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen";
 import ResetPasswordScreen from "./components/screens/ResetPasswordScreen";
 import ViewFeedback from "./components/screens/ViewFeedback";
 import GroupConfiguration from "./components/screens/GroupConfiguration";
-
 import ViewMarks from "./components/screens/ViewMarks";
 import MatchedSupervisors from "./components/screens/MatchedSupervisors";
 import GroupScreen from "./components/screens/GroupScreen"
+import GroupConfirm from "./components/screens/GroupConfirm";
+import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
+import StaffLoginScreen from "./components/screens/StaffLoginScreen";
+import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
+import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 
 const App = () => {
   return (
@@ -49,6 +53,16 @@ const App = () => {
 
          <Route exact path="/groupconfiguration" component={GroupConfiguration}/>
 
+
+         <Route exact path="/groupconfirm/:resetToken" component={GroupConfirm}/>
+
+         <Route exact path="/topicregistration" component={TopicRegistration}/>
+
+         <Route exact path="/stafflogin" component={StaffLoginScreen}/>
+         
+         <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
+
+         <Route exact path="/staffPrivate" component={StaffPrivateScreen}/>
         </Switch>
 
       </div>

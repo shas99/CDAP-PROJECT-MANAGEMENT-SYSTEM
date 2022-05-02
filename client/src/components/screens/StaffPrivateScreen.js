@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 
 
 
-const PrivateScreen = ({history}) => {
+const StaffPrivateScreen = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
 
@@ -21,7 +21,7 @@ const PrivateScreen = ({history}) => {
       };
 
       try {
-        const { data} = await axios.get("/api/private", config);
+        const { data} = await axios.get("/api/staffPrivate/staffPrivate", config);
         
         setPrivateData(data.data);
       } catch (error) {
@@ -51,24 +51,22 @@ const PrivateScreen = ({history}) => {
     <div id="back">
 
       <Header/>
-    <h1 id="caption">Welcome to your dashboard {privateData}</h1>
+    <h1 id="caption">Welcome to Staff dashboard {privateData}</h1>
     <p style={{color:"#FFF",textAlign:"right"}}>
  
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
       
 
-      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
+      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">Add Feedback</button></Link>
         <br/>
-        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View Marks</button></Link>
+        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">Add Marks</button></Link>
         
        
           <br/>
 
 
-      <Link to="groupscreen" id="GroupConfig"><button className="buttons" onClick="groupscreen">My Group</button></Link>
-        <br></br><Link to="matchedsupervisors" id="MatchedS"><button className="buttons" onClick="matchedsupervisors">Matched Supervisors</button></Link><br></br>
-        <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Student - Topic Registration Form</button></Link>
+      
       
         
   
@@ -80,4 +78,4 @@ const PrivateScreen = ({history}) => {
   );
 };
 
-export default PrivateScreen;
+export default StaffPrivateScreen;

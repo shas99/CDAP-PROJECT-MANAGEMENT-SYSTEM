@@ -88,7 +88,7 @@ const ResetPasswordScreen = ({ history, match }) => {
         {/* Pasindu Vinod added password validation for reset password component on 16/04/2022 */}
         <PasswordChecklist
         className ="message"
-				rules={["minLength","specialChar","number","capital","lowercase"]}
+				rules={["minLength","specialChar","number","capital","lowercase","match"]}
 				minLength={8}
 				value={password}
 				valueAgain={confirmPassword}
@@ -98,11 +98,12 @@ const ResetPasswordScreen = ({ history, match }) => {
 					specialChar: "Password must include atleast 1 special character.",
 					number: "Password must include atleast 1 number.",
 					capital: "Password must include atleast 1 capital letter.",
-          lowercase: "Password must include atleast 1 lowercase letter."
+          lowercase: "Password must include atleast 1 lowercase letter.",
+          match: "New Password and Confirm New Password fields must be same."
 				}}
         />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" id="btn">
           Reset Password
         </button>
       </form>

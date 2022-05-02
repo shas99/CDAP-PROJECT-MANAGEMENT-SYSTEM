@@ -1,5 +1,5 @@
 const crypto = require('crypto')
-const User = require('../models/User')
+const Staff = require('../models/Staff')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
@@ -12,7 +12,7 @@ const TopicReg = require('../models/TopicReg')
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
     try{
-        const user = await User.create({
+        const user = await Staff.create({
             username,email,password
         })
         sendToken(user, 201, res)
@@ -29,15 +29,15 @@ exports.login = async (req, res, next) => {
     if(!email || !password){
        return next(new ErrorResponse("Please provide an email and password",400))
     }
-
     try{
-        const user = await User.findOne({email}).select("+password")
-
+        const user = await Staff.findOne({email}).select("+password")
+        
         if(!user){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
         
         const isMatch = await user.matchPasswords(password);
+        console.log(user)
 
         if(!isMatch){
             return next(new ErrorResponse("Invalid Credentials",401))
@@ -54,7 +54,7 @@ exports.forgotpassword = async(req, res, next) => {
     const {email} = req.body
     
     try{
-        const user = await User.findOne({email})
+        const user = await Staff.findOne({email})
 
         if(!user){
             return next(new ErrorResponse("Email could not be set",404))

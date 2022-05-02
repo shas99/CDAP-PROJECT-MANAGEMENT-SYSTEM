@@ -1,7 +1,7 @@
 const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
-const { register,login,forgotpassword,resetpassword} = require('../controllers/auth')
+const { register,login,forgotpassword,resetpassword} = require('../controllers/staff')
 
 
 router.route("/register").post(register)

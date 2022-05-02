@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const { match } = require('assert')
 const { inflateSync } = require('zlib')
 
-const UserSchema = new mongoose.Schema({
+const StaffSchema = new mongoose.Schema({
     username: {
         type: String,
         required: [true,"Please provide a username"]
@@ -41,7 +41,7 @@ const UserSchema = new mongoose.Schema({
     resetPasswordExpire: Date
 })
 
-UserSchema.pre("save", async function(next){
+StaffSchema.pre("save", async function(next){
     if(!this.isModified("password")){
         next();
     }
@@ -51,17 +51,17 @@ UserSchema.pre("save", async function(next){
     next();
 })
 
-UserSchema.methods.matchPasswords = async function(password){
+StaffSchema.methods.matchPasswords = async function(password){
     return await bcrypt.compare(password, this.password)
 }
 
-UserSchema.methods.getSignedToken = function(){
+StaffSchema.methods.getSignedToken = function(){
     return jwt.sign({id: this._id}, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRE,
     })
 }
 
-UserSchema.methods.getResetPasswordToken = function () {
+StaffSchema.methods.getResetPasswordToken = function () {
     const resetToken = crypto.randomBytes(20).toString("hex");
   
     // Hash token (private key) and save to database
@@ -76,6 +76,6 @@ UserSchema.methods.getResetPasswordToken = function () {
     return resetToken;
   };
 
-const User = mongoose.model("User", UserSchema)
+const Staff = mongoose.model("Staff", StaffSchema)
 
-module.exports = User
+module.exports = Staff

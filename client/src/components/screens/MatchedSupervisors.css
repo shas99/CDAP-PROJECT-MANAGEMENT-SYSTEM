@@ -5,6 +5,30 @@
     font-weight: bolder;
 }
 
-.MatchedSupervisorsDiv{
-    
-}
+#card{
+    border-width: 2px;
+    border-style: solid;
+    border-color: #464b53;
+    width: 60%;
+    height: 33vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+
+  #caption{
+    font-size: x-large;
+  }
+
+  #hr{
+    border-color: #464b53;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  #List{
+    margin-top: 20px;
+    color: #fff;
+    padding-bottom: 20px;
+  }

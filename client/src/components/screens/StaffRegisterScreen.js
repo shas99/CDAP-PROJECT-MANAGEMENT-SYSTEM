@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./RegisterScreen.css";
 import PasswordChecklist from "react-password-checklist"
 
-const RegisterScreen = ({ history }) => {
+const StaffRegisterScreen = ({ history }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +32,7 @@ const RegisterScreen = ({ history }) => {
     
     try {
       const { data } = await axios.post(
-        "/api/auth/register",
+        "/api/StaffAuth/register",
         {
           username,
           email,
@@ -128,11 +128,11 @@ const RegisterScreen = ({ history }) => {
         </button>
 
         <span className="register-screen__subtext">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/staffLogin">Login</Link>
         </span>
       </form>
     </div>
   );
 };
 
-export default RegisterScreen;
+export default StaffRegisterScreen;
