@@ -2,10 +2,6 @@ require('dotenv').config({path: "./config.env"})
 const express = require('express');
 const connectDB = require('./config/db')
 const errorHandler = require('./middleware/error')
-const bodyParser = require('body-parser')
-const nunjucks=require('nunjucks')
-const Nexmo = require('nexmo')
-
 
 connectDB();
 
@@ -13,18 +9,8 @@ const app = express();
 
 app.use(express.json())
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:false}))
-nunjucks.configure('views',{express:app})
-
-const nexmo = new Nexmo({
-    apiKey:'1d0d5bcd',
-    apiSecret:'NiSs1FWkyG1tp72S'
-})
-
 // ... other imports 
-const path = require("path");
-const { e } = require('nunjucks/src/filters');
+const path = require("path")
 
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
@@ -50,8 +36,22 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-
-
+const http = require('http')
+const sendingMessage = "Hello from Django"
+const color = "Chewie, we're home"
+const url = `http://django-env.eba-qitcexyr.us-west-2.elasticbeanstalk.com/sayHello/?color=${color}`;
+http.get(url, res => {
+  let data = '';
+  res.on('data', chunk => {
+    data += chunk;
+  });
+  res.on('end', () => {
+    data = JSON.parse(data);
+    console.log(data);
+  })
+}).on('error', err => {
+  console.log(err.message);
+}).end()
 //This code causes the PROXY CRASH !!!!!
 process.on("unhandledRejection", (err,promise)=>{
     console.log(`Logged Error: ${err}`)
