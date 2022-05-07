@@ -8,6 +8,6 @@ const {viewAvailableProjects,viewspecificproject} = require('../controllers/Avai
 router.route("/availableProjects").get(viewAvailableProjects) //router for View Available Projects
 
 
-router.route("/viewspecificproject").get(viewspecificproject)
+router.route("/availableProjects/:id").get(viewspecificproject)
 
 module.exports = router
