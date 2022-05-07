@@ -7,4 +7,4 @@ router.get('/projectbidlist/:id',projectbidlistcontroller.get_projectbidlist_pro
 router.post('/projectbidlist/:id',projectbidlistcontroller.add_projectbidlist_project);
 router.delete('/projectbidlist/:groupId/:projectId',projectbidlistcontroller.delete_project);
 
-module.exports = router
+module.exports = router;
