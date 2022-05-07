@@ -20,6 +20,17 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
     },
     publishedDate:{
       type:String
+    },
+    bidding:{
+      biddingPlacedGroup:{
+        type:String
+      },
+      date:{
+        type:String
+      },
+      time:{
+        type:String
+      }
     }
 })
 

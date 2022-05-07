@@ -47,3 +47,18 @@ exports.viewspecificproject = async(req,res,next) => {
     }
 }
 
+
+// To place a bid on available specfic project
+exports.placeBidonAvailableProject = async(req,res,next) =>{
+    
+    const biddingPlacedProjectID= req.body.params;
+    const {bidPlacedGroup, date, time} = req.body
+    try{
+        const user = await AvailableProject.bidding.create({
+            bidPlacedGroup, date, time
+        })
+        sendToken(user, 201, res)
+    }catch(error){
+        next(error)
+    }
+};
