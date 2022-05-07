@@ -26,8 +26,8 @@ const nexmo = new Nexmo({
 const path = require("path");
 const { e } = require('nunjucks/src/filters');
 
-// ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
+// // ... other app.use middleware 
+// app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
@@ -37,6 +37,8 @@ app.use('/api/student', require('./routes/student'))
 app.use('/api/group',require('./routes/group'))
 app.use('/api/staffAuth',require('./routes/staffAuth'))
 app.use('/api/staffPrivate', require('./routes/staffPrivate'))
+app.use('/api/AvailableProject', require('./routes/AvailableProject'))
+
 
 
 // Error handler(Should be the last piece of middleware)
@@ -46,10 +48,10 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
-// Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// // Right before your app.listen(), add this:
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
 
 
 //This code causes the PROXY CRASH !!!!!
