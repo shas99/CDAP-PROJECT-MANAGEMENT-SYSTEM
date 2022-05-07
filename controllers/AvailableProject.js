@@ -26,3 +26,24 @@ try{
 }
 
 };
+
+//To view a specific project
+exports.viewspecificproject = async(req,res,next) => {
+    
+    try{
+        const availableprojectid = req.params.id;
+        const availableProjects = await AvailableProject.findById(availableprojectid)//group that is approved and have this perticular member
+        console.log("Projects",availableProjects)// 
+    
+        res.status(201).json({
+            success: true,
+            data: res.AvailableProject
+        })
+    
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
+
