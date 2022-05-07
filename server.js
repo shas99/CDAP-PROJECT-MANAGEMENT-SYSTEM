@@ -37,6 +37,9 @@ app.use('/api/student', require('./routes/student'))
 app.use('/api/group',require('./routes/group'))
 app.use('/api/staffAuth',require('./routes/staffAuth'))
 app.use('/api/staffPrivate', require('./routes/staffPrivate'))
+//projectbidlist
+app.use('/api/projectbidlist', require('./routes/projectbidlist'))
+
 
 
 // Error handler(Should be the last piece of middleware)

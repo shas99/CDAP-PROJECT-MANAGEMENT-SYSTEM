@@ -20,6 +20,4 @@ const ProjectbidlistSchema = new Schema({
     }],
    
 });
-const Projectbidlist = mongoose.model("Projectbidlist", ProjectbidlistSchema)
-
-module.exports = Projectbidlist
+module.exports = Projectbidlist = mongoose.model('projectbidlist',ProjectbidlistSchema);
