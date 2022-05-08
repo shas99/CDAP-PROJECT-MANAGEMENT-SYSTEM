@@ -43,19 +43,20 @@ exports.viewspecificproject = async(req,res,next) => {
 //******** PLACE BID SPECIFIC AVAILABLE PROJECT *********
 exports.placeBidonAvailableProject = async(req,res,next) =>{
 
-    const {bidPlacedGroup, date, time} = req.body
     const relevantProjectID =req.params.id;
+    const {bidPlacedGroup, date, time} = req.body
+   
     try{
 
-        const placedBid = await AvailableProject.findOne({
+        const placedBid = await AvailableProject.findOneAndUpdate({
            relevantProjectID
         })
         if(!placedBid){
             return next(new ErrorResponse("Project placed to bid not found",400))
         }
-       placedBid.bidding.biddingPlacedGroup = req.body.bidPlacedGroup
-       placedBid.bidding.date = req.body.date 
-       placedBid.bidding.time = req.body.time
+       placedBid.bidding.biddingPlacedGroup = bidPlacedGroup
+       placedBid.bidding.date = date
+       placedBid.bidding.time = time
         
         await placedBid.save()
 
@@ -63,8 +64,8 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
             success: true,
             data: "Bid set Success"
         })
-
     }catch(error){
         next(error)
     }
 };
+

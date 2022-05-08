@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
 
   projectName: {
@@ -33,7 +32,5 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
       }
     }
 })
-
 const AvailableProject = mongoose.model("availableProjects", AvailableProjectSchema)
-
 module.exports = AvailableProject
