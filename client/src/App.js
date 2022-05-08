@@ -27,7 +27,7 @@ import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 
-import ViewAvailableProjects2 from "./components/screens/ViewAvailableProjects2";
+
 
 const App = () => {
   return (
@@ -69,7 +69,7 @@ const App = () => {
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
 
-         <Route exact path="/viewavailableprojects2" component={ViewAvailableProjects2}/>
+        
         </Switch>
 
       </div>

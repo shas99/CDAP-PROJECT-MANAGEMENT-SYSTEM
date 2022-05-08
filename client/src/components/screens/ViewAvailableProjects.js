@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 
 import React, { Component } from 'react'
 
+
 export default class ViewAvailableProjects extends Component {
 
   constructor(props){
@@ -16,7 +17,7 @@ export default class ViewAvailableProjects extends Component {
     
     this.state= {
     
-    availableprojects: [],
+    availableprojects:[],
     
     
     };
@@ -36,7 +37,7 @@ export default class ViewAvailableProjects extends Component {
         
         this.setState({
         
-        availableprojects: res.AvailableProject
+        availableprojects: res.data.AvailableProject
         
         });
         
@@ -46,21 +47,20 @@ export default class ViewAvailableProjects extends Component {
         
         }
   render() {
+    const {
+      projectName,
+      projectDescription,
+      projectBiddingCount
+    } = this.retrieveAvailableProjects;
+
     return (
-      <div>
-     {this.state.availableprojects}
-     {this.retrieveAvailableProjects}
-      
-     
-       </div>
-      
-     
- 
+   /* <div>
+      {this.retrieveAvailableProjects}
+    </div>*/
+    <div>
+      <h4>{projectName}</h4>
 
-
-     
-
-    
-    )
+    </div>
+    );
   }
 }
