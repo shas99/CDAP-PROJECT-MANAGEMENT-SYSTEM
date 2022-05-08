@@ -16,7 +16,6 @@ from tqdm.notebook import tqdm as tqdm
 from bs4 import BeautifulSoup as bs
 from IPython.display import display
 
-
 # Importing the libraries
 import pandas as pd
 pd.set_option('display.max_colwidth', 500)
@@ -28,6 +27,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk import FreqDist
 from nltk.corpus import stopwords
 from nltk.collocations import BigramAssocMeasures, BigramCollocationFinder
+import nltk
 
 import pandas as pd
 pd.set_option('display.max_colwidth', 500)
@@ -54,7 +54,10 @@ from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 from sklearn.preprocessing import MinMaxScaler
 
+import sys
 
+for path in sys.path:
+    print(path)
 
 def sayHello(request):
     # ## Using BeautifulSoup
@@ -362,6 +365,23 @@ def sayHello(request):
 
     plot_evaluation(db_scores)        
 
+    # Instantiating HAC
+    hac = AgglomerativeClustering(n_clusters=12)
+
+    # Fitting
+    hac.fit(df_pca)
+
+    # Getting cluster assignments
+    cluster_assignments = hac.labels_
+
+    # Unscaling the categories then replacing the scaled values
+    df = df[['Bios']].join(pd.DataFrame(scaler.inverse_transform(df.drop('Bios', axis=1)), columns=df.columns[1:], index=df.index))
+
+    # Assigning the clusters to each profile
+    df['Cluster #'] = cluster_assignments
+
+    # Viewing the dating profiles with cluster assignments
+    df 
 
 
 
