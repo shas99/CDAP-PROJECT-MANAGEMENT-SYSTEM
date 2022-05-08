@@ -1,25 +1,16 @@
-// const User = require('../models/User')
+
 const AvailableProject = require('../models/AvailableProject')
-// const topicReg = require('../models/AvailableProject')
 
-
-//To view Available Projects
+//*******VIEW AVAILABLE PROJECTS API *******
 exports.viewAvailableProjects =async(req,res,next) => {
-
-// console.log("Hello Project!")
-
-
 try{
-
-    const availableProjects = await AvailableProject.find()//group that is approved and have this perticular member
-    console.log("Projects",availableProjects)// 
+    const availableProjects = await AvailableProject.find()
+    console.log("Projects",availableProjects)
 
     res.status(201).json({
         success: true,
         data: res.AvailableProject
     })
-
-    
 
 }catch(error){
     res.status(500).json({success:false, error:error.message})
@@ -27,13 +18,13 @@ try{
 
 };
 
-//To view a specific project
+//***** VIEW SPECIFIC PROJECT API******** 
 exports.viewspecificproject = async(req,res,next) => {
     
     try{
         const availableprojectid = req.params.id;
         const availableProjects = await AvailableProject.findById(availableprojectid)//group that is approved and have this perticular member
-        console.log("Projects",availableProjects)// 
+        console.log("Projects",availableProjects)
     
         res.status(201).json({
             success: true,
@@ -48,7 +39,8 @@ exports.viewspecificproject = async(req,res,next) => {
 }
 
 
-// To place a bid on available specfic project
+
+//******** PLACE BID SPECIFIC AVAILABLE PROJECT *********
 exports.placeBidonAvailableProject = async(req,res,next) =>{
 
     const {bidPlacedGroup, date, time} = req.body
