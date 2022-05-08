@@ -21,41 +21,7 @@ const nexmo = new Nexmo({
     apiKey:'1d0d5bcd',
     apiSecret:'NiSs1FWkyG1tp72S'
 })
-//1st
-app.get('/', (req,res) => {
-    res.render('index.html', {message: 'Hello world'})
-})
 
-
-//2nd
-
-app.post('/verify',(req,res) => {
-    nexmo.verify.request({
-        number:req.body.number,
-        brand: 'ACME corp'}
-    , (error, result)=>{
-        if(result.status != 0){
-            res.render('index.html', {message:result.error_text})
-        }else{
-            res.render('check.html',{requestId: result.request_id})
-        }
-
-    })
-})
-
-//3rd
-app.post('/check', (req,res)=>{
-    nexmo.verify.check({
-        request_id: req.body.requestId,
-        code: req.body.code
-    }, (error, result)=>{
-        if(result.status != 0 ){
-            res.render('index.html', {message : result.error_text})
-        }else{
-            res.render('success.html')
-        }
-    })
-})
 // ... other imports 
 const path = require("path");
 const { e } = require('nunjucks/src/filters');
