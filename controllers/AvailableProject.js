@@ -50,14 +50,28 @@ exports.viewspecificproject = async(req,res,next) => {
 
 // To place a bid on available specfic project
 exports.placeBidonAvailableProject = async(req,res,next) =>{
-    
-    const biddingPlacedProjectID= req.body.params;
+
     const {bidPlacedGroup, date, time} = req.body
+    const relevantProjectID =req.params.id;
     try{
-        const user = await AvailableProject.bidding.create({
-            bidPlacedGroup, date, time
+
+        const placedBid = await AvailableProject.findOne({
+           relevantProjectID
         })
-        sendToken(user, 201, res)
+        if(!placedBid){
+            return next(new ErrorResponse("Project placed to bid not found",400))
+        }
+       placedBid.bidding.biddingPlacedGroup = req.body.bidPlacedGroup
+       placedBid.bidding.date = req.body.date 
+       placedBid.bidding.time = req.body.time
+        
+        await placedBid.save()
+
+        res.status(201).json({
+            success: true,
+            data: "Bid set Success"
+        })
+
     }catch(error){
         next(error)
     }
