@@ -7,9 +7,10 @@ import Footer from "../Footer/Footer";
 
 
 const ViewAvailableProjects = ({history}) =>{
-  const [fetchProjectsData, setProjectsData] = useState("")
+  const [ProjectsData, setProjectsData] = useState("")
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
+  const [projectarray, setprojectarray] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -40,11 +41,15 @@ const ViewAvailableProjects = ({history}) =>{
 
       try{
         const{data} = await axios.get("/api/AvailableProject/availableprojects",projectsconfig);
-        // console.log(data.data[1]);
+        //console.log(typeof data.data);
+        const array = Object.entries(data.data)
         setProjectsData(data.data);
+       // console.log(array);
+        console.log( data.data);
 
         
-       console.log(objectToArray(data.data));
+       //console.log(objectToArray(data.data));
+
         
       }catch(error){
 
@@ -59,21 +64,29 @@ const ViewAvailableProjects = ({history}) =>{
     const res = [];
     for(let i = 0; i < keys.length; i++){
        res.push(obj[keys[i]]);
-       console.log(res);
+       setprojectarray(res)
+       console.log(projectarray);
+      
        
        
 
     };
-    return res;
+    return res; 
 
  };
+
+//  const listItems = numbers.map((number) =>    <li>{number}</li>  )
+// ;
+// const projectitems = ProjectsData.map((project) => 
+// <li>{project}</li>
+// )
   return  error ? ( 
   
     <span className="error-message">{error}</span>
   ) :(
     <div >
       <Header/>
-  <br/>
+   {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption">All projects</h1>
       <br/><br/>
       <div className="card">
@@ -83,9 +96,11 @@ const ViewAvailableProjects = ({history}) =>{
         {/* <p className="markscontent"> {fetchProjectsData[0].projectName}</p>   */}
         {/* <p className="markscontent"> {fetchProjectsData[0].projectDescription}</p>  */}
         {/* <p className="markscontent"> {fetchProjectsData[0].projectBiddingCount}</p>  */}
-        {console.log(fetchProjectsData[1])}
-        <ul>
-        {/* {fetchProjectsData.map(project => {
+        {console.log(ProjectsData)}
+
+        
+         {/* <ul>
+        {fetchProjectsData.map(project => {
           return (
             <li key={project._id}>
               {project.projectName}
@@ -96,8 +111,8 @@ const ViewAvailableProjects = ({history}) =>{
             
           )
 
-        })} */}
-      </ul>
+        })} 
+      </ul>  */}
       </div>
       </div>
       <br/>
