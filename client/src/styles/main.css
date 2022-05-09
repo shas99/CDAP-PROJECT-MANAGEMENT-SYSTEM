@@ -460,8 +460,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 6rem;
 }
 
-.w-24 {
-  width: 6rem;
+.w-4 {
+  width: 1rem;
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
