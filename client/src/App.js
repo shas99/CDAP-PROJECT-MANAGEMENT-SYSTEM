@@ -25,7 +25,9 @@ import TopicRegistration from "./components/screens/StudentTopicRegistrationForm
 import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
+
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
+
 
 
 
@@ -67,9 +69,11 @@ const App = () => {
 
          <Route exact path="/staffPrivate" component={StaffPrivateScreen}/>
 
+
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
 
         
+
         </Switch>
 
       </div>

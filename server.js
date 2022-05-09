@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 const path = require("path");
 
 
-// // ... other app.use middleware 
+//************* HEROKU DEPLOYMENT------------
 // app.use(express.static(path.join(__dirname, "client", "build")))
 
 
@@ -30,7 +30,6 @@ app.use('/api/student', require('./routes/student'))
 app.use('/api/group',require('./routes/group'))
 app.use('/api/staffAuth',require('./routes/staffAuth'))
 app.use('/api/staffPrivate', require('./routes/staffPrivate'))
-
 app.use('/api/AvailableProject', require('./routes/AvailableProject'))
 
 
@@ -43,10 +42,10 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
-// // Right before your app.listen(), add this:
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+//************* HEROKU DEPLOYMENT------------Right before your app.listen(), add this: ***********
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 
 //This code causes the PROXY CRASH !!!!!
