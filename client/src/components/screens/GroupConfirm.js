@@ -60,10 +60,12 @@ const GroupConfirm = ({ history, match }) => {
 
 
     try {
+      const token = localStorage.getItem("authToken")
       const { data } = await axios.put(
         `/api/group/groupconfirm/${match.params.resetToken}`,
         {
           password,
+          token
         },
         config
       );

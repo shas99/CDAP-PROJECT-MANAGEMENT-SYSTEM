@@ -20,10 +20,13 @@ import GroupConfiguration from "./components/screens/GroupConfiguration";
 import ViewMarks from "./components/screens/ViewMarks";
 import MatchedSupervisors from "./components/screens/MatchedSupervisors";
 import GroupScreen from "./components/screens/GroupScreen"
-
 import GroupConfirm from "./components/screens/GroupConfirm";
-
 import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
+import StaffLoginScreen from "./components/screens/StaffLoginScreen";
+import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
+import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
+import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
+
 
 
 const App = () => {
@@ -58,6 +61,15 @@ const App = () => {
 
          <Route exact path="/topicregistration" component={TopicRegistration}/>
 
+         <Route exact path="/stafflogin" component={StaffLoginScreen}/>
+         
+         <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
+
+         <Route exact path="/staffPrivate" component={StaffPrivateScreen}/>
+
+         <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
+
+        
         </Switch>
 
       </div>

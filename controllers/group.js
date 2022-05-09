@@ -11,17 +11,38 @@ const TopicReg = require("../models/TopicReg")
 exports.GroupregisterConfirm = async(req, res, next) => {
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
     ("hex")
+    const {token} = req.body
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+    
+    const user = await User.findById(decoded.id)
+    
+    console.log("toooooo"+user)
+    const username = user.username
     try{
         console.log("goupregID"+req.params.resetToken)
         
         const group = await Group.findOne({
             resetPasswordToken,
-            resetPasswordExpire:{$gt: Date.now()}
+            resetPasswordExpire:{$gt: Date.now()},
+
         })
         if(!group){
             return next(new ErrorResponse("Invalid Reset Token",400))
         }
-        group.mem1_approve=true
+        if(username == group.member_1){
+            group.mem1_approve = true
+        }else if(username == group.member_2){
+            group.mem2_approve = true
+        }else if(username == group.member_3){
+            group.mem3_approve = true
+        }else if(username == group.member_4){
+            group.mem4_approve = true
+        }else if(username == group.member_5){
+            group.mem5_approve = true
+        }
+
+       
         console.log(group+"this is group")
         await group.save()
         
@@ -89,7 +110,7 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
 
         const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
         console.log(group[0].suggestions)// 
-
+      
         res.status(201).json({
             success: true,
             data: "retreived success"
@@ -146,7 +167,7 @@ exports.group = async (req, res, next) => {//suggest supervisor
         console.log(group[0].suggestions)// 
 
 
-        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_4+"/"+group[0].suggestions
+        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_5+"/"+group[0].suggestions
         res.status(201).json({
             success: true,
             data: setdata
