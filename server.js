@@ -16,16 +16,10 @@ app.use(express.json())
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
-nunjucks.configure('views',{express:app})
-
-const nexmo = new Nexmo({
-    apiKey:'1d0d5bcd',
-    apiSecret:'NiSs1FWkyG1tp72S'
-})
 
 // ... other imports 
 const path = require("path");
-const { e } = require('nunjucks/src/filters');
+
 
 //************* HEROKU DEPLOYMENT------------
 // app.use(express.static(path.join(__dirname, "client", "build")))
