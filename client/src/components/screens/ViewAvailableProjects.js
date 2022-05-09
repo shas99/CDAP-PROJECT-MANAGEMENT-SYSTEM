@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 
 
 const ViewAvailableProjects = ({history}) =>{
-  const [ProjectsData, setProjectsData] = useState("")
+  const [ProjectsData, setProjectsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [projectarray, setprojectarray] = useState("");
@@ -45,8 +45,8 @@ const ViewAvailableProjects = ({history}) =>{
         const array = Object.entries(data.data)
         setProjectsData(data.data);
        // console.log(array);
-        console.log( data.data);
 
+        // console.log(ProjectsData)
         
        //console.log(objectToArray(data.data));
 
@@ -65,7 +65,7 @@ const ViewAvailableProjects = ({history}) =>{
     for(let i = 0; i < keys.length; i++){
        res.push(obj[keys[i]]);
        setprojectarray(res)
-       console.log(projectarray);
+      //  console.log(projectarray);
       
        
        
@@ -89,32 +89,32 @@ const ViewAvailableProjects = ({history}) =>{
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption">All projects</h1>
       <br/><br/>
-      <div className="card">
-      <div className="container">
-        <h4><b>Project 1 </b></h4> 
-        <hr ></hr>
-        {/* <p className="markscontent"> {fetchProjectsData[0].projectName}</p>   */}
-        {/* <p className="markscontent"> {fetchProjectsData[0].projectDescription}</p>  */}
-        {/* <p className="markscontent"> {fetchProjectsData[0].projectBiddingCount}</p>  */}
-        {console.log(ProjectsData)}
+         
+
 
         
-         {/* <ul>
-        {fetchProjectsData.map(project => {
+         <ul>
+        {ProjectsData.map(project => {
           return (
+            <div className="card">
+        <p style={{backgroundColor: "red"}}>{project.projectName}</p>
+      <div className="container">
             <li key={project._id}>
               {project.projectName}
-            
+                    <p className="markscontent"> {project.projectName}</p> 
+                    <p className="markscontent"> {project.projectDescription}</p> 
+                    <p className="markscontent"> {project.projectBiddingCount}</p> 
+                    <p className="markscontent"> {project.publishedDate}</p>
 
             </li>
 
+      </div>
+      </div>
             
           )
 
         })} 
-      </ul>  */}
-      </div>
-      </div>
+      </ul>  
       <br/>
       
       <br/>
