@@ -40,8 +40,11 @@ const ViewAvailableProjects = ({history}) =>{
 
       try{
         const{data} = await axios.get("/api/AvailableProject/availableprojects",projectsconfig);
-        console.log(data.data[1]);
+        // console.log(data.data[1]);
         setProjectsData(data.data);
+
+        
+       console.log(objectToArray(data.data));
         
       }catch(error){
 
@@ -51,7 +54,19 @@ const ViewAvailableProjects = ({history}) =>{
     fetchProjectsData()
     fetchPrivateDate()
   }, [history])
+  const objectToArray = obj => {
+    const keys = Object.keys(obj);
+    const res = [];
+    for(let i = 0; i < keys.length; i++){
+       res.push(obj[keys[i]]);
+       console.log(res);
+       
+       
 
+    };
+    return res;
+
+ };
   return  error ? ( 
   
     <span className="error-message">{error}</span>
@@ -68,6 +83,21 @@ const ViewAvailableProjects = ({history}) =>{
         {/* <p className="markscontent"> {fetchProjectsData[0].projectName}</p>   */}
         {/* <p className="markscontent"> {fetchProjectsData[0].projectDescription}</p>  */}
         {/* <p className="markscontent"> {fetchProjectsData[0].projectBiddingCount}</p>  */}
+        {console.log(fetchProjectsData[1])}
+        <ul>
+        {/* {fetchProjectsData.map(project => {
+          return (
+            <li key={project._id}>
+              {project.projectName}
+            
+
+            </li>
+
+            
+          )
+
+        })} */}
+      </ul>
       </div>
       </div>
       <br/>
