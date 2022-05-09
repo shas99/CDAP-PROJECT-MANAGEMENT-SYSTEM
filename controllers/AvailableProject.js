@@ -12,11 +12,11 @@ exports.viewAvailableProjects =async(req,res,next) => {
 try{
 
     const availableProjects = await AvailableProject.find()//group that is approved and have this perticular member
-    console.log("Projects",availableProjects)// 
+    console.log(availableProjects[1])// 
 
     res.status(201).json({
         success: true,
-        data: res.AvailableProject
+        data: availableProjects
     })
     
 
