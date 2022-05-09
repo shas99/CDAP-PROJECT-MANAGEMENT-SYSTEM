@@ -71,9 +71,6 @@ const PrivateScreen = ({history}) => {
         <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Student - Topic Registration Form</button></Link>
       <br></br>
         <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">View Available Projects</button></Link>
-      
-        
-  
   
     <Footer/>
 
