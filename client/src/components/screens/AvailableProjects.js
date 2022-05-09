@@ -1,36 +1,37 @@
+import axios from 'axios';
 import React, { Component } from 'react'
-import axios from "axios";
+
 export default class AvailableProjects extends Component {
 
-    constructor(props) {
-        super(props);
-    
-        this.state = {
-          availableprojects: [],
-        };
-      }
-    
-  componentDidMount() {
-    this.viewAvailableProjects();
-  }
+  constructor(props) {
+    super(props);
 
-  viewAvailableProjects() {
-    axios.get("/AvailableProject/availableProjects").then((res) => {
+    this.state = {
+      availableprojects: [],
+    };
+  } 
+  componentDidMount() {
+    this.retrieveAvailableProjects();
+  }
+  retrieveAvailableProjects() {
+    axios.get('http://localhost:5000/api/AvailableProject/availableProjects').then((res) => {
       if (res.data.success) {
         this.setState({
-          bookings: res.data.existingBookings,
+          availableprojects: res.data
         });
+
+        console.log(this.state.availableprojects)
       }
     });
   }
 
   render() {
+    console.log('State: ', this.state);
     return (
-      <div>
-          AvailableProjects
-          <div>
-                {/* display data in here */}
-          </div>
+      <div>AvailableProjects
+
+      {this.state.availableprojects}
+      {console.log(this.state.availableprojects)}
       </div>
     )
   }

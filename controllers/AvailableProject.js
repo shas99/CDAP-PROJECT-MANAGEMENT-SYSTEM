@@ -9,7 +9,7 @@ try{
 
     res.status(201).json({
         success: true,
-        data: res.AvailableProject
+        data: res.availableProjects
     })
 
 }catch(error){
@@ -43,12 +43,11 @@ exports.viewspecificproject = async(req,res,next) => {
 //******** PLACE BID SPECIFIC AVAILABLE PROJECT *********
 exports.placeBidonAvailableProject = async(req,res,next) =>{
 
-    const relevantProjectID =req.params.id;
     const {bidPlacedGroup, date, time} = req.body
-   
+    const relevantProjectID =req.params.id;
     try{
 
-        const placedBid = await AvailableProject.findOneAndUpdate({
+        const placedBid = await AvailableProject.findOne({
            relevantProjectID
         })
         if(!placedBid){
