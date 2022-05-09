@@ -167,7 +167,7 @@ exports.group = async (req, res, next) => {//suggest supervisor
         console.log(group[0].suggestions)// 
 
 
-        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_4+"/"+group[0].suggestions
+        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_5+"/"+group[0].suggestions
         res.status(201).json({
             success: true,
             data: setdata
