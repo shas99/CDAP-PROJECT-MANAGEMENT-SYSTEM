@@ -1,9 +1,9 @@
+import '../../styles/main.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./PrivateScreen.css"
-import "./ViewAvailableProjects.css"
+
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+
 
 
 const ViewAvailableProjects = ({history}) =>{
@@ -91,7 +91,7 @@ const ViewAvailableProjects = ({history}) =>{
     <div >
       <Header/>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption">All projects</h1>
+      <h1 id="caption" className="">All projects</h1>
       <br/><br/>
          
 
@@ -100,11 +100,9 @@ const ViewAvailableProjects = ({history}) =>{
          <ul>
         {ProjectsData.map(project => {
           return (
-            <div className="card">
+            <div className="card rounded-xl bg-slate-300">
         <center><p style={{backgroundColor: "red"}}>{project.projectName}</p></center>
-      <div className="container">
-
-            <li className="markscontent"> {project.projectName}</li>
+      <div className="bg-slate-300">
                    
                     <li className="markscontent">Description : {project.projectDescription}</li> 
                     <li className="markscontent"> Bidding Count : {project.projectBiddingCount}</li> 
@@ -112,8 +110,6 @@ const ViewAvailableProjects = ({history}) =>{
                     <li className="markscontent"> Project Type :{project.projectType}</li>
                     <li className="markscontent"> Published Date : {project.publishedDate}</li>
                     <div className="placeBidToBtn"> <a href={`/availableProjects/${project._id}`}> Bid this Project</a></div>
-          
-                  
       </div>
       </div>
             
