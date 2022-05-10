@@ -71,17 +71,18 @@ exports.increasebidcount = async(req,res,next) => {
 //******** PLACE BID SPECIFIC AVAILABLE PROJECT *********
 exports.placeBidonAvailableProject = async(req,res,next) =>{
     const relevantProjectID =req.params.id;
+    // const _id =relevantProjectID
     const {bidPlacedGroup, date, time} = req.body
+    
     try{
-        const placedBid = await AvailableProject.findOneAndUpdate({
-            relevantProjectID
+        const placedBid = await AvailableProject.findById({
+            _id:relevantProjectID
         })
         if(!placedBid){
             return next(new ErrorResponse("Project placed to bid not found",400))
         }
-
-      
-        //ISSUE IS UPDATING EXISTING NESTED OBJECT VALUE   placeBid.bidding.biddingPlacedGroup doesnt work !!!!
+        // console.log(id)
+        
        placedBid.bidding.biddingPlacedGroup= bidPlacedGroup
        console.log(placedBid.projectName)
           placedBid.bidding.date = date
