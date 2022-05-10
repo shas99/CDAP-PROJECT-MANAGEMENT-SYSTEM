@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 
 const AvailableProject = require('../models/AvailableProject')
 
@@ -33,7 +34,7 @@ exports.viewspecificproject = async(req,res,next) => {
         const availableprojectid = req.params.id;
         const availableProjects = await AvailableProject.findById(availableprojectid)//group that is approved and have this perticular member
         console.log("Projects",availableProjects)
-    
+        
         res.status(201).json({
             success: true,
             availableProjects
@@ -70,12 +71,14 @@ exports.increasebidcount = async(req,res,next) => {
 //******** PLACE BID SPECIFIC AVAILABLE PROJECT *********
 exports.placeBidonAvailableProject = async(req,res,next) =>{
 
-    const {bidPlacedGroup, date, time} = req.body
     const relevantProjectID =req.params.id;
+    const {bidPlacedGroup, date, time} = req.body
+    
+    
     try{
 
-        const placedBid = await AvailableProject.findOne({
-           relevantProjectID
+        const placedBid = await AvailableProject.updateOne({
+            relevantProjectID
         })
         if(!placedBid){
             return next(new ErrorResponse("Project placed to bid not found",400))
@@ -83,8 +86,7 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
        placedBid.bidding.biddingPlacedGroup = bidPlacedGroup
        placedBid.bidding.date = date
        placedBid.bidding.time = time
-        
-        await placedBid.save()
+        await placedBid.update()
 
         res.status(201).json({
             success: true,
@@ -92,5 +94,6 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
         })
     }catch(error){
         next(error)
+        console.log("Heyyyy");
     }
 };

@@ -2,6 +2,9 @@ const mongoose = require('mongoose')
 
 const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
 
+  _id: {
+    type: Object
+},
   projectName: {
         type: String
     },
