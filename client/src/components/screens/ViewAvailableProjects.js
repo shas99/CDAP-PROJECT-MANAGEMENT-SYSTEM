@@ -55,7 +55,12 @@ const ViewAvailableProjects = ({history}) =>{
 
         
       }
+    
     }
+
+
+
+
     fetchProjectsData()
     fetchPrivateDate()
   }, [history])
@@ -74,16 +79,15 @@ const ViewAvailableProjects = ({history}) =>{
     return res; 
 
  };
+ 
 
-//  const listItems = numbers.map((number) =>    <li>{number}</li>  )
-// ;
-// const projectitems = ProjectsData.map((project) => 
-// <li>{project}</li>
-// )
+
+
   return  error ? ( 
   
     <span className="error-message">{error}</span>
   ) :(
+    
     <div >
       <Header/>
    {/* <br/><ul>{projectitems}</ul>  */}
@@ -101,13 +105,15 @@ const ViewAvailableProjects = ({history}) =>{
       <div className="container">
 
             <li className="markscontent"> {project.projectName}</li>
-                    <li className="markscontent"> {project.projectName}</li> 
-                    <li className="markscontent"> {project.projectDescription}</li> 
-                    <li className="markscontent"> {project.projectBiddingCount}</li> 
-                    <li className="markscontent"> {project.publishedDate}</li>
-
+                   
+                    <li className="markscontent">Description : {project.projectDescription}</li> 
+                    <li className="markscontent"> Bidding Count : {project.projectBiddingCount}</li> 
+                    <li className="markscontent">Supervised By :{project.projectSupervisedBy}</li>
+                    <li className="markscontent"> Project Type :{project.projectType}</li>
+                    <li className="markscontent"> Published Date : {project.publishedDate}</li>
+                    <div className="placeBidToBtn"> <a href={`/availableProjects/${project._id}`}> Bid this Project</a></div>
           
-
+                  
       </div>
       </div>
             
