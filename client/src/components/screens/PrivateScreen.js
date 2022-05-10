@@ -69,9 +69,8 @@ const PrivateScreen = ({history}) => {
       <Link to="groupscreen" id="GroupConfig"><button className="buttons" onClick="groupscreen">My Group</button></Link>
         <br></br><Link to="matchedsupervisors" id="MatchedS"><button className="buttons" onClick="matchedsupervisors">Matched Supervisors</button></Link><br></br>
         <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Student - Topic Registration Form</button></Link>
-      
-        
-  
+      <br></br>
+        <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">View Available Projects</button></Link>
   
     <Footer/>
 
