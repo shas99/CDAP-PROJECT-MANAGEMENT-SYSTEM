@@ -33,7 +33,7 @@ exports.viewspecificproject = async(req,res,next) => {
     try{
         const availableprojectid = req.params.id;
         const availableProjects = await AvailableProject.findById(availableprojectid)//group that is approved and have this perticular member
-        console.log("Projects",availableProjects)
+        console.log("Projects bidding details :",availableProjects.bidding)
         
         res.status(201).json({
             success: true,

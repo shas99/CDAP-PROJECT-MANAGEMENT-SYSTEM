@@ -6,7 +6,8 @@ export default class ProjectBidding extends Component {
         super(props);
 
         this.state = {
-            availableproject:[]
+            availableproject:[],
+            biddingdetails:[]
         };
     }
     componentDidMount(){
@@ -17,9 +18,10 @@ export default class ProjectBidding extends Component {
            
         if(res.data.success){
                 this.setState({
-                        availableproject:res.data.availableProjects
+                        availableproject:res.data.availableProjects,
+                        biddingdetails:res.data.availableProjects.bidding
                 });
-                console.log(this.state.availableproject);
+                console.log(this.state.biddingdetails);
                 
             }
             
@@ -32,7 +34,7 @@ export default class ProjectBidding extends Component {
 
   render() {
     const { projectName,projectDescription,projectBiddingCount,projectSupervisedBy,projectType,publishedDate} =this.state.availableproject;
-
+     const{biddingPlacedGroup, date,time}=this.state.biddingdetails
     return (
       <div>ProjectBidding
           <h1> Project Name :{projectName}</h1>
@@ -41,8 +43,18 @@ export default class ProjectBidding extends Component {
           <h1>{projectSupervisedBy}</h1>
           <h1>{projectType}</h1>
           <h1>{publishedDate}</h1>
+          <br/>
+          {/* Needs form input to place bidding details in order to place a bid */}
+          <button>Place Bid</button> 
+          {/* Bidding function is called to this project upon onclick 
+           */}
+           <br/>
+           <h2>Current Bids</h2>
+           <h1>{biddingPlacedGroup}</h1>
+          <h1>{date}</h1>
+          <h1>{time}</h1>
           
-          
+
       </div>
 
     )
