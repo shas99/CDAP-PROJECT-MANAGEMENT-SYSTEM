@@ -7,9 +7,39 @@ export default class ProjectBidding extends Component {
 
         this.state = {
             availableproject:[],
-            biddingdetails:[]
+            biddingdetails:[],
+            biddingPlacedGroup:"",
+            date:"",
+            time:""
         };
     }
+    
+    onsubmit =(e)=>{
+      e.preventDefault();
+ 
+      const { biddingPlacedGroup,date,time} =this.state; 
+      const data ={
+         biddingPlacedGroup:biddingPlacedGroup,
+         date:date,
+         time:time
+          
+      }
+      console.log(data);
+      //console.log(this.state.MemberID);
+      const id = this.props.match.params.id;
+      axios.put(`http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/${id}`, data).then((res)=>{
+          if(res.data.success){
+              alert(`New bidding placed`)
+             
+              
+          }
+      }).catch(error => {
+          alert ("Empty fields are not accepted");
+      });
+
+      
+  }
+    
     componentDidMount(){
 
         const id = this.props.match.params.id;
@@ -45,7 +75,43 @@ export default class ProjectBidding extends Component {
           <h1>{publishedDate}</h1>
           <br/>
           {/* Needs form input to place bidding details in order to place a bid */}
-          <button>Place Bid</button> 
+          <form>
+                          <div className="form-group" style={{marginTop:'50px',marginBottom:'15px'}}>
+                            <label for="emailC" style={{marginBottom:'5px',color:'#000'}}>Your Group ID :</label>
+                                  <input type="email" 
+                                  className="form-control" 
+                                  name="CustomerEmail" 
+                                  
+                                  id="cEmail"
+                                  defaultValue={this.state.biddingPlacedGroup}
+                                  onChange={this.handleInputChange}  
+                                  required/>
+                          </div>
+                          <div className="form-group">
+                            <label for="cName" style={{marginBottom:'5px',color:'#000'}}>Date</label>
+                                <input type="text" 
+                                className="form-control" 
+                               
+                                id="cName" name="CustomerName" 
+                                defaultValue= {this.state.date}  
+                                onChange={this.handleInputChange} required/>
+                        
+                          </div>
+                          <div className="form-group">
+                            <label for="MobileNo">Time :</label>
+                                <input type="tel" 
+                                className="form-control" 
+                                id="MobileNo"name="MobileNumber" 
+                                defaultValue={this.state.time}  
+                                onChange={this.handleInputChange}  required/>
+                          </div>
+                          <button  onClick={this.onsubmit}>
+                              
+                              &nbsp; Submit Bid
+                          </button>
+
+          </form>
+          
           {/* Bidding function is called to this project upon onclick 
            */}
            <br/>
