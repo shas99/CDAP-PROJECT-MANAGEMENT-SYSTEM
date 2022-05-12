@@ -53,19 +53,19 @@ app.get("*", (req, res) => {
 const http = require('http')
 const sendingMessage = "Hello from Django"
 const color = "Chewie, we're home"
-const url = `http://django-env.eba-qitcexyr.us-west-2.elasticbeanstalk.com/sayHello/?color=${color}`;
-http.get(url, res => {
-  let data = '';
-  res.on('data', chunk => {
-    data += chunk;
-  });
-  res.on('end', () => {
-    data = JSON.parse(data);
-    console.log(data);
-  })
-}).on('error', err => {
-  console.log(err.message);
-}).end()
+// const url = `http://django-env.eba-qitcexyr.us-west-2.elasticbeanstalk.com/sayHello/?color=${color}`;
+// http.get(url, res => {
+//   let data = '';
+//   res.on('data', chunk => {
+//     data += chunk;
+//   });
+//   res.on('end', () => {
+//     data = JSON.parse(data);
+//     console.log(data);
+//   })
+// }).on('error', err => {
+//   console.log(err.message);
+// }).end()
 //This code causes the PROXY CRASH !!!!!
 process.on("unhandledRejection", (err,promise)=>{
     console.log(`Logged Error: ${err}`)
