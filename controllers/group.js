@@ -8,6 +8,7 @@ const { Console } = require('console')
 const Mail = require('nodemailer/lib/mailer')
 const TopicReg = require("../models/TopicReg")
 
+
 exports.GroupregisterConfirm = async(req, res, next) => {
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
     ("hex")
@@ -187,13 +188,13 @@ exports.group = async (req, res, next) => {//suggest supervisor
 
 
 exports.topicregister = async(req,res,next) => {//topic registration
-    const {groupID,Topic,topic_1,topic_2,topic_3,topic_4,topic_5,objective,projecttask,technologies} = req.body
+    const {groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies} = req.body
 
     
     console.log("Error Finding"+groupID)
     try{
         const topicR = await TopicReg.create({
-            groupID,Topic,topic_1,topic_2,topic_3,topic_4,topic_5,objective,projecttask,technologies//new
+            groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies//new
         })
         res.status(201).json({
             success: true,

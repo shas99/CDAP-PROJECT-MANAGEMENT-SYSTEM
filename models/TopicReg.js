@@ -10,19 +10,19 @@ const TopicRegSchema = new mongoose.Schema({//Topic Registration Model
     Topic: {
         type: String
     },
-    topic_1: {
+    topicdescription: {
         type: String
     },
-    topic_2: {
+    abstract: {
         type: String
     },
-    topic_3: {
+    researchProblem: {
         type: String
     },
-    topic_4: {
+    solution: {
         type: String
     },
-    topic_5: {
+    systemOverview: {
         type: String
     },
 

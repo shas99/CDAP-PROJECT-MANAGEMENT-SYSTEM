@@ -15,11 +15,11 @@ const TopicRegistration = ({history}) => {
     // const [suggestions,setsuggestions] = useState("")
     const [Topic, setTopic] = useState("");
     const [groupID, setgroupID] = useState("");
-    const [topic_1, settopic_1] = useState("");
-    const [topic_2, settopic_2] = useState("");
-    const [topic_3, settopic_3] = useState("");
-    const [topic_4, settopic_4] = useState("");
-    const [topic_5, settopic_5] = useState("");
+    const [topicdescription, settopicdescription] = useState("");
+    const [abstract, setabstract] = useState("");
+    const [researchProblem, setresearchProblem] = useState("");
+    const [solution, setsolution] = useState("");
+    const [systemOverview, setsystemOverview] = useState("");
 
     const [objective, setobjective] = useState("");
     const [projecttask, setprojecttask] = useState("");
@@ -92,7 +92,7 @@ const TopicRegistration = ({history}) => {
         try {
           const { data } = await axios.post(
             "/api/group/topicregister",
-            { groupID,Topic,topic_1,topic_2,topic_3,topic_4,topic_5,objective,projecttask,technologies },
+            { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
             config
           );
     
@@ -171,48 +171,48 @@ const TopicRegistration = ({history}) => {
         <div className="form-group">
           <div className="editor">
           <label className="TopicNames">Topic - Describe your Topic in 100 Words!</label>
-        <CKEditor
+        <CKEditor 
         editor={ClassicEditor}
-        data={topic_1}
+        data={topicdescription}
         onChange={(event,editor)=>{
           const data = editor.getData()
-          settopic_1(data)
+          settopicdescription(data)
         }}
         />
         <label className="TopicNames">Abstract - Use a minimum of 200 Words!</label>
                 <CKEditor
         editor={ClassicEditor}
-        data={topic_2}
+        data={abstract}
         onChange={(event,editor)=>{
           const data = editor.getData()
-          settopic_2(data)
+          setabstract(data)
         }}
         />
         <label className="TopicNames">Research Problem - Must Add three main references in IEEE Format!</label>
                 <CKEditor
         editor={ClassicEditor}
-        data={topic_3}
+        data={researchProblem}
         onChange={(event,editor)=>{
           const data = editor.getData()
-          settopic_3(data)
+          setresearchProblem(data)
         }}
         />
         <label className="TopicNames">Solution Proposed - Describe in a minimum of 50 Words!</label>
                 <CKEditor
         editor={ClassicEditor}
-        data={topic_4}
+        data={solution}
         onChange={(event,editor)=>{
           const data = editor.getData()
-          settopic_4(data)
+          setsolution(data)
         }}
         /> 
         <label className="TopicNames">System Overview Diagram for the Solution Proposed</label>
                 <CKEditor
         editor={ClassicEditor}
-        data={topic_5}
+        data={systemOverview}
         onChange={(event,editor)=>{
           const data = editor.getData()
-          settopic_5(data)
+          setsystemOverview(data)
         }}
         />
 
@@ -261,6 +261,7 @@ const TopicRegistration = ({history}) => {
 
 
                   </div>
+                  <br/>
 
 
         
