@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 
 const TopicRegSchema = new mongoose.Schema({//Topic Registration Model
 
-    groupleader: {
+    
+    groupID: {
         type: String
     },
-    groupID: {
+    Topic: {
         type: String
     },
     topic_1: {
@@ -22,6 +23,18 @@ const TopicRegSchema = new mongoose.Schema({//Topic Registration Model
         type: String
     },
     topic_5: {
+        type: String
+    },
+
+    objective:{
+        type: String
+    },
+    
+    projecttask:{
+        type: String
+    },
+
+    technologies:{
         type: String
     }
     
