@@ -91,9 +91,11 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
         res.status(201).json({
             success: true,
             data: "Bid set Success"
+            
         })
+        console.log("Success in setting bid API");
     }catch(error){
         next(error)
-        console.log("Heyyyy");
+        console.log("Error in placing bid API");
     }
 };

@@ -1,85 +1,79 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React from 'react'
+import "./GroupScreen.css";
+import { useState } from "react";
+export default function ProjectBidding() {
+  const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
+    const [error, setError] = useState("");
 
-export default class ProjectBidding extends Component {
-    constructor(props) {
-        super(props);
-       
-        this.state = {
-            availableproject:[],
-            biddingdetails:[]
-           
-          
-        };
-       
-    }
-
-    placeBid =(e)=>{
+    const biddingPlaceHandler = async (e) => {
       e.preventDefault();
-
-      try{
-        //Decode user token 
-        //Take users student ID
-        //pass it to bidplacedGroup id as data
-        //pass data to axios.put()
-       
-      }
-      catch(error){
-
-      }
-    }
-   
-   
- 
-
   
-
-componentDidMount(){
-
-        const id = this.props.match.params.id;
-        axios.get(`/api/AvailableProject/availableprojects/${id}`).then((res)=>{
-        if(res.data.success){
-                this.setState({
-                        availableproject:res.data.availableProjects,
-                        biddingdetails:res.data.availableProjects.bidding
-                });
-                // console.log(this.state.biddingdetails);   
-            }    
-        });
-    }
-
-
-  render() {
-    const { projectName,projectDescription,projectBiddingCount,projectSupervisedBy,projectType,publishedDate} =this.state.availableproject;
-     const{biddingPlacedGroup, date,time}=this.state.biddingdetails
-    return (
-     
-
-      <div>ProjectBidding
-          <h1> Project Name :{projectName}</h1>
-          <h1>{projectDescription}</h1>
-          <h1>{projectBiddingCount}</h1>
-          <h1>{projectSupervisedBy}</h1>
-          <h1>{projectType}</h1>
-          <h1>{publishedDate}</h1>
-          <br/>
-          {/* Bidding function is called to this project upon onclick 
-           */}
-           
-
-           <button type="submit" onClick={this.placeBid}>
-             Place Bid
-           </button>
-
-           <br/>
-           <h2>Current Bids</h2>
-           <h1>{biddingPlacedGroup}</h1>
-          <h1>{date}</h1>
-          <h1>{time}</h1>
+  
+      try {
+        const id = "624c562f87fc2a19cc03813a";
+        const { data } = await axios.put(
+          "http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/627629c761d1ab9d2934088d",
+          { bidPlacedGroup,date,time }
           
+        );
+        console.log(data)
+        console.log(bidPlacedGroup)
+       
+      } catch (error) {
+        setError(error.response.data.error);  
+        alert("Error bidding notset")
+            
+      }
+    };
 
-      </div>
+  return (
+    <div>ProjectBidding
+          {/* Form  */}
+          <form onSubmit={biddingPlaceHandler} >
+      <h3 >Group registration</h3>
+     
+      <div >
+        <label>
+          Your Group ID:</label>
+          <input type="text" 
+          className = "input"
+          name="name" 
+          onChange={(e) => setBiddingPlacedGroup(e.target.value)}
+          value={bidPlacedGroup} />
+          
+        
+        </div>
+        <div >
+        <label>
+           Date:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setDate(e.target.value)}
+          value={date} />
+          
+        
+          </div>
+          <div >
+        <label>
+           Time :</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setTime(e.target.value)}
+          value={time} />
+                  
+                  </div>
+      <button type="submit" className="btn btn-primary1" id="Log1Button">
+         Place Bid
+         </button>
 
-    )
-  }
+        
+      </form>
+
+    </div>
+  )
 }
