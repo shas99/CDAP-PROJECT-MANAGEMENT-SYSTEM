@@ -148,6 +148,7 @@ const TopicRegistration = ({history}) => {
           <input type="text" 
           className = "input"
           name="name" 
+
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
         
@@ -262,6 +263,7 @@ const TopicRegistration = ({history}) => {
 
                   </div>
                   <br/>
+
 
 
         

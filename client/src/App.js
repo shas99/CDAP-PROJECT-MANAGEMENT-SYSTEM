@@ -26,6 +26,12 @@ import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 
+import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
+import ProjectBidding from "./components/screens/ProjectBidding";
+
+
+
+
 const App = () => {
   return (
     <Router>
@@ -63,6 +69,12 @@ const App = () => {
          <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
 
          <Route exact path="/staffPrivate" component={StaffPrivateScreen}/>
+
+
+         <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
+         <Route exact path="/availableProjects/:id" component={ProjectBidding}/>
+        
+
         </Switch>
 
       </div>

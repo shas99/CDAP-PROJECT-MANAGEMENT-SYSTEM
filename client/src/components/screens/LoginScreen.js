@@ -77,7 +77,7 @@ const LoginScreen = ({ history }) => {
             tabIndex={2}
           />
         </div>
-        <button type="submit" className="btn btn-primary" id="LogButton">
+        <button type="submit" className="" id="LogButton">
           Login
         </button>
 

@@ -111,7 +111,7 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
 
         const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
         console.log(group[0].suggestions)// 
-
+      
         res.status(201).json({
             success: true,
             data: "retreived success"
