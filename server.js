@@ -44,10 +44,12 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
+
 //************* HEROKU DEPLOYMENT------------Right before your app.listen(), add this: ***********
 // app.get("*", (req, res) => {
 //     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 // });
+
 
 
 //This code causes the PROXY CRASH !!!!!

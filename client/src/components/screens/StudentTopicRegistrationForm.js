@@ -5,6 +5,8 @@ import "./MatchedSupervisors.css";
 import "./StudentTopicRegistrationForm.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const TopicRegistration = ({history}) => {
     const [error, setError] = useState("");
@@ -141,10 +143,49 @@ const TopicRegistration = ({history}) => {
           name="name" 
           onChange={(e) => setgroupleader(e.target.value)}
           value={groupleader} />
-          
         
         </div>
         <div className="form-group">
+          <div className="editor">
+        <CKEditor
+        editor={ClassicEditor}
+        data={topic_1}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settopic_1(data)
+        }}
+        />
+                <CKEditor
+        editor={ClassicEditor}
+        data={topic_2}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settopic_2(data)
+        }}
+        />        <CKEditor
+        editor={ClassicEditor}
+        data={topic_3}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settopic_3(data)
+        }}
+        />        <CKEditor
+        editor={ClassicEditor}
+        data={topic_4}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settopic_4(data)
+        }}
+        />        <CKEditor
+        editor={ClassicEditor}
+        data={topic_5}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settopic_5(data)
+        }}
+        />
+
+          </div>
         <label>
            Group ID:</label>
           <input type="text" 
@@ -156,57 +197,10 @@ const TopicRegistration = ({history}) => {
         
           </div>
           <div className="form-group">
-        <label>
-           Project Topic 1:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => settopic_1(e.target.value)}
-          value={topic_1} />
-                  
-                  </div>
-                  <div className="form-group">
-        <label>
-           Project Topic 2:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => settopic_2(e.target.value)}
-          value={topic_2} />
-                  
-                  </div>
-                  <div className="form-group">
-        <label>
-           Project Topic 3:</label>
-          <input type="text" 
-          name="name"
-          className = "input"
-          onChange={(e) => settopic_3(e.target.value)}
-          value={topic_3} />
-        
-        </div>
 
-        <div className="form-group">
-        <label>
-           Project Topic 4:</label>
-          <input type="text" 
-          name="name"
-          className = "input"
-          onChange={(e) => settopic_4(e.target.value)}
-          value={topic_4} />
-        
-        </div>
 
-        <div className="form-group">
-        <label>
-           Project Topic 5:</label>
-          <input type="text" 
-          name="name"
-          className = "input"
-          onChange={(e) => settopic_5(e.target.value)}
-          value={topic_5} />
-        
-        </div>
+                  </div>
+
 
         
 
