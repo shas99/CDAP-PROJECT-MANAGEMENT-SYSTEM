@@ -72,7 +72,7 @@ exports.increasebidcount = async(req,res,next) => {
 exports.placeBidonAvailableProject = async(req,res,next) =>{
     const relevantProjectID =req.params.id;
     // const _id =relevantProjectID
-    const {bidPlacedGroup, date, time} = req.body
+    const {bidPlacedGroup,date,time} = req.body
     
     try{
         const placedBid = await AvailableProject.findById({
@@ -84,11 +84,10 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
         // console.log(id)
         
        placedBid.bidding.biddingPlacedGroup= bidPlacedGroup
-       console.log(placedBid.projectName)
-          placedBid.bidding.date = date
-          placedBid.bidding.time = time
+       placedBid.bidding.date=date
+       placedBid.bidding.time=time
+       
         await placedBid.save()
-
         res.status(201).json({
             success: true,
             data: "Bid set Success"
