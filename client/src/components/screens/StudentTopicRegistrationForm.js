@@ -8,28 +8,35 @@
 // import { CKEditor } from '@ckeditor/ckeditor5-react';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-// const TopicRegistration = ({history}) => {
-//     const [error, setError] = useState("");
-//     const [privateData, setPrivateData] = useState("");
-//     // const [fetchGroupData, setGroupData] = useState("")
-//     // const [suggestions,setsuggestions] = useState("")
-//     const [groupleader, setgroupleader] = useState("");
-//     const [groupID, setgroupID] = useState("");
-//     const [topic_1, settopic_1] = useState("");
-//     const [topic_2, settopic_2] = useState("");
-//     const [topic_3, settopic_3] = useState("");
-//     const [topic_4, settopic_4] = useState("");
-//     const [topic_5, settopic_5] = useState("");
-//     const [group,setgroup] = useState("")
-//     const [fetchGroupData, setGroupData] = useState("");
-//     useEffect(() => {
-//         const fetchGroupData = async () => {
-//             const groupconfig = {
-//               headers: {
-//                 "Content-Type": "application/json",
-//                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-//               },
-//             };
+
+const TopicRegistration = ({history}) => {
+    const [error, setError] = useState("");
+    const [privateData, setPrivateData] = useState("");
+    // const [fetchGroupData, setGroupData] = useState("")
+    // const [suggestions,setsuggestions] = useState("")
+    const [Topic, setTopic] = useState("");
+    const [groupID, setgroupID] = useState("");
+    const [topicdescription, settopicdescription] = useState("");
+    const [abstract, setabstract] = useState("");
+    const [researchProblem, setresearchProblem] = useState("");
+    const [solution, setsolution] = useState("");
+    const [systemOverview, setsystemOverview] = useState("");
+
+    const [objective, setobjective] = useState("");
+    const [projecttask, setprojecttask] = useState("");
+    const [technologies, settechnologies] = useState("");
+
+    const [group,setgroup] = useState("")
+    const [fetchGroupData, setGroupData] = useState("");
+    useEffect(() => {
+        const fetchGroupData = async () => {
+            const groupconfig = {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+              },
+            };
+
       
 //             try {
 //               const { data} = await axios.get("/api/auth/group",groupconfig);
@@ -84,12 +91,13 @@
 //           },
 //         };
     
-//         try {
-//           const { data } = await axios.post(
-//             "/api/group/topicregister",
-//             { groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5 },
-//             config
-//           );
+        try {
+          const { data } = await axios.post(
+            "/api/group/topicregister",
+            { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
+            config
+          );
+
     
     
     
@@ -126,80 +134,144 @@
           
 //           </p>
         
-//            <h1 id="caption">Student Topic Registration</h1>
-          
+
+           <h1 id="caption">Project Topic Assessment</h1>
+           <br/>
+           
+      
+
           
 //           <div className="group-screen">
             
-//           <div>        
-//           <form onSubmit={groupregisterHandler} className="group-screen__form">
-//       <h3 className="login-screen__title">Topic Assessment Form</h3>
-//       {error && <span className="error-message">{error}</span>}
-//       <div className="form-group">
-//         <label>
-//            Group Leader Name:</label>
-//           <input type="text" 
-//           className = "input"
-//           name="name" 
-//           onChange={(e) => setgroupleader(e.target.value)}
-//           value={groupleader} />
-        
-//         </div>
-//         <div className="form-group">
-//           <div className="editor">
-//         <CKEditor
-//         editor={ClassicEditor}
-//         data={topic_1}
-//         onChange={(event,editor)=>{
-//           const data = editor.getData()
-//           settopic_1(data)
-//         }}
-//         />
-//                 <CKEditor
-//         editor={ClassicEditor}
-//         data={topic_2}
-//         onChange={(event,editor)=>{
-//           const data = editor.getData()
-//           settopic_2(data)
-//         }}
-//         />        <CKEditor
-//         editor={ClassicEditor}
-//         data={topic_3}
-//         onChange={(event,editor)=>{
-//           const data = editor.getData()
-//           settopic_3(data)
-//         }}
-//         />        <CKEditor
-//         editor={ClassicEditor}
-//         data={topic_4}
-//         onChange={(event,editor)=>{
-//           const data = editor.getData()
-//           settopic_4(data)
-//         }}
-//         />        <CKEditor
-//         editor={ClassicEditor}
-//         data={topic_5}
-//         onChange={(event,editor)=>{
-//           const data = editor.getData()
-//           settopic_5(data)
-//         }}
-//         />
 
-//           </div>
-//         <label>
-//            Group ID:</label>
-//           <input type="text" 
-//           name="name" 
-//           className = "input"
-//           onChange={(e) => setgroupID(e.target.value)}
-//           value={groupID} />
+          <div>        
+          <form onSubmit={groupregisterHandler} className="group-screen__form">
+      <h3 className="login-screen__title">Topic Assessment Form</h3>
+      {error && <span className="error-message">{error}</span>}
+      
+      <div className="form-group">
+        <label className="TopicNames">Group Identification Number</label>
+          <input type="text" 
+          className = "input"
+          name="name" 
+
+          onChange={(e) => setgroupID(e.target.value)}
+          value={groupID} />
+        
+        </div>
+
+        <div className="form-group">
+        <label className="TopicNames">Topic</label>
+          <input type="text" 
+          className = "input"
+          name="name" 
+          onChange={(e) => setTopic(e.target.value)}
+          value={Topic} />
+        
+        </div>
+
+
+
+
+
+
+        <div className="form-group">
+          <div className="editor">
+          <label className="TopicNames">Topic - Describe your Topic in 100 Words!</label>
+        <CKEditor 
+        editor={ClassicEditor}
+        data={topicdescription}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settopicdescription(data)
+        }}
+        />
+        <label className="TopicNames">Abstract - Use a minimum of 200 Words!</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={abstract}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          setabstract(data)
+        }}
+        />
+        <label className="TopicNames">Research Problem - Must Add three main references in IEEE Format!</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={researchProblem}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          setresearchProblem(data)
+        }}
+        />
+        <label className="TopicNames">Solution Proposed - Describe in a minimum of 50 Words!</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={solution}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          setsolution(data)
+        }}
+        /> 
+        <label className="TopicNames">System Overview Diagram for the Solution Proposed</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={systemOverview}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          setsystemOverview(data)
+        }}
+        />
+
+        <label className="TopicNames">Objectives - 1 main objective and 4 sub objectives:</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={objective}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          setobjective(data)
+        }}
+        />
+
+      <label className="TopicNames">Task divided among the members:</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={projecttask}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          setprojecttask(data)
+        }}
+        />
+
+        <label className="TopicNames">Technologies to be used:</label>
+                <CKEditor
+        editor={ClassicEditor}
+        data={technologies}
+        onChange={(event,editor)=>{
+          const data = editor.getData()
+          settechnologies(data)
+        }}
+        />
+
+          </div>
+        {/* <label>
+           Group ID:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setgroupID(e.target.value)}
+          value={groupID} /> */}
+
           
         
 //           </div>
 //           <div className="form-group">
 
 
-//                   </div>
+                  </div>
+                  <br/>
+
+
 
 
         
