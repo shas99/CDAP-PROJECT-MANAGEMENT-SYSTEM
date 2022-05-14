@@ -60,15 +60,18 @@ export default function ProjectBidding() {
 
   return (
     
-    <div div className="bid-screen"> 
+    <div  className="bid-screen"> 
       {/* Project Details  */}
-      <h1 className="bid-screen__title ">Project details</h1>
+      <div className="projectdetails">
+      <h1 className="projtitle"><b>Project details</b></h1><br></br>
       
-      < div className="bidcard">
-        <h1>{projectName}</h1>
-        <h1>{projectDesc}</h1>
-        <h1>{projectSupervisedBy}</h1>
+        <h1 ><b>Name: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {projectName}</h1>
+        
+        <h1><b>Supervisor:</b>&nbsp;&nbsp;{projectSupervisedBy}</h1>
+  
+        <h1><b>About: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {projectDesc}</h1>
        </div>
+      
      
 
         {/* <div id="card">
