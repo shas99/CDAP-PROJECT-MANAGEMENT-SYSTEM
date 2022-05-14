@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import "./MatchedSupervisors.css";
-// import { Link } from "react-router-dom";
-import "./StudentTopicRegistrationForm.css";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import { useState, useEffect } from "react";
+// import axios from "axios";
+// import "./MatchedSupervisors.css";
+// // import { Link } from "react-router-dom";
+// import "./StudentTopicRegistrationForm.css";
+// import Header from "../Header/Header";
+// import Footer from "../Footer/Footer";
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 const TopicRegistration = ({history}) => {
     const [error, setError] = useState("");
@@ -35,59 +36,60 @@ const TopicRegistration = ({history}) => {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
               },
             };
+
       
-            try {
-              const { data} = await axios.get("/api/auth/group",groupconfig);
-              const groupArray = data.data.split("/")
-              console.log(groupArray[0])
-              const group1 = groupArray[0].split(",")
-              setgroup(group1)
-              setGroupData(groupArray[0]);
-            } catch (error) {
+//             try {
+//               const { data} = await axios.get("/api/auth/group",groupconfig);
+//               const groupArray = data.data.split("/")
+//               console.log(groupArray[0])
+//               const group1 = groupArray[0].split(",")
+//               setgroup(group1)
+//               setGroupData(groupArray[0]);
+//             } catch (error) {
       
-              // setError("Oops couldn't retreive group data");//fix this
-            }
-          };
-      const fetchPrivateDate = async () => {
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        };
+//               // setError("Oops couldn't retreive group data");//fix this
+//             }
+//           };
+//       const fetchPrivateDate = async () => {
+//         const config = {
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+//           },
+//         };
   
-        try {
-          const { data} = await axios.get("/api/private", config);
+//         try {
+//           const { data} = await axios.get("/api/private", config);
           
-          setPrivateData(data.data);
-        } catch (error) {
-          localStorage.removeItem("authToken");
-          setError("You are not authorized please login");
-        }
-      };
+//           setPrivateData(data.data);
+//         } catch (error) {
+//           localStorage.removeItem("authToken");
+//           setError("You are not authorized please login");
+//         }
+//       };
   
 
 
-    //   fetchGroupData()
+//     //   fetchGroupData()
 
-      fetchPrivateDate();
-      fetchGroupData()
-    }, [history]);
+//       fetchPrivateDate();
+//       fetchGroupData()
+//     }, [history]);
   
-    //Logout feature
-    const logOutHandler=()=>{
-      localStorage.removeItem("authToken");
-      history.push("/login");
+//     //Logout feature
+//     const logOutHandler=()=>{
+//       localStorage.removeItem("authToken");
+//       history.push("/login");
   
-    };
-    const groupregisterHandler = async (e) => {
-        e.preventDefault();
+//     };
+//     const groupregisterHandler = async (e) => {
+//         e.preventDefault();
     
-        const config = {
-          header: {
-            "Content-Type": "application/json",
-          },
-        };
+//         const config = {
+//           header: {
+//             "Content-Type": "application/json",
+//           },
+//         };
     
         try {
           const { data } = await axios.post(
@@ -95,49 +97,53 @@ const TopicRegistration = ({history}) => {
             { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
             config
           );
+
     
     
     
-          history.push("/");
-        } catch (error) {
-          setError(error.response.data.error);
-          setTimeout(() => {
-            setError("");
-          }, 5000);
-        }
-      };
+//           history.push("/");
+//         } catch (error) {
+//           setError(error.response.data.error);
+//           setTimeout(() => {
+//             setError("");
+//           }, 5000);
+//         }
+//       };
 
      
 
       
   
-    return  error ? ( 
+//     return  error ? ( 
   
-        <span className="error-message">{error}</span>
-      ) : ( 
+//         <span className="error-message">{error}</span>
+//       ) : ( 
     
-        <>
-        <div id="back">
-        <Header/>
-        <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
-        &nbsp;&nbsp;&nbsp;&nbsp;
+//         <>
+//         <div id="back">
+//         <Header/>
+//         <p style={{color:"#FFF",textAlign:"right"}}>
+//         {privateData}  
+//         &nbsp;&nbsp;&nbsp;&nbsp;
        
-        <button onClick={logOutHandler} id="logout">Log Out</button>
-          </p>
+//         <button onClick={logOutHandler} id="logout">Log Out</button>
+//           </p>
           
-          <p style={{color:"#FFF"}}>
-          <br/><br/><br/><br/>
+//           <p style={{color:"#FFF"}}>
+//           <br/><br/><br/><br/>
           
-          </p>
+//           </p>
         
+
            <h1 id="caption">Project Topic Assessment</h1>
            <br/>
            
       
+
           
-          <div className="group-screen">
+//           <div className="group-screen">
             
+
           <div>        
           <form onSubmit={groupregisterHandler} className="group-screen__form">
       <h3 className="login-screen__title">Topic Assessment Form</h3>
@@ -255,10 +261,11 @@ const TopicRegistration = ({history}) => {
           className = "input"
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} /> */}
+
           
         
-          </div>
-          <div className="form-group">
+//           </div>
+//           <div className="form-group">
 
 
                   </div>
@@ -266,22 +273,23 @@ const TopicRegistration = ({history}) => {
 
 
 
-        
-
-
-
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
-          Submit!
-        </button>
 
         
-      </form></div>
-          </div>
+
+
+
+//       <button type="submit" className="btn btn-primary1" id="Log1Button">
+//           Submit!
+//         </button>
+
+        
+//       </form></div>
+//           </div>
       
-          <Footer/>
-        </div>
-        </>
-      );
-    };
+//           <Footer/>
+//         </div>
+//         </>
+//       );
+//     };
     
-    export default TopicRegistration;
+//     export default TopicRegistration;

@@ -1,128 +1,104 @@
 import axios from 'axios';
-import React, { Component } from 'react'
-
-export default class ProjectBidding extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            availableproject:[],
-            biddingdetails:[],
-            biddingPlacedGroup:"",
-            date:"",
-            time:""
-        };
-    }
+import React from 'react'
+import "./GroupScreen.css";
+import {useParams} from 'react-router-dom';
+import { useState } from "react";
+export default function ProjectBidding() {
+  const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
+    // const [error, setError] = useState("");
+    const [projectName,setProjectName] =useState("");
+    const [projectDesc,setProjectDesc] =useState("");
+    const [projectSupervisedBy,setProjectSupervisedBy]=useState("");
     
-    onsubmit =(e)=>{
+        const params =useParams();
+        const projectID = params.id;
+        console.log(projectID)
+    
+
+    //*******BIDDING PLACE HANDLER FUNCTION *******/
+    const biddingPlaceHandler = async (e) => {
       e.preventDefault();
- 
-      const { biddingPlacedGroup,date,time} =this.state; 
-      const data ={
-         biddingPlacedGroup:biddingPlacedGroup,
-         date:date,
-         time:time
-          
-      }
-      console.log(data);
-      //console.log(this.state.MemberID);
-      const id = this.props.match.params.id;
-      axios.put(`http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/${id}`, data).then((res)=>{
-          if(res.data.success){
-              alert(`New bidding placed`)
-             
-              
-          }
-      }).catch(error => {
-          alert ("Empty fields are not accepted");
-      });
-
-      
-  }
-    
-    componentDidMount(){
-
-        const id = this.props.match.params.id;
-
-        axios.get(`/api/AvailableProject/availableprojects/${id}`).then((res)=>{
-           
-        if(res.data.success){
-                this.setState({
-                        availableproject:res.data.availableProjects,
-                        biddingdetails:res.data.availableProjects.bidding
-                });
-                console.log(this.state.biddingdetails);
-                
-            }
+      try {
+        
+        const { data } = await axios.put(
+          `http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/${projectID}`,
+          { bidPlacedGroup,date,time }
+          );
+          alert("Bidding success")
+        console.log(data)
+        console.log(bidPlacedGroup)
+       
+      } catch (error) {
+        // setError(error.response.data.error);  
+        // console.log(error.response.data.error)
+        alert("Error bidding notset")
             
-           
-        });
+      }
+    };
+    const getRelevantProjectData =async ()=>{
      
-                
+      try{
+        const{data}=await axios.get(`http://localhost:5000/api/AvailableProject/availableProjects/${projectID}`);
+        console.log(data.availableProjects.projectSupervisedBy)
+        setProjectName(data.availableProjects.projectName)
+        setProjectDesc(data.availableProjects.projectDescription)
+        setProjectSupervisedBy(data.availableProjects.projectSupervisedBy)
+
+      }catch(error){
+        
+        
+      }
+      
+
     }
+    getRelevantProjectData();
 
 
-  render() {
-    const { projectName,projectDescription,projectBiddingCount,projectSupervisedBy,projectType,publishedDate} =this.state.availableproject;
-     const{biddingPlacedGroup, date,time}=this.state.biddingdetails
-    return (
-      <div>ProjectBidding
-          <h1> Project Name :{projectName}</h1>
-          <h1>{projectDescription}</h1>
-          <h1>{projectBiddingCount}</h1>
-          <h1>{projectSupervisedBy}</h1>
-          <h1>{projectType}</h1>
-          <h1>{publishedDate}</h1>
-          <br/>
-          {/* Needs form input to place bidding details in order to place a bid */}
-          <form>
-                          <div className="form-group" style={{marginTop:'50px',marginBottom:'15px'}}>
-                            <label for="emailC" style={{marginBottom:'5px',color:'#000'}}>Your Group ID :</label>
-                                  <input type="email" 
-                                  className="form-control" 
-                                  name="CustomerEmail" 
-                                  
-                                  id="cEmail"
-                                  defaultValue={this.state.biddingPlacedGroup}
-                                  onChange={this.handleInputChange}  
-                                  required/>
-                          </div>
-                          <div className="form-group">
-                            <label for="cName" style={{marginBottom:'5px',color:'#000'}}>Date</label>
-                                <input type="text" 
-                                className="form-control" 
-                               
-                                id="cName" name="CustomerName" 
-                                defaultValue= {this.state.date}  
-                                onChange={this.handleInputChange} required/>
-                        
-                          </div>
-                          <div className="form-group">
-                            <label for="MobileNo">Time :</label>
-                                <input type="tel" 
-                                className="form-control" 
-                                id="MobileNo"name="MobileNumber" 
-                                defaultValue={this.state.time}  
-                                onChange={this.handleInputChange}  required/>
-                          </div>
-                          <button  onClick={this.onsubmit}>
-                              
-                              &nbsp; Submit Bid
-                          </button>
+  return (
+    <div> Project Details 
+        <h1>{projectName}</h1>
+        <h1>{projectDesc}</h1>
+        <h1>{projectSupervisedBy}</h1>
 
-          </form>
-          
-          {/* Bidding function is called to this project upon onclick 
-           */}
-           <br/>
-           <h2>Current Bids</h2>
-           <h1>{biddingPlacedGroup}</h1>
-          <h1>{date}</h1>
-          <h1>{time}</h1>
-          
+          {/* Form  */}
+          <form onSubmit={biddingPlaceHandler} >
+       <div>
+        <label>
+          Your Group ID:</label>
+          <input type="text" 
+          className = "input"
+          name="name" 
+          onChange={(e) => setBiddingPlacedGroup(e.target.value)}
+          value={bidPlacedGroup} />  
+        </div>
+        <div>
+        <label>
+           Date:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setDate(e.target.value)}
+          value={date} />
+          </div>
+          <div>
+        <label>
+           Time :</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setTime(e.target.value)}
+          value={time} />
+          </div>
+      <button type="submit" className="btn btn-primary1" id="Log1Button">
+         Place Bid
+         </button>
 
-      </div>
+        
+      </form>
+     
 
-    )
-  }
+    </div>
+  )
 }
