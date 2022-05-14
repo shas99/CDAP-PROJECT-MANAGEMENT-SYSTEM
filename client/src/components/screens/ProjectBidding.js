@@ -7,16 +7,23 @@ export default function ProjectBidding() {
   const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
+    const [projectName,setProjectName] =useState("");
+    const [projectDesc,setProjectDesc] =useState("");
+    const [projectSupervisedBy,setProjectSupervisedBy]=useState("");
+    
+        const params =useParams();
+        const projectID = params.id;
+        console.log(projectID)
     
 
     //*******BIDDING PLACE HANDLER FUNCTION *******/
     const biddingPlaceHandler = async (e) => {
       e.preventDefault();
       try {
-        const id = "624c562f87fc2a19cc03813a";
+        
         const { data } = await axios.put(
-          "http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/627629c761d1ab9d2934088d",
+          `http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/${projectID}`,
           { bidPlacedGroup,date,time }
           );
           alert("Bidding success")
@@ -24,15 +31,37 @@ export default function ProjectBidding() {
         console.log(bidPlacedGroup)
        
       } catch (error) {
-        setError(error.response.data.error);  
+        // setError(error.response.data.error);  
+        // console.log(error.response.data.error)
         alert("Error bidding notset")
             
       }
     };
+    const getRelevantProjectData =async ()=>{
+     
+      try{
+        const{data}=await axios.get(`http://localhost:5000/api/AvailableProject/availableProjects/${projectID}`);
+        console.log(data.availableProjects.projectSupervisedBy)
+        setProjectName(data.availableProjects.projectName)
+        setProjectDesc(data.availableProjects.projectDescription)
+        setProjectSupervisedBy(data.availableProjects.projectSupervisedBy)
+
+      }catch(error){
+        
+        
+      }
+      
+
+    }
+    getRelevantProjectData();
 
 
   return (
     <div> Project Details 
+        <h1>{projectName}</h1>
+        <h1>{projectDesc}</h1>
+        <h1>{projectSupervisedBy}</h1>
+
           {/* Form  */}
           <form onSubmit={biddingPlaceHandler} >
        <div>
@@ -68,6 +97,7 @@ export default function ProjectBidding() {
 
         
       </form>
+     
 
     </div>
   )
