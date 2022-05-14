@@ -1,6 +1,6 @@
 .group-screen {
     width: 100%;
-    height: 100rem;
+    height: 110rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
     border-width: 2px;
     border-style: solid;
     border-color: #21262d;
-    height: 80rem;
+    height: 90rem;
     
   }
   
@@ -133,4 +133,6 @@
     font-size: 100px;
   }
 
-  
+  .cke{
+    height:2000px;
+  }
