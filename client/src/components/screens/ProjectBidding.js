@@ -3,6 +3,8 @@ import React from 'react'
 import "./GroupScreen.css";
 import {useParams} from 'react-router-dom';
 import { useState } from "react";
+
+import "./ProjectBiddingScreen.css";
 export default function ProjectBidding() {
   const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
     const [date, setDate] = useState("");
@@ -57,16 +59,32 @@ export default function ProjectBidding() {
 
 
   return (
-    <div> Project Details 
+    
+    <div div className="bid-screen"> 
+      {/* Project Details  */}
+      <h1 className="bid-screen__title ">Project details</h1>
+      
+      < div className="bidcard">
         <h1>{projectName}</h1>
         <h1>{projectDesc}</h1>
         <h1>{projectSupervisedBy}</h1>
+       <br></br> </div>
+     
+
+        {/* <div id="card">
+
+            <h1 id="caption">Your group members are</h1>
+            <hr id="hr"></hr>
+            <p id="List">
+            {listHandler()}
+            </p>
+          </div> */}
 
           {/* Form  */}
-          <form onSubmit={biddingPlaceHandler} >
-       <div>
-        <label>
-          Your Group ID:</label>
+          <form onSubmit={biddingPlaceHandler} className="bid-screen__form"  >
+       <div >
+        <label className="form-group" >
+          Your Group ID:</label><br></br>
           <input type="text" 
           className = "input"
           name="name" 
@@ -74,8 +92,8 @@ export default function ProjectBidding() {
           value={bidPlacedGroup} />  
         </div>
         <div>
-        <label>
-           Date:</label>
+        <label className="form-group">
+           Date:</label><br></br>
           <input type="text" 
           name="name" 
           className = "input"
@@ -84,7 +102,7 @@ export default function ProjectBidding() {
           </div>
           <div>
         <label>
-           Time :</label>
+           Time :</label><br></br>
           <input type="text" 
           name="name" 
           className = "input"
@@ -100,5 +118,6 @@ export default function ProjectBidding() {
      
 
     </div>
+   
   )
 }
