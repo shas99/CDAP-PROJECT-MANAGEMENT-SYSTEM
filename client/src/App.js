@@ -28,6 +28,7 @@ import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
+import Submission from "./components/screens/SubmissionScreen";
 
 
 
@@ -73,7 +74,7 @@ const App = () => {
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
          <Route exact path="/availableProjects/:id" component={ProjectBidding}/>
-        
+         <Route exact path="/submit" component={Submission}/>
 
         </Switch>
 

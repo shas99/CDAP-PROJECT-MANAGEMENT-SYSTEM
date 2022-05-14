@@ -6,11 +6,34 @@ const bodyParser = require('body-parser')
 const nunjucks=require('nunjucks')
 const Nexmo = require('nexmo')
 let cors = require("cors");
-
+const {uploadFile, getFileStream} = require('./s3')
 
 connectDB();
 
 const app = express();
+//upload file
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
+
+
+app.get('/images/:key', (req,res)=>{
+    const key = req.params.key
+    const readStream = getFileStream(key)
+    
+    readStream.pipe(res)
+})
+
+
+
+app.post('/images', upload.single('image'),async (req,res) =>{
+    const file = req.file
+    const info = req.body
+    const result = await uploadFile(file)
+    console.log(result)
+    console.log(file)
+    res.send({imagePath: `/images/${result.Key}`})
+})
 
 app.use(express.json())
 app.use(cors());
