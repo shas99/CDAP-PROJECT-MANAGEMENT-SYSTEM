@@ -88,12 +88,11 @@ const ViewAvailableProjects = ({history}) =>{
     <span className="error-message">{error}</span>
   ) :(
     
-    <div >
+    <div style={{backgroundColor:"#22272E"}}>
       <Header/>
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption" className="">All projects</h1>
       <br/><br/>
-         
 
 
         
@@ -101,15 +100,15 @@ const ViewAvailableProjects = ({history}) =>{
         {ProjectsData.map(project => {
           return (
             <div className="card rounded-xl bg-slate-300">
-        <center><p style={{backgroundColor: "red"}}>{project.projectName}</p></center>
+        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>{project.projectName}</p></center>
       <div className="bg-slate-300">
                    
-                    <li className="markscontent">Description : {project.projectDescription}</li> 
-                    <li className="markscontent"> Bidding Count : {project.projectBiddingCount}</li> 
-                    <li className="markscontent">Supervised By :{project.projectSupervisedBy}</li>
-                    <li className="markscontent"> Project Type :{project.projectType}</li>
-                    <li className="markscontent"> Published Date : {project.publishedDate}</li>
-                    <div className="placeBidToBtn"> <a href={`/availableProjects/${project._id}`}> Bid this Project</a></div>
+                    <li className="markscontent" style={{fontWeight:"bold",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}>Description : {project.projectDescription}</li> 
+                    <li className="markscontent" style={{fontWeight:"bold",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}> Bidding Count : {project.projectBiddingCount}</li> 
+                    <li className="markscontent" style={{fontWeight:"bold",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}>Supervised By :{project.projectSupervisedBy}</li>
+                    <li className="markscontent" style={{fontWeight:"bold",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}> Project Type :{project.projectType}</li>
+                    <li className="markscontent" style={{fontWeight:"bold",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}> Published Date : {project.publishedDate}</li>
+                    <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"120px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",padding:"2px"}}> <a href={`/availableProjects/${project._id}`}> Bid this Project</a></div>
       </div>
       </div>
             
@@ -127,7 +126,7 @@ const ViewAvailableProjects = ({history}) =>{
 
       <br/>
     
-      
+
 </div>
     
     
