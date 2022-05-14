@@ -451,10 +451,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
