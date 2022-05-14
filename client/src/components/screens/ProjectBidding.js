@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom';
 import { useState } from "react";
 import "./GroupScreen.css";
 
+
 import "./ProjectBiddingScreen.css";
 export default function ProjectBidding() {
   const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
@@ -14,10 +15,14 @@ export default function ProjectBidding() {
     const [projectName,setProjectName] =useState("");
     const [projectDesc,setProjectDesc] =useState("");
     const [projectSupervisedBy,setProjectSupervisedBy]=useState("");
+    const current = new Date();
+    const pdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+           
     
         const params =useParams();
         const projectID = params.id;
         console.log(projectID)
+        console.log(pdate)
     
 
     //*******BIDDING PLACE HANDLER FUNCTION *******/
@@ -61,7 +66,9 @@ export default function ProjectBidding() {
 
   return (
     
+    
     <div  className="bid-screen"> 
+     
       {/* Project Details  */}
       <div className="projectdetails">
       <h1 className="projtitle"><b>Project details</b></h1><br></br>
@@ -102,7 +109,7 @@ export default function ProjectBidding() {
           <input type="text" 
           name="name" 
           className = "input"
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => setDate(pdate)}
           value={date} />
           </div>
           <div>
@@ -121,6 +128,7 @@ export default function ProjectBidding() {
         
       </form>
      
+      
 
     </div>
    
