@@ -146,7 +146,7 @@ const TopicRegistration = ({history}) => {
       <div className="form-group">
         <label className="TopicNames">Group Identification Number</label>
           <input type="text" 
-          className = "input"
+          className = "input" style={{color:"black"}}
           name="name" 
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
@@ -157,7 +157,7 @@ const TopicRegistration = ({history}) => {
         <div className="form-group">
         <label className="TopicNames">Topic</label>
           <input type="text" 
-          className = "input"
+          className = "input" style={{color:"black"}}
           name="name" 
           onChange={(e) => setTopic(e.target.value)}
           value={Topic} />
