@@ -68,7 +68,7 @@ export default function ProjectBidding() {
         <h1>{projectName}</h1>
         <h1>{projectDesc}</h1>
         <h1>{projectSupervisedBy}</h1>
-       <br></br> </div>
+       </div>
      
 
         {/* <div id="card">
