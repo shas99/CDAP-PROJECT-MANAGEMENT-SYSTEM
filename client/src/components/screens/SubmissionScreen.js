@@ -156,8 +156,28 @@ const Submission = ({history}) => {
          setFile(file)
      }
 
+     const download = e => {
+      console.log(e.target.href);
+      fetch(e.target.href, {
+        method: "GET",
+        headers: {}
+      })
+      .then(response => {
+        response.arrayBuffer().then(function(buffer) {
+          const url = window.URL.createObjectURL(new Blob([buffer]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "report.pdf"); //or any other extension
+          document.body.appendChild(link);
+          link.click();
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
       
-  
+    }
+    
     return  error ? ( 
   
         <span className="error-message">{error}</span>
@@ -206,13 +226,20 @@ const Submission = ({history}) => {
               {/* <img src="/images/8b22480d56c25572f3a2387faab41f87"></img> */}
 
 
+              {/* <a href="/images/8b22480d56c25572f3a2387faab41f87" download = "file.pdf">Hello</a> */}
 
 
 
 
-
-
-
+              {/* download try */}
+              <a
+        href="/images/e50aa1b8426b24445c4132fc849645a7"
+        download
+        onClick={e => download(e)}
+      >
+        <i className="fa fa-download" />
+        download
+      </a>
 
 
 
