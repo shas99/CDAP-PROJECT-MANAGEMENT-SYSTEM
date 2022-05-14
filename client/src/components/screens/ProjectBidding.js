@@ -66,10 +66,11 @@ export default function ProjectBidding() {
       <h1 className="projtitle"><b>Project details</b></h1><br></br>
       
         <h1 ><b>Name: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {projectName}</h1>
-        
+        <br></br>
         <h1><b>Supervisor:</b>&nbsp;&nbsp;{projectSupervisedBy}</h1>
+        <br></br>
   
-        <h1><b>About: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {projectDesc}</h1>
+        <h1><b>About:<br></br> <br></br> </b> {projectDesc}</h1>
        </div>
       
      
