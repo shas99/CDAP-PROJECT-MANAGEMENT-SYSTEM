@@ -3,6 +3,7 @@ import React from 'react'
 import "./GroupScreen.css";
 import {useParams} from 'react-router-dom';
 import { useState } from "react";
+import "./GroupScreen.css";
 
 import "./ProjectBiddingScreen.css";
 export default function ProjectBidding() {

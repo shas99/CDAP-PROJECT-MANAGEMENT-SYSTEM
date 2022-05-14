@@ -231,7 +231,7 @@ const TopicRegistration = ({history}) => {
         />
         <br/>
       <label className="TopicNames">Task divided among the members:</label>
-                <CKEditor
+                <CKEditor className="cke"
         editor={ClassicEditor}
         data={projecttask}
         onChange={(event,editor)=>{
