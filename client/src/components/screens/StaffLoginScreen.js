@@ -49,7 +49,7 @@ const StaffLoginScreen = ({ history }) => {
         {error && <span className="error-message">{error}</span>}
         <div className="form-group">
           <label htmlFor="email" id="EmailID">Email:</label>
-          <input
+          <input style={{color:"black"}}
             type="email"
             required
             id="email"
@@ -67,6 +67,7 @@ const StaffLoginScreen = ({ history }) => {
             </Link>
           </label>
           <input
+          style={{color:"black"}}
             type="password"
             required
             id="password"
