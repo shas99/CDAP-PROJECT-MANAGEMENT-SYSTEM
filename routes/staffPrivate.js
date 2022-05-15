@@ -7,4 +7,5 @@ const { protect } = require("../middleware/staffAuth");
 
 router.route("/staffPrivate").get(protect, getPrivateData);
 
+
 module.exports = router;
