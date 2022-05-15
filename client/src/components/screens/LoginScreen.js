@@ -50,6 +50,7 @@ const LoginScreen = ({ history }) => {
         <div className="form-group">
           <label htmlFor="email" id="EmailID">Email:</label>
           <input
+          style={{color:"black"}}
             type="email"
             required
             id="email"
@@ -67,6 +68,7 @@ const LoginScreen = ({ history }) => {
             </Link>
           </label>
           <input
+          style={{color:"black"}}
             type="password"
             required
             id="password"

@@ -64,6 +64,7 @@ const StaffPrivateScreen = ({history}) => {
         
        
           <br/>
+          <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
 
 
       
