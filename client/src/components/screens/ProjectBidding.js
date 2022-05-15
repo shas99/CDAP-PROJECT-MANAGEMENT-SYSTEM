@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom';
 import { useState } from "react";
 import "./GroupScreen.css";
 
+
 import "./ProjectBiddingScreen.css";
 export default function ProjectBidding() {
   const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
@@ -14,10 +15,14 @@ export default function ProjectBidding() {
     const [projectName,setProjectName] =useState("");
     const [projectDesc,setProjectDesc] =useState("");
     const [projectSupervisedBy,setProjectSupervisedBy]=useState("");
+    const current = new Date();
+    const pdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+          
     
         const params =useParams();
         const projectID = params.id;
         console.log(projectID)
+        console.log(pdate)
     
 
     //*******BIDDING PLACE HANDLER FUNCTION *******/
@@ -61,10 +66,12 @@ export default function ProjectBidding() {
 
   return (
     
+    
     <div  className="bid-screen"> 
+     
       {/* Project Details  */}
       <div className="projectdetails">
-      <h1 className="projtitle"><b>Project details</b></h1><br></br>
+      <h1 className="projtitle"><b>Project Details</b></h1><br></br>
       
         <h1 ><b>Name: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {projectName}</h1>
         <br></br>
@@ -91,36 +98,39 @@ export default function ProjectBidding() {
         <label className="form-group" >
           Your Group ID:</label><br></br>
           <input type="text" 
-          className = "input"
+          className = "input1"
           name="name" 
           onChange={(e) => setBiddingPlacedGroup(e.target.value)}
           value={bidPlacedGroup} />  
         </div>
+        <br/>
         <div>
         <label className="form-group">
            Date:</label><br></br>
           <input type="text" 
           name="name" 
-          className = "input"
-          onChange={(e) => setDate(e.target.value)}
+          className = "input2"
+          onChange={(e) => setDate(pdate)}
           value={date} />
           </div>
+          <br/>
           <div>
         <label>
            Time :</label><br></br>
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "input3"
           onChange={(e) => setTime(e.target.value)}
           value={time} />
           </div>
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
-         Place Bid
+      <button type="submit" className="btn btn-primary1" id="bid1Button">
+          BID
          </button>
 
         
       </form>
      
+      
 
     </div>
    

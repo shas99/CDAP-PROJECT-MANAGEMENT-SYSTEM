@@ -58,20 +58,21 @@ const PrivateScreen = ({history}) => {
       </p>
       
 
-      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">View Feedback</button></Link>
+      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">My Feedbacks</button></Link>
+        <br/><br/>
+        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">My Grades</button></Link>
+        <br/><br/>
+      <Link to="groupscreen" id="GroupConfig"><button className="buttons" onClick="groupscreen">My Group</button></Link> <br/><br/>
+      <Link to="matchedsupervisors" id="MatchedS"><button className="buttons" onClick="matchedsupervisors">Matched Supervisors</button></Link>
+      <br/><br/>
+        <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Register Topic </button></Link>
+      <br/><br/>
+        <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">Available Projects</button></Link>
         <br/>
-        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">View Marks</button></Link>
+       
         
        
-          <br/>
-
-
-      <Link to="groupscreen" id="GroupConfig"><button className="buttons" onClick="groupscreen">My Group</button></Link>
-        <br></br><Link to="matchedsupervisors" id="MatchedS"><button className="buttons" onClick="matchedsupervisors">Matched Supervisors</button></Link><br></br>
-        <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Student - Topic Registration Form</button></Link>
-      <br></br>
-        <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">View Available Projects</button></Link>
-        <br></br><Link to="/submit" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
+          <br/><br></br><Link to="/submit" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
 
     <Footer/>
 
