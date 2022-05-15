@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import InputRange from 'react-input-range';
-import "./MatchedSupervisors.css";
 // import { Link } from "react-router-dom";
 import "./StaffRecommendationForm.css";
 import Header from "../Header/Header";
@@ -61,7 +60,7 @@ const StaffRcommendationInputs = ({history}) => {
           },
         };
        
-    
+        alert("Successfully Submited!")
         try {
           const { data } = await axios.post(
             "http://localhost:5000/api/staff/StaffRecommendationForm",
@@ -93,7 +92,7 @@ const StaffRcommendationInputs = ({history}) => {
       ) : ( 
     
         <>
-        <div id="back">
+        <div id="back" >
         <Header/>
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
@@ -103,35 +102,33 @@ const StaffRcommendationInputs = ({history}) => {
           </p>
           
           <p style={{color:"#FFF"}}>
-          <br/><br/><br/><br/>
-          
+          <br/><br/>
           </p>
         
-           <h1 id="caption">Topic Interestings</h1>
-           <br/>
-           
-      
+           <h1 id="caption">Topic Interestings</h1>         
           
-          <div className="group-screen">
+          <div className="group-screen" style={{height:"70rem"}}>
             
           <div>        
-          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"65rem"}}>
-      <h3 className="login-screen__title" style={{paddingTop:"1rem"}}>Topic Interesting Form</h3>
+          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-6rem"}}>
+      <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.4rem"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group" style={{paddingTop:"1rem"}}>
-        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%"}}>Staff ID:</label>
+        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"normal"}}>Staff ID:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
           <input type="text" 
-          className = "input" style={{height:"0.5rem"}}
+          className = "input" style={{height:"0.5rem",width:"20rem"}}
           name="name" 
           onChange={(e) => setStaffID(e.target.value)}
           value={StaffID} />
         
         </div>
         <br/>
-
+        <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Show us your interesting</p><br/>
         <div className="form-group">
-        <label className="TopicNames">1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
           <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -142,8 +139,8 @@ const StaffRcommendationInputs = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
+        <div className="form-group" style={{marginTop:"-1rem"}}>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -154,8 +151,8 @@ const StaffRcommendationInputs = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
+        <div className="form-group" style={{marginTop:"-1rem"}}>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -165,8 +162,8 @@ const StaffRcommendationInputs = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
+        <div className="form-group" style={{marginTop:"-1rem"}}>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -176,8 +173,8 @@ const StaffRcommendationInputs = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
+        <div className="form-group" style={{marginTop:"-1rem"}}>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -187,8 +184,8 @@ const StaffRcommendationInputs = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
+        <div className="form-group" style={{marginTop:"-1rem"}}>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -198,8 +195,8 @@ const StaffRcommendationInputs = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
+        <div className="form-group" style={{marginTop:"-1rem"}}>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -210,7 +207,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>  
 
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
+      <button type="submit" className="btn btn-primary1" id="Log1Button" style={{marginTop:"1rem",textAlign:"center"}}>
           Submit
         </button>
 
