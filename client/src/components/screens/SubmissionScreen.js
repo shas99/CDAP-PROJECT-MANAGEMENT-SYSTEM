@@ -202,35 +202,9 @@ const Submission = ({history}) => {
            <h1 id="caption">Project Submission</h1>
            <br/>
           
-          {/* <div className="group-screen">
-      
-            <form onSubmit={submit} id="submissionForm">
-              <label style={{marginLeft:"5rem"}}>Select file to upload</label>&nbsp;&nbsp;&nbsp;
-                <input className="inputs" id="file" onChange={fileSelected} type="file"></input><br></br><br></br>
-                <label style={{textAlign:"left",marginLeft:"5rem"}}>Add a descriptoin about file:&nbsp;&nbsp;&nbsp;</label>  
-                <input className="inputs" value={description} onChange={e => setDescription(e.target.value)}type="text"></input><br></br><br></br>
-                <button id="btn" type="submit" style={{marginLeft:"21.3rem"}} className="btn btn-primary1">Submit</button><br/>
+        
 
-            </form>
-
-            {images.map( image=>(
-                <div key={image}>
-                    <img src={image}></img>
-                    </div>))}
-
-              <br></br>
-              <p style={{marginLeft:"-4rem",marginTop:"1rem"}}><em style={{color:"#726e77",fontSize:"0.9rem"}}>Click to download submitted document</em> </p><a
-              href="/images/e50aa1b8426b24445c4132fc849645a7"
-              download
-              onClick={e => download(e)}
-              >
-        <button className="btn btn-primary1" id="btn2">
-        Download</button>
-      </a>
-
-          </div> */}
-
-<div className="group-screen">
+<div className="submission-screen">
             {/* file upload */}
             <form onSubmit={submit} id="submissionForm">
               <label style={{marginLeft:"5rem"}}>Select file to upload</label>&nbsp;&nbsp;&nbsp;
