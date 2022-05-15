@@ -62,7 +62,7 @@ const StaffReport = ({history}) => {
         };
   
         try {
-          const { data} = await axios.get("/api/private", config);
+          const { data} = await axios.get("/api/staffPrivate/staffPrivate", config);
           
           setPrivateData(data.data);
         } catch (error) {

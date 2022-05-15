@@ -69,6 +69,11 @@ const PrivateScreen = ({history}) => {
       <br/><br/>
         <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">Available Projects</button></Link>
         <br/>
+       
+        
+       
+          <br/><br></br><Link to="/submit" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
+
     <Footer/>
 
      </div>
