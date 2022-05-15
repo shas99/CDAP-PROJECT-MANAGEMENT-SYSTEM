@@ -25,6 +25,7 @@ import TopicRegistration from "./components/screens/StudentTopicRegistrationForm
 import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
+import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
@@ -77,6 +78,11 @@ const App = () => {
          <Route exact path="/submit" component={Submission}/>
          <Route exact path="/staffreport" component={StaffReport}/>
          <Route exact path="/staffproject" component={ViewAvailableProjectsStaff}/>
+
+         {/* Staff Recommendation Form */}
+         <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
+        
+
         </Switch>
 
       </div>

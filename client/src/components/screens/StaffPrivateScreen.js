@@ -58,15 +58,15 @@ const StaffPrivateScreen = ({history}) => {
       </p>
       
 
-      <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">Add Feedback</button></Link>
+      <Link to= "#" id="Regs"><button className="buttons" onClick="#">Add Feedback</button></Link>
         <br/>
-        <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">Add Marks</button></Link>
+        <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
         
        
           <br/>
           <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
 
-
+          <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
       
       
         
