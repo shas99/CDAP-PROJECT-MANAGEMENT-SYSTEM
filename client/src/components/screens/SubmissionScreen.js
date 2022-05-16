@@ -6,54 +6,22 @@ import "./SubmissionScreen.css";
 import "./StudentTopicRegistrationForm.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 const Submission = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
     // const [suggestions,setsuggestions] = useState("")
-    const [Topic, setTopic] = useState("");
-    const [groupID, setgroupID] = useState("");
-    const [topicdescription, settopicdescription] = useState("");
-    const [abstract, setabstract] = useState("");
-    const [researchProblem, setresearchProblem] = useState("");
-    const [solution, setsolution] = useState("");
-    const [systemOverview, setsystemOverview] = useState("");
-
-    const [objective, setobjective] = useState("");
-    const [projecttask, setprojecttask] = useState("");
-    const [technologies, settechnologies] = useState("");
-
-    const [group,setgroup] = useState("")
-    const [fetchGroupData, setGroupData] = useState("");
+   
     //image upload to s3
     const [file, setFile] = useState()
     const [description,setDescription] = useState("")
     const [images,setImages] = useState([])
+    const [documentID,setDocuemntID] =useState()
 
     useEffect(() => {
-        const fetchGroupData = async () => {
-            const groupconfig = {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-              },
-            };
-      
-            try {
-              const { data} = await axios.get("/api/auth/group",groupconfig);
-              const groupArray = data.data.split("/")
-              console.log(groupArray[0])
-              const group1 = groupArray[0].split(",")
-              setgroup(group1)
-              setGroupData(groupArray[0]);
-            } catch (error) {
-      
-              // setError("Oops couldn't retreive group data");//fix this
-            }
-          };
+       
       const fetchPrivateDate = async () => {
         const config = {
           headers: {
@@ -77,7 +45,7 @@ const Submission = ({history}) => {
     //   fetchGroupData()
 
       fetchPrivateDate();
-      fetchGroupData()
+    
     }, [history]);
   
     //Logout feature
@@ -86,33 +54,7 @@ const Submission = ({history}) => {
       history.push("/login");
   
     };
-    const groupregisterHandler = async (e) => {
-        e.preventDefault();
-    
-        const config = {
-          header: {
-            "Content-Type": "application/json",
-          },
-        };
-    
-        try {
-          const { data } = await axios.post(
-            "/api/group/topicregister",
-            { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
-            config
-          );
-    
-    
-    
-          history.push("/");
-        } catch (error) {
-          setError(error.response.data.error);
-          setTimeout(() => {
-            setError("");
-          }, 5000);
-        }
-      };
-
+   
 
       const postImage = async (e) => {
       
@@ -133,7 +75,7 @@ const Submission = ({history}) => {
             formData,
             config
           );
-            console.log("Hello")
+            console.log(file)
         return data.data 
     
         //   history.push("/");
@@ -147,9 +89,14 @@ const Submission = ({history}) => {
 
      const submit = async event => {
          event.preventDefault()
-         console.log(file,description)
+        
+         console.log("THis is file::::"+file,description)
+         
          const result = await postImage({images: file,description})
+         alert("File Uploaded successfully !")
          setImages([result.image, ...images])
+         console.log("THis thisjkncknknr"+result)
+         
      }
 
      const fileSelected = event => {
@@ -219,7 +166,7 @@ const Submission = ({history}) => {
               <br></br>
               <p style={{marginLeft:"-4rem",marginTop:"1rem"}}><em style={{color:"#726e77",fontSize:"0.9rem"}}>Click to download submitted </em> 
               <a
-              href="/images/e50aa1b8426b24445c4132fc849645a7"
+              href="/images/{}"
               download
               style={{color:"#073a7c",textDecorationColor:"#002b64",textDecorationStyle:"solid",textDecorationLine:"underline"}}
               onClick={e => download(e)}

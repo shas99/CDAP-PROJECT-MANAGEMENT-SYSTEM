@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import InputRange from 'react-input-range';
+// import InputRange from 'react-input-range';
 // import { Link } from "react-router-dom";
 import "./StaffRecommendationForm.css";
 import Header from "../Header/Header";
