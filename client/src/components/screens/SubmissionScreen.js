@@ -42,7 +42,7 @@ const Submission = ({history}) => {
   
 
 
-    //   fetchGroupData()
+    
 
       fetchPrivateDate();
     
@@ -75,7 +75,12 @@ const Submission = ({history}) => {
             formData,
             config
           );
-            console.log(file)
+          //This displays image/filename
+            console.log(data.imagePath)
+            //split 'image/' and storing the filename to setDocumentID() and pass it to download url ex:/images/d322d9d3fa3370a90387d8b9bb54757f
+            const splitDocumentID = data.imagePath.slice(8,100)
+              console.log(splitDocumentID)
+              setDocuemntID(splitDocumentID)
         return data.data 
     
         //   history.push("/");
@@ -90,7 +95,7 @@ const Submission = ({history}) => {
      const submit = async event => {
          event.preventDefault()
         
-         console.log("THis is file::::"+file,description)
+         console.log(file)
          
          const result = await postImage({images: file,description})
          alert("File Uploaded successfully !")
@@ -152,6 +157,7 @@ const Submission = ({history}) => {
         
 
 <div className="submission-screen">
+  
             {/* file upload */}
             <form onSubmit={submit} id="submissionForm">
               <label style={{marginLeft:"5rem"}}>Select file to upload</label>&nbsp;&nbsp;&nbsp;
@@ -166,7 +172,7 @@ const Submission = ({history}) => {
               <br></br>
               <p style={{marginLeft:"-4rem",marginTop:"1rem"}}><em style={{color:"#726e77",fontSize:"0.9rem"}}>Click to download submitted </em> 
               <a
-              href="/images/{}"
+              href={`/images/${documentID} `}
               download
               style={{color:"#073a7c",textDecorationColor:"#002b64",textDecorationStyle:"solid",textDecorationLine:"underline"}}
               onClick={e => download(e)}
