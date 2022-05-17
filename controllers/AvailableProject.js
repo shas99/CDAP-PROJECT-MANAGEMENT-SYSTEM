@@ -10,11 +10,11 @@ try{
     const availableProjects = await AvailableProject.find()//group that is approved and have this perticular member
     //console.log(availableProjects[1])// 
     const array = Object.values(availableProjects)
-    console.log(array)
-    const arrayproject = JSON.stringify(array).split(',')
-    console.log(arrayproject)
-    console.log(typeof arrayproject)
 
+    const arrayproject = JSON.stringify(array).split(',')
+    // console.log(arrayproject)
+    // console.log(typeof arrayproject)
+    console.log(array)
     res.status(201).json({
         success: true,
         data: array
