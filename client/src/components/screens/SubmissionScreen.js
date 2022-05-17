@@ -19,7 +19,7 @@ const Submission = ({history}) => {
     const [description,setDescription] = useState("")
     const [images,setImages] = useState([])
     const [documentID,setDocuemntID] =useState()
-
+    
     useEffect(() => {
        
       const fetchPrivateDate = async () => {
@@ -99,7 +99,7 @@ const Submission = ({history}) => {
          
          const result = await postImage({images: file,description})
          alert("File Uploaded successfully !")
-         setImages([result.image, ...images])
+        //  setImages([result.image, ...images])
          console.log("THis thisjkncknknr"+result)
          
      }
