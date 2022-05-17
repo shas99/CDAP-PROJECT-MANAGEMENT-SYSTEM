@@ -42,7 +42,39 @@ exports.login = async (req, res, next) => {
         if(!isMatch){
             return next(new ErrorResponse("Invalid Credentials",401))
         }
-        
+        //token for 2 factor authentication
+
+        const random = Math.random()
+
+        const OTP = Math.round(random * 1000000)
+
+        console.log(OTP)
+        const message = `<h1>CDAP PROJECT MANAGEMENT SYSTEM</h1>
+        <h3>Hello ${email} ,</h3>
+        <p>Your OTP number is below</p></br>
+        <p>${OTP}
+        </p>
+        `
+
+        try{
+            user.OTP = OTP
+            await user.save()
+            await sendEmail({
+                to:user.email,
+                subject:"OPT for login",
+                text: message
+            })
+            
+            // res.status(200).json({success:true,data:"Passowrd reset link sent"})
+        }catch(error){
+
+    
+            return next(new ErrorResponse("Email could not be send",500))
+            
+    
+        }
+    
+
         sendToken(user, 200, res)
     }catch(error){
         res.status(500).json({success:false, error:error.message})
