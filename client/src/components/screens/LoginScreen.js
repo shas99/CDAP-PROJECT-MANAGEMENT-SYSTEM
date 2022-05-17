@@ -8,12 +8,20 @@ const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const [logged,setlogged] = useState("")
+  const [OTPnum,setOTP] = useState("")
+  const [inputOTP,setinputOTP] = useState("")
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
       history.push("/");
     }
   }, [history]);
+
+  useEffect(() => {
+
+
+
+  }, []);
 
   const loginHandler = async (e) => {
     e.preventDefault();
@@ -29,8 +37,46 @@ const LoginScreen = ({ history }) => {
         "/api/auth/login",
         { email, password },
         config
-      );
+        );
+        setlogged("Logged")
+        console.log(logged)
+      // localStorage.setItem("authToken", data.token);
 
+      // history.push("/");
+    } catch (error) {
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
+
+const setOTPnum =(inputOTP)=> {
+
+  setOTP(inputOTP)
+
+
+}
+
+
+  const OTPHandler = async (e) => {
+    e.preventDefault();
+    console.log(inputOTP+"input")
+    setOTPnum(inputOTP)
+    console.log(OTPnum+"OTPnum")
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+    
+    try {
+      const { data } = await axios.put(
+        "/api/auth/OTP",
+        { email, password, OTPnum},
+        config
+      );
+        // setlogged("Logged")
       localStorage.setItem("authToken", data.token);
 
       history.push("/");
@@ -44,6 +90,8 @@ const LoginScreen = ({ history }) => {
 
   return (
     <div className="login-screen">
+      {console.log(logged)}
+      {logged == "" && 
       <form onSubmit={loginHandler} className="login-screen__form">
         <h3 className="login-screen__title">Login</h3>
         {error && <span className="error-message">{error}</span>}
@@ -87,6 +135,40 @@ const LoginScreen = ({ history }) => {
           Don't have an account? <Link to="/register" id="Regs">Register</Link>
         </span>
       </form>
+}
+
+{/* 2-factor auth */}
+{logged == "Logged" && 
+
+<div>
+       
+<form
+  onSubmit={OTPHandler}
+  className="resetpassword-screen__form"
+>
+  <h3 className="resetpassword-screen__title">Group Registration confirmation<br/><br/>Click button below to confirm your registration</h3>
+  <input
+          style={{color:"black"}}
+            type="password"
+            required
+            id="password"
+            autoComplete="true"
+            placeholder="Enter password"
+            onChange={(e) => setinputOTP(e.target.value)}
+            value={inputOTP}
+
+          />
+  
+  <button type="submit" className="btn btn-primary" id="btn">
+    Login
+  </button>
+</form>
+</div>
+
+
+
+
+}
     </div>
   );
 };
