@@ -18,7 +18,7 @@ const Submission = ({history}) => {
     const [file, setFile] = useState()
     const [description,setDescription] = useState("")
     const [images,setImages] = useState([])
-    const [documentID,setDocuemntID] =useState()
+    const [documentID,setDocuemntID] =useState("")
 
     useEffect(() => {
        
