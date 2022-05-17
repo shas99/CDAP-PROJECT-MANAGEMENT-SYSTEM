@@ -32,7 +32,7 @@ import ProjectBidding from "./components/screens/ProjectBidding";
 import Submission from "./components/screens/SubmissionScreen";
 import StaffReport from "./components/screens/StaffReportScreen"
 import ViewAvailableProjectsStaff from "./components/screens/StaffAvailableProject";
-
+import OPT from "./components/screens/OTPScreen";
 
 const App = () => {
   return (
@@ -81,7 +81,7 @@ const App = () => {
 
          {/* Staff Recommendation Form */}
          <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
-        
+         <Route exact path="/OPT" component={OPT}/>
 
         </Switch>
 
