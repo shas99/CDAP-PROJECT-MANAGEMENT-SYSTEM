@@ -60,6 +60,8 @@ const PrivateScreen = ({history}) => {
 
       <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">My Feedbacks</button></Link>
         <br/><br/>
+        <Link to="/studenttopicinterestingform" id="Regs"><button className="buttons" onClick="/studenttopicinterestingform ">Student Topic Interestings</button></Link>
+        <br/><br/>
         <Link to="/viewmarks" id="Regs"><button className="buttons" onClick="/viewmarks ">My Grades</button></Link>
         <br/><br/>
       <Link to="groupscreen" id="GroupConfig"><button className="buttons" onClick="groupscreen">My Group</button></Link> <br/><br/>
@@ -68,11 +70,7 @@ const PrivateScreen = ({history}) => {
         <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Register Topic </button></Link>
       <br/><br/>
         <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">Available Projects</button></Link>
-        <br/>
-       
-        
-       
-          <br/><br></br><Link to="/submit" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
+        <br/><br/><Link to="/submit" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
 
     <Footer/>
 

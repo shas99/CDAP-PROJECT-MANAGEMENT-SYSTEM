@@ -34,6 +34,8 @@ import StaffReport from "./components/screens/StaffReportScreen"
 import ViewAvailableProjectsStaff from "./components/screens/StaffAvailableProject";
 import OPT from "./components/screens/OTPScreen";
 
+import StudentTopicInterestingForm from "./components/screens/StudentTopicInterestingForm";
+
 const App = () => {
   return (
     <Router>
@@ -78,6 +80,9 @@ const App = () => {
          <Route exact path="/submit" component={Submission}/>
          <Route exact path="/staffreport" component={StaffReport}/>
          <Route exact path="/staffproject" component={ViewAvailableProjectsStaff}/>
+
+         {/* Student Topic Interestings */}
+         <Route exact path="/studenttopicinterestingform" component={StudentTopicInterestingForm}/>
 
          {/* Staff Recommendation Form */}
          <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
