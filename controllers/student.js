@@ -82,6 +82,7 @@ exports.viewmarks =async(req,res,next) => {
 };
 
 
+
 const logged = (token,res) => {//check if token is null
     if(token == "null"){
         console.log("You are not logged in")
