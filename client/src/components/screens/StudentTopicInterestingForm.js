@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import InputRange from 'react-input-range';
-// import { Link } from "react-router-dom";
-import "./StaffRecommendationForm.css";
+import "./StudentTopicInterestingForm.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-const StaffRcommendationInputs = ({history}) => {
+const StudentTopicInterestingForm = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
-
-    const [StaffID, setStaffID] = useState("");
+    const [student_ID, setStudent_ID] = useState("");
     const [Q1, setQ1] = useState("5");
     const [Q2, setQ2] = useState("5");
     const [Q3, setQ3] = useState("5");
@@ -21,37 +18,37 @@ const StaffRcommendationInputs = ({history}) => {
 
     useEffect(() => {
         const fetchPrivateDate = async () => {
-          const config = {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-            },
+            const config = {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+              },
+            };
+      
+            try {
+              const { data} = await axios.get("/api/private", config);
+              
+              setPrivateData(data.data);
+            } catch (error) {
+              localStorage.removeItem("authToken");
+              setError("You are not authorized please login");
+            }
           };
-    
-          try {
-            const { data} = await axios.get("/api/staffPrivate/staffPrivate", config);
-            
-            setPrivateData(data.data);
-          } catch (error) {
-            localStorage.removeItem("authToken");
-            setError("You are not authorized please login");
-          }
-        };
     
     
     
         fetchPrivateDate();
       }, [history]);
     
-      //Logout feature
-      const logOutHandler=()=>{
+     //Logout feature
+    const logOutHandler=()=>{
         localStorage.removeItem("authToken");
         history.push("/login");
     
       };
   
     
-    const StaffRecommendationFormHandler = async (e) => {
+    const StudentTopicInterestingFormHandler = async (e) => {
          e.preventDefault();
     
         const config = {
@@ -63,8 +60,8 @@ const StaffRcommendationInputs = ({history}) => {
         alert("Successfully Submited!")
         try {
           const { data } = await axios.post(
-            "http://localhost:5000/api/staff/StaffRecommendationForm",
-            { StaffID,Q1,Q2,Q3,Q4,Q5,Q6,Q7 },
+            "http://localhost:5000/api/student/studenttopicinterestingform",
+            { student_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7 },
             config
             
           );
@@ -92,7 +89,7 @@ const StaffRcommendationInputs = ({history}) => {
       ) : ( 
     
         <>
-        <div id="back" >
+        <div id="back">
         <Header/>
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
@@ -102,7 +99,8 @@ const StaffRcommendationInputs = ({history}) => {
           </p>
           
           <p style={{color:"#FFF"}}>
-          <br/><br/>
+          <br/><br/><br/><br/>
+          
           </p>
         
            <h1 id="caption">Topic Interestings</h1>         
@@ -110,23 +108,23 @@ const StaffRcommendationInputs = ({history}) => {
           <div className="group-screen" style={{height:"70rem"}}>
             
           <div>        
-          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-6rem"}}>
+          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-6rem"}}>
       <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.4rem"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group" style={{paddingTop:"1rem"}}>
-        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"normal"}}>Staff ID:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"normal"}}>Student ID:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
           <input type="text" 
-          className = "input" style={{height:"0.5rem",width:"20rem"}}
+          className = "input" style={{height:"0.5rem",width:"20rem",color:"black"}}
           name="name" 
-          onChange={(e) => setStaffID(e.target.value)}
-          value={StaffID} />
+          onChange={(e) => setStudent_ID(e.target.value)}
+          value={student_ID} />
         
         </div>
         <br/>
-        <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Show us your interesting</p><br/>
+        <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Tell us your project Interestings<em>(This will help you to get suggestd most interesting projects as suggestions)</em></p><br/>
         <div className="form-group">
         <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
           <input type="range" style={{width:"80%"}}
@@ -221,4 +219,4 @@ const StaffRcommendationInputs = ({history}) => {
       );
     };
     
-    export default StaffRcommendationInputs;
+    export default StudentTopicInterestingForm;
