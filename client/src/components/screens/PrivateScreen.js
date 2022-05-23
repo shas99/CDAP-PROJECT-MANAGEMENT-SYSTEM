@@ -70,7 +70,7 @@ const PrivateScreen = ({history}) => {
         <Link to="/topicregistration" id="Regs"><button className="buttons" onClick="/topicregistration ">Register Topic </button></Link>
       <br/><br/>
         <Link to="/viewavailableprojects" id="Regs"><button className="buttons" onClick="/viewavailableprojects ">Available Projects</button></Link>
-        <br/><br/><Link to="/submit" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
+        <br/><br/><Link to="/submissionmilestone" id="Regs"><button className="buttons" onClick="/submit ">Submit File</button></Link>
 
     <Footer/>
 

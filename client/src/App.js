@@ -35,6 +35,7 @@ import ViewAvailableProjectsStaff from "./components/screens/StaffAvailableProje
 import OPT from "./components/screens/OTPScreen";
 
 import StudentTopicInterestingForm from "./components/screens/StudentTopicInterestingForm";
+import SubmissionMilestones from "./components/screens/SubmissionMilestones";
 
 const App = () => {
   return (
@@ -87,6 +88,7 @@ const App = () => {
          {/* Staff Recommendation Form */}
          <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
          <Route exact path="/OPT" component={OPT}/>
+         <Route exact path="/submissionmilestone" component={SubmissionMilestones}/>
 
         </Switch>
 
