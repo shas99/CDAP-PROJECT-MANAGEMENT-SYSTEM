@@ -120,7 +120,7 @@ const Submission = ({history}) => {
           const url = window.URL.createObjectURL(new Blob([buffer]));
           const link = document.createElement("a");
           link.href = url;
-          link.setAttribute("download", "report.pdf"); //or any other extension
+          link.setAttribute("download", description+".pdf"); //or any other extension
           document.body.appendChild(link);
           link.click();
         });

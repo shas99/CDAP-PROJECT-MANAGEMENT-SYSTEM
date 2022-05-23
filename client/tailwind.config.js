@@ -13,6 +13,10 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
+    backdropFilter: {
+      'none': 'none',
+      'blur': 'blur(20px)',
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
@@ -954,5 +958,7 @@ module.exports = {
     'active',
     'disabled',
   ],
-  plugins: [],
+  plugins: [
+    require('tailwindcss-filters'),
+  ],
 }
