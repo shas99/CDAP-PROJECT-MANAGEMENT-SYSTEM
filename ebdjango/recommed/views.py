@@ -156,6 +156,8 @@ def sayHello(request):
     print(operatingSystemlist)
     print(networkinglist)
     print(roboticslist)
+
+
     print("this")
     # testData = {'BIOS':m,
     #             'cyber':cyber[0]}
@@ -172,15 +174,26 @@ def sayHello(request):
         'Mobile',
         'AI',
         'Designing',
-        'Operating system',
+        'OperatingSystem',
         'Robotics',
         'Networking']
 
     # Creating a DF of the questions/categories
     topic_df = pd.DataFrame(columns=qs)
+    
+    count = 0
+    for i in cyberlist:
+        i = int(i)
+        print(type(i))
+        print(i)
+        # topic_df.append({"Cyber":cyberlist[count]},ignore_index=True)
+        topic_df = topic_df.append({"Cyber":1,"Mobile":6,"AI":7,"Designing":1,"OperatingSystem":9,"Robotics":3,"Networking":4},ignore_index=True)
+        
+        count = count +1
+        print(count)
+    print("fffffffff")
     print(topic_df)
-
-
+    print("fffffffff")
     # Loading the data
     with open("profiles.pkl",'rb') as fp:
         df = pickle.load(fp)
