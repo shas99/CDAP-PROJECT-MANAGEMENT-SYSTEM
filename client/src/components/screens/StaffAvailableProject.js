@@ -92,7 +92,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
     <div style={{backgroundColor:"#22272E"}}>
       <Header/>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="">All projects</h1>
+      <h1 id="caption" className="">All Groups</h1>
       <br/><br/>
 
 

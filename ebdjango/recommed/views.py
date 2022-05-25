@@ -123,13 +123,64 @@ def sayHello(request):
     # display(bio_df.iloc[3])
     # print(bio_df.Bios[5])
     # print(final_df)
-
-    testData = {'Name':['Tom','Nick','Krish','Jack'],
-                'Age':[20,21,19,18]}
-    testDF = pd.DataFrame(testData)
+    m = request.GET.get('color', '')
+    print(m)
+    cyber = request.GET.get('cyber', '')
+    print(cyber)
+    mobile = request.GET.get('mobile', '')
+    print(mobile)
+    ai = request.GET.get('ai', '')
+    print(ai)
+    desgining = request.GET.get('desgining', '')
+    print(desgining)
+    operatingSystem = request.GET.get('operatingSystem', '')
+    print(operatingSystem)
+    networking = request.GET.get('networking', '')
+    print(networking)
+    robotics = request.GET.get('robotics', '')
+    print(robotics)
+    print(type(cyber))
+    biolist = m.split(",")
+    cyberlist = cyber.split(",")
+    mobilelist = mobile.split(",")
+    ailist = ai.split(",")
+    desgininglist = desgining.split(",")
+    operatingSystemlist = operatingSystem.split(",")
+    networkinglist = networking.split(",")
+    roboticslist = robotics.split(",")
+    print(biolist)
+    print(cyberlist)
+    print(mobilelist)
+    print(ailist)
+    print(desgininglist)
+    print(operatingSystemlist)
+    print(networkinglist)
+    print(roboticslist)
+    print("this")
+    # testData = {'BIOS':m,
+    #             'cyber':cyber[0]}
+    testDF = pd.DataFrame(biolist, columns=['Bios'])
+    # testDF = pd.DataFrame({'Bios':[m],'Cyber':[cyber],'Mobile':[mobile],'AI':[ai],'desgining':[desgining],'Operating System':[operatingSystem],'networking':[networking],'Robotics':[robotics]})
+    
+    
+    
     print("##########################################")
     print(testDF)
     print("##########################################")
+
+    qs = ['Cyber',
+        'Mobile',
+        'AI',
+        'Designing',
+        'Operating system',
+        'Robotics',
+        'Networking']
+
+    # Creating a DF of the questions/categories
+    topic_df = pd.DataFrame(columns=qs)
+    print(topic_df)
+
+
     # Loading the data
     with open("profiles.pkl",'rb') as fp:
         df = pickle.load(fp)
