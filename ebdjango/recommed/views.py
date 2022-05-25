@@ -192,8 +192,10 @@ def sayHello(request):
         
         count = count +1
         print(count)
+    final_df = testDF.join(topic_df)
+    final_df
     print("fffffffff")
-    print(topic_df)
+    print(final_df)
     print("fffffffff")
     # Loading the data
     with open("profiles.pkl",'rb') as fp:
