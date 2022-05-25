@@ -124,12 +124,18 @@ def sayHello(request):
     # print(bio_df.Bios[5])
     # print(final_df)
 
-
-
+    testData = {'Name':['Tom','Nick','Krish','Jack'],
+                'Age':[20,21,19,18]}
+    testDF = pd.DataFrame(testData)
+    print("##########################################")
+    print(testDF)
+    print("##########################################")
     # Loading the data
     with open("profiles.pkl",'rb') as fp:
         df = pickle.load(fp)
-
+        print("############")
+        print(df)
+        print("############")
 
      # Tokenizing Function
     def tokenize(text):

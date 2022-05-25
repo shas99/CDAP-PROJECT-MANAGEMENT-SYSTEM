@@ -7,6 +7,7 @@ const nunjucks=require('nunjucks')
 const Nexmo = require('nexmo')
 let cors = require("cors");
 const {uploadFile, getFileStream} = require('./s3')
+const axios = require('axios')
 
 connectDB();
 
@@ -87,11 +88,36 @@ http.get(url, res => {
   });
   res.on('end', () => {
     data = JSON.parse(data);
-    console.log(data);
+    // console.log(data);
   })
 }).on('error', err => {
   console.log(err.message);
 }).end()
+
+//test axios
+const getBreeds = async () => {
+  try {
+    return await axios.get('http://localhost:5000/api/group/viewgroups')
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const countBreeds = async () => {
+  const breeds = await getBreeds()
+
+  if (breeds) {
+    console.log(` ${Object.entries(breeds.data.data[1])} `)
+     breeds.data.data.map(datadata =>{
+      console.log(datadata)
+    })
+  }
+}
+
+countBreeds()
+
+
+
 
 
 //This code causes the PROXY CRASH !!!!!
