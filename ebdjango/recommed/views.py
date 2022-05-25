@@ -183,11 +183,12 @@ def sayHello(request):
     
     count = 0
     for i in cyberlist:
-        i = int(i)
-        print(type(i))
-        print(i)
+        # i = int(i)
+        # print(type(i))
+        # print(i)
         # topic_df.append({"Cyber":cyberlist[count]},ignore_index=True)
-        topic_df = topic_df.append({"Cyber":1,"Mobile":6,"AI":7,"Designing":1,"OperatingSystem":9,"Robotics":3,"Networking":4},ignore_index=True)
+        print(cyberlist)
+        topic_df = topic_df.append({"Cyber":cyberlist[count],"Mobile":mobilelist[count],"AI":ailist[count],"Designing":desgininglist[count],"OperatingSystem":operatingSystemlist[count],"Robotics":roboticslist[count],"Networking":networkinglist[count]},ignore_index=True)
         
         count = count +1
         print(count)
@@ -200,7 +201,7 @@ def sayHello(request):
         print("############")
         print(df)
         print("############")
-
+    
      # Tokenizing Function
     def tokenize(text):
         """
