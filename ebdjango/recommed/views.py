@@ -198,11 +198,13 @@ def sayHello(request):
     print(final_df)
     print("fffffffff")
     # Loading the data
-    with open("profiles.pkl",'rb') as fp:
-        df = pickle.load(fp)
-        print("############")
-        print(df)
-        print("############")
+    # with open("profiles.pkl",'rb') as fp:
+    #     df = pickle.load(fp)
+    #     print("############")
+    #     print(df)
+    #     print("############")
+
+    df = final_df.copy()
     
      # Tokenizing Function
     def tokenize(text):
@@ -229,7 +231,7 @@ def sayHello(request):
     # Applying the function to each user bio
     df['Bios'] = df.Bios.apply(tokenize)   
 
-
+    print(df['Bios'])
 
 
     # Creating a set list that will only take in unique words
@@ -324,6 +326,9 @@ def sayHello(request):
         # Loading in the cleaned DF
     with open("profiles.pkl",'rb') as fp:
         df = pickle.load(fp)
+        print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+        print(final_df)
+        print(df)
     # Instantiating the Scaler
     scaler = MinMaxScaler()
     # Scaling the categories then replacing the old values
@@ -349,7 +354,8 @@ def sayHello(request):
 
     # Dropping the Bios because it is no longer needed in place of vectorization
     new_df.drop('Bios', axis=1, inplace=True)
-
+    print("NNNNNNNNNNNNNNNNNNNNNNNEeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwww")
+    print(new_df)
     # Importing the library
     from sklearn.decomposition import PCA
 
