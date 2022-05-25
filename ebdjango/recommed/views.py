@@ -327,6 +327,7 @@ def sayHello(request):
     with open("profiles.pkl",'rb') as fp:
         df = pickle.load(fp)
         print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+        df = final_df.copy()
         print(final_df)
         print(df)
     # Instantiating the Scaler
@@ -338,7 +339,9 @@ def sayHello(request):
                                 df.drop('Bios',axis=1)), 
                                 columns=df.columns[1:], 
                                 index=df.index))
-
+    print("testingtestingtesting")
+    print(df)
+    print("testingtestingtesting")
     # Instantiating the Vectorizer, experimenting with both
     vectorizer = CountVectorizer()
     #vectorizer = TfidfVectorizer()
@@ -366,10 +369,10 @@ def sayHello(request):
     df_pca = pca.fit_transform(new_df)
 
     # Plotting to determine how many features should the dataset be reduced to
-    plt.style.use("bmh")
-    plt.figure(figsize=(14,4))
-    plt.plot(range(1,new_df.shape[1]+1), pca.explained_variance_ratio_.cumsum())
-    plt.show()
+    # plt.style.use("bmh")
+    # plt.figure(figsize=(14,4))
+    # plt.plot(range(1,new_df.shape[1]+1), pca.explained_variance_ratio_.cumsum())
+    # plt.show()
 
     # Finding the exact number of features that explain at least 95% of the variance in the dataset
     total_explained_variance = pca.explained_variance_ratio_.cumsum()
