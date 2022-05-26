@@ -34,6 +34,12 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:false
     },
+    student_ID:{
+        type: String
+    },
+    OTP:{
+        type : Number
+    },
     resetPasswordToken: String,
     resetPasswordExpire: Date
 })

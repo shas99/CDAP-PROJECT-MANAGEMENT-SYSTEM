@@ -39,7 +39,7 @@ const ViewFeedback = ({history}) => {
 
       try {
           
-        const {data} = await axios.get("/api/auth/viewfeedback",feedbackconfig);
+        const {data} = await axios.get("/api/student/viewfeedback",feedbackconfig);
        
         setFeedbackData(data.data);
         

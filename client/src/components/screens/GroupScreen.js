@@ -9,8 +9,8 @@ import Footer from "../Footer/Footer";
 const GroupScreen = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
-    // const [fetchGroupData, setGroupData] = useState("")
-    // const [suggestions,setsuggestions] = useState("")
+
+
     const [member_1, setMember1] = useState("");
     const [member_2, setMember2] = useState("");
     const [member_3, setMember3] = useState("");
@@ -28,7 +28,7 @@ const GroupScreen = ({history}) => {
             };
       
             try {
-              const { data} = await axios.get("/api/auth/group",groupconfig);
+              const { data} = await axios.get("/api/group/group",groupconfig);
               const groupArray = data.data.split("/")
               console.log(groupArray[0])
               const group1 = groupArray[0].split(",")
@@ -82,7 +82,7 @@ const GroupScreen = ({history}) => {
     
         try {
           const { data } = await axios.post(
-            "/api/auth//groupregister",
+            "/api/group/groupregister",
             { member_1,member_2,member_3,member_4,member_5 },
             config
           );
