@@ -36,6 +36,8 @@ import OPT from "./components/screens/OTPScreen";
 
 import StudentTopicInterestingForm from "./components/screens/StudentTopicInterestingForm";
 import SubmissionMilestones from "./components/screens/SubmissionMilestones";
+import ViewGroup from "./components/screens/StaffviewGroup";
+
 
 const App = () => {
   return (
@@ -78,6 +80,9 @@ const App = () => {
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
          <Route exact path="/availableProjects/:id" component={ProjectBidding}/>
+         
+         <Route exact path="/viewgroup/:id" component={ViewGroup}/>
+
          <Route exact path="/submit" component={Submission}/>
          <Route exact path="/staffreport" component={StaffReport}/>
          <Route exact path="/staffproject" component={ViewAvailableProjectsStaff}/>
