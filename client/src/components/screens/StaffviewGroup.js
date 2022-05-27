@@ -1,138 +1,80 @@
-import axios from 'axios';
-import React from 'react'
-import "./GroupScreen.css";
-import {useParams} from 'react-router-dom';
 import { useState } from "react";
-import "./GroupScreen.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import PasswordChecklist from "react-password-checklist"//password validation
+import { useEffect } from "react";
 
 
-import "./ProjectBiddingScreen.css";
-export default function ViewGroup() {
-  const [bidPlacedGroup, setBiddingPlacedGroup] = useState("");
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
-    // const [error, setError] = useState("");
-    const [projectName,setProjectName] =useState("");
-    const [projectDesc,setProjectDesc] =useState("");
-    const [projectSupervisedBy,setProjectSupervisedBy]=useState("");
-    const current = new Date();
-    const pdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-          
-    
-        const params =useParams();
-        const projectID = params.id;
-        console.log(projectID+"hey")
-        console.log(pdate)
+const ViewGroup = ({ history, match }) => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [logged,setlogged] = useState("")
+  const [email, setEmail] = useState("");
+  const [member1,setmember1] = useState("hello")
+  const [member2,setmember2] = useState("")
+  const [member3,setmember3] = useState("")
+  const [member4,setmember4] = useState("")
+  const [member5,setmember5] = useState("")
+  useEffect(() => {
+    const resetPasswordHandler = async (e) => {
 
 
-    //*******BIDDING PLACE HANDLER FUNCTION *******/
-    const biddingPlaceHandler = async (e) => {
-      e.preventDefault();
+      const config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+  
+  
+  
       try {
-        
-        const { data } = await axios.put(
-          `http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/${projectID}`,
-          { bidPlacedGroup,date,time }
-          );
-          alert("Bidding success")
-        console.log(data)
-        console.log(bidPlacedGroup)
        
+        const { data } = await axios.get(
+          `/api/group/viewgroup/${match.params.id}`,
+          {
+  
+          },
+          config
+        );
+          setmember1(data.data.member_1)
+          setmember2(data.data.member_2)
+          setmember3(data.data.member_2)
+          setmember4(data.data.member_4)
+          setmember5(data.data.member_5)
+  
+        console.log(data);
+        setSuccess(data.data);
       } catch (error) {
-        // setError(error.response.data.error);  
-        // console.log(error.response.data.error)
-        alert("Error bidding notset")
-            
+        setError(error.response.data.error);
+        setTimeout(() => {
+          setError("");
+        }, 5000);
       }
     };
-    const getRelevantProjectData =async ()=>{
-     
-      try{
-        const{data}=await axios.get(`http://localhost:5000/api/AvailableProject/availableProjects/${projectID}`);
-        console.log(data.availableProjects.projectSupervisedBy)
-        setProjectName(data.availableProjects.projectName)
-        setProjectDesc(data.availableProjects.projectDescription)
-        setProjectSupervisedBy(data.availableProjects.projectSupervisedBy)
+    resetPasswordHandler()
+  }, [history]);
 
-      }catch(error){
-        
-        
-      }
-      
 
-    }
-    getRelevantProjectData();
+
+
 
 
   return (
-    
-    
-    <div  className="bid-screen"> 
-     
-      {/* Project Details  */}
-      {/* <div className="projectdetails">
-      <h1 className="projtitle"><b>Project Details</b></h1><br></br>
-      
-        <h1 ><b>Name: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {projectName}</h1>
-        <br></br>
-        <h1><b>Supervisor:</b>&nbsp;&nbsp;{projectSupervisedBy}</h1>
-        <br></br>
-  
-        <h1><b>About:<br></br> <br></br> </b> {projectDesc}</h1>
-       </div>
-       */}
-     
+    <div className="resetpassword-screen">
 
-        {/* <div id="card">
-
-            <h1 id="caption">Your group members are</h1>
-            <hr id="hr"></hr>
-            <p id="List">
-            {listHandler()}
-            </p>
-          </div> */}
-
-          {/* Form  */}
-          {/* <form onSubmit={biddingPlaceHandler} className="bid-screen__form"  >
-       <div >
-        <label className="form-group" >
-          Your Group ID:</label><br></br>
-          <input type="text" 
-          className = "input1"
-          name="name" 
-          onChange={(e) => setBiddingPlacedGroup(e.target.value)}
-          value={bidPlacedGroup} />  
-        </div>
-        <br/>
-        <div>
-        <label className="form-group">
-           Date:</label><br></br>
-          <input type="text" 
-          name="name" 
-          className = "input2"
-          onChange={(e) => setDate(pdate)}
-          value={date} />
-          </div>
-          <br/>
-          <div>
-        <label>
-           Time :</label><br></br>
-          <input type="text" 
-          name="name" 
-          className = "input3"
-          onChange={(e) => setTime(e.target.value)}
-          value={time} />
-          </div>
-      <button type="submit" className="btn btn-primary1" id="bid1Button">
-          BID
-         </button>
-
-        
-      </form> */}
-     
-      
-
+      Group members<br/>
+      {member1}<br/>
+      {member2}<br/>
+      {member3}<br/>
+      {member4}<br/>
+      {member5}
+ 
     </div>
-   
-  )
-}
+  );
+};
+
+
+
+export default ViewGroup;
