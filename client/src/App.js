@@ -24,7 +24,7 @@ import GroupConfirm from "./components/screens/GroupConfirm";
 import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
 import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
-//import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
+import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
@@ -75,7 +75,7 @@ const App = () => {
          
          <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
 
-         {/* <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> */}
+          <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
