@@ -104,27 +104,27 @@ const StaffPrivateScreen = ({history}) => {
 
       <div className="StaffRectangle-37">
         {/* <Link to="/studenttopicinterestingform" id="Regs"><button className="buttons" onClick="/studenttopicinterestingform ">Student Topic Interestings</button></Link> */}
-        <br/><br/><br/><br/><br/><br/>
+        
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
         </div>
 
       <div className="StaffRectangle-38">
-      <br/><br/><br/><br/><br/><br/>
+      
       <FontAwesomeIcon  className = "fonticonsize" icon={faFile} /> 
       <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
       </div>
 
       <div className="StaffRectangle-39">
-      <br/><br/><br/><br/><br/><br/>
+      
       <FontAwesomeIcon  className = "fonticonsize" icon={faListCheck} /> 
       {/* <i class="fa-solid fa-list-check"></i> */}
       <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
       </div>
 
       <div className="StaffRectangle-40">
-      <br/><br/><br/><br/><br/><br/>
+      
       <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
