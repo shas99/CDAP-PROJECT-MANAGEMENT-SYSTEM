@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
 import { Link } from "react-router-dom";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -58,6 +60,9 @@ const PrivateScreen = ({history}) => {
       </p>
     <div className="row1">
       <div className="StudentRectangle-36" >
+      {/* <FontAwesomeIcon icon={faFileArrowDown} /> */}
+
+
       {/* <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">My Feedbacks</button></Link> */}
       <br></br><br></br><br></br><br></br><br></br><br></br>
 
