@@ -14,6 +14,21 @@
   margin-right: 30px;
   
 }
+/* zeplin code */
+img.Group-114 {
+    width: 1568px;
+    height: 1160px;
+    object-fit: contain;
+  }
+
+  .Rectangle-43 {
+    width: 428px;
+    margin-left:100px;
+    height: 299px;
+    flex-grow: 0;
+    background-image: radial-gradient(circle at -14% 116%, #000, rgba(0, 0, 0, 0) 105%);
+  }
+  
 
 #headert{
     padding-top: 400px;
