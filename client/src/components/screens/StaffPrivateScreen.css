@@ -30,6 +30,11 @@ margin-right: 30px;
 
 }
 
+.fonticonsize{
+  font-size:7rem;
+  color:white;
+}
+
 #headert{
   padding-top: 400px;
   color: #fff;
