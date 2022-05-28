@@ -1,0 +1,14 @@
+.row {
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+    
+  }
+  
+/* .Rectangle-43{
+    width: 200px;
+    height: 200px;
+    margin: 23px 30px 28px 50px;
+    border-radius: 20px;
+    background-image: radial-gradient(circle at -8% 116%, #161b22, rgba(0, 0, 0, 0) 109%);
+} */
