@@ -8,6 +8,7 @@ const { Console } = require('console')
 const Mail = require('nodemailer/lib/mailer')
 const TopicReg = require("../models/TopicReg")
 
+
 exports.GroupregisterConfirm = async(req, res, next) => {
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest
     ("hex")
@@ -110,7 +111,7 @@ exports.suggestsupervisor = async (req, res, next) => {//suggest supervisor
 
         const group = await Group.find({g_approval,member_1})//group that is approved and have this perticular member
         console.log(group[0].suggestions)// 
-
+      
         res.status(201).json({
             success: true,
             data: "retreived success"
@@ -186,19 +187,21 @@ exports.group = async (req, res, next) => {//suggest supervisor
 
 
 
-exports.topicregister = async(req,res,next) => {//group registration
-    const {groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5} = req.body
+exports.topicregister = async(req,res,next) => {//topic registration
+    const {groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies} = req.body
 
     
-    console.log("Error Finding"+groupleader)
+    console.log("Error Finding"+groupID)
     try{
         const topicR = await TopicReg.create({
-            groupleader,groupID,topic_1,topic_2,topic_3,topic_4,topic_5//new
+            groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies//new
         })
         res.status(201).json({
             success: true,
             data: "Submission Success"
         })
+
+        // alert("Submission Successfull")
 
     }catch(error){
         next(error)
@@ -235,6 +238,32 @@ exports.autoapprove = async(req, res, next) => {
     
 }
 
+//retreive all groups
+exports.viewAvailableGroups =async(req,res,next) => {
+    
+    try{
+    
+    
+        const group = await Group.find()//group that is approved and have this perticular member
+        //console.log(availableProjects[1])// 
+        const array = Object.values(group)
+        // console.log(array)
+        // const arrayproject = JSON.stringify(array).split(',')
+        // console.log(arrayproject)
+        // console.log(typeof arrayproject)
+    
+        res.status(201).json({
+            success: true,
+            data: array
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+}
+
 
 
 const logged = (token,res) => {//check if token is null
@@ -257,3 +286,5 @@ const mail = async(email,resetUrl,leader) => {
         text: message
     })
 }
+
+

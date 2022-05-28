@@ -1,0 +1,76 @@
+.styled-table { 
+    border-collapse: collapse; 
+    margin: 27px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+
+    min-width: 100px; 
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); 
+     width: 100%; 
+    text-align: center;
+    background-color: #0666a3
+    
+}
+
+#outer-div {
+    width: 100%;
+    text-align: center;
+    background-color: #0666a3
+  }
+  
+  #inner-div {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 3px;
+    background-color: #8ebf42
+  }
+
+
+  .view-availableprojects{
+    height: 1500px;
+    background-color: #22272E;
+    
+    }
+    
+    #caption{
+      
+      text-align: center;
+      color: white;
+      font-size: xx-large;
+    }
+    
+    
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        margin-top: 20px;
+        margin-left: 20%;
+        transition: 0.3s;
+        width: 60%;
+        height: 200px;
+        background-color: white;
+        
+        
+        
+      }
+    
+      
+      .card:hover {
+        box-shadow: 0 20px 40px 0 rgba(246, 244, 244, 0.62);
+      }
+      
+      .container {
+        padding: 2px 16px;
+      }
+    
+      #availableprojects-topic{
+          font-size: larger;
+      }
+      #availableprojectscontent{
+          margin-top: 10px;
+      }
+
+
+
+     
+    

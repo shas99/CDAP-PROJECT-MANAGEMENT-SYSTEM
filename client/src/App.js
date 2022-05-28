@@ -25,6 +25,17 @@ import TopicRegistration from "./components/screens/StudentTopicRegistrationForm
 import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
+import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
+
+import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
+import ProjectBidding from "./components/screens/ProjectBidding";
+import Submission from "./components/screens/SubmissionScreen";
+import StaffReport from "./components/screens/StaffReportScreen"
+import ViewAvailableProjectsStaff from "./components/screens/StaffAvailableProject";
+import OPT from "./components/screens/OTPScreen";
+
+import StudentTopicInterestingForm from "./components/screens/StudentTopicInterestingForm";
+import SubmissionMilestones from "./components/screens/SubmissionMilestones";
 
 const App = () => {
   return (
@@ -63,6 +74,22 @@ const App = () => {
          <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
 
          <Route exact path="/staffPrivate" component={StaffPrivateScreen}/>
+
+
+         <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
+         <Route exact path="/availableProjects/:id" component={ProjectBidding}/>
+         <Route exact path="/submit" component={Submission}/>
+         <Route exact path="/staffreport" component={StaffReport}/>
+         <Route exact path="/staffproject" component={ViewAvailableProjectsStaff}/>
+
+         {/* Student Topic Interestings */}
+         <Route exact path="/studenttopicinterestingform" component={StudentTopicInterestingForm}/>
+
+         {/* Staff Recommendation Form */}
+         <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
+         <Route exact path="/OPT" component={OPT}/>
+         <Route exact path="/submissionmilestone" component={SubmissionMilestones}/>
+
         </Switch>
 
       </div>

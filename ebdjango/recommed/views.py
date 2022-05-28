@@ -123,14 +123,89 @@ def sayHello(request):
     # display(bio_df.iloc[3])
     # print(bio_df.Bios[5])
     # print(final_df)
+    m = request.GET.get('color', '')
+    print(m)
+    cyber = request.GET.get('cyber', '')
+    print(cyber)
+    mobile = request.GET.get('mobile', '')
+    print(mobile)
+    ai = request.GET.get('ai', '')
+    print(ai)
+    desgining = request.GET.get('desgining', '')
+    print(desgining)
+    operatingSystem = request.GET.get('operatingSystem', '')
+    print(operatingSystem)
+    networking = request.GET.get('networking', '')
+    print(networking)
+    robotics = request.GET.get('robotics', '')
+    print(robotics)
+    print(type(cyber))
+    biolist = m.split(",")
+    cyberlist = cyber.split(",")
+    mobilelist = mobile.split(",")
+    ailist = ai.split(",")
+    desgininglist = desgining.split(",")
+    operatingSystemlist = operatingSystem.split(",")
+    networkinglist = networking.split(",")
+    roboticslist = robotics.split(",")
+    print(biolist)
+    print(cyberlist)
+    print(mobilelist)
+    print(ailist)
+    print(desgininglist)
+    print(operatingSystemlist)
+    print(networkinglist)
+    print(roboticslist)
 
 
+    print("this")
+    # testData = {'BIOS':m,
+    #             'cyber':cyber[0]}
+    testDF = pd.DataFrame(biolist, columns=['Bios'])
+    # testDF = pd.DataFrame({'Bios':[m],'Cyber':[cyber],'Mobile':[mobile],'AI':[ai],'desgining':[desgining],'Operating System':[operatingSystem],'networking':[networking],'Robotics':[robotics]})
+    
+    
+    
+    print("##########################################")
+    print(testDF)
+    print("##########################################")
 
+    qs = ['Cyber',
+        'Mobile',
+        'AI',
+        'Designing',
+        'OperatingSystem',
+        'Robotics',
+        'Networking']
+
+    # Creating a DF of the questions/categories
+    topic_df = pd.DataFrame(columns=qs)
+    
+    count = 0
+    for i in cyberlist:
+        # i = int(i)
+        # print(type(i))
+        # print(i)
+        # topic_df.append({"Cyber":cyberlist[count]},ignore_index=True)
+        print(cyberlist)
+        topic_df = topic_df.append({"Cyber":cyberlist[count],"Mobile":mobilelist[count],"AI":ailist[count],"Designing":desgininglist[count],"OperatingSystem":operatingSystemlist[count],"Robotics":roboticslist[count],"Networking":networkinglist[count]},ignore_index=True)
+        
+        count = count +1
+        print(count)
+    final_df = testDF.join(topic_df)
+    final_df
+    print("fffffffff")
+    print(final_df)
+    print("fffffffff")
     # Loading the data
-    with open("profiles.pkl",'rb') as fp:
-        df = pickle.load(fp)
+    # with open("profiles.pkl",'rb') as fp:
+    #     df = pickle.load(fp)
+    #     print("############")
+    #     print(df)
+    #     print("############")
 
-
+    df = final_df.copy()
+    
      # Tokenizing Function
     def tokenize(text):
         """
@@ -156,7 +231,7 @@ def sayHello(request):
     # Applying the function to each user bio
     df['Bios'] = df.Bios.apply(tokenize)   
 
-
+    print(df['Bios'])
 
 
     # Creating a set list that will only take in unique words
@@ -251,6 +326,10 @@ def sayHello(request):
         # Loading in the cleaned DF
     with open("profiles.pkl",'rb') as fp:
         df = pickle.load(fp)
+        print("ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
+        df = final_df.copy()
+        print(final_df)
+        print(df)
     # Instantiating the Scaler
     scaler = MinMaxScaler()
     # Scaling the categories then replacing the old values
@@ -260,7 +339,9 @@ def sayHello(request):
                                 df.drop('Bios',axis=1)), 
                                 columns=df.columns[1:], 
                                 index=df.index))
-
+    print("testingtestingtesting")
+    print(df)
+    print("testingtestingtesting")
     # Instantiating the Vectorizer, experimenting with both
     vectorizer = CountVectorizer()
     #vectorizer = TfidfVectorizer()
@@ -276,7 +357,8 @@ def sayHello(request):
 
     # Dropping the Bios because it is no longer needed in place of vectorization
     new_df.drop('Bios', axis=1, inplace=True)
-
+    print("NNNNNNNNNNNNNNNNNNNNNNNEeeeeeeeeeeeeeeeeeeeeeeeeewwwwwwwwwwwwwwwwwwwwww")
+    print(new_df)
     # Importing the library
     from sklearn.decomposition import PCA
 
@@ -287,10 +369,10 @@ def sayHello(request):
     df_pca = pca.fit_transform(new_df)
 
     # Plotting to determine how many features should the dataset be reduced to
-    plt.style.use("bmh")
-    plt.figure(figsize=(14,4))
-    plt.plot(range(1,new_df.shape[1]+1), pca.explained_variance_ratio_.cumsum())
-    plt.show()
+    # plt.style.use("bmh")
+    # plt.figure(figsize=(14,4))
+    # plt.plot(range(1,new_df.shape[1]+1), pca.explained_variance_ratio_.cumsum())
+    # plt.show()
 
     # Finding the exact number of features that explain at least 95% of the variance in the dataset
     total_explained_variance = pca.explained_variance_ratio_.cumsum()

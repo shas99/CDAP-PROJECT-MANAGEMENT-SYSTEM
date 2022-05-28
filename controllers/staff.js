@@ -6,6 +6,7 @@ const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
 const TopicReg = require('../models/TopicReg')
+const StaffTopicInterestings = require('../models/StaffTopicInterestings')
 
 
 
@@ -127,7 +128,21 @@ exports.resetpassword = async(req, res, next) => {
     }
 }
 
-
+exports.StaffRecommendationForm = async(req,res,next) => { //Staff Recommendation Form
+    console.log("Staff recommendation api run")
+    const {StaffID,Q1,Q2,Q3,Q4,Q5,Q6,Q7} = req.body
+    try{
+        const user = await StaffTopicInterestings.create({
+            StaffID,Q1,Q2,Q3,Q4,Q5,Q6,Q7
+            
+        })
+        console.log("Staff recommendation success")
+        // sendToken(user, 201, res)
+    }catch(error){
+        next(error)
+        console.log("Staff recommendation error")
+    }
+};
 
 
 const sendToken = (user, statusCode, res) => {

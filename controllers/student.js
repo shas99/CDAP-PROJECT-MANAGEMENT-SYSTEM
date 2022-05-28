@@ -5,6 +5,7 @@ const sendEmail = require('../utils/sendEmail')
 const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
+const StudentTopicInterestingForm = require('../models/StudentTopicInteresting')
 
 
 //To view feedback
@@ -80,6 +81,24 @@ exports.viewmarks =async(req,res,next) => {
     }
 }
 };
+
+//Student topic interesting
+exports.StudentTopicInterestingForm = async(req,res,next) => { //Student Recommendation Form
+    console.log("Student recommendation api run")
+    const {student_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7} = req.body
+    try{
+        const user = await StudentTopicInterestingForm.create({
+            student_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7
+            
+        })
+        console.log("Student recommendation success")
+        // sendToken(user, 201, res)
+    }catch(error){
+        next(error)
+        console.log("Student recommendation error")
+    }
+};
+
 
 
 const logged = (token,res) => {//check if token is null
