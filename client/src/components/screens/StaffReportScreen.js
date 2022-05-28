@@ -5,7 +5,8 @@ import "./MatchedSupervisors.css";
 // import "./StudentTopicRegistrationForm.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
-import "./SubmissionScreen.css";
+// import "./SubmissionScreen.css";
+import "./StaffReportScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -16,14 +17,14 @@ const StaffReport = ({history}) => {
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
     // const [suggestions,setsuggestions] = useState("")
-    const [Topic, setTopic] = useState("");
+    const [mark, setMark] = useState("");
     const [groupID, setgroupID] = useState("");
-    const [topicdescription, settopicdescription] = useState("");
-    const [abstract, setabstract] = useState("");
-    const [researchProblem, setresearchProblem] = useState("");
+    const [feedback, setfeedback] = useState("");
+    //const [abstract, setabstract] = useState("");
+    // const [researchProblem, setresearchProblem] = useState("");
     //image upload to s3
     const [file, setFile] = useState()
-    const [description,setDescription] = useState("")
+    //const [description,setDescription] = useState("")
     const [images,setImages] = useState([])
 
     useEffect(() => {
@@ -68,7 +69,7 @@ const StaffReport = ({history}) => {
         try {
           const { data } = await axios.post(
             "/api/group/topicregister",
-            { groupID,Topic,topicdescription,abstract,researchProblem},
+            { groupID,mark,feedback},
             config
           );
     
@@ -88,7 +89,7 @@ const StaffReport = ({history}) => {
       
         const formData = new FormData()
         formData.append("image", file)
-        formData.append("description",description)
+        //formData.append("description",description)
 
         const config = {
           header: {
@@ -117,8 +118,8 @@ const StaffReport = ({history}) => {
 
      const submit = async event => {
          event.preventDefault()
-         console.log(file,description)
-         const result = await postImage({images: file,description})
+         //console.log(file,description)
+         const result = await postImage({images: file})
          setImages([result.image, ...images])
      }
 
@@ -165,14 +166,14 @@ const StaffReport = ({history}) => {
           </p>
           
           <p style={{color:"#FFF"}}>
-          <br/><br/><br/><br/>
+          <br/><br/>
           
           </p>
         
            <h1 id="caption">Report 01</h1>
            <br/>
            
-          <div className="group-screen">
+          <div className="group-screen1">
             {/* file upload */}
             {/* <form onSubmit={submit}>
                 <input onChange={fileSelected} type="file"></input>
@@ -181,10 +182,7 @@ const StaffReport = ({history}) => {
 
             </form> */}
 
-            
-
-      
-          <form onSubmit={groupregisterHandler} className="group-screen__form">
+          <form onSubmit={groupregisterHandler} className="group-screen__form1">
 
           {images.map( image=>(
                 <div key={image}>
@@ -204,43 +202,37 @@ const StaffReport = ({history}) => {
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group">
-        <label className="TopicNames">Group Identification Number</label>
+        <label className="TopicNames">Group ID</label>
           <input type="text" 
-          className = "input" style={{color:"black"}}
+          className = "input" style={{color:"black",height:"25px",marginTop:"5px"}}
           name="name" 
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
         
         </div>
-        <br/>
-
+    
         <div className="form-group">
-        <label className="TopicNames">Topic</label>
+        <label className="TopicNames">Mark</label>
           <input type="text" 
-          className = "input" style={{color:"black"}}
+          className = "input" style={{color:"black",height:"25px",marginTop:"5px"}}
           name="name" 
-          onChange={(e) => setTopic(e.target.value)}
-          value={Topic} />
+          onChange={(e) => setMark(e.target.value)}
+          value={mark} />
         </div>
-        <br/>
-
-
-
-
-
+     
         <div className="form-group">
           <div className="editor">
-          <label className="TopicNames">Topic - Describe your Topic in 100 Words!</label>
+          <label className="TopicNames">Feedback</label>
         <CKEditor 
         editor={ClassicEditor}
-        data={topicdescription}
+        data={feedback}
         onChange={(event,editor)=>{
           const data = editor.getData()
-          settopicdescription(data)
+          setfeedback(data)
         }}
         />
         <br/>
-        <label className="TopicNames">Abstract - Use a minimum of 200 Words!</label>
+        {/* <label className="TopicNames">Abstract - Use a minimum of 200 Words!</label>
                 <CKEditor
         editor={ClassicEditor}
         data={abstract}
@@ -249,21 +241,15 @@ const StaffReport = ({history}) => {
           setabstract(data)
         }}
         />
-        <br/>
-       
-        
-          </div>
-          
-        
+        <br/> */}
+  
+          </div>      
           </div>    
-
-
 
       <button type="submit" className="btn btn-primary1" id="Log1Button">
           Submit!
         </button>
 
-        
       </form>
           </div>
       

@@ -1,0 +1,19 @@
+.group-screen__form1{
+    display: block;
+    width: 40rem;
+    height: 35rem;
+    margin-top: -56rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    color: #fff;
+    background: #161b22;
+}
+
+.group-screen1{
+    display: block;
+    width: 40rem;
+    height: 40rem;
+    margin-top: -1rem;
+    margin: 0 auto;
+}
