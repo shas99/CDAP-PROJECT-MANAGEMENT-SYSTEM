@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./PrivateScreen.css";
+import "./StaffPrivateScreen.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+import { faFileCircleCheck,faSolidFaComment,faSolidFaFile,faSolidFaListCheck,faSolidFaGraduationCap } from '@fortawesome/free-solid-svg-icons'
+
+
 
 
 
@@ -57,23 +65,98 @@ const StaffPrivateScreen = ({history}) => {
     <button onClick={logOutHandler} id="logout">Log Out</button>
       </p>
       
+    {/* <div classname="row1">
+      <div className="StaffRectangle-36">
+      <Link to= "#" id="Regs"><button className="buttons" onClick="#">Add Feedback</button></Link>
+      
+
+      <div className="Rectangle-43">
+      <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
+      </div>
+      
+      <div className="Rectangle-43">
+      <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
+      </div>
+         
+      <div className="Rectangle-43">
+      <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
+      </div>
+
+      <div className="Rectangle-43">
+      <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
+      </div>
+
+      <div className="Rectangle-43">
+      <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
+      </div>
+    </div> */}
+    <div className="row1">
+      <div className="StaffRectangle-36" >
+      {/* <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">My Feedbacks</button></Link> */}
+      <br></br><br></br><br></br><br></br><br></br><br></br>
+      <FontAwesomeIcon icon={faSolidFaComment} />
+
+      {/* <i class="fa-solid fa-file-circle-check"></i> */}
+      {/* <i class="fa-solid fa-file"></i> */}
 
       <Link to= "#" id="Regs"><button className="buttons" onClick="#">Add Feedback</button></Link>
-        <br/>
-        <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
-        
-       
-          <br/>
-          <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
+        </div>
 
-          <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
-      
-          <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
+      <div className="StaffRectangle-37">
+        {/* <Link to="/studenttopicinterestingform" id="Regs"><button className="buttons" onClick="/studenttopicinterestingform ">Student Topic Interestings</button></Link> */}
+        <br/><br/><br/><br/><br/><br/>
+        <FontAwesomeIcon icon={faFileCircleCheck} />
+        {/* <i class="fa-solid fa-comment"></i> */}
+        <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
+        </div>
+
+      <div className="StaffRectangle-38">
+      <br/><br/><br/><br/><br/><br/>
+      <FontAwesomeIcon icon={faSolidFaFile} />
+      <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
+      </div>
+
+      <div className="StaffRectangle-39">
+      <br/><br/><br/><br/><br/><br/>
+      <FontAwesomeIcon icon={faSolidFaListCheck} />
+      {/* <i class="fa-solid fa-list-check"></i> */}
+      <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
+      </div>
+
+      <div className="StaffRectangle-40">
+      <br/><br/><br/><br/><br/><br/>
+      <FontAwesomeIcon icon={faSolidFaGraduationCap} />
+      {/* <i class="fa-solid fa-graduation-cap"></i> */}
+      <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
+      </div>
         
-  
+
+      {/* <div className="row2">
+        <div className="StudentRectangle-41">
+      <br/><br/><br/><br/><br/><br/>
+      <Link to="/topicregistration" id="Regs">Register Topic</Link>
+      </div>
+
+      <div className="StudentRectangle-42">
+      <br/><br/><br/><br/><br/><br/>
+      <Link to="/viewavailableprojects" id="Regs">Available Projects</Link>
+      </div>
+
+      <div className="StudentRectangle-43">
+      <br/><br/><br/><br/><br/><br/>
+      <Link to="/submissionmilestone" id="Regs">Submit File</Link>
+      </div>
+
+      </div>
+ */}
+
+        
+
+                  
   
     <Footer/>
 
+     </div>
      </div>
     </>
   );
