@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import PasswordChecklist from "react-password-checklist"//password validation
+//import PasswordChecklist from "react-password-checklist"//password validation
 import { useEffect } from "react";
-
+import "./StaffviewGroup.css"
 
 const ViewGroup = ({ history, match }) => {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  //const [password, setPassword] = useState("");
+  //const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [logged,setlogged] = useState("")
-  const [email, setEmail] = useState("");
+  //const [logged,setlogged] = useState("")
+  //const [email, setEmail] = useState("");
+  const [name,setName] = useState("")
   const [member1,setmember1] = useState("hello")
   const [member2,setmember2] = useState("")
   const [member3,setmember3] = useState("")
@@ -26,14 +27,11 @@ const ViewGroup = ({ history, match }) => {
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
 
-
       const config = {
         header: {
           "Content-Type": "application/json",
         },
       };
-  
-  
   
       try {
        
@@ -44,6 +42,7 @@ const ViewGroup = ({ history, match }) => {
           },
           config
         );
+          setName(data.data.name)
           setmember1(data.data.member_1)
           setmember2(data.data.member_2)
           setmember3(data.data.member_2)
@@ -93,8 +92,6 @@ const ViewGroup = ({ history, match }) => {
     }
   };
 
-
-
   const submit = async event => {
     event.preventDefault()
     console.log(file,description)
@@ -129,55 +126,48 @@ const download = e => {
  
 }
 
-
-
-
-
-
   return (
-    <div className="resetpassword-screen">
-<form onSubmit={submit}>
+    <div className="viewgroupscreen">
+      <h2 id="caption">Group {name}</h2>
+      <div id="container">
+       <div classname="groupmembers">
+        <h2>Group members</h2><br/>
+        {member1}<br/>
+        {member2}<br/>
+        {member3}<br/>
+        {member4}<br/>
+        {member5}
+       </div>
+       <div id="submit">
+          <form onSubmit={submit}>
                 <input onChange={fileSelected} type="file"></input>
                 <input value={description} onChange={e => setDescription(e.target.value)}type="text"></input>
-                <button type="submit">Submit</button>
+                <button type="submit">Upload Resource</button>
 
-            </form>
+          </form>
 
             {images.map( image=>(
                 <div key={image}>
                     <img src={image}></img>
                     </div>))}
 
-
-
-
-
-              {/* <img src="/images/8b22480d56c25572f3a2387faab41f87"></img> */}
-
-
-              {/* <a href="/images/8b22480d56c25572f3a2387faab41f87" download = "file.pdf">Hello</a> */}
-
-
-
-
-              {/* download try */}
-              <a
-        href={`/images/${key}`}
-        download
-        onClick={e => download(e)}
-      >
-        <i className="fa fa-download" />
-        download
-      </a><br/>
-      <br/>
-      <div>
-      Group members<br/>
-      {member1}<br/>
-      {member2}<br/>
-      {member3}<br/>
-      {member4}<br/>
-      {member5}
- </div>
+          <a
+          href={`/images/${key}`}
+          download
+          onClick={e => download(e)}>
+          <i className="fa fa-download" />
+          download
+          </a>
+       </div><br/><br/>
+       
+       <div classname="viewreports">
+         View Uploads
+         <button> Milestone 1 </button>
+         <button> Milestone 2 </button>
+         <button> Milestone 3 </button>
+         <button> Milestone 4 </button>
+       </div>
+     </div>
     </div>
   );
 };

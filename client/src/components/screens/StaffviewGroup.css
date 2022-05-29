@@ -1,0 +1,39 @@
+.viewgroupscreen{
+    width: 100%;
+    height: 50rem;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: #22272E;
+    color: white;
+}
+
+.caption{
+    font-size:xx-large;
+    margin: 0 auto;
+}
+
+.container{
+    width: 750px;
+    padding: 1.5rem;
+    margin-top: -330px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    background: #161b22;
+    border-radius: 5px;
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #21262d;
+    height: 90rem;
+}
+.groupmembers{
+    display: block;
+    width: 30rem;
+    height: 20rem;
+    background-color: #21262d;
+    color:white;
+    
+}
+.submit{
+    background-color: #22272E;
+}
