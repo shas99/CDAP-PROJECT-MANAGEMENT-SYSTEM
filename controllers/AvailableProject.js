@@ -29,7 +29,7 @@ try{
 
 //***** VIEW SPECIFIC PROJECT API******** 
 exports.viewspecificproject = async(req,res,next) => {
-    
+    console.log(req.params.id)
     try{
         const availableprojectid = req.params.id;
         const availableProjects = await AvailableProject.findById(availableprojectid)//group that is approved and have this perticular member
