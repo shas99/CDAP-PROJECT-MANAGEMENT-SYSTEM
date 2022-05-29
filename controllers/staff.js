@@ -145,6 +145,32 @@ exports.StaffRecommendationForm = async(req,res,next) => { //Staff Recommendatio
 };
 
 
+exports.viewStaff =async(req,res,next) => {
+    
+    try{
+    
+    
+        const staff = await Staff.find()//group that is approved and have this perticular member
+        //console.log(availableProjects[1])// 
+        const array = Object.values(staff)
+        // console.log(array)
+        // const arrayproject = JSON.stringify(array).split(',')
+        // console.log(arrayproject)
+        // console.log(typeof arrayproject)
+    
+        res.status(201).json({
+            success: true,
+            data: array
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+}
+
+
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
     res.status(statusCode).json({success: true,token})

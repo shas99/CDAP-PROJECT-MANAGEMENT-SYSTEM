@@ -94,8 +94,18 @@ const getBreeds = async () => {
   }
 }
 
+const getStaff = async () => {
+  try {
+    return await axios.get('http://localhost:5000/api/staff/viewstaff')
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+
 const countBreeds = async () => {
   const breeds = await getBreeds()
+  const staff = await getStaff()
 
   if (breeds) {
     console.log(` ${Object.entries(breeds.data.data[1])} `)
@@ -112,6 +122,23 @@ const countBreeds = async () => {
        // console.log(datadata)
       })
     }
+
+    if (staff) {
+      console.log(` ${Object.entries(staff.data.data[1])} `)
+      staff.data.data.map(datadata =>{
+         bios.push(datadata.bio)
+         cyber.push(datadata.interest[0])
+         mobile.push(datadata.interest[1])
+         ai.push(datadata.interest[2])
+         desgining.push(datadata.interest[3])
+         operatingSystem.push(datadata.interest[4])
+         networking.push(datadata.interest[5])
+         robotics.push(datadata.interest[6])
+         console.log(datadata+"hello")
+         // console.log(datadata)
+        })
+      }
+    
     senddata = {bios,cyber,mobile,ai,desgining,mobile,operatingSystem,networking,robotics}
 
   console.log(senddata)
