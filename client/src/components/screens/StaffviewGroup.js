@@ -128,45 +128,73 @@ const download = e => {
 
   return (
     <div className="viewgroupscreen">
-      <h2 id="caption">Group {name}</h2>
+      <h2 id="caption">{name}</h2>
       <div id="container">
-       <div classname="groupmembers">
-        <h2>Group members</h2><br/>
-        {member1}<br/>
-        {member2}<br/>
-        {member3}<br/>
-        {member4}<br/>
-        {member5}
-       </div>
-       <div id="submit">
-          <form onSubmit={submit}>
+       
+        <h2 style={{fontSize:"22px"}}>Group members</h2><br/>
+        <ul>
+        <li style={{color:"white"}}>{member1}</li>
+        <li>{member2}</li>
+        <li>{member3}</li>
+        <li>{member4}</li>
+        <li>{member5}</li>
+        </ul>
+       
+          {/* <form onSubmit={submit}>
                 <input onChange={fileSelected} type="file"></input>
                 <input value={description} onChange={e => setDescription(e.target.value)}type="text"></input>
-                <button type="submit">Upload Resource</button>
+                <button type="submit"  className="btn1">Upload Resource</button>
 
-          </form>
+          </form> */}
 
-            {images.map( image=>(
+            
+       
+       <br/><br/>
+         <h2 style={{fontSize:"22px"}}>View Reports</h2>
+         <br/>
+         {images.map( image=>(
                 <div key={image}>
                     <img src={image}></img>
                     </div>))}
 
-          <a
+  
+          <button className="btn2"><a
           href={`/images/${key}`}
           download
           onClick={e => download(e)}>
           <i className="fa fa-download" />
-          download
-          </a>
-       </div><br/><br/>
+          Milestone 1
+          
+          </a></button>
+          <br/>
+         {images.map( image=>(
+                <div key={image}>
+                    <img src={image}></img>
+                    </div>))}
+
+  
+          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          <i className="fa fa-download" />
+          Milestone 2
+          
+          </a></button><br/>
+          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          <i className="fa fa-download" />
+          Milestone 3
+          
+          </a></button><br/>
+          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          <i className="fa fa-download" />
+          Milestone 4
+          
+          </a></button><br/>
+          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          <i className="fa fa-download" />
+          Milestone 5
+          
+          </a></button>
+       <br/><br/>
        
-       <div classname="viewreports">
-         View Uploads
-         <button> Milestone 1 </button>
-         <button> Milestone 2 </button>
-         <button> Milestone 3 </button>
-         <button> Milestone 4 </button>
-       </div>
      </div>
     </div>
   );
