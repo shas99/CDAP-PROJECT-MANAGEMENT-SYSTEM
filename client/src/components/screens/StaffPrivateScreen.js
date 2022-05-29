@@ -6,10 +6,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 
-// import{FontAwesomeIcon} from '@fontawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-// import {faFileCircleCheck,faSolidFaComment,faSolidFaFile,faSolidFaListCheck,faSolidFaGraduationCap} from '@fontawesome/free-solid-svg-icons'
+import { faFileCircleCheck,faComment,faFile,faListCheck,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -69,7 +69,6 @@ const StaffPrivateScreen = ({history}) => {
       <div className="StaffRectangle-36">
       <Link to= "#" id="Regs"><button className="buttons" onClick="#">Add Feedback</button></Link>
       
-
       <div className="Rectangle-43">
       <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
       </div>
@@ -81,11 +80,9 @@ const StaffPrivateScreen = ({history}) => {
       <div className="Rectangle-43">
       <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
       </div>
-
       <div className="Rectangle-43">
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
       </div>
-
       <div className="Rectangle-43">
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
       </div>
@@ -93,8 +90,8 @@ const StaffPrivateScreen = ({history}) => {
     <div className="row1">
       <div className="StaffRectangle-36" >
       {/* <Link to="/viewfeedback" id="Regs"><button className="buttons" onClick="/viewfeedback ">My Feedbacks</button></Link> */}
-      <br></br><br></br><br></br><br></br><br></br><br></br>
-      {/* <FontAwesomeIcon icon={faSolidFaComment} /> */}
+      <br></br>
+      <FontAwesomeIcon className = "fonticonsize" icon={faComment}  /> 
 
       {/* <i class="fa-solid fa-file-circle-check"></i> */}
       {/* <i class="fa-solid fa-file"></i> */}
@@ -104,28 +101,28 @@ const StaffPrivateScreen = ({history}) => {
 
       <div className="StaffRectangle-37">
         {/* <Link to="/studenttopicinterestingform" id="Regs"><button className="buttons" onClick="/studenttopicinterestingform ">Student Topic Interestings</button></Link> */}
-        <br/><br/><br/><br/><br/><br/>
-        {/* <FontAwesomeIcon icon={faFileCircleCheck} /> */}
+        
+        <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link>
         </div>
 
       <div className="StaffRectangle-38">
-      <br/><br/><br/><br/><br/><br/>
-      {/* <FontAwesomeIcon icon={faSolidFaFile} /> */}
+      
+      <FontAwesomeIcon  className = "fonticonsize" icon={faFile} /> 
       <Link to="/staffreport" id="Regs"><button className="buttons" onClick="/staffreport ">View Report</button></Link>
       </div>
 
       <div className="StaffRectangle-39">
-      <br/><br/><br/><br/><br/><br/>
-      {/* <FontAwesomeIcon icon={faSolidFaListCheck} /> */}
+      
+      <FontAwesomeIcon  className = "fonticonsize" icon={faListCheck} /> 
       {/* <i class="fa-solid fa-list-check"></i> */}
       <Link to="/staffrecommendationform" id="Regs"><button className="buttons" onClick="/staffrecommendationform ">Staff</button></Link>
       </div>
 
       <div className="StaffRectangle-40">
-      <br/><br/><br/><br/><br/><br/>
-      {/* <FontAwesomeIcon icon={faSolidFaGraduationCap} /> */}
+      
+      <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
       </div>
@@ -136,17 +133,14 @@ const StaffPrivateScreen = ({history}) => {
       <br/><br/><br/><br/><br/><br/>
       <Link to="/topicregistration" id="Regs">Register Topic</Link>
       </div>
-
       <div className="StudentRectangle-42">
       <br/><br/><br/><br/><br/><br/>
       <Link to="/viewavailableprojects" id="Regs">Available Projects</Link>
       </div>
-
       <div className="StudentRectangle-43">
       <br/><br/><br/><br/><br/><br/>
       <Link to="/submissionmilestone" id="Regs">Submit File</Link>
       </div>
-
       </div>
  */}
 
