@@ -59,11 +59,11 @@ exports.login = async (req, res, next) => {
         try{
             user.OTP = OTP
             await user.save()
-            // await sendEmail({
-            //     to:user.email,
-            //     subject:"OPT for login",
-            //     text: message
-            // })
+            await sendEmail({
+                to:user.email,
+                subject:"OPT for login",
+                text: message
+            })
             
             res.status(200).json({success:true,data:"Passowrd reset link sent"})
         }catch(error){
