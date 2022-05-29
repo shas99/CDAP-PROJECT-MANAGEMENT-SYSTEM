@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
 // import { Link } from "react-router-dom";
-import "./StudentTopicRegistrationForm.css";
+// import "./StudentTopicRegistrationForm.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
+import "./SubmissionScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -18,41 +21,12 @@ const StaffReport = ({history}) => {
     const [topicdescription, settopicdescription] = useState("");
     const [abstract, setabstract] = useState("");
     const [researchProblem, setresearchProblem] = useState("");
-    const [solution, setsolution] = useState("");
-    const [systemOverview, setsystemOverview] = useState("");
-
-    const [objective, setobjective] = useState("");
-    const [projecttask, setprojecttask] = useState("");
-    const [technologies, settechnologies] = useState("");
-
-    const [group,setgroup] = useState("")
-    const [fetchGroupData, setGroupData] = useState("");
     //image upload to s3
     const [file, setFile] = useState()
     const [description,setDescription] = useState("")
     const [images,setImages] = useState([])
 
     useEffect(() => {
-        const fetchGroupData = async () => {
-            const groupconfig = {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-              },
-            };
-      
-            try {
-              const { data} = await axios.get("/api/auth/group",groupconfig);
-              const groupArray = data.data.split("/")
-              console.log(groupArray[0])
-              const group1 = groupArray[0].split(",")
-              setgroup(group1)
-              setGroupData(groupArray[0]);
-            } catch (error) {
-      
-              // setError("Oops couldn't retreive group data");//fix this
-            }
-          };
       const fetchPrivateDate = async () => {
         const config = {
           headers: {
@@ -71,20 +45,17 @@ const StaffReport = ({history}) => {
         }
       };
   
-
-
-    //   fetchGroupData()
-
+  
+  
       fetchPrivateDate();
-      fetchGroupData()
     }, [history]);
   
     //Logout feature
     const logOutHandler=()=>{
       localStorage.removeItem("authToken");
       history.push("/login");
-  
     };
+
     const groupregisterHandler = async (e) => {
         e.preventDefault();
     
@@ -97,7 +68,7 @@ const StaffReport = ({history}) => {
         try {
           const { data } = await axios.post(
             "/api/group/topicregister",
-            { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
+            { groupID,Topic,topicdescription,abstract,researchProblem},
             config
           );
     
@@ -198,55 +169,38 @@ const StaffReport = ({history}) => {
           
           </p>
         
-           <h1 id="caption">Project Topic Assessment</h1>
+           <h1 id="caption">Report 01</h1>
            <br/>
            
-      
-
-
-          
           <div className="group-screen">
             {/* file upload */}
-            <form onSubmit={submit}>
+            {/* <form onSubmit={submit}>
                 <input onChange={fileSelected} type="file"></input>
                 <input value={description} onChange={e => setDescription(e.target.value)}type="text"></input>
                 <button type="submit">Submit</button>
 
-            </form>
+            </form> */}
 
-            {images.map( image=>(
+            
+
+      
+          <form onSubmit={groupregisterHandler} className="group-screen__form">
+
+          {images.map( image=>(
                 <div key={image}>
                     <img src={image}></img>
                     </div>))}
 
-
-
-
-
-              {/* <img src="/images/8b22480d56c25572f3a2387faab41f87"></img> */}
-
-
-              {/* <a href="/images/8b22480d56c25572f3a2387faab41f87" download = "file.pdf">Hello</a> */}
-
-
-
-
-              {/* download try */}
               <a
         href="/images/e50aa1b8426b24445c4132fc849645a7"
         download
         onClick={e => download(e)}
       >
-        <i className="fa fa-download" />
-        download
+        <br/>
+      <FontAwesomeIcon icon={faFileArrowDown} /> Download File
       </a>
-
-
-
-
-          <div>        
-          <form onSubmit={groupregisterHandler} className="group-screen__form">
-      <h3 className="login-screen__title">Topic Assessment Form</h3>
+      <br/><br/>
+      <h3 className="login-screen__title">Add Feeback and Marks</h3>
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group">
@@ -296,85 +250,12 @@ const StaffReport = ({history}) => {
         }}
         />
         <br/>
-        <label className="TopicNames">Research Problem - Must Add three main references in IEEE Format!</label>
-                <CKEditor
-        editor={ClassicEditor}
-        data={researchProblem}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setresearchProblem(data)
-        }}
-        />
-        <br/>
-        <label className="TopicNames">Solution Proposed - Describe in a minimum of 50 Words!</label>
-                <CKEditor
-        editor={ClassicEditor}
-        data={solution}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setsolution(data)
-        }}
-        /> 
-        <br/>
-        <label className="TopicNames">System Overview Diagram for the Solution Proposed</label>
-                <CKEditor
-        editor={ClassicEditor}
-        data={systemOverview}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setsystemOverview(data)
-        }}
-        />
-        <br/>
-        <label className="TopicNames">Objectives - 1 main objective and 4 sub objectives:</label>
-                <CKEditor
-        editor={ClassicEditor}
-        data={objective}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setobjective(data)
-        }}
-        />
-        <br/>
-      <label className="TopicNames">Task divided among the members:</label>
-                <CKEditor className="cke"
-        editor={ClassicEditor}
-        data={projecttask}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setprojecttask(data)
-        }}
-        />
-        <br/>
-        <label className="TopicNames">Technologies to be used:</label>
-                <CKEditor
-        editor={ClassicEditor}
-        data={technologies}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          settechnologies(data)
-        }}
-        />
-        <br/>
+       
+        
           </div>
-        {/* <label>
-           Group ID:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setgroupID(e.target.value)}
-          value={groupID} /> */}
           
         
-          </div>
-          <div className="form-group">
-
-
-                  </div>
-                  <br/>
-
-
-        
+          </div>    
 
 
 
@@ -383,7 +264,7 @@ const StaffReport = ({history}) => {
         </button>
 
         
-      </form></div>
+      </form>
           </div>
       
           <Footer/>
