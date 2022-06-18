@@ -144,3 +144,4 @@ const logged = (token,res) => {//check if token is null
         res.status(500).json({success:false})
     }
 }
+
