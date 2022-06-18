@@ -265,6 +265,34 @@ exports.viewAvailableGroups =async(req,res,next) => {
 }
 
 
+//view specific group
+exports.viewgroup = async (req, res, next) => {
+
+    
+
+    try{
+        console.log(req.params.id)
+        const group = await Group.findById(req.params.id)
+        console.log(group+"fffggdf")
+
+
+        res.status(201).json({
+            success: true,
+            data: group
+        })
+        
+
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+
+
+};
+
+
+
 
 const logged = (token,res) => {//check if token is null
     if(token == "null"){
