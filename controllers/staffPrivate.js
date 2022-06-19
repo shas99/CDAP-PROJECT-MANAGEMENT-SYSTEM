@@ -1,5 +1,6 @@
 const Staff = require('../models/Staff')
 const jwt = require("jsonwebtoken");
+const entermarks = require('../models/Marks');
 exports.getPrivateData = async (req,res,next) => {
     let token//to retreive username in backend
 
@@ -19,5 +20,21 @@ exports.getPrivateData = async (req,res,next) => {
         data: user.email,
     })
 
+}
 
+exports.addmarks = async(req,res,next) => {
+    const {groupID, milestonemarks, extrafeedback} = req.body
+
+    console.log("Error finding" + groupID)
+    try{
+        const marksadd = await entermarks.create({
+            groupID,milestonemarks,extrafeedback
+        })
+        res.status(210).json({
+            success: true,
+            data: "Added marks successfully"
+        })
+    }catch(error){
+        next(error)
+    }
 }
