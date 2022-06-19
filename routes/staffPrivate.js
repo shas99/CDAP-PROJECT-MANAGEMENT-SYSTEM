@@ -6,6 +6,8 @@ const { protect } = require("../middleware/staffAuth");
 
 //add marks route
 //router.route("/staffPrivate").get(protect,addmarks)
+
+//add marks
 router.route("/addmarks").post(addmarks)
 
 

@@ -14,6 +14,9 @@ router.route("/group").get(group)//to view marks
 
 router.route("/topicregister").post(topicregister)
 
+//add marks route
+router.route("/add")
+
 router.route("/autoapprove/:resetToken").put(autoapprove)
 
 router.route("/viewgroups").get(viewAvailableGroups)//view groups
