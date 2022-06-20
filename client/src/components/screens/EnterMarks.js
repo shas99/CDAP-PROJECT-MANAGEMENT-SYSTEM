@@ -47,7 +47,7 @@ const EnterMarks = ({history}) => {
                 },
             }
             try{
-                const { data } = await axios.get("/api/private", config);
+                const { data } = await axios.get("/api/staffPrivate/staffPrivate", config); //change to resolve logged out error
                 setPrivateData(data.data);
             }catch(error){
                 localStorage.removeItem("authToken");
@@ -82,7 +82,7 @@ const EnterMarks = ({history}) => {
                 config
             );
 
-            history.push("/");
+           history.push("/staffPrivate");
          }catch(error){
             setError(error.response.data.error);
             setTimeout(() => {
