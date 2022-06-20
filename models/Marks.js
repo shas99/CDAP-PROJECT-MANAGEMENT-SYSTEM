@@ -6,33 +6,24 @@ const MarksSchema = new mongoose.Schema({
     groupID: {
         type: String
     },
-    submissionID: {
+    studentIDs: {
         type: String
     },
     studentnames:{
         type: String
     },
-    provengapmarks:{
+    examiner1:{
         type: String
     },
-    capabilitymarks:{
+    examiner2:{
         type: String
     },
-    implementationmarks:{
-        type: String
-    },
-    communicationmarks:{
-        type: String
-    },
-    commercialisationmarks:{
-        type: String
-    },
-    totalmarks:{
+    moderator:{
         type: String
     },
     extrafeedback:{
         type: String
-    }
+    },
 })
 
 const entermarks = mongoose.model("entermarks", MarksSchema)
