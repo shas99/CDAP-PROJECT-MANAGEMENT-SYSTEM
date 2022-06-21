@@ -31,7 +31,7 @@ export default function ProjectBidding() {
       try {
         
         const { data } = await axios.put(
-          `http://localhost:5000/api/AvailableProject/availableProjects/placeBidding/${projectID}`,
+          `/api/AvailableProject/availableProjects/placeBidding/${projectID}`,
           { bidPlacedGroup,date,time }
           );
           alert("Bidding success")
@@ -48,7 +48,7 @@ export default function ProjectBidding() {
     const getRelevantProjectData =async ()=>{
      
       try{
-        const{data}=await axios.get(`http://localhost:5000/api/AvailableProject/availableProjects/${projectID}`);
+        const{data}=await axios.get(`/api/AvailableProject/availableProjects/${projectID}`);
         console.log(data.availableProjects.projectSupervisedBy)
         setProjectName(data.availableProjects.projectName)
         setProjectDesc(data.availableProjects.projectDescription)
