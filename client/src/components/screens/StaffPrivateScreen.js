@@ -124,7 +124,7 @@ const StaffPrivateScreen = ({history}) => {
       
       <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
-      <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View projects</button></Link>
+      <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View Groups</button></Link>
       </div>
         
 
