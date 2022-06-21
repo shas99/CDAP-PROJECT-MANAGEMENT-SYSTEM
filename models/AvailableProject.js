@@ -33,7 +33,9 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
       time:{
         type:String
       }
-    }
+
+    },
+    allBiddings:[]
 })
 const AvailableProject = mongoose.model("availableProjects", AvailableProjectSchema)
 module.exports = AvailableProject

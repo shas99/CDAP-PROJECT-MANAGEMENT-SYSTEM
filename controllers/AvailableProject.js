@@ -82,6 +82,8 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
        placedBid.bidding.biddingPlacedGroup= bidPlacedGroup
        placedBid.bidding.date=date
        placedBid.bidding.time=time
+       placedBid.allBiddings=bidPlacedGroup
+
        
         await placedBid.save()
         res.status(201).json({
