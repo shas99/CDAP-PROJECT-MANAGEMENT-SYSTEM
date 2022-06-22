@@ -102,6 +102,12 @@ const AdminDashboard = ({history}) => {
 <Link to="/submissionmilestone" id="Regs">Submit File</Link>
 </div>
 
+<div className="StudentRectangle-43">
+<br/><br/><br/><br/><br/><br/>
+<a target="_blank" href="https://cdap-app-365.herokuapp.com/" id="Regs">Schedule Meeting</a>
+
+</div>
+
 </div>
 
 
