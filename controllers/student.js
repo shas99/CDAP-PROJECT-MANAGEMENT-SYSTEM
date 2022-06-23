@@ -1,4 +1,5 @@
 const crypto = require('crypto')
+console.log(crypto)
 const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
@@ -34,6 +35,40 @@ exports.viewfeedback =async(req,res,next) => {
         res.status(201).json({
             success: true,
             data: user.feedback
+        })
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+//user profile management
+
+exports.userprofilemanagement =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    // console.log(user.feedback)
+    // const{email}=req.body;
+    
+    try{
+        res.status(201).json({
+            success: true,
+            data: user
         })
     }catch(error){
         next(error)

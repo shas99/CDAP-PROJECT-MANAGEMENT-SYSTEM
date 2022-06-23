@@ -40,6 +40,8 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
+import UserProfile from "./components/screens/UserProfile";
+
 
 
 const App = () => {
@@ -99,6 +101,8 @@ const App = () => {
          <Route exact path="/submissionmilestone" component={SubmissionMilestones}/>
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
+         <Route exact path="/userprofile" component={UserProfile}/>
+       
 
 
 

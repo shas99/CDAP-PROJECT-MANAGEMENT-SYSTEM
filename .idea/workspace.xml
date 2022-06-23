@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ece914d-8922-423b-938b-44552bede8a0" name="Default Changelist" comment="" />
+    <list default="true" id="5ece914d-8922-423b-938b-44552bede8a0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/screens/PrivateScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/screens/PrivateScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/screens/PrivateScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/screens/PrivateScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/student.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
