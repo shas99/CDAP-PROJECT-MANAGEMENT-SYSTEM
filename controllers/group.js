@@ -189,12 +189,14 @@ exports.group = async (req, res, next) => {//suggest supervisor
 
 exports.topicregister = async(req,res,next) => {//topic registration
     const {groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies} = req.body
+    const car = {type:"Fiat", model:"500", color:"white"};
 
     
     console.log("Error Finding"+groupID)
     try{
         const topicR = await TopicReg.create({
-            groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies//new
+           // groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies
+           car
         })
         res.status(201).json({
             success: true,
