@@ -128,9 +128,34 @@ const EnterMarks = ({history}) => {
             
           <div>        
           <form onSubmit={entermarksHandler} className="group-screen__form">
-      <h3 className="login-screen__title">Enter Marks</h3>
+      <h3 className="login-screen__title">RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = 5%]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
+        <table className="tablemarks1">
+            <tr>
+                <td>
+                <label>
+           Student IDs:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setstudentIDs(e.target.value)}
+          value={studentIDs} />
+                    
+
+                </td>
+                <td className="tabletd1">
+                <label>
+           Student names:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setstudentnames(e.target.value)}
+          value={studentnames} />
+
+                </td>
+            </tr>
+        </table>
         <label>
            Group ID:</label>
           <input type="text" 
@@ -141,27 +166,10 @@ const EnterMarks = ({history}) => {
           
         
         </div>
-        <div className="form-group">
-        <label>
-           Student IDs:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setstudentIDs(e.target.value)}
-          value={studentIDs} />
-          
+
+
         
-          </div>
-          <div className="form-group">
-        <label>
-           Student names:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setstudentnames(e.target.value)}
-          value={studentnames} />
-                  
-                  </div>
+          
                   <div className="form-group">
         <label>
            Examiner 1:</label>

@@ -6,13 +6,24 @@
     align-items: center;
     background-color: #22272E;
   }
-  
+
+  .tablemarks1{
+    width: 100%;
+    column-gap: 5px;
+
+
+  }
+
+  .tablemarks1 td{
+    padding-left: 5px;
+  }
+ 
   .group-screen__form {
-    width: 380px;
+    width: 60%;
     padding: 1.5rem;
     margin-top: -100px;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    margin-left:550px;
+    margin: 0 auto;
     background: #161b22;
     border-radius: 5px;
     color: white;
