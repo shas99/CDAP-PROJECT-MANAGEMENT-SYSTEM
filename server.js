@@ -58,6 +58,7 @@ app.use('/api/staffAuth',require('./routes/staffAuth'))
 app.use('/api/staffPrivate', require('./routes/staffPrivate'))
 app.use('/api/AvailableProject', require('./routes/AvailableProject'))
 app.use('/api/staff', require('./routes/staff'))
+app.use('/api/STDAvailableSubmissions', require('./routes/STDAvailableSubmissions'))
 
 
 

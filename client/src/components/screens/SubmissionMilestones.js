@@ -1,15 +1,16 @@
+import '../../styles/main.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./PrivateScreen.css"
-import "./SubmissionMilestones.css"
+
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+
 
 
 const SubmissionMilestones = ({history}) =>{
-  const [fetchMarksData, setMarksData] = useState("")
+  const [SubmissionsData, setSubmissionsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
+  const [submissionArray, setSubmissionArray] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -30,8 +31,8 @@ const SubmissionMilestones = ({history}) =>{
       }
     };
 
-    const fetchMarksData = async () =>{
-      const marksconfig = {
+    const fetchSubmissionsData = async () =>{
+      const submissionsconfig = {
         headers: {
           "Content-Type":"application/json",
           Authorization:`Bearer ${localStorage.getItem("authToken")}`,
@@ -39,79 +40,83 @@ const SubmissionMilestones = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.get("/api/student/viewmarks",marksconfig);
-        setMarksData(data.data);
-      }catch(error){
+        const{data} = await axios.get("/api/STDAvailableSubmissions/availableSubmissions",submissionsconfig);
+        const array = Object.entries(data.data)
+        setSubmissionsData(data.data);
 
         
+      }catch(error){
+        // setError("Data not fetched");
+        
       }
+    
     }
-    fetchMarksData()
+
+
+
+
+    fetchSubmissionsData()
     fetchPrivateDate()
   }, [history])
 
-  return  error ? ( 
-  
-    <span className="error-message">{error}</span>
-  ) :(
-    <div className="view-feedback">
-      <Header/>
-  <br/>
-      <h1 id="caption">Milestones  </h1>
-      <br/><br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 1 - SRS Report </b></h4> <br/>
-        <p>A software requirements specification (SRS) is a description of a software system to be developed. It is modeled after business requirements specification (CONOPS). The software requirements specification lays out functional and non-functional requirements, and it may include a set of use cases that describe user interactions that the software must provide to the user for perfect interaction.</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
-
-      </div>
-      </div>
-      <br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 2 - TIS Report </b></h4> <br/>
-        <p>An investigation report is a document that details the findings of an investigation as soon as a formal complaint is filed or an incident occurs. This is where investigators record the issues of the matter, analyze the evidence, and formulate a conclusion.</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
-
-      </div>
-      </div>
-      <br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 3 - SAS Report </b></h4> <br/>
-        <p>A software architecture document is a map of the software. We use it to see, at a glance, how the software is structured. It helps you understand the software's modules and components without digging into the code. It's a tool to communicate with others—developers and non-developers—about the software.</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
-
-      </div>
-      </div>
-      <br/><br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 4 - Handover Report </b></h4> <br/>
-        <p>Include all the reports refined with the latest version applied and approved from your Supervisors</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
-
-      </div>
-      </div>
-
-
-      <br/>
-      <Footer/>
+  const objectToArray = obj => {
+    const keys = Object.keys(obj);
+    const res = [];
+    for(let i = 0; i < keys.length; i++){
+       res.push(obj[keys[i]]);
+       setSubmissionArray(res)
+      //  console.log(projectarray);
       
-</div>
-    
-    
-    
-    
-  )
-}
+       
+       
+
+    };
+    return res; 
+
+ };
+ 
+
+
+
+ return error ? ( 
+  
+  <span className="error-message">{error}</span>
+) : ( 
+
+  <>
+  <div id="back">
+  <Header/>
+  <h1 id="caption" className="">RP Submissions Page</h1>
+      <br/><br/>
+
+
+        
+         <ul>
+        {SubmissionsData.map(submission => {
+          return (
+            <div className="card" style={{borderRadius:"20px",height:"225px"}}>
+        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px"}}>{submission.BatchID}</p></center>
+      <div>
+                   
+                    {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li> 
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li> 
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li> 
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li> 
+
+                    {/* <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/availableProjects/${project._id}`}>Place Bid</a></div> */}
+      </div>
+      </div>
+            
+          )
+
+        })} 
+      </ul>
+    </div>
+
+  
+  </>
+);
+};
 export default SubmissionMilestones;
