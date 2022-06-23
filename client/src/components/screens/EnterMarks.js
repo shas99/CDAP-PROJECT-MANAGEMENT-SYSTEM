@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
-import "./GroupScreen.css";
+import "./MarksScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -128,7 +128,7 @@ const EnterMarks = ({history}) => {
             
           <div>        
           <form onSubmit={entermarksHandler} className="group-screen__form">
-      <h3 className="login-screen__title">EnterMarks</h3>
+      <h3 className="login-screen__title">Enter Marks</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <label>
