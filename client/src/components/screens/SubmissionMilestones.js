@@ -25,6 +25,7 @@ const SubmissionMilestones = ({history}) =>{
         const { data} = await axios.get("/api/private", config);
         
         setPrivateData(data.data);
+        
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not authorized please login");
@@ -65,6 +66,7 @@ const SubmissionMilestones = ({history}) =>{
     for(let i = 0; i < keys.length; i++){
        res.push(obj[keys[i]]);
        setSubmissionArray(res)
+       console.log(submissionArray)
       //  console.log(projectarray);
       
        
@@ -99,11 +101,11 @@ const SubmissionMilestones = ({history}) =>{
       <div>
                    
                     {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li> 
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Date</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li> 
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Links</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li> 
+                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li> 
 
                     {/* <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/availableProjects/${project._id}`}>Place Bid</a></div> */}
       </div>

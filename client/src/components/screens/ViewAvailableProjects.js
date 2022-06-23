@@ -44,7 +44,7 @@ const ViewAvailableProjects = ({history}) =>{
         //console.log(typeof data.data);
         const array = Object.entries(data.data)
         setProjectsData(data.data);
-       console.log(array);
+       // console.log(array);
 
         // console.log(ProjectsData)
         
