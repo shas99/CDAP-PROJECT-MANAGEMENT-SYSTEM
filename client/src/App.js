@@ -28,6 +28,9 @@ import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
 import EnterMarks from "./components/screens/EnterMarks";
 
+//styling trial
+import EnterMarks2 from "./components/screens/EnterMarks2"
+
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
 import Submission from "./components/screens/SubmissionScreen";
