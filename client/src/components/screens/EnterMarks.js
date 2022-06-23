@@ -170,7 +170,7 @@ const EnterMarks = ({history}) => {
 
         
           
-                  <div className="form-group">
+        <div className="form-group">
         <label>
            Examiner 1:</label>
           <input type="text" 
