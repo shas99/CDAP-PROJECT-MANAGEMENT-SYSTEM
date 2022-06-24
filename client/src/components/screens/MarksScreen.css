@@ -76,6 +76,11 @@
   .form-group{
     
   }
+
+  .tableheading
+  {
+    text-align: center;
+  }
   
   #EmailID{
     font-weight: bold;

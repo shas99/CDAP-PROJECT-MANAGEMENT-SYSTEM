@@ -234,6 +234,18 @@ novelty and
 creativity.
     </td>
 
+    <td colspan="2">
+   
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setprovengapmarks1(e.target.value)}
+          value={provengapmarks1} />
+          
+
+
+    </td>
+
 
 
   </tr>
@@ -275,6 +287,18 @@ and services
     Poorly compared
 or No comparison
 has been done
+
+    </td>
+
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setprovengapmarks2(e.target.value)}
+          value={provengapmarks2} />
+          
+
 
     </td>
 
@@ -323,6 +347,18 @@ identified.
 
     </td>
 
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcapabilitymarks1(e.target.value)}
+          value={capabilitymarks1} />
+          
+
+
+    </td>
+
 </tr>
 
 <tr>
@@ -364,6 +400,18 @@ used.
 
     </td>
 
+    <td colspan="2">
+ 
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcapabilitymarks2(e.target.value)}
+          value={capabilitymarks2} />
+          
+
+
+    </td>
+
 </tr>
 <tr>
     <td>
@@ -371,7 +419,7 @@ used.
     </td>
 </tr>
 <tr>
-    <th>Solution Implementation [Based on LO3] - [5%]</th>
+    <th className="tableheading">Solution Implementation [Based on LO3] - [5%]</th>
 </tr>
 <tr>
     <td>
@@ -412,6 +460,18 @@ plan.
 
     </td>
 
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setimplementationmarks1(e.target.value)}
+          value={implementationmarks1} />
+          
+
+
+    </td>
+
 </tr>
 <tr>
     <td>
@@ -449,6 +509,18 @@ requirements and
 the functional
 requirements
 poorly described.
+    </td>
+
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setimplementationmarks2(e.target.value)}
+          value={implementationmarks2} />
+          
+
+
     </td>
 
 </tr>
@@ -493,6 +565,17 @@ distribution.
 
     </td>
 
+    <td colspan="2">
+   
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setimplementationmarks3(e.target.value)}
+          value={implementationmarks3} />
+          
+
+
+    </td>
 </tr>
 <tr>
     <td>
@@ -545,6 +628,18 @@ session.
 
     </td>
 
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcommunicationmarks1(e.target.value)}
+          value={communicationmarks1} />
+          
+
+
+    </td>
+
 </tr>
 <tr>
     <td>
@@ -584,6 +679,18 @@ No use of visual
 aids
 Poor time
 management
+
+    </td>
+
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcommunicationmarks2(e.target.value)}
+          value={communicationmarks2} />
+          
+
 
     </td>
 
@@ -634,6 +741,18 @@ business potential
 with unachievable
 or No user
 benefits
+
+    </td>
+
+    <td colspan="2">
+    
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcommercializationmarks1(e.target.value)}
+          value={commercializationmarks1} />
+          
+
 
     </td>
 
@@ -693,7 +812,7 @@ benefits
        
                   
                   </div>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                   <label>
            Proven Gap marks 1:</label>
           <input type="text" 
@@ -821,7 +940,7 @@ benefits
           
     
         
-        </div>
+        </div> */}
 
         {/* <div className="form-group">
      
