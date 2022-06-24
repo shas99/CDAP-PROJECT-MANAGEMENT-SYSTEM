@@ -16,6 +16,8 @@ const AddSubmission = ({history}) => {
   const [description,setDescription] = useState("")
   const [batchID,setBatchID] = useState("")
   const [flow,setFlow] = useState(0)
+  const [field,setField] = useState([])
+  const [temp,setTemp] = useState("")
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -46,12 +48,24 @@ const AddSubmission = ({history}) => {
     setFlow(flow+1)
   }
 
+  const addField=()=> {//normal text box
+    setField(Array=> [...Array,temp])
+    setField(Array=> [...Array,"Normal"])
+  }
+
+  const addField2=()=> {//rich text box
+    setField(Array=> [...Array,temp])
+    setField(Array=> [...Array,"Rich"])
+  }
+
   //Logout feature
   const logOutHandler=()=>{
     localStorage.removeItem("authToken");
     history.push("/login");
 
   };
+
+
 
   return  error ? ( 
   
@@ -98,12 +112,37 @@ const AddSubmission = ({history}) => {
   </div>
     }
 
+    {flow == 1 &&
+    <div>
+        <label>
+            Enter field name:
+        {/* <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])} */}
+        
+         <input type="text" name="description" onChange={(e) => setTemp(e.target.value)}
+        
+        />
+    </label><br/><br/>
+      <button onClick={addField}>
+        Add a normal text box
+      </button>
+
+      <button onClick={addField2}>
+        Add a rich text editor
+      </button>
+
+
+
+    </div>
+    
+}
+{console.log(field)}
+
 
 <br/>
     {batchID}<br/>
     {heading}<br/>
-    {description}
-
+    {description}<br/>
+    temp:{temp}<br/>
     <br/>
     <br/>
     <br/>
