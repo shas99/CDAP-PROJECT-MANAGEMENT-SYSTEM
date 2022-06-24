@@ -166,50 +166,532 @@ const EnterMarks = ({history}) => {
           
         
         </div>
+       
 
+        <table>
+        <tr>
+    <th>Sub Assessment Criteria </th>
+    <th> Excellent(100-75) </th>
+    <th> Good(74-60) </th>
+    <th> Average(59-40) </th>
+    <th> Below Average(39-0) </th>
+    <th> Marks[out of 100] </th>
+  </tr>
+  <tr>
+    <th>
+    Proven gap/Creative Solution [Based on LO1] - [35%]
+    </th>
 
-        
-          
-        <div className="form-group">
-        <label>
-           Examiner 1:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setexaminer1(e.target.value)}
-          value={examiner1} />
-                  
-                  </div>
-                  <div className="form-group">
-        <label>
-           Examiner 2:</label>
-          <input type="text" 
-          name="name"
-          className = "input"
-          onChange={(e) => setexaminer2(e.target.value)}
-          value={examiner2} />
-        
-        </div>
+  </tr>
+  <tr>
+    <td>
+    Knowledge gap
+(Problem) with novel and
+creative solution
+70%
+    </td>
+    <td>
+    Clearly argued the existence
+of knowledge gap using
+credible, multiple sources.
+Excellent justification for
+novelty and creativity.
 
-        <div className="form-group">
-        <label>
-           Moderator:</label>
-          <input type="text" 
-          name="name"
-          className = "input"
-          onChange={(e) => setmoderator(e.target.value)}
-          value={moderator} />
-        
-        </div>
+    </td>
+    <td>
+    Sufficiently argued the
+existence of knowledge
+gap using limited
+sources.
+Good justification for
+novelty and creativity.
+    </td>
+    <td>
+    Moderately argued the
+knowledge gap with
+very few or no sources.
+Average justification for
+novelty and creativity.
 
-        <div className="form-group">
-        <label>
+    </td>
+    <td>
+    Knowledge gap is
+not clearly
+identified.
+Poor or No
+justification for
+novelty and
+creativity.
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+    2.Compare existing
+systems and related work
+30%
+
+    </td>
+    <td>
+    Extensively compared the
+research problem in the
+present context of the research
+domain / with similar products
+and services.
+
+    </td>
+    <td>
+    Sufficiently compared
+the research problem in
+the present context of
+the research domain /
+with similar products
+and services.
+
+    </td>
+    <td>
+    Moderately compared
+the research problem in
+the present context of
+the research domain /
+with similar products
+and services
+
+    </td>
+    <td>
+    Poorly compared
+or No comparison
+has been done
+
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+
+    </td>
+</tr>
+<tr>
+    <th>
+    Capability in applying the knowledge in particular stream [Based on LO2] - [30%]
+    </th>
+</tr>
+<tr>
+    <td>
+    Application of key pillars
+in the specialized area of
+knowledge
+50%
+
+    </td>
+    <td>
+    Clearly identified the most
+appropriate research area
+(Machine learning, Image
+processing, Data Science etc.)
+
+    </td>
+    <td>
+    Satisfactorily identified
+the research area.
+
+    </td>
+    <td>
+    Vaguely identified. But
+appropriateness is
+doubtful.
+
+    </td>
+    <td>
+    Indistinctly
+identified or Not
+identified.
+
+    </td>
+
+</tr>
+
+<tr>
+    <td>
+    Application of
+technologies in the
+relevant key pillar/area
+50%
+
+    </td>
+    <td>
+    Demonstrated full awareness
+of technologies in the relevant
+area and a critical evaluation
+of technologies proving
+selection of the best
+technology/s.
+
+    </td>
+    <td>
+    Adequate awareness of
+technologies to be used
+and a good evaluation of
+technologies proving
+selection of the best
+technologies.
+
+    </td>
+    <td>
+    Moderate awareness of
+technologies to be used.
+
+    </td>
+    <td>
+    Poor or Zero
+awareness of
+technologies to be
+used.
+
+    </td>
+
+</tr>
+<tr>
+    <td>
+
+    </td>
+</tr>
+<tr>
+    <th>Solution Implementation [Based on LO3] - [5%]</th>
+</tr>
+<tr>
+    <td>
+    High-level System
+Architecture and
+identification of selfevaluation
+plan/criteria
+50%
+
+    </td>
+    <td>
+    Brilliantly justified high-level
+SA with highly acceptable
+self-evaluation plan.
+
+    </td>
+    <td>
+    Adequately justified
+high-level SA with
+acceptable selfevaluation
+plan.
+
+    </td>
+    <td>
+    Barely justified highlevel
+SA with fairly
+acceptable selfevaluation
+plan.
+
+    </td>
+    <td>
+    Poorly justified or
+No evidence of
+High-level SA
+with inappropriate
+or No selfevaluation
+plan.
+
+    </td>
+
+</tr>
+<tr>
+    <td>
+    User Requirements /
+Functional Requirements
+20%
+
+    </td>
+    <td>
+    Comprehensive and realistic
+user requirements and the
+functional requirements well
+described.
+
+    </td>
+    <td>
+    Comprehensive and
+realistic user
+requirements and the
+functional requirements
+adequately described.
+
+    </td>
+    <td>
+    Comprehensive and
+realistic user
+requirements and the
+functional requirements
+barely described.
+    </td>
+    <td>
+    Comprehensive
+and realistic user
+requirements and
+the functional
+requirements
+poorly described.
+    </td>
+
+</tr>
+<tr>
+    <td>
+    Work Breakdown
+Structure (WBS)
+30%
+
+    </td>
+    <td>
+    Comprehensive planning
+demonstrate in WBS, realistic
+time estimates and right
+workload distribution.
+
+    </td>
+    <td>
+    Good planning
+demonstrate in WBS,
+realistic time estimates
+and good workload
+distribution.
+
+    </td>
+    <td>
+    Satisfactory planning of
+WBS, barely feasible
+time estimates and
+acceptable workload
+distribution.
+
+    </td>
+    <td>
+    Poor or No
+planning of WBS,
+Unrealistic time
+estimates and
+unacceptable
+workload
+distribution.
+
+    </td>
+
+</tr>
+<tr>
+    <td>
+
+    </td>
+</tr>
+<tr>
+    <th>
+    Effective Communication [Based on LO4] - [15%]
+    </th>
+</tr>
+<tr>
+    <td>
+    Communication skills
+60%
+
+    </td>
+    <td>
+    Excellent structure and smooth
+flow of the presentation.
+Excellent performance at the
+Q&A session.
+
+    </td>
+    <td>
+    Well-developed
+structure and good flow
+of the presentation.
+Good performance at
+the Q&A session.
+
+    </td>
+    <td>
+    Fairly developed
+structure and the flow of
+the presentation.
+Fair performance at the
+Q&A session.
+
+    </td>
+    <td>
+    Poorly developed
+structure and
+fragmented flow
+of the
+presentation.
+Poor performance
+at the Q&A
+session.
+
+    </td>
+
+</tr>
+<tr>
+    <td>
+    Presentation skills
+40%
+
+    </td>
+    <td>
+    Excellent stage presence, body
+language, eye contact, voice
+projection and clarity.
+Commendable use of visual
+aids.
+Excellent time management.
+
+    </td>
+    <td>
+    Good stage presence
+and body language
+Use of visual aids
+Hardly managed the
+time
+
+    </td>
+    <td>
+    Average stage presence
+with no body language
+Little or no use of visual
+aids
+poor time management
+
+    </td>
+    <td>
+    Poor stage
+presence
+No use of visual
+aids
+Poor time
+management
+
+    </td>
+
+</tr>
+<tr>
+    <td>
+
+    </td>
+</tr>
+<tr>
+    <th>
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [15%]
+    </th>
+</tr>
+<tr>
+    <td>
+    Ability of
+commercialization /
+potential for
+entrepreneurship
+100%
+
+    </td>
+    <td>
+    Demonstrated sound evidence
+to prove business potential
+highlighting many achievable
+user benefits
+
+    </td>
+    <td>
+    Sufficient evidence to
+prove business potential
+highlighting some
+achievable user benefits
+
+    </td>
+    <td>
+    Few evidence to prove
+business potential with
+few user benefits
+
+    </td>
+    <td>
+    Very few or No
+evidence to prove
+business potential
+with unachievable
+or No user
+benefits
+
+    </td>
+
+</tr>
+
+<tr>
+<label>
            Extra feedback:</label>
           <input type="text" 
           name="name"
           className = "input"
           onChange={(e) => setextrafeedback(e.target.value)}
           value={extrafeedback} />
+
+
+</tr>
+        </table>
+
+
+        
+       
+        <div className="form-group">
+
+            <table className="tablemarks1">
+                <tr>
+                    <td>
+                    <label>
+           Examiner 1:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setexaminer1(e.target.value)}
+          value={examiner1} />
+
+                    </td>
+                <td className="tabletd1">
+                <label>
+           Examiner 2:</label>
+          <input type="text" 
+          name="name"
+          className = "input"
+          onChange={(e) => setexaminer2(e.target.value)}
+          value={examiner2} />
+                </td>
+                <td className="tabletd1">
+                <label>
+           Moderator:</label>
+          <input type="text" 
+          name="name"
+          className = "input"
+          onChange={(e) => setmoderator(e.target.value)}
+          value={moderator} />
+
+                </td>
+                </tr>
+            </table>
+       
+                  
+                  </div>
+                  <div className="form-group">
+    
+        
+        </div>
+
+        <div className="form-group">
+     
+        
+        </div>
+
+        <div className="form-group">
+       
         
         </div>
 
