@@ -1,8 +1,15 @@
 import '../../styles/main.css';
+import './SubmissionsM.css';
+import { format } from 'date-fns'
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from "../Header/Header";
+import { Batch } from 'aws-sdk';
+
+import Parser from 'html-react-parser';
+
 
 
 
@@ -11,6 +18,7 @@ const SubmissionMilestones = ({history}) =>{
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [submissionArray, setSubmissionArray] = useState("");
+  const [batchID, setBatchID] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -53,29 +61,55 @@ const SubmissionMilestones = ({history}) =>{
     
     }
 
+    const fetchbatchID = async () =>{
+      const submissionsconfig = {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+        },
+      }
+
+      try{
+        const{data} = await axios.get("/api/STDAvailableSubmissions/batchID",submissionsconfig);
+        //const array = Object.entries(data.data)
+        setBatchID(data.data);
+
+        
+      }catch(error){
+        // setError("Data not fetched");
+        
+      }
+    
+    }
+
 
 
 
     fetchSubmissionsData()
     fetchPrivateDate()
+    fetchbatchID()
   }, [history])
 
-  const objectToArray = obj => {
-    const keys = Object.keys(obj);
-    const res = [];
-    for(let i = 0; i < keys.length; i++){
-       res.push(obj[keys[i]]);
-       setSubmissionArray(res)
-       console.log(submissionArray)
-      //  console.log(projectarray);
-      
+//   const objectToArray = obj => {
+//         const keys = Object.keys(obj);
+//     const res = [];
+    
+//     for(let i = 0; i < keys.length; i++){
+//        res.push(obj[i]);
+//        setSubmissionArray(res)
+//       //  console.log(projectarray);
+        
        
        
 
-    };
-    return res; 
+//     };
+//     return res; 
 
- };
+    
+
+//  };
+
+
  
 
 
@@ -88,30 +122,32 @@ const SubmissionMilestones = ({history}) =>{
   <>
   <div id="back">
   <Header/>
-  <h1 id="caption" className="">RP Submissions Page</h1>
+  <br></br>
+  <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
       <br/><br/>
-
-
         
          <ul>
         {SubmissionsData.map(submission => {
+          if(batchID == submission.BatchID && submission.visibility == true){
           return (
-            <div className="card" style={{borderRadius:"20px",height:"225px"}}>
-        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px"}}>{submission.BatchID}</p></center>
-      <div>
-                   
-                    {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Date</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Heading</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Links</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li> 
-
-                    {/* <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/availableProjects/${project._id}`}>Place Bid</a></div> */}
-      </div>
-      </div>
+                     
             
-          )
+            <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
+              
+              <div className="Heading">
+                <p>{submission.Heading}</p>
+              </div>
+              <div id="content">
+              <br></br><br></br>
+              <li className="des"><p>{Parser(submission.Description)}</p></li>
+              <li className="link"><p>{submission.SubmissionPageLink}</p></li><br></br>
+              </div>
+              <div className="date"><p >Updated on {submission.Date}</p></div>
+              {/* <p>{submission.BatchID}</p> */}
+              
+            </div>
+            
+          )}
 
         })} 
       </ul>

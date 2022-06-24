@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const SubmissionPage = require('../models/SubmissionPage')
+const User = require('../models/User')
+const jwt = require("jsonwebtoken");
+
+
+
 
 //*******VIEW AVAILABLE Submissions API *******
 exports.viewAvailableSubmissions =async(req,res,next) => {
@@ -42,6 +47,40 @@ try{
 //         res.status(500).json({success:false, error:error.message})
 //     }
 // }
+
+
+//get batch id
+exports.viewBatchID =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    console.log(user.BatchID)
+    // const{email}=req.body;
+    
+    try{
+        res.status(201).json({
+            success: true,
+            data: user.BatchID
+        })
+    }catch(error){
+        next(error)
+    }
+}
+};
 
 
 

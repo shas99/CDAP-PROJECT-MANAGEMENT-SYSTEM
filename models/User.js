@@ -40,6 +40,9 @@ const UserSchema = new mongoose.Schema({
     OTP:{
         type : Number
     },
+    BatchID:{
+        type : String
+    },
     resetPasswordToken: String,
     resetPasswordExpire: Date
 })
