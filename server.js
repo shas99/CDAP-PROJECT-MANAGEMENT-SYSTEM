@@ -45,8 +45,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 const path = require("path");
 
 
-//************* HEROKU DEPLOYMENT------------
-app.use(express.static(path.join(__dirname, "client", "build")))
+// //************* HEROKU DEPLOYMENT------------
+// app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
@@ -58,6 +58,9 @@ app.use('/api/staffAuth',require('./routes/staffAuth'))
 app.use('/api/staffPrivate', require('./routes/staffPrivate'))
 app.use('/api/AvailableProject', require('./routes/AvailableProject'))
 app.use('/api/staff', require('./routes/staff'))
+app.use('/api/adminAuth', require('./routes/adminAuth'))
+app.use('/api/adminPrivate', require('./routes/adminPrivate'))
+app.use('/api/markingRubrik', require('./routes/MarkingRubrik'))
 
 
 
