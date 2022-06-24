@@ -9,9 +9,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
-const AdminDashboard = ({history}) => {
+const AddSubmission = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
+  const [heading,setHeading] = useState("")
+  const [description,setDescription] = useState("")
+  const [batchID,setBatchID] = useState("")
+  const [flow,setFlow] = useState(0)
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -37,6 +41,11 @@ const AdminDashboard = ({history}) => {
     fetchPrivateDate();
   }, [history]);
 
+  const handleFlow=()=> {
+    console.log(flow+1);
+    setFlow(flow+1)
+  }
+
   //Logout feature
   const logOutHandler=()=>{
     localStorage.removeItem("authToken");
@@ -52,38 +61,53 @@ const AdminDashboard = ({history}) => {
     <>
     <div id="back">
 
-<Header/>
-<h1 id="caption">Welcome to your dashboard {privateData}</h1>
-<p style={{color:"#FFF",textAlign:"right"}}>
+    <Header/>
 
-<button onClick={logOutHandler} id="logout">Log Out</button>
-</p>
+    <p style={{color:"#FFF",textAlign:"right"}}>
+
+    <button onClick={logOutHandler} id="logout">Log Out</button>
+    </p>
+
+    
+    {flow == 0 &&
+    <div>
+    <form>
+    <label>
+        Submission Heading:
+        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} />
+    </label>
+    <br/>
+    <br/>
+    <label>
+        Submission Description:
+        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+    </label>
+    <br/>
+    <br/>
+    <label>
+        Submission BatchID:
+        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)}/>
+    </label>
+    <br/>
+    <br/>
+    {/* <input type="submit" value="Submit" /> */}
+    </form>
+      <button onClick={handleFlow}>
+        Next
+      </button>
+  </div>
+    }
 
 
+<br/>
+    {batchID}<br/>
+    {heading}<br/>
+    {description}
 
-<div className="StudentRectangle-42">
-      <FontAwesomeIcon className="iconsstudentdash" icon={faDiagramProject} />
-      <br/><br/>
-      <Link to="/adminViewProjects" id="Regs">Available Projects</Link>
-      </div>
-      
-
-
-<div className="StaffRectangle-40">
-      <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
-      {/* <i class="fa-solid fa-graduation-cap"></i> */}
-      <Link to="/adminAvailableProjectGroups" id="Regs"><button className="buttons" onClick="/staffproject ">View Groups</button></Link>
-      </div>
-
-      <div className="StaffRectangle-40">
-      <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
-      {/* <i class="fa-solid fa-graduation-cap"></i> */}
-      <Link to="/submissionadmin" id="Regs"><button className="buttons" onClick="/submissionadmin ">Submissions</button></Link>
-      </div>
-
-
-
-
+    <br/>
+    <br/>
+    <br/>
+    {flow}
  
 <Footer/>
 
@@ -92,4 +116,4 @@ const AdminDashboard = ({history}) => {
   );
 };
 
-export default AdminDashboard;
+export default AddSubmission;

@@ -46,6 +46,8 @@ import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
 import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableProjects";
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
+import SubmissionAdmin from "./components/screens/SubmissionAdminScreen"
+import AddSubmission from "./components/screens/AddSubmissionScreen"
 
 
 const App = () => {
@@ -113,6 +115,10 @@ const App = () => {
          <Route exact path="/adminViewProjects" component={AdminViewAvailableProjects}/>
          
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
+
+         <Route exact path="/submissionadmin" component={SubmissionAdmin}/>
+
+         <Route exact path="/addSubmission" component={AddSubmission}/>
 
 
         </Switch>
