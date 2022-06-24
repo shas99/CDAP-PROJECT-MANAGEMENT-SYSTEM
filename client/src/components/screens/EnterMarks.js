@@ -178,29 +178,33 @@ const EnterMarks = ({history}) => {
         </div>
        
 
-        <table>
+        <table className="proposalpresentationmarking">
         <tr>
-    <th>Sub Assessment Criteria </th>
-    <th> Excellent(100-75) </th>
-    <th> Good(74-60) </th>
-    <th> Average(59-40) </th>
-    <th> Below Average(39-0) </th>
-    <th> Marks[out of 100] </th>
+    <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
+    <th className="proposalpresentationmarking"> Excellent(100-75) </th>
+    <th className="proposalpresentationmarking"> Good(74-60) </th>
+    <th className="proposalpresentationmarking"> Average(59-40) </th>
+    <th className="proposalpresentationmarking"> Below Average(39-0) </th>
+    <th className="proposalpresentationmarking"> Marks[out of 100] </th>
   </tr>
+  <tr>  <br></br>
+   <div className="l0percentage">Proven gap/Creative Solution [Based on LO1] - [35%]</div>
+   <br></br><br></br>
+  
+    
+  
+    
+    
+   
+  </tr> 
   <tr>
-    <th>
-    Proven gap/Creative Solution [Based on LO1] - [35%]
-    </th>
-
-  </tr>
-  <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     Knowledge gap
 (Problem) with novel and
 creative solution
 70%
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Clearly argued the existence
 of knowledge gap using
 credible, multiple sources.
@@ -208,7 +212,7 @@ Excellent justification for
 novelty and creativity.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Sufficiently argued the
 existence of knowledge
 gap using limited
@@ -216,7 +220,7 @@ sources.
 Good justification for
 novelty and creativity.
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Moderately argued the
 knowledge gap with
 very few or no sources.
@@ -224,7 +228,7 @@ Average justification for
 novelty and creativity.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Knowledge gap is
 not clearly
 identified.
@@ -234,11 +238,11 @@ novelty and
 creativity.
     </td>
 
-    <td colspan="2">
+    <td colspan="2" className="proposalpresentationmarking">
    
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setprovengapmarks1(e.target.value)}
           value={provengapmarks1} />
           
@@ -251,13 +255,13 @@ creativity.
   </tr>
 
   <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     2.Compare existing
 systems and related work
 30%
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Extensively compared the
 research problem in the
 present context of the research
@@ -265,7 +269,7 @@ domain / with similar products
 and services.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Sufficiently compared
 the research problem in
 the present context of
@@ -274,7 +278,7 @@ with similar products
 and services.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Moderately compared
 the research problem in
 the present context of
@@ -283,18 +287,18 @@ with similar products
 and services
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Poorly compared
 or No comparison
 has been done
 
     </td>
 
-    <td colspan="2">
+    <td colspan="2" className="proposalpresentationmarking">
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setprovengapmarks2(e.target.value)}
           value={provengapmarks2} />
           
@@ -305,53 +309,53 @@ has been done
 </tr>
 
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
 
     </td>
 </tr>
-<tr>
-    <th>
+<tr> <br></br>
+    <div className="l0percentage">
     Capability in applying the knowledge in particular stream [Based on LO2] - [30%]
-    </th>
+    </div><br></br><br></br>
 </tr>
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     Application of key pillars
 in the specialized area of
 knowledge
 50%
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Clearly identified the most
 appropriate research area
 (Machine learning, Image
 processing, Data Science etc.)
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Satisfactorily identified
 the research area.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Vaguely identified. But
 appropriateness is
 doubtful.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Indistinctly
 identified or Not
 identified.
 
     </td>
 
-    <td colspan="2">
+    <td colspan="2" className="proposalpresentationmarking">
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setcapabilitymarks1(e.target.value)}
           value={capabilitymarks1} />
           
@@ -362,14 +366,14 @@ identified.
 </tr>
 
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     Application of
 technologies in the
 relevant key pillar/area
 50%
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Demonstrated full awareness
 of technologies in the relevant
 area and a critical evaluation
@@ -378,7 +382,7 @@ selection of the best
 technology/s.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Adequate awareness of
 technologies to be used
 and a good evaluation of
@@ -387,12 +391,12 @@ selection of the best
 technologies.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Moderate awareness of
 technologies to be used.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Poor or Zero
 awareness of
 technologies to be
@@ -400,11 +404,11 @@ used.
 
     </td>
 
-    <td colspan="2">
+    <td colspan="2" className="proposalpresentationmarking">
  
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setcapabilitymarks2(e.target.value)}
           value={capabilitymarks2} />
           
@@ -414,15 +418,15 @@ used.
 
 </tr>
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
 
     </td>
 </tr>
 <tr>
-    <th className="tableheading">Solution Implementation [Based on LO3] - [5%]</th>
+    <th  className="tableheading">Solution Implementation [Based on LO3] - [5%]</th>
 </tr>
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     High-level System
 Architecture and
 identification of selfevaluation
@@ -430,27 +434,27 @@ plan/criteria
 50%
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Brilliantly justified high-level
 SA with highly acceptable
 self-evaluation plan.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Adequately justified
 high-level SA with
 acceptable selfevaluation
 plan.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Barely justified highlevel
 SA with fairly
 acceptable selfevaluation
 plan.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Poorly justified or
 No evidence of
 High-level SA
@@ -460,11 +464,11 @@ plan.
 
     </td>
 
-    <td colspan="2">
+    <td colspan="2" className="proposalpresentationmarking">
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setimplementationmarks1(e.target.value)}
           value={implementationmarks1} />
           
@@ -474,20 +478,20 @@ plan.
 
 </tr>
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     User Requirements /
 Functional Requirements
 20%
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Comprehensive and realistic
 user requirements and the
 functional requirements well
 described.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Comprehensive and
 realistic user
 requirements and the
@@ -495,14 +499,14 @@ functional requirements
 adequately described.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Comprehensive and
 realistic user
 requirements and the
 functional requirements
 barely described.
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Comprehensive
 and realistic user
 requirements and
@@ -511,11 +515,11 @@ requirements
 poorly described.
     </td>
 
-    <td colspan="2">
+    <td colspan="2" className="proposalpresentationmarking">
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setimplementationmarks2(e.target.value)}
           value={implementationmarks2} />
           
@@ -525,20 +529,20 @@ poorly described.
 
 </tr>
 <tr>
-    <td>
+    <td className="proposalpresentationmarking">
     Work Breakdown
 Structure (WBS)
 30%
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Comprehensive planning
 demonstrate in WBS, realistic
 time estimates and right
 workload distribution.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Good planning
 demonstrate in WBS,
 realistic time estimates
@@ -546,7 +550,7 @@ and good workload
 distribution.
 
     </td>
-    <td>
+    <td className="proposalpresentationmarking">
     Satisfactory planning of
 WBS, barely feasible
 time estimates and
@@ -569,7 +573,7 @@ distribution.
    
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setimplementationmarks3(e.target.value)}
           value={implementationmarks3} />
           
@@ -632,7 +636,7 @@ session.
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setcommunicationmarks1(e.target.value)}
           value={communicationmarks1} />
           
@@ -686,7 +690,7 @@ management
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setcommunicationmarks2(e.target.value)}
           value={communicationmarks2} />
           
@@ -748,7 +752,7 @@ benefits
     
           <input type="text" 
           name="name" 
-          className = "input"
+          className = "proposalpresentationinput"
           onChange={(e) => setcommercializationmarks1(e.target.value)}
           value={commercializationmarks1} />
           
@@ -758,14 +762,16 @@ benefits
 
 </tr>
 
-<tr>
+<tr><br></br>
 <label>
            Extra feedback:</label>
           <input type="text" 
           name="name"
-          className = "input"
+          className = "proposalpresentationfeedback"
           onChange={(e) => setextrafeedback(e.target.value)}
           value={extrafeedback} />
+
+          <br></br><br></br>
 
 
 </tr>
