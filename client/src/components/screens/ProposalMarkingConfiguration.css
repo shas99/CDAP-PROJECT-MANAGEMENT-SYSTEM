@@ -11,8 +11,9 @@ html, body {
   height: 100%;
 }
 
-body {
+.back {
   font: 14px/1 'Roboto', sans-serif;
+  
   color: #fff;
   background: url('https://codepen.io/images/classy_fabric.png') #333;
   -webkit-font-smoothing: antialiased;
@@ -54,9 +55,10 @@ textarea {
 [placeholder]:hover:-ms-input-placeholder { color: rgba(255,255,255,.4); }
 [placeholder]:focus:-ms-input-placeholder { color: transparent; }
 
-form {
-  width: 400px;
+.proposalUpdateForm {
+  width: 500px;
   margin: 50px auto;
+  margin-left: 10000;
 }
 
 input[type="text"] {
@@ -143,6 +145,8 @@ input[type="submit"] {
     background-color: #22272E;
     height: 1000px;
     text-align: center;
+  
+    font: 14px/1 'Roboto', sans-serif;
     /* position: fixed; */
 }
 
@@ -169,9 +173,11 @@ input[type="submit"] {
 }
 
 .heading-prop{
-    
     font-size: xx-large;
-    font: 'Roboto', sans-serif;
+    color: aliceblue;
+}
+.proposalText{
+    color: aliceblue;
 }
 
 .buttons{
