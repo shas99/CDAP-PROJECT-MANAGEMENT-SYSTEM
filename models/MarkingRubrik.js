@@ -3,9 +3,12 @@ const mongoose = require('mongoose')
 const MarkingRubrikSchema = new mongoose.Schema({ //Rubrik Schema
 
     //Append fields based on marking rubrik variables
+    markingRubrikType:{
+        type:"String"
+    },
 
     affectedTotalContribution:{
-
+        type:String
     },
     excellentGradeRange:{
         type:String
