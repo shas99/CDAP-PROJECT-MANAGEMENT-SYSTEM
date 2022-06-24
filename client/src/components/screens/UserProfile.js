@@ -9,6 +9,7 @@ const UserProfile = ({history}) => {
   const [fetchFeedbackData, setFeedbackData] = useState("")
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
+  const [fileData, setFileData] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -52,6 +53,30 @@ const UserProfile = ({history}) => {
     fetchFeedbackData()
     fetchPrivateDate()
   }, [history]);
+
+  const fileChangeHandler = (e) => {
+    setFileData(e.target.files[0]);
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    // Handle File Data from the state Before Sending
+    const data = new FormData();
+
+    data.append("image", fileData);
+
+    fetch("http://localhost:5000/single", {
+      method: "POST",
+      body: data,
+    })
+      .then((result) => {
+        console.log("File Sent Successful");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
   
 
   
@@ -70,6 +95,21 @@ const UserProfile = ({history}) => {
         
         <p className="userprofilecontent1"> {fetchFeedbackData.email}</p> 
         <p className="userprofilecontent2"> {fetchFeedbackData.username}</p> 
+
+        {/* <form action="/single" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image"/>
+        <button type="submit">Submit</button>
+        </form> */}
+
+<div className="UserProfilePic">
+      <h1 id="userprofilecaption2">Upload Your Profile Pic!</h1>
+      <form onSubmit={onSubmitHandler} id="submissionForm">
+        <input type="file" id="UPPic" onChange={fileChangeHandler} />
+        <br />
+        <br />
+        <button type="submit" class="btn btn-success" id="UpbUTTON">Submit Your Profile Pic!</button>
+      </form>
+    </div>
       
      
       {/* <Footer/> */}
