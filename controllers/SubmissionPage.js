@@ -45,3 +45,21 @@ try{
 
 
 
+exports.addSubmission =async(req,res,next) => {
+    const {BatchID,visibility,Heading,Description,Fields} = req.body
+    
+    try{
+        const user = await SubmissionPage.create({
+            BatchID,visibility,Heading,Description,Fields
+        })
+        res.status(201).json({
+            success: true,
+            data: "Success"
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+    };
