@@ -24,12 +24,12 @@ exports.getPrivateData = async (req,res,next) => {
 
 //add marks method
 exports.addmarks = async(req,res,next) => {
-    const {groupID,studentIDs,studentnames,examiner1, examiner2,moderator,extrafeedback } = req.body
+    const {groupID,studentIDs,studentnames,examiner1, examiner2,moderator,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1 } = req.body
 
     console.log("Error finding" + groupID)
     try{
         const marksadd = await entermarks.create({
-            groupID,studentIDs,studentnames,examiner1, examiner2,moderator,extrafeedback
+            groupID,studentIDs,studentnames,examiner1, examiner2,moderator,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1
         })
         res.status(210).json({
             success: true,

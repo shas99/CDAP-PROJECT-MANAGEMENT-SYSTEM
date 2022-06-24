@@ -16,6 +16,16 @@ const EnterMarks = ({history}) => {
     const [examiner2, setexaminer2] = useState("");
     const [moderator, setmoderator] = useState("");
     const [extrafeedback, setextrafeedback] = useState("");
+    const [provengapmarks1, setprovengapmarks1] = useState("");
+    const [provengapmarks2, setprovengapmarks2] = useState("");
+    const [capabilitymarks1, setcapabilitymarks1] = useState("");
+    const [capabilitymarks2, setcapabilitymarks2] = useState("");
+    const [implementationmarks1, setimplementationmarks1] = useState("");
+    const [implementationmarks2, setimplementationmarks2] = useState("");
+    const [implementationmarks3, setimplementationmarks3] = useState("");
+    const [communicationmarks1, setcommunicationmarks1] = useState("");
+    const [communicationmarks2, setcommunicationmarks2] = useState("");
+    const [commercializationmarks1, setcommercializationmarks1] = useState("");
     const [entermarks,setentermarks] = useState("")
     const [fetchentermarksData, setentermarksData] = useState("");
 
@@ -78,7 +88,7 @@ const EnterMarks = ({history}) => {
          try{
             const {data}=await axios.post(
                 "/api/staffPrivate/addmarks",
-                { groupID, studentIDs, studentnames, examiner1, examiner2, moderator, extrafeedback,entermarks},
+                { groupID, studentIDs, studentnames, examiner1, examiner2, moderator, extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1,entermarks},
                 config
             );
 
@@ -223,6 +233,9 @@ justification for
 novelty and
 creativity.
     </td>
+
+
+
   </tr>
 
   <tr>
@@ -681,11 +694,136 @@ benefits
                   
                   </div>
                   <div className="form-group">
+                  <label>
+           Proven Gap marks 1:</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setprovengapmarks1(e.target.value)}
+          value={provengapmarks1} />
+          
     
         
         </div>
 
         <div className="form-group">
+                  <label>
+           Proven gap marks 2</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setprovengapmarks2(e.target.value)}
+          value={provengapmarks2} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Capability marks 1</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcapabilitymarks1(e.target.value)}
+          value={capabilitymarks1} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Capability marks 2</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcapabilitymarks2(e.target.value)}
+          value={capabilitymarks2} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Implementation marks 1</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setimplementationmarks1(e.target.value)}
+          value={implementationmarks1} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Implemetation marks 2</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setimplementationmarks2(e.target.value)}
+          value={implementationmarks2} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Implemetation marks 3</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setimplementationmarks3(e.target.value)}
+          value={implementationmarks3} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Communication marks 1</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcommunicationmarks1(e.target.value)}
+          value={communicationmarks1} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+          Communication marks 2</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcommunicationmarks2(e.target.value)}
+          value={communicationmarks2} />
+          
+    
+        
+        </div>
+
+        <div className="form-group">
+                  <label>
+           Commercialization marks 1</label>
+          <input type="text" 
+          name="name" 
+          className = "input"
+          onChange={(e) => setcommercializationmarks1(e.target.value)}
+          value={commercializationmarks1} />
+          
+    
+        
+        </div>
+
+        {/* <div className="form-group">
      
         
         </div>
@@ -693,7 +831,7 @@ benefits
         <div className="form-group">
        
         
-        </div>
+        </div> */}
 
 
       <button type="submit" className="btn btn-primary1" id="Log1Button">
