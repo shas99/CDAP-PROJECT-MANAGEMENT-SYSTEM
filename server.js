@@ -45,8 +45,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 const path = require("path");
 
 
-//************* HEROKU DEPLOYMENT------------
-app.use(express.static(path.join(__dirname, "client", "build")))
+// //************* HEROKU DEPLOYMENT------------
+// app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
