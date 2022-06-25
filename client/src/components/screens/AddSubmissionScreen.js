@@ -12,11 +12,11 @@ import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-ic
 const AddSubmission = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
-  const [heading,setHeading] = useState("")
-  const [description,setDescription] = useState("")
-  const [batchID,setBatchID] = useState("")
+  const [Heading,setHeading] = useState("")
+  const [Description,setDescription] = useState("")
+  const [BatchID,setBatchID] = useState("")
   const [flow,setFlow] = useState(0)
-  const [field,setField] = useState([])
+  const [Fields,setField] = useState([])
   const [temp,setTemp] = useState("")
 
   useEffect(() => {
@@ -42,6 +42,38 @@ const AddSubmission = ({history}) => {
 
     fetchPrivateDate();
   }, [history]);
+
+
+    const CreateSubmissionHandler = async (e) => {
+      e.preventDefault();
+
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+    
+    
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5000/api/STDAvailableSubmissions/addSubmission",
+        { Heading,Description,BatchID,Fields },
+        config
+        
+      );
+      console.log(data)
+        alert("Submitted!")
+
+      history.push("/adminPrivate");
+    } catch (error) {
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+        console.log(error)
+      }, 5000);
+    }
+    
+  };
 
   const handleFlow=()=> {
     console.log(flow+1);
@@ -130,22 +162,22 @@ const AddSubmission = ({history}) => {
         Add a rich text editor
       </button>
 
-
+      <button onClick={CreateSubmissionHandler}>
+        Create new submission
+      </button>
 
     </div>
     
 }
-{console.log(field)}
+{console.log(Fields)}
 
 
 <br/>
-    {batchID}<br/>
-    {heading}<br/>
-    {description}<br/>
+    {BatchID}<br/>
+    {Heading}<br/>
+    {Description}<br/>
     temp:{temp}<br/>
-    <br/>
-    <br/>
-    <br/>
+
     {flow}
  
 <Footer/>
