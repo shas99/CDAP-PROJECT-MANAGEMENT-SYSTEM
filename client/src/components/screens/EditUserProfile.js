@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./UserProfile.css";
+import "./EditProfile.css";
 // import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
@@ -125,7 +125,7 @@ const EditUserProfile = ({history}) => {
 <div className="userprofileClass">
   <Header/>
   <br/>
-      <h1 id="userprofilecaption">My Profile</h1>
+      <h1 id="userprofilecaption">Edit My Profile</h1>
       
       
         
@@ -147,21 +147,22 @@ const EditUserProfile = ({history}) => {
 <div className="EditUserProfile">
      
       <form onSubmit={editprofilehandler} id="submissionForm">
-      <label className="AddressNames">Address</label>
+      <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
           className = "input" style={{color:"black"}}
           name="name" 
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} />
+          <br></br>
 
-    <label className="PhoneNames">Phone Number</label>
+    <label className="PhoneNames">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
           className = "input" style={{color:"black"}}
           name="name" 
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phoneNumber} />
         
-        <button type="submit" className="" id="editUserButton">
+        <button type="submit" className="btn btn-success" id="editUserButton">
           Submit
         </button>
 
