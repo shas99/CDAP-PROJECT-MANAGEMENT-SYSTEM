@@ -111,23 +111,26 @@ const EditSubmission = ({history}) => {
   const DeleteSubmissionHandler = async (e) => {
     e.preventDefault();
 
-  const config = {
-    header: {
-      "Content-Type": "application/json",
-    },
-  };
-  
-  
-  try {
-    console.log(SubmissionID)
+   
+    
+    try {
+      console.log(SubmissionID)
+      e.preventDefault();
+
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+      
     console.log("testing")
-    const { data } = await axios.delete(
-      "http://localhost:5000/api/STDAvailableSubmissions/deleteSubmission",
+    
+    const { data } = await axios.post(
+      "/api/STDAvailableSubmissions/deleteSubmission",
       { SubmissionID },
       config
-      
     );
-    console.log(data)
+    console.log(SubmissionID)
       alert("Deleted!")
 
     history.push("/adminPrivate");

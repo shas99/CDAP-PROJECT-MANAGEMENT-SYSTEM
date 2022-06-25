@@ -15,6 +15,6 @@ router.route("/availableSubmissions").get(viewAvailableSubmissions) //router for
 
 router.route("/addSubmission").post(addSubmission)
 
-router.route("/deleteSubmission").delete(DeleteSubmission)
+router.route("/deleteSubmission").post(DeleteSubmission)
 
 module.exports = router

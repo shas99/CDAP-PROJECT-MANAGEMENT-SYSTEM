@@ -1,3 +1,4 @@
+const { Batch } = require('aws-sdk');
 const mongoose = require('mongoose');
 
 const SubmissionPage = require('../models/SubmissionPage')
