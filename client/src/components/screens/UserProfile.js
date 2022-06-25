@@ -108,14 +108,14 @@ const UserProfile = ({history}) => {
 
 
 <div className="UserProfilePic">
-      <h1 id="userprofilecaption2">Upload Your Profile Pic!</h1>
+      {/* <h1 id="userprofilecaption2">Upload Your Profile Pic!</h1> */}
       <form onSubmit={onSubmitHandler} id="submissionForm">
-        <input type="file" id="UPPic" onChange={fileChangeHandler} />
+        {/* <input type="file" id="UPPic" onChange={fileChangeHandler} />
         <br />
         <br />
-        <button type="submit" className="btn btn-success" id="UpbUTTON">Submit Your Profile Pic!</button>
+        <button type="submit" className="btn btn-success" id="UpbUTTON">Submit Your Profile Pic!</button> */}
         <h1 id="userprofilecaption2">Upload Your Profile!</h1>
-        <div className="placeUpdateBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
+        <div className="btn btn-success" id="UpbUTTON" style={{fontSize:"medium",fontWeight:"bold",backgroundColor:'#8256D0',width:"170px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",marginLeft:"75px",padding:"5px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
 
       </form>
     </div>
