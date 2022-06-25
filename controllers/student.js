@@ -76,6 +76,41 @@ exports.userprofilemanagement =async(req,res,next) => {
 }
 };
 
+exports.edituserprofile = async(req,res,next) => {
+    try{
+        const{personalAddress,phoneNumber}=req.body;
+
+        let token//to retreive username in backend
+
+    
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+    console.log(req.headers.authorization);
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    user.address = personalAddress;
+    user.phoneNumber = phoneNumber;
+    await user.save();
+
+    res.status(201).json({
+        success: true
+    })
+        
+        
+    }
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+
+    }
+}
 
 // old view marks method
 

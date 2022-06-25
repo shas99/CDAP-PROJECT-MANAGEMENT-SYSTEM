@@ -22,7 +22,7 @@ app.use(cors());
 
 const fileStorageEngine = multer.diskStorage({
     destination:(req,file,cb) => {
-        cb(null,'./client/src/images')
+        cb(null,'./client/public/images')
     },
     filename:(req,file,cb)=>{
         cb(null,Date.now()+'---'+file.originalname)

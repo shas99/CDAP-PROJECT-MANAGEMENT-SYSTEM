@@ -6,11 +6,13 @@ import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
 
-const UserProfile = ({history}) => { 
+const EditUserProfile = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
   const [fileData, setFileData] = useState("");
+  const [personalAddress, setPersonalAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -78,6 +80,39 @@ const UserProfile = ({history}) => {
         console.log(err.message);
       });
   };
+
+  const editprofilehandler = async (e) => {
+    e.preventDefault();
+
+    const userprofileconfig = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+    try {
+        
+        
+
+      const { data1 } = await axios.put(
+        "/api/student/edituserprofile",
+        {personalAddress,phoneNumber},
+        userprofileconfig
+      );
+
+
+
+      history.push("/");
+    } catch (error) {
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+    }
+  };
+
+
   
 
   
@@ -98,7 +133,9 @@ const UserProfile = ({history}) => {
         <p className="userprofilecontent2"> {fetchFeedbackData.username}</p> 
         <p className="userprofilecontent1"> {fetchFeedbackData.address}</p> 
         <p className="userprofilecontent2"> {fetchFeedbackData.phoneNumber}</p> 
-
+       
+        <p className="userprofilecontent2"> {personalAddress}</p> 
+        <p className="userprofilecontent2"> {phoneNumber}</p> 
         {/* <form action="/single" method="POST" enctype="multipart/form-data">
         <input type="file" name="image"/>
         <button type="submit">Submit</button>
@@ -107,15 +144,26 @@ const UserProfile = ({history}) => {
 {/* <img src="images/Hamster.jpg"/> */}
 
 
-<div className="UserProfilePic">
-      <h1 id="userprofilecaption2">Upload Your Profile Pic!</h1>
-      <form onSubmit={onSubmitHandler} id="submissionForm">
-        <input type="file" id="UPPic" onChange={fileChangeHandler} />
-        <br />
-        <br />
-        <button type="submit" className="btn btn-success" id="UpbUTTON">Submit Your Profile Pic!</button>
-        <h1 id="userprofilecaption2">Upload Your Profile!</h1>
-        <div className="placeUpdateBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
+<div className="EditUserProfile">
+     
+      <form onSubmit={editprofilehandler} id="submissionForm">
+      <label className="AddressNames">Address</label>
+          <input type="text" 
+          className = "input" style={{color:"black"}}
+          name="name" 
+          onChange={(e) => setPersonalAddress(e.target.value)}
+          value={personalAddress} />
+
+    <label className="PhoneNames">Phone Number</label>
+          <input type="text" 
+          className = "input" style={{color:"black"}}
+          name="name" 
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          value={phoneNumber} />
+        
+        <button type="submit" className="" id="editUserButton">
+          Submit
+        </button>
 
       </form>
     </div>
@@ -128,4 +176,4 @@ const UserProfile = ({history}) => {
 )  
 };
 
-export default UserProfile;
+export default EditUserProfile;

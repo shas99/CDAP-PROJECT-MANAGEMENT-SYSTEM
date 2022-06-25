@@ -41,6 +41,7 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
 import UserProfile from "./components/screens/UserProfile";
+import EditUserProfile from "./components/screens/EditUserProfile";
 
 
 
@@ -102,6 +103,7 @@ const App = () => {
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
          <Route exact path="/userprofile" component={UserProfile}/>
+         <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
        
 
 
