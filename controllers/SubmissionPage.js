@@ -63,3 +63,22 @@ exports.addSubmission =async(req,res,next) => {
     }
     
     };
+
+    exports.DeleteSubmission =async(req,res,next) => {
+        const {SubmissionID} = req.body
+        console.log(SubmissionID+"testing")
+        try{
+            const user = await SubmissionPage.deleteOne({
+                _id:SubmissionID
+            })
+            res.status(201).json({
+                success: true,
+                data: "Success"
+            })
+            
+        
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        
+        };

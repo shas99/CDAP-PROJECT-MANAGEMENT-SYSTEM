@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import {useParams} from 'react-router-dom';
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
-const AddSubmission = ({history}) => {
+const EditSubmission = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [Heading,setHeading] = useState("")
@@ -19,6 +19,7 @@ const AddSubmission = ({history}) => {
   const [Fields,setField] = useState([])
   const [temp,setTemp] = useState("")
   const [visibility,setVisibility] = useState(false)
+  const [SubmissionID,setSubmissionID] = useState(useParams().id)
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -107,6 +108,40 @@ const AddSubmission = ({history}) => {
   }
 
 
+  const DeleteSubmissionHandler = async (e) => {
+    e.preventDefault();
+
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+  
+  
+  try {
+    console.log(SubmissionID)
+    console.log("testing")
+    const { data } = await axios.delete(
+      "http://localhost:5000/api/STDAvailableSubmissions/deleteSubmission",
+      { SubmissionID },
+      config
+      
+    );
+    console.log(data)
+      alert("Deleted!")
+
+    history.push("/adminPrivate");
+  } catch (error) {
+    setError(error.response.data.error);
+    setTimeout(() => {
+      setError("");
+      console.log(error)
+    }, 5000);
+  }
+  
+};
+
+
 
   return  error ? ( 
   
@@ -122,7 +157,7 @@ const AddSubmission = ({history}) => {
 
     <button onClick={logOutHandler} id="logout">Log Out</button>
     </p>
-
+{SubmissionID}
     
     {flow == 0 &&
     <div>
@@ -182,20 +217,22 @@ const AddSubmission = ({history}) => {
         Create new submission
       </button>
 
+
+
     </div>
     
 }
-{console.log(Fields)}
+
+      <button onClick={DeleteSubmissionHandler}>
+        Delete submission
+      </button>
 
 
-<br/>
-    {BatchID}<br/>
-    {Heading}<br/>
-    {Description}<br/>
-    temp:{temp}<br/>
 
-    {flow}
-  {console.log(visibility)}
+
+
+    
+  {/* {console.log(useParams().id)} */}
 <Footer/>
 
 </div>
@@ -203,4 +240,4 @@ const AddSubmission = ({history}) => {
   );
 };
 
-export default AddSubmission;
+export default EditSubmission;

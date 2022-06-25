@@ -3,7 +3,7 @@ const { route } = require('express/lib/application');
 const router = express.Router()
 
 
-const {viewAvailableSubmissions,addSubmission} = require('../controllers/SubmissionPage')
+const {viewAvailableSubmissions,addSubmission,DeleteSubmission} = require('../controllers/SubmissionPage')
 
 
 
@@ -14,5 +14,7 @@ router.route("/availableSubmissions").get(viewAvailableSubmissions) //router for
 // router.route("/increasebidcount").post(increasebidcount)
 
 router.route("/addSubmission").post(addSubmission)
+
+router.route("/deleteSubmission").delete(DeleteSubmission)
 
 module.exports = router
