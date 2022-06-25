@@ -30,13 +30,13 @@ textarea {
   outline: 0;
   color: #fff;
 }
-
+/* Overrides main */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-
+/* Overrides main */
 textarea {
   overflow: auto;
   vertical-align: top;
@@ -61,6 +61,7 @@ textarea {
   margin-left: 10000;
 }
 
+/* Overrides main */
 input[type="text"] {
   display: block;
   width: 400px;
@@ -69,7 +70,7 @@ input[type="text"] {
   border: 1px solid rgba(0,0,0,.5);
   background: rgba(0,0,0,.25);
 }
-
+/* Overrides main */
 textarea {
   display: block;
   width: 400px;
@@ -130,7 +131,8 @@ textarea {
 .radio .sex {
   font: 20px fontawesome;
 }
-
+/* 
+Overrides main */
 input[type="submit"] {
   display: block;
   width: 150px;
