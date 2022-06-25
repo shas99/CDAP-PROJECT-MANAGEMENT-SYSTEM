@@ -18,6 +18,7 @@ const AddSubmission = ({history}) => {
   const [flow,setFlow] = useState(0)
   const [Fields,setField] = useState([])
   const [temp,setTemp] = useState("")
+  const [visibility,setVisibility] = useState(false)
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -57,7 +58,7 @@ const AddSubmission = ({history}) => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/api/STDAvailableSubmissions/addSubmission",
-        { Heading,Description,BatchID,Fields },
+        { Heading,Description,BatchID,Fields,visibility },
         config
         
       );
@@ -97,6 +98,14 @@ const AddSubmission = ({history}) => {
 
   };
 
+  const toggle=()=> {//normal text box
+    if(visibility == false){
+      setVisibility(true)
+    }else{
+      setVisibility(false)      
+    }
+  }
+
 
 
   return  error ? ( 
@@ -134,6 +143,10 @@ const AddSubmission = ({history}) => {
         Submission BatchID:
         <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)}/>
     </label>
+    <label>
+        Enable submission
+        <input type="checkbox" name="visibility" onChange={(e) => setBatchID(e.target.value)}/>
+    </label>
     <br/>
     <br/>
     {/* <input type="submit" value="Submit" /> */}
@@ -150,7 +163,7 @@ const AddSubmission = ({history}) => {
             Enter field name:
         {/* <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])} */}
         
-         <input type="text" name="description" onChange={(e) => setTemp(e.target.value)}
+         <input type="text" name="description" onChange={toggle}
         
         />
     </label><br/><br/>
