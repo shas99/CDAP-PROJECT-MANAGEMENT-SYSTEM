@@ -41,6 +41,13 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
 
+import AdminLoginScreen from "./components/screens/AdminLoginScreen"
+
+import AdminDashboard from "./components/screens/AdminDashboardScreen";
+import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableProjects";
+import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
+
+
 const App = () => {
   return (
     <Router>
@@ -99,7 +106,13 @@ const App = () => {
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
 
+         <Route exact path="/adminLogin" component={AdminLoginScreen}/>
 
+         <Route exact path="/adminPrivate" component={AdminDashboard}/>
+
+         <Route exact path="/adminViewProjects" component={AdminViewAvailableProjects}/>
+         
+         <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
 
 
         </Switch>
