@@ -83,3 +83,26 @@ exports.addSubmission =async(req,res,next) => {
         }
         
         };
+
+        exports.viewSpecificSubmission =async(req,res,next) => {
+            
+            const {ID} = req.body
+            
+            try{
+            
+            
+                const submission = await SubmissionPage.findById(ID)
+
+
+                
+                res.status(201).json({
+                    success: true,
+                    data: submission
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+            };

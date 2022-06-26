@@ -233,7 +233,7 @@ const EditSubmission = ({history}) => {
 
 
 
-
+{Heading}
     
   {/* {console.log(useParams().id)} */}
 <Footer/>
