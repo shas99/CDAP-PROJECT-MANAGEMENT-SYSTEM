@@ -49,6 +49,33 @@
    
   
    }
+
+   .l1percentage{
+    margin:auto;
+   
+    position:absolute;
+    left:500px;
+    font-size:x-large;
+
+   }
+
+   .l2percentage{
+    margin:auto;
+   
+    position:absolute;
+    left:500px;
+    font-size:x-large;
+
+   }
+
+   .l3percentage{
+    margin:auto;
+   
+    position:absolute;
+    left:500px;
+    font-size:x-large;
+
+   }
    .proposalpresentationinput{
     width:80px;
    }
@@ -63,7 +90,7 @@
   }
  
   .group-screen__form {
-    width: 95%;
+    width: 100%;
     padding: 1.5rem;
     margin-top: -100px;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -74,7 +101,7 @@
     border-width: 2px;
     border-style: solid;
     border-color: #21262d;
-    height: 150rem;
+    height: 145rem;
     align-items: center;
   }
   

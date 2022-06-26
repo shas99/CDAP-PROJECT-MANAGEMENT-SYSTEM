@@ -462,8 +462,13 @@ used.
 
     </td>
 </tr>
-<tr>
-    <th  className="tableheading">Solution Implementation [Based on LO3] - [{l03}]</th>
+
+<tr> <br></br>
+    <div className="l0percentage"> 
+        Solution Implementation [Based on LO3] - [5%]    
+        </div><br></br><br></br>
+    {/* <th  className="tableheading">Solution Implementation [Based on LO3] - [{l03}]</th> */}
+
 </tr>
 <tr>
     <td className="proposalpresentationmarking">
@@ -626,10 +631,15 @@ distribution.
 
     </td>
 </tr>
-<tr>
-    <th>
+
+<tr> <br></br>
+    <div className="l2percentage">
+        Effective communication [Based on LO4]-[{l04}]
+    </div><br></br><br></br>
+    {/* <th>
     Effective Communication [Based on LO4] - [{l04}]
-    </th>
+    </th> */}
+
 </tr>
 <tr>
     <td>
@@ -744,10 +754,16 @@ management
 
     </td>
 </tr>
-<tr>
-    <th>
+
+<tr> <br></br>
+    <div className="l3percentage">
     Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
-    </th>
+
+    </div><br></br><br></br>
+    {/* <th>
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
+    </th> */}
+
 </tr>
 <tr>
     <td>
