@@ -37,13 +37,6 @@ const UserSchema = new mongoose.Schema({
     student_ID:{
         type: String
     },
-    address:{
-        type: String
-    },
-    phoneNumber:{
-        type: String
-    },
-
     OTP:{
         type : Number
     },

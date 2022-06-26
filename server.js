@@ -8,8 +8,6 @@ const Nexmo = require('nexmo')
 let cors = require("cors");
 const {uploadFile, getFileStream} = require('./s3')
 const axios = require('axios')
-// const cors = require('cors')
-// const multer = require('multer')
 
 connectDB();
 
@@ -17,32 +15,6 @@ const app = express();
 //upload file
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
-
-app.use(cors());
-
-const fileStorageEngine = multer.diskStorage({
-    destination:(req,file,cb) => {
-        cb(null,'./client/public/images')
-    },
-    filename:(req,file,cb)=>{
-        cb(null,Date.now()+'---'+file.originalname)
-    }
-});
-const uploadz = multer({storage:fileStorageEngine})
-
-app.get("/",(req,res)=>{
-res.sendFile(path.join(__dirname,"UserProfile.js"));
-});
-
-app.post("/single",uploadz.single("image"),(req,res)=>{
-    console.log(req.file);
-    res.send("Single file upload success")
-});
-
-app.post("/multiple",uploadz.array("images",3),(req,res)=>{
-    console.log(req.files);
-    res.send("Multiple file upload success")
-});
 
 
 
