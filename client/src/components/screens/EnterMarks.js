@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./MatchedSupervisors.css";
+// import "./MatchedSupervisors.css";
 import "./MarksScreen.css";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 const EnterMarks = ({history}) => {
     const [error,setError]= useState("");
@@ -176,28 +176,28 @@ const EnterMarks = ({history}) => {
           </p>
         
             
-          <div>        
-          <form onSubmit={entermarksHandler} className="group-screen__form">
-      <h3 className="login-screen__title">RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = {totalContribution}]</h3>
+          <div className="entermarksbackground">        
+          <form onSubmit={entermarksHandler} className="group-screen__form_Enter_marks">
+      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = {totalContribution}]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <table className="tablemarks1">
             <tr>
-                <td>
+                <td style={{padding:"5px",margin:"5px"}}>
                 <label>
-           Student IDs:</label>
-          <input type="text" 
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student IDs:</b></label><br/><br/>
+          <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
           name="name" 
-          className = "input"
+          className = "input" id="StudentIDInput"
           onChange={(e) => setstudentIDs(e.target.value)}
           value={studentIDs} />
                     
 
                 </td>
-                <td className="tabletd1">
+                <td>
                 <label>
-           Student names:</label>
-          <input type="text" 
+           <b style={{fontSize:"medium"}}>Student Names:</b></label><br/><br/>
+          <input type="text" style={{marginLeft:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "input"
           onChange={(e) => setstudentnames(e.target.value)}
@@ -205,10 +205,10 @@ const EnterMarks = ({history}) => {
 
                 </td>
             </tr>
-        </table>
+        </table><br/>
         <label>
-           Group ID:</label>
-          <input type="text" 
+           <b style={{fontSize:"medium",marginLeft:"65px"}}>Group ID:</b></label><br/><br/>
+          <input type="text" style={{marginLeft:"475px",borderColor:"royalblue"}}
           className = "input"
           name="name" 
           onChange={(e) => setgroupID(e.target.value)}
@@ -228,8 +228,8 @@ const EnterMarks = ({history}) => {
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
   </tr>
   <tr>  <br></br>
-   <div className="l0percentage">Proven gap/Creative Solution [Based on LO1] - [{l01}]</div>
-   <br></br><br></br>
+   <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [{l01}]</div>
+   <br></br><br></br><br/>
   
     
   
@@ -238,8 +238,8 @@ const EnterMarks = ({history}) => {
    
   </tr> 
   <tr>
-    <td className="proposalpresentationmarking">
-    Knowledge gap
+    <td className="proposalpresentationmarking" >
+    1. Knowledge gap
 (Problem) with novel and
 creative solution
 70%
@@ -280,7 +280,7 @@ creativity.
 
     <td colspan="2" className="proposalpresentationmarking">
    
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setprovengapmarks1(e.target.value)}
@@ -296,7 +296,7 @@ creativity.
 
   <tr>
     <td className="proposalpresentationmarking">
-    2.Compare existing
+    2. Compare existing
 systems and related work
 30%
 
@@ -336,7 +336,7 @@ has been done
 
     <td colspan="2" className="proposalpresentationmarking">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setprovengapmarks2(e.target.value)}
@@ -348,11 +348,11 @@ has been done
 
 </tr>
 
-<tr>
+{/* <tr>
     <td className="proposalpresentationmarking">
 
     </td>
-</tr>
+</tr> */}
 <tr> <br></br>
     <div className="l0percentage">
     Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}]
@@ -393,7 +393,7 @@ identified.
 
     <td colspan="2" className="proposalpresentationmarking">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setcapabilitymarks1(e.target.value)}
@@ -446,7 +446,7 @@ used.
 
     <td colspan="2" className="proposalpresentationmarking">
  
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setcapabilitymarks2(e.target.value)}
@@ -457,11 +457,11 @@ used.
     </td>
 
 </tr>
-<tr>
+{/* <tr>
     <td className="proposalpresentationmarking">
 
     </td>
-</tr>
+</tr> */}
 
 <tr> <br></br>
     <div className="l0percentage"> 
@@ -511,7 +511,7 @@ plan.
 
     <td colspan="2" className="proposalpresentationmarking">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setimplementationmarks1(e.target.value)}
@@ -562,7 +562,7 @@ poorly described.
 
     <td colspan="2" className="proposalpresentationmarking">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setimplementationmarks2(e.target.value)}
@@ -616,7 +616,7 @@ distribution.
 
     <td colspan="2">
    
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setimplementationmarks3(e.target.value)}
@@ -626,11 +626,11 @@ distribution.
 
     </td>
 </tr>
-<tr>
+{/* <tr>
     <td>
 
     </td>
-</tr>
+</tr> */}
 
 <tr> <br></br>
     <div className="l2percentage">
@@ -684,7 +684,7 @@ session.
 
     <td colspan="2">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setcommunicationmarks1(e.target.value)}
@@ -738,7 +738,7 @@ management
 
     <td colspan="2">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setcommunicationmarks2(e.target.value)}
@@ -749,11 +749,11 @@ management
     </td>
 
 </tr>
-<tr>
+{/* <tr>
     <td>
 
     </td>
-</tr>
+</tr> */}
 
 <tr> <br></br>
     <div className="l3percentage">
@@ -806,7 +806,7 @@ benefits
 
     <td colspan="2">
     
-          <input type="text" 
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setcommercializationmarks1(e.target.value)}
@@ -820,8 +820,9 @@ benefits
 
 <tr><br></br>
 <label>
-           Extra feedback:</label>
-          <input type="text" 
+<b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Extra feedback:</b></label><br/><br/>
+        
+          <input type="text" style={{borderColor:"royalblue"}}
           name="name"
           className = "proposalpresentationfeedback"
           onChange={(e) => setextrafeedback(e.target.value)}
@@ -840,10 +841,10 @@ benefits
 
             <table className="tablemarks1">
                 <tr>
-                    <td>
+                    <td style={{padding:"5px",margin:"5px"}}>
                     <label>
-           Examiner 1:</label>
-          <input type="text" 
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 1:</b></label><br/><br/>
+          <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name" 
           className = "input"
           onChange={(e) => setexaminer1(e.target.value)}
@@ -852,8 +853,8 @@ benefits
                     </td>
                 <td className="tabletd1">
                 <label>
-           Examiner 2:</label>
-          <input type="text" 
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 2:</b></label><br/><br/>
+          <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name"
           className = "input"
           onChange={(e) => setexaminer2(e.target.value)}
@@ -861,8 +862,8 @@ benefits
                 </td>
                 <td className="tabletd1">
                 <label>
-           Moderator:</label>
-          <input type="text" 
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
+          <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name"
           className = "input"
           onChange={(e) => setmoderator(e.target.value)}
@@ -1015,7 +1016,7 @@ benefits
         </div> */}
 
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
+      <button type="submit" style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}} className="btn btn-primary1" id="Log1Button">
           Enter marks
         </button>
 
@@ -1023,7 +1024,7 @@ benefits
       </form></div>
           </div>
       
-          <Footer/>
+          {/* <Footer/> */}
      
         </>
       );
