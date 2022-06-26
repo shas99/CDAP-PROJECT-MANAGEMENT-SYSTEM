@@ -125,9 +125,9 @@ const EditSubmission = ({history}) => {
       
     console.log("testing")
     
-    const { data } = await axios.post(
+    const { data } = await axios.delete(
       "/api/STDAvailableSubmissions/deleteSubmission",
-      { SubmissionID },
+      {data:{ SubmissionID }},
       config
     );
     console.log(SubmissionID)
