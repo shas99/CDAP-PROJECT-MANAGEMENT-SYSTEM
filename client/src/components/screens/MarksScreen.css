@@ -49,6 +49,33 @@
    
   
    }
+
+   .l1percentage{
+    margin:auto;
+   
+    position:absolute;
+    left:500px;
+    font-size:x-large;
+
+   }
+
+   .l2percentage{
+    margin:auto;
+   
+    position:absolute;
+    left:500px;
+    font-size:x-large;
+
+   }
+
+   .l3percentage{
+    margin:auto;
+   
+    position:absolute;
+    left:500px;
+    font-size:x-large;
+
+   }
    .proposalpresentationinput{
     width:80px;
    }
