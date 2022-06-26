@@ -8,7 +8,6 @@ import Footer from "../Footer/Footer";
 const EnterMarks = ({history}) => {
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
-
     const [groupID, setgroupID]= useState("");
     const [studentIDs, setstudentIDs] = useState("");
     const [studentnames, setstudentnames] = useState("");
@@ -28,6 +27,18 @@ const EnterMarks = ({history}) => {
     const [commercializationmarks1, setcommercializationmarks1] = useState("");
     const [entermarks,setentermarks] = useState("")
     const [fetchentermarksData, setentermarksData] = useState("");
+    const [totalContribution ,setTotalContribution] = useState("");
+    const [excellent,setExcellent] = useState("");
+    const [good,setGood] = useState("");
+    const [average,setAverage] = useState("");
+    const [belowAverage,setBelowAverage] = useState("");
+    const [l01,setl01] = useState("");
+    const [l02,setl02] = useState("");
+    const [l03,setl03] = useState("");
+    const [l04,setl04] = useState("");
+    const [l05,setl05] = useState("");
+
+    const proposalMarkingID = "62b562e495c3039108f3714e";
 
     useEffect(() => {
         const fetchentermarksData = async () => {
@@ -101,6 +112,35 @@ const EnterMarks = ({history}) => {
             }, 5000)
          }
     }
+    //*********** GET PROPOSAL MARKING CONFIGURATION DATA *********** */
+    const getRelevantProposalMarkingConfigData =async ()=>{
+     
+        try{
+          const{data}=await axios.get(`/api/markingRubrik/proposalMarkingConfiguration/${proposalMarkingID}`);
+         
+         setTotalContribution(data.proposalDetails.affectedTotalContribution)
+         setExcellent(data.proposalDetails.excellentGradeRange)
+         setGood(data.proposalDetails.goodGradeRange)
+         setAverage(data.proposalDetails.averageGradeRange)
+         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
+         setl01(data.proposalDetails.affectedL01Grade)
+         setl02(data.proposalDetails.affectedL02Grade)
+         setl03(data.proposalDetails.affectedL03Grade)
+         setl04(data.proposalDetails.affectedL04Grade)
+         setl05(data.proposalDetails.affectedL05Grade)
+         
+        }catch(error){
+          
+          
+        }
+        
+  
+      }
+      getRelevantProposalMarkingConfigData();
+  
+
+
+
 
     const listHandler=()=>{
         try{
@@ -138,7 +178,7 @@ const EnterMarks = ({history}) => {
             
           <div>        
           <form onSubmit={entermarksHandler} className="group-screen__form">
-      <h3 className="login-screen__title">RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = 5%]</h3>
+      <h3 className="login-screen__title">RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = {totalContribution}]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <table className="tablemarks1">
@@ -181,14 +221,14 @@ const EnterMarks = ({history}) => {
         <table className="proposalpresentationmarking">
         <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-    <th className="proposalpresentationmarking"> Excellent(100-75) </th>
-    <th className="proposalpresentationmarking"> Good(74-60) </th>
-    <th className="proposalpresentationmarking"> Average(59-40) </th>
-    <th className="proposalpresentationmarking"> Below Average(39-0) </th>
+    <th className="proposalpresentationmarking"> Excellent({excellent}) </th>
+    <th className="proposalpresentationmarking"> Good({good}) </th>
+    <th className="proposalpresentationmarking"> Average({average}) </th>
+    <th className="proposalpresentationmarking"> Below Average({belowAverage}) </th>
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
   </tr>
   <tr>  <br></br>
-   <div className="l0percentage">Proven gap/Creative Solution [Based on LO1] - [35%]</div>
+   <div className="l0percentage">Proven gap/Creative Solution [Based on LO1] - [{l01}]</div>
    <br></br><br></br>
   
     
@@ -315,7 +355,7 @@ has been done
 </tr>
 <tr> <br></br>
     <div className="l0percentage">
-    Capability in applying the knowledge in particular stream [Based on LO2] - [30%]
+    Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}]
     </div><br></br><br></br>
 </tr>
 <tr>
@@ -422,11 +462,13 @@ used.
 
     </td>
 </tr>
+
 <tr> <br></br>
     <div className="l0percentage"> 
         Solution Implementation [Based on LO3] - [5%]    
         </div><br></br><br></br>
-    {/* <th  className="tableheading">Solution Implementation [Based on LO3] - [5%]</th> */}
+    {/* <th  className="tableheading">Solution Implementation [Based on LO3] - [{l03}]</th> */}
+
 </tr>
 <tr>
     <td className="proposalpresentationmarking">
@@ -589,13 +631,15 @@ distribution.
 
     </td>
 </tr>
+
 <tr> <br></br>
     <div className="l2percentage">
-        Effective communication [Based on LO4]-[15%]
+        Effective communication [Based on LO4]-[{l04}]
     </div><br></br><br></br>
     {/* <th>
-    Effective Communication [Based on LO4] - [15%]
+    Effective Communication [Based on LO4] - [{l04}]
     </th> */}
+
 </tr>
 <tr>
     <td>
@@ -710,14 +754,16 @@ management
 
     </td>
 </tr>
+
 <tr> <br></br>
     <div className="l3percentage">
-    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [15%]
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
 
     </div><br></br><br></br>
     {/* <th>
-    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [15%]
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
     </th> */}
+
 </tr>
 <tr>
     <td>
