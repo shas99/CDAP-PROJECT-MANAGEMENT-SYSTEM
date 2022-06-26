@@ -72,8 +72,11 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
     
     try{
         const placedBid = await AvailableProject.findById({
-            _id:relevantProjectID
+            _id:relevantProjectID,
+           
         })
+        // placedBid.push({allBiddings:bidPlacedGroup}) push is not a function 
+
         if(!placedBid){
             return next(new ErrorResponse("Project placed to bid not found",400))
         }
@@ -82,7 +85,8 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
        placedBid.bidding.biddingPlacedGroup= bidPlacedGroup
        placedBid.bidding.date=date
        placedBid.bidding.time=time
-       
+    placedBid.allBiddings.push(bidPlacedGroup)
+
         await placedBid.save()
         res.status(201).json({
             success: true,
