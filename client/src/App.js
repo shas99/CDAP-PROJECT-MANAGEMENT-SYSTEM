@@ -26,6 +26,10 @@ import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
+import EnterMarks from "./components/screens/EnterMarks";
+
+//styling trial
+
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
@@ -50,6 +54,8 @@ import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
 import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableProjects";
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
+import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
+import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
 
 
 const App = () => {
@@ -90,6 +96,8 @@ const App = () => {
 
           <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
 
+          <Route exact path="/addmarks" component={EnterMarks}/>
+
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
          <Route exact path="/availableProjects/:id" component={ProjectBidding}/>
@@ -121,6 +129,10 @@ const App = () => {
          <Route exact path="/adminViewProjects" component={AdminViewAvailableProjects}/>
          
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
+         <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
+         <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
+         
+         
 
 
         </Switch>
