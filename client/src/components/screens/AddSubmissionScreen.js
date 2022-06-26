@@ -161,7 +161,7 @@ const AddSubmission = ({history}) => {
     <div>
         <label>
             Enter field name:
-        <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])}
+        <input type="text" name="description" onChange={(e) => setTemp(e.target.value)}
         
          
         

@@ -84,14 +84,14 @@ exports.addSubmission =async(req,res,next) => {
         
         };
 
-        exports.viewSpecificSubmission =async(req,res,next) => {
+    exports.viewSpecificSubmission =async(req,res,next) => {
             
-            const {ID} = req.body
-            
+        const SubmissionID = req.query.SubmissionID
+        console.log(SubmissionID)
             try{
             
             
-                const submission = await SubmissionPage.findById(ID)
+                const submission = await SubmissionPage.findById(SubmissionID)
 
 
                 

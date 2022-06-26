@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useParams} from 'react-router-dom';
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import Submission from "./SubmissionScreen";
 
 const EditSubmission = ({history}) => {
   const [error, setError] = useState("");
@@ -20,6 +21,8 @@ const EditSubmission = ({history}) => {
   const [temp,setTemp] = useState("")
   const [visibility,setVisibility] = useState(false)
   const [SubmissionID,setSubmissionID] = useState(useParams().id)
+  const [SubmissionData,setSubmissionData] = useState("")
+  const [ID,setID] = useState(useParams().id)
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -40,9 +43,39 @@ const EditSubmission = ({history}) => {
       }
     };
 
+    const fetchSubmissionData = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+
+        },
+      };
+
+      try {
+     
+        // const { data } = await axios.get(
+        //   "http://localhost:5000/api/STDAvailableSubmissions/viewSpecificSubmission",
+        //   {data:{ SubmissionID }},
+   
+          
+        // );
+
+        const { data } = await axios.get(
+          "/api/STDAvailableSubmissions/viewSpecificSubmission",
+          {params:{ SubmissionID }},
+        );
+
+        
+        setSubmissionData(data.data);
+      } catch (error) {
+
+      }
+    };
+
 
 
     fetchPrivateDate();
+    fetchSubmissionData();
   }, [history]);
 
 
@@ -167,19 +200,19 @@ const EditSubmission = ({history}) => {
     <form>
     <label>
         Submission Heading:
-        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} />
+        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={SubmissionData.Heading}/>
     </label>
     <br/>
     <br/>
     <label>
         Submission Description:
-        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={SubmissionData.Description}/>
     </label>
     <br/>
     <br/>
     <label>
         Submission BatchID:
-        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)}/>
+        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={SubmissionData.BatchID}/>
     </label>
     <label>
         Enable submission
@@ -235,7 +268,7 @@ const EditSubmission = ({history}) => {
 
 {Heading}
     
-  {/* {console.log(useParams().id)} */}
+  {console.log(SubmissionData)}
 <Footer/>
 
 </div>
