@@ -1,4 +1,5 @@
 const crypto = require('crypto')
+console.log(crypto)
 const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
@@ -41,6 +42,75 @@ exports.viewfeedback =async(req,res,next) => {
 }
 };
 
+//user profile management
+
+exports.userprofilemanagement =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    // console.log(user.feedback)
+    // const{email}=req.body;
+    
+    try{
+        res.status(201).json({
+            success: true,
+            data: user
+        })
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+exports.edituserprofile = async(req,res,next) => {
+    try{
+        const{personalAddress,phoneNumber}=req.body;
+
+        let token//to retreive username in backend
+
+    
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+    console.log(req.headers.authorization);
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    user.address = personalAddress;
+    user.phoneNumber = phoneNumber;
+    await user.save();
+
+    res.status(201).json({
+        success: true
+    })
+        
+        
+    }
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+
+    }
+}
 
 // old view marks method
 
