@@ -153,7 +153,7 @@ const EditUserProfile = ({history}) => {
           name="name" 
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} />
-          <br></br>
+          <br></br><br/>
 
     <label className="PhoneNames">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
