@@ -67,6 +67,10 @@ const EditSubmission = ({history}) => {
 
         
         setSubmissionData(data.data);
+        setBatchID(data.data.BatchID)
+        setDescription(data.data.Description)
+        setHeading(data.data.Heading)
+        setField(data.data.Fields)
       } catch (error) {
 
       }
@@ -176,8 +180,16 @@ const EditSubmission = ({history}) => {
   }
   
 };
-
-
+const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
+    let display = []
+  for(let i = 0; i < Fields.length; i++){
+    display.push(<li>{Math.ceil((i+1)/2)}{Fields[i]} : {Fields[i+1]}</li>)
+      
+    i++
+  }
+  return display
+  console.log(Fields) 
+}
 
   return  error ? ( 
   
@@ -200,19 +212,19 @@ const EditSubmission = ({history}) => {
     <form>
     <label>
         Submission Heading:
-        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={SubmissionData.Heading}/>
+        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading}/>
     </label>
     <br/>
     <br/>
     <label>
         Submission Description:
-        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={SubmissionData.Description}/>
+        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description}/>
     </label>
     <br/>
     <br/>
     <label>
         Submission BatchID:
-        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={SubmissionData.BatchID}/>
+        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID}/>
     </label>
     <label>
         Enable submission
@@ -230,18 +242,23 @@ const EditSubmission = ({history}) => {
   
     {flow == 1 &&
     <div>
-        <label>
+        {/* <label>
             Enter field name:
-        <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])}
+        <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])} */}
         
          
-        
-        />
-    </label>
+        <ul>{displayFields(Fields)}</ul>
+        {/* />
+    </label> */}
+
+      
+
+
+
     {/* <input type="text" name="description" onChange={toggle}/> */}
     
     <br/><br/>
-      <button onClick={addField}>
+      {/* <button onClick={addField}>
         Add a normal text box
       </button>
 
@@ -251,13 +268,13 @@ const EditSubmission = ({history}) => {
 
       <button onClick={CreateSubmissionHandler}>
         Create new submission
-      </button>
+      </button> */}
 
-
+      
 
     </div>
     
-}
+} 
 
       <button onClick={DeleteSubmissionHandler}>
         Delete submission
@@ -269,6 +286,10 @@ const EditSubmission = ({history}) => {
 {Heading}
     
   {console.log(SubmissionData)}
+  {BatchID}<br/>
+    {Heading}<br/>
+    {Description}<br/>
+    temp:{temp}<br/>
 <Footer/>
 
 </div>
