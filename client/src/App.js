@@ -125,6 +125,8 @@ const App = () => {
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
          <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
          <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
+         <Route exact path="/userprofile" component={UserProfile}/>
+         <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
          
          
 
