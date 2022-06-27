@@ -67,6 +67,11 @@ const AdminDashboard = ({history}) => {
       <Link to="/adminViewProjects" id="Regs">Available Projects</Link>
       </div>
       
+    <div className="StudentRectangle-42">
+      <FontAwesomeIcon className="iconsstudentdash" icon={faDiagramProject} />
+      <br/><br/>
+      <Link to="/markingconfiguations" id="Regs">Marking Configurations</Link>
+      </div>
 
 
 <div className="StaffRectangle-40">
