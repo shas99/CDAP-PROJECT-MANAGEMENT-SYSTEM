@@ -106,3 +106,40 @@ exports.addSubmission =async(req,res,next) => {
             }
             
             };
+
+    exports.editSpecificSubmission =async(req,res,next) => {
+            
+        const {SubmissionID,Fields,Description,Heading,BatchID,visibility} = req.body
+
+
+        console.log(SubmissionID)
+        console.log(Fields)
+        console.log(Description)
+        console.log(Heading)
+        console.log(BatchID)
+
+            try{
+            
+            
+                const submission = await SubmissionPage.findById(SubmissionID)
+                
+                submission.BatchID = BatchID
+                submission.Fields = Fields
+                submission.Heading = Heading
+                submission.Description = Description
+                submission.visibility = visibility
+
+                await submission.save()
+
+                
+                res.status(201).json({
+                    success: true,
+                    data: submission
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+            };

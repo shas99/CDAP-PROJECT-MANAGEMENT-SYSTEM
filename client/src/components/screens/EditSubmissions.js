@@ -19,7 +19,7 @@ const EditSubmission = ({history}) => {
   const [flow,setFlow] = useState(0)
   const [Fields,setField] = useState([])
   const [temp,setTemp] = useState("")
-  const [visibility,setVisibility] = useState(false)
+  const [visibility,setVisibility] = useState()
   const [SubmissionID,setSubmissionID] = useState(useParams().id)
   const [SubmissionData,setSubmissionData] = useState("")
   const [ID,setID] = useState(useParams().id)
@@ -72,6 +72,11 @@ const EditSubmission = ({history}) => {
         setDescription(data.data.Description)
         setHeading(data.data.Heading)
         setField(data.data.Fields)
+        if(data.data.visibility){
+          setVisibility(1)
+        }else{
+          setVisibility(0)
+        }
       } catch (error) {
 
       }
@@ -121,12 +126,12 @@ const EditSubmission = ({history}) => {
   }
 
   const addField=()=> {//normal text box
-    setField(Array=> [...Array,temp])
+    setField(Array=> [...Array,Fieldno])
     setField(Array=> [...Array,"Normal"])
   }
 
   const addField2=()=> {//rich text box
-    setField(Array=> [...Array,temp])
+    setField(Array=> [...Array,Fieldno])
     setField(Array=> [...Array,"Rich"])
   }
 
@@ -139,9 +144,9 @@ const EditSubmission = ({history}) => {
 
   const toggle=()=> {//normal text box
     if(visibility == false){
-      setVisibility(true)
+      setVisibility(1)
     }else{
-      setVisibility(false)      
+      setVisibility(0)      
     }
   }
 
@@ -178,6 +183,48 @@ const EditSubmission = ({history}) => {
   }
   
 };
+
+
+const EditSubmission = async (e) => {
+  e.preventDefault();
+
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+
+
+
+  try {
+    const token = localStorage.getItem("authToken")
+    const { data } = await axios.put(
+      `http://localhost:5000/api/STDAvailableSubmissions/editSpecificSubmission`,
+      {
+        SubmissionID,
+        Fields,
+        Description,
+        Heading,
+        BatchID,
+        visibility,
+      },
+      config
+    );
+
+
+    console.log(data);
+    history.push("/adminPrivate")
+  } catch (error) {
+    setError(error.response.data.error);
+    setTimeout(() => {
+      setError("");
+    }, 5000);
+  }
+};
+
+
+
+
 const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
@@ -226,7 +273,7 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
     </label>
     <label>
         Enable submission
-        <input type="checkbox" name="visibility" onChange={toggle}/>
+        <input type="checkbox" name="visibility" onChange={toggle} checked={visibility}/>
     </label>
     <br/>
     <br/>
@@ -274,7 +321,18 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
       <button onClick={DeleteFieldHandler}>
         Delete field
       </button>
-      
+      <button onClick={addField}>
+        Add a normal text box
+      </button>
+
+      <button onClick={addField2}>
+        Add a rich text editor
+      </button>
+
+
+      <button onClick={EditSubmission}>
+        Make changes
+      </button>
 
     </div>
     
@@ -291,6 +349,7 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
     {Heading}<br/>
     {Description}<br/>
     temp:{temp}<br/>
+    {visibility}
 <Footer/>
 
 </div>
