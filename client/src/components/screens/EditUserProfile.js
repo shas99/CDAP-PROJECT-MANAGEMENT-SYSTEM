@@ -149,7 +149,7 @@ const EditUserProfile = ({history}) => {
       <form onSubmit={editprofilehandler} id="submissionForm">
       <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
-          className = "input" style={{color:"black"}}
+          className = "input" style={{color:"white"}}
           name="name" 
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} />
@@ -157,7 +157,7 @@ const EditUserProfile = ({history}) => {
 
     <label className="PhoneNames">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
-          className = "input" style={{color:"black"}}
+          className = "input" style={{color:"white"}}
           name="name" 
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phoneNumber} />
