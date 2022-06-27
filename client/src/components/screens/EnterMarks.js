@@ -4,7 +4,6 @@ import axios from "axios";
 import "./MarksScreen.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
-
 const EnterMarks = ({history}) => {
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
