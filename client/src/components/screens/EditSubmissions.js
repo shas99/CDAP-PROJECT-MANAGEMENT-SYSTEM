@@ -23,6 +23,7 @@ const EditSubmission = ({history}) => {
   const [SubmissionID,setSubmissionID] = useState(useParams().id)
   const [SubmissionData,setSubmissionData] = useState("")
   const [ID,setID] = useState(useParams().id)
+  const [Fieldno,setFieldno] = useState()
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -145,32 +146,29 @@ const EditSubmission = ({history}) => {
   }
 
 
-  const DeleteSubmissionHandler = async (e) => {
+  const DeleteFieldHandler = async (e) => {
     e.preventDefault();
 
    
     
     try {
-      console.log(SubmissionID)
-      e.preventDefault();
+      //setField(Fields[(Fieldno*2)-2])
+      // setField(Fields.splice((Fieldno*2)-2,1))
+      let tempp = []
+      for(let i = 0; i < Fields.length;i++){
+          if(i == (Fieldno*2)-2){
+            continue
+          }
+          if(i == (Fieldno*2)-1){
+            continue
+          }
+          tempp.push(Fields[i])
+      }
+      setField(tempp)
 
-    const config = {
-      header: {
-        "Content-Type": "application/json",
-      },
-    };
-      
-    console.log("testing")
-    
-    const { data } = await axios.delete(
-      "/api/STDAvailableSubmissions/deleteSubmission",
-      {data:{ SubmissionID }},
-      config
-    );
-    console.log(SubmissionID)
-      alert("Deleted!")
 
-    history.push("/adminPrivate");
+
+
   } catch (error) {
     setError(error.response.data.error);
     setTimeout(() => {
@@ -188,7 +186,7 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
     i++
   }
   return display
-  console.log(Fields) 
+ 
 }
 
   return  error ? ( 
@@ -246,11 +244,14 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
             Enter field name:
         <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])} */}
         
-         
+        <label>
+        Enter the number of the field you want to make change to
+        <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)}/>
+    </label>
         <ul>{displayFields(Fields)}</ul>
         {/* />
     </label> */}
-
+    {console.log(Fieldno)}
       
 
 
@@ -270,15 +271,15 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
         Create new submission
       </button> */}
 
+      <button onClick={DeleteFieldHandler}>
+        Delete field
+      </button>
       
 
     </div>
     
 } 
 
-      <button onClick={DeleteSubmissionHandler}>
-        Delete submission
-      </button>
 
 
 
