@@ -49,6 +49,7 @@ import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProj
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
 import ProposalReportMarkingConfiguration from "./components/screens/ProposalReportMarkingConfiguration";
+import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocumentMarkingConfiguration";
 
 
 const App = () => {
@@ -119,6 +120,8 @@ const App = () => {
          <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
          <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
          <Route exact path="/proposalreportmarkingconfiguration" component={ProposalReportMarkingConfiguration}/>
+         <Route exact path="/statusdocumentmarkingconfiguration" component={StatusDocumentMarkingConfiguration}/>
+         
 
          
          

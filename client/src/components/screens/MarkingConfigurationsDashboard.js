@@ -22,7 +22,7 @@ export default function MarkingConfigurationsDashboard() {
 
       <div className="StudentRectangle-39">
       <br/><br/>
-      <Link to="/adminViewProjects" id="Regs"> Proposal Evaluation </Link>
+      <Link to="/statusdocumentmarkingconfiguration" id="Regs"> Status Document 1 Configuration</Link>
       </div>
 
 
