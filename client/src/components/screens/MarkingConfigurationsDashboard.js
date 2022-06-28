@@ -12,12 +12,12 @@ export default function MarkingConfigurationsDashboard() {
         <Header/>
     <div className="StudentRectangle-42">
       <br/><br/>
-      <Link to="/proposalmarkingconfiguration" id="Regs"> Proposal Evaluation </Link>
+      <Link to="/proposalmarkingconfiguration" id="Regs"> Proposal Presentation Configuration </Link>
       </div>
 
       <div className="StudentRectangle-40">
       <br/><br/>
-      <Link to="/adminViewProjects" id="Regs"> Proposal Evaluation </Link>
+      <Link to="/proposalreportmarkingconfiguration" id="Regs"> Proposal Report Configuration </Link>
       </div>
 
       <div className="StudentRectangle-39">

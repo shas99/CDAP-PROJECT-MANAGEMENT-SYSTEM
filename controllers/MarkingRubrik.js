@@ -116,8 +116,9 @@ exports.proposalReportMarkingConfiguration = async(req,res,next) =>{
    
 
 }
-//******** Retrieve Existing Marking Configuration Details for Proposal Presentation *********
 
+
+//******** Retrieve Existing Marking Configuration Details for Proposal Presentation *********
 exports.viewProposalReportMarkingDetails = async(req,res,next) => {
     console.log(req.params.id)
     try{
