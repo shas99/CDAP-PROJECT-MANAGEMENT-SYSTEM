@@ -279,7 +279,7 @@ const DeleteSubmissionHandler = async (e) => {
   ) : ( 
 
     <>
-    <div id="back123">
+    <div id="back1234">
 
     <Header/>
 
@@ -341,7 +341,7 @@ const DeleteSubmissionHandler = async (e) => {
 
 
 
-      <button onClick={DeleteFieldHandler} className="redbuttons">
+      <button onClick={DeleteFieldHandler} className="redbuttons1">
         Delete field
       </button><br/><br/>
       <button onClick={addField} className="bluebuttons">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./StaffDashboard.css";
+import "./AddSubmission.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -114,7 +114,7 @@ const AddSubmission = ({history}) => {
   ) : ( 
 
     <>
-    <div id="back">
+    <div id="back123">
 
     <Header/>
 
@@ -125,23 +125,23 @@ const AddSubmission = ({history}) => {
 
     
     {flow == 0 &&
-    <div>
+    <div id="headert123">
     <form>
     <label>
         Submission Heading:
-        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} />
+        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} id="input"/>
     </label>
     <br/>
     <br/>
     <label>
         Submission Description:
-        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} id="input"/>
     </label>
     <br/>
     <br/>
     <label>
         Submission BatchID:
-        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)}/>
+        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} id="input"/>
     </label>
     <label>
         Enable submission
@@ -151,7 +151,7 @@ const AddSubmission = ({history}) => {
     <br/>
     {/* <input type="submit" value="Submit" /> */}
     </form>
-      <button onClick={handleFlow}>
+      <button onClick={handleFlow} className="bluebuttons">
         Next
       </button>
   </div>
@@ -160,9 +160,9 @@ const AddSubmission = ({history}) => {
     {flow == 1 &&
     <div>
       {/* create new field */}
-        <label>
+        <label id="headert123">
             Enter field name:
-        <input type="text" name="description" onChange={(e) => setTemp(e.target.value)}
+        <input type="text" name="description" onChange={(e) => setTemp(e.target.value)} id="input"
         
          
         
@@ -171,32 +171,32 @@ const AddSubmission = ({history}) => {
     {/* <input type="text" name="description" onChange={toggle}/> */}
     
     <br/><br/>
-      <button onClick={addField}>
+      <button onClick={addField} className="greenbuttons">
         Add a normal text box
       </button>
 
-      <button onClick={addField2}>
+      <button onClick={addField2} className="greenbuttons">
         Add a rich text editor
       </button>
 {/* create new field */}
-      <button onClick={CreateSubmissionHandler}>
+      <button onClick={CreateSubmissionHandler} className="greenbuttons">
         Create new submission
       </button>
 
     </div>
     
 }
-{console.log(Fields)}
+{/* {console.log(Fields)} */}
 
 
 <br/>
-    {BatchID}<br/>
+    {/* {BatchID}<br/>
     {Heading}<br/>
     {Description}<br/>
-    temp:{temp}<br/>
+    temp:{temp}<br/> */}
 
-    {flow}
-  {console.log(visibility)}
+    {/* {flow} */}
+  {/* {console.log(visibility)} */}
 <Footer/>
 
 </div>
