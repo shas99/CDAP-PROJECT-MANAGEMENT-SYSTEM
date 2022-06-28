@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getPrivateData, addmarks } = require("../controllers/staffPrivate");
+const { getPrivateData, addmarks, addproposalreportmarks } = require("../controllers/staffPrivate");
 
 const { protect } = require("../middleware/staffAuth");
 
@@ -11,6 +11,9 @@ const { protect } = require("../middleware/staffAuth");
 
 //add marks
 router.route("/addmarks").post(addmarks)
+
+//add propsal report marks
+router.route("/addproposalreportmarks").post(addproposalreportmarks)
 
 
 
