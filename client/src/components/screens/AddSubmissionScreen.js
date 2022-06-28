@@ -44,7 +44,7 @@ const AddSubmission = ({history}) => {
     fetchPrivateDate();
   }, [history]);
 
-
+{/* create new field */}
     const CreateSubmissionHandler = async (e) => {
       e.preventDefault();
 
@@ -159,6 +159,7 @@ const AddSubmission = ({history}) => {
   
     {flow == 1 &&
     <div>
+      {/* create new field */}
         <label>
             Enter field name:
         <input type="text" name="description" onChange={(e) => setTemp(e.target.value)}
@@ -177,7 +178,7 @@ const AddSubmission = ({history}) => {
       <button onClick={addField2}>
         Add a rich text editor
       </button>
-
+{/* create new field */}
       <button onClick={CreateSubmissionHandler}>
         Create new submission
       </button>

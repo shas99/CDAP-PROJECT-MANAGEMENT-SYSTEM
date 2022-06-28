@@ -3,46 +3,42 @@ const mongoose = require('mongoose')
 
 const TopicRegSchema = new mongoose.Schema({//Topic Registration Model
 
-   car:{
-        type: Object
-   } ,
-    // groupID: {
-    //     type: String
-    // },
-    // Topic: {
-    //     type: String
-    // },
-    // topicdescription: {
-    //     type: String
-    // },
-    // abstract: {
-    //     type: String
-    // },
-    // researchProblem: {
-    //     type: String
-    // },
-    // solution: {
-    //     type: String
-    // },
-    // systemOverview: {
-    //     type: String
-    // },
 
-    // objective:{
-    //     type: String
-    // },
-    
-    // projecttask:{
-    //     type: String
-    // },
+    groupID: {
+        type: String
+    },
+    Topic: {
+        type: String
+    },
+    topicdescription: {
+        type: String
+    },
+    abstract: {
+        type: String
+    },
+    researchProblem: {
+        type: String
+    },
+    solution: {
+        type: String
+    },
+    systemOverview: {
+        type: String
+    },
 
-    // technologies:{
-    //     type: String
-    // }
+    objective:{
+        type: String
+    },
+    
+    projecttask:{
+        type: String
+    },
+
+    technologies:{
+        type: String
+    }
     
     
-   
-  
 
 
 })
