@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./StaffDashboard.css";
+import "./EditSubmissions.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -279,7 +279,7 @@ const DeleteSubmissionHandler = async (e) => {
   ) : ( 
 
     <>
-    <div id="back">
+    <div id="back123">
 
     <Header/>
 
@@ -291,22 +291,22 @@ const DeleteSubmissionHandler = async (e) => {
     
     {flow == 0 &&
     <div>
-    <form>
+    <form id="headert123">
     <label>
         Submission Heading:
-        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading}/>
+        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading} id="input"/>
     </label>
     <br/>
     <br/>
     <label>
         Submission Description:
-        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description}/>
+        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description} id="input"/>
     </label>
     <br/>
     <br/>
     <label>
         Submission BatchID:
-        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID}/>
+        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID} id="input"/>
     </label>
     <label>
         Enable submission
@@ -316,21 +316,21 @@ const DeleteSubmissionHandler = async (e) => {
     <br/>
     {/* <input type="submit" value="Submit" /> */}
     </form>
-      <button onClick={handleFlow}>
+      <button onClick={handleFlow} className="bluebuttons">
         Next
       </button>
   </div>
     }
   
     {flow == 1 &&
-    <div>
+    <div id="headert123">
         {/* <label>
             Enter field name:
         <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])} */}
         
         <label>
         Enter the number of the field you want to make change to
-        <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)}/>
+        <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)} id="input"/>
     </label>
         <ul>{displayFields(Fields)}</ul>
         {/* />
@@ -341,19 +341,19 @@ const DeleteSubmissionHandler = async (e) => {
 
 
 
-      <button onClick={DeleteFieldHandler}>
+      <button onClick={DeleteFieldHandler} className="redbuttons">
         Delete field
       </button><br/><br/>
-      <button onClick={addField}>
+      <button onClick={addField} className="bluebuttons">
         Add a normal text box
       </button><br/><br/>
 
-      <button onClick={addField2}>
+      <button onClick={addField2} className="bluebuttons">
         Add a rich text editor
       </button>
 
 
-      <button onClick={EditSubmission}>
+      <button onClick={EditSubmission} className="bluebuttons">
         Make changes
       </button>
 
@@ -361,7 +361,7 @@ const DeleteSubmissionHandler = async (e) => {
     
 } 
 
-<button onClick={DeleteSubmissionHandler}>
+<button onClick={DeleteSubmissionHandler} className="redbuttons">
         Delete submission
       </button>
 
