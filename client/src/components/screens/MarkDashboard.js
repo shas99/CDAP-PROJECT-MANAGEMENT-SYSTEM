@@ -52,21 +52,51 @@ const MarkDashboard = ({history}) => {
             <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
             </p>
-        </div>
+            <div className="row1">
+  
 
-        <div className="row1">
-        <div className="StaffRectangle-37">
+        {/* proposal presentation */}
+
+      <div className="StaffRectangle-37">
         {/* <Link to="/studenttopicinterestingform" id="Regs"><button className="buttons" onClick="/studenttopicinterestingform ">Student Topic Interestings</button></Link> */}
         
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addmarks" id="Regs"><button className="buttons">Add marks</button></Link>
+        <Link to="/addmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
+        </div>
 
-        <Footer/>
-        </div>
-        </div>
-        </>
+      
+     
+
+      
+        
+
+      {/* <div className="row2">
+        <div className="StudentRectangle-41">
+      <br/><br/><br/><br/><br/><br/>
+      <Link to="/topicregistration" id="Regs">Register Topic</Link>
+      </div>
+      <div className="StudentRectangle-42">
+      <br/><br/><br/><br/><br/><br/>
+      <Link to="/viewavailableprojects" id="Regs">Available Projects</Link>
+      </div>
+      <div className="StudentRectangle-43">
+      <br/><br/><br/><br/><br/><br/>
+      <Link to="/submissionmilestone" id="Regs">Submit File</Link>
+      </div>
+      </div>
+ */}
+
+        
+
+                  
+  
+    <Footer/>
+
+     </div>
+     </div>
+    </>
     )
 }
 

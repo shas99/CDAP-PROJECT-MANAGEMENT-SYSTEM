@@ -45,6 +45,9 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
 
+//mark dashboard
+import MarkDashboard from "./components/screens/MarkDashboard";
+
 import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
@@ -115,6 +118,8 @@ const App = () => {
          <Route exact path="/submissionmilestone" component={SubmissionMilestones}/>
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
+
+         <Route exact path="/markdashboard" component={MarkDashboard}/>
 
          <Route exact path="/adminLogin" component={AdminLoginScreen}/>
 
