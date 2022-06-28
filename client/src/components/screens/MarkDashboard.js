@@ -63,7 +63,7 @@ const MarkDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
+        <Link to="/addproposalpresentationmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
         </div>
 
       
