@@ -22,7 +22,7 @@ exports.getPrivateData = async (req,res,next) => {
 
 }
 
-//add marks method
+//add proposal presentation marks method
 exports.addmarks = async(req,res,next) => {
     const {groupID,studentIDs,studentnames,examiner1, examiner2,moderator,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1 } = req.body
 
@@ -39,3 +39,7 @@ exports.addmarks = async(req,res,next) => {
         next(error)
     }
 }
+
+
+//Add proposal report marks methid
+
