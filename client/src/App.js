@@ -28,6 +28,8 @@ import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
 import ProposalPresentationMarks from "./components/screens/ProposalPresentationMarks";
 
+import ProposalReportMarks from "./components/screens/ProposalReportMarks";
+
 //styling trial
 
 
@@ -98,6 +100,8 @@ const App = () => {
           <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
 
           <Route exact path="/addproposalpresentationmarks" component={ProposalPresentationMarks}/>
+
+          <Route exact path="/addproposalreportmarks" component={ProposalReportMarks}/>
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
