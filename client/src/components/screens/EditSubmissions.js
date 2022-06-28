@@ -250,7 +250,7 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
     <button onClick={logOutHandler} id="logout">Log Out</button>
     </p>
-{SubmissionID}
+
     
     {flow == 0 &&
     <div>
@@ -303,27 +303,13 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
 
 
-    {/* <input type="text" name="description" onChange={toggle}/> */}
-    
-    <br/><br/>
-      {/* <button onClick={addField}>
-        Add a normal text box
-      </button>
-
-      <button onClick={addField2}>
-        Add a rich text editor
-      </button>
-
-      <button onClick={CreateSubmissionHandler}>
-        Create new submission
-      </button> */}
 
       <button onClick={DeleteFieldHandler}>
         Delete field
-      </button>
+      </button><br/><br/>
       <button onClick={addField}>
         Add a normal text box
-      </button>
+      </button><br/><br/>
 
       <button onClick={addField2}>
         Add a rich text editor
@@ -342,14 +328,7 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
 
 
-{Heading}
-    
-  {console.log(SubmissionData)}
-  {BatchID}<br/>
-    {Heading}<br/>
-    {Description}<br/>
-    temp:{temp}<br/>
-    {visibility}
+
 <Footer/>
 
 </div>
