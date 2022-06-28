@@ -52,6 +52,8 @@ import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableP
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
+import UserProfile from "./components/screens/UserProfile";
+import EditUserProfile from "./components/screens/EditUserProfile";
 
 
 const App = () => {
@@ -123,6 +125,8 @@ const App = () => {
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
          <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
          <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
+         <Route exact path="/userprofile" component={UserProfile}/>
+         <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
          
          
 
