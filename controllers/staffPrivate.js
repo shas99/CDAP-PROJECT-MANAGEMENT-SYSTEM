@@ -46,12 +46,12 @@ exports.addmarks = async(req,res,next) => {
 //Add proposal report marks method
 
 exports.addproposalreportmarks = async(req,res,next) => {
-    const {groupID,studentIDs,studentnames,cosupervisor,supervisor,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1 } = req.body
+    const {groupID,studentIDs,studentnames,cosupervisor,supervisor,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,communicationmarks3,commercializationmarks1 } = req.body
 
     console.log("Error finding" + groupID)
     try{
         const proposalreportmarksadd = await enterproposalreportmarks.create({
-            groupID,studentIDs,studentnames,cosupervisor,supervisor,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1
+            groupID,studentIDs,studentnames,cosupervisor,supervisor,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,communicationmarks3,commercializationmarks1
         })
         res.status(210).json({
             success: true,
