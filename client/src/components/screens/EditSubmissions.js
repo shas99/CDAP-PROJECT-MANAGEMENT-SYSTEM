@@ -236,6 +236,43 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
  
 }
 
+
+const DeleteSubmissionHandler = async (e) => {
+  e.preventDefault();
+
+ 
+  
+  try {
+    console.log(SubmissionID)
+    e.preventDefault();
+
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+    
+  console.log("testing")
+  
+  const { data } = await axios.delete(
+    "/api/STDAvailableSubmissions/deleteSubmission",
+    {data:{ SubmissionID }},
+    config
+  );
+  console.log(SubmissionID)
+    alert("Deleted!")
+
+  history.push("/adminPrivate");
+} catch (error) {
+  setError(error.response.data.error);
+  setTimeout(() => {
+    setError("");
+    console.log(error)
+  }, 5000);
+}
+
+};
+
   return  error ? ( 
   
     <span className="error-message">{error}</span>
@@ -324,7 +361,9 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
     
 } 
 
-
+<button onClick={DeleteSubmissionHandler}>
+        Delete submission
+      </button>
 
 
 
