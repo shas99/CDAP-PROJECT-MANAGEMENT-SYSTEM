@@ -168,7 +168,7 @@ const ProposalReportMarks = ({history}) => {
             
           <div className="entermarksbackground">        
           <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enter_marks">
-      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = ]</h3>
+      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = 5 % ]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <table className="tablemarks1">
@@ -211,14 +211,14 @@ const ProposalReportMarks = ({history}) => {
         <table className="proposalpresentationmarking">
         <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-    <th className="proposalpresentationmarking"> Excellent </th>
-    <th className="proposalpresentationmarking"> Good </th>
-    <th className="proposalpresentationmarking"> Average </th>
-    <th className="proposalpresentationmarking"> Below Average </th>
+    <th className="proposalpresentationmarking"> Excellent[100-75] </th>
+    <th className="proposalpresentationmarking"> Good[74-60] </th>
+    <th className="proposalpresentationmarking"> Average[59-40] </th>
+    <th className="proposalpresentationmarking"> Below Average[39-0] </th>
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
   </tr>
   <tr>  <br></br>
-   <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - []</div>
+   <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [35%]</div>
    <br></br><br></br><br/>
   
     
@@ -345,7 +345,7 @@ has been done
 </tr> */}
 <tr> <br></br>
     <div className="l0percentage">
-    Capability in applying the knowledge in particular stream [Based on LO2] - []
+    Capability in applying the knowledge in particular stream [Based on LO2] - [30%]
     </div><br></br><br></br>
 </tr>
 <tr>
@@ -624,7 +624,7 @@ distribution.
 
 <tr> <br></br>
     <div className="l2percentage">
-        Effective communication [Based on LO4]-[]
+        Effective communication [Based on LO4]-[15%]
     </div><br></br><br></br>
     {/* <th>
     Effective Communication [Based on LO4] - [{l04}]
@@ -633,42 +633,39 @@ distribution.
 </tr>
 <tr>
     <td>
-    Communication skills
-60%
+    Idea delivery
+50%
 
     </td>
     <td>
-    Excellent structure and smooth
-flow of the presentation.
-Excellent performance at the
-Q&A session.
+    Excellent explanation of
+proposal content (objectives and
+methodology etc.), with logical
+discussion of the system's
+features.
 
     </td>
     <td>
-    Well-developed
-structure and good flow
-of the presentation.
-Good performance at
-the Q&A session.
+    Sufficiently explained the
+proposal content (objectives
+and methodology etc.), with
+good discussion of system's
+features.
 
     </td>
     <td>
-    Fairly developed
-structure and the flow of
-the presentation.
-Fair performance at the
-Q&A session.
+    Proposal content
+explained but
+containing some
+irrelevant information.
 
     </td>
     <td>
-    Poorly developed
-structure and
-fragmented flow
-of the
-presentation.
-Poor performance
-at the Q&A
-session.
+    Weakly explained
+the proposal
+content with lot of
+irrelevant
+information.
 
     </td>
 
@@ -687,42 +684,43 @@ session.
 </tr>
 <tr>
     <td>
-    Presentation skills
-40%
+    Structure and
+mechanics of language
+30%
 
     </td>
     <td>
-    Excellent stage presence, body
-language, eye contact, voice
-projection and clarity.
-Commendable use of visual
-aids.
-Excellent time management.
+    Excellent structure and
+formatting, meaningful chapters
+(as recommended) with logical
+flow.
+Excellent language usage
+without grammatical and
+typographical errors.
 
     </td>
     <td>
-    Good stage presence
-and body language
-Use of visual aids
-Hardly managed the
-time
+    Acceptable structure and
+formatting, meaningful
+chapters (as recommended)
+with logical flow.
+Fairly good language usage
+with very few grammatical
+and typographical errors
 
     </td>
     <td>
-    Average stage presence
-with no body language
-Little or no use of visual
-aids
-poor time management
+    Poorly designed
+structure and
+formatting.
+Many grammatical and
+typographical errors.
 
     </td>
     <td>
-    Poor stage
-presence
-No use of visual
-aids
-Poor time
-management
+    Unacceptable
+structure.
+Very poor writing.
 
     </td>
 
@@ -739,6 +737,48 @@ management
     </td>
 
 </tr>
+{/* newly added */}
+<tr>
+    <td>
+    Referencing (IEEE)
+20%
+
+    </td>
+    <td>
+    Proper citing and referencing.
+
+    </td>
+    <td>
+    Acceptable level of citing
+and referencing.
+
+    </td>
+    <td>
+    Few citations with
+incorrect referencing.
+
+    </td>
+    <td>
+    Very few or No
+citations and
+incorrect or No
+referencing
+
+    </td>
+
+    <td colspan="2">
+    
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setcommunicationmarks3(e.target.value)}
+          value={communicationmarks3} />
+          
+
+
+    </td>
+
+</tr>
 {/* <tr>
     <td>
 
@@ -747,7 +787,7 @@ management
 
 <tr> <br></br>
     <div className="l3percentage">
-    Ability of commercialization / potential for entrepreneurship [Based on LO5] - []
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [15%]
 
     </div><br></br><br></br>
     {/* <th>
@@ -833,7 +873,7 @@ benefits
                 <tr>
                     <td style={{padding:"5px",margin:"5px"}}>
                     <label>
-           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 1:</b></label><br/><br/>
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Co supervisor:</b></label><br/><br/>
           <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name" 
           className = "input"
@@ -843,7 +883,7 @@ benefits
                     </td>
                 <td className="tabletd1">
                 <label>
-           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 2:</b></label><br/><br/>
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Supervisor:</b></label><br/><br/>
           <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name"
           className = "input"
