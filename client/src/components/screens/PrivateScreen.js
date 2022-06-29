@@ -10,6 +10,7 @@ import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 import { faRegistered } from '@fortawesome/free-solid-svg-icons';
 import { faDiagramProject } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -126,6 +127,12 @@ const PrivateScreen = ({history}) => {
 <a target="_blank" href="https://cdap-app-365.herokuapp.com/" id="Regs">Schedule Meeting</a>
 
 </div>
+
+<div className="StudentRectangle-44">
+      <FontAwesomeIcon className="iconsstudentdash" icon={faUser} />
+      <br/><br/>
+      <Link to="/userprofile" id="Regs">My Profile</Link>
+      </div>
 
       </div>
 
