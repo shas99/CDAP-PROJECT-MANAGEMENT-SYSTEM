@@ -116,8 +116,9 @@ exports.proposalReportMarkingConfiguration = async(req,res,next) =>{
    
 
 }
-//******** Retrieve Existing Marking Configuration Details for Proposal Presentation *********
 
+
+//******** Retrieve Existing Marking Configuration Details for Proposal Presentation *********
 exports.viewProposalReportMarkingDetails = async(req,res,next) => {
     console.log(req.params.id)
     try{
@@ -137,3 +138,69 @@ exports.viewProposalReportMarkingDetails = async(req,res,next) => {
         res.status(500).json({success:false, error:error.message})
     }
 }
+
+//******** Update Status Document Marking Configuration Details ********* 
+exports.statusDocumentMarkingConfiguration = async(req,res,next) =>{
+    const relevantMarkingID =req.params.id;
+    // const _id =relevantProjectID
+    const {totalContribution,stdesc01,stdesc02,stdesc03,stdesc04,marksEn01,marksEn02,marksEn03,marksEn04} = req.body
+    
+    try{
+        const markingRubrik = await MarkingRubrik.findById({
+            _id:relevantMarkingID,
+           
+        })
+    
+        if(!markingRubrik){
+            return next(new ErrorResponse("Project placed to bid not found",400))
+        }
+        // console.log(id)
+        
+      markingRubrik.affectedTotalContribution=totalContribution
+      markingRubrik.statusDocumentDescription01=stdesc01
+      markingRubrik.statusDocumentDescription02=stdesc02
+      markingRubrik.statusDocumentDescription03=stdesc03
+      markingRubrik.statusDocumentDescription04=stdesc04
+      markingRubrik.marksEntitledForStatusDocumentDescription01=marksEn01
+      markingRubrik.marksEntitledForStatusDocumentDescription02=marksEn02
+      markingRubrik.marksEntitledForStatusDocumentDescription03=marksEn03
+      markingRubrik.marksEntitledForStatusDocumentDescription04=marksEn04
+      
+
+        await markingRubrik.save()
+        res.status(201).json({
+            success: true,
+            data: "Status Document Marking updated"
+            
+        })
+     
+    }catch(error){
+        next(error)
+        console.log("Error in placing Document marking API");
+    }
+   
+}
+
+//******* Retrieve Existing Status Document Configuration Details ********/
+exports.viewStatusDocumentMarkingDetails = async(req,res,next) => {
+    console.log(req.params.id)
+    try{
+        const relevantStatusDocumentID = req.params.id;
+        const StatusDocumentDetails = await MarkingRubrik.findById(relevantStatusDocumentID)
+
+        console.log(StatusDocumentDetails.markingRubrikType)
+
+        if(StatusDocumentDetails.markingRubrikType=="Status Document"){
+
+        res.status(201).json({
+            success: true,
+            StatusDocumentDetails
+        })
+    }
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
+
+
+
