@@ -1,9 +1,8 @@
-import '../../styles/main.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
-
+import "./SubmissionAdmin.css";
 
 
 const SubmissionAdmin = ({history}) =>{
@@ -96,7 +95,7 @@ const toggle=()=> {//normal text box
 
   <>
   
-  <div id="back">
+  <div id="back555">
   <Header/>
   <h1 id="caption" className="">RP Submissions Page</h1>
       <br/><br/>
@@ -131,7 +130,7 @@ const toggle=()=> {//normal text box
         })} 
       </ul>
 
-        <Link to="/addSubmission" className="login-screen__forgotpassword">
+        <Link to="/addSubmission" className="login-screen__forgotpassword" id="link">
               Create new submission
             </Link>
       

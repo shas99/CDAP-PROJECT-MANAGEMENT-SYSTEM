@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./StaffDashboard.css";
+import "./EditSubmissions.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -236,13 +236,50 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
  
 }
 
+
+const DeleteSubmissionHandler = async (e) => {
+  e.preventDefault();
+
+ 
+  
+  try {
+    console.log(SubmissionID)
+    e.preventDefault();
+
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+    
+  console.log("testing")
+  
+  const { data } = await axios.delete(
+    "/api/STDAvailableSubmissions/deleteSubmission",
+    {data:{ SubmissionID }},
+    config
+  );
+  console.log(SubmissionID)
+    alert("Deleted!")
+
+  history.push("/adminPrivate");
+} catch (error) {
+  setError(error.response.data.error);
+  setTimeout(() => {
+    setError("");
+    console.log(error)
+  }, 5000);
+}
+
+};
+
   return  error ? ( 
   
     <span className="error-message">{error}</span>
   ) : ( 
 
     <>
-    <div id="back">
+    <div id="back1234">
 
     <Header/>
 
@@ -250,26 +287,26 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
     <button onClick={logOutHandler} id="logout">Log Out</button>
     </p>
-{SubmissionID}
+
     
     {flow == 0 &&
     <div>
-    <form>
+    <form id="headert123">
     <label>
         Submission Heading:
-        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading}/>
+        <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading} id="input"/>
     </label>
     <br/>
     <br/>
     <label>
         Submission Description:
-        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description}/>
+        <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description} id="input"/>
     </label>
     <br/>
     <br/>
     <label>
         Submission BatchID:
-        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID}/>
+        <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID} id="input"/>
     </label>
     <label>
         Enable submission
@@ -279,21 +316,21 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
     <br/>
     {/* <input type="submit" value="Submit" /> */}
     </form>
-      <button onClick={handleFlow}>
+      <button onClick={handleFlow} className="bluebuttons">
         Next
       </button>
   </div>
     }
   
     {flow == 1 &&
-    <div>
+    <div id="headert123">
         {/* <label>
             Enter field name:
         <input type="text" name="description" onChange={(e) => setField(Array=> [...Array,e.target.value])} */}
         
         <label>
         Enter the number of the field you want to make change to
-        <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)}/>
+        <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)} id="input"/>
     </label>
         <ul>{displayFields(Fields)}</ul>
         {/* />
@@ -303,34 +340,20 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
 
 
-    {/* <input type="text" name="description" onChange={toggle}/> */}
-    
-    <br/><br/>
-      {/* <button onClick={addField}>
-        Add a normal text box
-      </button>
 
-      <button onClick={addField2}>
-        Add a rich text editor
-      </button>
-
-      <button onClick={CreateSubmissionHandler}>
-        Create new submission
-      </button> */}
-
-      <button onClick={DeleteFieldHandler}>
+      <button onClick={DeleteFieldHandler} className="redbuttons1">
         Delete field
-      </button>
-      <button onClick={addField}>
+      </button><br/><br/>
+      <button onClick={addField} className="bluebuttons">
         Add a normal text box
-      </button>
+      </button><br/><br/>
 
-      <button onClick={addField2}>
+      <button onClick={addField2} className="bluebuttons">
         Add a rich text editor
       </button>
 
 
-      <button onClick={EditSubmission}>
+      <button onClick={EditSubmission} className="bluebuttons">
         Make changes
       </button>
 
@@ -338,18 +361,13 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
     
 } 
 
+<button onClick={DeleteSubmissionHandler} className="redbuttons">
+        Delete submission
+      </button>
 
 
 
 
-{Heading}
-    
-  {console.log(SubmissionData)}
-  {BatchID}<br/>
-    {Heading}<br/>
-    {Description}<br/>
-    temp:{temp}<br/>
-    {visibility}
 <Footer/>
 
 </div>

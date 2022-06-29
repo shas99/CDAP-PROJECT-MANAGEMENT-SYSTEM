@@ -45,7 +45,7 @@ try{
 // }
 
 
-
+//create new submission
 exports.addSubmission =async(req,res,next) => {
     const {BatchID,visibility,Heading,Description,Fields} = req.body
     
