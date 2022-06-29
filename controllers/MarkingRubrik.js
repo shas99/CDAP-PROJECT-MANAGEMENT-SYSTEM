@@ -51,12 +51,12 @@ exports.proposalMarkingConfiguration = async(req,res,next) =>{
 //******** Retrieve Existing Marking Configuration Details for Proposal Presentation *********
 
 exports.viewProposalMarkingDetails = async(req,res,next) => {
-    console.log(req.params.id)
+   
     try{
         const relevantProposalID = req.params.id;
         const proposalDetails = await MarkingRubrik.findById(relevantProposalID)
 
-        console.log(proposalDetails.markingRubrikType)
+        // console.log(proposalDetails)
 
         if(proposalDetails.markingRubrikType=="proposalPresentation"){
 
