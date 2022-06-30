@@ -32,6 +32,8 @@ import ProposalReportMarks from "./components/screens/ProposalReportMarks";
 
 //styling trial
 
+import EnterStatusDocument1Marks from "./components/screens/EnterStatusDocument1Marks"
+
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
@@ -107,6 +109,8 @@ const App = () => {
           <Route exact path="/addproposalpresentationmarks" component={ProposalPresentationMarks}/>
 
           <Route exact path="/addproposalreportmarks" component={ProposalReportMarks}/>
+
+          <Route exact path="/enterstatusdocument1marks" component={EnterStatusDocument1Marks}/>
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
