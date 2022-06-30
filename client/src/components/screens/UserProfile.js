@@ -78,6 +78,8 @@ const UserProfile = ({history}) => {
         console.log(err.message);
       });
   };
+
+  
   
 
   
@@ -108,6 +110,43 @@ const UserProfile = ({history}) => {
 
 
 <div className="UserProfilePic">
+
+
+{/* <div class="container">
+      <div class="row">
+        <div class="col-sm-8 mt-3">
+          <h4>Node.js upload images - bezkoder.com</h4>
+          <form class="mt-4"
+            action="/upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <input
+                type="file"
+                name="file"
+                id="input-files"
+                class="form-control-file border"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="preview-images"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> */}
+    
+
+  
+
       {/* <h1 id="userprofilecaption2">Upload Your Profile Pic!</h1> */}
       <form onSubmit={onSubmitHandler} id="submissionForm">
         {/* <input type="file" id="UPPic" onChange={fileChangeHandler} />

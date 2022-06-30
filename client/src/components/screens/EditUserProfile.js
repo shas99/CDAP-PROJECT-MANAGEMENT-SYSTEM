@@ -144,12 +144,14 @@ const EditUserProfile = ({history}) => {
 {/* <img src="images/Hamster.jpg"/> */}
 
 
+
+
 <div className="EditUserProfile">
      
       <form onSubmit={editprofilehandler} id="submissionForm">
       <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
-          className = "input" style={{color:"white"}}
+          className = "input" style={{color:"white",borderColor:"royalblue"}}
           name="name" 
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} />
@@ -157,7 +159,7 @@ const EditUserProfile = ({history}) => {
 
     <label className="PhoneNames">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
-          className = "input" style={{color:"white"}}
+          className = "input" style={{color:"white",borderColor:"royalblue"}}
           name="name" 
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phoneNumber} />
