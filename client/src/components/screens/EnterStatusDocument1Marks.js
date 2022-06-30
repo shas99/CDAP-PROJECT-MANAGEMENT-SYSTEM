@@ -66,3 +66,5 @@ const EnterStatusDocument1Marks = ({history}) => {
     }, [history])
 
 }
+
+export default EnterStatusDocument1Marks;
