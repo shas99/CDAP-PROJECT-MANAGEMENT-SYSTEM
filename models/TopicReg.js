@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const TopicRegSchema = new mongoose.Schema({//Topic Registration Model
 
-    
+
     groupID: {
         type: String
     },
@@ -39,8 +39,6 @@ const TopicRegSchema = new mongoose.Schema({//Topic Registration Model
     }
     
     
-   
-  
 
 
 })
