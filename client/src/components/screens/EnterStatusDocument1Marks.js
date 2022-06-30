@@ -8,6 +8,7 @@ const EnterStatusDocument1Marks = ({history}) => {
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
     const [projectNo, setprojectNo ] = useState("");
+    const [studentIDs, setstudentIDs ] = useState("");
     const [ganttchartmarks, setganttchartmarks] = useState("");
     const [actualtimemarks, setactualtimemarks] = useState("");
     const [breakdownmarks, setbreakdownmarks] = useState("");
@@ -42,6 +43,7 @@ const EnterStatusDocument1Marks = ({history}) => {
             }
         }
 
+        
         const fetchPrivateDate = async () => {
             const config = {
                 headers:{
@@ -59,11 +61,56 @@ const EnterStatusDocument1Marks = ({history}) => {
 
         }
 
+
         //fetch Marks Data()
 
         fetchPrivateDate();
         fetchenterstatusdocument1marksData()
     }, [history])
+
+    //logout feature
+    const logOutHandler = () => {
+        localStorage.removeItem("authToken");
+        history.push("/login");
+    }
+
+    const enterstatusdocument1marksHandler = async (e) => {
+        e.preventDefault();
+         const config = {
+            header: {
+                "Content-Type": "application/json",
+            },
+         }
+         try{
+            const {data}=await axios.post(
+                "/api/staffPrivate/addstatusdocument1marks",
+                { projectNo,studentIDs,ganttchartmarks,actualtimemarks,breakdownmarks,managementtoolmarks, ganttchartremarks,actualtimeremarks,breakdownremarks,managementtoolremarks,supervisor,cosupervisor},
+                config
+            );
+
+           history.push("/staffPrivate");
+         }catch(error){
+            setError(error.response.data.error);
+            setTimeout(() => {
+                setError("");
+
+            }, 5000)
+         }
+    }
+
+    const listHandler=()=>{
+        try{
+            const lists = enterstatusdocument1marks.map((n)=>
+            <li>{n}</li>)
+            return(
+                <ul>{lists}</ul>
+
+            )
+        }catch(e){
+            console.error(e)
+        }
+    }
+
 
 }
 
