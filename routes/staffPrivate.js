@@ -16,7 +16,7 @@ router.route("/addmarks").post(addmarks)
 router.route("/addproposalreportmarks").post(addproposalreportmarks)
 
 //add status document 1 marks
-
+router.route("/addstatusdocument1marks").post(addstatusdocument1marks)
 
 
 
