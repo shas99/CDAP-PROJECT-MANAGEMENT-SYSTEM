@@ -177,6 +177,7 @@ const EnterStatusDocument1Marks = ({history}) => {
     <th className="proposalpresentationmarking"> Description </th>
     <th className="proposalpresentationmarking">MAX.MARKS ENTITLED </th>
     <th className="proposalpresentationmarking"> MARKS GIVEN </th>
+    
     <div className="proposalpresentationremarks"> REMARKS </div>
 
   </tr>
