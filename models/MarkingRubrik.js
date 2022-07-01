@@ -6,7 +6,6 @@ const MarkingRubrikSchema = new mongoose.Schema({ //Rubrik Schema
     markingRubrikType:{
         type:"String"
     },
-
     affectedTotalContribution:{
         type:String
     },

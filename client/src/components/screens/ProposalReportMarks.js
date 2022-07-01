@@ -27,9 +27,19 @@ const ProposalReportMarks = ({history}) => {
     const [commercializationmarks1, setcommercializationmarks1] = useState("");
     const [enterproposalreportmarks,setenterproposalreportmarks] = useState("")
     const [fetchenterproposalreportmarksData, setenterproposalreportmarksData] = useState("");
+    const [totalContribution ,setTotalContribution] = useState("");
+    const [excellent,setExcellent] = useState("");
+    const [good,setGood] = useState("");
+    const [average,setAverage] = useState("");
+    const [belowAverage,setBelowAverage] = useState("");
+    const [l01,setl01] = useState("");
+    const [l02,setl02] = useState("");
+    const [l03,setl03] = useState("");
+    const [l04,setl04] = useState("");
+    const [l05,setl05] = useState("");
+
+    const proposalReportMarkingID = "62b5f7ef425a8a64871de741";
     
-
-
     useEffect(() => {
         const fetchenterproposalreportmarksData= async () => {
             const enterproposalreportmarksconfig = {
@@ -102,31 +112,31 @@ const ProposalReportMarks = ({history}) => {
             }, 5000)
          }
     }
-    // //*********** GET PROPOSAL MARKING CONFIGURATION DATA *********** */
-    // const getRelevantProposalMarkingConfigData =async ()=>{
+    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
+    const getRelevantProposaReportlMarkingConfigData =async ()=>{
      
-    //     try{
-    //       const{data}=await axios.get(`/api/markingRubrik/proposalMarkingConfiguration/${proposalMarkingID}`);
+        try{
+          const{data}=await axios.get(`/api/markingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
          
-    //      setTotalContribution(data.proposalDetails.affectedTotalContribution)
-    //      setExcellent(data.proposalDetails.excellentGradeRange)
-    //      setGood(data.proposalDetails.goodGradeRange)
-    //      setAverage(data.proposalDetails.averageGradeRange)
-    //      setBelowAverage(data.proposalDetails.belowAverageGradeRange)
-    //      setl01(data.proposalDetails.affectedL01Grade)
-    //      setl02(data.proposalDetails.affectedL02Grade)
-    //      setl03(data.proposalDetails.affectedL03Grade)
-    //      setl04(data.proposalDetails.affectedL04Grade)
-    //      setl05(data.proposalDetails.affectedL05Grade)
+         setTotalContribution(data.proposalDetails.affectedTotalContribution)
+         setExcellent(data.proposalDetails.excellentGradeRange)
+         setGood(data.proposalDetails.goodGradeRange)
+         setAverage(data.proposalDetails.averageGradeRange)
+         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
+         setl01(data.proposalDetails.affectedL01Grade)
+         setl02(data.proposalDetails.affectedL02Grade)
+         setl03(data.proposalDetails.affectedL03Grade)
+         setl04(data.proposalDetails.affectedL04Grade)
+         setl05(data.proposalDetails.affectedL05Grade)
          
-    //     }catch(error){
+        }catch(error){
           
           
-    //     }
+        }
         
   
-    //   }
-    //   getRelevantProposalMarkingConfigData();
+      }
+      getRelevantProposaReportlMarkingConfigData();
   
 
 
@@ -168,7 +178,7 @@ const ProposalReportMarks = ({history}) => {
             
           <div className="entermarksbackground">        
           <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enter_marks">
-      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = 5 % ]</h3>
+      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = {totalContribution} ]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <table className="tablemarks1">
@@ -211,14 +221,14 @@ const ProposalReportMarks = ({history}) => {
         <table className="proposalpresentationmarking">
         <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-    <th className="proposalpresentationmarking"> Excellent[100-75] </th>
-    <th className="proposalpresentationmarking"> Good[74-60] </th>
-    <th className="proposalpresentationmarking"> Average[59-40] </th>
-    <th className="proposalpresentationmarking"> Below Average[39-0] </th>
+    <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
+    <th className="proposalpresentationmarking"> Good[{good}] </th>
+    <th className="proposalpresentationmarking"> Average[{average}] </th>
+    <th className="proposalpresentationmarking"> Below Average[{belowAverage}] </th>
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
   </tr>
   <tr>  <br></br>
-   <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [35%]</div>
+   <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [{l01}]</div>
    <br></br><br></br><br/>
   
     
@@ -345,7 +355,7 @@ has been done
 </tr> */}
 <tr> <br></br>
     <div className="l0percentage">
-    Capability in applying the knowledge in particular stream [Based on LO2] - [30%]
+    Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}]
     </div><br></br><br></br>
 </tr>
 <tr>
@@ -455,7 +465,7 @@ used.
 
 <tr> <br></br>
     <div className="l0percentage"> 
-        Solution Implementation [Based on LO3] - [5%]    
+        Solution Implementation [Based on LO3] - [{l03}]    
         </div><br></br><br></br>
     {/* <th  className="tableheading">Solution Implementation [Based on LO3] - [{l03}]</th> */}
 
@@ -624,7 +634,7 @@ distribution.
 
 <tr> <br></br>
     <div className="l2percentage">
-        Effective communication [Based on LO4]-[15%]
+        Effective communication [Based on LO4]-[{l04}]
     </div><br></br><br></br>
     {/* <th>
     Effective Communication [Based on LO4] - [{l04}]
@@ -787,7 +797,7 @@ referencing
 
 <tr> <br></br>
     <div className="l3percentage">
-    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [15%]
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
 
     </div><br></br><br></br>
     {/* <th>
