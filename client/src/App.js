@@ -65,6 +65,7 @@ import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocum
 
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
+import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
 
 
 
@@ -147,6 +148,7 @@ const App = () => {
          <Route exact path="/proposalreportmarkingconfiguration" component={ProposalReportMarkingConfiguration}/>
          <Route exact path="/statusdocumentmarkingconfiguration" component={StatusDocumentMarkingConfiguration}/>
          
+         <Route exact path="/progresspresentationmarkingconfiguration" component={ProgressPresentationMarkingConfiguration}/>
 
 
          <Route exact path="/userprofile" component={UserProfile}/>

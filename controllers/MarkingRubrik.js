@@ -202,5 +202,66 @@ exports.viewStatusDocumentMarkingDetails = async(req,res,next) => {
     }
 }
 
+//******** Retrieve Progress Presentation 01 Marking Configuration Details *********
+exports.ViewProgressPresentationMarkingDetails= async(req,res,next) =>{
+    try{
+        const relevantProgressPresentation01DocumentID = req.params.id;
+        const ProgressPresentation01Details = await MarkingRubrik.findById(relevantProgressPresentation01DocumentID)
+        console.log(ProgressPresentation01Details.markingRubrikType)
+
+        if(ProgressPresentation01Details.markingRubrikType=="Progress Presentation 01"){
+
+        res.status(201).json({
+            success: true,
+            ProgressPresentation01Details
+        })
+    }
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
+
+//******* Update Progess Presentation 01 Marking Configuration Details ****/
+exports.progressPresentationMarkingConfiguration = async(req,res,next) =>{
+    const relevantMarkingID =req.params.id;
+    // const _id =relevantProjectID
+    const {totalContribution,excellent,good,average,belowAverage,l01,l02,l03,l04,l05} = req.body
+
+    
+    try{
+        const markingRubrik = await MarkingRubrik.findById({
+            _id:relevantMarkingID,
+           
+        })
+    
+        if(!markingRubrik){
+            return next(new ErrorResponse("Project to bid not found",400))
+        }
+        // console.log(id)
+        
+        markingRubrik.affectedTotalContribution=totalContribution
+        markingRubrik.excellentGradeRange=excellent
+        markingRubrik.goodGradeRange=good
+        markingRubrik.averageGradeRange=average
+        markingRubrik.belowAverageGradeRange=belowAverage
+        markingRubrik.affectedL01Grade=l01
+        markingRubrik.affectedL02Grade=l02
+        markingRubrik.affectedL03Grade=l03
+        markingRubrik.affectedL04Grade=l04
+        markingRubrik.affectedL05Grade=l05
+        
+
+        await markingRubrik.save()
+        res.status(201).json({
+            success: true,
+            data: "Progress Presentation 01 Marking updated"
+            
+        })
+     
+    }catch(error){
+        next(error)
+        console.log("Error in placing Document marking API");
+    }
+}
 
 
