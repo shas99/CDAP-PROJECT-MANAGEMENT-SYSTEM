@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,w,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
+const {proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
 
 
 //Proposal Presentation Routes
@@ -19,7 +19,7 @@ router.route("/statusDocumentMarkingConfiguration/:id").get(viewStatusDocumentMa
 
 //Progress Presentation 01 Routes
 router.route("/progressPresentationMarkingConfiguration/update/:id").put(progressPresentationMarkingConfiguration)
-router.route("/progressPresentationMarkingConfiguration/:id").get(viewProgressPresentationMarkingDetails)
+router.route("/progressPresentationMarkingConfiguration/:id").get(ViewProgressPresentationMarkingDetails)
 
 module.exports = router
 
