@@ -177,8 +177,9 @@ const EnterStatusDocument1Marks = ({history}) => {
     <th className="proposalpresentationmarking"> Description </th>
     <th className="proposalpresentationmarking">MAX.MARKS ENTITLED </th>
     <th className="proposalpresentationmarking"> MARKS GIVEN </th>
+    {/* <th style={{borderLeft:"none"}}></th> */}
     
-    <div className="proposalpresentationremarks"> REMARKS </div>
+    <th className="proposalpresentationremarks"> REMARKS </th>
 
   </tr>
  
@@ -195,7 +196,7 @@ const EnterStatusDocument1Marks = ({history}) => {
     25 marks
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -207,7 +208,7 @@ const EnterStatusDocument1Marks = ({history}) => {
 
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
    <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
    name="name" 
@@ -237,7 +238,7 @@ recourse utilization to achieve deadline.)
     25 marks
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -249,7 +250,7 @@ recourse utilization to achieve deadline.)
 
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -275,7 +276,7 @@ for each areas.
     25 marks
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -287,7 +288,7 @@ for each areas.
 
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -318,7 +319,7 @@ for each areas.
     25 marks
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -330,7 +331,7 @@ for each areas.
 
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td  className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
