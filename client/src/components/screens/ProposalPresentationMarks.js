@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 // import "./MatchedSupervisors.css";
-import "./MarksScreen.css";
+import "./ProposalPresentationMarksScreen.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 
-const EnterMarks = ({history}) => {
+const ProposalPresentationMarks = ({history}) => {
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
     const [groupID, setgroupID]= useState("");
@@ -1029,7 +1029,7 @@ benefits
         </>
       );
 }
-export default EnterMarks;
+export default ProposalPresentationMarks;
             
           
 
