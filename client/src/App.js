@@ -26,9 +26,13 @@ import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
-import EnterMarks from "./components/screens/EnterMarks";
+import ProposalPresentationMarks from "./components/screens/ProposalPresentationMarks";
+
+import ProposalReportMarks from "./components/screens/ProposalReportMarks";
 
 //styling trial
+
+import EnterStatusDocument1Marks from "./components/screens/EnterStatusDocument1Marks"
 
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
@@ -45,6 +49,9 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
 
+//mark dashboard
+import MarkDashboard from "./components/screens/MarkDashboard";
+
 import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
@@ -57,8 +64,14 @@ import EditSubmission from "./components/screens/EditSubmissions"
 
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
+
+import ProposalReportMarkingConfiguration from "./components/screens/ProposalReportMarkingConfiguration";
+import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocumentMarkingConfiguration";
+
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
+import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
+
 
 
 
@@ -100,7 +113,11 @@ const App = () => {
 
           <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
 
-          <Route exact path="/addmarks" component={EnterMarks}/>
+          <Route exact path="/addproposalpresentationmarks" component={ProposalPresentationMarks}/>
+
+          <Route exact path="/addproposalreportmarks" component={ProposalReportMarks}/>
+
+          <Route exact path="/enterstatusdocument1marks" component={EnterStatusDocument1Marks}/>
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
@@ -122,6 +139,8 @@ const App = () => {
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
 
+         <Route exact path="/markdashboard" component={MarkDashboard}/>
+
          <Route exact path="/adminLogin" component={AdminLoginScreen}/>
 
          <Route exact path="/adminPrivate" component={AdminDashboard}/>
@@ -131,8 +150,16 @@ const App = () => {
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
          <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
          <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
+
+         <Route exact path="/proposalreportmarkingconfiguration" component={ProposalReportMarkingConfiguration}/>
+         <Route exact path="/statusdocumentmarkingconfiguration" component={StatusDocumentMarkingConfiguration}/>
+         
+         <Route exact path="/progresspresentationmarkingconfiguration" component={ProgressPresentationMarkingConfiguration}/>
+
+
          <Route exact path="/userprofile" component={UserProfile}/>
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
+
          
          
 
