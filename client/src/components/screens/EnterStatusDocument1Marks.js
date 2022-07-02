@@ -98,19 +98,6 @@ const EnterStatusDocument1Marks = ({history}) => {
          }
     }
 
-    const listHandler=()=>{
-        try{
-            const lists = enterstatusdocument1marks.map((n)=>
-            <li>{n}</li>)
-            return(
-                <ul>{lists}</ul>
-
-            )
-        }catch(e){
-            console.error(e)
-        }
-    }
-
     return  error ? ( 
   
         <span className="error-message">{error}</span>
@@ -353,26 +340,24 @@ for each areas.
 
     </td>
     <td className="proposalpresentationmarking">
-    25 marks
+   100 marks
     </td>
 
     <td  className="proposalpresentationmarking">
-        100 marks
-
+        
     </td>
 
-    <td  className="proposalpresentationmarking">
-   
-    </td>
-
-    
     <td  className="proposalpresentationmarking">
    
     </td>
+
+
     </tr>
 
 
         </table>
+
+      
 
 
         
@@ -400,160 +385,13 @@ for each areas.
           onChange={(e) => setsupervisor(e.target.value)}
           value={supervisor} />
                 </td>
-                {/* <td className="tabletd1">
-                <label>
-           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
-          <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-          name="name"
-          className = "input"
-          onChange={(e) => setmoderator(e.target.value)}
-          value={moderator} />
-
-                </td> */}
+          
                 </tr>
             </table>
        
                   
                   </div>
-                  {/* <div className="form-group">
-                  <label>
-           Proven Gap marks 1:</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setprovengapmarks1(e.target.value)}
-          value={provengapmarks1} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Proven gap marks 2</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setprovengapmarks2(e.target.value)}
-          value={provengapmarks2} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Capability marks 1</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setcapabilitymarks1(e.target.value)}
-          value={capabilitymarks1} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Capability marks 2</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setcapabilitymarks2(e.target.value)}
-          value={capabilitymarks2} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Implementation marks 1</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setimplementationmarks1(e.target.value)}
-          value={implementationmarks1} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Implemetation marks 2</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setimplementationmarks2(e.target.value)}
-          value={implementationmarks2} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Implemetation marks 3</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setimplementationmarks3(e.target.value)}
-          value={implementationmarks3} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Communication marks 1</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setcommunicationmarks1(e.target.value)}
-          value={communicationmarks1} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-          Communication marks 2</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setcommunicationmarks2(e.target.value)}
-          value={communicationmarks2} />
-          
-    
-        
-        </div>
-
-        <div className="form-group">
-                  <label>
-           Commercialization marks 1</label>
-          <input type="text" 
-          name="name" 
-          className = "input"
-          onChange={(e) => setcommercializationmarks1(e.target.value)}
-          value={commercializationmarks1} />
-          
-    
-        
-        </div> */}
-
-        {/* <div className="form-group">
-     
-        
-        </div>
-
-        <div className="form-group">
-       
-        
-        </div> */}
+         
 
 
       <button type="submit" style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}} className="btn btn-primary1" id="Log1Button">
@@ -563,8 +401,7 @@ for each areas.
         
       </form></div>
           </div>
-      
-          {/* <Footer/> */}
+    
      
         </>
       );
