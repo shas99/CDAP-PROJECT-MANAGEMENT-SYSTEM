@@ -9,6 +9,8 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 // //Footer
 // import Footer from "./components/Footer/Footer";
 
+import SideNavigationBar from "./components/screens/SideNavigationBar";
+
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
@@ -73,6 +75,8 @@ const App = () => {
   return (
     <Router>
       {/* <Header /> */}
+     
+
       <div className="app">
         <Switch>
           <PrivateRoute exact path="/" component={PrivateScreen} />
@@ -88,6 +92,7 @@ const App = () => {
             path="/passwordreset/:resetToken"
             component={ResetPasswordScreen}
           />
+         
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
@@ -153,6 +158,7 @@ const App = () => {
 
          <Route exact path="/userprofile" component={UserProfile}/>
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
+         <Route exact path="/sideNavBar" component={SideNavigationBar}/>
 
          
          

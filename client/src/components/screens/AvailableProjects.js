@@ -11,6 +11,7 @@ export default class AvailableProjects extends Component {
       availableprojects: [],
     };
   } 
+  
   componentDidMount() {
     this.retrieveAvailableProjects();
   }
@@ -23,6 +24,7 @@ export default class AvailableProjects extends Component {
 
         console.log(this.state.availableprojects)
       }
+   
     });
   }
 

@@ -68,6 +68,7 @@ const PrivateScreen = ({history}) => {
     <div className="row1">
       <div className="StudentRectangle-36" >
       <FontAwesomeIcon className="iconsstudentdash" icon={faCommentDots} />
+      <img src="../../images/" alt="student" className="studentdash"/>
 
       
 
@@ -119,7 +120,7 @@ const PrivateScreen = ({history}) => {
       <div className="StudentRectangle-43">
       <FontAwesomeIcon className="iconsstudentdash" icon={faFileArrowUp} />
       <br/><br/>
-      <Link to="/submissionmilestone" id="Regs">Submit File</Link>
+      <Link to="/sideNavBar" id="Regs">Submit File</Link>
       </div>
 
       <div className="StudentRectangle-43">
