@@ -83,4 +83,23 @@ exports.viewBatchID =async(req,res,next) => {
 };
 
 
+//***** VIEW SPECIFIC PROJECT API******** 
+exports.viewspecificSubmission = async(req,res,next) => {
+    //console.log(req.params.id)
+    try{
+        const availablesubmissionid = req.params.id;
+        console.log(availablesubmissionid+"Success")
+        const availableSubmissions = await SubmissionPage.findById(availablesubmissionid)//group that is approved and have this perticular membe
+        // console.log("Projects bidding details :",availableProjects.bidding)
+        res.status(201).json({
+            success: true,
+            data:availableSubmissions
+        })
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
+
+
+
 

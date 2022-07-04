@@ -4,7 +4,7 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    }
+}
 
 .Heading{
     position: absolute;
@@ -60,4 +60,17 @@
 
     
     
+}
+
+.submitbtn{
+    font-size: small;
+    min-width: fit-content;
+    max-width: max-content;
+    min-height: fit-content;
+    max-height: max-content;
+    font-weight: 400;
+}
+
+.btnicon{
+    font-size: small;
 }

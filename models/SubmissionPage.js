@@ -19,6 +19,9 @@ const SubmissionPageSchema = new mongoose.Schema({ //SubmissionPage Schema
     Date: {
         type: Date
     },
+    Fields: {
+        type: Array
+    }
 
     
 })

@@ -29,13 +29,15 @@ import StaffRecommendationForm from "./components/screens/StaffRecommendationFor
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
-import Submission from "./components/screens/SubmissionScreen";
+//import Submission from "./components/screens/SubmissionScreen";
 import StaffReport from "./components/screens/StaffReportScreen"
 import ViewAvailableProjectsStaff from "./components/screens/StaffAvailableProject";
 import OPT from "./components/screens/OTPScreen";
 
 import StudentTopicInterestingForm from "./components/screens/StudentTopicInterestingForm";
 import SubmissionMilestones from "./components/screens/SubmissionMilestones";
+import Submission from "./components/screens/Submission";
+
 import ViewGroup from "./components/screens/StaffviewGroup";
 
 
@@ -103,6 +105,8 @@ const App = () => {
          <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
          <Route exact path="/OPT" component={OPT}/>
          <Route exact path="/submissionmilestone" component={SubmissionMilestones}/>
+         <Route exact path="/submission/:id" component={Submission}/>
+
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
 

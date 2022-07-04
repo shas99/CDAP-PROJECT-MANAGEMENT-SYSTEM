@@ -10,6 +10,9 @@ import { Batch } from 'aws-sdk';
 
 import Parser from 'html-react-parser';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -52,6 +55,7 @@ const SubmissionMilestones = ({history}) =>{
         const{data} = await axios.get("/api/STDAvailableSubmissions/availableSubmissions",submissionsconfig);
         const array = Object.entries(data.data)
         setSubmissionsData(data.data);
+        console.log(array)
 
         
       }catch(error){
@@ -142,8 +146,10 @@ const SubmissionMilestones = ({history}) =>{
               <li className="des"><p>{Parser(submission.Description)}</p></li>
               <li className="link"><p>{submission.SubmissionPageLink}</p></li><br></br>
               </div>
+              <div className="submitbtn" style={{backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />
+              &nbsp;&nbsp;Add Submission&nbsp;&nbsp;</a></div>
+
               <div className="date"><p >Updated on {submission.Date}</p></div>
-              {/* <p>{submission.BatchID}</p> */}
               
             </div>
             
