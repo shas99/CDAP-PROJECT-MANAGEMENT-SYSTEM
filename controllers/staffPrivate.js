@@ -5,6 +5,7 @@ const entermarks = require('../models/Marks');
 const enterstatusdocument1marks = require('../models/StatusDocument1Marks');
 
 const enterproposalreportmarks = require('../models/ProposalReportMarks');
+const enterprogresspresentation1marks = require('../models/ProgressPresentation1Marks');
 exports.getPrivateData = async (req,res,next) => {
     let token//to retreive username in backend
 
@@ -79,6 +80,25 @@ exports.addstatusdocument1marks = async(req,res,next) => {
         })
         res.status(210).json({
             success: true,
+            data: "Added marks successfully"
+        })
+    }catch(error){
+        next(error)
+    }
+}
+
+//Add progress presentation 1 marks method
+exports.addprogresspresentaion1marks = async(req,res,next) => {
+    const {groupID,studentIDs,studentnames,provengapmarks1, provengapmarks2, capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,implementationmarks4,implementationmarks5,communicationmarks1,communicationmarks2,commercializationmarks,extrafeedback,recommendation,examiner1,examiner2,moderator} = req.body
+
+    console.log("Error finding" + groupID)
+    try{
+        const progresspresentaion1marksadd = await enterprogresspresentation1marks.create({
+            groupID,studentIDs,studentnames,provengapmarks1, provengapmarks2, capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,implementationmarks4,implementationmarks5,communicationmarks1,communicationmarks2,commercializationmarks,extrafeedback,recommendation,examiner1,examiner2,moderator
+
+        })
+        res.status(210).json({
+            success:true,
             data: "Added marks successfully"
         })
     }catch(error){
