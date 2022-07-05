@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getPrivateData, addmarks, addproposalreportmarks, addstatusdocument1marks } = require("../controllers/staffPrivate");
+const { getPrivateData, addmarks, addproposalreportmarks, addstatusdocument1marks , addprogresspresentation1marks} = require("../controllers/staffPrivate");
 
 const { protect } = require("../middleware/staffAuth");
 
