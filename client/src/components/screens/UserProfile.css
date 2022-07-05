@@ -82,4 +82,28 @@
    font-weight: bold;
    margin-left: 75px;
 }
-    
+
+.userprofileBox{
+   width: 500px;
+   padding: 1.5rem;
+   /* margin-top: -330px; */
+   margin-left: 20px;
+   box-shadow: 0 1rem 2rem royalblue;
+   background: #161b22;
+   border-radius: 5px;
+   color: white;
+   border-width: 2px;
+   border-style: solid;
+   border-color: #21262d;
+   height: 20rem;
+}
+
+.boxboxbox{
+   border-width: 2px;
+   border-style: solid;
+   border-color: #21262d;
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+   background: #161b22;
+   border-radius: 5px;
+   height: 162px;
+}
