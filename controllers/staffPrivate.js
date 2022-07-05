@@ -88,7 +88,7 @@ exports.addstatusdocument1marks = async(req,res,next) => {
 }
 
 //Add progress presentation 1 marks method
-exports.addprogresspresentaion1marks = async(req,res,next) => {
+exports.addprogresspresentation1marks = async(req,res,next) => {
     const {groupID,studentIDs,studentnames,provengapmarks1, provengapmarks2, capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,implementationmarks4,implementationmarks5,communicationmarks1,communicationmarks2,commercializationmarks,extrafeedback,recommendation,examiner1,examiner2,moderator} = req.body
 
     console.log("Error finding" + groupID)
