@@ -1,7 +1,7 @@
 .userprofileClass{
     width: 100%;
     height: 100%;
-    position: fixed;
+    position:-webkit-sticky;
     background-color: #22272E;
  }
 
@@ -98,12 +98,18 @@
    height: 20rem;
 }
 
-.boxboxbox{
+
+
+.userprofileBox1{
    border-width: 2px;
    border-style: solid;
    border-color: #21262d;
    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
    background: #161b22;
    border-radius: 5px;
-   height: 162px;
+   width: 500px;
+   margin-left: 20px;
+   height: 20rem;
+   box-shadow: 0 1rem 2rem #8256D0;
+  
 }
