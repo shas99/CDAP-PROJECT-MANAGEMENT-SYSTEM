@@ -215,8 +215,11 @@ const EnterStatusDocument1Marks = ({history}) => {
     <td className="proposalpresentationmarking" >
         1
     </td>
+   
     <td className="proposalpresentationmarking">
-   {stdesc01}
+   
+ <div  dangerouslySetInnerHTML={{__html: stdesc01}}/>  
+   
     </td>
     <td className="proposalpresentationmarking">
     {marksEn01}
@@ -252,7 +255,7 @@ const EnterStatusDocument1Marks = ({history}) => {
         2
     </td>
     <td className="proposalpresentationmarking">
-   {stdesc02}
+    <div  dangerouslySetInnerHTML={{__html: stdesc02}}/>  
     </td>
     <td className="proposalpresentationmarking">
   {marksEn02}  
@@ -288,7 +291,7 @@ const EnterStatusDocument1Marks = ({history}) => {
         3
     </td>
     <td className="proposalpresentationmarking">
-   {stdesc03}
+    <div  dangerouslySetInnerHTML={{__html: stdesc03}}/>  
 
     </td>
     <td className="proposalpresentationmarking">
@@ -325,7 +328,7 @@ const EnterStatusDocument1Marks = ({history}) => {
         4
     </td>
     <td className="proposalpresentationmarking">
-  {stdesc04}
+    <div  dangerouslySetInnerHTML={{__html: stdesc04}}/>  
  
  {/* dddd */}
 
