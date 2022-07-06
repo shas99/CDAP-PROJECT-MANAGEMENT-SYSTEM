@@ -21,6 +21,8 @@
    font-size:large;
    font-weight: bolder;
    color: royalblue;
+   margin-top: -700px;
+   margin-left: 1250px;
 }
 
 #userprofilecaption2:hover{
@@ -109,7 +111,65 @@
    border-radius: 5px;
    width: 500px;
    margin-left: 20px;
-   height: 20rem;
+   height: 12rem;
    box-shadow: 0 1rem 2rem #8256D0;
   
+}
+
+.nextPageBox{
+   border-width: 2px;
+   border-style: solid;
+   border-color: #21262d;
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+   background: #161b22;
+   width: 275px;
+   margin: 0 auto;
+   
+  
+}
+
+#firstButt{
+   margin-left: 25px;
+   background-color: royalblue;
+}
+#firstButt:hover{
+   background-color: green;
+}
+
+#secondButt{
+   margin-left: 25px;
+   background-color: red;
+}
+#secondButt:hover{
+   background-color: orange;
+}
+
+#thirdButt{
+   margin-left: 25px;
+   background-color: green;
+}
+#thirdButt:hover{
+   background-color: yellow;
+}
+
+#fourthButt{
+   margin-left: 25px;
+   background-color: orange;
+}
+#fourthButt:hover{
+   background-color: teal;
+}
+#fifthButt{
+   margin-left: 25px;
+   background-color: cornflowerblue;
+}
+#fifthButt:hover{
+   background-color: crimson;
+}
+#sixthButt{
+   margin-left: 25px;
+   background-color: brown;
+}
+#sixthButt:hover{
+   background-color: bisque;
 }

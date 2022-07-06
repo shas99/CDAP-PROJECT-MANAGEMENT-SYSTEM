@@ -128,14 +128,17 @@ const EditUserProfile = ({history}) => {
       <h1 id="userprofilecaption">Edit My Profile</h1>
       
       
-        
-        <p className="userprofilecontent1"> {fetchFeedbackData.email}</p> 
-        <p className="userprofilecontent2"> {fetchFeedbackData.username}</p> 
-        <p className="userprofilecontent1"> {fetchFeedbackData.address}</p> 
-        <p className="userprofilecontent2"> {fetchFeedbackData.phoneNumber}</p> 
+      <div className="userprofileBox">
+      <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
+        <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
+        <p className="userprofilecontent2"> Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.username}</p> 
+        <p className="userprofilecontent1"> Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.address}</p> 
+        <p className="userprofilecontent2"> Phone Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.phoneNumber}</p> 
        
         <p className="userprofilecontent2"> {personalAddress}</p> 
         <p className="userprofilecontent2"> {phoneNumber}</p> 
+      </div>
+      <br/>
         {/* <form action="/single" method="POST" enctype="multipart/form-data">
         <input type="file" name="image"/>
         <button type="submit">Submit</button>
@@ -146,16 +149,16 @@ const EditUserProfile = ({history}) => {
 
 
 
-<div className="EditUserProfile">
+
      
-      <form onSubmit={editprofilehandler} id="submissionForm">
+      <form onSubmit={editprofilehandler} id="submissionForm" className="EditFormProfile">
       <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
           className = "input" style={{color:"white",borderColor:"royalblue"}}
           name="name" 
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} />
-          <br></br><br/>
+          
 
     <label className="PhoneNames">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
@@ -169,7 +172,7 @@ const EditUserProfile = ({history}) => {
         </button>
 
       </form>
-    </div>
+   
       
      
       {/* <Footer/> */}

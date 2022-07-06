@@ -5,6 +5,7 @@ import "./UserProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 
 const UserProfile = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -104,9 +105,25 @@ const UserProfile = ({history}) => {
 
       <div className="userprofileBox1">
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Skills</h2>
+        <button type="button" class="btn btn-primary" id="firstButt">Coding</button>
+        <button type="button" class="btn btn-primary" id="secondButt">DevOps</button>
+        <button type="button" class="btn btn-primary" id="thirdButt">SQL</button>
+        <button type="button" class="btn btn-primary" id="fourthButt">Algorithms</button>
+        <button type="button" class="btn btn-primary" id="fifthButt">Heroku</button>
+        <button type="button" class="btn btn-primary" id="sixthButt">Java</button>
+         
       </div>
+      <br/><br/><br/><br/><br/>
       
+      
+      <form onSubmit={onSubmitHandler} id="submissionForm">
         
+        <h1 id="userprofilecaption2">Update Your Profile!</h1>
+        <div className="btn btn-success" id="UpbUTTON" style={{fontSize:"medium",fontWeight:"bold",backgroundColor:'#8256D0',width:"170px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",marginLeft:"1300px",padding:"5px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
+
+      </form>
+     
+      <br/>
        
 
         {/* <form action="/single" method="POST" enctype="multipart/form-data">
@@ -117,7 +134,7 @@ const UserProfile = ({history}) => {
 {/* <img src="images/Hamster.jpg"/> */}
 
 
-<div className="UserProfilePic">
+{/* <div className="UserProfilePic"> */}
 
 
 {/* <div class="container">
@@ -157,14 +174,9 @@ const UserProfile = ({history}) => {
 
       {/* <h1 id="userprofilecaption2">Upload Your Profile Pic!</h1> */}
     
-      <form onSubmit={onSubmitHandler} id="submissionForm">
-        
-        <h1 id="userprofilecaption2">Update Your Profile!</h1>
-        <div className="btn btn-success" id="UpbUTTON" style={{fontSize:"medium",fontWeight:"bold",backgroundColor:'#8256D0',width:"170px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",marginLeft:"75px",padding:"5px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
-
-      </form>
+     
       
-    </div>
+    {/* </div> */}
 
     {/* <input type="file" id="UPPic" onChange={fileChangeHandler} />
         <br />

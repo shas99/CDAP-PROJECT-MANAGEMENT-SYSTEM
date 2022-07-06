@@ -1,7 +1,9 @@
 .userprofileClass{
     width: 100%;
-    height: 100%;
+    height: 950px;
     /* position: fixed; */
+   
+    position:relative;
     background-color: #22272E;
  }
 
@@ -99,5 +101,11 @@
 }
 
 #editUserButton{
-    margin-left: 150px;
+    margin-left: 5px;
+    margin-top: -7px;
+}
+
+.EditFormProfile{
+   margin-top: -50px;
+   margin-left: 25px;
 }
