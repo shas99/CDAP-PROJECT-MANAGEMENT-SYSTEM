@@ -10,6 +10,7 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 // import Footer from "./components/Footer/Footer";
 
 import SideNavigationBar from "./components/screens/SideNavigationBar";
+import Dashboard from './components/screens/Dashboard'
 
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
@@ -159,6 +160,8 @@ const App = () => {
          <Route exact path="/userprofile" component={UserProfile}/>
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
          <Route exact path="/sideNavBar" component={SideNavigationBar}/>
+         <Route exact path="/dashboard" component={Dashboard}/>
+
 
          
          
