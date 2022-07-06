@@ -197,7 +197,7 @@ export default function Dashboard ({history}) {
 
 
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-10 px-7 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-3 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5">
                 
                 <div id="col" class='lg:w-[38vw] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Hey, <span class="font-semibold"> {privateData2}</span></h1>
