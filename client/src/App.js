@@ -51,7 +51,7 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
-
+import login  from "./components/screens/login";
 //mark dashboard
 import MarkDashboard from "./components/screens/MarkDashboard";
 
@@ -161,6 +161,8 @@ const App = () => {
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
          <Route exact path="/sideNavBar" component={SideNavigationBar}/>
          <Route exact path="/dashboard" component={Dashboard}/>
+         <Route exact path="/loginNew" component={login}/>
+         
 
 
          
