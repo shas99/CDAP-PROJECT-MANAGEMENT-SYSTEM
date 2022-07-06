@@ -17,6 +17,9 @@ exports.getPrivateData = async (req,res,next) => {
     res.status(200).json({
         sucess: true,
         data: user.email,
+        data2: user.username,
+        data3:user.studentID
+      
     })
 
 
