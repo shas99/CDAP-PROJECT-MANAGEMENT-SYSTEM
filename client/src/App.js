@@ -9,6 +9,9 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 // //Footer
 // import Footer from "./components/Footer/Footer";
 
+import SideNavigationBar from "./components/screens/SideNavigationBar";
+import Dashboard from './components/screens/Dashboard'
+
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
@@ -48,7 +51,7 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
-
+import login  from "./components/screens/login";
 //mark dashboard
 import MarkDashboard from "./components/screens/MarkDashboard";
 
@@ -79,9 +82,11 @@ const App = () => {
   return (
     <Router>
       {/* <Header /> */}
+     
+
       <div className="app">
         <Switch>
-          <PrivateRoute exact path="/" component={PrivateScreen} />
+          <PrivateRoute exact path="/" component={Dashboard} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
           <Route
@@ -94,6 +99,7 @@ const App = () => {
             path="/passwordreset/:resetToken"
             component={ResetPasswordScreen}
           />
+         
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
@@ -159,6 +165,11 @@ const App = () => {
 
          <Route exact path="/userprofile" component={UserProfile}/>
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
+         <Route exact path="/sideNavBar" component={SideNavigationBar}/>
+         <Route exact path="/dashboard" component={Dashboard}/>
+         <Route exact path="/loginNew" component={login}/>
+         
+
 
          
          
