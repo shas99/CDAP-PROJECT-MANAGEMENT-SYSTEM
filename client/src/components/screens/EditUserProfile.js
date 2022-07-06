@@ -117,11 +117,12 @@ const EditUserProfile = ({history}) => {
 
   
   return  error ? ( 
-  
+    
     <span className="error-message">{error}</span>
+  
   ) :
   (
-
+    
 <div className="userprofileClass">
   <Header/>
   <br/>
