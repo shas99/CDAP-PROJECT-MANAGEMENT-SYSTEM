@@ -26,8 +26,51 @@ const EnterProgressPresentation1Marks = ({history}) => {
     const[examiner1,setexaminer1] = useState("");
     const [examiner2, setexaminer2] = useState("");
     const [moderator, setmoderator] = useState("");
+    const [ enterprogresspresentation1marks, setenterprogresspresentation1marks]= useState("");
+    const[fetchenterprogresspresentation1marksData, setenterprogresspresentationmarksData] = useState("");
 
-    
+    useEffect(() => {
+        const fetchenterprogresspresentation1marksData = async () => {
+            const enterprogresspresentation1marksconfig = {
+                headers: {
+                    "Content-Type":"application/json",
+                    Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+                }
+            }
+            try{
+                const { data } = await axios.get("/api/staffPrivate/addprogresspresentation1marks",enterprogresspresentation1marks);
+                const enterprogresspresentation1marksArray = data.data.split("/")
+                console.log(enterprogresspresentation1marksArray[0])
+                const enterprogresspresentation1marks1 = enterprogresspresentation1marksArray[0].split(",")
+                setenterprogresspresentation1marks(enterprogresspresentation1marks1)
+                setenterprogresspresentationmarksData(enterprogresspresentation1marksArray[0]);
+
+
+            }catch(error){
+
+            }
+        }
+        const fetchPrivateDate = async () => {
+            const config = {
+                headers:{
+                    "Content-Type":"application/json",
+                    Authorization: `Bearer ${localStorage.getItem("authToken")}`
+                },
+            }
+            try{
+                const { data } = await axios.get("/api/staffPrivate/staffPrivate",config);
+                setPrivateData(data.data);
+
+
+            }catch(error){
+                localStorage.removeItem("authToken");
+                setError("You are not authorized please login");
+
+            }
+        }
+    })
+
+
 
 
 
