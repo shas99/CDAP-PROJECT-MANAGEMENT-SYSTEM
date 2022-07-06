@@ -132,18 +132,18 @@ const ProposalReportMarks = ({history}) => {
 
 
 
-    const listHandler=()=>{
-        try{
-            const lists = enterproposalreportmarks.map((n)=>
-            <li>{n}</li>)
-            return(
-                <ul>{lists}</ul>
+    // const listHandler=()=>{
+    //     try{
+    //         const lists = enterproposalreportmarks.map((n)=>
+    //         <li>{n}</li>)
+    //         return(
+    //             <ul>{lists}</ul>
 
-            )
-        }catch(e){
-            console.error(e)
-        }
-    }
+    //         )
+    //     }catch(e){
+    //         console.error(e)
+    //     }
+    // }
 
     return  error ? ( 
   

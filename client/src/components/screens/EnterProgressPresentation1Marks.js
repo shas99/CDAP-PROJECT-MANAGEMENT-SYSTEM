@@ -26,7 +26,7 @@ const EnterProgressPresentation1Marks = ({history}) => {
     const[examiner1,setexaminer1] = useState("");
     const [examiner2, setexaminer2] = useState("");
     const [moderator, setmoderator] = useState("");
-    const [ enterprogresspresentation1marks, setenterprogresspresentation1marks]= useState("");
+    const [enterprogresspresentation1marks, setenterprogresspresentation1marks]= useState("");
     const[fetchenterprogresspresentation1marksData, setenterprogresspresentationmarksData] = useState("");
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const EnterProgressPresentation1Marks = ({history}) => {
                 }
             }
             try{
-                const { data } = await axios.get("/api/staffPrivate/addprogresspresentation1marks",enterprogresspresentation1marks);
+                const { data } = await axios.get("/api/staffPrivate/addprogresspresentation1marks",enterprogresspresentation1marksconfig);
                 const enterprogresspresentation1marksArray = data.data.split("/")
                 console.log(enterprogresspresentation1marksArray[0])
                 const enterprogresspresentation1marks1 = enterprogresspresentation1marksArray[0].split(",")
@@ -87,7 +87,7 @@ const EnterProgressPresentation1Marks = ({history}) => {
         try{
             const {data}= await axios.post(
                 "/api/staffPrivate/addprogresspresentation1marks",
-                {groupID, studentIDs, studentnames, provengapmarks1, provengapmarks2, capabilitymarks1, capabilitymarks2, implementationmarks1, implementationmarks2, implementationmarks3, implementationmarks4, implementationmarks5,communicationmarks1,communicationmarks2,commercializationmarks,extrafeedback,recommendation,examiner1,examiner2, moderator},config
+                {groupID, studentIDs, studentnames, provengapmarks1, provengapmarks2, capabilitymarks1, capabilitymarks2, implementationmarks1, implementationmarks2, implementationmarks3, implementationmarks4, implementationmarks5,communicationmarks1,communicationmarks2,commercializationmarks,extrafeedback,recommendation,examiner1,examiner2, moderator,enterprogresspresentation1marks},config
             );
             history.push("/staffPrivate");
         }catch(error){
