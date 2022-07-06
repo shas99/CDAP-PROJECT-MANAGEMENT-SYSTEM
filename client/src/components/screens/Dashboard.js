@@ -275,15 +275,67 @@ export default function Dashboard ({history}) {
                            <button>
                            <a href='/userprofile'> My Profile</a>
                             </button>
+                            <br/>
                        </div>
 
-                    
+                       
+                       
+                       <div class="flex items-center gap-2 mb-3">
+                     
+                                                                        
+                                                                        <svg class="w-5 fill-indigo-500" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                            width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" >
+                                                                        <g>
+                                                                            <path d="M22.7,45.4l-1.3-1c-1.4-1-1.4-3-1.4-4v-2.9c0-0.8-0.7-1.5-1.5-1.5h-6c-0.8,0-1.5,0.7-1.5,1.5v7.7
+                                                                                c0,2.7,1.6,4.8,4.1,4.8H20c2.9,0,3.1-2,3.1-2l0,0C23.1,48,23.6,46.2,22.7,45.4z"/>
+                                                                            <path d="M45,18V4.4c0,0,0,0,0-0.1c0-2.4-3-3.1-4.6-1.5l-8.9,8.4c-1.4,1.2-3.2,1.7-5,1.7H11.3C6.1,13,2,17.5,2,22.7
+                                                                                v0.2c0,5.2,4.1,9.1,9.3,9.1h15.2c1.9,0,3.7,0.8,5.1,2l8.8,8.6c1.6,1.6,4.6,1,4.6-1.4c0,0,0,0,0-0.1V27.6c3,0,4.8-2.1,4.8-4.8
+                                                                                C49.8,20.1,48,18,45,18z"/>
+                                                                        </g>
+                                                                        </svg>
+                                        
+                                                                        <h1 class="text-2xl -translate-y-0.5 ">Latest <span class="font-semibold">Announcements</span> </h1>
+                                        
+                                                                           
+                        </div>
+                                              
+                             <div class="w-full lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
+
+                                    <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
+                                    <h1 class="text-2xl font-semibold">Prestigious 2022 [Test]  </h1>
+                                    <p class="text-gray-400 text-sm">Registrations are now open for the Installation 2022</p>
+                                    <hr class="w-2/3 border-gray-500 my-4 hidden"/>
+                                
+                            
+                            </div>
 
 
                        
 
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                 
                 
