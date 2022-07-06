@@ -74,6 +74,7 @@ import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocum
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
+import Notify from "./components/screens/notifyScreen";
 
 
 
@@ -180,7 +181,7 @@ const App = () => {
 
          <Route exact path="/editSubmission/:id" component={EditSubmission}/>
 
-
+         <Route exact path="/notify/:id" component={Notify}/>
         </Switch>
 
       </div>

@@ -6,7 +6,7 @@ import "./SubmissionAdmin.css";
 import SubmissionMilestones from "./SubmissionMilestones";
 
 
-const SubmissionAdmin = ({history}) =>{
+const Notify = ({history}) =>{
   const [SubmissionsData, setSubmissionsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
@@ -62,22 +62,7 @@ const SubmissionAdmin = ({history}) =>{
     fetchPrivateDate()
   }, [history])
 
-//   const objectToArray = obj => {
-//     const keys = Object.keys(obj);
-//     const res = [];
-//     for(let i = 0; i < keys.length; i++){
-//        res.push(obj[keys[i]]);
-//        setSubmissionArray(res)
-//        console.log(submissionArray)
-//       //  console.log(projectarray);
-      
-       
-       
 
-//     };
-//     return res; 
-
-//  };
  
 const toggle=()=> {//normal text box
   if(visibility == false){
@@ -109,7 +94,7 @@ const toggle=()=> {//normal text box
             <div className="card" style={{borderRadius:"20px",height:"300px"}}>
         <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px"}}>{submission.BatchID}</p></center>
       <div>
-      <Link to={`./notify/${submission._id}`}><img className="notify" src="notify_bell.png"></img></Link>
+      <Link to={`./adminPrivate/${submission._id}`}><img className="notify" src="notify_bell.png"></img></Link>
                     {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Date</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>
@@ -142,4 +127,4 @@ const toggle=()=> {//normal text box
   </>
 );
 };
-export default SubmissionAdmin;
+export default Notify;
