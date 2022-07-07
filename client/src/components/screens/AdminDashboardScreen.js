@@ -83,10 +83,16 @@ const AdminDashboard = ({history}) => {
       <div className="StaffRectangle-40">
       <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
+
       <Link to="/placeAnnouncement" id="Regs"><button className="buttons" onClick="/staffproject ">Place Announcement</button></Link>
       </div>
 
       
+
+      <Link to="/submissionadmin" id="Regs"><button className="buttons" onClick="/submissionadmin ">Submissions</button></Link>
+      </div>
+
+
 
 
 
