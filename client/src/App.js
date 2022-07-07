@@ -74,6 +74,7 @@ import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocum
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
+import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
 
 
 
@@ -168,6 +169,7 @@ const App = () => {
          <Route exact path="/sideNavBar" component={SideNavigationBar}/>
          <Route exact path="/dashboard" component={Dashboard}/>
          <Route exact path="/loginNew" component={login}/>
+         <Route exact path="/placeAnnouncement" component={PlaceAnnouncement}/>
          
 
 
