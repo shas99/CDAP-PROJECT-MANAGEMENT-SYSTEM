@@ -42,9 +42,25 @@ export default function PlaceAnnouncement() {
   return (
     <div className='bg-gray-900 w-130  h-[50rem] ' >
         <br/><br/><br/><br/> <br/> 
-        <h1 className='text-center text-4xl text-gray-100 '>Post Annnouncement</h1>
-        <svg class="w-5 fill-indigo-500" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                                                            width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" ></svg>
+        <h1 className=' ml-[32rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
+
+        {/* SVG ICON */}
+       
+        <div class="ml-[54rem] mt-[-3rem]">
+                                                                                    
+                  <svg className="w-43 fill-indigo-500 " xmlns="http://www.w3.org/2000/svg" x="200px" y="550px " 
+                         width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" >
+                     <g>
+                         <path d="M22.7,45.4l-1.3-1c-1.4-1-1.4-3-1.4-4v-2.9c0-0.8-0.7-1.5-1.5-1.5h-6c-0.8,0-1.5,0.7-1.5,1.5v7.7
+                             c0,2.7,1.6,4.8,4.1,4.8H20c2.9,0,3.1-2,3.1-2l0,0C23.1,48,23.6,46.2,22.7,45.4z"/>
+                         <path d="M45,18V4.4c0,0,0,0,0-0.1c0-2.4-3-3.1-4.6-1.5l-8.9,8.4c-1.4,1.2-3.2,1.7-5,1.7H11.3C6.1,13,2,17.5,2,22.7
+                             v0.2c0,5.2,4.1,9.1,9.3,9.1h15.2c1.9,0,3.7,0.8,5.1,2l8.8,8.6c1.6,1.6,4.6,1,4.6-1.4c0,0,0,0,0-0.1V27.6c3,0,4.8-2.1,4.8-4.8
+                             C49.8,20.1,48,18,45,18z"/>
+                     </g>
+                     </svg>
+                   
+       
+        </div>
 <form className=' w-[35rem] absolute rounded top-[190px] right-[350px] h-auto' onSubmit={postAnnouncementHandler}>
  <br/>
   <div class="mb-6 w-56 ">
@@ -75,7 +91,7 @@ export default function PlaceAnnouncement() {
           value={description}></textarea>
 
   
-  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Post Announcement</button>
+  <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Post Announcement</button>
 
 </form>
 
