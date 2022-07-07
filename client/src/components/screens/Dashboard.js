@@ -10,6 +10,12 @@ export default function Dashboard ({history}) {
     const [privateData, setPrivateData] = useState("");
     const [privateData2, setPrivateData2] = useState("");
     const [privateData3, setPrivateData3] = useState("");
+
+    // Announcement Data setting 
+    const [title,setTitle]=useState("");
+    const [postedDate,setPostedDate]= useState("");
+    const [description,setDescription]=useState("");
+    const [deadline,setaDeadline]=useState("");
   
     useEffect(() => {
       const fetchPrivateDate = async () => {
@@ -46,6 +52,29 @@ export default function Dashboard ({history}) {
   
     };
 
+    //******* RETRIEVE ANNOUNCEMENT DETAILS  */
+    const getRelevantAnnouncementData =async ()=>{
+        const announcementID = "62c66fa8957236a99937300a";
+     
+        try{
+          const{data}=await axios.get(`/api/announcement/getAnnouncement/${announcementID}`);
+          console.log("Heyyyy "+data.announcement.announcementTitle);
+          setTitle(data.announcement.announcementTitle);
+          setDescription(data.announcement.announcementDescription);
+          setaDeadline(data.announcement.announcementDeadline);
+          setPostedDate(data.announcement.announcementDate);
+
+         
+        }catch(error){
+          
+          
+        }
+        
+  
+      }
+      getRelevantAnnouncementData();
+  
+
 
 
   return  error ? ( 
@@ -54,11 +83,11 @@ export default function Dashboard ({history}) {
   ) :
   
   (
-
+    //         DASHBOARD SCREEN 
     <div className='bg-gray-900 text-gray-100'>
     <div class="flex ">
         <div x-data="{ open: true }" class="fixed top-0  z-50">
-           
+           {/* SIDENAVBAR */}
             <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
                 <a class="flex items-center w-full px-3 mt-3" href="#">
                     <img src="https://cdn.discordapp.com/attachments/938131839661539339/973611175168327740/Favi.png" class="w-8 h-8" alt=""/>
@@ -197,10 +226,10 @@ export default function Dashboard ({history}) {
 
 
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-3 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[13rem]">
                 
                 <div id="col" class='lg:w-[38vw] md:-translate-y-2'>
-                    <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Hey, <span class="font-semibold"> {privateData2}</span></h1>
+                    <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
                     <h1 class="text-xs text-gray-400 mt-1"> Student</h1>
                     <hr class="border-gray-300 mt-2 md:w-96 lg:hidden"/>
                 </div>
@@ -212,13 +241,14 @@ export default function Dashboard ({history}) {
                 </div>
             
              </div>
-             {/* GRID SELECTION  */}
+             {/* GRID SELECTION BUTTONS */}
              <br/><br/><br/>
-             <div className="grid">
+             <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 ">
-                       
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
+
+                      
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
@@ -276,10 +306,12 @@ export default function Dashboard ({history}) {
                            <a href='/userprofile'> My Profile</a>
                             </button>
                             <br/>
-                       </div>
 
-                       
-                       
+                            
+                  </div>
+{/* 
+                       ANNOUNCEMENT SECTION */}
+                       <div className='ml-[20rem] w-full mt-[6rem]'>
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
@@ -299,18 +331,20 @@ export default function Dashboard ({history}) {
                                                                            
                         </div>
                                               
-                             <div class="w-full lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
+                           <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
 
                                     <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
-                                    <h1 class="text-2xl font-semibold">Prestigious 2022 [Test]  </h1>
-                                    <p class="text-gray-400 text-sm">Registrations are now open for the Installation 2022</p>
+                                    <h1 class="text-2xl font-semibold">{title}  </h1>
+                                    <p class="text-gray-400 text-sm">{description}</p>
+                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
+                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
                                     <hr class="w-2/3 border-gray-500 my-4 hidden"/>
                                 
                             
+                            </div> 
+
+
                             </div>
-
-
-                       
 
 
  
