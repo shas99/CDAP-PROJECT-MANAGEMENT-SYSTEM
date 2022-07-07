@@ -39,3 +39,19 @@ exports.placeAnnouncement = async(req,res,next) =>{
         console.log("Error in placing announcement");
     }
 };
+
+//******** RETRIEVE ANNOUNCEMENT *********
+exports.getAnnouncement = async(req,res,next) =>{
+    
+    try{
+        const relevantAnnouncementDocumentID = req.params.id;
+        const announcement = await Announcement.findById(relevantAnnouncementDocumentID)//group that is approved and have this perticular member
+        // console.log("Projects bidding details :",availableProjects.bidding)
+        res.status(201).json({
+            success: true,
+            announcement
+        })
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
