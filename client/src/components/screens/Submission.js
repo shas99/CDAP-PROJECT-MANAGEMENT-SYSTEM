@@ -86,23 +86,7 @@ const Submission = ({history}) =>{
           }
        }
         
-        // const rootElement = document.getElementById('root') 
-        // const element = React.createElement (
-        //   'div',{className:'container'},'Hello'
-        // )
-        // console.log(element)
-        // return rootElement,element
 
-
-        // console.log("sub - "+sub)
-        // for(var i = 0; i <l;i++){
-        //   console.log(sub[i]);
-        //   // if(i%2==0){
-        //   //   setLabel(sub[i])
-        //   // }
-
-        // }
-        // setSub(sub)
         
       }catch(error){
         // setError("Data not fetched");
@@ -140,47 +124,19 @@ const Submission = ({history}) =>{
 
   }, [history])
 
-//   const objectToArray = obj => {
-//         const keys = Object.keys(obj);
-//     const res = [];
-    
-//     for(let i = 0; i < keys.length; i++){
-//        res.push(obj[i]);
-//        setSubmissionArray(res)
-//       //  console.log(projectarray);
-        
-       
-       
-
-//     };
-//     return res; 
-
-    
-
-//  };
-
-const test = () => {
-  console.log("a")
-  for(var i = 0;i <SubmissionsData.length;i++){//set arrays for inputboxes and labels
- 
-
-      // setInput(input => [...input, SubmissionsData[i]])
-      input.push(SubmissionsData[i])
-    console.log("a")
-
- }
-}
 
 
 
-console.log(SubmissionsData)
+
+
+
 
  return error ? ( 
   
   <span className="error-message">{error}</span>
 ) : ( 
   <>
-  {test}
+
   <div id="back">
   <Header/>
   <br></br>
@@ -189,34 +145,36 @@ console.log(SubmissionsData)
       <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
 
          <ul>
-
-          {SubmissionsData.map(submission =>(
-
-            submission
-          )
-
-         
- 
- )}
-
-{/* {SubmissionsData.map(submission =>(
-
-if(length%2==0){
-  length
+<form>
+ {labels.map(label =>{
+if(label == "Normal" || label == "normal"){
+  return (<label>{label}:<input type="text"></input></label>)
 }
+// label
+ }
+
+
+
+)}
+</form>
+<br/>
+
+{input.map(input =>(
+
+input
 )
 
 
 
-)} */}
+)}
+
 
 
           <br></br>
    
         
 
-  {input}<br/>{labels}
-{console.log(input)}
+
       </ul> </div>
     </div>
 
