@@ -941,6 +941,10 @@ video {
   margin-top: 5rem;
 }
 
+.mt-\[6rem\] {
+  margin-top: 6rem;
+}
+
 .block {
   display: block;
 }

@@ -10,6 +10,12 @@ export default function Dashboard ({history}) {
     const [privateData, setPrivateData] = useState("");
     const [privateData2, setPrivateData2] = useState("");
     const [privateData3, setPrivateData3] = useState("");
+
+    // Announcement Data setting 
+    const [title,setTitle]=useState("");
+    const [postedDate,setPostedDate]= useState("");
+    const [description,setDescription]=useState("");
+    const [deadline,setaDeadline]=useState("");
   
     useEffect(() => {
       const fetchPrivateDate = async () => {
@@ -45,6 +51,29 @@ export default function Dashboard ({history}) {
       history.push("/login");
   
     };
+
+    //******* RETRIEVE ANNOUNCEMENT DETAILS  */
+    const getRelevantAnnouncementData =async ()=>{
+        const announcementID = "62c66fa8957236a99937300a";
+     
+        try{
+          const{data}=await axios.get(`/api/announcement/getAnnouncement/${announcementID}`);
+          console.log("Heyyyy "+data.announcement.announcementTitle);
+          setTitle(data.announcement.announcementTitle);
+          setDescription(data.announcement.announcementDescription);
+          setaDeadline(data.announcement.announcementDeadline);
+          setPostedDate(data.announcement.announcementDate);
+
+         
+        }catch(error){
+          
+          
+        }
+        
+  
+      }
+      getRelevantAnnouncementData();
+  
 
 
 
@@ -217,7 +246,7 @@ export default function Dashboard ({history}) {
              <div className="grid">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 ">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
                        
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
@@ -277,9 +306,9 @@ export default function Dashboard ({history}) {
                             </button>
                             <br/>
                        </div>
-
-                       
-                       
+{/* 
+                       ANNOUNCEMENT SECTION */}
+                       <div className='ml-[20rem] w-full mt-[6rem]'>
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
@@ -299,18 +328,20 @@ export default function Dashboard ({history}) {
                                                                            
                         </div>
                                               
-                             <div class="w-full lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
+                           <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
 
                                     <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
-                                    <h1 class="text-2xl font-semibold">Prestigious 2022 [Test]  </h1>
-                                    <p class="text-gray-400 text-sm">Registrations are now open for the Installation 2022</p>
+                                    <h1 class="text-2xl font-semibold">{title}  </h1>
+                                    <p class="text-gray-400 text-sm">{description}</p>
+                                    <p class="text-gray-400 text-sm">{postedDate}</p>
+                                    <p class="text-gray-400 text-sm">{deadline}</p>
                                     <hr class="w-2/3 border-gray-500 my-4 hidden"/>
                                 
                             
+                            </div> 
+
+
                             </div>
-
-
-                       
 
 
  
