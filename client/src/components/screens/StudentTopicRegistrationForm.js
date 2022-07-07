@@ -281,6 +281,7 @@ const TopicRegistration = ({history}) => {
           </div>
       
           <Footer/>
+          
         </div>
         </>
       );

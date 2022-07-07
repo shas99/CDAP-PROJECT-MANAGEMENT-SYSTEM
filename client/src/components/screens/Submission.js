@@ -11,7 +11,8 @@ import { Batch } from 'aws-sdk';
 import {useParams} from 'react-router-dom';
 
 import Parser from 'html-react-parser';
-
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 
@@ -75,7 +76,7 @@ const Submission = ({history}) =>{
         const sub = data.data.Fields;
         
         // var l = sub.length;
-        // console.log(SubmissionsData);
+        console.log(sub);
 
 
         for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
@@ -87,9 +88,19 @@ const Submission = ({history}) =>{
           else{
             setInput(label => [...label,sub[i]])
             if(sub[i] == "Normal" || sub[i] == "normal"){
-          // setKey(Key+1)
-          formElements.push(<label>{sub[i-1]}:<input type="text"></input></label>)
-        }
+          
+              formElements.push(<div><label>{sub[i-1]}:<input type="text"></input></label><br/><br/></div>)
+            }else if(sub[i] == "Rich"|| sub[i] == "rich"){
+              console.log("yoo");
+              formElements.push(<div><br/><label>{sub[i-1]}<CKEditor 
+              editor={ClassicEditor}
+              // data={topicdescription}
+              // onChange={(event,editor)=>{
+              //   const data = editor.getData()
+              //   settopicdescription(data)
+              // }}
+              /></label></div>)
+            }
           }
        }
        
@@ -102,7 +113,7 @@ const Submission = ({history}) =>{
         
       // }
       // )
-      console.log(formElements)
+      // console.log(formElements)
 
       }catch(error){
         setError("Data not fetched" + error);
@@ -193,7 +204,7 @@ input
 )} */}
 <div>{formElements}</div>
 
-{console.log(labels)}
+{/* {console.log(labels)} */}
 
 
           <br></br>
