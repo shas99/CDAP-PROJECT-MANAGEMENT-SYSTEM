@@ -28,6 +28,8 @@ const Submission = ({history}) =>{
   const [length,setLength] = useState(0);
   const [Key,setKey] = useState(0);
   const [formElements,setFormElements] = useState([]);
+  const [entries,setEntries] = useState({})
+
 
    const params =useParams();
    const subm = params.id;
@@ -65,9 +67,7 @@ const Submission = ({history}) =>{
       try{
        
         const{data} = await axios.get(`/api/STDAvailableSubmissions/availableSubmissions/${subm}`,submissionsconfig);
-        //console.log(data.availableSubmissions.Fields);
-        //const array = Object.entries(data.data.Fields);
-        // console.log(data.data.Fields[1]+" done");
+
         
   
         
@@ -75,10 +75,9 @@ const Submission = ({history}) =>{
         setSubmissionsData(data.data.Fields);
         const sub = data.data.Fields;
         
-        // var l = sub.length;
-        console.log(sub);
 
 
+        //https://www.w3schools.com/react/react_forms.asp
         for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
           if(i%2==0){
 
@@ -89,7 +88,7 @@ const Submission = ({history}) =>{
             setInput(label => [...label,sub[i]])
             if(sub[i] == "Normal" || sub[i] == "normal"){
           
-              formElements.push(<div><label>{sub[i-1]}:<input type="text"></input></label><br/><br/></div>)
+              formElements.push(<div><label>{sub[i-1]}:<input type="text" name={sub[i-1]} value={input.value} onChange={handleChange}></input></label><br/><br/></div>)
             }else if(sub[i] == "Rich"|| sub[i] == "rich"){
               console.log("yoo");
               formElements.push(<div><br/><label>{sub[i-1]}<CKEditor 
@@ -104,16 +103,7 @@ const Submission = ({history}) =>{
           }
        }
        
-      //  labels.map(label =>{
-      //   if(label == "Normal" || label == "normal"){
-      //     // setKey(Key+1)
-      //     formElements.push(<label>{label}{Key}:<input type="text"></input></label>)
-      //   }
-      //   // label
-        
-      // }
-      // )
-      // console.log(formElements)
+
 
       }catch(error){
         setError("Data not fetched" + error);
@@ -151,22 +141,12 @@ const Submission = ({history}) =>{
 
   }, [history])
 
-  //https://stackoverflow.com/questions/68404181/update-state-inside-map-function-immediately-react-hooks
-// var formElements = []
-// const increment = () => {
-//   labels.map(label =>{
-//     if(label == "Normal" || label == "normal"){
-//       // setKey(Key+1)
-//       formElements.push(<label>{label}{Key}:<input type="text"></input></label>)
-//     }
-//     // label
-    
-//     }
-    
-    
-    
-//     )
-// }
+  const handleChange = (event) => {
+    const name = event.target.name
+    const value = event.target.value
+    setEntries(entries => ({...entries, [name]:value}))
+
+  }
 
 
 
@@ -189,22 +169,13 @@ const Submission = ({history}) =>{
          <ul>
 <form>
 
-{Key}
+
 </form>
 <br/>
-{/* {increment()} */}
 
-{/* {input.map(input =>(
-
-input
-)
-
-
-
-)} */}
 <div>{formElements}</div>
 
-{/* {console.log(labels)} */}
+{console.log(entries)}
 
 
           <br></br>
