@@ -41,15 +41,19 @@ export default function PlaceAnnouncement() {
 
   return (
     <div className='bg-gray-900 w-130  h-[50rem] ' >
-<form className='bg-gray-600 w-[35rem] absolute rounded top-[190px] right-[430px] h-auto' onSubmit={postAnnouncementHandler}>
+        <br/><br/><br/><br/> <br/> 
+        <h1 className='text-center text-4xl text-gray-100 '>Post Annnouncement</h1>
+        <svg class="w-5 fill-indigo-500" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                            width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" ></svg>
+<form className=' w-[35rem] absolute rounded top-[190px] right-[350px] h-auto' onSubmit={postAnnouncementHandler}>
  <br/>
-  <div class="mb-6 w-56  bg-slate-200">
-    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Announcement Topic</label>
-    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  required="" onChange={(e) => setTitle(e.target.value)}
+  <div class="mb-6 w-56 ">
+    <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Announcement Topic</label>
+    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  required="" onChange={(e) => setTitle(e.target.value)}
           value={title}/>
   </div>
   <div class="mb-6">
-    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date</label>
+    <label for="password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Date</label>
     <input type="text" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" onChange={(e) => setDate(e.target.value)}
           value={announcementDate}/>
   </div>
@@ -60,19 +64,19 @@ export default function PlaceAnnouncement() {
   </div> */}
 
   <div class="mb-6">
-    <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Deadline</label>
+    <label for="repeat-password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Deadline</label>
     <input type="text" id="deadline" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" onChange={(e) => setaDeadline(e.target.value)}
           value={deadline} />
   </div>
 
 
-  <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
-<textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." onChange={(e) => setDescription(e.target.value)}
+  <label for="message" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-400">Description</label>
+<textarea id="message" rows="4" class="block p-2.5  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." onChange={(e) => setDescription(e.target.value)}
           value={description}></textarea>
 
-  <center>
+  
   <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Post Announcement</button>
-  </center>
+
 </form>
 
        
