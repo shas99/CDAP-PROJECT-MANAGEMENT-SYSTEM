@@ -27,6 +27,10 @@ exports.placeAnnouncement = async(req,res,next) =>{
        announcement.announcementTime= announcementTime
        announcement.announcementDeadline=deadline
 
+       console.log(deadline)
+       console.log(announcementTime)
+       
+
         await announcement.save()
         res.status(201).json({
             success: true,
