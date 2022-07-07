@@ -99,7 +99,7 @@ const AdminDashboard = ({history}) => {
  
 <Footer/>
 
-</div>
+
     </>
   );
 };
