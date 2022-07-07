@@ -25,6 +25,8 @@ const Submission = ({history}) =>{
   const [labels,setLabel] = useState([]);
   const [input,setInput] = useState([]);
   const [length,setLength] = useState(0);
+  const [Key,setKey] = useState(0);
+  const [formElements,setFormElements] = useState([]);
 
    const params =useParams();
    const subm = params.id;
@@ -79,17 +81,31 @@ const Submission = ({history}) =>{
         for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
           if(i%2==0){
 
-            setInput(input => [...input, sub[i]])
+            setLabel(input => [...input, sub[i]])
+
           }
           else{
-            setLabel(label => [...label,sub[i]])
+            setInput(label => [...label,sub[i]])
+            if(sub[i] == "Normal" || sub[i] == "normal"){
+          // setKey(Key+1)
+          formElements.push(<label>{sub[i-1]}:<input type="text"></input></label>)
+        }
           }
        }
+       
+      //  labels.map(label =>{
+      //   if(label == "Normal" || label == "normal"){
+      //     // setKey(Key+1)
+      //     formElements.push(<label>{label}{Key}:<input type="text"></input></label>)
+      //   }
+      //   // label
         
+      // }
+      // )
+      console.log(formElements)
 
-        
       }catch(error){
-        // setError("Data not fetched");
+        setError("Data not fetched" + error);
         
       }
     
@@ -110,7 +126,7 @@ const Submission = ({history}) =>{
 
         
       }catch(error){
-        // setError("Data not fetched");
+        setError("Data not fetched" + error);
         
       }
     
@@ -124,7 +140,22 @@ const Submission = ({history}) =>{
 
   }, [history])
 
-
+  //https://stackoverflow.com/questions/68404181/update-state-inside-map-function-immediately-react-hooks
+// var formElements = []
+// const increment = () => {
+//   labels.map(label =>{
+//     if(label == "Normal" || label == "normal"){
+//       // setKey(Key+1)
+//       formElements.push(<label>{label}{Key}:<input type="text"></input></label>)
+//     }
+//     // label
+    
+//     }
+    
+    
+    
+//     )
+// }
 
 
 
@@ -146,28 +177,23 @@ const Submission = ({history}) =>{
 
          <ul>
 <form>
- {labels.map(label =>{
-if(label == "Normal" || label == "normal"){
-  return (<label>{label}:<input type="text"></input></label>)
-}
-// label
- }
 
-
-
-)}
+{Key}
 </form>
 <br/>
+{/* {increment()} */}
 
-{input.map(input =>(
+{/* {input.map(input =>(
 
 input
 )
 
 
 
-)}
+)} */}
+<div>{formElements}</div>
 
+{console.log(labels)}
 
 
           <br></br>
