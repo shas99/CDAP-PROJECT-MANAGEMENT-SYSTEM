@@ -22,6 +22,9 @@ const Submission = ({history}) =>{
   const [privateData, setPrivateData] = useState("");
   //const [submissionArray, setSubmissionArray] = useState("");
   const [batchID, setBatchID] = useState("");
+  const [labels,setLabel] = useState([]);
+  const [input,setInput] = useState([]);
+  const [length,setLength] = useState(0);
 
    const params =useParams();
    const subm = params.id;
@@ -61,15 +64,27 @@ const Submission = ({history}) =>{
         const{data} = await axios.get(`/api/STDAvailableSubmissions/availableSubmissions/${subm}`,submissionsconfig);
         //console.log(data.availableSubmissions.Fields);
         //const array = Object.entries(data.data.Fields);
-        console.log(data.data.Fields[1]+" done");
+        // console.log(data.data.Fields[1]+" done");
         
-        var i = 0;
+  
         
 
         setSubmissionsData(data.data.Fields);
         const sub = data.data.Fields;
-        var l = sub.length;
-        console.log(l);
+        
+        // var l = sub.length;
+        // console.log(SubmissionsData);
+
+
+        for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
+          if(i%2==0){
+
+            setInput(input => [...input, sub[i]])
+          }
+          else{
+            setLabel(label => [...label,sub[i]])
+          }
+       }
         
         // const rootElement = document.getElementById('root') 
         // const element = React.createElement (
@@ -80,13 +95,13 @@ const Submission = ({history}) =>{
 
 
         // console.log("sub - "+sub)
-        for(var i = 0; i <l;i++){
-          console.log(sub[i]);
-          // if(i%2==0){
-          //   setLabel(sub[i])
-          // }
+        // for(var i = 0; i <l;i++){
+        //   console.log(sub[i]);
+        //   // if(i%2==0){
+        //   //   setLabel(sub[i])
+        //   // }
 
-        }
+        // }
         // setSub(sub)
         
       }catch(error){
@@ -121,6 +136,7 @@ const Submission = ({history}) =>{
     fetchSubmissionsData()
     fetchPrivateDate()
     fetchbatchID()
+    
 
   }, [history])
 
@@ -143,17 +159,28 @@ const Submission = ({history}) =>{
 
 //  };
 
-
+const test = () => {
+  console.log("a")
+  for(var i = 0;i <SubmissionsData.length;i++){//set arrays for inputboxes and labels
  
 
+      // setInput(input => [...input, SubmissionsData[i]])
+      input.push(SubmissionsData[i])
+    console.log("a")
 
+ }
+}
+
+
+
+console.log(SubmissionsData)
 
  return error ? ( 
   
   <span className="error-message">{error}</span>
 ) : ( 
-
   <>
+  {test}
   <div id="back">
   <Header/>
   <br></br>
@@ -162,67 +189,34 @@ const Submission = ({history}) =>{
       <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
 
          <ul>
-           
-           {/* {label.map(label => {
-             return(
-             <p>{label}</p>
-             )
-           }
-           )}
-          { */}
-          {/* console.log(sub) */}
-          {console.log(SubmissionsData+"This is in the return")}
-          {/* {let int1 = 0} */}
-          {SubmissionsData.map(submission =>
-          //  var len = submission.Fields.length;
-          //     console.log(len);
-          //       for(var i = 0; i < len; i++){
-          //         if((i/2) == 0){
-          //             <label> {submission.Fields[i]}</label>
-                    
-          //         }
-          //         if((i%2) == 1){
-          //             if(submission.Fields[i] == "Normal"){
-          //                 <input type="text"
-          //                 className="input"
-          //                 />
-                        
-          //             } 
-                      
-                    
-          //         }
-          //       }
 
-          {if((2/2) == 0){
-          <div>  <p>{submission}</p><br/></div> 
-          }}
+          {SubmissionsData.map(submission =>(
+
+            submission
+          )
+
          
  
  )}
-          <br></br>
-          {/* {SubmissionsData[2]} */}
-          {/* } */}
-        {/* {SubmissionsData.map(submission => {
-          // var heading = submission.Heading;
-          // document.getElementByID("caption").innerHTML = submission.Heading + batchID;
-          //console.log("pasindu");
-          console.log("submission.Fields"+submission.Fields[0]);
-          // if(batchID == submission.BatchID && submission.visibility == true){
-      
-             
-              //console.log("pasindu");
-          //     var tu = submission.Fields[1];
-          //     console.log(tu)
-          //     return(
-          //       <p>{tu}</p>
-          //     )
-            
-              
-           
-            
-          // }
 
-        })}  */}
+{/* {SubmissionsData.map(submission =>(
+
+if(length%2==0){
+  length
+}
+)
+
+
+
+)} */}
+
+
+          <br></br>
+   
+        
+
+  {input}<br/>{labels}
+{console.log(input)}
       </ul> </div>
     </div>
 
