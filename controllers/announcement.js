@@ -1,0 +1,41 @@
+const mongoose = require('mongoose');
+
+const Announcement = require('../models/Annnouncement');
+
+
+//******** PLACE ANNOUNCEMENT *********
+exports.placeAnnouncement = async(req,res,next) =>{
+    const relevantAnnouncementDocumentID =req.params.id;
+    // const _id =relevantProjectID
+    const {title,description,announcementDate,announcementTime,deadline} = req.body
+    
+    try{
+        const announcement = await Announcement.findById({
+            _id:relevantAnnouncementDocumentID,
+           
+        })
+        // placedBid.push({allBiddings:bidPlacedGroup}) push is not a function 
+
+        if(!announcement){
+            return next(new ErrorResponse("Announcement Failed to place",400))
+        }
+        // console.log(id)
+        
+       announcement.announcementTitle= title
+       announcement.announcementDescription= description
+       announcement.announcementDate= announcementDate
+       announcement.announcementTime= announcementTime
+       announcement.announcementDeadline=deadline
+
+        await announcement.save()
+        res.status(201).json({
+            success: true,
+            data: "Announcement placed successfully"
+            
+        })
+        console.log("Success in setting announcement");
+    }catch(error){
+        next(error)
+        console.log("Error in placing announcement");
+    }
+};

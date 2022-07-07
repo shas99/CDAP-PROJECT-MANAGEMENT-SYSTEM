@@ -61,7 +61,7 @@ app.use('/api/staff', require('./routes/staff'))
 app.use('/api/adminAuth', require('./routes/adminAuth'))
 app.use('/api/adminPrivate', require('./routes/adminPrivate'))
 app.use('/api/markingRubrik', require('./routes/MarkingRubrik'))
-
+app.use('/api/announcement', require('./routes/announcement'))
 
 
 // Error handler(Should be the last piece of middleware)
