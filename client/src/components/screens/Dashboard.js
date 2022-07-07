@@ -54,11 +54,11 @@ export default function Dashboard ({history}) {
   ) :
   
   (
-
+    //         DASHBOARD SCREEN 
     <div className='bg-gray-900 text-gray-100'>
     <div class="flex ">
         <div x-data="{ open: true }" class="fixed top-0  z-50">
-           
+           {/* SIDENAVBAR */}
             <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
                 <a class="flex items-center w-full px-3 mt-3" href="#">
                     <img src="https://cdn.discordapp.com/attachments/938131839661539339/973611175168327740/Favi.png" class="w-8 h-8" alt=""/>
@@ -212,7 +212,7 @@ export default function Dashboard ({history}) {
                 </div>
             
              </div>
-             {/* GRID SELECTION  */}
+             {/* GRID SELECTION BUTTONS */}
              <br/><br/><br/>
              <div className="grid">
                 
