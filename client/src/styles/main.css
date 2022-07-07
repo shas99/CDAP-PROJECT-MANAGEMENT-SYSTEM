@@ -945,6 +945,34 @@ video {
   margin-top: 6rem;
 }
 
+.ml-\[18rem\] {
+  margin-left: 18rem;
+}
+
+.ml-\[15rem\] {
+  margin-left: 15rem;
+}
+
+.ml-\[12rem\] {
+  margin-left: 12rem;
+}
+
+.ml-\[13rem\] {
+  margin-left: 13rem;
+}
+
+.ml-\[2\] {
+  margin-left: 2;
+}
+
+.ml-\[10rem\] {
+  margin-left: 10rem;
+}
+
+.ml-\[14rem\] {
+  margin-left: 14rem;
+}
+
 .block {
   display: block;
 }
@@ -1892,6 +1920,11 @@ video {
   .lg\:bg-gray-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  }
+
+  .lg\:bg-purple-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(126 34 206 / var(--tw-bg-opacity));
   }
 }
 

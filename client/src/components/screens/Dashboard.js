@@ -226,10 +226,10 @@ export default function Dashboard ({history}) {
 
 
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-3 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[13rem]">
                 
                 <div id="col" class='lg:w-[38vw] md:-translate-y-2'>
-                    <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Hey, <span class="font-semibold"> {privateData2}</span></h1>
+                    <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
                     <h1 class="text-xs text-gray-400 mt-1"> Student</h1>
                     <hr class="border-gray-300 mt-2 md:w-96 lg:hidden"/>
                 </div>
@@ -243,11 +243,12 @@ export default function Dashboard ({history}) {
              </div>
              {/* GRID SELECTION BUTTONS */}
              <br/><br/><br/>
-             <div className="grid">
+             <div className="w-full">
                 
 {/*  Grid Buttons */}
                 <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
-                       
+
+                      
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
@@ -305,7 +306,9 @@ export default function Dashboard ({history}) {
                            <a href='/userprofile'> My Profile</a>
                             </button>
                             <br/>
-                       </div>
+
+                            
+                  </div>
 {/* 
                        ANNOUNCEMENT SECTION */}
                        <div className='ml-[20rem] w-full mt-[6rem]'>
@@ -333,8 +336,8 @@ export default function Dashboard ({history}) {
                                     <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
                                     <h1 class="text-2xl font-semibold">{title}  </h1>
                                     <p class="text-gray-400 text-sm">{description}</p>
-                                    <p class="text-gray-400 text-sm">{postedDate}</p>
-                                    <p class="text-gray-400 text-sm">{deadline}</p>
+                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
+                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
                                     <hr class="w-2/3 border-gray-500 my-4 hidden"/>
                                 
                             
