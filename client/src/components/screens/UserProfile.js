@@ -126,7 +126,10 @@ const UserProfile = ({history}) => {
          
       </div>
       
-     
+      {/* <form action="/single" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image"/>
+        <button type="submit">Submit</button>
+        </form> */}
    
       
       

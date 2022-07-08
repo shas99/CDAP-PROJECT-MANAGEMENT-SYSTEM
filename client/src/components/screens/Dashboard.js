@@ -300,12 +300,13 @@ export default function Dashboard ({history}) {
                            <a href="https://cdap-app-365.herokuapp.com/"> Schedule Meeting</a>
                             </button>
                        </div>
+                    
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                            <button>
                            <a href='/userprofile'> My Profile</a>
                             </button>
-                            <br/>
+                           
 
                             
                   </div>
