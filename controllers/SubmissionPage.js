@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const SubmissionPage = require('../models/SubmissionPage')
 const User = require('../models/User')
 const jwt = require("jsonwebtoken");
+const Form = require("../models/SubmissionForm")
 
 
 
@@ -103,3 +104,17 @@ exports.viewspecificSubmission = async(req,res,next) => {
 
 
 
+exports.submissionForm = async(req,res,next) => {
+    const {entries} = req.body
+    try{
+        const form = await Form.create({
+            entries
+        })
+        res.status(201).json({
+            success: true,
+            data:form
+        })
+    }catch(error){
+        next(error)
+    }
+};

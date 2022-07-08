@@ -96,35 +96,9 @@ const Submission = ({history}) =>{
               
               console.log(i-1)
               setTemp(sub[i-1])
-              // formElements.push(<div><br/><label>{sub[i-1]}<CKEditor
-              // editor={ClassicEditor}
-              // key={sub[i-1]}
-              // name="testing"
-              // value={input.value}
-              // data={input.value}
-              
-              // onChange={(event,editor)=>{
-              //   console.log(editor)
-              //   // console.log(event)
-              //   try{
-              //     // console.log(event)
-              //   const data = editor.getData()
-              //   // settopicdescription(data)
-              //   // const name = event.target.value
-              //   console.log(editor)
-              //   // const value = event.target.value
-              //   setEntries(entries => ({...entries, [sub[i-2]]:data}))
-              //   }
-              //   catch(error){
-              //       console.log(error)
-              //   }
-              // }}
-              
-              // /></label></div>)
-
-              formElements.push(<div><button name={sub[i-1]} onClick={handleClick}>testing</button></div>)
 
 
+              formElements.push(<div><button name={sub[i-1]} onClick={handleClick}>{sub[i-1]}</button></div>)
 
             }
           }
@@ -209,13 +183,9 @@ const Submission = ({history}) =>{
               
               onChange={(event,editor)=>{
             
-                // console.log(event)
+
                 try{
-                  // console.log(event)
                 const data = editor.getData()
-                // settopicdescription(data)
-                // const name = event.target.value
-                // const value = event.target.value
                 setEntries(entries => ({...entries, [pointer]:data}))
                 }
                 catch(error){
