@@ -107,6 +107,7 @@ app.post('/api/imageUpload', upload.single('image'), (req, res, next) => {
         contentType: 'image/png'
       }
     }
+    console.log(fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)));
     imgModel.create(obj, (err, item) => {
       if (err) {
         console.log(err);
