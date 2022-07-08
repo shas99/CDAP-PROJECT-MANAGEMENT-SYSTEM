@@ -106,7 +106,7 @@ return  error ? (
   ) : ( 
 
     <>
-    <div id="back">
+    <div id="progressback"  >
     <Header/>
     <p style={{color:"#FFF",textAlign:"right"}}>
     {privateData}  
@@ -121,12 +121,12 @@ return  error ? (
       </p>
     
         
-      <div className="entermarksbackground">        
-      <form onSubmit={enterprogresspresentation1marksHandler} className="group-screen__form_Enter_marks">
+      <div className="enterprogresspresentation1marksbackground">        
+      <form onSubmit={enterprogresspresentation1marksHandler} className="group-screen__form_Enterprogress_marks">
   <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>CDAP -Progress Presentation 1 - Mark Sheet [Total contribution = 15%]</h3>
   {error && <span className="error-message">{error}</span>}
   <div className="form-group">
-    <table className="tablemarks1">
+    <table className="progresstablemarks1">
         <tr>
             <td style={{padding:"5px",margin:"5px"}}>
             <label>

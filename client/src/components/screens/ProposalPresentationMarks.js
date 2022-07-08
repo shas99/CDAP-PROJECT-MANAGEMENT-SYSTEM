@@ -176,7 +176,7 @@ const ProposalPresentationMarks = ({history}) => {
           </p>
         
             
-          <div className="entermarksbackground">        
+          <div className="enterproposalpresentationmarksbackground">        
           <form onSubmit={entermarksHandler} className="group-screen__form_Enter_marks">
       <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = {totalContribution}]</h3>
       {error && <span className="error-message">{error}</span>}
