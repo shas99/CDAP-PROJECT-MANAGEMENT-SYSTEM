@@ -131,7 +131,7 @@ const ProposalReportMarks = ({history}) => {
         
             
           <div className="enterproposalreportmarksbackground">        
-          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enter_marks">
+          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enterproposalreport_marks">
       <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = 5 % ]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
