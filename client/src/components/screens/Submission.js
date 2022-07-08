@@ -165,7 +165,31 @@ const Submission = ({history}) =>{
     console.log(entries[test])
 }
 
+const submitHandler = async (e) => {
+  e.preventDefault();
 
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const { data } = await axios.post(
+      "/api/STDAvailableSubmissions/submissionForm",
+      {entries},
+      config
+    );
+
+
+    history.push("/");
+  } catch (error) {
+    setError(error.response.data.error);
+    setTimeout(() => {
+      setError("");
+    }, 5000);
+  }
+};
 
  return error ? ( 
   
@@ -218,7 +242,7 @@ const Submission = ({history}) =>{
 <br/>
 
 <div>{formElements}</div>
-
+<button onClick={submitHandler}>Submit</button>
 {console.log(entries)}
 
 
