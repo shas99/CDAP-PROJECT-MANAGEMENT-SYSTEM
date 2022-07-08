@@ -21,7 +21,6 @@ const Submission = ({history}) =>{
   const [Int1, setInt1] = useState(0)
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
-  //const [submissionArray, setSubmissionArray] = useState("");
   const [batchID, setBatchID] = useState("");
   const [labels,setLabel] = useState([]);
   const [input,setInput] = useState([]);
@@ -36,7 +35,7 @@ const Submission = ({history}) =>{
 
    const params =useParams();
    const subm = params.id;
-   //console.log(subm);
+
 
   useEffect(() => {
 
@@ -142,7 +141,7 @@ const Submission = ({history}) =>{
 
   }, [history])
 
-  const handleChange = (event) => {
+  const handleChange = (event) => {//for normal textbox
     const name = event.target.name
     const value = event.target.value
     setEntries(entries => ({...entries, [name]:value}))
@@ -151,21 +150,21 @@ const Submission = ({history}) =>{
   }
 
 
-  const handleClick = (event) => {
+  const handleClick = (event) => {//for rich text button
       console.log(event.target.name)
       setPointer(event.target.name)
       setFlow(flow+1)
       
   }
 
-  const reduce = (event) => {
+  const reduce = (event) => {//to change the flow
 
     setFlow(flow-1)
     const test = pointer
     console.log(entries[test])
 }
 
-const submitHandler = async (e) => {
+const submitHandler = async (e) => {//post api to create an entry in mongodb
   e.preventDefault();
 
   const config = {
