@@ -673,7 +673,7 @@ benefits
 
 </td>
 
-<td colspan="2">
+    <td colspan="2">
 
       <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
       name="name" 
@@ -687,9 +687,9 @@ benefits
 
 </tr>
 
-<tr><br></br>
-<label>
-<b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Extra feedback:</b></label><br/><br/>
+    <tr><br></br>
+    <label>
+    <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Extra feedback:</b></label><br/><br/>
     
       <input type="text" style={{borderColor:"royalblue"}}
       name="name"
@@ -700,7 +700,7 @@ benefits
       <br></br><br></br>
 
       <label>
-<b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Recommend for NBQSA (Yes/No)</b></label><br/><br/>
+    <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Recommend for NBQSA (Yes/No)</b></label><br/><br/>
     
       <input type="text" style={{borderColor:"royalblue"}}
       name="name"
@@ -709,7 +709,7 @@ benefits
       value={recommendation} />
 
 
-</tr>
+    </tr>
     </table>
 
 
@@ -738,19 +738,8 @@ benefits
       onChange={(e) => setexaminer2(e.target.value)}
       value={examiner2} />
             </td>
-            {/* <td className="tabletd1">
-            <label>
-       <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
-      <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-      name="name"
-      className = "input"
-      onChange={(e) => setmoderator(e.target.value)}
-      value={moderator} />
-
-
-            </td> */}
-
-<td className="tabletd1">
+    
+    <td className="tabletd1">
             <label>
        <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
       <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
@@ -763,22 +752,22 @@ benefits
         </table>
    
               
-              </div>
+        </div>
              
 
 
-  <button type="submit" style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}} className="btn btn-primary1" id="Log1Button">
+    <button type="submit" style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}} className="btn btn-primary1" id="Log1Button">
       Enter marks
     </button>
 
     
-  </form></div>
-      </div>
+    </form></div>
+    </div>
   
       {/* <Footer/> */}
  
     </>
-  );
+    );
 }
 export default EnterProgressPresentation1Marks;
 
