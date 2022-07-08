@@ -122,7 +122,7 @@ const Submission = ({history}) =>{
               
               // /></label></div>)
 
-              formElements.push(<div><button name={i} onClick={handleClick}>testing</button></div>)
+              formElements.push(<div><button name={sub[i-1]} onClick={handleClick}>testing</button></div>)
 
 
 
@@ -184,6 +184,13 @@ const Submission = ({history}) =>{
       
   }
 
+  const reduce = (event) => {
+
+    setFlow(flow-1)
+    const test = pointer
+    console.log(entries[test])
+}
+
 
 
  return error ? ( 
@@ -198,19 +205,18 @@ const Submission = ({history}) =>{
      
 
               value={input.value}
-              data={input.value}
+              data={entries[pointer]}
               
               onChange={(event,editor)=>{
-                console.log(editor)
+            
                 // console.log(event)
                 try{
                   // console.log(event)
                 const data = editor.getData()
                 // settopicdescription(data)
                 // const name = event.target.value
-                console.log(editor)
                 // const value = event.target.value
-                // setEntries(entries => ({...entries, [sub[i-2]]:data}))
+                setEntries(entries => ({...entries, [pointer]:data}))
                 }
                 catch(error){
                     console.log(error)
@@ -218,7 +224,12 @@ const Submission = ({history}) =>{
               }}
               
               /></label>
-
+              
+              <button onClick={reduce}>Back</button>
+             
+    {console.log(entries[pointer])}
+    {console.log(entries)}
+    {console.log(pointer)}
   </div>
   }
   {flow == 0 &&
