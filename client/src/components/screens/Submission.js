@@ -29,7 +29,10 @@ const Submission = ({history}) =>{
   const [Key,setKey] = useState(0);
   const [formElements,setFormElements] = useState([]);
   const [entries,setEntries] = useState({})
-
+  const [temp,setTemp] = useState("")
+  const [id,setID] = useState([])
+  const [flow,setFlow] = useState(0)
+  const [pointer,setPointer] = useState(0)
 
    const params =useParams();
    const subm = params.id;
@@ -90,15 +93,39 @@ const Submission = ({history}) =>{
           
               formElements.push(<div><label>{sub[i-1]}:<input type="text" name={sub[i-1]} value={input.value} onChange={handleChange}></input></label><br/><br/></div>)
             }else if(sub[i] == "Rich"|| sub[i] == "rich"){
-              console.log("yoo");
-              formElements.push(<div><br/><label>{sub[i-1]}<CKEditor 
-              editor={ClassicEditor}
-              // data={topicdescription}
+              
+              console.log(i-1)
+              setTemp(sub[i-1])
+              // formElements.push(<div><br/><label>{sub[i-1]}<CKEditor
+              // editor={ClassicEditor}
+              // key={sub[i-1]}
+              // name="testing"
+              // value={input.value}
+              // data={input.value}
+              
               // onChange={(event,editor)=>{
+              //   console.log(editor)
+              //   // console.log(event)
+              //   try{
+              //     // console.log(event)
               //   const data = editor.getData()
-              //   settopicdescription(data)
+              //   // settopicdescription(data)
+              //   // const name = event.target.value
+              //   console.log(editor)
+              //   // const value = event.target.value
+              //   setEntries(entries => ({...entries, [sub[i-2]]:data}))
+              //   }
+              //   catch(error){
+              //       console.log(error)
+              //   }
               // }}
-              /></label></div>)
+              
+              // /></label></div>)
+
+              formElements.push(<div><button name={i} onClick={handleClick}>testing</button></div>)
+
+
+
             }
           }
        }
@@ -145,11 +172,17 @@ const Submission = ({history}) =>{
     const name = event.target.name
     const value = event.target.value
     setEntries(entries => ({...entries, [name]:value}))
+    console.log(event.target)
 
   }
 
 
-
+  const handleClick = (event) => {
+      console.log(event.target.name)
+      setPointer(event.target.name)
+      setFlow(flow+1)
+      
+  }
 
 
 
@@ -158,7 +191,37 @@ const Submission = ({history}) =>{
   <span className="error-message">{error}</span>
 ) : ( 
   <>
+  {flow == 1 &&
+<div id = "back">
+<label>test<CKEditor
+              editor={ClassicEditor}
+     
 
+              value={input.value}
+              data={input.value}
+              
+              onChange={(event,editor)=>{
+                console.log(editor)
+                // console.log(event)
+                try{
+                  // console.log(event)
+                const data = editor.getData()
+                // settopicdescription(data)
+                // const name = event.target.value
+                console.log(editor)
+                // const value = event.target.value
+                // setEntries(entries => ({...entries, [sub[i-2]]:data}))
+                }
+                catch(error){
+                    console.log(error)
+                }
+              }}
+              
+              /></label>
+
+  </div>
+  }
+  {flow == 0 &&
   <div id="back">
   <Header/>
   <br></br>
@@ -185,7 +248,7 @@ const Submission = ({history}) =>{
 
       </ul> </div>
     </div>
-
+}
   
   </>
 );
