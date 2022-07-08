@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 
-const {viewAvailableSubmissions,viewBatchID,viewspecificSubmission,submissionForm,addSubmission,DeleteSubmission,editSpecificSubmission} = require('../controllers/SubmissionPage')
+const {viewAvailableSubmissions,viewBatchID,viewspecificSubmission,submissionForm,addSubmission,DeleteSubmission,editSpecificSubmission,viewSpecificSubmission} = require('../controllers/SubmissionPage')
 
 
 
