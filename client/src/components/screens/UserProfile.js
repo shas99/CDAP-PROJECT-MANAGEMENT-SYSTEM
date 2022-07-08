@@ -127,12 +127,7 @@ const UserProfile = ({history}) => {
       </div>
       
      
-      <form onSubmit={onSubmitHandler}>
-        
-       
-        
-
-      </form>
+   
       
       
      
