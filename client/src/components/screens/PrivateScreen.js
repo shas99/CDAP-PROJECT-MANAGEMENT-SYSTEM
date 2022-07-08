@@ -10,6 +10,7 @@ import { faPeopleGroup } from '@fortawesome/free-solid-svg-icons';
 import { faHandshake } from '@fortawesome/free-solid-svg-icons';
 import { faRegistered } from '@fortawesome/free-solid-svg-icons';
 import { faDiagramProject } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -67,6 +68,7 @@ const PrivateScreen = ({history}) => {
     <div className="row1">
       <div className="StudentRectangle-36" >
       <FontAwesomeIcon className="iconsstudentdash" icon={faCommentDots} />
+      <img src="../../images/" alt="student" className="studentdash"/>
 
       
 
@@ -118,7 +120,7 @@ const PrivateScreen = ({history}) => {
       <div className="StudentRectangle-43">
       <FontAwesomeIcon className="iconsstudentdash" icon={faFileArrowUp} />
       <br/><br/>
-      <Link to="/submissionmilestone" id="Regs">Submit File</Link>
+      <Link to="/dashboard" id="Regs">Submit File</Link>
       </div>
 
       <div className="StudentRectangle-43">
@@ -126,6 +128,12 @@ const PrivateScreen = ({history}) => {
 <a target="_blank" href="https://cdap-app-365.herokuapp.com/" id="Regs">Schedule Meeting</a>
 
 </div>
+
+<div className="StudentRectangle-44">
+      <FontAwesomeIcon className="iconsstudentdash" icon={faUser} />
+      <br/><br/>
+      <Link to="/userprofile" id="Regs">My Profile</Link>
+      </div>
 
       </div>
 

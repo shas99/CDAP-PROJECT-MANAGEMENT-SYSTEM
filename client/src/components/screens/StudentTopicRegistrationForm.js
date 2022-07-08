@@ -80,6 +80,7 @@ const TopicRegistration = ({history}) => {
       history.push("/login");
   
     };
+    
     const groupregisterHandler = async (e) => {
         e.preventDefault();
     
@@ -136,7 +137,7 @@ const TopicRegistration = ({history}) => {
            
       
           
-          <div className="group-screen">
+    <div className="group-screen">
             
           <div>        
           <form onSubmit={groupregisterHandler} className="group-screen__form">
@@ -277,7 +278,8 @@ const TopicRegistration = ({history}) => {
         </button>
 
         
-      </form></div>
+      </form>
+      </div>
           </div>
       
           <Footer/>

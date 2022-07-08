@@ -67,6 +67,11 @@ const AdminDashboard = ({history}) => {
       <Link to="/adminViewProjects" id="Regs">Available Projects</Link>
       </div>
       
+    <div className="StudentRectangle-42">
+      <FontAwesomeIcon className="iconsstudentdash" icon={faDiagramProject} />
+      <br/><br/>
+      <Link to="/markingconfiguations" id="Regs">Marking Configurations</Link>
+      </div>
 
 
 <div className="StaffRectangle-40">
@@ -75,7 +80,19 @@ const AdminDashboard = ({history}) => {
       <Link to="/adminAvailableProjectGroups" id="Regs"><button className="buttons" onClick="/staffproject ">View Groups</button></Link>
       </div>
 
+      <div className="StaffRectangle-40">
+      <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
+      {/* <i class="fa-solid fa-graduation-cap"></i> */}
+
+      <Link to="/placeAnnouncement" id="Regs"><button className="buttons" onClick="/staffproject ">Place Announcement</button></Link>
+      </div>
+
       
+
+      <Link to="/submissionadmin" id="Regs"><button className="buttons" onClick="/submissionadmin ">Submissions</button></Link>
+      </div>
+
+
 
 
 

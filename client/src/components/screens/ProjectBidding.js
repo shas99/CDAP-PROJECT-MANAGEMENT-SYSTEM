@@ -45,6 +45,7 @@ export default function ProjectBidding() {
             
       }
     };
+
     const getRelevantProjectData =async ()=>{
      
       try{
@@ -93,7 +94,7 @@ export default function ProjectBidding() {
           </div> */}
 
           {/* Form  */}
-          <form onSubmit={biddingPlaceHandler} className="bid-screen__form"  >
+      <form onSubmit={biddingPlaceHandler} className="bid-screen__form"  >
        <div >
         <label className="form-group" >
           Your Group ID:</label><br></br>

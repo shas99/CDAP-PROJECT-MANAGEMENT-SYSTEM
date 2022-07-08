@@ -1,3 +1,4 @@
+const { Batch } = require('aws-sdk');
 const mongoose = require('mongoose');
 
 const SubmissionPage = require('../models/SubmissionPage')
@@ -48,6 +49,7 @@ try{
 //         res.status(500).json({success:false, error:error.message})
 //     }
 // }
+
 
 
 //get batch id
@@ -103,7 +105,7 @@ exports.viewspecificSubmission = async(req,res,next) => {
 
 
 
-
+//Create entries for submissions
 exports.submissionForm = async(req,res,next) => {
     const {entries} = req.body
     try{
@@ -118,3 +120,103 @@ exports.submissionForm = async(req,res,next) => {
         next(error)
     }
 };
+
+//create new submission
+exports.addSubmission =async(req,res,next) => {
+    const {BatchID,visibility,Heading,Description,Fields} = req.body
+    
+    try{
+        const user = await SubmissionPage.create({
+            BatchID,visibility,Heading,Description,Fields
+        })
+        res.status(201).json({
+            success: true,
+            data: "Success"
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+    };
+//Delete Submissions
+    exports.DeleteSubmission =async(req,res,next) => {
+        const {SubmissionID} = req.body
+        console.log(SubmissionID+"testing")
+        try{
+            const user = await SubmissionPage.deleteOne({
+                _id:SubmissionID
+            })
+            res.status(201).json({
+                success: true,
+                data: "Success"
+            })
+            
+        
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        
+        };
+//View specific submission
+    exports.viewSpecificSubmission =async(req,res,next) => {
+            
+        const SubmissionID = req.query.SubmissionID
+        console.log(SubmissionID)
+            try{
+            
+            
+                const submission = await SubmissionPage.findById(SubmissionID)
+
+
+                
+                res.status(201).json({
+                    success: true,
+                    data: submission
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+            };
+
+    exports.editSpecificSubmission =async(req,res,next) => {
+            
+        const {SubmissionID,Fields,Description,Heading,BatchID,visibility} = req.body
+
+
+        console.log(SubmissionID)
+        console.log(Fields)
+        console.log(Description)
+        console.log(Heading)
+        console.log(BatchID)
+
+            try{
+            
+            
+                const submission = await SubmissionPage.findById(SubmissionID)
+                
+                submission.BatchID = BatchID
+                submission.Fields = Fields
+                submission.Heading = Heading
+                submission.Description = Description
+                submission.visibility = visibility
+
+                await submission.save()
+
+                
+                res.status(201).json({
+                    success: true,
+                    data: submission
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+            };
+
