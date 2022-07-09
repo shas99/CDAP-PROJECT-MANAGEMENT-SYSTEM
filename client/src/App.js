@@ -60,6 +60,11 @@ import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
 import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableProjects";
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
+
+import SubmissionAdmin from "./components/screens/SubmissionAdminScreen"
+import AddSubmission from "./components/screens/AddSubmissionScreen"
+import EditSubmission from "./components/screens/EditSubmissions"
+
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
 
@@ -70,6 +75,7 @@ import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
 import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
+
 
 
 
@@ -169,6 +175,12 @@ const App = () => {
 
          
          
+
+         <Route exact path="/submissionadmin" component={SubmissionAdmin}/>
+
+         <Route exact path="/addSubmission" component={AddSubmission}/>
+
+         <Route exact path="/editSubmission/:id" component={EditSubmission}/>
 
 
         </Switch>
