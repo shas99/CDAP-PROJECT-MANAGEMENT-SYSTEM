@@ -41,21 +41,7 @@ export default function ProposalMarkingConfiguraton() {
         }
       };
 
-       //************* RETRIEVE PROPOSAL DETAILS **********/ 
-       const getRelevantProjectData =async ()=>{
-     
-        try{
-          const{data}=await axios.get(`/api/AvailableProject/availableProjects/${proposalMarkingID}`);
-          setTotalContribution(data.MarkingRubrik.affectedTotalContribution)
-          
-  
-        }catch(error){
-          
-          
-        }
-        
-  
-      }
+   
 
 
 

@@ -9,6 +9,9 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 // //Footer
 // import Footer from "./components/Footer/Footer";
 
+import SideNavigationBar from "./components/screens/SideNavigationBar";
+import Dashboard from './components/screens/Dashboard'
+
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
@@ -26,9 +29,13 @@ import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
 import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
-import EnterMarks from "./components/screens/EnterMarks";
+import ProposalPresentationMarks from "./components/screens/ProposalPresentationMarks";
+
+import ProposalReportMarks from "./components/screens/ProposalReportMarks";
 
 //styling trial
+
+import EnterStatusDocument1Marks from "./components/screens/EnterStatusDocument1Marks"
 
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
@@ -44,25 +51,43 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
+import login  from "./components/screens/login";
+//mark dashboard
+import MarkDashboard from "./components/screens/MarkDashboard";
 
 import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
 import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableProjects";
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
+
+import SubmissionAdmin from "./components/screens/SubmissionAdminScreen"
+import AddSubmission from "./components/screens/AddSubmissionScreen"
+import EditSubmission from "./components/screens/EditSubmissions"
+
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
+
+import ProposalReportMarkingConfiguration from "./components/screens/ProposalReportMarkingConfiguration";
+import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocumentMarkingConfiguration";
+
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
+import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
+import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
+
+
 
 
 const App = () => {
   return (
     <Router>
       {/* <Header /> */}
+     
+
       <div className="app">
         <Switch>
-          <PrivateRoute exact path="/" component={PrivateScreen} />
+          <PrivateRoute exact path="/" component={Dashboard} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
           <Route
@@ -75,6 +100,7 @@ const App = () => {
             path="/passwordreset/:resetToken"
             component={ResetPasswordScreen}
           />
+         
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
@@ -94,7 +120,11 @@ const App = () => {
 
           <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
 
-          <Route exact path="/addmarks" component={EnterMarks}/>
+          <Route exact path="/addproposalpresentationmarks" component={ProposalPresentationMarks}/>
+
+          <Route exact path="/addproposalreportmarks" component={ProposalReportMarks}/>
+
+          <Route exact path="/enterstatusdocument1marks" component={EnterStatusDocument1Marks}/>
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
@@ -116,6 +146,8 @@ const App = () => {
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
 
+         <Route exact path="/markdashboard" component={MarkDashboard}/>
+
          <Route exact path="/adminLogin" component={AdminLoginScreen}/>
 
          <Route exact path="/adminPrivate" component={AdminDashboard}/>
@@ -125,10 +157,30 @@ const App = () => {
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
          <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
          <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
+
+         <Route exact path="/proposalreportmarkingconfiguration" component={ProposalReportMarkingConfiguration}/>
+         <Route exact path="/statusdocumentmarkingconfiguration" component={StatusDocumentMarkingConfiguration}/>
+         
+         <Route exact path="/progresspresentationmarkingconfiguration" component={ProgressPresentationMarkingConfiguration}/>
+
+
          <Route exact path="/userprofile" component={UserProfile}/>
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
+         <Route exact path="/sideNavBar" component={SideNavigationBar}/>
+         <Route exact path="/dashboard" component={Dashboard}/>
+         <Route exact path="/loginNew" component={login}/>
+         <Route exact path="/placeAnnouncement" component={PlaceAnnouncement}/>
+         
+
+
          
          
+
+         <Route exact path="/submissionadmin" component={SubmissionAdmin}/>
+
+         <Route exact path="/addSubmission" component={AddSubmission}/>
+
+         <Route exact path="/editSubmission/:id" component={EditSubmission}/>
 
 
         </Switch>

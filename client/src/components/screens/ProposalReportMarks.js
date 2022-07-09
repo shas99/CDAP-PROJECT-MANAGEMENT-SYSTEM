@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 // import "./MatchedSupervisors.css";
-import "./MarksScreen.css";
+import "./ProposalReportMarks.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
-const EnterMarks = ({history}) => {
+
+const ProposalReportMarks = ({history}) => {
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
     const [groupID, setgroupID]= useState("");
     const [studentIDs, setstudentIDs] = useState("");
     const [studentnames, setstudentnames] = useState("");
-    const [examiner1, setexaminer1] = useState("");
-    const [examiner2, setexaminer2] = useState("");
-    const [moderator, setmoderator] = useState("");
+    const [cosupervisor, setcosupervisor] = useState("");
+    const [supervisor, setsupervisor] = useState("");
     const [extrafeedback, setextrafeedback] = useState("");
     const [provengapmarks1, setprovengapmarks1] = useState("");
     const [provengapmarks2, setprovengapmarks2] = useState("");
@@ -23,9 +23,10 @@ const EnterMarks = ({history}) => {
     const [implementationmarks3, setimplementationmarks3] = useState("");
     const [communicationmarks1, setcommunicationmarks1] = useState("");
     const [communicationmarks2, setcommunicationmarks2] = useState("");
+    const [communicationmarks3, setcommunicationmarks3] = useState("");
     const [commercializationmarks1, setcommercializationmarks1] = useState("");
-    const [entermarks,setentermarks] = useState("")
-    const [fetchentermarksData, setentermarksData] = useState("");
+    const [enterproposalreportmarks,setenterproposalreportmarks] = useState("")
+    const [fetchenterproposalreportmarksData, setenterproposalreportmarksData] = useState("");
     const [totalContribution ,setTotalContribution] = useState("");
     const [excellent,setExcellent] = useState("");
     const [good,setGood] = useState("");
@@ -37,23 +38,23 @@ const EnterMarks = ({history}) => {
     const [l04,setl04] = useState("");
     const [l05,setl05] = useState("");
 
-    const proposalMarkingID = "62b562e495c3039108f3714e";
-
+    const proposalReportMarkingID = "62b5f7ef425a8a64871de741";
+    
     useEffect(() => {
-        const fetchentermarksData = async () => {
-            const entermarksconfig = {
+        const fetchenterproposalreportmarksData= async () => {
+            const enterproposalreportmarksconfig = {
                 headers: {
                     "Content-Type":"application/json",
                     Authorization: `Bearer ${localStorage.getItem("authToken")}`,
                 }
             }
             try{
-                const { data} = await axios.get("/api/staffPrivate/addmarks", entermarksconfig);
-                const entermarksArray = data.data.split("/")
-                console.log(entermarksArray[0])
-                const entermarks1 =entermarksArray[0].split(",")
-                setentermarks(entermarks1)
-                setentermarksData(entermarksArray[0]);
+                const { data} = await axios.get("/api/staffPrivate/addproposalreportmarks", enterproposalreportmarksconfig);
+                const enterproposalreportmarksArray = data.data.split("/")
+                console.log(enterproposalreportmarksArray[0])
+                const enterproposalreportmarks1 =enterproposalreportmarksArray[0].split(",")
+                setenterproposalreportmarks(enterproposalreportmarks1)
+                setenterproposalreportmarksData(enterproposalreportmarksArray[0]);
                
             }catch(error){
                 
@@ -79,7 +80,7 @@ const EnterMarks = ({history}) => {
         //fetch Marks Data()
 
         fetchPrivateDate();
-        fetchentermarksData()
+        fetchenterproposalreportmarksData()
     }, [history])
 
     //logout feature
@@ -88,7 +89,7 @@ const EnterMarks = ({history}) => {
         history.push("/login");
     }
 
-    const entermarksHandler = async (e) => {
+    const enterproposalreportmarksHandler = async (e) => {
         e.preventDefault();
          const config = {
             header: {
@@ -97,8 +98,8 @@ const EnterMarks = ({history}) => {
          }
          try{
             const {data}=await axios.post(
-                "/api/staffPrivate/addmarks",
-                { groupID, studentIDs, studentnames, examiner1, examiner2, moderator, extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1,entermarks},
+                "/api/staffPrivate/addproposalreportmarks",
+                { groupID, studentIDs, studentnames,  cosupervisor, supervisor, extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,communicationmarks3,commercializationmarks1,enterproposalreportmarks},
                 config
             );
 
@@ -111,11 +112,11 @@ const EnterMarks = ({history}) => {
             }, 5000)
          }
     }
-    //*********** GET PROPOSAL MARKING CONFIGURATION DATA *********** */
-    const getRelevantProposalMarkingConfigData =async ()=>{
+    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
+    const getRelevantProposaReportlMarkingConfigData =async ()=>{
      
         try{
-          const{data}=await axios.get(`/api/markingRubrik/proposalMarkingConfiguration/${proposalMarkingID}`);
+          const{data}=await axios.get(`/api/markingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
          
          setTotalContribution(data.proposalDetails.affectedTotalContribution)
          setExcellent(data.proposalDetails.excellentGradeRange)
@@ -135,7 +136,7 @@ const EnterMarks = ({history}) => {
         
   
       }
-      getRelevantProposalMarkingConfigData();
+      getRelevantProposaReportlMarkingConfigData();
   
 
 
@@ -143,7 +144,7 @@ const EnterMarks = ({history}) => {
 
     const listHandler=()=>{
         try{
-            const lists = entermarks.map((n)=>
+            const lists = enterproposalreportmarks.map((n)=>
             <li>{n}</li>)
             return(
                 <ul>{lists}</ul>
@@ -176,8 +177,8 @@ const EnterMarks = ({history}) => {
         
             
           <div className="entermarksbackground">        
-          <form onSubmit={entermarksHandler} className="group-screen__form_Enter_marks">
-      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Presentation Mark Allocation Sheet [Total contribution = {totalContribution}]</h3>
+          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enter_marks">
+      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = {totalContribution} ]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <table className="tablemarks1">
@@ -220,10 +221,10 @@ const EnterMarks = ({history}) => {
         <table className="proposalpresentationmarking">
         <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-    <th className="proposalpresentationmarking"> Excellent({excellent}) </th>
-    <th className="proposalpresentationmarking"> Good({good}) </th>
-    <th className="proposalpresentationmarking"> Average({average}) </th>
-    <th className="proposalpresentationmarking"> Below Average({belowAverage}) </th>
+    <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
+    <th className="proposalpresentationmarking"> Good[{good}] </th>
+    <th className="proposalpresentationmarking"> Average[{average}] </th>
+    <th className="proposalpresentationmarking"> Below Average[{belowAverage}] </th>
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
   </tr>
   <tr>  <br></br>
@@ -464,7 +465,7 @@ used.
 
 <tr> <br></br>
     <div className="l0percentage"> 
-        Solution Implementation [Based on LO3] - [5%]    
+        Solution Implementation [Based on LO3] - [{l03}]    
         </div><br></br><br></br>
     {/* <th  className="tableheading">Solution Implementation [Based on LO3] - [{l03}]</th> */}
 
@@ -642,42 +643,39 @@ distribution.
 </tr>
 <tr>
     <td>
-    Communication skills
-60%
+    Idea delivery
+50%
 
     </td>
     <td>
-    Excellent structure and smooth
-flow of the presentation.
-Excellent performance at the
-Q&A session.
+    Excellent explanation of
+proposal content (objectives and
+methodology etc.), with logical
+discussion of the system's
+features.
 
     </td>
     <td>
-    Well-developed
-structure and good flow
-of the presentation.
-Good performance at
-the Q&A session.
+    Sufficiently explained the
+proposal content (objectives
+and methodology etc.), with
+good discussion of system's
+features.
 
     </td>
     <td>
-    Fairly developed
-structure and the flow of
-the presentation.
-Fair performance at the
-Q&A session.
+    Proposal content
+explained but
+containing some
+irrelevant information.
 
     </td>
     <td>
-    Poorly developed
-structure and
-fragmented flow
-of the
-presentation.
-Poor performance
-at the Q&A
-session.
+    Weakly explained
+the proposal
+content with lot of
+irrelevant
+information.
 
     </td>
 
@@ -696,42 +694,43 @@ session.
 </tr>
 <tr>
     <td>
-    Presentation skills
-40%
+    Structure and
+mechanics of language
+30%
 
     </td>
     <td>
-    Excellent stage presence, body
-language, eye contact, voice
-projection and clarity.
-Commendable use of visual
-aids.
-Excellent time management.
+    Excellent structure and
+formatting, meaningful chapters
+(as recommended) with logical
+flow.
+Excellent language usage
+without grammatical and
+typographical errors.
 
     </td>
     <td>
-    Good stage presence
-and body language
-Use of visual aids
-Hardly managed the
-time
+    Acceptable structure and
+formatting, meaningful
+chapters (as recommended)
+with logical flow.
+Fairly good language usage
+with very few grammatical
+and typographical errors
 
     </td>
     <td>
-    Average stage presence
-with no body language
-Little or no use of visual
-aids
-poor time management
+    Poorly designed
+structure and
+formatting.
+Many grammatical and
+typographical errors.
 
     </td>
     <td>
-    Poor stage
-presence
-No use of visual
-aids
-Poor time
-management
+    Unacceptable
+structure.
+Very poor writing.
 
     </td>
 
@@ -742,6 +741,48 @@ management
           className = "proposalpresentationinput"
           onChange={(e) => setcommunicationmarks2(e.target.value)}
           value={communicationmarks2} />
+          
+
+
+    </td>
+
+</tr>
+{/* newly added */}
+<tr>
+    <td>
+    Referencing (IEEE)
+20%
+
+    </td>
+    <td>
+    Proper citing and referencing.
+
+    </td>
+    <td>
+    Acceptable level of citing
+and referencing.
+
+    </td>
+    <td>
+    Few citations with
+incorrect referencing.
+
+    </td>
+    <td>
+    Very few or No
+citations and
+incorrect or No
+referencing
+
+    </td>
+
+    <td colspan="2">
+    
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setcommunicationmarks3(e.target.value)}
+          value={communicationmarks3} />
           
 
 
@@ -842,24 +883,24 @@ benefits
                 <tr>
                     <td style={{padding:"5px",margin:"5px"}}>
                     <label>
-           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 1:</b></label><br/><br/>
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Co supervisor:</b></label><br/><br/>
           <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name" 
           className = "input"
-          onChange={(e) => setexaminer1(e.target.value)}
-          value={examiner1} />
+          onChange={(e) => setcosupervisor(e.target.value)}
+          value={cosupervisor} />
 
                     </td>
                 <td className="tabletd1">
                 <label>
-           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 2:</b></label><br/><br/>
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Supervisor:</b></label><br/><br/>
           <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
           name="name"
           className = "input"
-          onChange={(e) => setexaminer2(e.target.value)}
-          value={examiner2} />
+          onChange={(e) => setsupervisor(e.target.value)}
+          value={supervisor} />
                 </td>
-                <td className="tabletd1">
+                {/* <td className="tabletd1">
                 <label>
            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
           <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
@@ -868,7 +909,7 @@ benefits
           onChange={(e) => setmoderator(e.target.value)}
           value={moderator} />
 
-                </td>
+                </td> */}
                 </tr>
             </table>
        
@@ -1028,8 +1069,6 @@ benefits
         </>
       );
 }
-export default EnterMarks;
+export default ProposalReportMarks;
             
           
-
-    
