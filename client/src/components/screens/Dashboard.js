@@ -248,7 +248,11 @@ export default function Dashboard ({history}) {
 {/*  Grid Buttons */}
                 <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
 
-                      
+                      <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                           <button>
+                           <a href='/matchedsupervisors'> Matched Supervisors</a>
+                            </button>
+                       </div>
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
