@@ -24,7 +24,7 @@ const ViewMarksDashboard = ({history}) => {
             };
 
             try{
-                const { data } = await axios.get("/api/staffPrivate/staffPrivate",config);
+                const { data } = await axios.get("/api/private",config);
 
                 setPrivateData(data.data);
             }catch(error){
@@ -63,7 +63,7 @@ const ViewMarksDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addproposalpresentationmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
+        <Link to="/viewproposalpresentationmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
         </div>
 
         <div className="StaffRectangle-37">
@@ -72,7 +72,7 @@ const ViewMarksDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addproposalreportmarks" id="Regs"><button className="buttons">Proposal report</button></Link>
+        <Link to="/viewproposalreportmarks" id="Regs"><button className="buttons">Proposal report</button></Link>
         </div>
 
         <div className="StaffRectangle-37">
@@ -81,7 +81,7 @@ const ViewMarksDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/enterstatusdocument1marks" id="Regs"><button className="buttons">Status document 1 </button></Link>
+        <Link to="/viewstatusdocument1marks" id="Regs"><button className="buttons">Status document 1 </button></Link>
         </div>
 
         <div className="StaffRectangle-37">
@@ -90,7 +90,7 @@ const ViewMarksDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/enterprogresspresentation1marks" id="Regs"><button className="buttons">Progress Presentation 1 </button></Link>
+        <Link to="/viewprogresspresentation1marks" id="Regs"><button className="buttons">Progress Presentation 1 </button></Link>
         </div>
 
       
