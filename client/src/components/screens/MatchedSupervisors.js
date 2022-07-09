@@ -10,7 +10,8 @@ const MatchedSupervisors = ({history}) => {
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
     const [suggestions,setsuggestions] = useState("");
-    const [SupervisorData, setSupervisorData] = useState("");
+    const [SupervisorData, setSupervisorData] = useState([]);
+    const [batchID, setBatchID] = useState("");
     
     useEffect(() => {
       const fetchPrivateDate = async () => {
@@ -42,10 +43,33 @@ const MatchedSupervisors = ({history}) => {
           const {data} =  await axios.get("/api/group/viewAvailableSupervisors", supconfig);
           const array = Object.entries(data.data)
           setSupervisorData(data.data);
+          console.log("This is testing"+data.data)
           //console.log(SupervisorData);
         }
         catch(error){}
       };
+
+      const fetchbatchID = async () =>{
+        const submissionsconfig = {
+          headers: {
+            "Content-Type":"application/json",
+            Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+  
+        try{
+          const{data} = await axios.get("/api/STDAvailableSubmissions/batchID",submissionsconfig);
+          //const array = Object.entries(data.data)
+          setBatchID(data.data);
+          
+  
+          
+        }catch(error){
+          // setError("Data not fetched");
+          
+        }
+      
+      }
   
 
       // const fetchsuggestions = async () => {
@@ -71,6 +95,7 @@ const MatchedSupervisors = ({history}) => {
       // };
     //   fetchGroupData()
       // fetchsuggestions()
+      fetchbatchID();
       fetchPrivateDate();
       fetchAvailableSupervisors();
     }, [history]);
@@ -136,11 +161,14 @@ const MatchedSupervisors = ({history}) => {
           {/* US-01 Pasindu Vinod*/}
 
           <div className="container text-xs text-gray-200 mt-1">
-            Supervisors
+            Supervisors{batchID}
             <br/>
+            
             {SupervisorData.map (supervisor => {
               return (
-                <p>{supervisor.Name}</p>
+                
+                //<p>{supervisor.Name,supervisor.g.length}</p>
+                 <p></p>
               )
               
             })}
