@@ -28,6 +28,8 @@ import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
 import ProposalPresentationMarks from "./components/screens/ProposalPresentationMarks";
 
+import ViewMarksDashboard from "./components/screens/ViewMarksDashboard";
+
 //Progress Presentation Marks 1 
 import EnterProgressPresentation1Marks from "./components/screens/EnterProgressPresentation1Marks";
 
@@ -111,6 +113,8 @@ const App = () => {
           <Route exact path="/enterstatusdocument1marks" component={EnterStatusDocument1Marks}/>
 
           <Route exact path="/enterprogresspresentation1marks" component={EnterProgressPresentation1Marks}/>
+
+          <Route exact path="/viewmarksdashboard" component={ViewMarksDashboard}/>
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>

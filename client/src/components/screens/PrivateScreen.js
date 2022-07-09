@@ -84,10 +84,16 @@ const PrivateScreen = ({history}) => {
         <Link to="/studenttopicinterestingform" id="Regs">Student Topic Interestings</Link>
         </div>
 
-      <div className="StudentRectangle-38">
+      {/* <div className="StudentRectangle-38">
       <FontAwesomeIcon className="iconsstudentdash" icon={faGraduationCap} />
       <br/><br/>
       <Link to="/viewmarks" id="Regs">My Grades</Link>
+      </div> */}
+
+      <div className="StudentRectangle-38">
+      <FontAwesomeIcon className="iconsstudentdash" icon={faGraduationCap} />
+      <br/><br/>
+      <Link to="/viewmarksdashboard" id="Regs">My Grades</Link>
       </div>
 
       <div className="StudentRectangle-39">
