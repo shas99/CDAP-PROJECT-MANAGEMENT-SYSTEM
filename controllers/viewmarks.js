@@ -21,7 +21,7 @@ exports.viewproposalpresentationmarks = async(req,res,next) => {
         if(token == null){
             console.log("Please login !!")
             res.status(201).json({
-                suceess:true,
+                success:true,
                 data:"Data1/Data2/Data3/Data4"
             })
 
