@@ -62,6 +62,8 @@ const { Console } = require('console')
 //     }
 // }
 
+//METHOD 2
+
 //view proposal presentation marks for logged in student method 2
 exports.viewproposalpresentationmarks =async(req,res,next) => {
     //const{email}=req.body;
@@ -81,7 +83,8 @@ exports.viewproposalpresentationmarks =async(req,res,next) => {
         console.log(decoded)
         
         const user = await User.findById(decoded.id)
-       const retrievestudentid = user.studentID //after iterating through all the records in the entermarks collection,check if retrievestudentid exists
+       const retrievestudentid = user.studentID
+       console.log(retrievestudentid) //after iterating through all the records in the entermarks collection,check if retrievestudentid exists
                                                 //in any of those records
                                                 //if it does pass that all data (marks data) to the frontend
                                                 //line 84 retrieves the logged in users student ID
@@ -99,13 +102,25 @@ exports.viewproposalpresentationmarks =async(req,res,next) => {
         // console.log(marks)
         
         //first search how to use map to iterate through a collection in mongodb(how does map work)
-        const studentIDs = await ProposalPresentationMarks.find()
+        const studentProposalCollection = await ProposalPresentationMarks.find()
         //iteration 
+        let matchentry;
+        const matchedID = studentProposalCollection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
+            console.log(collectionEntry)
+            matchentry=collectionEntry
+
+        }}
         
-        console.log(studentIDs)
+        )
+
+        // const matchedID = studentIDs.map(studentIDs == retrievestudentid)
+        
+        // console.log(match);
         res.status(201).json({
             success: true,
-            data: user.marks
+            // data: user.marks
+            data:matchentry.provengapmarks1
+           
         })
         
     }catch(error){
@@ -113,3 +128,119 @@ exports.viewproposalpresentationmarks =async(req,res,next) => {
     }
 }
 };
+
+
+
+
+
+//METHOD 3
+
+//view proposal presentation marks for logged in student method 3
+// exports.viewproposalpresentationmarks =async(req,res,next) => {
+    
+    
+//     let token
+    
+//     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+//         token = req.headers.authorization.split(" ")[1]
+//     }
+
+//     if(token == "null"){
+//         logged(token,res)
+//     }
+//     else{
+//         const decoded = jwt.verify(token,process.env.JWT_SECRET)
+//         console.log(decoded)
+        
+//         const user = await User.findById(decoded.id)
+//        const retrievestudentid = user.studentID 
+
+        
+
+   
+
+//         try{
+    
+//         const studentIDs = await (await ProposalPresentationMarks.find()).map(function(p){
+//             p=p.studentIDs.replace(retrievestudentid);
+//             return p;
+//         })
+    
+        
+//         console.log(studentIDs);
+//         res.status(201).json({
+//             success: true,
+           
+//             data:user.studentID
+           
+//         })
+        
+//     }catch(error){
+//         next(error)
+//     }
+// }
+// };
+
+
+
+
+//METHOD 4
+//view proposal presentation marks for logged in student method 3
+// exports.viewproposalpresentationmarks =async(req,res,next) => {
+    
+    
+//     let token
+    
+//     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+//         token = req.headers.authorization.split(" ")[1]
+//     }
+
+//     if(token == "null"){
+//         logged(token,res)
+//     }
+//     else{
+//         const decoded = jwt.verify(token,process.env.JWT_SECRET)
+//         console.log(decoded)
+        
+//         const user = await User.findById(decoded.id)
+//        const retrievestudentid = user.studentID 
+
+        
+
+   
+
+//         try{
+    
+//         // const studentIDs = await (await ProposalPresentationMarks.find()).map(function(p){
+//         //     p=p.studentIDs.replace(retrievestudentid);
+//         //     return p;
+//         // })
+
+//         const studentIDs = await ProposalPresentationMarks.find();
+
+//         for (int i=0;i<studentIDs.length;i++){
+//             if(studentIDs[i]==retrievestudentid){
+//                 studentIDs.splice(i,1);
+//             }
+//         }
+    
+        
+//         console.log(studentIDs);
+//         res.status(201).json({
+//             success: true,
+           
+//             data:user.studentID
+           
+//         })
+        
+//     }catch(error){
+//         next(error)
+//     }
+// }
+// };
+
+
+
+

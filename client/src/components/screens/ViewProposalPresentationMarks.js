@@ -71,7 +71,7 @@ const ViewProposalPresentationMarks = ({history}) => {
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
                 <h1>Your Proposal Presentation marks are</h1><br/>
-                {fetchProposalPresentationMarksData}<br/><br/><br/><br/>
+                Proven gap marks 1:{fetchProposalPresentationMarksData}<br/><br/><br/><br/>
                 
             </p>
             <Footer/>
