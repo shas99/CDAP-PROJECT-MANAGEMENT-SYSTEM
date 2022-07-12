@@ -127,7 +127,7 @@ const UserProfile = ({history}) => {
          
       </div>
       
-      <form action="/api/imageUpload" method="POST" enctype="multipart/form-data">
+      {/* <form action="/api/imageUpload" method="POST" enctype="multipart/form-data">
         <input type="file" name="image"/>
         
         <label for="name">Image Title</label>
@@ -138,7 +138,7 @@ const UserProfile = ({history}) => {
         <button type="submit">Submit</button>
         <img src={`data:image/<%=image.img.contentType%>;base64,${imageUploadData}`}></img>
 
-        </form>
+        </form> */}
 
         
    
