@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "concurrent": "concurrently \"npm run server\" \"npm start --prefix client\"",
+    "concurrent": "concurrently \"npm run server\" \"npm start --prefix client\"  \"npm run build:css --prefix client\" ",
     "server": "nodemon server.js --ignore client",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
