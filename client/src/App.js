@@ -75,7 +75,7 @@ import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
 import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
-
+import StaffPlaceAnnouncement from './components/screens/StaffPlaceAnnouncement';
 
 
 
@@ -170,6 +170,7 @@ const App = () => {
          <Route exact path="/dashboard" component={Dashboard}/>
          <Route exact path="/loginNew" component={login}/>
          <Route exact path="/placeAnnouncement" component={PlaceAnnouncement}/>
+         <Route exact path="/staffPlaceAnnouncement" component={StaffPlaceAnnouncement}/>
          
 
 
