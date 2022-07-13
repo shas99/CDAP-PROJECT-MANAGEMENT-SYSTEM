@@ -104,12 +104,19 @@ const UserProfile = ({history}) => {
   <Header/>
 
       <h1 id="userprofilecaption">My Profile</h1>
+      
       <div className="userprofileBox">
+      
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
+      
       <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
+      
       <p className="userprofilecontent2"> Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.username}</p> 
+      
       <p className="userprofilecontent1"> Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.address}</p> 
+      
       <p className="userprofilecontent2"> Phone Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.phoneNumber}</p> 
+      
       <div className="btn btn-success"style={{fontSize:"medium",fontWeight:"bold",backgroundColor:'#8256D0',width:"170px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",marginLeft:"125px",padding:"5px",marginTop:"25px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
      
       
@@ -127,18 +134,17 @@ const UserProfile = ({history}) => {
          
       </div>
       
-      {/* <form action="/api/imageUpload" method="POST" enctype="multipart/form-data">
+      <form action="/api/imageUpload" method="POST" enctype="multipart/form-data">
         <input type="file" name="image"/>
         
         <label for="name">Image Title</label>
         <input type="text" id="name" placeholder="Name" name="name" required>
-          onChange={(e) => setimageUploadData(e.target.value)}
-          value={imageUploadData}
+         
         </input>
         <button type="submit">Submit</button>
         <img src={`data:image/<%=image.img.contentType%>;base64,${imageUploadData}`}></img>
 
-        </form> */}
+        </form>
 
         
    
