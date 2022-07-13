@@ -21,26 +21,25 @@ const Swal = require('sweetalert2')
         e.preventDefault();
         try {
           
-          const { data } = await axios.put(
-            `/api/announcement/setAnnouncement/${announcementID}`,
-            { title,description,announcementDate,deadline }
-            );
+          
             //SUCCESS SWEET ALERT MESSAGE
-            const Toast = Swal.mixin({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 3000,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+                const { data } =  axios.put(
+                  `/api/announcement/setAnnouncement/${announcementID}`,
+                  { title,description,announcementDate,deadline }
+                  );
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
               }
-            })
-            
-            Toast.fire({
-              icon: 'success',
-              title: 'Announcement Placed Successfully !'
             })
          
         } catch (error) {
