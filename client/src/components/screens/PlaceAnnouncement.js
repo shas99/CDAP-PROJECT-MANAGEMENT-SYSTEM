@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from "react";
 import axios from 'axios';
-export default function PlaceAnnouncement() {
+import Swal from 'sweetalert2'
 
+
+export default function PlaceAnnouncement() {
+// CommonJS
+const Swal = require('sweetalert2')
     const [title, setTitle] = useState("");
     const [description,setDescription] = useState("")
     const [announcementDate,setDate] = useState("");
@@ -17,12 +21,26 @@ export default function PlaceAnnouncement() {
         e.preventDefault();
         try {
           
-          const { data } = await axios.put(
-            `/api/announcement/setAnnouncement/${announcementID}`,
-            { title,description,announcementDate,deadline }
-            );
-            alert("Announcement Placed")
-          console.log("Here is the data"+time)
+          
+            //SUCCESS SWEET ALERT MESSAGE
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+                const { data } =  axios.put(
+                  `/api/announcement/setAnnouncement/${announcementID}`,
+                  { title,description,announcementDate,deadline }
+                  );
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+            })
          
         } catch (error) {
           // setError(error.response.data.error);  

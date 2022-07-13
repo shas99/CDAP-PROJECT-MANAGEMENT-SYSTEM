@@ -4,12 +4,9 @@ import axios from "axios";
 import "./ProposalPresentationMarksScreen.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
-<<<<<<< HEAD:client/src/components/screens/EnterMarks.js
-const EnterMarks = ({history}) => {
-=======
+
 
 const ProposalPresentationMarks = ({history}) => {
->>>>>>> ff5704cc8d8331c951f265c76526e23cfd8db254:client/src/components/screens/ProposalPresentationMarks.js
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
     const [groupID, setgroupID]= useState("");
