@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from "react";
 import axios from 'axios';
-export default function PlaceAnnouncement() {
+import Swal from 'sweetalert2'
 
+
+export default function PlaceAnnouncement() {
+// CommonJS
+const Swal = require('sweetalert2')
     const [title, setTitle] = useState("");
     const [description,setDescription] = useState("")
     const [announcementDate,setDate] = useState("");
@@ -21,8 +25,23 @@ export default function PlaceAnnouncement() {
             `/api/announcement/setAnnouncement/${announcementID}`,
             { title,description,announcementDate,deadline }
             );
-            alert("Announcement Placed")
-          console.log("Here is the data"+time)
+            //SUCCESS SWEET ALERT MESSAGE
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+            
+            Toast.fire({
+              icon: 'success',
+              title: 'Announcement Placed Successfully !'
+            })
          
         } catch (error) {
           // setError(error.response.data.error);  
