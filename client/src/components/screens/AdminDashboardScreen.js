@@ -49,7 +49,7 @@ const AdminDashboard = ({history}) => {
     <span className="error-message">{error}</span>
   ) : ( 
 
-    <>
+<>
     <div id="back">
 
 <Header/>
@@ -97,9 +97,9 @@ const AdminDashboard = ({history}) => {
 
 
  
-<Footer/>
+  <Footer/>
 
-</div>
+
     </>
   );
 };
