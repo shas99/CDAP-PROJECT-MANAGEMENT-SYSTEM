@@ -9,12 +9,21 @@ export default function Dashboard ({history}) {
     const [privateData, setPrivateData] = useState("");
     const [privateData2, setPrivateData2] = useState("");
     const [privateData3, setPrivateData3] = useState("");
-
-    // Announcement Data setting 
+ 
+    // Announcement Data setting  ADMIN
     const [title,setTitle]=useState("");
     const [postedDate,setPostedDate]= useState("");
     const [description,setDescription]=useState("");
     const [deadline,setaDeadline]=useState("");
+
+     // Announcement Data setting  STAFF
+     const [stafftitle,setStaffTitle]=useState("");
+     const [staffpostedDate,setStaffPostedDate]= useState("");
+     const [staffdescription,setStaffDescription]=useState("");
+     const [staffdeadline,setStaffDeadline]=useState("");
+ 
+
+
   
     useEffect(() => {
       const fetchPrivateDate = async () => {
@@ -72,6 +81,28 @@ export default function Dashboard ({history}) {
   
       }
       getRelevantAnnouncementData();
+
+      //******* RETRIEVE ANNOUNCEMENT DETAILS STAFF */
+    const getRelevantAnnouncementData2 =async ()=>{
+        const announcementID = "62ce99ebde4f2a1d9e9bb84c";
+     
+        try{
+          const{data}=await axios.get(`/api/announcement/getAnnouncement/${announcementID}`);
+          console.log("Heyyyy "+data.announcement.announcementTitle);
+          setStaffTitle(data.announcement.announcementTitle);
+          setStaffDescription(data.announcement.announcementDescription);
+          setStaffDeadline(data.announcement.announcementDeadline);
+          setStaffPostedDate(data.announcement.announcementDate);
+
+         
+        }catch(error){
+          
+          
+        }
+        
+  
+      }
+      getRelevantAnnouncementData2(); 
   
 
 
@@ -333,11 +364,11 @@ export default function Dashboard ({history}) {
                                               
                            <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
 
-                                    <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
-                                    <h1 class="text-2xl font-semibold">{title}  </h1>
-                                    <p class="text-gray-400 text-sm">{description}</p>
-                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
-                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
+                                    <button class=' text-xs text-blue-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Staff</button>
+                                    <h1 class="text-2xl font-semibold">{stafftitle}  </h1>
+                                    <p class="text-gray-400 text-sm">{staffdescription}</p>
+                                    <p class="text-gray-400 text-sm">Posted on : {staffpostedDate}</p>
+                                    <p class="text-gray-400 text-sm">Deadline :   {staffdeadline}</p>
                                     <hr class="w-2/3 border-gray-500 my-4 hidden"/>
                                 
                             

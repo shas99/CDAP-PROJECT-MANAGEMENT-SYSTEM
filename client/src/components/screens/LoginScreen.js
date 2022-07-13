@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./LoginScreen.css";
-
+import Swal from 'sweetalert2'
 
 const LoginScreen = ({ history }) => {
+  const Swal = require('sweetalert2')
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -30,10 +31,30 @@ const LoginScreen = ({ history }) => {
         { email, password },
         config
       );
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+      })
 
       localStorage.setItem("authToken", data.token);
 
       history.push("/");
+
+      
+
+
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 
 
-export default function PlaceAnnouncement() {
+export default function StaffPlaceAnnouncement() {
 // CommonJS
 const Swal = require('sweetalert2')
     const [title, setTitle] = useState("");
@@ -13,7 +13,7 @@ const Swal = require('sweetalert2')
     const [time ,setaTime] =useState("");
     const [deadline,setaDeadline]= useState("");
     const current = new Date();
-    const announcementID = "62c66fa8957236a99937300a";
+    const announcementID = "62ce99ebde4f2a1d9e9bb84c";
     const pdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
    
      //*******POST ANNOUNCEMENT HANDLER FUNCTION *******/
