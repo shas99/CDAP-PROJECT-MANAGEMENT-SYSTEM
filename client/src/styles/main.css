@@ -1106,6 +1106,11 @@ video {
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
+}
+
 .text-orange-400 {
   --tw-text-opacity: 1;
   color: rgb(251 146 60 / var(--tw-text-opacity));
@@ -1124,11 +1129,6 @@ video {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
-.text-blue-400 {
-  --tw-text-opacity: 1;
-  color: rgb(96 165 250 / var(--tw-text-opacity));
 }
 
 .underline {
