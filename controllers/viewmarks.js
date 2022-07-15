@@ -50,9 +50,16 @@ exports.viewproposalpresentationmarks =async(req,res,next) => {
         
         )
 
-        const setmarksdata ="Proven gap A"+":"+matchentry.provengapmarks1+", "
-                            +"Proven gap B"+":"+matchentry.provengapmarks2+", "
-                            +"Capability in applying knowledge A"+":"+matchentry.capabilitymarks1+", "
+        const setmarksdata ="Proven gap A"+":"+matchentry.provengapmarks1+",  "
+                            +"Proven gap B"+":"+matchentry.provengapmarks2+",  "
+                            +"Capability in applying knowledge A"+":"+matchentry.capabilitymarks1+",  "
+                            +"Capability in applying knowledge B"+":"+matchentry.capabilitymarks2+",  "
+                            +"Solution implementation A"+":"+matchentry.implementationmarks1+",  "
+                            +"Solution implementation B"+":"+matchentry.implementationmarks2+",  "
+                            +"Solution implementation C"+":"+matchentry.implementationmarks3+",  "
+                            +"Effective Communication A"+":"+matchentry.communicationmarks1+",  "
+                            +"Effective Communication B"+":"+matchentry.communicationmarks2+",  "
+                            +"Ability of commercialization marks"+":"+matchentry.commercializationmarks1+",  "
                             
        
         res.status(201).json({
