@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 const ViewProposalPresentationMarks = ({history}) => {
     const [error,setError] = useState("");
     const [privateData, setPrivateData] = useState("");
+    // const [fetchProposalPresentationMarksData, setProposalPresentationMarksData] = useState("");
     const [fetchProposalPresentationMarksData, setProposalPresentationMarksData] = useState("");
 
     useEffect(() => {
@@ -71,7 +72,7 @@ const ViewProposalPresentationMarks = ({history}) => {
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
                 <h1>Your Proposal Presentation marks are</h1><br/>
-                Proven gap marks 1:{fetchProposalPresentationMarksData}<br/><br/><br/><br/>
+               {fetchProposalPresentationMarksData}<br/><br/><br/><br/>
                 
             </p>
             <Footer/>
