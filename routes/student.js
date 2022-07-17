@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {viewfeedback,viewmarks, viewAvailableGroups, StudentTopicInterestingForm,userprofilemanagement,edituserprofile} = require('../controllers/student')
+const {viewfeedback,viewmarks, viewAvailableGroups, StudentTopicInterestingForm,userprofilemanagement,edituserprofile,status} = require('../controllers/student')
 
 
 router.route("/viewfeedback").get(viewfeedback)//to view feedback
@@ -15,6 +15,6 @@ router.route("/userprofilemanagement").get(userprofilemanagement)//student profi
 
 router.route("/edituserprofile").put(edituserprofile)//student - edit profile feature
 
-
+router.route("/status").get(status)
 
 module.exports = router

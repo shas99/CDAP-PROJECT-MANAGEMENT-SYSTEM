@@ -1,4 +1,4 @@
-import '../../styles/main.css';
+// import '../../styles/main.css';
 import './SubmissionsM.css';
 import { format } from 'date-fns'
 
@@ -90,14 +90,14 @@ const Submission = ({history}) =>{
             setInput(label => [...label,sub[i]])
             if(sub[i] == "Normal" || sub[i] == "normal"){
           
-              formElements.push(<div><label>{sub[i-1]}:<input type="text" name={sub[i-1]} value={input.value} onChange={handleChange}></input></label><br/><br/></div>)
+              formElements.push(<div id='content'><label>{sub[i-1]}:<input type="text" name={sub[i-1]} value={input.value} onChange={handleChange} className="textbox"></input></label><br/><br/></div>)
             }else if(sub[i] == "Rich"|| sub[i] == "rich"){
               
               console.log(i-1)
               setTemp(sub[i-1])
 
 
-              formElements.push(<div><button name={sub[i-1]} onClick={handleClick}>{sub[i-1]}</button></div>)
+              formElements.push(<div><button name={sub[i-1]} onClick={handleClick} className="blueButton">{sub[i-1]}</button></div>)
 
             }
           }
@@ -218,7 +218,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
               
               /></label>
               
-              <button onClick={reduce}>Back</button>
+              <button onClick={reduce} className="blueButton">Back</button>
              
     {console.log(entries[pointer])}
     {console.log(entries)}
@@ -241,7 +241,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
 <br/>
 
 <div>{formElements}</div>
-<button onClick={submitHandler}>Submit</button>
+<button onClick={submitHandler} className="greenButton">Submit</button>
 {console.log(entries)}
 
 
