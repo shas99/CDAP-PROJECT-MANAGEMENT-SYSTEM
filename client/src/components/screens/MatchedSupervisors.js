@@ -175,17 +175,23 @@ const MatchedSupervisors = ({history}) => {
           <div className="container text-xs text-gray-200 mt-1">
             Supervisors {batchID}
             <br/>
-            
+            <div id="Supervisors">
             {SupervisorName.map (supervisor => {
               
                 
                 let t = supervisor.Supervisor
                   if(t == true){return(
                 //<p>{supervisor.Name,supervisor.g.length}</p>
-                 <p>{supervisor.username}</p>)}
+                 <p>{supervisor.username}<input type="checkbox" ></input></p>
+                 
+                 
+                 )
+                    
+                }
               
               
             })}
+            </div>
           </div>
 
 
