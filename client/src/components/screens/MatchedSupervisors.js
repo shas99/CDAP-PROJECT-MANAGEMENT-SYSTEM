@@ -41,7 +41,7 @@ const MatchedSupervisors = ({history}) => {
         };
 
         try {
-          const {data} =  await axios.get("/api/group/viewAvailableSupervisors", supconfig);
+          const {data} =  await axios.get("/api/group/showSupervisors", supconfig);
           const array = Object.entries(data.data)
           setSupervisorName(data.data);
           
@@ -55,7 +55,7 @@ const MatchedSupervisors = ({history}) => {
             // console.log(p[1])
           //}
 
-          console.log(array[2]);
+          //console.log(array[2]);
         }
         catch(error){}
       };
@@ -177,11 +177,13 @@ const MatchedSupervisors = ({history}) => {
             <br/>
             
             {SupervisorName.map (supervisor => {
-              return (
+              
                 
+                let t = supervisor.Supervisor
+                  if(t == true){return(
                 //<p>{supervisor.Name,supervisor.g.length}</p>
-                 <p>{supervisor.Name}</p>
-              )
+                 <p>{supervisor.username}</p>)}
+              
               
             })}
           </div>

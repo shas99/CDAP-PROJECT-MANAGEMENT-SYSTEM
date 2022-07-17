@@ -32,10 +32,13 @@ try{
 
 //Is supervisor
 exports.showSupervisors = async(req,res,next) => {
-    try{
-
+    try{ 
+        
         const showSupervisors = await Staff.find()
-        console.log(showSupervisors);
+        const array = Object.values(showSupervisors)
+        const arraySupervisor = JSON.stringify(array).split(',')
+
+        console.log("Supervisor data retrieved")
         res.status(201).json({
             success: true,
             data: array
