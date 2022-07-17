@@ -10,7 +10,7 @@ import Header from "../Header/Header";
 import { Batch } from 'aws-sdk';
 import {useParams} from 'react-router-dom';
 
-import Parser from 'html-react-parser';
+//import Parser from 'html-react-parser';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 

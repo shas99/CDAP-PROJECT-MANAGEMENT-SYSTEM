@@ -9,8 +9,9 @@ const MatchedSupervisors = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
-    const [suggestions,setsuggestions] = useState("");
-    const [SupervisorData, setSupervisorData] = useState([]);
+    const [suggestions,setsuggestions] = useState([]);
+    const [SupervisorName, setSupervisorName] = useState([]);
+    const [SupervisorBatch, setSupervisorBatch] = useState([]);
     const [batchID, setBatchID] = useState("");
     
     useEffect(() => {
@@ -42,9 +43,19 @@ const MatchedSupervisors = ({history}) => {
         try {
           const {data} =  await axios.get("/api/group/viewAvailableSupervisors", supconfig);
           const array = Object.entries(data.data)
-          setSupervisorData(data.data);
+          setSupervisorName(data.data);
+          
           console.log("This is testing"+data.data)
-          //console.log(SupervisorData);
+          //const array = Object.entries(data.data)
+          //let i = 0;
+          // let l = array.length
+          //for(i;i<l;i++){
+            //let p = array[1]
+            // console.log(p)
+            // console.log(p[1])
+          //}
+
+          console.log(array[2]);
         }
         catch(error){}
       };
@@ -61,7 +72,7 @@ const MatchedSupervisors = ({history}) => {
           const{data} = await axios.get("/api/STDAvailableSubmissions/batchID",submissionsconfig);
           //const array = Object.entries(data.data)
           setBatchID(data.data);
-          
+         //console.log("This is testing"+data.data)
   
           
         }catch(error){
@@ -95,17 +106,18 @@ const MatchedSupervisors = ({history}) => {
       // };
     //   fetchGroupData()
       // fetchsuggestions()
-      fetchbatchID();
-      fetchPrivateDate();
-      fetchAvailableSupervisors();
+      
+      fetchPrivateDate()
+      fetchAvailableSupervisors()
+      fetchbatchID()
     }, [history]);
   
     //Logout feature
-    const logOutHandler=()=>{
-      localStorage.removeItem("authToken");
-      history.push("/login");
+    // const logOutHandler=()=>{
+    //   localStorage.removeItem("authToken");
+    //   history.push("/login");
   
-    };
+    // };
 
     // const listHandler=()=>{
     //   try{
@@ -134,12 +146,12 @@ const MatchedSupervisors = ({history}) => {
         <>
         <div id="back">
         <Header/>
-        <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        {/* <p style={{color:"#FFF",textAlign:"right"}}> */}
+        {/* {privateData}   */}
+        {/* &nbsp;&nbsp;&nbsp;&nbsp; */}
        
-        <button onClick={logOutHandler} id="logout">Log Out</button>
-          </p>
+        {/* <button onClick={logOutHandler} id="logout">Log Out</button> */}
+          {/* </p> */}
           {/* <div id="card"> */}
 
           {/* <p style={{color:"#FFF"}}> */}
@@ -159,16 +171,16 @@ const MatchedSupervisors = ({history}) => {
 
 
           {/* US-01 Pasindu Vinod*/}
-
+          
           <div className="container text-xs text-gray-200 mt-1">
-            Supervisors{batchID}
+            Supervisors {batchID}
             <br/>
             
-            {SupervisorData.map (supervisor => {
+            {SupervisorName.map (supervisor => {
               return (
                 
                 //<p>{supervisor.Name,supervisor.g.length}</p>
-                 <p></p>
+                 <p>{supervisor.Name}</p>
               )
               
             })}

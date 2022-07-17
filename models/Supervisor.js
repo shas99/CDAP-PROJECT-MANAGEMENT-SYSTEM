@@ -10,18 +10,21 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     Name: {
         type: String
     },
-    Reg_Bidders:{
-        type: Array
-    },
-    June_Bidders:{
-        type : Array
-    },
-    Reg_Groups:{
-        type: Array
-    },
-    June_Groups:{
-        type: Array
-    }, 
+    Bidders: {
+        GroupID: {
+            type : String
+        },
+        BatchID: {
+            type : String
+        },
+        Approved: {
+            type : Boolean
+        },
+        recommended: {
+            type : Boolean
+        },
+
+    }
 
     
     
