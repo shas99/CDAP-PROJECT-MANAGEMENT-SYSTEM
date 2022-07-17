@@ -79,7 +79,7 @@ import ProgressPresentationMarkingConfiguration from "./components/screens/Progr
 import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
 import StaffPlaceAnnouncement from './components/screens/StaffPlaceAnnouncement';
 import AdminViewGroup from './components/screens/AdminViewGroupScreen';
-
+import AssignStaff from './components/screens/AssignStaffGroupScreen';
 
 const App = () => {
   return (
@@ -188,6 +188,8 @@ const App = () => {
          <Route exact path="/editSubmission/:id" component={EditSubmission}/>
 
          <Route exact path="/adminViewGroup/:id" component={AdminViewGroup}/>
+
+         <Route exact path="/adminAssignStaff" component={AssignStaff}/>
 
         </Switch>
 

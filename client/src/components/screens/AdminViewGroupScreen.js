@@ -192,9 +192,13 @@ const download = e => {
           <i className="fa fa-download" />
           Milestone 5
           
+          </a></button><br/>
+       <button className="btn2" style={{backgroundColor:"blue"}}><a href="/adminAssignStaff">
+
+      Assign Staff
+          
           </a></button>
        <br/><br/>
-       
      </div>
     </div>
   );
