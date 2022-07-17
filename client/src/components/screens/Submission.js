@@ -32,6 +32,7 @@ const Submission = ({history}) =>{
   const [id,setID] = useState([])
   const [flow,setFlow] = useState(0)
   const [pointer,setPointer] = useState(0)
+  const [heading,setHeading] = useState("")
 
    const params =useParams();
    const subm = params.id;
@@ -77,7 +78,7 @@ const Submission = ({history}) =>{
         setSubmissionsData(data.data.Fields);
         const sub = data.data.Fields;
         
-
+        setHeading(data.data.Heading);
 
         //https://www.w3schools.com/react/react_forms.asp
         for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
@@ -170,14 +171,19 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
   const config = {
     header: {
       "Content-Type": "application/json",
+      Authorization:`Bearer ${localStorage.getItem("authToken")}`,
     },
   };
 
   try {
     const { data } = await axios.post(
       "/api/STDAvailableSubmissions/submissionForm",
-      {entries},
-      config
+      {entries,heading},
+      {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("authToken")}`
+        }
+      }
     );
 
 

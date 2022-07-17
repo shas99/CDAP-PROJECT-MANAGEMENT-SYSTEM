@@ -107,11 +107,25 @@ exports.viewspecificSubmission = async(req,res,next) => {
 
 //Create entries for submissions
 exports.submissionForm = async(req,res,next) => {
-    const {entries} = req.body
+    const {entries,heading} = req.body
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+console.log(token)
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+    const id = decoded.id
+
+    const user = await User.findById(id)
+    user.heading = heading
+    user.save()
     try{
         const form = await Form.create({
-            entries
+            entries,heading
         })
+        console.log(heading)
         res.status(201).json({
             success: true,
             data:form
@@ -140,6 +154,7 @@ exports.addSubmission =async(req,res,next) => {
     }
     
     };
+
 //Delete Submissions
     exports.DeleteSubmission =async(req,res,next) => {
         const {SubmissionID} = req.body

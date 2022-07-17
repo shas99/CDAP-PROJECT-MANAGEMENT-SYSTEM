@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 // import image from "../../images/Bunny.jpg"
 
 const Status = ({history}) => { 
-  const [fetchFeedbackData, setFeedbackData] = useState("")
+  const [feedbackData, setFeedbackData] = useState([])
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
   const [fileData, setFileData] = useState("");
@@ -72,16 +72,17 @@ const Status = ({history}) => {
       
 
 
-{/* <p className="userprofilecontent2"> {fetchFeedbackData}</p>   */}
+<p className="userprofilecontent2"> {console.log(feedbackData)}</p>  
 
 <p className="userprofilecontent1">Status of Submissions</p>
 <br/>
-{fetchFeedbackData.map((data) => (
-    <div className="userprofilecontent">
+{feedbackData.map((data) => 
+
         <p className="userprofilecontent1">{data.Heading}</p>
 
-        </div>
-))}
+)}
+
+
 
 
 
