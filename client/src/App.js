@@ -78,7 +78,7 @@ import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
 import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
 import StaffPlaceAnnouncement from './components/screens/StaffPlaceAnnouncement';
-
+import AdminViewGroup from './components/screens/AdminViewGroupScreen';
 
 
 const App = () => {
@@ -187,6 +187,7 @@ const App = () => {
 
          <Route exact path="/editSubmission/:id" component={EditSubmission}/>
 
+         <Route exact path="/adminViewGroup/:id" component={AdminViewGroup}/>
 
         </Switch>
 
