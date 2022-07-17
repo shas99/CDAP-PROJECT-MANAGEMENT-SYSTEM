@@ -119,13 +119,16 @@ console.log(token)
     const id = decoded.id
 
     const user = await User.findById(id)
-    user.heading = heading
+    const temp = user.heading
+   temp.push(heading)
+    console.log(temp)
+    user.heading = temp
     user.save()
     try{
         const form = await Form.create({
             entries,heading
         })
-        console.log(heading)
+        // console.log(heading)
         res.status(201).json({
             success: true,
             data:form
