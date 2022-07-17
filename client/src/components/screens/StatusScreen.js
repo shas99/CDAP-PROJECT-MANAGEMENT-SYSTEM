@@ -11,6 +11,7 @@ const Status = ({history}) => {
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
   const [fileData, setFileData] = useState("");
+  const [heading, setHeading] = useState([]);
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -22,9 +23,10 @@ const Status = ({history}) => {
       };
 
       try {
-        const { data} = await axios.get("/api/private", config);
-        
+        const { data} = await axios.get("/api/student/retrieveData", config);
+
         setPrivateData(data.data);
+        setHeading(data.data.heading);
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not authorized please login");
@@ -57,7 +59,6 @@ const Status = ({history}) => {
 
 
 
-
   
   return  error ? ( 
   
@@ -69,21 +70,26 @@ const Status = ({history}) => {
   <Header/>
   <br/>
 
-      
+
 
 
 <p className="userprofilecontent2"> {console.log(feedbackData)}</p>  
 
 <p className="userprofilecontent1">Status of Submissions</p>
 <br/>
+existing forms
 {feedbackData.map((data) => 
 
         <p className="userprofilecontent1">{data.Heading}</p>
 
 )}
 
+{console.log(heading)}
 
-
+Completed forms
+{heading.map((data) =>
+  <p className="userprofilecontent1">{data}</p>
+)}
 
 
 </div>
