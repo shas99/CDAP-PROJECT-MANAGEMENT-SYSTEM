@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ViewProposalPresentationMarks.css"
+import "./ViewProposalPresentationMarkscss2.css"
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 const ViewProposalPresentationMarks = ({history}) => {
     const [error,setError] = useState("");
     const [privateData, setPrivateData] = useState("");
-    // const [fetchProposalPresentationMarksData, setProposalPresentationMarksData] = useState("");
+    //newly added
+    const [proposalpresentationmarks,setproposalpresentationmarks]=useState("");
+
     const [fetchProposalPresentationMarksData, setProposalPresentationMarksData] = useState("");
 
     useEffect(() => {
@@ -40,6 +43,10 @@ const ViewProposalPresentationMarks = ({history}) => {
                 const { data } = await axios.get("/api/ViewMarks/viewproposalpresentationmarks",viewproposalpresentationmarksconfig);
                 const viewproposalpresentationmarksArray = data.data.split("/")
                 setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
+                //newly added
+                console.log(viewproposalpresentationmarksArray[0])
+                const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
+                setproposalpresentationmarks(viewproposalpresentationmarks1)
 
             }catch(error){
 
@@ -56,6 +63,19 @@ const ViewProposalPresentationMarks = ({history}) => {
         history.push("/login");
     };
 
+    //newly added
+    const listHandler=()=>{
+        try{
+            const lists = proposalpresentationmarks.map((n)=>
+            <li>{n}</li>)
+            return(
+                <ul>{lists}</ul>
+            )
+        }catch(e){
+            console.error(e)
+        }
+    }
+
     return error ? (
         <span className="error-message">{error}</span>
     ) : (
@@ -71,10 +91,17 @@ const ViewProposalPresentationMarks = ({history}) => {
 
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
-                <h1>Your Proposal Presentation marks are</h1><br/>
-               {fetchProposalPresentationMarksData}<br/><br/><br/><br/>
+                </p>
+                <div id="card">
+                <h1 id="caption">Your Proposal Presentation marks are</h1><br/>
+                <hr id="hr"></hr>
+                <p id="List"> {listHandler()}</p>
+
+                </div>
+
+               {/* {fetchProposalPresentationMarksData}<br/><br/><br/><br/> */}
                 
-            </p>
+            
             <Footer/>
         </div>
         </>
