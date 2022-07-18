@@ -6,6 +6,10 @@ const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
 const StudentTopicInterestingForm = require('../models/StudentTopicInteresting')
+const ImageUpload = require('../models/ImageUpload')
+
+
+
 
 
 //To view feedback
@@ -168,6 +172,24 @@ exports.edituserprofile = async(req,res,next) => {
 
     }
 }
+
+exports.viewimage =async(req,res,next) => {
+
+    const user = await ImageUpload.findById("62c855fc93de6e011f28f722")
+    console.log(user.img.data)
+    // const{email}=req.body;
+    
+    try{
+        res.status(201).json({
+            success: true,
+            data: user.img.data
+        })
+    }catch(error){
+        next(error)
+    }
+
+};
+
 
 
 
