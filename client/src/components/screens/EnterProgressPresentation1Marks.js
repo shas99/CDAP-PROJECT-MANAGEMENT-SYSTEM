@@ -130,7 +130,7 @@ return  error ? (
         <tr>
             <td style={{padding:"5px",margin:"5px"}}>
             <label>
-       <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student IDs:</b></label><br/><br/>
+       <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student ID:</b></label><br/><br/>
       <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
       name="name" 
       className = "input" id="StudentIDInput"
@@ -141,7 +141,7 @@ return  error ? (
             </td>
             <td>
             <label>
-       <b style={{fontSize:"medium"}}>Student Names:</b></label><br/><br/>
+       <b style={{fontSize:"medium"}}>Student Name:</b></label><br/><br/>
       <input type="text" style={{marginLeft:"100px",borderColor:"royalblue"}}
       name="name" 
       className = "input"

@@ -139,7 +139,7 @@ const EnterStatusDocument1Marks = ({history}) => {
                 </td>
                 <td>
                 <label>
-            <b style={{fontSize:"medium"}}>Student IDs</b></label><br/><br/>
+            <b style={{fontSize:"medium"}}>Student ID</b></label><br/><br/>
             <input type="text" style={{marginLeft:"100px",borderColor:"royalblue"}}
             name="name" 
             className = "input"

@@ -38,6 +38,8 @@ import ProposalReportMarks from "./components/screens/ProposalReportMarks";
 import ViewProposalPresentationMarks from "./components/screens/ViewProposalPresentationMarks";
 //styling trial
 
+import ViewProposalReportMarks from "./components/screens/ViewProposalReportMarks";
+
 import EnterStatusDocument1Marks from "./components/screens/EnterStatusDocument1Marks"
 
 
@@ -108,6 +110,8 @@ const App = () => {
           <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
 
           <Route exact path="/viewproposalpresentationmarks" component={ViewProposalPresentationMarks}/>
+
+          <Route exact path="/viewproposalreportmarks" component={ViewProposalReportMarks}/>
 
           <Route exact path="/addproposalpresentationmarks" component={ProposalPresentationMarks}/>
 
