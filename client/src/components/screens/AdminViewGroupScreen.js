@@ -196,7 +196,10 @@ const download = e => {
        <button className="btn2" style={{backgroundColor:"blue"}}><a href="/adminAssignStaff">
 
       Assign Staff
-          
+      {/* ****************IMPORTANT************************* */}
+      {/* Potential Security Vulnerability */}
+      {/* Once database refinement is complete make sure to change this so that ID doesn't save in localStorage */}
+          {localStorage.setItem("groupId",match.params.id)}
           </a></button>
        <br/><br/>
      </div>

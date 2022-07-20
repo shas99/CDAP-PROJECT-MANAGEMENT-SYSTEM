@@ -169,6 +169,31 @@ exports.retreiveStaff = async (req, res, next) => {//suggest supervisor
     
 };
 
+exports.assignStaff = async (req, res, next) => {//assign staff
+
+    const {id,groupID} = req.body
+    try{
+console.log(groupID)
+        const group = await Group.findById(groupID)
+        group.staff.push(id)
+        const staff = await Staff.findById(id)
+     group.save()
+    //   console.log(staff)
+        res.status(201).json({
+            data: staff,
+            success: "retreived success"
+        })
+
+        
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+};
+
+
+
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
     res.status(statusCode).json({success: true,token})
