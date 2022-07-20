@@ -13,6 +13,7 @@ const Status = ({history}) => {
   const [fileData, setFileData] = useState("");
   const [heading, setHeading] = useState([]);
   const [status, setStatus] = useState([]);
+  const [existingForm, setExistingForm] = useState([]);
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -47,73 +48,67 @@ const Status = ({history}) => {
         const {data} = await axios.get("/api/student/status",userprofileconfig);
        
         setFeedbackData(data.data);
+        // console.log(data.data[0].Heading)
+        // let tempfeedbackData = data.data[0].Heading;
+        // try{
+        // const {data1} = await axios.get(
+        //   "/api/staff/statusArray",
+        //   {params: {tempfeedbackData}, },
+        // );
+        // console.log(data1+"data1.data")
+        // setStatus(data1);
+
+        // }catch(error){
+        //   console.log(error)
+        // }
+        var temp = []
+        for(let i=0;i<data.data.length;i++){
+          temp.push(data.data[i].Heading)
+          
+        }
+
+        setExistingForm(temp);
         
       } catch (error) {
-
+        console.log(error)
 
       }
     };
 
-    const Status = async () => {
-      // let x = [];
-      // console.log("feedback")
-      // console.log(feedbackData);
-      // console.log("feedback")
 
-      // for(var i=0;i<feedbackData.length;i++){
-      //   for(var j=0;j<heading.length;j++){
-      //     if(feedbackData[i].Heading===heading[j]){
-      //       x.push(1);
-      //     }
-
-
-      //   }
-      //   console.log("test")
-      //   console.log(x.length+"  " + i)
-      //   console.log("test")
-      //   if(x.length!=i+1){
-      //     // console.log("test")
-      //     // console.log(x.length+"  " + i)
-      //     // console.log("test")
-      //     // x.push(0);
-      //     // console.log(x.length+"ffff")
-
-      //   }
-
-      // }
-      // setStatus(x);
-
-            const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
-
-      try {
-          let testing123 = [0];
-        // const {data} = await axios.get("/api/staff/statusArray",{testing123});
-        const { data } = await axios.get(
-          "/api/staff/statusArray",
-          {params:{ testing123 }},
-        );
-        console.log(data.data);
-        
-      } catch (error) {
-
-
-      }
-
-    }
   
 
 
     fetchFeedbackData()
     fetchPrivateDate()
-    Status()
+
   }, [history]);
 
+  const Status = async () => {
+    try{
+    let x = [];
 
+
+
+    for(var i=0;i<feedbackData.length;i++){
+
+      if(heading.includes(existingForm[i])){
+      
+        x.push(<h1>completed</h1>)
+      }
+      else{
+        x.push(<h1>not completed</h1>)
+       
+      }
+      
+    }
+   
+    setStatus(x);
+  }catch(error){
+    console.log(error)
+  }
+
+  }
 
   
   return  error ? ( 
@@ -149,9 +144,10 @@ Completed forms
 
 
 )}
-
-
-{console.log(status)}
+<button onClick={Status} className="blueButton">Status</button>
+{status}
+{console.log(status+"status")}
+{console.log(existingForm+"existingForm")}
 </div>
     
 )  
