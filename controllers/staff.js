@@ -144,6 +144,17 @@ exports.StaffRecommendationForm = async(req,res,next) => { //Staff Recommendatio
     }
 };
 
+exports.staffArray = async(req,res,next) => {
+    const testing123 = req.query.testing123
+    console.log(testing123)
+    // const staffArray = [1,5,46,5,6,7,8,9]
+
+    res.status(201).json({
+        success: testing123,
+        data: testing123
+    })
+}
+
 
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()

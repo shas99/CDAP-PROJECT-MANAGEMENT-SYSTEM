@@ -12,6 +12,7 @@ const Status = ({history}) => {
   const [error, setError] = useState("");
   const [fileData, setFileData] = useState("");
   const [heading, setHeading] = useState([]);
+  const [status, setStatus] = useState([]);
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -52,9 +53,64 @@ const Status = ({history}) => {
 
       }
     };
+
+    const Status = async () => {
+      // let x = [];
+      // console.log("feedback")
+      // console.log(feedbackData);
+      // console.log("feedback")
+
+      // for(var i=0;i<feedbackData.length;i++){
+      //   for(var j=0;j<heading.length;j++){
+      //     if(feedbackData[i].Heading===heading[j]){
+      //       x.push(1);
+      //     }
+
+
+      //   }
+      //   console.log("test")
+      //   console.log(x.length+"  " + i)
+      //   console.log("test")
+      //   if(x.length!=i+1){
+      //     // console.log("test")
+      //     // console.log(x.length+"  " + i)
+      //     // console.log("test")
+      //     // x.push(0);
+      //     // console.log(x.length+"ffff")
+
+      //   }
+
+      // }
+      // setStatus(x);
+
+            const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+          let testing123 = [0];
+        // const {data} = await axios.get("/api/staff/statusArray",{testing123});
+        const { data } = await axios.get(
+          "/api/staff/statusArray",
+          {params:{ testing123 }},
+        );
+        console.log(data.data);
+        
+      } catch (error) {
+
+
+      }
+
+    }
   
+
+
     fetchFeedbackData()
     fetchPrivateDate()
+    Status()
   }, [history]);
 
 
@@ -87,13 +143,16 @@ existing forms
 {console.log(heading)}
 
 Completed forms
+
 {heading.map((data) =>
   <p className="userprofilecontent1">{data}</p>
+
+
 )}
 
 
+{console.log(status)}
 </div>
- 
     
 )  
 };
