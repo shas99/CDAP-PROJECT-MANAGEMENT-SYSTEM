@@ -94,10 +94,10 @@ const Status = ({history}) => {
 
       if(heading.includes(existingForm[i])){
       
-        x.push(<h1>completed</h1>)
+        x.push(<h1 className="userprofilecontent1">{existingForm[i]} : completed</h1>)
       }
       else{
-        x.push(<h1>not completed</h1>)
+        x.push(<h1 className="userprofilecontent1">{existingForm[i]} : not completed</h1>)
        
       }
       
@@ -128,7 +128,7 @@ const Status = ({history}) => {
 
 <p className="userprofilecontent1">Status of Submissions</p>
 <br/>
-existing forms
+{/* existing forms
 {feedbackData.map((data) => 
 
         <p className="userprofilecontent1">{data.Heading}</p>
@@ -143,11 +143,10 @@ Completed forms
   <p className="userprofilecontent1">{data}</p>
 
 
-)}
-<button onClick={Status} className="blueButton">Status</button>
+)} */}
+<button onClick={Status} className="blueButton">Show the status of forms</button>
 {status}
-{console.log(status+"status")}
-{console.log(existingForm+"existingForm")}
+
 </div>
     
 )  
