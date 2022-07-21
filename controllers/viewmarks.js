@@ -4,8 +4,78 @@ const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
 const ProposalPresentationMarks = require('../models/Marks')
 const ProposalReportMarks = require('../models/ProposalReportMarks')
+const StatusDocument1Marks = require('../models/StatusDocument1Marks')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
+
+//view status document 1 marks for logged in student method
+exports.viewstatusdocument1marks =async(req,res,next) => {
+   
+    
+    let token//to retreive username in backend
+    
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token == "null"){
+        logged(token,res)
+    }
+    else{
+        const decoded = jwt.verify(token,process.env.JWT_SECRET)
+        console.log(decoded)
+        
+        const user = await User.findById(decoded.id)
+       const retrievestudentid = user.studentID
+       console.log(retrievestudentid) 
+
+        
+
+   
+
+        try{
+    
+        const statusDoc1Collection = await StatusDocument1Marks.find()
+    
+        let matchentry3;
+        const matchedID = statusDoc1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
+            console.log(collectionEntry)
+            matchentry3=collectionEntry
+
+        }}
+        
+        )
+
+        const setmarksdata ="Gantt Chart marks"+":"+matchentry3.ganttchartmarks+",  "
+                            +"Actual time marks"+":"+matchentry3.actualtimemarks+",  "
+                            +"Break down marks"+":"+matchentry3.breakdownmarks+",  "
+                            +"Capability in applying knowledge B"+":"+matchentry3.capabilitymarks2+",  "
+                            +"Management tool marks"+":"+matchentry3.managementtoolmarks+",  "
+                            +"Gantt chart remarks"+":"+matchentry3.ganttchartremarks+",  "
+                            +"Actual time remarks"+":"+matchentry3.actualtimeremarks+",  "
+                            +"Break down remarks"+":"+matchentry3.breakdownremarks+",  "
+                            +"Management tool remarks"+":"+matchentry3.managementtoolremarks+",  "
+                            
+                            
+       
+        res.status(201).json({
+            success: true,
+           data:setmarksdata
+                
+           
+        })
+        
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+
+
+
+
 
 
 
