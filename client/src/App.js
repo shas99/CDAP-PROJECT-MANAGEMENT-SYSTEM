@@ -40,6 +40,8 @@ import ViewProposalPresentationMarks from "./components/screens/ViewProposalPres
 
 import ViewProposalReportMarks from "./components/screens/ViewProposalReportMarks";
 
+import ViewStatusDocument1Marks from "./components/screens/ViewStatusDocument1Marks";
+
 import EnterStatusDocument1Marks from "./components/screens/EnterStatusDocument1Marks"
 
 
@@ -112,6 +114,8 @@ const App = () => {
           <Route exact path="/viewproposalpresentationmarks" component={ViewProposalPresentationMarks}/>
 
           <Route exact path="/viewproposalreportmarks" component={ViewProposalReportMarks}/>
+
+          <Route exact path="/viewstatusdocument1marks" component={ViewStatusDocument1Marks}/>
 
           <Route exact path="/addproposalpresentationmarks" component={ProposalPresentationMarks}/>
 
