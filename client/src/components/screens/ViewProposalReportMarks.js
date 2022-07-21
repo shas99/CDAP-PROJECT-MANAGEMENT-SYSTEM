@@ -92,7 +92,7 @@ const ViewProposalReportMarks = ({history}) => {
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
                 </p>
-                <div id="card">
+                <div id="propreportcard">
                 <h1 id="caption">Your Proposal Report marks are</h1><br/>
                 <hr id="hr"></hr>
                 <p id="List"> {listHandler()}</p>

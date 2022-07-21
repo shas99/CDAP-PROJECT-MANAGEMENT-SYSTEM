@@ -60,6 +60,7 @@ exports.viewproposalreportmarks =async(req,res,next) => {
                             +"Effective Communication B"+":"+matchentry2.communicationmarks2+",  "
                             +"Effective Communication C"+":"+matchentry2.communicationmarks3+",  "
                             +"Ability of commercialization marks"+":"+matchentry2.commercializationmarks1+",  "
+                            +"Feedback"+":"+matchentry2.extrafeedback+",  "
                             
        
         res.status(201).json({
@@ -130,6 +131,7 @@ exports.viewproposalpresentationmarks =async(req,res,next) => {
                             +"Effective Communication A"+":"+matchentry.communicationmarks1+",  "
                             +"Effective Communication B"+":"+matchentry.communicationmarks2+",  "
                             +"Ability of commercialization marks"+":"+matchentry.commercializationmarks1+",  "
+                            +"Feedback"+":"+matchentry.extrafeedback+",  "
                             
        
         res.status(201).json({

@@ -84,12 +84,13 @@
     border-radius: 5px;
   }
   
-  #card{
+  #propreportcard{
     border-width: 2px;
     border-style: solid;
     border-color: #464b53;
     width: 60%;
-    height: 33vh;
+    /* height: 33vh; */
+    height:40vh;
     margin: 0 auto;
     border-radius: 10px;
   }
