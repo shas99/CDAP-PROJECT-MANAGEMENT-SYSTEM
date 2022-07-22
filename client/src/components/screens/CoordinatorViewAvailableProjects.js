@@ -13,23 +13,23 @@ const CoordinatorViewAvailableProjects = ({history}) =>{
   const [projectarray, setprojectarray] = useState("");
   useEffect(() => {
 
-    const fetchPrivateDate = async () => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      };
+    // const fetchPrivateDate = async () => {
+    //   const config = {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    //     },
+    //   };
 
-      try {
-        const { data} = await axios.get("/api/private", config);
+    //   try {
+    //     const { data} = await axios.get("/api/private", config);
         
-        setPrivateData(data.data);
-      } catch (error) {
-        localStorage.removeItem("authToken");
-        setError("You are not authorized please login");
-      }
-    };
+    //     setPrivateData(data.data);
+    //   } catch (error) {
+    //     localStorage.removeItem("authToken");
+    //     setError("You are not authorized please login");
+    //   }
+    // };
 
     const fetchProjectsData = async () =>{
       const projectsconfig = {
@@ -62,7 +62,7 @@ const CoordinatorViewAvailableProjects = ({history}) =>{
 
 
     fetchProjectsData()
-    fetchPrivateDate()
+    // fetchPrivateDate()
   }, [history])
   const objectToArray = obj => {
     const keys = Object.keys(obj);
@@ -100,8 +100,9 @@ const removeData = (_id) => {
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption" className="">All projects</h1>
       <br/><br/>
-
-
+      <center>
+        <a href="/createNewProject">Add New Project</a>
+        </center>
         
          <ul>
         {ProjectsData.map(project => {

@@ -153,3 +153,26 @@ exports.deleteProjectDetails = async(req,res,next) => {
         });
     });
 }
+
+
+//******** CREATE PROJECT DETAILS  ******/
+exports.createProjectDetails = async(req,res,next) => {
+    const {projectName, projectDescription,projectType,projectSupervisedBy} = req.body
+    const newProject = new AvailableProject({
+        projectName,
+        projectDescription,
+        projectType,
+        projectSupervisedBy
+    })
+    try{
+        const projectDetails = await newProject.save()
+        res.status(201).json({
+            success: true,
+            data: projectDetails
+        })
+        console.log("Success in creating Project Details API");
+    }catch(error){
+        next(error)
+        console.log("Error in creating Project Details API");
+    }
+}

@@ -626,6 +626,22 @@ video {
   margin-left: 0.75rem;
 }
 
+.mt-\[32rem\] {
+  margin-top: 32rem;
+}
+
+.mt-\[\] {
+  margin-top: ;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-11 {
+  margin-top: 2.75rem;
+}
+
 .block {
   display: block;
 }
@@ -920,12 +936,22 @@ video {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
 
 .bg-\[url\(\'https\:\/\/cdn\.discordapp\.com\/attachments\/938131839661539339\/994206950667583488\/Log_banner_02\.webp\'\)\] {
   background-image: url('https://cdn.discordapp.com/attachments/938131839661539339/994206950667583488/Log_banner_02.webp');
+}
+
+.via-gray-600 {
+  --tw-gradient-to: rgb(75 85 99 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), #4b5563, var(--tw-gradient-to);
 }
 
 .bg-cover {
