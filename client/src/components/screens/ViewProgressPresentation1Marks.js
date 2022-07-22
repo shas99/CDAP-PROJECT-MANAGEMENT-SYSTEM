@@ -92,7 +92,7 @@ const ViewProgressPresentation1Marks = ({history}) => {
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
                 </p>
-                <div id="card">
+                <div id="progpress1card">
                 <h1 id="caption">Your Progress Presentation 1 marks are</h1><br/>
                 <hr id="hr"></hr>
                 <p id="List"> {listHandler()}</p>
