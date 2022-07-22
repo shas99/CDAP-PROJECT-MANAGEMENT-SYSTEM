@@ -525,6 +525,10 @@ video {
   right: 350px;
 }
 
+.top-\[110px\] {
+  top: 110px;
+}
+
 .left-2 {
   left: 0.5rem;
 }

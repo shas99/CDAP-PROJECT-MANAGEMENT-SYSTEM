@@ -185,7 +185,7 @@ const App = () => {
 
          <Route exact path="/editSubmission/:id" component={EditSubmission}/>
          <Route exact path="/coordinatorViewProjects" component={CoordinatorViewAvailableProjects}/>
-         <Route exact path="/updateProjectDetails" component={UpdateProjectDetails}/>
+         <Route exact path="/updateProjectDetails/:id" component={UpdateProjectDetails}/>
           
 
         </Switch>
