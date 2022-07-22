@@ -78,6 +78,7 @@ import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
 import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
 import StaffPlaceAnnouncement from './components/screens/StaffPlaceAnnouncement';
+import Status from './components/screens/StatusScreen';
 
 import AdminViewGroup from './components/screens/AdminViewGroupScreen';
 import AssignStaff from './components/screens/AssignStaffGroupScreen';
@@ -194,6 +195,8 @@ const App = () => {
          <Route exact path="/addSubmission" component={AddSubmission}/>
 
          <Route exact path="/editSubmission/:id" component={EditSubmission}/>
+
+         <Route exact path="/Status" component={Status}/>
 
 
          <Route exact path="/adminViewGroup/:id" component={AdminViewGroup}/>

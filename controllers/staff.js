@@ -144,6 +144,24 @@ exports.StaffRecommendationForm = async(req,res,next) => { //Staff Recommendatio
     }
 };
 
+exports.staffArray = async(req,res,next) => {
+    
+    try{
+    const feedbackData = req.query.tempfeedbackData
+    // console.log(feedbackData+"feedbackData")
+    // const staffArray = [1,5,46,5,6,7,8,9]
+        let x = [5,4,5,6,8]
+
+    console.log(feedbackData)
+
+    res.status(201).json({
+        success: true,
+        data: feedbackData
+    })
+}catch(error){
+    next(error)
+}
+}
 
 exports.retreiveStaff = async (req, res, next) => {//suggest supervisor
     // const {member_1} = req.body
