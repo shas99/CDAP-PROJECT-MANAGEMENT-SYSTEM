@@ -145,6 +145,55 @@ exports.StaffRecommendationForm = async(req,res,next) => { //Staff Recommendatio
 };
 
 
+exports.retreiveStaff = async (req, res, next) => {//suggest supervisor
+    // const {member_1} = req.body
+
+
+    // const g_approval =true//check if group is approved by coordinator
+
+    try{
+
+        const staff = await Staff.find({})//group that is approved and have this perticular member
+        // console.log(group[0].suggestions)// 
+      
+        res.status(201).json({
+            data: staff,
+            success: "retreived success"
+        })
+
+        
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+};
+
+exports.assignStaff = async (req, res, next) => {//assign staff
+
+    const {id,groupID} = req.body
+    try{
+console.log(groupID)
+        const group = await Group.findById(groupID)
+        group.staff.push(id)
+        const staff = await Staff.findById(id)
+     group.save()
+    //   console.log(staff)
+        res.status(201).json({
+            data: staff,
+            success: "retreived success"
+        })
+
+        
+
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+};
+
+
+
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken()
     res.status(statusCode).json({success: true,token})
