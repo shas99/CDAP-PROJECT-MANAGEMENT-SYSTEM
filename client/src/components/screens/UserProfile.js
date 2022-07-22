@@ -52,9 +52,32 @@ const UserProfile = ({history}) => {
         // setError("Oops couldn't retreive group data");//fix this
       }
     };
+
+    const fetchImages = async () => {
+      const userprofileconfig = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+          
+        const {data} = await axios.get("/api/student/retrieveImages",userprofileconfig);
+       
+        setimageUploadData(data.data);
+        // data.data.array.forEach(function(image) { 
+        //   console.log(image.name)
+        // });
+      } catch (error) {
+          console.log(error)
+        // setError("Oops couldn't retreive group data");//fix this
+      }
+    };
   
     fetchFeedbackData()
     fetchPrivateDate()
+    fetchImages()
   }, [history]);
 
   const fileChangeHandler = (e) => {
@@ -90,14 +113,6 @@ const UserProfile = ({history}) => {
     <span className="error-message">{error}</span>
   ) :
   (
-
-
-
-
-
-
-
-
 
 
  <div className="userprofileClass">
@@ -142,10 +157,13 @@ const UserProfile = ({history}) => {
          
         </input>
         <button type="submit">Submit</button>
-        <img src={`data:image/<%=image.img.contentType%>;base64,${imageUploadData}`}></img>
-
-        
-
+        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`}></img>
+        {/* <img src="data:image/<%=image.img.contentType%>;base64,
+          <%=image.img.data.toString('base64')%>"></img>
+          {console.log("data")} */}
+        {console.log(imageUploadData.img.data.data.toString('base64'))}
+        {console.log("data")}
+        {console.log(Buffer.from(imageUploadData.img.data.data).toString('base64'))}
         </form>
 
         <h1>To Upload Image on mongoDB</h1>
