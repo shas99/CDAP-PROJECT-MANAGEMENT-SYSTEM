@@ -61,7 +61,11 @@ app.use('/api/staff', require('./routes/staff'))
 app.use('/api/adminAuth', require('./routes/adminAuth'))
 app.use('/api/adminPrivate', require('./routes/adminPrivate'))
 app.use('/api/markingRubrik', require('./routes/MarkingRubrik'))
+
 app.use('/api/ViewMarks',require('./routes/ViewMarks'))
+
+
+app.use('/api/announcement', require('./routes/announcement'))
 
 
 

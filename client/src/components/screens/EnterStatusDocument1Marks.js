@@ -21,6 +21,19 @@ const EnterStatusDocument1Marks = ({history}) => {
     const [cosupervisor, setcosupervisor] = useState("");
     const [enterstatusdocument1marks,setenterstatusdocument1marks] = useState("")
     const [fetchenterstatusdocument1marksData, setenterstatusdocument1marksData] = useState("");
+    const [totalContribution,setTotalContribution]=useState("");
+    const[stdesc01,setstDesc01] = useState("");
+    const[stdesc02,setstDesc02] = useState("");
+    const[stdesc03,setstDesc03] = useState("");
+    const[stdesc04,setstDesc04] = useState("");
+    const[marksEn01,setmarkEn01] = useState("");
+    const[marksEn02,setmarkEn02] = useState("");
+    const[marksEn03,setmarkEn03] = useState("");
+    const[marksEn04,setmarkEn04] = useState("");
+
+
+    const statusDocument1MarkingID = "62ba94a728099fe3e5aacf54"
+    const totalMarksEntitled = parseInt(marksEn01) + parseInt(marksEn02) + parseInt(marksEn03)+ parseInt(marksEn04)
 
     useEffect(() => {
         const fetchenterstatusdocument1marksData= async () => {
@@ -98,6 +111,38 @@ const EnterStatusDocument1Marks = ({history}) => {
          }
     }
 
+
+  
+
+    //********* RETRIEVE STATUS DOCUMENT 1 CONFIGURATION DETAILS  *********/
+    const getRelevantProposalMarkingConfigData =async ()=>{
+     
+        try{
+          const{data}=await axios.get(`/api/markingRubrik/statusDocumentMarkingConfiguration/${statusDocument1MarkingID}`);
+         
+        // console.log(data.StatusDocumentDetails.affectedTotalContribution)
+        setTotalContribution(data.StatusDocumentDetails.affectedTotalContribution)
+        setstDesc01(data.StatusDocumentDetails.statusDocumentDescription01)
+        setstDesc02(data.StatusDocumentDetails.statusDocumentDescription02)
+        setstDesc03(data.StatusDocumentDetails.statusDocumentDescription03)
+        setstDesc04(data.StatusDocumentDetails.statusDocumentDescription04)
+        setmarkEn01(data.StatusDocumentDetails.marksEntitledForStatusDocumentDescription01)
+        setmarkEn02(data.StatusDocumentDetails.marksEntitledForStatusDocumentDescription02)
+        setmarkEn03(data.StatusDocumentDetails.marksEntitledForStatusDocumentDescription03)
+        setmarkEn04(data.StatusDocumentDetails.marksEntitledForStatusDocumentDescription04)
+         
+        }catch(error){
+          
+            
+          
+        }
+        
+  
+      }
+      getRelevantProposalMarkingConfigData();
+  
+
+
     return  error ? ( 
   
         <span className="error-message">{error}</span>
@@ -121,19 +166,21 @@ const EnterStatusDocument1Marks = ({history}) => {
             
           <div className="entermarksbackground">        
           <form onSubmit={enterstatusdocument1marksHandler} className="group-screen__form_Enter_marks">
-            <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) Project Status document 1 [Total contribution = 1%]</h3>
-            {error && <span className="error-message">{error}</span>}
-            <div className="form-group">
-                <table className="tablemarks1">
-                    <tr>
-                        <td style={{padding:"5px",margin:"5px"}}>
-                        <label>
-                <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Project No</b></label><br/><br/>
-                <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
-                name="name" 
-                className = "input" id="StudentIDInput"
-                onChange={(e) => setprojectNo(e.target.value)}
-                value={projectNo} />
+
+      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) Project Status document 1 [Total contribution = {totalContribution}%]</h3>
+      {error && <span className="error-message">{error}</span>}
+      <div className="form-group">
+        <table className="tablemarks1">
+            <tr>
+                <td style={{padding:"5px",margin:"5px"}}>
+                <label>
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Project No</b></label><br/><br/>
+          <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
+          name="name" 
+          className = "input" id="StudentIDInput"
+          onChange={(e) => setprojectNo(e.target.value)}
+          value={projectNo} />
+
                     
 
                 </td>
@@ -158,15 +205,40 @@ const EnterStatusDocument1Marks = ({history}) => {
             </div>
         
 
-            <table className="proposalpresentationmarking">
-            <tr>
-            <th className="proposalpresentationmarking">Item No </th>
-            <th className="proposalpresentationmarking"> Description </th>
-            <th className="proposalpresentationmarking">MAX.MARKS ENTITLED </th>
-            <th className="proposalpresentationmarking"> MARKS GIVEN </th>
-            {/* <th style={{borderLeft:"none"}}></th> */}
-        
-            <th className="proposalpresentationremarks"> REMARKS </th>
+
+        <table className="proposalpresentationmarking">
+        <tr>
+    <th className="proposalpresentationmarking">Item No </th>
+    <th className="proposalpresentationmarking"> Description </th>
+    <th className="proposalpresentationmarking">MAX.MARKS ENTITLED </th>
+    <th className="proposalpresentationmarking"> MARKS GIVEN </th>
+    <div className="proposalpresentationremarks"> REMARKS </div>
+
+  </tr>
+ 
+  <tr>
+    <td className="proposalpresentationmarking" >
+        1
+    </td>
+   
+    <td className="proposalpresentationmarking">
+   
+ <div  dangerouslySetInnerHTML={{__html: stdesc01}}/>  
+   
+    </td>
+    <td className="proposalpresentationmarking">
+    {marksEn01}
+    </td>
+
+    <td colspan="2" className="proposalpresentationmarking">
+   
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setganttchartmarks(e.target.value)}
+          value={ganttchartmarks} />
+          
+
 
             </tr>
     
@@ -193,6 +265,42 @@ const EnterStatusDocument1Marks = ({history}) => {
             
 
 
+    </td>
+
+    <td colspan="2" className="proposalpresentationmarking">
+   
+   <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+   name="name" 
+   className = "proposalpresentationinput"
+   onChange={(e) => setganttchartremarks(e.target.value)}
+   value={ganttchartremarks} />
+   
+
+
+</td>
+    </tr>
+
+    <tr>
+    <td className="proposalpresentationmarking" >
+        2
+    </td>
+    <td className="proposalpresentationmarking">
+    <div  dangerouslySetInnerHTML={{__html: stdesc02}}/>  
+    </td>
+    <td className="proposalpresentationmarking">
+  {marksEn02}  
+    </td>
+
+    <td colspan="2" className="proposalpresentationmarking">
+   
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setactualtimemarks(e.target.value)}
+          value={actualtimemarks} />
+          
+
+
             </td>
 
             <td  className="proposalpresentationmarking">
@@ -208,31 +316,31 @@ const EnterStatusDocument1Marks = ({history}) => {
             </td>
                 </tr>
 
-                <tr>
-                <td className="proposalpresentationmarking" >
-                    2
-                </td>
-                <td className="proposalpresentationmarking">
-                Reflect actual time with respect to predicted (estimated)
-                time & how user-workload (work breakdown structure) to
-                achieve deadlines.
-                (Eg: once user completes allocated tasks, free users should
-                be assigned for remaining tasks. This is in order to maximize
-                recourse utilization to achieve deadline.)
 
-            </td>
-            <td className="proposalpresentationmarking">
-                25 marks
-            </td>
+    </td>
+    </tr>
 
-            <td  className="proposalpresentationmarking">
-            
-                    <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-                    name="name" 
-                    className = "proposalpresentationinput"
-                    onChange={(e) => setactualtimemarks(e.target.value)}
-                    value={actualtimemarks} />
-            
+    <tr>
+    <td className="proposalpresentationmarking" >
+        3
+    </td>
+    <td className="proposalpresentationmarking">
+    <div  dangerouslySetInnerHTML={{__html: stdesc03}}/>  
+
+    </td>
+    <td className="proposalpresentationmarking">
+   {marksEn03}
+    </td>
+
+    <td colspan="2" className="proposalpresentationmarking">
+   
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setbreakdownmarks(e.target.value)}
+          value={breakdownmarks} />
+          
+
 
 
             </td>
@@ -247,8 +355,33 @@ const EnterStatusDocument1Marks = ({history}) => {
             
 
 
-            </td>
-            </tr>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td className="proposalpresentationmarking" >
+        4
+    </td>
+    <td className="proposalpresentationmarking">
+    <div  dangerouslySetInnerHTML={{__html: stdesc04}}/>  
+ 
+ {/* dddd */}
+
+    </td>
+    <td className="proposalpresentationmarking">
+    {marksEn04} 
+    </td>
+
+    <td colspan="2" className="proposalpresentationmarking">
+   
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setmanagementtoolmarks(e.target.value)}
+          value={managementtoolmarks} />
+          
+
 
             <tr>
             <td className="proposalpresentationmarking" >
@@ -288,18 +421,11 @@ const EnterStatusDocument1Marks = ({history}) => {
             </td>
             </tr>
 
-            <tr>
-            <td className="proposalpresentationmarking" >
-                4
-            </td>
-                    <td className="proposalpresentationmarking">
-                    Project management tool (generate Reports).
-                • Should include milestones.
-                • Test results & how system testes.
-                • User-task allocation details.
-                • Documentation work.
-                
-                {/* dddd */}
+
+    </td>
+    <td className="proposalpresentationmarking">
+        {totalMarksEntitled}
+    </td>
 
             </td>
             <td className="proposalpresentationmarking">

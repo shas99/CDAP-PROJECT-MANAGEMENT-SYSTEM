@@ -27,9 +27,19 @@ const ProposalReportMarks = ({history}) => {
     const [commercializationmarks1, setcommercializationmarks1] = useState("");
     const [enterproposalreportmarks,setenterproposalreportmarks] = useState("")
     const [fetchenterproposalreportmarksData, setenterproposalreportmarksData] = useState("");
+    const [totalContribution ,setTotalContribution] = useState("");
+    const [excellent,setExcellent] = useState("");
+    const [good,setGood] = useState("");
+    const [average,setAverage] = useState("");
+    const [belowAverage,setBelowAverage] = useState("");
+    const [l01,setl01] = useState("");
+    const [l02,setl02] = useState("");
+    const [l03,setl03] = useState("");
+    const [l04,setl04] = useState("");
+    const [l05,setl05] = useState("");
+
+    const proposalReportMarkingID = "62b5f7ef425a8a64871de741";
     
-
-
     useEffect(() => {
         const fetchenterproposalreportmarksData= async () => {
             const enterproposalreportmarksconfig = {
@@ -101,7 +111,33 @@ const ProposalReportMarks = ({history}) => {
             }, 5000)
          }
     }
-   
+
+    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
+    const getRelevantProposaReportlMarkingConfigData =async ()=>{
+     
+        try{
+          const{data}=await axios.get(`/api/markingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
+         
+         setTotalContribution(data.proposalDetails.affectedTotalContribution)
+         setExcellent(data.proposalDetails.excellentGradeRange)
+         setGood(data.proposalDetails.goodGradeRange)
+         setAverage(data.proposalDetails.averageGradeRange)
+         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
+         setl01(data.proposalDetails.affectedL01Grade)
+         setl02(data.proposalDetails.affectedL02Grade)
+         setl03(data.proposalDetails.affectedL03Grade)
+         setl04(data.proposalDetails.affectedL04Grade)
+         setl05(data.proposalDetails.affectedL05Grade)
+         
+        }catch(error){
+          
+          
+        }
+        
+  
+      }
+      getRelevantProposaReportlMarkingConfigData();
+
   
 
 
@@ -130,22 +166,24 @@ const ProposalReportMarks = ({history}) => {
           </p>
         
             
-          <div className="enterproposalreportmarksbackground">        
-          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enterproposalreport_marks">
-        <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = 5 % ]</h3>
-        {error && <span className="error-message">{error}</span>}
-        <div className="form-group">
-            <table className="tablemarks1">
-                <tr>
-                    <td style={{padding:"5px",margin:"5px"}}>
-                    <label>
-            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student ID:</b></label><br/><br/>
-            <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
-            name="name" 
-            className = "input" id="StudentIDInput"
-            onChange={(e) => setstudentIDs(e.target.value)}
-            value={studentIDs} />
-                        
+
+          <div className="entermarksbackground">        
+          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enter_marks">
+      <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = {totalContribution} ]</h3>
+      {error && <span className="error-message">{error}</span>}
+      <div className="form-group">
+        <table className="tablemarks1">
+            <tr>
+                <td style={{padding:"5px",margin:"5px"}}>
+                <label>
+           <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student IDs:</b></label><br/><br/>
+          <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
+          name="name" 
+          className = "input" id="StudentIDInput"
+          onChange={(e) => setstudentIDs(e.target.value)}
+          value={studentIDs} />
+                    
+
 
                     </td>
                     <td>
@@ -172,18 +210,20 @@ const ProposalReportMarks = ({history}) => {
             </div>
         
 
-            <table className="proposalpresentationmarking">
-            <tr>
-        <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-        <th className="proposalpresentationmarking"> Excellent[100-75] </th>
-        <th className="proposalpresentationmarking"> Good[74-60] </th>
-        <th className="proposalpresentationmarking"> Average[59-40] </th>
-        <th className="proposalpresentationmarking"> Below Average[39-0] </th>
-        <th className="proposalpresentationmarking"> Marks[out of 100] </th>
-    </tr>
-    <tr>  <br></br>
-    <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [35%]</div>
-    <br></br><br></br><br/>
+
+        <table className="proposalpresentationmarking">
+        <tr>
+    <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
+    <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
+    <th className="proposalpresentationmarking"> Good[{good}] </th>
+    <th className="proposalpresentationmarking"> Average[{average}] </th>
+    <th className="proposalpresentationmarking"> Below Average[{belowAverage}] </th>
+    <th className="proposalpresentationmarking"> Marks[out of 100] </th>
+  </tr>
+  <tr>  <br></br>
+   <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [{l01}]</div>
+   <br></br><br></br><br/>
+
   
     
   
@@ -234,12 +274,43 @@ const ProposalReportMarks = ({history}) => {
 
         <td colspan="2" className="proposalpresentationmarking">
     
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-            name="name" 
-            className = "proposalpresentationinput"
-            onChange={(e) => setprovengapmarks1(e.target.value)}
-            value={provengapmarks1} />
-            
+
+          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          name="name" 
+          className = "proposalpresentationinput"
+          onChange={(e) => setprovengapmarks2(e.target.value)}
+          value={provengapmarks2} />
+          
+
+
+    </td>
+
+</tr>
+
+{/* <tr>
+    <td className="proposalpresentationmarking">
+
+    </td>
+</tr> */}
+<tr> <br></br>
+    <div className="l0percentage">
+    Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}]
+    </div><br></br><br></br>
+</tr>
+<tr>
+    <td className="proposalpresentationmarking">
+    Application of key pillars
+in the specialized area of
+knowledge
+50%
+
+    </td>
+    <td className="proposalpresentationmarking">
+    Clearly identified the most
+appropriate research area
+(Machine learning, Image
+processing, Data Science etc.)
+
 
 
         </td>
@@ -303,9 +374,11 @@ const ProposalReportMarks = ({history}) => {
     </tr>
 
 
-    <tr> <br></br>
-        <div className="l0percentage">
-        Capability in applying the knowledge in particular stream [Based on LO2] - [30%]
+
+<tr> <br></br>
+    <div className="l0percentage"> 
+        Solution Implementation [Based on LO3] - [{l03}]    
+
         </div><br></br><br></br>
     </tr>
     <tr>
@@ -409,11 +482,29 @@ const ProposalReportMarks = ({history}) => {
     </tr>
 
 
-    <tr> <br></br>
-        <div className="l0percentage"> 
-            Solution Implementation [Based on LO3] - [5%]    
-            </div><br></br><br></br>
-        
+
+    </td>
+</tr>
+{/* <tr>
+    <td>
+
+    </td>
+</tr> */}
+
+<tr> <br></br>
+    <div className="l2percentage">
+        Effective communication [Based on LO4]-[{l04}]
+    </div><br></br><br></br>
+    {/* <th>
+    Effective Communication [Based on LO4] - [{l04}]
+    </th> */}
+
+</tr>
+<tr>
+    <td>
+    Idea delivery
+50%
+
 
     </tr>
     <tr>
@@ -716,14 +807,28 @@ const ProposalReportMarks = ({history}) => {
 
         </td>
 
-        <td colspan="2">
-        
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-            name="name" 
-            className = "proposalpresentationinput"
-            onChange={(e) => setcommunicationmarks3(e.target.value)}
-            value={communicationmarks3} />
-            
+
+    </td>
+</tr> */}
+
+<tr> <br></br>
+    <div className="l3percentage">
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
+
+    </div><br></br><br></br>
+    {/* <th>
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
+    </th> */}
+
+</tr>
+<tr>
+    <td>
+    Ability of
+commercialization /
+potential for
+entrepreneurship
+100%
+
 
 
         </td>

@@ -9,6 +9,9 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 // //Footer
 // import Footer from "./components/Footer/Footer";
 
+import SideNavigationBar from "./components/screens/SideNavigationBar";
+import Dashboard from './components/screens/Dashboard'
+
 // Screens
 import PrivateScreen from "./components/screens/PrivateScreen";
 import LoginScreen from "./components/screens/LoginScreen";
@@ -60,7 +63,7 @@ import ViewGroup from "./components/screens/StaffviewGroup";
 
 
 import StaffDashboard  from "./components/screens/StaffDashboard";
-
+import login  from "./components/screens/login";
 //mark dashboard
 import MarkDashboard from "./components/screens/MarkDashboard";
 
@@ -71,17 +74,25 @@ import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableP
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
+
+import ProposalReportMarkingConfiguration from "./components/screens/ProposalReportMarkingConfiguration";
+import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocumentMarkingConfiguration";
+
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
+import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
+
 
 
 const App = () => {
   return (
     <Router>
       {/* <Header /> */}
+     
+
       <div className="app">
         <Switch>
-          <PrivateRoute exact path="/" component={PrivateScreen} />
+          <PrivateRoute exact path="/" component={Dashboard} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
           <Route
@@ -94,6 +105,7 @@ const App = () => {
             path="/passwordreset/:resetToken"
             component={ResetPasswordScreen}
           />
+         
           <Route exact path="/viewfeedback" component={ViewFeedback} />
          <Route exact path="/viewmarks" component={ViewMarks}/>
          <Route exact path="/matchedsupervisors" component={MatchedSupervisors}/>
@@ -162,8 +174,21 @@ const App = () => {
          <Route exact path="/adminAvailableProjectGroups" component={AdminAvailableProjectGroups}/>
          <Route exact path="/markingconfiguations" component={MarkingConfigurationsDashboard}/>
          <Route exact path="/proposalmarkingconfiguration" component={ProposalMarkingConfiguraton}/>
+
+         <Route exact path="/proposalreportmarkingconfiguration" component={ProposalReportMarkingConfiguration}/>
+         <Route exact path="/statusdocumentmarkingconfiguration" component={StatusDocumentMarkingConfiguration}/>
+         
+         <Route exact path="/progresspresentationmarkingconfiguration" component={ProgressPresentationMarkingConfiguration}/>
+
+
          <Route exact path="/userprofile" component={UserProfile}/>
          <Route exact path="/edituserprofile/:id" component={EditUserProfile}/>
+         <Route exact path="/sideNavBar" component={SideNavigationBar}/>
+         <Route exact path="/dashboard" component={Dashboard}/>
+         <Route exact path="/loginNew" component={login}/>
+         
+
+
          
          
 
