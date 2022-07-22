@@ -78,8 +78,16 @@ import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
 import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
 import StaffPlaceAnnouncement from './components/screens/StaffPlaceAnnouncement';
+
 import AdminViewGroup from './components/screens/AdminViewGroupScreen';
 import AssignStaff from './components/screens/AssignStaffGroupScreen';
+
+import CoordinatorViewAvailableProjects from "./components/screens/CoordinatorViewAvailableProjects";
+import UpdateProjectDetails from "./components/screens/UpdateProjectDetails";
+import CreateNewProject from "./components/screens/CreateNewProject";
+
+
+
 
 const App = () => {
   return (
@@ -187,9 +195,15 @@ const App = () => {
 
          <Route exact path="/editSubmission/:id" component={EditSubmission}/>
 
+
          <Route exact path="/adminViewGroup/:id" component={AdminViewGroup}/>
 
          <Route exact path="/adminAssignStaff" component={AssignStaff}/>
+
+         <Route exact path="/coordinatorViewProjects" component={CoordinatorViewAvailableProjects}/>
+         <Route exact path="/updateProjectDetails/:id" component={UpdateProjectDetails}/>
+          <Route exact path="/createNewProject" component={CreateNewProject}/>
+
 
         </Switch>
 
