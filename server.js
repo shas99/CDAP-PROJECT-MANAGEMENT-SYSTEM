@@ -145,12 +145,8 @@ app.use('/api/announcement', require('./routes/announcement'))
 
 // Error handler(Should be the last piece of middleware)
 app.use(errorHandler)
-
 const PORT = process.env.PORT || 5000;
-
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-
-
 
 //************* HEROKU DEPLOYMENT------------Right before your app.listen(), add this: ***********
 app.get("*", (req, res) => {

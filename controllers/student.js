@@ -6,11 +6,7 @@ const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
 const StudentTopicInterestingForm = require('../models/StudentTopicInteresting')
-const ImageUpload = require('../models/ImageUpload')
-
-
-
-
+const SubmissionPage = require('../models/SubmissionPage')
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
@@ -173,25 +169,70 @@ exports.edituserprofile = async(req,res,next) => {
     }
 }
 
-exports.viewimage =async(req,res,next) => {
+exports.status =async(req,res,next) => {
 
-    const user = await ImageUpload.findById("62c855fc93de6e011f28f722")
-    console.log(user.img.data)
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+//use the batchID to retreive data with the batchID
+    const batch = await SubmissionPage.find(user.batchID)
+    console.log(batch)
+    try{
+        res.status(201).json({
+            success: true,
+            data: batch
+        })
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+
+exports.retrieveData =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    // console.log(user.feedback)
     // const{email}=req.body;
     
     try{
         res.status(201).json({
             success: true,
-            data: user.img.data
+            data: user
         })
     }catch(error){
         next(error)
     }
-
+}
 };
-
-
-
 
 const logged = (token,res) => {//check if token is null
     if(token == "null"){
