@@ -13,23 +13,23 @@ const CoordinatorViewAvailableProjects = ({history}) =>{
   const [projectarray, setprojectarray] = useState("");
   useEffect(() => {
 
-    // const fetchPrivateDate = async () => {
-    //   const config = {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    //     },
-    //   };
+    const fetchPrivateDate = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
 
-    //   try {
-    //     const { data} = await axios.get("/api/private", config);
+      try {
+        const { data} = await axios.get("/api/adminPrivate/adminPrivate", config);
         
-    //     setPrivateData(data.data);
-    //   } catch (error) {
-    //     localStorage.removeItem("authToken");
-    //     setError("You are not authorized please login");
-    //   }
-    // };
+        setPrivateData(data.data);
+      } catch (error) {
+        localStorage.removeItem("authToken");
+        setError("You are not authorized please login");
+      }
+    };
 
     const fetchProjectsData = async () =>{
       const projectsconfig = {
@@ -101,7 +101,9 @@ const removeData = (_id) => {
       <h1 id="caption" className="">All projects</h1>
       <br/><br/>
       <center>
-        <a href="/createNewProject">Add New Project</a>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+     <a href="/createNewProject">Add New Project</a> 
+      </button>
         </center>
         
          <ul>
