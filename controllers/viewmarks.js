@@ -2,11 +2,87 @@ const crypto = require('crypto')
 const User = require('../models/User')
 const ErrorResponse = require('../utils/errorResponse')
 const sendEmail = require('../utils/sendEmail')
+const ProgressPresentation1Marks = require('../models/ProgressPresentation1Marks')
 const ProposalPresentationMarks = require('../models/Marks')
 const ProposalReportMarks = require('../models/ProposalReportMarks')
 const StatusDocument1Marks = require('../models/StatusDocument1Marks')
+
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
+
+//view progress presentation 1 marks for logged in student method
+
+exports.viewprogresspresentation1marks =async(req,res,next) => {
+   
+    
+    let token//to retreive username in backend
+    
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token == "null"){
+        logged(token,res)
+    }
+    else{
+        const decoded = jwt.verify(token,process.env.JWT_SECRET)
+        console.log(decoded)
+        
+        const user = await User.findById(decoded.id)
+       const retrievestudentid = user.studentID
+       console.log(retrievestudentid) 
+
+        
+
+   
+
+        try{
+    
+        const progresspresentation1Collection = await ProgressPresentation1Marks.find()
+    
+        let matchentry4;
+        const matchedID = progresspresentation1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
+            console.log(collectionEntry)
+            matchentry4=collectionEntry
+
+        }}
+        
+        )
+
+        const setmarksdata ="Proven Gap A"+":"+matchentry4.provengapmarks1+",  "
+                            +"Proven Gap B"+":"+matchentry4.provengapmarks2+",  "
+                            +"Capability A"+":"+matchentry4.capabilitymarks1+",  "
+                            +"Capability B"+":"+matchentry4.capabilitymarks2+",  "
+                            +"Implementation A"+":"+matchentry4.implementationmarks1+",  "
+                            +"Implementation B"+":"+matchentry4.implementationmarks2+",  "
+                            +"Implementation C"+":"+matchentry4.implementationmarks3+",  "
+                            +"Implementation D"+":"+matchentry4.implementationmarks4+",  "
+                            +"Implemetation E"+":"+matchentry4.implementationmarks5+",  "
+                            +"Communication A"+":"+matchentry4.communicationmarks1+",  "
+                            +"Communication B"+":"+matchentry4.communicationmarks2+",  "
+                            +"Commercialization A"+":"+matchentry4.commercializationmarks1+",  "
+                            +"Extra feedback"+":"+matchentry4.extrafeedback+",  "
+                            +"Recommendation"+":"+matchentry4.recommendation+",  "
+
+                            
+                            
+       
+        res.status(201).json({
+            success: true,
+           data:setmarksdata
+                
+           
+        })
+        
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+
+
 
 //view status document 1 marks for logged in student method
 exports.viewstatusdocument1marks =async(req,res,next) => {
