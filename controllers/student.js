@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const { Console } = require('console')
 const StudentTopicInterestingForm = require('../models/StudentTopicInteresting')
 const SubmissionPage = require('../models/SubmissionPage')
+const imgModel = require('../models/ImageUpload');
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
@@ -232,6 +233,45 @@ exports.retrieveData =async(req,res,next) => {
         next(error)
     }
 }
+};
+
+exports.retrieveImages =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    imgModel.find({}, (err, items) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send('An error occurred', err);
+        }
+        else {
+
+        console.log(items[0]+"hello")
+        let image
+        const images = items.map(item => {
+            if(item.ID==decoded.id){
+                image = item
+            }else{
+                image = {img:{data:{data:""}}}
+            }
+        })
+  
+        res.status(201).json({
+            success: true,
+            data: image
+        })
+        }
+      });
+
 };
 
 const logged = (token,res) => {//check if token is null
