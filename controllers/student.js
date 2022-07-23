@@ -250,7 +250,7 @@ exports.retrieveImages =async(req,res,next) => {
         console.log(items[0]+"hello")
         res.status(201).json({
             success: true,
-            data: items[1]
+            data: items[6]
         })
         }
       });
