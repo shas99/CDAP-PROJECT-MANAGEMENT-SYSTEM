@@ -102,11 +102,13 @@ app.post('/api/imageUpload', upload.single('image'), (req, res, next) => {
     var obj = {
       name: req.body.name,
       desc: req.body.desc,
+      ID: req.body.ID,
       img: {
         data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
         contentType: 'image/png'
-      }
+      },
     }
+    console.log(obj)
     console.log(fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)));
     imgModel.create(obj, (err, item) => {
       if (err) {

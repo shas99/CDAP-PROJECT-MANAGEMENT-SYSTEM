@@ -197,6 +197,17 @@
    background-color: bisque;
 }
 
+.profileiImage{
+/* https://stackoverflow.com/questions/56139366/how-to-center-an-image-in-reactjs-using-css */
+   text-align: center;
+   display: block;
+   justify-content: center;
+   align-items: center;
+   margin: auto;
+   width: 25%;
+   height: 25%;
+
+}
 
    
    
