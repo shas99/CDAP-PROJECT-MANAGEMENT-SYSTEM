@@ -129,7 +129,7 @@ const EditUserProfile = ({history}) => {
       <h1 id="userprofilecaption">Edit My Profile</h1>
       
       
-      <div className="userprofileBox">
+      <div className="userprofileBox77">
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
         <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
         <p className="userprofilecontent2"> Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.username}</p> 

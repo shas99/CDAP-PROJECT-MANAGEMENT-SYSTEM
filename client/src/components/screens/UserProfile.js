@@ -121,7 +121,7 @@ const UserProfile = ({history}) => {
       <h1 id="userprofilecaption">My Profile</h1>
       {/* profile image */}
       <div >
-        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" width="25%" height="25%" className="profileiImage" ></img>
+        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" width="15%" height="15%" className="profileiImage" ></img>
       </div>
       <div className="userprofileBox">
       
@@ -152,21 +152,21 @@ const UserProfile = ({history}) => {
          
       </div>
       
-      <form action="/api/imageUpload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image"/>
+      <form action="/api/imageUpload" method="POST" enctype="multipart/form-data" className="ImageSubmitProfile">
+        <input type="file" name="image" style={{marginBottom:"10px"}}/>
         
-        <label for="name">Image Title</label>
+        <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label>
         <input type="text" id="name" placeholder="Name" name="name" required>
          
         </input>
-              <input type="hidden"  id="ID" name="ID" value={fetchFeedbackData._id}></input>
-        <button type="submit">Submit</button>
+              <input type="hidden"  id="ID" name="ID" value={fetchFeedbackData._id} style={{marginBottom:"10px"}}></input>
+        <button type="submit" style={{marginBottom:"10px",fontSize:"xx-large",fontWeight:"bold",color:"#8256D0"}}>Submit!</button>
 
         </form>
 
-        <h1>To Upload Image on mongoDB</h1>
+        {/* <h1>To Upload Image on mongoDB</h1> */}
 
-  <div>
+  {/* <div>
     <form action="/api/imageUpload" method="POST" enctype="multipart/form-data">
       <div>
         <label for="name">Image Title</label>
@@ -185,7 +185,7 @@ const UserProfile = ({history}) => {
           name="image" value="" required/>
       </div>
       {/* <input type="hidden"  id="ID" name="ID" value="testing"></input> */}
-      <div>
+      {/* <div>
       <label for="desc">testing</label>
       <input type="text" id="ID" name="ID" placeholder="Name"
           value="" required/>
@@ -194,11 +194,11 @@ const UserProfile = ({history}) => {
         <button type="submit">Submit</button>
       </div>
     </form>
-  </div>
+  </div> */}
 
 
 
-  <h1>Uploaded Images</h1>
+
   {/* <div>
     <% items.forEach(function(image) { %>) 
     <div>
