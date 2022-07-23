@@ -237,20 +237,37 @@ exports.retrieveData =async(req,res,next) => {
 
 exports.retrieveImages =async(req,res,next) => {
 
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
     imgModel.find({}, (err, items) => {
         if (err) {
           console.log(err);
           res.status(500).send('An error occurred', err);
         }
         else {
-        //   res.render('imagesPage', { items: items });
-        // if(items.name == "Shas99"){
-        //     console.log("Shas99"+items)
-        // }
+
         console.log(items[0]+"hello")
+        let image
+        const images = items.map(item => {
+            if(item.ID==decoded.id){
+                image = item
+            }else{
+                image = {img:{data:{data:""}}}
+            }
+        })
+  
         res.status(201).json({
             success: true,
-            data: items[6]
+            data: image
         })
         }
       });

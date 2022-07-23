@@ -121,7 +121,7 @@ const UserProfile = ({history}) => {
       <h1 id="userprofilecaption">My Profile</h1>
       {/* profile image */}
       <div >
-        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} width="25%" height="25%" className="profileiImage" ></img>
+        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" width="25%" height="25%" className="profileiImage" ></img>
       </div>
       <div className="userprofileBox">
       
