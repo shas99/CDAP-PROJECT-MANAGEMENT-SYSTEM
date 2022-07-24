@@ -60,6 +60,34 @@ const MatchedSupervisors = ({history}) => {
         catch(error){}
       };
 
+      const fetchSupervisorBiddingDetails = async () => {
+        const supconfig = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        };
+
+        try {
+          const {data} =  await axios.get("/api/group/viewAvailableSupervisors", supconfig);
+          const array = Object.entries(data.data)
+          setSupervisorBatch(data.data);
+          
+          console.log("This is testing"+data.data)
+          //const array = Object.entries(data.data)
+          //let i = 0;
+          // let l = array.length
+          //for(i;i<l;i++){
+            //let p = array[1]
+            // console.log(p)
+            // console.log(p[1])
+          //}
+
+          //console.log(array[2]);
+        }
+        catch(error){}
+      };
+
       const fetchbatchID = async () =>{
         const submissionsconfig = {
           headers: {
@@ -109,6 +137,7 @@ const MatchedSupervisors = ({history}) => {
       
       fetchPrivateDate()
       fetchAvailableSupervisors()
+      fetchSupervisorBiddingDetails()
       fetchbatchID()
     }, [history]);
   
@@ -173,16 +202,39 @@ const MatchedSupervisors = ({history}) => {
           {/* US-01 Pasindu Vinod*/}
           
           <div className="container text-xs text-gray-200 mt-1">
-            Supervisors {batchID}
+            <p className="text-2xl font-semibold	">Supervisors {batchID}</p>
             <br/>
             <div id="Supervisors">
+              <table id = "stable">
+              
+              
             {SupervisorName.map (supervisor => {
               
                 
                 let t = supervisor.Supervisor
                   if(t == true){return(
-                //<p>{supervisor.Name,supervisor.g.length}</p>
-                 <p>{supervisor.username}<input type="checkbox" ></input></p>
+                  <tr>
+                {/* //<p>{supervisor.Name,supervisor.g.length}</p> */}
+                 <td><input type="checkbox" id={supervisor._id}/></td>
+                 <td>{supervisor.username}</td>
+                 <td>
+                 {SupervisorBatch.map (superbatch => {
+                   
+                   return (
+                    //get relevent supervisor id and count number of approved groups according to relevent batch
+                     <t></t>
+
+                     
+                     
+                     
+                   )
+                 })}/{
+                   //split batch id and compare regular or june batch
+                   //then display maximum number
+                 }
+                 </td>
+                 </tr>
+
                  
                  
                  )
@@ -191,6 +243,8 @@ const MatchedSupervisors = ({history}) => {
               
               
             })}
+            
+            </table>
             </div>
           </div>
 

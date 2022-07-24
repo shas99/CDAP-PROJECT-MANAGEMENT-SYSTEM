@@ -8,8 +8,6 @@ const Staff = require('../models/Staff')
 //*******VIEW AVAILABLE Supervisors API *******
 exports.viewAvailableSupervisors =async(req,res,next) => { //planning to use for bidders
 try{
-
-
     const availableSpervisors = await Supervisors.find()//group that is approved and have this perticular member
     //console.log(availableProjects[1])// 
     const array = Object.values(availableSpervisors)

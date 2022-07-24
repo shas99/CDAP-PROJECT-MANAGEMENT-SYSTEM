@@ -7,29 +7,21 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     StaffID: {
         type: String
     },
-    Name: {
-        type: String
+    // Name: {
+    //     type: String
+    // },
+    GroupID: {
+        type : String
     },
-    Bidders: {
-        GroupID: {
-            type : String
-        },
-        BatchID: {
-            type : String
-        },
-        Approved: {
-            type : Boolean
-        },
-        recommended: {
-            type : Boolean
-        },
-
-    }
-
-    
-    
-
-
+    BatchID: {
+        type : String
+    },
+    Approved: {
+        type : Boolean
+    },
+    Recommended: {
+        type : Boolean
+    },
 })
 
 const Supervisor = mongoose.model("Supervisor", SupervisorSchema)
