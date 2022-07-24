@@ -214,9 +214,9 @@ const AdminDashboard = ({history}) => {
 
 
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-green-700 shadow-md pb-5 ml-[13rem]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-green-700 shadow-md pb-5 ml-[10rem]">
                 
-                <div id="col" class='lg:w-[38vw] md:-translate-y-2'>
+                <div id="col" class='lg:w-[38vw] md:-translate-y-2  mr-10'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
                     <h1 class="text-xs text-gray-400 mt-1"> Admin</h1>
                     <hr class="border-gray-300 mt-2 md:w-96 lg:hidden"/>
@@ -230,11 +230,13 @@ const AdminDashboard = ({history}) => {
             
              </div>
              {/* GRID SELECTION BUTTONS */}
+             <div className="ml-40">
              <br/><br/><br/>
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
+  
+                <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
 
                       
 
@@ -284,7 +286,7 @@ const AdminDashboard = ({history}) => {
                             </button>
                        </div>
 
-                      
+                       </div>     
 {/*ANNOUNCEMENT SECTION */}
   
                     </div>
