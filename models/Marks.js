@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//for proposal presentation marks
 const MarksSchema = new mongoose.Schema({
 
 
