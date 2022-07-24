@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./MarkDashboard.css";
+import "./ViewMarksDashboard.css";
 import { Link } from "react-router-dom"
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faFileCircleCheck,faComment,faFile,faListCheck, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
-const MarkDashboard = ({history}) => {
+const ViewMarksDashboard = ({history}) => {
     const [error,setError] = useState("");
     const [privateData, setPrivateData] = useState("");
 
@@ -24,7 +24,7 @@ const MarkDashboard = ({history}) => {
             };
 
             try{
-                const { data } = await axios.get("/api/staffPrivate/staffPrivate",config);
+                const { data } = await axios.get("/api/private",config);
 
                 setPrivateData(data.data);
             }catch(error){
@@ -48,7 +48,7 @@ const MarkDashboard = ({history}) => {
         <>
         <div id = "back">
             <Header/>
-            <h1 id="caption">Welcome to marking dashboard {privateData}</h1>
+            <h1 id="caption">Welcome to your marks dashboard {privateData}</h1>
             <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
             </p>
@@ -63,7 +63,7 @@ const MarkDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addproposalpresentationmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
+        <Link to="/viewproposalpresentationmarks" id="Regs"><button className="buttons">Proposal presentation</button></Link>
         </div>
 
         <div className="StaffRectangle-37">
@@ -72,7 +72,7 @@ const MarkDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addproposalreportmarks" id="Regs"><button className="buttons">Proposal report</button></Link>
+        <Link to="/viewproposalreportmarks" id="Regs"><button className="buttons">Proposal report</button></Link>
         </div>
 
         <div className="StaffRectangle-37">
@@ -81,7 +81,7 @@ const MarkDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/enterstatusdocument1marks" id="Regs"><button className="buttons">Status document 1 </button></Link>
+        <Link to="/viewstatusdocument1marks" id="Regs"><button className="buttons">Status document 1 </button></Link>
         </div>
 
         <div className="StaffRectangle-37">
@@ -90,7 +90,7 @@ const MarkDashboard = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/enterprogresspresentation1marks" id="Regs"><button className="buttons">Progress Presentation 1 </button></Link>
+        <Link to="/viewprogresspresentation1marks" id="Regs"><button className="buttons">Progress Presentation 1 </button></Link>
         </div>
 
       
@@ -127,4 +127,4 @@ const MarkDashboard = ({history}) => {
     )
 }
 
-export default MarkDashboard;
+export default ViewMarksDashboard;
