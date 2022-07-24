@@ -1,15 +1,27 @@
+import '../../styles/main.css';
+import './SubmissionsM.css';
+import { format } from 'date-fns'
+
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./PrivateScreen.css"
-import "./SubmissionMilestones.css"
+
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import { Batch } from 'aws-sdk';
+
+import Parser from 'html-react-parser';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 const SubmissionMilestones = ({history}) =>{
-  const [fetchMarksData, setMarksData] = useState("")
+  const [SubmissionsData, setSubmissionsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
+  const [submissionArray, setSubmissionArray] = useState("");
+  const [batchID, setBatchID] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -24,14 +36,15 @@ const SubmissionMilestones = ({history}) =>{
         const { data} = await axios.get("/api/private", config);
         
         setPrivateData(data.data);
+        
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not authorized please login");
       }
     };
 
-    const fetchMarksData = async () =>{
-      const marksconfig = {
+    const fetchSubmissionsData = async () =>{
+      const submissionsconfig = {
         headers: {
           "Content-Type":"application/json",
           Authorization:`Bearer ${localStorage.getItem("authToken")}`,
@@ -39,79 +52,115 @@ const SubmissionMilestones = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.get("/api/student/viewmarks",marksconfig);
-        setMarksData(data.data);
-      }catch(error){
+        const{data} = await axios.get("/api/STDAvailableSubmissions/availableSubmissions",submissionsconfig);
+        const array = Object.entries(data.data)
+        setSubmissionsData(data.data);
+        console.log(array)
 
         
+      }catch(error){
+        // setError("Data not fetched");
+        
       }
+    
     }
-    fetchMarksData()
+
+    const fetchbatchID = async () =>{
+      const submissionsconfig = {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+        },
+      }
+
+      try{
+        const{data} = await axios.get("/api/STDAvailableSubmissions/batchID",submissionsconfig);
+        //const array = Object.entries(data.data)
+        setBatchID(data.data);
+
+        
+      }catch(error){
+        // setError("Data not fetched");
+        
+      }
+    
+    }
+
+
+
+
+    fetchSubmissionsData()
     fetchPrivateDate()
+    fetchbatchID()
   }, [history])
 
-  return  error ? ( 
+//   const objectToArray = obj => {
+//         const keys = Object.keys(obj);
+//     const res = [];
+    
+//     for(let i = 0; i < keys.length; i++){
+//        res.push(obj[i]);
+//        setSubmissionArray(res)
+//       //  console.log(projectarray);
+        
+       
+       
+
+//     };
+//     return res; 
+
+    
+
+//  };
+
+
+ 
+
+
+
+ return error ? ( 
   
-    <span className="error-message">{error}</span>
-  ) :(
-    <div className="view-feedback">
-      <Header/>
-  <br/>
-      <h1 id="caption">Milestones  </h1>
+  <span className="error-message">{error}</span>
+) : ( 
+
+  <>
+  <div id="back">
+  <Header/>
+  <br></br>
+  <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
       <br/><br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 1 - SRS Report </b></h4> <br/>
-        <p>A software requirements specification (SRS) is a description of a software system to be developed. It is modeled after business requirements specification (CONOPS). The software requirements specification lays out functional and non-functional requirements, and it may include a set of use cases that describe user interactions that the software must provide to the user for perfect interaction.</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
+        
+         <ul>
+        {SubmissionsData.map(submission => {
+          if(batchID == submission.BatchID && submission.visibility == true){
+          return (
+                     
+            
+            <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
+              
+              <div className="Heading">
+                <p>{submission.Heading}</p>
+              </div>
+              <div id="content">
+              <br></br><br></br>
+              <li className="des"><p>{Parser(submission.Description)}</p></li>
+              <li className="link"><p>{submission.SubmissionPageLink}</p></li><br></br>
+              </div>
+              <div className="submitbtn" style={{backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />
+              &nbsp;&nbsp;Add Submission&nbsp;&nbsp;</a></div>
 
-      </div>
-      </div>
-      <br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 2 - TIS Report </b></h4> <br/>
-        <p>An investigation report is a document that details the findings of an investigation as soon as a formal complaint is filed or an incident occurs. This is where investigators record the issues of the matter, analyze the evidence, and formulate a conclusion.</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
+              <div className="date"><p >Updated on {submission.Date}</p></div>
+              
+            </div>
+            
+          )}
 
-      </div>
-      </div>
-      <br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 3 - SAS Report </b></h4> <br/>
-        <p>A software architecture document is a map of the software. We use it to see, at a glance, how the software is structured. It helps you understand the software's modules and components without digging into the code. It's a tool to communicate with others—developers and non-developers—about the software.</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
+        })} 
+      </ul>
+    </div>
 
-      </div>
-      </div>
-      <br/><br/>
-      <div className="card">
-      <div className="container">
-      <h4 id="marks-topic"><b>Milestone 4 - Handover Report </b></h4> <br/>
-        <p>Include all the reports refined with the latest version applied and approved from your Supervisors</p>
-        <hr id="hr1"></hr> 
-        <br/>
-      <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"140px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/submit`}>  Submit Milestone</a></div>
-
-      </div>
-      </div>
-
-
-      <br/>
-      <Footer/>
-      
-</div>
-    
-    
-    
-    
-  )
-}
+  
+  </>
+);
+};
 export default SubmissionMilestones;

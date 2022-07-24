@@ -127,6 +127,13 @@ const StaffPrivateScreen = ({history}) => {
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View Groups</button></Link>
       </div>
+      <br/>
+      <div className="StaffRectangle-47">
+      
+      <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
+      {/* <i class="fa-solid fa-graduation-cap"></i> */}
+      <Link to="/staffPlaceAnnouncement" id="Regs"><button className="buttons" onClick="/staffproject ">Place Announcement</button></Link>
+      </div>
       
 
       

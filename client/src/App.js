@@ -52,13 +52,15 @@ import EnterStatusDocument1Marks from "./components/screens/EnterStatusDocument1
 
 import ViewAvailableProjects from "./components/screens/ViewAvailableProjects";
 import ProjectBidding from "./components/screens/ProjectBidding";
-import Submission from "./components/screens/SubmissionScreen";
+//import Submission from "./components/screens/SubmissionScreen";
 import StaffReport from "./components/screens/StaffReportScreen"
 import ViewAvailableProjectsStaff from "./components/screens/StaffAvailableProject";
 import OPT from "./components/screens/OTPScreen";
 
 import StudentTopicInterestingForm from "./components/screens/StudentTopicInterestingForm";
 import SubmissionMilestones from "./components/screens/SubmissionMilestones";
+import Submission from "./components/screens/Submission";
+
 import ViewGroup from "./components/screens/StaffviewGroup";
 
 
@@ -72,6 +74,11 @@ import AdminLoginScreen from "./components/screens/AdminLoginScreen"
 import AdminDashboard from "./components/screens/AdminDashboardScreen";
 import AdminViewAvailableProjects from "./components/screens/AdminViewAvailableProjects";
 import AdminAvailableProjectGroups from "./components/screens/AdminAvailableProjectGroups";
+
+import SubmissionAdmin from "./components/screens/SubmissionAdminScreen"
+import AddSubmission from "./components/screens/AddSubmissionScreen"
+import EditSubmission from "./components/screens/EditSubmissions"
+
 import MarkingConfigurationsDashboard from "./components/screens/MarkingConfigurationsDashboard";
 import ProposalMarkingConfiguraton from "./components/screens/ProposalMarkingConfiguraton";
 
@@ -81,6 +88,17 @@ import StatusDocumentMarkingConfiguration from "./components/screens/StatusDocum
 import UserProfile from "./components/screens/UserProfile";
 import EditUserProfile from "./components/screens/EditUserProfile";
 import ProgressPresentationMarkingConfiguration from "./components/screens/ProgressPresentationMarkingConfiguration";
+import PlaceAnnouncement from "./components/screens/PlaceAnnouncement";
+import StaffPlaceAnnouncement from './components/screens/StaffPlaceAnnouncement';
+import Status from './components/screens/StatusScreen';
+
+import AdminViewGroup from './components/screens/AdminViewGroupScreen';
+import AssignStaff from './components/screens/AssignStaffGroupScreen';
+
+import CoordinatorViewAvailableProjects from "./components/screens/CoordinatorViewAvailableProjects";
+import UpdateProjectDetails from "./components/screens/UpdateProjectDetails";
+import CreateNewProject from "./components/screens/CreateNewProject";
+
 
 
 
@@ -160,6 +178,8 @@ const App = () => {
          <Route exact path="/staffrecommendationform" component={StaffRecommendationForm}/>
          <Route exact path="/OPT" component={OPT}/>
          <Route exact path="/submissionmilestone" component={SubmissionMilestones}/>
+         <Route exact path="/submission/:id" component={Submission}/>
+
 
          <Route exact path="/staffdashboard" component={StaffDashboard}/>
 
@@ -186,11 +206,30 @@ const App = () => {
          <Route exact path="/sideNavBar" component={SideNavigationBar}/>
          <Route exact path="/dashboard" component={Dashboard}/>
          <Route exact path="/loginNew" component={login}/>
+         <Route exact path="/placeAnnouncement" component={PlaceAnnouncement}/>
+         <Route exact path="/staffPlaceAnnouncement" component={StaffPlaceAnnouncement}/>
          
 
 
          
          
+
+         <Route exact path="/submissionadmin" component={SubmissionAdmin}/>
+
+         <Route exact path="/addSubmission" component={AddSubmission}/>
+
+         <Route exact path="/editSubmission/:id" component={EditSubmission}/>
+
+         <Route exact path="/Status" component={Status}/>
+
+
+         <Route exact path="/adminViewGroup/:id" component={AdminViewGroup}/>
+
+         <Route exact path="/adminAssignStaff" component={AssignStaff}/>
+
+         <Route exact path="/coordinatorViewProjects" component={CoordinatorViewAvailableProjects}/>
+         <Route exact path="/updateProjectDetails/:id" component={UpdateProjectDetails}/>
+          <Route exact path="/createNewProject" component={CreateNewProject}/>
 
 
         </Switch>
