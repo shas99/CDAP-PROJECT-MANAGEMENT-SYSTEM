@@ -239,8 +239,11 @@ const EnterStatusDocument1Marks = ({history}) => {
           value={ganttchartmarks} />
           
 
-
-            </tr>
+            
+            
+            
+            
+            
     
             <tr>
             <td className="proposalpresentationmarking" >
@@ -427,7 +430,7 @@ const EnterStatusDocument1Marks = ({history}) => {
         {totalMarksEntitled}
     </td>
 
-            </td>
+            
             <td className="proposalpresentationmarking">
             25 marks
             </td>
@@ -536,3 +539,8 @@ const EnterStatusDocument1Marks = ({history}) => {
 }
 
 export default EnterStatusDocument1Marks;
+
+
+
+
+

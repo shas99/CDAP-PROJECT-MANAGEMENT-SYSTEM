@@ -483,8 +483,8 @@ processing, Data Science etc.)
 
 
 
-    </td>
-</tr>
+    {/* </td>
+</tr> */}
 {/* <tr>
     <td>
 
@@ -504,6 +504,7 @@ processing, Data Science etc.)
     <td>
     Idea delivery
 50%
+</td>
 
 
     </tr>
@@ -806,10 +807,11 @@ processing, Data Science etc.)
     referencing
 
         </td>
+        </tr>
 
 
-    </td>
-</tr> */}
+    {/* </td>
+</tr> */} 
 
 <tr> <br></br>
     <div className="l3percentage">
