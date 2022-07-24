@@ -1,7 +1,8 @@
 .userprofileClass{
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
+    /* display:block;  */
     background-color: #22272E;
  }
 
@@ -99,5 +100,30 @@
 }
 
 #editUserButton{
-    margin-left: 150px;
+    margin-left: 5px;
+    margin-top: -7px;
+}
+
+.EditFormProfile{
+   margin-top: -50px;
+   margin-left: 25px;
+}
+
+.userprofileBox77{
+   width: 500px;
+   padding: 1.5rem;
+   /* margin-top: -330px; */
+   margin-left: 20px;
+   /* box-shadow: 0 1rem 2rem royalblue; */
+   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+   background: #161b22;
+   border-radius: 5px;
+   color: white;
+   border-width: 2px;
+   border-style: solid;
+   border-color: #21262d;
+   height: 20rem;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: small;
+   /* margin-top: -350px; */
 }
