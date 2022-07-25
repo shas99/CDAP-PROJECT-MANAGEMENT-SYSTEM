@@ -646,6 +646,14 @@ video {
   margin-left: 5rem;
 }
 
+.ml-\[18rem\] {
+  margin-left: 18rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -786,6 +794,11 @@ video {
 
 .-translate-x-1 {
   --tw-translate-x: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-180 {
+  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1381,6 +1394,22 @@ video {
 
   .lg\:w-\[30vw\] {
     width: 30vw;
+  }
+
+  .lg\:w-\[40vw\] {
+    width: 40vw;
+  }
+
+  .lg\:w-\[39vw\] {
+    width: 39vw;
+  }
+
+  .lg\:w-\[3925vw\] {
+    width: 3925vw;
+  }
+
+  .lg\:w-\[39\.5vw\] {
+    width: 39.5vw;
   }
 
   .lg\:grid-cols-2 {

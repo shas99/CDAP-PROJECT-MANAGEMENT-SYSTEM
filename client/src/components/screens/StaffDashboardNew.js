@@ -256,7 +256,7 @@ export default function StaffDashboard ({history}) {
 
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[10rem]">
                 
-                <div id="col" class='ml-10 lg:w-[38vw] md:-translate-y-2'>
+                <div id="col" class='ml-10 lg:w-[39.5vw] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData}</span></h1>
                     <h1 class="text-xs text-gray-400 mt-1"> Staff</h1>
                     <hr class="border-gray-300 mt-2 md:w-96 lg:hidden"/>
@@ -274,11 +274,11 @@ export default function StaffDashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-200 gap-y-4 w-80% ml-40">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-200 gap-y-4 w-full ml-40">
 
                       
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
+                       <div class=" w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
 
                             <button>
                                 <a href='#'>Add Feedback</a>
