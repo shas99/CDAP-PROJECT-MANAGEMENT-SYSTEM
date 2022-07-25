@@ -114,19 +114,22 @@ exports.submissionForm = async(req,res,next) => {
         
         token = req.headers.authorization.split(" ")[1]
     }
-console.log(token)
+    console.log(token)
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
     const id = decoded.id
 
     const user = await User.findById(id)
     const temp = user.heading
-   temp.push(heading)
+    
+    temp.push(heading)
     console.log(temp)
     user.heading = temp
     user.save()
+    studentID = decoded.id;
+    
     try{
         const form = await Form.create({
-            entries,heading
+            entries,heading,studentID
         })
         // console.log(heading)
         res.status(201).json({
@@ -199,7 +202,7 @@ exports.addSubmission =async(req,res,next) => {
                 res.status(500).json({success:false, error:error.message})
             }
             
-            };
+    };
 
     exports.editSpecificSubmission =async(req,res,next) => {
             
@@ -238,3 +241,23 @@ exports.addSubmission =async(req,res,next) => {
             
             };
 
+            exports.viewSpecificSubmissionStudentID =async(req,res,next) => {
+                const {id} = req.body
+
+                
+                
+                try{
+                        const form = await Form.find({studentID:id})
+                   
+                        
+                        res.status(201).json({
+                            success: true,
+                            data: form
+                        })
+                        
+                    
+                    }catch(error){
+                        res.status(500).json({success:false, error:error.message})
+                    }
+                    
+            };
