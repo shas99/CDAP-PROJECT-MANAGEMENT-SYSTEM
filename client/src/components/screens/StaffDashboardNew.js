@@ -278,7 +278,7 @@ export default function StaffDashboard ({history}) {
 
                       
 
-                       <div class=" w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
+                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
 
                             <button>
                                 <a href='#'>Add Feedback</a>
