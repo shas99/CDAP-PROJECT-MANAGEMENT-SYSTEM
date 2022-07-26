@@ -27,7 +27,7 @@ import GroupConfirm from "./components/screens/GroupConfirm";
 import TopicRegistration from "./components/screens/StudentTopicRegistrationForm";
 import StaffLoginScreen from "./components/screens/StaffLoginScreen";
 import StaffRegisterScreen from "./components/screens/StaffRegisterScreen";
-import StaffPrivateScreen from "./components/screens/StaffPrivateScreen";
+import StaffDashboard from "./components/screens/StaffDashboardNew";
 import StaffRecommendationForm from "./components/screens/StaffRecommendationForm";//Staff Recommendation Form
 import ProposalPresentationMarks from "./components/screens/ProposalPresentationMarks";
 
@@ -64,7 +64,7 @@ import Submission from "./components/screens/Submission";
 import ViewGroup from "./components/screens/StaffviewGroup";
 
 
-import StaffDashboard  from "./components/screens/StaffDashboard";
+//import StaffDashboard  from "./components/screens/StaffDashboard";
 import login  from "./components/screens/login";
 //mark dashboard
 import MarkDashboard from "./components/screens/MarkDashboard";
@@ -141,7 +141,7 @@ const App = () => {
          
          <Route exact path="/staffRegister" component={StaffRegisterScreen}/>
 
-          <Route exact path="/staffPrivate" component={StaffPrivateScreen}/> 
+          <Route exact path="/staffPrivate" component={StaffDashboard}/> 
 
           <Route exact path="/viewproposalpresentationmarks" component={ViewProposalPresentationMarks}/>
 
@@ -181,7 +181,7 @@ const App = () => {
          <Route exact path="/submission/:id" component={Submission}/>
 
 
-         <Route exact path="/staffdashboard" component={StaffDashboard}/>
+         {/* <Route exact path="/staffdashboard" component={StaffDashboard}/> */}
 
          <Route exact path="/markdashboard" component={MarkDashboard}/>
 
