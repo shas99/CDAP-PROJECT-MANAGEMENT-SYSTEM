@@ -135,12 +135,15 @@ const GroupScreen = ({history}) => {
           
           </p>
           {fetchGroupData != "" &&
-          <div id="card">
+          <div id="card" style={{height:"30rem"}}>
 
-            <h1 id="caption">Your group members are</h1>
+            <h1 id="caption" style={{color:"#8256D0"}}>Your group members are</h1>
             <hr id="hr"></hr>
             <p id="List">
-            {listHandler()}
+            <div className="grouplists">{listHandler()}</div><br/>
+            <p className="BioText">Bio</p>
+            <br/>
+            <p>Software is a set of instructions, data or programs used to operate computers and execute specific tasks. It is the opposite of hardware, which describes the physical aspects of a computer. Software is a generic term used to refer to applications, scripts and programs that run on a device.</p>
             </p>
           </div>
           
