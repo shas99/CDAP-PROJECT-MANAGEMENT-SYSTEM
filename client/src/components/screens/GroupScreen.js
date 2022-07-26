@@ -155,12 +155,12 @@ const GroupScreen = ({history}) => {
           <div className="group-screen">
             
           <div>        
-          <form onSubmit={groupregisterHandler} className="group-screen__form">
+          <form onSubmit={groupregisterHandler} className="groupprofile-screen__form" style={{color:"white",boxShadow:"box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2),",background:"#161b22",borderRadius:"5px",borderWidth:"2px",borderStyle:"solid",borderColor:"#21262d",padding:"1.5rem",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontWeight:"bold",fontSize:"large",marginTop:"-300px"}}>
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <label>
-           Member 1:</label>
+           Member 1 - Student ID:</label><br/><br/>
           <input type="text" 
           className = "input"
           name="name" 
@@ -171,7 +171,7 @@ const GroupScreen = ({history}) => {
         </div>
         <div className="form-group">
         <label>
-           Member 2:</label>
+           Member 2 - Student ID:</label><br/><br/>
           <input type="text" 
           name="name" 
           className = "input"
@@ -182,7 +182,7 @@ const GroupScreen = ({history}) => {
           </div>
           <div className="form-group">
         <label>
-           Member 3:</label>
+           Member 3 - Student ID:</label><br/><br/>
           <input type="text" 
           name="name" 
           className = "input"
@@ -192,7 +192,7 @@ const GroupScreen = ({history}) => {
                   </div>
                   <div className="form-group">
         <label>
-           Member 4:</label>
+           Member 4 - Student ID:</label><br/><br/>
           <input type="text" 
           name="name" 
           className = "input"
@@ -202,7 +202,7 @@ const GroupScreen = ({history}) => {
                   </div>
                   <div className="form-group">
         <label>
-           Member 5:</label>
+           Member 5 - Student ID:</label><br/><br/>
           <input type="text" 
           name="name"
           className = "input"
@@ -211,7 +211,7 @@ const GroupScreen = ({history}) => {
         
         </div>
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
+      <button type="submit" className="btn btn-primary1" id="groupProfileButton">
           Group Registration
         </button>
 
