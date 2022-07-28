@@ -1,0 +1,118 @@
+.card{
+    height: auto;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Heading{
+    position: absolute;
+    /* border: 1px solid black; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    background-color: blueviolet;
+    width: 90%;
+    height: 30px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: white;
+    padding-top: 2px;
+}
+
+#content{
+    display: block;
+    width: 100%;
+    align-self: flex-start;
+    text-align: center;
+    font-size: 14px;
+    padding-left: 5px;
+    /* border: 1px green solid; */
+    height: auto;
+    /* width: 100%; */
+
+
+}
+
+.des{
+    font-size: small;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    /* border: 1px blue solid; */
+
+}
+.link{
+    font-size: small;
+    /* border: 1px black solid; */
+
+}
+.date{   
+    /* position: absolute; */
+        font-size: 10px;
+    border: 1px black solid;
+    width: 100%;
+    /* margin-top: 50px; */
+    align-self: flex-end;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    
+    
+}
+
+.submitbtn{
+    font-size: small;
+    min-width: fit-content;
+    max-width: max-content;
+    min-height: fit-content;
+    max-height: max-content;
+    font-weight: 400;
+}
+
+.btnicon{
+    font-size: small;
+}
+
+/* create a class for green button */
+.greenButton{
+    background-color: #175a1d;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 8px;
+    width: 200px;
+    height: 50px;
+    margin-right: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large;
+    font-weight: bolder;
+}
+
+/* create a class for blue button */
+.blueButton{
+    background-color: #06245c;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 8px;
+    width: 200px;
+    height: 50px;
+    margin-right: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large;
+    font-weight: bolder;
+}
+
+/* create class textbox to style the textbox */
+
+.textbox{
+    width: 100%;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

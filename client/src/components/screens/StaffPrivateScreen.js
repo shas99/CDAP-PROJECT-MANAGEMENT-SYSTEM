@@ -105,7 +105,7 @@ const StaffPrivateScreen = ({history}) => {
         <FontAwesomeIcon  className = "fonticonsize" icon={faFileCircleCheck} /> 
         {/* <i class="fa-solid fa-comment"></i> */}
         {/* <Link to="#" id="Regs"><button className="buttons" onClick="#">Add Marks</button></Link> */}
-        <Link to="/addmarks" id="Regs"><button className="buttons">Add marks</button></Link>
+        <Link to="/markdashboard" id="Regs"><button className="buttons">Add marks</button></Link>
         </div>
 
       <div className="StaffRectangle-38">
@@ -127,11 +127,21 @@ const StaffPrivateScreen = ({history}) => {
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View Groups</button></Link>
       </div>
+<<<<<<< HEAD
 
     
 
      
 
+=======
+      <br/>
+      <div className="StaffRectangle-47">
+      
+      <FontAwesomeIcon  className = "fonticonsize" icon={faGraduationCap}  /> 
+      {/* <i class="fa-solid fa-graduation-cap"></i> */}
+      <Link to="/staffPlaceAnnouncement" id="Regs"><button className="buttons" onClick="/staffproject ">Place Announcement</button></Link>
+      </div>
+>>>>>>> 4c7471e6ece21d06a805a05a5e5824c68cac1838
       
 
       

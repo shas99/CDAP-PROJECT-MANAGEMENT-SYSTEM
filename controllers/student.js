@@ -6,7 +6,8 @@ const Group = require('../models/Group')
 const jwt = require("jsonwebtoken");
 const { Console } = require('console')
 const StudentTopicInterestingForm = require('../models/StudentTopicInteresting')
-
+const SubmissionPage = require('../models/SubmissionPage')
+const imgModel = require('../models/ImageUpload');
 
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
@@ -169,7 +170,109 @@ exports.edituserprofile = async(req,res,next) => {
     }
 }
 
+exports.status =async(req,res,next) => {
 
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+//use the batchID to retreive data with the batchID
+    const batch = await SubmissionPage.find(user.batchID)
+    console.log(batch)
+    try{
+        res.status(201).json({
+            success: true,
+            data: batch
+        })
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+
+exports.retrieveData =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    if(token =="null"){
+        logged(token,res)
+    }
+    else{
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    const user = await User.findById(decoded.id)
+    // console.log(user.feedback)
+    // const{email}=req.body;
+    
+    try{
+        res.status(201).json({
+            success: true,
+            data: user
+        })
+    }catch(error){
+        next(error)
+    }
+}
+};
+
+exports.retrieveImages =async(req,res,next) => {
+
+
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+
+    imgModel.find({}, (err, items) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send('An error occurred', err);
+        }
+        else {
+
+        console.log(items[0]+"hello")
+        let image
+        const images = items.map(item => {
+            if(item.ID==decoded.id){
+                image = item
+            }else{
+                image = {img:{data:{data:""}}}
+            }
+        })
+  
+        res.status(201).json({
+            success: true,
+            data: image
+        })
+        }
+      });
+
+};
 
 const logged = (token,res) => {//check if token is null
     if(token == "null"){
