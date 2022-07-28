@@ -8,14 +8,43 @@ const Nexmo = require('nexmo')
 let cors = require("cors");
 const {uploadFile, getFileStream} = require('./s3')
 const axios = require('axios')
+const imgModel = require('./models/ImageUpload');
+
+
+
+const mongoose = require('mongoose')
+  
+const fs = require('fs');
+const path = require('path');
+
+
+
 
 connectDB();
 
 const app = express();
 //upload file
 const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' })
+// const upload = multer({ dest: 'uploads/' })
+// Step 3 - code was added to ./models.js
 
+// Step 4 - set up EJS
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+// Set EJS as templating engine
+app.set("view engine", "ejs");
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+const upload = multer({ storage: storage });
 
 
 app.get('/images/:key', (req,res)=>{
@@ -41,8 +70,58 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
+
+  
+
+
+
+
 // ... other imports 
-const path = require("path");
+// const path = require("path");
+
+
+
+// Step 7 - the GET request handler that provides the HTML UI
+
+app.get('/', (req, res) => {
+    imgModel.find({}, (err, items) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('An error occurred', err);
+      }
+      else {
+        res.render('imagesPage', { items: items });
+      }
+    });
+  });
+
+//   Step 8 - the POST handler for processing the uploaded file
+
+app.post('/api/imageUpload', upload.single('image'), (req, res, next) => {
+
+    var obj = {
+      name: req.body.name,
+      desc: req.body.desc,
+      ID: req.body.ID,
+      img: {
+        data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+        contentType: 'image/png'
+      },
+    }
+    console.log(obj)
+    console.log(fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)));
+    imgModel.create(obj, (err, item) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        // item.save();
+        res.redirect('/');
+      }
+    });
+  });
+  
+  
 
 
 // //************* HEROKU DEPLOYMENT------------
@@ -63,17 +142,17 @@ app.use('/api/adminAuth', require('./routes/adminAuth'))
 app.use('/api/adminPrivate', require('./routes/adminPrivate'))
 app.use('/api/markingRubrik', require('./routes/MarkingRubrik'))
 
+app.use('/api/ViewMarks',require('./routes/ViewMarks'))
+
+
+app.use('/api/announcement', require('./routes/announcement'))
 
 
 
 // Error handler(Should be the last piece of middleware)
 app.use(errorHandler)
-
 const PORT = process.env.PORT || 5000;
-
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-
-
 
 //************* HEROKU DEPLOYMENT------------Right before your app.listen(), add this: ***********
 app.get("*", (req, res) => {

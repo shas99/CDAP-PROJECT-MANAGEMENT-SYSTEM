@@ -21,6 +21,9 @@ const SubmissionPageSchema = new mongoose.Schema({ //SubmissionPage Schema
     },
     Fields: {
         type: Array
+    },
+    heading:{
+        type: String
     }
 
     
