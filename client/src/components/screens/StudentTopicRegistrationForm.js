@@ -132,22 +132,22 @@ const TopicRegistration = ({history}) => {
           
           </p>
         
-           <h1 id="caption">Project Topic Assessment</h1>
+           <h1 id="studentTopiccaption">Project Topic Assessment</h1>
            <br/>
            
       
           
-    <div className="group-screen">
+    <div className="studentTopicgroup-screen">
             
           <div>        
-          <form onSubmit={groupregisterHandler} className="group-screen__form">
-      <h3 className="login-screen__title">Topic Assessment Form</h3>
+          <form onSubmit={groupregisterHandler} className="studentTopicgroup-screen__form">
+      <h3 className="studentTopic-screen__title">Topic Assessment Form</h3>
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group">
-        <label className="TopicNames">Group Identification Number</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Group Identification Number</label><br/><br/>
           <input type="text" 
-          className = "input" style={{color:"black"}}
+          className = "input" style={{color:"white",width:"700px"}}
           name="name" 
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
@@ -156,9 +156,9 @@ const TopicRegistration = ({history}) => {
         <br/>
 
         <div className="form-group">
-        <label className="TopicNames">Topic</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Topic</label><br/><br/>
           <input type="text" 
-          className = "input" style={{color:"black"}}
+          className = "input" style={{color:"white",width:"700px"}}
           name="name" 
           onChange={(e) => setTopic(e.target.value)}
           value={Topic} />
@@ -171,7 +171,7 @@ const TopicRegistration = ({history}) => {
 
         <div className="form-group">
           <div className="editor">
-          <label className="TopicNames">Topic - Describe your Topic in 100 Words!</label>
+          <label className="TopicNames" style={{fontSize:"large"}}>Topic - Describe your Topic in 100 Words!</label><br/><br/>
         <CKEditor 
         editor={ClassicEditor}
         data={topicdescription}
@@ -181,7 +181,7 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
-        <label className="TopicNames">Abstract - Use a minimum of 200 Words!</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Abstract - Use a minimum of 200 Words!</label><br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={abstract}
@@ -191,7 +191,7 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
-        <label className="TopicNames">Research Problem - Must Add three main references in IEEE Format!</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Research Problem - Must Add three main references in IEEE Format!</label><br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={researchProblem}
@@ -201,7 +201,7 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
-        <label className="TopicNames">Solution Proposed - Describe in a minimum of 50 Words!</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Solution Proposed - Describe in a minimum of 50 Words!</label><br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={solution}
@@ -211,7 +211,7 @@ const TopicRegistration = ({history}) => {
         }}
         /> 
         <br/>
-        <label className="TopicNames">System Overview Diagram for the Solution Proposed</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>System Overview Diagram for the Solution Proposed</label><br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={systemOverview}
@@ -221,7 +221,7 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
-        <label className="TopicNames">Objectives - 1 main objective and 4 sub objectives:</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Objectives - 1 main objective and 4 sub objectives:</label><br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={objective}
@@ -231,7 +231,7 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
-      <label className="TopicNames">Task divided among the members:</label>
+      <label className="TopicNames" style={{fontSize:"large"}}>Task divided among the members:</label><br/><br/>
                 <CKEditor className="cke"
         editor={ClassicEditor}
         data={projecttask}
@@ -241,7 +241,7 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
-        <label className="TopicNames">Technologies to be used:</label>
+        <label className="TopicNames" style={{fontSize:"large"}}>Technologies to be used:</label><br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={technologies}
