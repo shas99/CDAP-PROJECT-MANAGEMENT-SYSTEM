@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+
 
 const AdminDashboard = ({history}) => {
   const [error, setError] = useState("");
@@ -296,18 +295,6 @@ const AdminDashboard = ({history}) => {
              </div>
            
              </div>
-
-
-       
-      
-
-
-
-
-
-     
-
-            
 
 </div>
         
