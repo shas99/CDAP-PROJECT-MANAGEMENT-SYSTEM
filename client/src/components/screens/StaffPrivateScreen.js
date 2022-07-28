@@ -127,13 +127,6 @@ const StaffPrivateScreen = ({history}) => {
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
       <Link to="/staffproject" id="Regs"><button className="buttons" onClick="/staffproject ">View Groups</button></Link>
       </div>
-<<<<<<< HEAD
-
-    
-
-     
-
-=======
       <br/>
       <div className="StaffRectangle-47">
       
@@ -141,7 +134,6 @@ const StaffPrivateScreen = ({history}) => {
       {/* <i class="fa-solid fa-graduation-cap"></i> */}
       <Link to="/staffPlaceAnnouncement" id="Regs"><button className="buttons" onClick="/staffproject ">Place Announcement</button></Link>
       </div>
->>>>>>> 4c7471e6ece21d06a805a05a5e5824c68cac1838
       
 
       
