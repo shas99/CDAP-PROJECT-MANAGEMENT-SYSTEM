@@ -5,7 +5,7 @@ const SubmissionPage = require('../models/SubmissionPage')
 const User = require('../models/User')
 const jwt = require("jsonwebtoken");
 const Form = require("../models/SubmissionForm")
-
+const Group = require('../models/Group')
 
 
 
@@ -243,12 +243,29 @@ exports.addSubmission =async(req,res,next) => {
 
             exports.viewSpecificSubmissionStudentID =async(req,res,next) => {
                 const {id} = req.body
-
+                
                 
                 
                 try{
-                        const form = await Form.find({studentID:id})
-                   
+                    // ***********************IMPORTANT************************************
+                    //Group members mayhave to be put into an array to make the number of group members dynamic
+                        const group = await Group.findById(id)
+                        //retreives the user data of all the members of the group
+                        const user = await User.find({$or: [{studentID:group.member_1},{studentID:group.member_2},{studentID:group.member_3},{studentID:group.member_4},{studentID:group.member_5}]})
+                        
+                       
+                            // const form = await Form.find({studentID:user[0]._id})
+                            const arrayID = []
+                            for(let i=0;i<user.length;i++){
+                                arrayID.push({studentID:user[i]._id})
+                            }
+                            console.log(arrayID)
+                            
+                            //retreives the forms filled by all members of the group
+                        const form = await Form.find({$or: arrayID})
+                        
+                        console.log(user)
+                        // console.log(form)
                         
                         res.status(201).json({
                             success: true,
