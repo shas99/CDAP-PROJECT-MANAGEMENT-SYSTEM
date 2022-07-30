@@ -18,6 +18,7 @@ const GroupScreen = ({history}) => {
     const [member_5, setMember5] = useState("");
     const [group,setgroup] = useState("")
     const [fetchGroupData, setGroupData] = useState("");
+    const [bio,setBio] = useState("")
     useEffect(() => {
         const fetchGroupData = async () => {
             const groupconfig = {
@@ -34,6 +35,8 @@ const GroupScreen = ({history}) => {
               const group1 = groupArray[0].split(",")
               setgroup(group1)
               setGroupData(groupArray[0]);
+              setBio(groupArray[2])
+
             } catch (error) {
       
               // setError("Oops couldn't retreive group data");//fix this
@@ -126,7 +129,6 @@ const GroupScreen = ({history}) => {
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
         &nbsp;&nbsp;&nbsp;&nbsp;
-       
         <button onClick={logOutHandler} id="logout">Log Out</button>
           </p>
           
@@ -143,7 +145,7 @@ const GroupScreen = ({history}) => {
             <div className="grouplists">{listHandler()}</div><br/>
             <p className="BioText">Bio</p>
             <br/>
-            <p>Software is a set of instructions, data or programs used to operate computers and execute specific tasks. It is the opposite of hardware, which describes the physical aspects of a computer. Software is a generic term used to refer to applications, scripts and programs that run on a device.</p>
+            <p>{bio}</p>
             </p>
           </div>
           
