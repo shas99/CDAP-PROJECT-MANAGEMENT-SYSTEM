@@ -98,7 +98,7 @@ import AssignStaff from './components/screens/AssignStaffGroupScreen';
 import CoordinatorViewAvailableProjects from "./components/screens/CoordinatorViewAvailableProjects";
 import UpdateProjectDetails from "./components/screens/UpdateProjectDetails";
 import CreateNewProject from "./components/screens/CreateNewProject";
-
+import ViewStaffForm from "./components/screens/viewStaffFormScreen";
 
 
 
@@ -230,8 +230,8 @@ const App = () => {
          <Route exact path="/coordinatorViewProjects" component={CoordinatorViewAvailableProjects}/>
          <Route exact path="/updateProjectDetails/:id" component={UpdateProjectDetails}/>
           <Route exact path="/createNewProject" component={CreateNewProject}/>
-
-
+          <Route exact path="/viewStaffForm/:id" component={ViewStaffForm}/>
+          
         </Switch>
 
       </div>

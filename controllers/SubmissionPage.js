@@ -242,9 +242,23 @@ exports.addSubmission =async(req,res,next) => {
             };
 
             exports.viewSpecificSubmissionStudentID =async(req,res,next) => {
-                const {id} = req.body
-                
-                
+                // const {id} = req.body
+                // let token = req.query.id
+                // const id = "626fad0eb10dcb7431140ab3"
+                // console.log("sfdjsljfl"+id)
+               
+
+                // if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+                    
+                //     token = req.headers.authorization.split(" ")[1]
+                // }
+                // console.log(token)
+                // const decoded = jwt.verify(token,process.env.JWT_SECRET)
+                // const id = decoded.id
+
+                const id = req.query.id
+                console.log(id)
+
                 
                 try{
                     // ***********************IMPORTANT************************************
@@ -263,8 +277,8 @@ exports.addSubmission =async(req,res,next) => {
                             
                             //retreives the forms filled by all members of the group
                         const form = await Form.find({$or: arrayID})
-                        
-                        console.log(user)
+                        console.log(form+"testingIDWORDS")
+                       console.log("works")
                         // console.log(form)
                         
                         res.status(201).json({
