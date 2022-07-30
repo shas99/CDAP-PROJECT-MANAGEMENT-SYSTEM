@@ -275,7 +275,7 @@ exports.viewgroup = async (req, res, next) => {
     try{
         console.log(req.params.id)
         const group = await Group.findById(req.params.id)
-        console.log(group+"fffggdf")
+        // console.log(group+"fffggdf")
 
 
         res.status(201).json({
