@@ -5,6 +5,8 @@ import axios from "axios";
 import { useEffect } from "react";
 import "./StaffviewGroup.css"
 import {useParams} from 'react-router-dom';
+import Parser from 'html-react-parser';
+
 const ViewStaffForm = ({ history, match }) => {
   //const [password, setPassword] = useState("");
   //const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,6 +27,8 @@ const ViewStaffForm = ({ history, match }) => {
   const [images,setImages] = useState([])
   const [forms,setForm] = useState([])
   const [ID,setID] = useState(useParams().id)
+  const [Heading,setHeading] = useState("")
+  const [Fields,setFields] = useState({})
 
   useEffect(() => {
     // const resetPasswordHandler = async (e) => {
@@ -88,6 +92,45 @@ const ViewStaffForm = ({ history, match }) => {
     // };
     // retreiveform()
     // resetPasswordHandler()
+
+    const fetchSubmissionData = async () => {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+  
+          },
+        };
+  
+        try {
+       
+          // const { data } = await axios.get(
+          //   "http://localhost:5000/api/STDAvailableSubmissions/viewSpecificSubmission",
+          //   {data:{ SubmissionID }},
+     
+            
+          // );
+            const SubmissionID = ID
+          const { data } = await axios.get(
+            "/api/STDAvailableSubmissions/StaffViewSubmission",
+            {params:{ SubmissionID }},
+          );
+  
+          console.log(data.data);
+        
+        //   setBatchID(data.data.BatchID)
+        //   setDescription(data.data.Description)
+          setHeading(data.data.heading)
+          setFields(data.data.entries)
+        //   if(data.data.visibility){
+        //     setVisibility(1)
+        //   }else{
+        //     setVisibility(0)
+        //   }
+        } catch (error) {
+  
+        }
+      };
+      fetchSubmissionData()
   }, [history]);
 
   const postImage = async (e) => {
@@ -164,6 +207,10 @@ const download = e => {
 
           {/* {forms.map((form) =><div> <button className="btn2" style={{backgroundColor:"blue"}}> <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)} */}
          {console.log(ID)}
+         <br/> <br/>
+         {Heading}
+         {console.log(Object.keys(Fields))}
+            {Object.keys(Fields).map((key) => <div>{key} : {Parser(Fields[key])}</div>)}
        <br/><br/>
        
      </div>

@@ -184,12 +184,36 @@ exports.addSubmission =async(req,res,next) => {
     exports.viewSpecificSubmission =async(req,res,next) => {
             
         const SubmissionID = req.query.SubmissionID
-        console.log(SubmissionID)
+        
             try{
             
             
                 const submission = await SubmissionPage.findById(SubmissionID)
+                console.log(submission+"testing")
 
+                
+                res.status(201).json({
+                    success: true,
+                    data: submission
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+    };
+
+
+    exports.StaffViewSubmission =async(req,res,next) => {
+            
+        const SubmissionID = req.query.SubmissionID
+        
+            try{
+            
+            
+                const submission = await Form.findById(SubmissionID)
+                console.log(submission+"testing")
 
                 
                 res.status(201).json({
