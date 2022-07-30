@@ -255,7 +255,7 @@ exports.retrieveImages =async(req,res,next) => {
         }
         else {
 
-        console.log(items[0]+"hello")
+        // console.log(items[0]+"hello")
         let image
         const images = items.map(item => {
             if(item.ID==decoded.id){

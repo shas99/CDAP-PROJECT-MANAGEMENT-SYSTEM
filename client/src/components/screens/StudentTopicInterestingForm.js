@@ -103,12 +103,12 @@ const StudentTopicInterestingForm = ({history}) => {
           
           </p>
         
-           <h1 id="caption">Topic Interestings</h1>         
+           <h1 id="TopicInterestingscaption">Topic Interestings</h1>         
           
-          <div className="group-screen" style={{height:"70rem"}}>
+          <div className="group-screen" id="TopicInterestingsForm" style={{height:"70rem"}}>
             
-          <div>        
-          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-6rem"}}>
+          <div style={{fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>        
+          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-400px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>
       <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.4rem"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
