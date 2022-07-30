@@ -5,6 +5,46 @@
     justify-content: center;
     align-items: center;
     background-color: #22272E;
+
+    @media (orientation: landscape) {
+      body {
+        flex-direction: row;
+      }
+    }
+    @media (orientation: portrait) {
+      body {
+        flex-direction: column;
+      }
+    }
+
+    @media (min-width: 600px) {
+      main {
+        flex-wrap: nowrap;
+      }
+  
+      div {
+        flex-basis: 33%;
+      }
+    }
+
+    /* @media screen and (orientation: portrait) {
+      #example {
+        width: 100%;
+      }
+    }
+    @media screen and (orientation: landscape) {
+      #example {
+        position: fixed;
+        width: 2.65em;
+        height: 100%;
+      }
+      p {
+        margin-left: 2em;
+      }
+      li + li {
+        margin-top: .5em;
+      }
+    } */
   }
   
   .studentTopicgroup-screen__form {
@@ -20,6 +60,26 @@
     border-color: #21262d;
     height: 90rem;
     
+    @media (orientation: landscape) {
+      body {
+        flex-direction: row;
+      }
+    }
+    @media (orientation: portrait) {
+      body {
+        flex-direction: column;
+      }
+    }
+
+    @media (min-width: 600px) {
+      main {
+        flex-wrap: nowrap;
+      }
+  
+      div {
+        flex-basis: 33%;
+      }
+    }
   }
   
   .studentTopic-screen__title {
@@ -29,6 +89,27 @@
     font-size: xx-large;
     color: #8256D0;
     font-weight: bold;
+
+    @media (orientation: landscape) {
+      body {
+        flex-direction: row;
+      }
+    }
+    @media (orientation: portrait) {
+      body {
+        flex-direction: column;
+      }
+    }
+
+    @media (min-width: 600px) {
+      main {
+        flex-wrap: nowrap;
+      }
+  
+      div {
+        flex-basis: 33%;
+      }
+    }
   }
   
   .login-screen__forgotpassword {
@@ -47,6 +128,26 @@
 
   .input{
     border-radius: 5px;
+    @media (orientation: landscape) {
+      body {
+        flex-direction: row;
+      }
+    }
+    @media (orientation: portrait) {
+      body {
+        flex-direction: column;
+      }
+    }
+
+    @media (min-width: 600px) {
+      main {
+        flex-wrap: nowrap;
+      }
+  
+      div {
+        flex-basis: 33%;
+      }
+    }
   }
   
   #LogButton{
