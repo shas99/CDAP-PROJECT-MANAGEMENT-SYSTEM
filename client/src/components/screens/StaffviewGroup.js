@@ -4,6 +4,7 @@ import axios from "axios";
 //import PasswordChecklist from "react-password-checklist"//password validation
 import { useEffect } from "react";
 import "./StaffviewGroup.css"
+import {useParams} from 'react-router-dom';
 
 const ViewGroup = ({ history, match }) => {
   //const [password, setPassword] = useState("");
@@ -23,7 +24,8 @@ const ViewGroup = ({ history, match }) => {
   const [file, setFile] = useState()
   const [description,setDescription] = useState("")
   const [images,setImages] = useState([])
-
+  const [forms,setForm] = useState([])
+  const [ID,setID] = useState(useParams().id)
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
 
@@ -58,6 +60,33 @@ const ViewGroup = ({ history, match }) => {
         }, 5000);
       }
     };
+
+        const retreiveform = async (e) => {
+     
+      try{
+
+        const config = {
+          header: {
+            "Content-Type": "application/json",
+          },
+        };
+
+    console.log(ID+"12312312313131")
+    const id = ID
+    const { data} = await axios.get("/api/STDAvailableSubmissions/viewSpecificSubmissionStudentID",{params:{id:id}}, config);
+    setForm(data.data)
+    console.log(data.data);
+
+  
+  
+      } catch (error) {
+        setError(error.response.data.error);
+        setTimeout(() => {
+          setError("");
+        }, 5000);
+      }
+    };
+    retreiveform()
     resetPasswordHandler()
   }, [history]);
 
@@ -146,8 +175,9 @@ const download = e => {
                 <button type="submit"  className="btn1">Upload Resource</button>
 
           </form> */}
-
-            
+        
+          
+        {console.log(ID+"this is ID")}
        
        <br/><br/>
          <h2 style={{fontSize:"22px"}}>View Reports</h2>
@@ -158,14 +188,14 @@ const download = e => {
                     </div>))}
 
   
-          <button className="btn2"><a
+          {/* <button className="btn2"><a
           href={`/images/${key}`}
           download
           onClick={e => download(e)}>
           <i className="fa fa-download" />
           Milestone 1
           
-          </a></button>
+          </a></button> */}
           <br/>
          {images.map( image=>(
                 <div key={image}>
@@ -173,7 +203,7 @@ const download = e => {
                     </div>))}
 
   
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          {/* <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
           <i className="fa fa-download" />
           Milestone 2
           
@@ -186,13 +216,16 @@ const download = e => {
           <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
           <i className="fa fa-download" />
           Milestone 4
-          
+          console.log("Hello World!")
           </a></button><br/>
           <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
           <i className="fa fa-download" />
           Milestone 5
-          
-          </a></button>
+         
+          </a></button> */}
+
+          {forms.map((form) =><div> <button className="btn2" style={{backgroundColor:"blue"}}> <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)}
+         
        <br/><br/>
        
      </div>

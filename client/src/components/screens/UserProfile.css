@@ -6,24 +6,22 @@
     background-color: #22272E;
 
    
-    @media (orientation: landscape) {
-      body {
-        flex-direction: row;
+    @media screen and (orientation: portrait) {
+      #example {
+        width: 100%;
       }
     }
-    @media (orientation: portrait) {
-      body {
-        flex-direction: column;
+    @media screen and (orientation: landscape) {
+      #example {
+        position: fixed;
+        width: 2.65em;
+        height: 100%;
       }
-    }
-
-    @media (min-width: 600px) {
-      main {
-        flex-wrap: nowrap;
+      p {
+        margin-left: 2em;
       }
-  
-      div {
-        flex-basis: 33%;
+      li + li {
+        margin-top: .5em;
       }
     }
 
@@ -47,6 +45,25 @@
     font-size:xx-large;
     font-weight: bolder;
     color: white;
+
+    @media screen and (orientation: portrait) {
+      #example {
+        width: 100%;
+      }
+    }
+    @media screen and (orientation: landscape) {
+      #example {
+        position: fixed;
+        width: 2.65em;
+        height: 100%;
+      }
+      p {
+        margin-left: 2em;
+      }
+      li + li {
+        margin-top: .5em;
+      }
+    }
  }
 
  #userprofilecaption2{
@@ -56,8 +73,27 @@
    font-size:large;
    font-weight: bolder;
    color: royalblue;
-   margin-top: -700px;
-   margin-left: 1250px;
+   margin-top: -1000px;
+   margin-left: 10px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 
 #userprofilecaption2:hover{
@@ -72,6 +108,25 @@
     font-size:small;
     font-weight: bold;
     margin: 10px;
+
+    @media screen and (orientation: portrait) {
+      #example {
+        width: 100%;
+      }
+    }
+    @media screen and (orientation: landscape) {
+      #example {
+        position: fixed;
+        width: 2.65em;
+        height: 100%;
+      }
+      p {
+        margin-left: 2em;
+      }
+      li + li {
+        margin-top: .5em;
+      }
+    }
  }
 
  .userprofilecontent2{
@@ -81,6 +136,25 @@
    font-size:small;
    font-weight: bold;
    margin: 10px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 
  .userprofilecontent1:hover{
@@ -104,27 +178,24 @@
     color: #fff;
     background: #161b22;
 
-    @media (orientation: landscape) {
-      body {
-        flex-direction: row;
+    @media screen and (orientation: portrait) {
+      #example {
+        width: 100%;
       }
     }
-    @media (orientation: portrait) {
-      body {
-        flex-direction: column;
+    @media screen and (orientation: landscape) {
+      #example {
+        position: fixed;
+        width: 2.65em;
+        height: 100%;
       }
-    }
-
-    @media (min-width: 600px) {
-      main {
-        flex-wrap: nowrap;
+      p {
+        margin-left: 2em;
       }
-  
-      div {
-        flex-basis: 33%;
+      li + li {
+        margin-top: .5em;
       }
-    }
-   
+    }   
 }
 
 /* #UpbUTTON{
@@ -139,6 +210,25 @@
    font-size: small;
    font-weight: bold;
    margin-left: 75px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 
 .userprofileBox{
@@ -157,28 +247,26 @@
    height: 20rem;
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
-   margin-top: -275px;
+   margin-top: -200px;
 
-   @media (orientation: landscape) {
-      body {
-        flex-direction: row;
-      }
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
     }
-    @media (orientation: portrait) {
-      body {
-        flex-direction: column;
-      }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
     }
-
-    @media (min-width: 600px) {
-      main {
-        flex-wrap: nowrap;
-      }
-  
-      div {
-        flex-basis: 33%;
-      }
+    p {
+      margin-left: 2em;
     }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 
 
@@ -196,26 +284,24 @@
    margin-bottom: -200px;
    /* box-shadow: 0 1rem 2rem #8256D0; */
 
-   @media (orientation: landscape) {
-      body {
-        flex-direction: row;
-      }
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
     }
-    @media (orientation: portrait) {
-      body {
-        flex-direction: column;
-      }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
     }
-
-    @media (min-width: 600px) {
-      main {
-        flex-wrap: nowrap;
-      }
-  
-      div {
-        flex-basis: 33%;
-      }
+    p {
+      margin-left: 2em;
     }
+    li + li {
+      margin-top: .5em;
+    }
+  }
   
 }
 
@@ -228,24 +314,22 @@
    width: 275px;
    margin: 0 auto;
 
-   @media (orientation: landscape) {
-    body {
-      flex-direction: row;
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
     }
   }
-  @media (orientation: portrait) {
-    body {
-      flex-direction: column;
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
     }
-  }
-
-  @media (min-width: 600px) {
-    main {
-      flex-wrap: nowrap;
+    p {
+      margin-left: 2em;
     }
-
-    div {
-      flex-basis: 33%;
+    li + li {
+      margin-top: .5em;
     }
   }
    
@@ -258,6 +342,25 @@
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
    width: 100px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
    
 }
 #firstButt:hover{
@@ -270,6 +373,25 @@
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
    width: 100px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 #secondButt:hover{
    background-color: orange;
@@ -281,6 +403,25 @@
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
    width: 100px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 #thirdButt:hover{
    background-color: yellow;
@@ -292,6 +433,25 @@
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
    width: 100px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 #fourthButt:hover{
    background-color: teal;
@@ -302,6 +462,25 @@
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
    width: 100px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 #fifthButt:hover{
    background-color: crimson;
@@ -312,6 +491,25 @@
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: small;
    width: 100px;
+
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
+    }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
+    }
+    p {
+      margin-left: 2em;
+    }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
 #sixthButt:hover{
    background-color: bisque;
@@ -324,62 +522,58 @@
    justify-content: center;
    align-items: center;
    margin: auto;
-   margin-left: 1100px;
+   margin-left: 840px;
    width: 15%;
    height: 15%;
    border-radius: 125px;
 
-   @media (orientation: landscape) {
-      body {
-        flex-direction: row;
-      }
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
     }
-    @media (orientation: portrait) {
-      body {
-        flex-direction: column;
-      }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
     }
-
-    @media (min-width: 600px) {
-      main {
-        flex-wrap: nowrap;
-      }
-  
-      div {
-        flex-basis: 33%;
-      }
+    p {
+      margin-left: 2em;
     }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 
 }
 
 .ImageSubmitProfile{
-   margin-left: 1000px;
+   margin-left: 800px;
    margin-top: 50px;
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-weight: bolder;
    font-size: medium;
    padding: 10px;
 
-   @media (orientation: landscape) {
-      body {
-        flex-direction: row;
-      }
+   @media screen and (orientation: portrait) {
+    #example {
+      width: 100%;
     }
-    @media (orientation: portrait) {
-      body {
-        flex-direction: column;
-      }
+  }
+  @media screen and (orientation: landscape) {
+    #example {
+      position: fixed;
+      width: 2.65em;
+      height: 100%;
     }
-
-    @media (min-width: 600px) {
-      main {
-        flex-wrap: nowrap;
-      }
-  
-      div {
-        flex-basis: 33%;
-      }
+    p {
+      margin-left: 2em;
     }
+    li + li {
+      margin-top: .5em;
+    }
+  }
 }
    
    
