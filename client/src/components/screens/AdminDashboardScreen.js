@@ -70,7 +70,7 @@ const AdminDashboard = ({history}) => {
     <span className="error-message">{error}</span>
   ) : ( 
      //         DASHBOARD SCREEN 
-     <div className='bg-gray-900 text-gray-100'>
+     <div className='bg-gray-900 text-gray-100 bg'>
             <div class="flex ">
 
         <div x-data="{ open: true }" class="fixed top-0  z-50">
