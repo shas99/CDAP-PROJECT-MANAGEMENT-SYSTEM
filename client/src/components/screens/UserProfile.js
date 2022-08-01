@@ -111,17 +111,19 @@ const UserProfile = ({history}) => {
   return  error ? ( 
   
     <span className="error-message">{error}</span>
+    
   ) :
   (
 
 
  <div className="userprofileClass">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <Header/>
 
       <h1 id="userprofilecaption">My Profile</h1>
       {/* profile image */}
       <div >
-        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" width="15%" height="15%" className="profileiImage" ></img>
+        <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" loading="lazy" width="15%" height="15%" className="profileiImage" ></img>
       </div>
       <div className="userprofileBox">
       

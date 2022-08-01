@@ -6,6 +6,9 @@ const SubmissionFormSchema = new mongoose.Schema({ //SubmissionPage Schema
     },
     heading: {
         type: String
+    },
+    studentID:{
+        type:String
     }
 
     
