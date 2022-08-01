@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./ViewProposalReportMarks.css"
-import "./ViewProposalReportMarkscss2.css"
+// import "./ViewProposalReportMarks.css"
+// import "./ViewProposalReportMarkscss2.css"
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -95,7 +95,7 @@ const ViewProposalReportMarks = ({history}) => {
                 <div id="propreportcard">
                 <h1 id="caption">Your Proposal Report marks are</h1><br/>
                 <hr id="hr"></hr>
-                <div className='bg-purple-700'>
+                <div className='mr-[67rem]' >
                 <p id="List"> {listHandler()}</p>
                 </div>
                 </div>
