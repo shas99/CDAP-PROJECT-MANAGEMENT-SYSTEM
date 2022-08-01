@@ -95,8 +95,9 @@ const ViewProposalReportMarks = ({history}) => {
                 <div id="propreportcard">
                 <h1 id="caption">Your Proposal Report marks are</h1><br/>
                 <hr id="hr"></hr>
+                <div className='bg-purple-700'>
                 <p id="List"> {listHandler()}</p>
-
+                </div>
                 </div>
 
                {/* {fetchProposalPresentationMarksData}<br/><br/><br/><br/> */}
