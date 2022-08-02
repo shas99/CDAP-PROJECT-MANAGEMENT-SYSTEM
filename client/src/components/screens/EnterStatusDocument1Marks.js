@@ -212,10 +212,10 @@ const EnterStatusDocument1Marks = ({history}) => {
     <th className="proposalpresentationmarking"> Description </th>
     <th className="proposalpresentationmarking">MAX.MARKS ENTITLED </th>
     <th className="proposalpresentationmarking"> MARKS GIVEN </th>
-    <div className="proposalpresentationremarks"> REMARKS </div>
+    <th className="proposalpresentationremarks"> REMARKS </th>
 
   </tr>
- 
+ {/* first row start */}
   <tr>
     <td className="proposalpresentationmarking" >
         1
@@ -230,7 +230,7 @@ const EnterStatusDocument1Marks = ({history}) => {
     {marksEn01}
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -238,27 +238,27 @@ const EnterStatusDocument1Marks = ({history}) => {
           onChange={(e) => setganttchartmarks(e.target.value)}
           value={ganttchartmarks} />
           
-
+          </td>
             
             
             
             
             
     
-            <tr>
-            <td className="proposalpresentationmarking" >
+            {/* <tr> */}
+            {/* <td className="proposalpresentationmarking" >
                     1
-            </td>
-            <td className="proposalpresentationmarking">
+            </td> */}
+            {/* <td className="proposalpresentationmarking">
             Updated Gantt chart of finalize Design & implementation
             phases
 
-            </td>
-            <td className="proposalpresentationmarking">
+            </td> */}
+            {/* <td className="proposalpresentationmarking">
             25 marks
-            </td>
+            </td> */}
 
-            <td  className="proposalpresentationmarking">
+            {/* <td  className="proposalpresentationmarking">
     
             <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
             name="name" 
@@ -268,9 +268,9 @@ const EnterStatusDocument1Marks = ({history}) => {
             
 
 
-    </td>
+    </td> */}
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td className="proposalpresentationmarking">
    
    <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
    name="name" 
@@ -281,8 +281,15 @@ const EnterStatusDocument1Marks = ({history}) => {
 
 
 </td>
-    </tr>
+    {/* </tr> */}
 
+    {/* <tr> */}
+   
+                {/* </tr> */}
+
+
+    
+    </tr>
     <tr>
     <td className="proposalpresentationmarking" >
         2
@@ -294,7 +301,7 @@ const EnterStatusDocument1Marks = ({history}) => {
   {marksEn02}  
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -311,18 +318,16 @@ const EnterStatusDocument1Marks = ({history}) => {
             <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
             name="name" 
             className = "proposalpresentationinput"
-            onChange={(e) => setganttchartremarks(e.target.value)}
-            value={ganttchartremarks} />
+            onChange={(e) => setactualtimeremarks(e.target.value)}
+            value={actualtimeremarks} />
             
 
 
             </td>
-                </tr>
 
 
-    </td>
     </tr>
-
+{/* first row end */}
     <tr>
     <td className="proposalpresentationmarking" >
         3
@@ -335,7 +340,7 @@ const EnterStatusDocument1Marks = ({history}) => {
    {marksEn03}
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    <td className="proposalpresentationmarking">
    
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
@@ -353,8 +358,8 @@ const EnterStatusDocument1Marks = ({history}) => {
             <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
             name="name" 
             className = "proposalpresentationinput"
-            onChange={(e) => setactualtimeremarks(e.target.value)}
-            value={actualtimeremarks} />
+            onChange={(e) => setbreakdownremarks(e.target.value)}
+            value={breakdownremarks} />
             
 
 
@@ -376,41 +381,41 @@ const EnterStatusDocument1Marks = ({history}) => {
     {marksEn04} 
     </td>
 
-    <td colspan="2" className="proposalpresentationmarking">
+    {/* <td className="proposalpresentationmarking"> */}
    
-          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+          {/* <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
           onChange={(e) => setmanagementtoolmarks(e.target.value)}
-          value={managementtoolmarks} />
+          value={managementtoolmarks} /> */}
           
 
 
-            <tr>
-            <td className="proposalpresentationmarking" >
-                3
+            {/* <tr> */}
+            {/* <td className="proposalpresentationmarking" > */}
+                {/* 3
             </td>
             <td className="proposalpresentationmarking">
             Finalize work breakdown structure & allocates resources
             for each areas.
 
-            </td>
-            <td className="proposalpresentationmarking">
+            </td> */}
+            {/* <td className="proposalpresentationmarking">
             25 marks
-            </td>
+            </td> */}
 
-            <td  className="proposalpresentationmarking">
+            {/* <td  className="proposalpresentationmarking">
         
                 <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
                 name="name" 
                 className = "proposalpresentationinput"
                 onChange={(e) => setbreakdownmarks(e.target.value)}
-                value={breakdownmarks} />
+                value={breakdownmarks} /> */}
                 
 
 
-            </td>
-
+            {/* </td> */}
+{/* 
             <td  className="proposalpresentationmarking">
         
                 <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
@@ -421,19 +426,19 @@ const EnterStatusDocument1Marks = ({history}) => {
                 
 
 
-            </td>
-            </tr>
+            </td> */}
+            {/* </tr> */}
 
 
-    </td>
-    <td className="proposalpresentationmarking">
+    {/* </td> */}
+    {/* <td className="proposalpresentationmarking">
         {totalMarksEntitled}
-    </td>
+    </td> */}
 
             
-            <td className="proposalpresentationmarking">
+            {/* <td className="proposalpresentationmarking">
             25 marks
-            </td>
+            </td> */}
 
             <td  className="proposalpresentationmarking">
             
