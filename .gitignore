@@ -50,3 +50,4 @@ yarn-error.log*
 
 # Config Files
 .env*
+.env
