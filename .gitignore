@@ -49,5 +49,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Config Files
-.env*
-.env
+*.env
