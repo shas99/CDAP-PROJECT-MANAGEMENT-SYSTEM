@@ -149,7 +149,7 @@ const EnterStatusDocument1Marks = ({history}) => {
       ) : ( 
     
         <>
-        <div id="back">
+        <div id="statusdoc1back">
         <Header/>
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
