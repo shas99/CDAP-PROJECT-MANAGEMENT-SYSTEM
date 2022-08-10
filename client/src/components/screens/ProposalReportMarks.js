@@ -151,7 +151,7 @@ const ProposalReportMarks = ({history}) => {
       ) : ( 
     
         <>
-        <div id="back">
+        <div id="propreportback">
         <Header/>
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
@@ -167,8 +167,8 @@ const ProposalReportMarks = ({history}) => {
         
             
 
-          <div className="entermarksbackground">        
-          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enter_marks">
+          <div className="enterproposalreportmarksbackground">        
+          <form onSubmit={enterproposalreportmarksHandler} className="group-screen__form_Enterproposalreport_marks">
       <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>RP (IT4010) - Proposal Report Mark Sheet [Total contribution = {totalContribution} ]</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
@@ -278,8 +278,8 @@ const ProposalReportMarks = ({history}) => {
           <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
           name="name" 
           className = "proposalpresentationinput"
-          onChange={(e) => setprovengapmarks2(e.target.value)}
-          value={provengapmarks2} />
+          onChange={(e) => setprovengapmarks1(e.target.value)}
+          value={provengapmarks1} />
           
 
 
@@ -287,39 +287,7 @@ const ProposalReportMarks = ({history}) => {
 
 </tr>
 
-{/* <tr>
-    <td className="proposalpresentationmarking">
-
-    </td>
-</tr> */}
-<tr> <br></br>
-    <div className="l0percentage">
-    Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}]
-    </div><br></br><br></br>
-</tr>
 <tr>
-    <td className="proposalpresentationmarking">
-    Application of key pillars
-in the specialized area of
-knowledge
-50%
-
-    </td>
-    <td className="proposalpresentationmarking">
-    Clearly identified the most
-appropriate research area
-(Machine learning, Image
-processing, Data Science etc.)
-
-
-
-        </td>
-
-
-
-    </tr>
-
-    <tr>
         <td className="proposalpresentationmarking">
         2. Compare existing
     systems and related work
@@ -373,47 +341,51 @@ processing, Data Science etc.)
 
     </tr>
 
+{/* <tr>
+    <td className="proposalpresentationmarking">
 
-
+    </td>
+</tr> */}
 <tr> <br></br>
-    <div className="l0percentage"> 
-        Solution Implementation [Based on LO3] - [{l03}]    
+    <div className="l0percentage">
+    Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}]
+    </div><br></br><br></br>
+</tr>
+<tr>
+    <td className="proposalpresentationmarking">
+    Application of key pillars
+in the specialized area of
+knowledge
+50%
 
-        </div><br></br><br></br>
-    </tr>
-    <tr>
-        <td className="proposalpresentationmarking">
-        Application of key pillars
-    in the specialized area of
-    knowledge
-    50%
+    </td>
+    <td className="proposalpresentationmarking">
+    Clearly identified the most
+appropriate research area
+(Machine learning, Image
+processing, Data Science etc.)
 
-        </td>
-        <td className="proposalpresentationmarking">
-        Clearly identified the most
-    appropriate research area
-    (Machine learning, Image
-    processing, Data Science etc.)
 
-        </td>
-        <td className="proposalpresentationmarking">
-        Satisfactorily identified
-    the research area.
 
         </td>
+
         <td className="proposalpresentationmarking">
-        Vaguely identified. But
-    appropriateness is
-    doubtful.
+        Satisfactorily identified the
+research area.
+
+        </td>
+
+        <td className="proposalpresentationmarking">
+        Vaguely identified.
+But appropriateness is
+doubtful.
 
         </td>
         <td className="proposalpresentationmarking">
         Indistinctly
-    identified or Not
-    identified.
-
+identified or Not
+identified.
         </td>
-
         <td colspan="2" className="proposalpresentationmarking">
         
             <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
@@ -425,6 +397,7 @@ processing, Data Science etc.)
 
 
         </td>
+
 
     </tr>
 
@@ -481,32 +454,14 @@ processing, Data Science etc.)
 
     </tr>
 
+ 
 
-
-    {/* </td>
-</tr> */}
-{/* <tr>
-    <td>
-
-    </td>
-</tr> */}
 
 <tr> <br></br>
-    <div className="l2percentage">
-        Effective communication [Based on LO4]-[{l04}]
-    </div><br></br><br></br>
-    {/* <th>
-    Effective Communication [Based on LO4] - [{l04}]
-    </th> */}
+    <div className="l0percentage"> 
+        Solution Implementation [Based on LO3] - [{l03}]    
 
-</tr>
-<tr>
-    <td>
-    Idea delivery
-50%
-</td>
-
-
+        </div><br></br><br></br>
     </tr>
     <tr>
         <td className="proposalpresentationmarking">
@@ -560,6 +515,7 @@ processing, Data Science etc.)
         </td>
 
     </tr>
+
     <tr>
         <td className="proposalpresentationmarking">
         User Requirements /
@@ -611,6 +567,7 @@ processing, Data Science etc.)
         </td>
 
     </tr>
+
     <tr>
         <td className="proposalpresentationmarking">
         Work Breakdown
@@ -664,6 +621,20 @@ processing, Data Science etc.)
 
         </td>
     </tr>
+
+
+    
+
+
+
+    {/* </td>
+</tr> */}
+{/* <tr>
+    <td>
+
+    </td>
+</tr> */}
+
 
 
     <tr> <br></br>
@@ -807,6 +778,18 @@ processing, Data Science etc.)
     referencing
 
         </td>
+
+        <td colspan="2">
+        
+        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        name="name" 
+        className = "proposalpresentationinput"
+        onChange={(e) => setcommunicationmarks3(e.target.value)}
+        value={communicationmarks3} />
+        
+
+
+    </td>
         </tr>
 
 
@@ -823,29 +806,7 @@ processing, Data Science etc.)
     </th> */}
 
 </tr>
-<tr>
-    <td>
-    Ability of
-commercialization /
-potential for
-entrepreneurship
-100%
 
-
-
-        </td>
-
-    </tr>
-
-
-    <tr> <br></br>
-        <div className="l3percentage">
-        Ability of commercialization / potential for entrepreneurship [Based on LO5] - [15%]
-
-        </div><br></br><br></br>
-    
-
-    </tr>
     <tr>
         <td>
         Ability of

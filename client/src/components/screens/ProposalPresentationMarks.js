@@ -812,7 +812,7 @@ const ProposalPresentationMarks = ({history}) => {
                     <tr>
                         <td style={{padding:"5px",margin:"5px"}}>
                         <label>
-            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 1:</b></label><br/><br/>
+            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner :</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
             name="name" 
             className = "input"
@@ -822,7 +822,7 @@ const ProposalPresentationMarks = ({history}) => {
                         </td>
                     <td className="tabletd1">
                     <label>
-            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 2:</b></label><br/><br/>
+            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
             name="name"
             className = "input"
@@ -831,7 +831,7 @@ const ProposalPresentationMarks = ({history}) => {
                     </td>
                     <td className="tabletd1">
                     <label>
-            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
+            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Supervisor:</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
             name="name"
             className = "input"
