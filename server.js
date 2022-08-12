@@ -125,7 +125,7 @@ app.post('/api/imageUpload', upload.single('image'), (req, res, next) => {
 
 
 // //************* HEROKU DEPLOYMENT------------
-// app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 
