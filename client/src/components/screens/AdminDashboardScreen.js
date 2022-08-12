@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+
 
 const AdminDashboard = ({history}) => {
   const [error, setError] = useState("");
@@ -71,7 +70,7 @@ const AdminDashboard = ({history}) => {
     <span className="error-message">{error}</span>
   ) : ( 
      //         DASHBOARD SCREEN 
-     <div className='bg-gray-900 text-gray-100'>
+     <div className='bg-gray-900 text-gray-100 bg'>
             <div class="flex ">
 
         <div x-data="{ open: true }" class="fixed top-0  z-50">
@@ -243,7 +242,7 @@ const AdminDashboard = ({history}) => {
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
                             <button>
-                                <a href='/adminViewProjects'> Available Projects</a>
+                                <a href='/coordinatorViewProjects'> Available Projects</a>
                           
                             </button>
                        </div>
@@ -296,18 +295,6 @@ const AdminDashboard = ({history}) => {
              </div>
            
              </div>
-
-
-       
-      
-
-
-
-
-
-     
-
-            
 
 </div>
         

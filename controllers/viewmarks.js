@@ -195,18 +195,20 @@ exports.viewproposalreportmarks =async(req,res,next) => {
         
         )
 
-        const setmarksdata ="Proven gap A"+":"+matchentry2.provengapmarks1+",  "
-                            +"Proven gap B"+":"+matchentry2.provengapmarks2+",  "
-                            +"Capability in applying knowledge A"+":"+matchentry2.capabilitymarks1+",  "
-                            +"Capability in applying knowledge B"+":"+matchentry2.capabilitymarks2+",  "
-                            +"Solution implementation A"+":"+matchentry2.implementationmarks1+",  "
-                            +"Solution implementation B"+":"+matchentry2.implementationmarks2+",  "
-                            +"Solution implementation C"+":"+matchentry2.implementationmarks3+",  "
-                            +"Effective Communication A"+":"+matchentry2.communicationmarks1+",  "
-                            +"Effective Communication B"+":"+matchentry2.communicationmarks2+",  "
-                            +"Effective Communication C"+":"+matchentry2.communicationmarks3+",  "
-                            +"Ability of commercialization marks"+":"+matchentry2.commercializationmarks1+",  "
-                            +"Feedback"+":"+matchentry2.extrafeedback+",  "
+        const setmarksdata ="Proven gap A   "+"  "+":"+matchentry2.provengapmarks1+",  "
+                            +"                                  "+",   "
+                            +"Proven gap B  "+":"+" "+matchentry2.provengapmarks2+",  "
+                            
+                            +"Capability in applying knowledge A  "+" "+":"+"  "+matchentry2.capabilitymarks1+",  "
+                            +"Capability in applying knowledge B  "+"  "+":"+"  "+matchentry2.capabilitymarks2+",  "
+                            +"Solution implementation A  "+":"+"  "+matchentry2.implementationmarks1+",  "
+                            +"Solution implementation B  "+":"+"  "+matchentry2.implementationmarks2+",  "
+                            +"Solution implementation C  "+":"+"  "+matchentry2.implementationmarks3+",  "
+                            +"Effective Communication A  "+":"+"  "+matchentry2.communicationmarks1+",  "
+                            +"Effective Communication B  "+":"+"  "+matchentry2.communicationmarks2+",  "
+                            +"Effective Communication C  "+":"+"  "+matchentry2.communicationmarks3+",  "
+                            +"Ability of commercialization marks  "+":"+matchentry2.commercializationmarks1+",  "
+                            +"Feedback  "+":"+matchentry2.extrafeedback+",  "
                             
        
         res.status(201).json({

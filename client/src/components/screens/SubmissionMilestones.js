@@ -119,25 +119,31 @@ const SubmissionMilestones = ({history}) =>{
 
 
  return error ? ( 
+
   
   <span className="error-message">{error}</span>
 ) : ( 
 
   <>
   <div id="back">
+  
   <Header/>
   <br></br>
   <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
       <br/><br/>
         
          <ul>
+         {console.log("SubmissionsData")}
+         {console.log(SubmissionsData)}
+         {console.log("SubmissionsData")}
         {SubmissionsData.map(submission => {
           if(batchID == submission.BatchID && submission.visibility == true){
           return (
                      
+
             
             <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
-              
+            
               <div className="Heading">
                 <p>{submission.Heading}</p>
               </div>

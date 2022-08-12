@@ -110,7 +110,7 @@ const StaffRcommendationInputs = ({history}) => {
           <div className="group-screen" style={{height:"70rem"}}>
             
           <div>        
-          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-6rem"}}>
+          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",width:"1000px",maxHeight:"60rem",marginTop:"-6rem"}}>
       <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.4rem"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
@@ -140,7 +140,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -152,7 +152,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -163,7 +163,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -174,7 +174,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -185,7 +185,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -196,7 +196,7 @@ const StaffRcommendationInputs = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
