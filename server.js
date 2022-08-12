@@ -83,17 +83,17 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 // Step 7 - the GET request handler that provides the HTML UI
 
-app.get('/', (req, res) => {
-    imgModel.find({}, (err, items) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send('An error occurred', err);
-      }
-      else {
-        res.render('imagesPage', { items: items });
-      }
-    });
-  });
+// app.get('/', (req, res) => {
+//     imgModel.find({}, (err, items) => {
+//       if (err) {
+//         console.log(err);
+//         res.status(500).send('An error occurred', err);
+//       }
+//       else {
+//         res.render('imagesPage', { items: items });
+//       }
+//     });
+//   });
 
 //   Step 8 - the POST handler for processing the uploaded file
 
