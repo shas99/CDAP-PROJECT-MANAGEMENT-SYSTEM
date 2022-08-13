@@ -46,10 +46,18 @@ export default function CreateNewProject() {
         }
       };
   return (
-    <div className='bg-gray-900 w-130  h-[50rem] '>
+    <div className='bg-gray-900 w-130  h-[55rem] '>
        
         {/* Need to add the form to create a new project */}
         <form className=' w-[35rem] absolute rounded top-[190px] right-[350px] h-auto' onSubmit={createProjectHandler}>
+        <h1 className='  text-4xl text-gray-100 '>Add a New Project</h1> <br/>
+        <div class="ml-[20rem] mt-[-5rem]">
+                                                                                    
+        <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-project-crowdfunding-flaticons-lineal-color-flat-icons.png"/>                                                               
+                                                                          
+        </div> <br/>
+
+
  
  <br/>
   <div class="mb-6 w-56 ">

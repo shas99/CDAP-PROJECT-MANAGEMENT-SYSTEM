@@ -690,6 +690,38 @@ video {
   margin-left: 20px;
 }
 
+.ml-\[3rem\] {
+  margin-left: 3rem;
+}
+
+.ml-\[15rem\] {
+  margin-left: 15rem;
+}
+
+.mt-\[-1rem\] {
+  margin-top: -1rem;
+}
+
+.mt-\[5rem\] {
+  margin-top: 5rem;
+}
+
+.mt-\[-5rem\] {
+  margin-top: -5rem;
+}
+
+.mt-\[-6rem\] {
+  margin-top: -6rem;
+}
+
+.mt-\[-4rem\] {
+  margin-top: -4rem;
+}
+
+.mt-\[-4\.5rem\] {
+  margin-top: -4.5rem;
+}
+
 .block {
   display: block;
 }
