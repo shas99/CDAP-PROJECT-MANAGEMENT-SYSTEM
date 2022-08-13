@@ -244,7 +244,6 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
 <button onClick={submitHandler}>Submit</button>
 {console.log(entries)}
 
-
           <br></br>
    
         

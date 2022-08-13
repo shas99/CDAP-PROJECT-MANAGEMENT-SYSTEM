@@ -133,8 +133,8 @@ const SubmissionMilestones = ({history}) =>{
          <ul>
         {SubmissionsData.map(submission => {
           if(batchID == submission.BatchID && submission.visibility == true){
-          return (
-                     
+          
+            return (
             
             <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
               

@@ -3,7 +3,7 @@ const { route } = require('express/lib/application');
 const router = express.Router()
 
 const {GroupregisterConfirm,groupregister,suggestsupervisor,group,topicregister,autoapprove,viewAvailableGroups,viewgroup} = require('../controllers/group')
-const {viewAvailableSupervisors,showSupervisors} = require('../controllers/supervisors')
+const {placeBid,showSupervisors} = require('../controllers/supervisors')
 
 
 router.route("/groupconfirm/:resetToken").put(GroupregisterConfirm)
@@ -11,7 +11,7 @@ router.route("/groupconfirm/:resetToken").put(GroupregisterConfirm)
 router.route("/groupregister").post(groupregister)//Group reg route
 
 router.route("/suggestsupervisor").get(suggestsupervisor)//suggested supervisor
-router.route("/viewAvailableSupervisors").get(viewAvailableSupervisors) //planned use for biddings
+router.route("/placebid").post(placeBid) //planned use for biddings
 router.route("/showSupervisors").get(showSupervisors)//show supervisors from staff cluster
 
 router.route("/group").get(group)//to view marks

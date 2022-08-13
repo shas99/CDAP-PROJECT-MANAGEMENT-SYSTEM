@@ -22,6 +22,9 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     Recommended: {
         type : Boolean
     },
+    Project: {
+        type: String
+    },
 })
 
 const Supervisor = mongoose.model("Supervisor", SupervisorSchema)

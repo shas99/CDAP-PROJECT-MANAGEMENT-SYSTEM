@@ -11,10 +11,12 @@ try{
     //console.log(availableProjects[1])// 
     const array = Object.values(availableProjects)
 
+    //need to add batch id attribute for model and filter relevent batch related projects
+
     const arrayproject = JSON.stringify(array).split(',')
     // console.log(arrayproject)
     // console.log(typeof arrayproject)
-    console.log(array)
+    console.log(array+"back end array of projects")
     res.status(201).json({
         success: true,
         data: array
