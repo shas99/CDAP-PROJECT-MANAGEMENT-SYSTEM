@@ -84,7 +84,7 @@ const Status = ({history}) => {
 
   }, [history]);
 
-  const Status = async () => {
+  const Status =  () => {
     try{
     let x = [];
 
@@ -102,13 +102,16 @@ const Status = ({history}) => {
       }
       
     }
-   
+
+   return x
     setStatus(x);
   }catch(error){
     console.log(error)
   }
 
   }
+
+
 
   
   return  error ? ( 
@@ -128,25 +131,8 @@ const Status = ({history}) => {
 
 <p className="userprofilecontent1">Status of Submissions</p>
 <br/>
-{/* existing forms
-{feedbackData.map((data) => 
 
-        <p className="userprofilecontent1">{data.Heading}</p>
-
-)}
-
-{console.log(heading)}
-
-Completed forms
-
-{heading.map((data) =>
-  <p className="userprofilecontent1">{data}</p>
-
-
-)} */}
-<button onClick={Status} className="blueButton">Show the status of forms</button>
-{status}
-
+<ul>{Status()}</ul>
 </div>
     
 )  

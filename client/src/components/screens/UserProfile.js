@@ -126,7 +126,7 @@ const UserProfile = ({history}) => {
         <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" loading="lazy" width="15%" height="15%" className="profileiImage" ></img>
       </div>
       <div className="userprofileBox">
-      
+
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
       
       <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
