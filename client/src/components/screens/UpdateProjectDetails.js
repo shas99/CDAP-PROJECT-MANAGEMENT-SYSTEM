@@ -69,13 +69,20 @@ export default function UpdateProjectDetails() {
 
 
   return (
-    <div className='bg-gray-900 w-130  h-[50rem] ' > Update Project
+    <div className='bg-gray-900 w-130  h-[55rem] ' > 
+<br/><br/><br/>
+<h1 className=' ml-[37rem] text-4xl text-gray-100 '>Update Project Details</h1>
+<div class="ml-[60rem] mt-[-4.5rem]">
+                                                                                    
+<img src="https://img.icons8.com/plasticine/100/000000/approve-and-update.png"/>                                                                                                                                                      
+                                                                                    </div> <br/><br/><br/>
 
         {/* Need a template form to take inputs from the user (done)
         The form should fetch specific project details from the database 
         The form should update the project details in the database */}
+
         <form className=' w-[35rem] absolute rounded top-[110px] right-[350px] h-auto' onSubmit={updateProjectDetailsHandler} >
- <br/>
+ <br/> <br/>
   <div class="mb-6 w-56 ">
     <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Project Name</label>
     <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  required="" onChange={(e) => setProjectName(e.target.value)} placeholder={oldprojectName}
@@ -109,7 +116,8 @@ export default function UpdateProjectDetails() {
   value={projectDescription}     ></textarea>
 
   
-  <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Update Details</button>
+  <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Update Details</button> &nbsp;
+  <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">  <a href='/coordinatorViewProjects'> Projects</a></button>
 
 </form>
 
