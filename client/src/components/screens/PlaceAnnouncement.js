@@ -58,13 +58,13 @@ const Swal = require('sweetalert2')
 
 
   return (
-    <div className='bg-gray-900 w-130  h-[50rem] ' >
+    <div className='bg-gray-900 w-130  h-[55rem] ' >
         <br/><br/><br/><br/> <br/> 
-        <h1 className=' ml-[32rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
+        <h1 className=' ml-[37rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
 
         {/* SVG ICON */}
        
-        <div class="ml-[54rem] mt-[-3rem]">
+        <div class="ml-[60rem] mt-[-3rem]">
                                                                                     
                   <svg className="w-43 fill-indigo-500 " xmlns="http://www.w3.org/2000/svg" x="200px" y="550px " 
                          width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" >
