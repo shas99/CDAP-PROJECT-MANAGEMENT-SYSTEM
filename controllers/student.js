@@ -256,7 +256,7 @@ try{
         else {
 
         // console.log(items[0]+"hello")
-        let image
+        let image = {img:{data:{data:""}}}
         const images = items.map(item => {
             if(item.ID==decoded.id){
                 image = item
@@ -273,7 +273,7 @@ try{
         }
       });
 
-      console.log(image)
+    
     }catch(error){
         console.log(error)
     }
