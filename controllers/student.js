@@ -237,7 +237,7 @@ exports.retrieveData =async(req,res,next) => {
 
 exports.retrieveImages =async(req,res,next) => {
 
-
+try{
     let token//to retreive username in backend
 
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
@@ -248,7 +248,7 @@ exports.retrieveImages =async(req,res,next) => {
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
 
 
-    imgModel.find({}, (err, items) => {
+    imgModel.find({ID:decoded.id}, (err, items) => {
         if (err) {
           console.log(err);
           res.status(500).send('An error occurred', err);
@@ -264,6 +264,7 @@ exports.retrieveImages =async(req,res,next) => {
                 image = {img:{data:{data:""}}}
             }
         })
+        console.log(decoded.id)
   
         res.status(201).json({
             success: true,
@@ -272,6 +273,10 @@ exports.retrieveImages =async(req,res,next) => {
         }
       });
 
+      console.log(image)
+    }catch(error){
+        console.log(error)
+    }
 };
 
 const logged = (token,res) => {//check if token is null
