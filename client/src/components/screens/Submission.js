@@ -91,7 +91,7 @@ const Submission = ({history}) =>{
             setInput(label => [...label,sub[i]])
             if(sub[i] == "Normal" || sub[i] == "normal"){
           
-              formElements.push(<div id='content'><label>{sub[i-1]}:<input type="text" name={sub[i-1]} value={input.value} onChange={handleChange} className="textbox"></input></label><br/><br/></div>)
+              formElements.push(<div id='content'><label>{sub[i-1]}:<div className='centerTxtbox'><input type="text" name={sub[i-1]} value={input.value} onChange={handleChange} className="textbox"></input></div></label><br/><br/></div>)
             }else if(sub[i] == "Rich"|| sub[i] == "rich"){
               
               console.log(i-1)
@@ -186,7 +186,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
       }
     );
 
-
+    alert("Successfully submitted")
     history.push("/");
   } catch (error) {
     setError(error.response.data.error);
