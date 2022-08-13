@@ -68,7 +68,7 @@ export default function StatusDocumentMarkingConfiguration() {
            
       
            <br/> <br/> 
-    <div className="group-screen">
+    <div className="group-screen ">
             
           <div>        
           <form onSubmit={statusDocumentMarkingHandler} className="group-screen__form">

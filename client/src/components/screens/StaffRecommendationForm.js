@@ -116,7 +116,7 @@ const StaffRcommendationInputs = ({history}) => {
       
       <div className="form-group" style={{paddingTop:"1rem"}}>
         <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"normal"}}>Staff ID:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         
           <input type="text" 
           className = "input" style={{height:"0.5rem",width:"20rem"}}
