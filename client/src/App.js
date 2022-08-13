@@ -160,6 +160,7 @@ const App = () => {
           <Route exact path="/enterprogresspresentation1marks" component={EnterProgressPresentation1Marks}/>
 
           <Route exact path="/viewmarksdashboard" component={ViewMarksDashboard}/>
+          <Route exact path="/staffviewgroup" component={ViewGroup}/>
 
 
          <Route exact path="/viewavailableprojects" component={ViewAvailableProjects}/>
