@@ -3,8 +3,10 @@ import axios from "axios";
 // import "./MatchedSupervisors.css";
 import "./EnterStatusDocument1Marks.css";
 import Header from "../Header/Header";
+import Swal from 'sweetalert2'
 
 const EnterStatusDocument1Marks = ({history}) => {
+    const Swal = require('sweetalert2')
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
     const [projectNo, setprojectNo ] = useState("");
@@ -100,6 +102,24 @@ const EnterStatusDocument1Marks = ({history}) => {
                 { projectNo,studentIDs,ganttchartmarks,actualtimemarks,breakdownmarks,managementtoolmarks, ganttchartremarks,actualtimeremarks,breakdownremarks,managementtoolremarks,supervisor,cosupervisor,enterstatusdocument1marks},
                 config
             );
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Successfully added marks!!'
+              })
+
 
            history.push("/staffPrivate");
          }catch(error){

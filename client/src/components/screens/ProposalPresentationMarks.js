@@ -3,9 +3,11 @@ import axios from "axios";
 // import "./MatchedSupervisors.css";
 import "./ProposalPresentationMarksScreen.css";
 import Header from "../Header/Header";
+import Swal from 'sweetalert2'
 // import Footer from "../Footer/Footer";
 
 const ProposalPresentationMarks = ({history}) => {
+    const Swal = require('sweetalert2')
     const [error,setError]= useState("");
     const [privateData,setPrivateData]= useState("");
     const [groupID, setgroupID]= useState("");
@@ -102,6 +104,23 @@ const ProposalPresentationMarks = ({history}) => {
                 { groupID, studentIDs, studentnames, examiner1, examiner2, moderator, extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,commercializationmarks1,entermarks},
                 config
             );
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Successfully added marks!!'
+              })
 
            history.push("/staffPrivate");
          }catch(error){
