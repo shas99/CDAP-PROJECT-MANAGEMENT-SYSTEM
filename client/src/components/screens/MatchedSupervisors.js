@@ -211,7 +211,9 @@ const MatchedSupervisors = ({history}) => {
     // Submit form
       const SubmitBidding = async (e) => {
         e.preventDefault();
-   
+
+        
+        
        const pconfig = {
          header: {
            "Content-Type": "application/json",
@@ -219,10 +221,12 @@ const MatchedSupervisors = ({history}) => {
        };
       
        alert("Successfully Submited!")
+       const cd = localStorage.getItem("authToken")
+       //console.log("PVT details: "+cd);
        try {
          const { data } = await axios.post(
-           "http://localhost:5000/api/",
-           { SelectedProject,SelectedSupervisors },
+           "http://localhost:5000/api/AvailableProject/bid",
+           { SelectedProject,SelectedSupervisors,cd },
            pconfig
            
          );

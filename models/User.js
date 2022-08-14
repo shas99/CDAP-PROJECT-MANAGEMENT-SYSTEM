@@ -49,6 +49,9 @@ const UserSchema = new mongoose.Schema({
     BatchID:{
         type : String
     },
+    GroupID:{
+        type:String
+    },
     resetPasswordToken: String,
     resetPasswordExpire: Date
 })
