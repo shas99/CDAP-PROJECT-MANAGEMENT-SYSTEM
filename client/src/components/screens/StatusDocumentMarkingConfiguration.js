@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./MatchedSupervisors.css";
+
 // import { Link } from "react-router-dom";
-import "./StudentTopicRegistrationForm.css";
+// import "./StatusDocumentMarkingConfiguration.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -59,141 +59,252 @@ export default function StatusDocumentMarkingConfiguration() {
 
 
   return (
+<div className="h-[95rem] bg-[#22272E]">
+<Header />
+<div className="w-[55rem] ml-[20rem] mt-20 bg-[#161b22] rounded-lg">
+<form onSubmit={statusDocumentMarkingHandler} >
+<h1 className="ml-[9rem] text-4xl text-slate-100"> Status Document Marking Configuration</h1>
+{error && <span className="error-message">{error}</span>}
 
-    <div id='back'>  
-        <Header />
-        <br/> <br/>
-        <h1 id="caption">Status Document Details Configuration</h1>
-           <br/>
-           
-      
-           <br/> <br/> 
-    <div className="group-screen ">
-            
-          <div>        
-          <form onSubmit={statusDocumentMarkingHandler} className="group-screen__form">
-      <h3 className="login-screen__title">Topic Assessment Form</h3>
-      {error && <span className="error-message">{error}</span>}
-      
-      
-      <div className="form-group">
-        <label className="TopicNames">Total Contribution %</label> <br/>
-          <input type="text" 
-          className = "input" style={{color:"white"}}
-          name="name" 
-          onChange={(e) => setTotalContribution(e.target.value)}
-          value={totalContribution} />
-        </div>
-        <br/>
+<div className="ml-[15rem]">
+<div className="form-group">
+  <br/>
+  <label className="TopicNames">Total Contribution %</label> <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setTotalContribution(e.target.value)}
+    value={totalContribution} />
+  </div>
+  <br/>
 
-        <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 01</label> <br/>
-          <input type="text" 
-          className = "input" style={{color:"white"}}
-          name="name" 
-          onChange={(e) => setmarkEn01(e.target.value)}
-          value={marksEn01} />
-        </div>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 01</label> <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn01(e.target.value)}
+    value={marksEn01} />
+  </div>
 
-        <br/>
-        <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 02</label> <br/>
-          <input type="text" 
-          className = "input" style={{color:"white"}}
-          name="name" 
-          onChange={(e) => setmarkEn02(e.target.value)}
-          value={marksEn02} />
-        </div>
-        <br/>
-        <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 03</label>  <br/>
-          <input type="text" 
-          className = "input" style={{color:"white"}}
-          name="name" 
-          onChange={(e) => setmarkEn03(e.target.value)}
-          value={marksEn03} />
-        </div>
-        <br/>
-        <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 04</label>  <br/>
-          <input type="text" 
-          className = "input" style={{color:"white"}}
-          name="name" 
-          onChange={(e) => setmarkEn04(e.target.value)}
-          value={marksEn04} />
-        </div>
-        <br/>
-        <center/>
-        <div className="form-group">
-          <div className="editor">
-          <label className="TopicNames">Section 01</label>  <br/>
-        <CKEditor 
-        editor={ClassicEditor}
-        data={stdesc01}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setstDesc01(data)
-        }}
-        />
-        <br/>
+  <br/>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 02</label> <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn02(e.target.value)}
+    value={marksEn02} />
+  </div>
+  <br/>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 03</label>  <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn03(e.target.value)}
+    value={marksEn03} />
+  </div>
+  <br/>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 04</label>  <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn04(e.target.value)}
+    value={marksEn04} />
+  </div>
+  <br/>
+  <center/>
+  </div>
 
-        <label className="TopicNames">Section 02</label>  <br/>
-                <CKEditor
-        editor={ClassicEditor}
-        data={stdesc02}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setstDesc02(data)
-        }}
-        />
-        <br/>
-        <label className="TopicNames">Section 03</label>  <br/>
-                <CKEditor
-        editor={ClassicEditor}
-        data={stdesc03}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setstDesc03(data)
-        }}
-        />
-        <br/>
-        <label className="TopicNames">Section 04</label>  <br/>
-                <CKEditor className="section-content"
-        editor={ClassicEditor}
-        data={stdesc04}
-        onChange={(event,editor)=>{
-          const data = editor.getData()
-          setstDesc04(data)
-        }}
-        /> 
-        <br/>
-       
-       
-          </div>
-    
-          </div>
-          <div className="form-group">
+  <div className="w-[50rem] ml-[3rem]">
+  <div className="form-group">
+    <div className="editor">
+    <label className="TopicNames">Section 01</label>  <br/>
+  <CKEditor 
+  editor={ClassicEditor}
+  data={stdesc01}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc01(data)
+  }}
+  />
+  <br/>
 
+  <label className="TopicNames">Section 02</label>  <br/>
+          <CKEditor
+  editor={ClassicEditor}
+  data={stdesc02}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc02(data)
+  }}
+  />
+  <br/>
+  <label className="TopicNames">Section 03</label>  <br/>
+          <CKEditor
+  editor={ClassicEditor}
+  data={stdesc03}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc03(data)
+  }}
+  />
+  <br/>
+  <label className="TopicNames">Section 04</label>  <br/>
+          <CKEditor className="section-content"
+  editor={ClassicEditor}
+  data={stdesc04}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc04(data)
+  }}
+  /> 
+  </div>
+  <br/>
+ 
+ 
+    </div>
 
     </div>
-                  <br/>
+    <div className="form-group">
+
+
+</div>
+    
 
 
 
+<div className="ml-[22rem]">
+<button type="submit" className="btn btn-primary1" id="Log1Button">
+    Submit!
+  </button>
+  </div>
+  
+</form>
+<br/>
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
-          Submit!
-        </button>
-
-        
-      </form>
-      </div>
-          </div>
-
-
-
-
-        <Footer />
+</div>
     </div>
   )
 }
+
+
+
+{/* <form onSubmit={statusDocumentMarkingHandler} className="bg-[#161b22]  mr-[70rem]  w-[700px] h-[85rem] mt-0">
+<h3 className="login-screen__title"></h3>
+{error && <span className="error-message">{error}</span>}
+
+
+<div className="form-group">
+  <label className="TopicNames">Total Contribution %</label> <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setTotalContribution(e.target.value)}
+    value={totalContribution} />
+  </div>
+  <br/>
+
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 01</label> <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn01(e.target.value)}
+    value={marksEn01} />
+  </div>
+
+  <br/>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 02</label> <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn02(e.target.value)}
+    value={marksEn02} />
+  </div>
+  <br/>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 03</label>  <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn03(e.target.value)}
+    value={marksEn03} />
+  </div>
+  <br/>
+  <div className="form-group">
+  <label className="TopicNames">Marks Entitled for Section 04</label>  <br/>
+    <input type="text" 
+    className = "input" style={{color:"white"}}
+    name="name" 
+    onChange={(e) => setmarkEn04(e.target.value)}
+    value={marksEn04} />
+  </div>
+  <br/>
+  <center/>
+  <div className="form-group">
+    <div className="editor">
+    <label className="TopicNames">Section 01</label>  <br/>
+  <CKEditor 
+  editor={ClassicEditor}
+  data={stdesc01}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc01(data)
+  }}
+  />
+  <br/>
+
+  <label className="TopicNames">Section 02</label>  <br/>
+          <CKEditor
+  editor={ClassicEditor}
+  data={stdesc02}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc02(data)
+  }}
+  />
+  <br/>
+  <label className="TopicNames">Section 03</label>  <br/>
+          <CKEditor
+  editor={ClassicEditor}
+  data={stdesc03}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc03(data)
+  }}
+  />
+  <br/>
+  <label className="TopicNames">Section 04</label>  <br/>
+          <CKEditor className="section-content"
+  editor={ClassicEditor}
+  data={stdesc04}
+  onChange={(event,editor)=>{
+    const data = editor.getData()
+    setstDesc04(data)
+  }}
+  /> 
+  <br/>
+ 
+ 
+    </div>
+
+    </div>
+    <div className="form-group">
+
+
+</div>
+    
+
+
+
+
+<button type="submit" className="btn btn-primary1" id="Log1Button">
+    Submit!
+  </button>
+
+  
+</form> */}
