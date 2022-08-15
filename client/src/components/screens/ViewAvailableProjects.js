@@ -1,6 +1,7 @@
 import '../../styles/main.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
 
 import Header from "../Header/Header";
 
@@ -90,6 +91,7 @@ const ViewAvailableProjects = ({history}) =>{
     
     <div style={{backgroundColor:"#22272E"}}>
       <Header/>
+      {/* <SideNavigationBar page="StudentViewYourAvailableProjects"/> */}
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption" className="">All projects</h1>
       <br/><br/>

@@ -12,6 +12,7 @@ import { Batch } from 'aws-sdk';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
 
 
 
@@ -128,8 +129,11 @@ const SubmissionMilestones = ({history}) =>{
   <div id="back">
   
   <Header/>
-  <br></br>
-  <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+  <SideNavigationBar page="StudentMilestones"/>
+  </div>
+  <br/>
+  <h1 id="caption" className="" style={{marginTop:"-850px"}}>RP Submissions Page {batchID}</h1>
       <br/><br/>
         
          <ul>

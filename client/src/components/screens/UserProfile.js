@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
 import Swal from 'sweetalert2'
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 
 const UserProfile = ({history}) => { 
@@ -148,6 +149,7 @@ const UserProfile = ({history}) => {
  <div className="userprofileClass">
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <Header/>
+  <SideNavigationBar page="StudentProfile"/>
 
       <h1 id="userprofilecaption">My Profile</h1>
       {/* profile image */}

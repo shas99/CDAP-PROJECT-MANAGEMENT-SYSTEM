@@ -5,7 +5,8 @@ import "./MatchedSupervisors.css";
 import "./GroupScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const GroupScreen = ({history}) => {
     const Swal = require('sweetalert2')
@@ -147,10 +148,13 @@ const GroupScreen = ({history}) => {
         <>
         <div id="back">
         <Header/>
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="StudentGroups"/>
+        </div>
         <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
+        {/* {privateData}   */}
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <button onClick={logOutHandler} id="logout">Log Out</button>
+        {/* <button onClick={logOutHandler} id="logout">Log Out</button> */}
           </p>
           
           <p style={{color:"#FFF"}}>
@@ -158,7 +162,7 @@ const GroupScreen = ({history}) => {
           
           </p>
           {fetchGroupData != "" &&
-          <div id="card" style={{height:"30rem"}}>
+          <div id="card" style={{height:"30rem",marginTop:"-900px"}}>
 
             <h1 id="caption" style={{color:"#8256D0"}}>Your group members are</h1>
             <hr id="hr"></hr>
@@ -172,13 +176,13 @@ const GroupScreen = ({history}) => {
           
           }
            {fetchGroupData == "" &&
-           <><h1 id="caption">You are not in a group. Fill this form to register to a group</h1></>
+           <><h1 id="caption" style={{marginTop:"-850px",marginBottom:"-110px"}}>You are not in a group. Fill this form to register to a group</h1></>
            }
           {fetchGroupData == "" &&
           <div className="group-screen">
             
           <div>        
-          <form onSubmit={groupregisterHandler} className="groupprofile-screen__form" style={{color:"white",boxShadow:"box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2),",background:"#161b22",borderRadius:"5px",borderWidth:"2px",borderStyle:"solid",borderColor:"#21262d",padding:"1.5rem",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontWeight:"bold",fontSize:"large",marginTop:"-300px"}}>
+          <form onSubmit={groupregisterHandler} className="groupprofile-screen__form" style={{color:"white",boxShadow:"box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2),",background:"#161b22",borderRadius:"5px",borderWidth:"2px",borderStyle:"solid",borderColor:"#21262d",padding:"1.5rem",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontWeight:"bold",fontSize:"large"}}>
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
