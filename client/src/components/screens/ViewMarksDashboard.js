@@ -48,12 +48,14 @@ const ViewMarksDashboard = ({history}) => {
         <>
         <div id = "back">
             <Header/>
+            <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
             <SideNavigationBar page="StudentGrades"/>
-            <h1 id="caption">Welcome to your marks dashboard {privateData}</h1>
+            </div>
+            <h1 id="caption" style={{marginTop:"-850px"}}>Welcome to your marks dashboard {privateData}</h1>
             <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
             </p>
-            <div className="row1">
+            <div className="row1" style={{marginLeft:"200px"}}>
   
 
         {/* proposal presentation */}
@@ -120,7 +122,7 @@ const ViewMarksDashboard = ({history}) => {
 
                   
   
-    <Footer/>
+    {/* <Footer/> */}
 
      </div>
      </div>
