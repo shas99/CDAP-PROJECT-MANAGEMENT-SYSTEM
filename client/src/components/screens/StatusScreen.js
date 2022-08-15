@@ -121,9 +121,11 @@ const Status = ({history}) => {
   ) :
   (
 
-<div className="userprofileClass">
+<div className="userprofileClass" style={{width:"100%",height:"140%"}}>
   <Header/>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
   <SideNavigationBar page="StudentStatus"/>
+  </div>
   <br/>
 
 
@@ -131,7 +133,7 @@ const Status = ({history}) => {
 
 <p className="userprofilecontent2"> {console.log(feedbackData)}</p>  
 
-<p className="userprofilecontent1">Status of Submissions</p>
+<p className="userprofilecontent1" style={{marginTop:"-850px"}}>Status of Submissions</p>
 <br/>
 
 <ul>{Status()}</ul>
