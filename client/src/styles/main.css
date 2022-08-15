@@ -818,6 +818,30 @@ video {
   margin-left: 4rem;
 }
 
+.ml-\[30rem\] {
+  margin-left: 30rem;
+}
+
+.mt-\[-80rem\] {
+  margin-top: -80rem;
+}
+
+.ml-\[2rem\] {
+  margin-left: 2rem;
+}
+
+.ml-\[5rem\] {
+  margin-left: 5rem;
+}
+
+.ml-\[7rem\] {
+  margin-left: 7rem;
+}
+
+.ml-\[8rem\] {
+  margin-left: 8rem;
+}
+
 .block {
   display: block;
 }

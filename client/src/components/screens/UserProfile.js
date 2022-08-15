@@ -89,14 +89,20 @@ const UserProfile = ({history}) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-
+ //SUCCESS SWEET ALERT MESSAGE
+ Swal.fire({
+  title: 'Do you want to save the changes?',
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: 'Save',
+  denyButtonText: `Don't save`,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire('Saved!', '', 'success')
     // Handle File Data from the state Before Sending
     const data = new FormData();
-
     data.append("image", fileData);
-
-   
-
     fetch("http://localhost:5000/single", {
       method: "POST",
       body: data,
@@ -107,26 +113,19 @@ const UserProfile = ({history}) => {
       .catch((err) => {
         console.log(err.message);
       });
+  } else if (result.isDenied) {
+    Swal.fire('Changes are not saved', '', 'info')
+  }
+})
+
+    
+
+   
 
       
   };
 
-  const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
   
-  Toast.fire({
-    icon: 'success',
-    title: 'You Have Visited Your Profile Page!'
-  })
 
  
 
@@ -162,15 +161,15 @@ const UserProfile = ({history}) => {
       <div className="ml-[55rem] mt-[-20rem]">
       <div className="userprofileBox">
 
-      <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
+      <h2 id="userprofilecaption" >Bio</h2>
       
-      <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
+      <p className="userprofilecontent1"> User Email:{fetchFeedbackData.email}</p> 
       
-      <p className="userprofilecontent2"> Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.username}</p> 
+      <p className="userprofilecontent2"> Username:{fetchFeedbackData.username}</p> 
       
-      <p className="userprofilecontent1"> Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.address}</p> 
+      <p className="userprofilecontent1"> Address: {fetchFeedbackData.address}</p> 
       
-      <p className="userprofilecontent2"> Phone Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.phoneNumber}</p> 
+      <p className="userprofilecontent2"> Phone Number: {fetchFeedbackData.phoneNumber}</p> 
       
       <div className="btn btn-success"style={{fontSize:"medium",fontWeight:"bold",backgroundColor:'#8256D0',width:"170px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",marginLeft:"125px",padding:"5px",marginTop:"25px"}}> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></div>
      
@@ -178,7 +177,7 @@ const UserProfile = ({history}) => {
      
       </div>
 
-      <div className="userprofileBox1">
+      {/* <div className="userprofileBox1">
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Skills</h2>
         <button type="button" class="btn btn-primary" id="firstButt">Coding</button>
         <button type="button" class="btn btn-primary" id="secondButt">DevOps</button>
@@ -187,7 +186,7 @@ const UserProfile = ({history}) => {
         <button type="button" class="btn btn-primary" id="fifthButt">Heroku</button>
         <button type="button" class="btn btn-primary" id="sixthButt">Java</button>
          
-      </div>
+      </div> */}
       </div>
 
       <div className="ml-[-45rem]">
@@ -197,7 +196,7 @@ const UserProfile = ({history}) => {
 
 
 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload file</label>
-<input name="image" class="block w-[13rem] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+<input name="image"  class="block w-[13rem] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
 
         
         {/* <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label> */}
