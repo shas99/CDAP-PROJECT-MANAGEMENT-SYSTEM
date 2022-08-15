@@ -746,6 +746,18 @@ video {
   height: 100px;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-1 {
+  height: 0.25rem;
+}
+
 .w-48 {
   width: 12rem;
 }
@@ -816,6 +828,14 @@ video {
 
 .w-\[180px\] {
   width: 180px;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .-translate-y-0\.5 {
