@@ -277,7 +277,7 @@ export default function Dashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full ml-[20rem]">
 
                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
@@ -288,7 +288,7 @@ export default function Dashboard ({history}) {
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
                             <button>
-                                <a href='/viewfeedback'> My Feedbacks</a>
+                                <a href='/userprofile'> My Profile</a>
                           
                             </button>
                        </div>
@@ -337,16 +337,9 @@ export default function Dashboard ({history}) {
                        </div>
                     
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
-                           <button>
-                           <a href='/userprofile'> My Profile</a>
-                            </button>
-                           
-
-                            
-                  </div>
+                      
 {/*ANNOUNCEMENT SECTION */}
-                    <div className='ml-[20rem] w-full mt-[6rem]'>
+                    <div className='ml-[0rem] w-full mt-[6rem]'>
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
