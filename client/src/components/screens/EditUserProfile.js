@@ -5,7 +5,8 @@ import "./EditProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const EditUserProfile = ({history}) => { 
   const Swal = require('sweetalert2')
@@ -144,6 +145,7 @@ const EditUserProfile = ({history}) => {
     
 <div className="userprofileClass">
   <Header/>
+  <SideNavigationBar page="UpdateProfile"/>
   <br/>
       <h1 id="userprofilecaption">Edit My Profile</h1>
       
