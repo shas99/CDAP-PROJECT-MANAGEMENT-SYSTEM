@@ -28,6 +28,9 @@ const ViewGroup = ({ history, match }) => {
   const [ID,setID] = useState(useParams().id)
   const [existingForm, setExistingForm] = useState([]);
   const [feedbackData, setFeedbackData] = useState([])
+  const [status, setStatus] = useState([]);
+  const [heading, setHeading] = useState([]);
+
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
 
@@ -99,8 +102,8 @@ const ViewGroup = ({ history, match }) => {
 
       try {
           console.log(ID+"ppppp")
-        const {data} = await axios.get("/api/student/status",userprofileconfig);
-       
+        const {data} = await axios.get("/api/STDAvailableSubmissions/staffStatus",{params:{id:ID}},userprofileconfig);
+       console.log(data.data+"ooo")
         setFeedbackData(data.data);
         // console.log(data.data[0].Heading)
         // let tempfeedbackData = data.data[0].Heading;
@@ -205,6 +208,35 @@ const download = e => {
  
 }
 
+
+
+const Status =  () => {
+  try{
+  let x = [];
+
+
+console.log(feedbackData+"qqq")
+  for(var i=0;i<feedbackData.length;i++){
+
+    if(heading.includes(existingForm[i])){
+    
+      x.push(<h1 className="userprofilecontent1">{existingForm[i]} : completed</h1>)
+    }
+    else{
+      x.push(<h1 className="userprofilecontent1">{existingForm[i]} : not completed</h1>)
+     
+    }
+    
+  }
+
+ return x
+  setStatus(x);
+}catch(error){
+  console.log(error)
+}
+
+}
+
   return (
     <div className="viewgroupscreen">
       <h2 id="caption">{name}</h2>
@@ -274,8 +306,8 @@ const download = e => {
          
           </a></button> */}
 
+          <ul>{Status()}</ul>
           {forms.map((form) =><div> <button className="btn2" style={{backgroundColor:"blue"}}> <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)}
-         
        <br/><br/>
        
      </div>

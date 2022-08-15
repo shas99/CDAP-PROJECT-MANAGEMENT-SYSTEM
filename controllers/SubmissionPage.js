@@ -324,8 +324,9 @@ exports.addSubmission =async(req,res,next) => {
 
                 let token//to retreive username in backend
 
-                const id = req.body.id
-                console.log(id)
+                id = req.query.id
+                // id = "624c4bbc63e26a49b4e2d77b"
+                console.log(id+"ghlk")
             
                 // if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
                     
