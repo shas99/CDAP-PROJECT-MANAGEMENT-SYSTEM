@@ -31,10 +31,12 @@ const GroupScreen = ({history}) => {
             };
       
             try {
+              console.log(groupconfig)
               const { data} = await axios.get("/api/group/group",groupconfig);
               const groupArray = data.data.split("/")
-              console.log(groupArray[0])
+              //console.log("This is groupID"+groupArray[0])
               const group1 = groupArray[0].split(",")
+              console.log("THis is group aarray "+group1)
               setgroup(group1)
               setGroupData(groupArray[0]);
               setBio(groupArray[2])

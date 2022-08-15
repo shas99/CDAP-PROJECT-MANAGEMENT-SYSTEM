@@ -53,9 +53,14 @@ const UserSchema = new mongoose.Schema({
     BatchID:{
         type : String
     },
+<<<<<<< HEAD
+    GroupID:{
+        type:String
+=======
     heading:{
         type: Array
 
+>>>>>>> origin/pasindu-production
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date
