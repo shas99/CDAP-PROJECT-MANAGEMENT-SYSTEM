@@ -160,7 +160,7 @@ const GroupScreen = ({history}) => {
           
           </p>
           {fetchGroupData != "" &&
-          <div id="card" style={{height:"30rem"}}>
+          <div id="card" style={{height:"30rem",marginTop:"-900px"}}>
 
             <h1 id="caption" style={{color:"#8256D0"}}>Your group members are</h1>
             <hr id="hr"></hr>
