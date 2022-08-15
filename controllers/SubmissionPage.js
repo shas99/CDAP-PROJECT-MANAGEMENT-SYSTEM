@@ -316,3 +316,40 @@ exports.addSubmission =async(req,res,next) => {
                     }
                     
             };
+
+
+
+            exports.Staffstatus =async(req,res,next) => {
+
+
+                let token//to retreive username in backend
+
+                const id = req.body.id
+                console.log(id)
+            
+                // if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+                    
+                //     token = req.headers.authorization.split(" ")[1]
+                // }
+            
+                // if(token =="null"){
+                //     logged(token,res)
+                // }
+                // else{
+                // const decoded = jwt.verify(token,process.env.JWT_SECRET)
+            
+            
+                const user = await User.findById(id)
+            // //use the batchID to retreive data with the batchID
+                const batch = await SubmissionPage.find(user.batchID)
+            //     console.log(batch)
+                try{
+                    res.status(201).json({
+                        success: true,
+                        data: batch
+                    })
+                }catch(error){
+                    next(error)
+                }
+            // }
+            };

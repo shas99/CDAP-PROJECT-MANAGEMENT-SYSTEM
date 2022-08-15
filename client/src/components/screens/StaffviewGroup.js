@@ -26,6 +26,8 @@ const ViewGroup = ({ history, match }) => {
   const [images,setImages] = useState([])
   const [forms,setForm] = useState([])
   const [ID,setID] = useState(useParams().id)
+  const [existingForm, setExistingForm] = useState([]);
+  const [feedbackData, setFeedbackData] = useState([])
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
 
@@ -86,6 +88,54 @@ const ViewGroup = ({ history, match }) => {
         }, 5000);
       }
     };
+
+    const fetchFeedbackData = async () => {
+      const userprofileconfig = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+          console.log(ID+"ppppp")
+        const {data} = await axios.get("/api/student/status",userprofileconfig);
+       
+        setFeedbackData(data.data);
+        // console.log(data.data[0].Heading)
+        // let tempfeedbackData = data.data[0].Heading;
+        // try{
+        // const {data1} = await axios.get(
+        //   "/api/staff/statusArray",
+        //   {params: {tempfeedbackData}, },
+        // );
+        // console.log(data1+"data1.data")
+        // setStatus(data1);
+
+        // }catch(error){
+        //   console.log(error)
+        // }
+        var temp = []
+        for(let i=0;i<data.data.length;i++){
+          temp.push(data.data[i].Heading)
+          
+        }
+
+        setExistingForm(temp);
+        
+      } catch (error) {
+        console.log(error)
+
+      }
+    };
+
+
+  
+
+
+    fetchFeedbackData()
+
+
     retreiveform()
     resetPasswordHandler()
   }, [history]);
