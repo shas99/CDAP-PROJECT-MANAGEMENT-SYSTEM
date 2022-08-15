@@ -37,6 +37,9 @@ const StaffSchema = new mongoose.Schema({
     student_ID:{
         type: String
     },
+    Supervisor:{
+        type: Boolean
+    },
     
     resetPasswordToken: String,
     resetPasswordExpire: Date
