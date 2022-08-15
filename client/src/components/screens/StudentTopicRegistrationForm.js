@@ -141,27 +141,27 @@ const TopicRegistration = ({history}) => {
         <div id="back">
 
         <Header/>
-       
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="StudentTopicRegistrationForm"/>
+       </div>
        
-       
-        <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData} 
+        {/* <p style={{color:"#FFF",textAlign:"right"}}>
+        {privateData}  */}
 
         &nbsp;&nbsp;&nbsp;&nbsp;
        
         
 
-        <button onClick={logOutHandler} id="logout">Log Out</button>
-          </p>
+        {/* <button onClick={logOutHandler} id="logout">Log Out</button> */}
+          {/* </p> */}
         
           
-          <p style={{color:"#FFF"}}>
+          {/* <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
-          </p>
+          </p> */}
         
-           <h1 id="studentTopiccaption">Project Topic Assessment</h1>
+           <h1 id="studentTopiccaption" style={{marginTop:"-850px"}}>Project Topic Assessment</h1>
            <br/>
            
       
