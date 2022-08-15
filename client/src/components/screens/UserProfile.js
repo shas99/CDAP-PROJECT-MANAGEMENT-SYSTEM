@@ -5,9 +5,11 @@ import "./UserProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
+import Swal from 'sweetalert2'
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 
 const UserProfile = ({history}) => { 
+  const Swal = require('sweetalert2')
   const [fetchFeedbackData, setFeedbackData] = useState("")
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
@@ -92,6 +94,8 @@ const UserProfile = ({history}) => {
 
     data.append("image", fileData);
 
+   
+
     fetch("http://localhost:5000/single", {
       method: "POST",
       body: data,
@@ -102,7 +106,32 @@ const UserProfile = ({history}) => {
       .catch((err) => {
         console.log(err.message);
       });
+
+      
   };
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  
+  Toast.fire({
+    icon: 'success',
+    title: 'You Have Visited Your Profile Page!'
+  })
+
+ 
+
+  // localStorage.setItem("authToken", data.token);
+
+  // history.push("/");
 
   
   
@@ -126,7 +155,7 @@ const UserProfile = ({history}) => {
         <img src={`data:image/png;base64,${Buffer.from(imageUploadData.img.data.data).toString('base64')}`} alt="Profile Picture" loading="lazy" width="15%" height="15%" className="profileiImage" ></img>
       </div>
       <div className="userprofileBox">
-      
+
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
       
       <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 

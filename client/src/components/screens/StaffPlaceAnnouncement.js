@@ -58,7 +58,7 @@ const Swal = require('sweetalert2')
 
 
   return (
-    <div className='bg-gray-900 w-130  h-[50rem] ' >
+    <div className='bg-gray-900 w-180  h-[55rem] ' >
         <br/><br/><br/><br/> <br/> 
         <h1 className=' ml-[32rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
 
@@ -79,7 +79,7 @@ const Swal = require('sweetalert2')
                    
        
         </div>
-<form className=' w-[35rem] absolute rounded top-[190px] right-[350px] h-auto' onSubmit={postAnnouncementHandler}>
+<form className=' w-[35rem] absolute rounded top-[190px] right-[437px] h-auto' onSubmit={postAnnouncementHandler}>
  <br/>
   <div class="mb-6 w-56 ">
     <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Announcement Topic</label>

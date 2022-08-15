@@ -5,8 +5,10 @@ import "./MatchedSupervisors.css";
 import "./GroupScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Swal from 'sweetalert2'
 
 const GroupScreen = ({history}) => {
+    const Swal = require('sweetalert2')
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
 
@@ -89,6 +91,23 @@ const GroupScreen = ({history}) => {
             { member_1,member_2,member_3,member_4,member_5 },
             config
           );
+
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'You Have Successfully Registered Your Group!'
+          })
     
     
     
@@ -164,7 +183,7 @@ const GroupScreen = ({history}) => {
         <label>
            Member 1 - Student ID:</label><br/><br/>
           <input type="text" 
-          className = "input"
+          className = "input" id="groupFormInput"
           name="name" 
           onChange={(e) => setMember1(e.target.value)}
           value={member_1} />
@@ -174,7 +193,7 @@ const GroupScreen = ({history}) => {
         <div className="form-group">
         <label>
            Member 2 - Student ID:</label><br/><br/>
-          <input type="text" 
+          <input type="text"  id="groupFormInput"
           name="name" 
           className = "input"
           onChange={(e) => setMember2(e.target.value)}
@@ -185,7 +204,7 @@ const GroupScreen = ({history}) => {
           <div className="form-group">
         <label>
            Member 3 - Student ID:</label><br/><br/>
-          <input type="text" 
+          <input type="text"  id="groupFormInput"
           name="name" 
           className = "input"
           onChange={(e) => setMember3(e.target.value)}
@@ -195,7 +214,7 @@ const GroupScreen = ({history}) => {
                   <div className="form-group">
         <label>
            Member 4 - Student ID:</label><br/><br/>
-          <input type="text" 
+          <input type="text"  id="groupFormInput"
           name="name" 
           className = "input"
           onChange={(e) => setMember4(e.target.value)}
@@ -205,7 +224,7 @@ const GroupScreen = ({history}) => {
                   <div className="form-group">
         <label>
            Member 5 - Student ID:</label><br/><br/>
-          <input type="text" 
+          <input type="text"  id="groupFormInput"
           name="name"
           className = "input"
           onChange={(e) => setMember5(e.target.value)}

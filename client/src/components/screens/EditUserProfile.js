@@ -5,8 +5,10 @@ import "./EditProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
+import Swal from 'sweetalert2'
 
 const EditUserProfile = ({history}) => { 
+  const Swal = require('sweetalert2')
   const [fetchFeedbackData, setFeedbackData] = useState("")
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
@@ -100,6 +102,23 @@ const EditUserProfile = ({history}) => {
         {personalAddress,phoneNumber},
         userprofileconfig
       );
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'You Have Successfully Updated Your User Profile!'
+      })
 
 
 

@@ -293,33 +293,29 @@ export default function StaffDashboard ({history}) {
                            </button>
                        </div>
 
-                       {/* <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
-                           <button>
-                           <a href='#'> My Grades</a>
-                            </button>
-                       </div> */}
+                     
 
-                       <div class="w-36 gap-1 h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       {/* <div class="w-36 gap-1 h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/staffreport'> View Report</a>
                             </button>
-                       </div>
+                       </div> */}
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
-                           <a href='/staffrecommendationform'> Staff</a>
+                           <a href='/staffrecommendationform'>Staff Topic Interest Form</a>
                             </button>
                        </div>
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
-                           <a href='/staffprojectgit '> View Groups</a>
+                           <a href='/staffproject'> View Groups</a>
                             </button>
                        </div>
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
-                           <a href='#'> Place Announcement</a>
+                           <a href='/staffplaceannouncement'> Place Announcement</a>
                             </button>
                        </div>
 
