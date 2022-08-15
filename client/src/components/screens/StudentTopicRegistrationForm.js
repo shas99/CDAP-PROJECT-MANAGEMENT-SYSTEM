@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2'
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const TopicRegistration = ({history}) => {
     const Swal = require('sweetalert2')
@@ -138,13 +139,22 @@ const TopicRegistration = ({history}) => {
     
         <>
         <div id="back">
+
         <Header/>
+       
+        <SideNavigationBar/>
+       
+       
         <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
+        {privateData} 
+
         &nbsp;&nbsp;&nbsp;&nbsp;
        
+        
+
         <button onClick={logOutHandler} id="logout">Log Out</button>
           </p>
+        
           
           <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
@@ -157,8 +167,11 @@ const TopicRegistration = ({history}) => {
       
           
     <div className="studentTopicgroup-screen">
-            
-          <div>        
+   
+           <div>
+
+         
+
           <form onSubmit={groupregisterHandler} className="studentTopicgroup-screen__form">
       <h3 className="studentTopic-screen__title">Topic Assessment Form</h3>
       {error && <span className="error-message">{error}</span>}
@@ -270,7 +283,9 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
+        
           </div>
+          
         {/* <label>
            Group ID:</label>
           <input type="text" 
@@ -279,8 +294,9 @@ const TopicRegistration = ({history}) => {
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} /> */}
           
-        
+         
           </div>
+          
           <div className="form-group">
 
 
@@ -298,7 +314,7 @@ const TopicRegistration = ({history}) => {
 
         
       </form>
-      </div>
+    </div>
           </div>
       
           <Footer/>
