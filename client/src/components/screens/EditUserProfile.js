@@ -147,9 +147,9 @@ const EditUserProfile = ({history}) => {
   <Header/>
   <SideNavigationBar page="UpdateProfile"/>
   <br/>
-      <h1 id="userprofilecaption">Edit My Profile</h1>
       
       
+      <div className="ml-[30rem] mt-[-50rem]">
       <div className="userprofileBox77">
       <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
         <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
@@ -160,19 +160,15 @@ const EditUserProfile = ({history}) => {
         <p className="userprofilecontent2"> {personalAddress}</p> 
         <p className="userprofilecontent2"> {phoneNumber}</p> 
       </div>
+      
       <br/>
-        {/* <form action="/single" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image"/>
-        <button type="submit">Submit</button>
-        </form> */}
-
-{/* <img src="images/Hamster.jpg"/> */}
+      
 
 
 
 
 
-     
+     <div className="ml-[2rem]">
       <form onSubmit={editprofilehandler} id="submissionForm" className="EditFormProfile">
       <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
@@ -189,15 +185,18 @@ const EditUserProfile = ({history}) => {
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phoneNumber} />
         
-        <button type="submit" className="btn btn-success" id="editUserButton">
+        <div className="ml-[8rem]">
+        <button type="submit" className="btn btn-success ml-[10rem]" id="editUserButton">
           Submit
         </button>
-
+        </div>
       </form>
+      </div>
    
       
      
-      {/* <Footer/> */}
+     
+      </div>
 </div>
  
     
