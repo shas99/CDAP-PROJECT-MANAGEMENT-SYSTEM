@@ -326,23 +326,36 @@ exports.addSubmission =async(req,res,next) => {
 
                 id = req.query.id
                 // id = "624c4bbc63e26a49b4e2d77b"
-                console.log(id+"ghlk")
+        
             
-                // if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
-                    
-                //     token = req.headers.authorization.split(" ")[1]
-                // }
+                const group = await Group.findById(id)
+                
             
-                // if(token =="null"){
-                //     logged(token,res)
-                // }
-                // else{
-                // const decoded = jwt.verify(token,process.env.JWT_SECRET)
-            
-            
-                const user = await User.findById(id)
+                
+// ***********************IMPORTANT************************************
+//Group members mayhave to be put into an array to make the number of group members dynamic        
+                 let member1 = group.member_1                   
+                 let member2 = group.member_2
+                 let member3 = group.member_3
+                 let member4 = group.member_4
+                 let member5 = group.member_5
+             
+                 let user1 = await User.find({studentID:member1})
+                 let user2 = await User.find({studentID:member2})
+                 let user3 = await User.find({studentID:member3})
+                 let user4 = await User.find({studentID:member4})
+                 let user5 = await User.find({studentID:member5})
+                 console.log("q")
+                console.log(user1+"1"+user2+"1"+user3+"1"+user4+"1"+user5+"1")
+                console.log("q")
+
+// ***************************************IMPORTANT**********************************
+//Submissions array should be made to contain ._id of the group in addition to the person who made it. Once that is complete This API code should be made so that it retreives group submission rather than retreiving individual submissions
+
+
+       
             // //use the batchID to retreive data with the batchID
-                const batch = await SubmissionPage.find(user.batchID)
+                const batch = await SubmissionPage.find(user2.batchID)
             //     console.log(batch)
                 try{
                     res.status(201).json({
