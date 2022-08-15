@@ -12,6 +12,7 @@ import Parser from 'html-react-parser';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
 
 
 
@@ -128,6 +129,7 @@ const SubmissionMilestones = ({history}) =>{
   <div id="back">
   
   <Header/>
+  <SideNavigationBar page="StudentMilestones"/>
   <br></br>
   <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
       <br/><br/>

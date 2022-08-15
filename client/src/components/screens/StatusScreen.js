@@ -5,6 +5,7 @@ import "./UserProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const Status = ({history}) => { 
   const [feedbackData, setFeedbackData] = useState([])
@@ -122,6 +123,7 @@ const Status = ({history}) => {
 
 <div className="userprofileClass">
   <Header/>
+  <SideNavigationBar page="StudentStatus"/>
   <br/>
 
 

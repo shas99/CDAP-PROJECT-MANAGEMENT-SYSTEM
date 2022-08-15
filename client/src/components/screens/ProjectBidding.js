@@ -4,7 +4,7 @@ import "./GroupScreen.css";
 import {useParams} from 'react-router-dom';
 import { useState } from "react";
 import "./GroupScreen.css";
-
+import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
 
 import "./ProjectBiddingScreen.css";
 export default function ProjectBidding() {
@@ -69,7 +69,7 @@ export default function ProjectBidding() {
     
     
     <div  className="bid-screen"> 
-     
+     <SideNavigationBar page="StudentViewYourAvailableProjects"/>
       {/* Project Details  */}
       <div className="projectdetails">
       <h1 className="projtitle"><b>Project Details</b></h1><br></br>
