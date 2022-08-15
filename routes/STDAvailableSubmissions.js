@@ -24,7 +24,7 @@ router.route("/addSubmission").post(addSubmission)
 
 router.route("/deleteSubmission").delete(DeleteSubmission)
 
-router.route("/viewSpecificSubmission").get(viewspecificSubmission)
+router.route("/viewSpecificSubmission").get(viewSpecificSubmission)
 
 router.route("/editSpecificSubmission").put(editSpecificSubmission)
 
