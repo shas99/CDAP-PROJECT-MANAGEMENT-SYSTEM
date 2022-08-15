@@ -3,6 +3,7 @@ import axios from "axios";
 import "./StudentTopicInterestingForm.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const StudentTopicInterestingForm = ({history}) => {
     const [error, setError] = useState("");
@@ -91,6 +92,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <>
         <div id="back">
         <Header/>
+        <SideNavigationBar page="StudentTopicInterestings"/>
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
         &nbsp;&nbsp;&nbsp;&nbsp;
