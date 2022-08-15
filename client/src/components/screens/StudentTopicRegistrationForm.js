@@ -142,7 +142,7 @@ const TopicRegistration = ({history}) => {
 
         <Header/>
        
-        <SideNavigationBar/>
+        <SideNavigationBar page="StudentTopicRegistrationForm"/>
        
        
         <p style={{color:"#FFF",textAlign:"right"}}>
