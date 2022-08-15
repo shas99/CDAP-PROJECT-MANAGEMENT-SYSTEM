@@ -7,8 +7,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { render } from "@testing-library/react";
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
+import Swal from 'sweetalert2'
 
 const MatchedSupervisors = ({history}) => {
+  const Swal = require('sweetalert2')
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
@@ -147,21 +149,47 @@ const MatchedSupervisors = ({history}) => {
            "Content-Type": "application/json",
          },
        };
-      
-       alert("Successfully Submited!")
+    
        const cd = localStorage.getItem("authToken")
        //console.log("PVT details: "+cd);
        try {
-         const { data } = await axios.post(
+
+          //SUCCESS SWEET ALERT MESSAGE
+          Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+
+              Swal.fire('Saved!', '', 'success')
+                 const { data } =  axios.post(
            "http://localhost:5000/api/AvailableProject/bid",
            { SelectedProject,SelectedSupervisors,cd },
            pconfig
            
          );
-         console.log(data)
-           alert("Submitted!")
+            } else if (result.isDenied) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
 
-         history.push("/");
+
+        
+        
+        //  const { data } = await axios.post(
+        //    "http://localhost:5000/api/AvailableProject/bid",
+        //    { SelectedProject,SelectedSupervisors,cd },
+        //    pconfig
+           
+        //  );
+        //  console.log(data)
+        //    alert("Submitted!")
+
+        
        } catch (error) {
          setError(error.response.data.error);
          setTimeout(() => {
