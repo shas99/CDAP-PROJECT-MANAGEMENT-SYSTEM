@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const { decode } = require('jsonwebtoken');
+const User = require('../models/User')
 
-const AvailableProject = require('../models/AvailableProject')
+
+const AvailableProject = require('../models/AvailableProject');
+const Supervisors = require('../models/Supervisor');
 
 //*******VIEW AVAILABLE PROJECTS API *******
 exports.viewAvailableProjects =async(req,res,next) => {
@@ -11,10 +16,12 @@ try{
     //console.log(availableProjects[1])// 
     const array = Object.values(availableProjects)
 
+    //need to add batch id attribute for model and filter relevent batch related projects
+
     const arrayproject = JSON.stringify(array).split(',')
     // console.log(arrayproject)
     // console.log(typeof arrayproject)
-    console.log(array)
+    //console.log(array+"back end array of projects")
     res.status(201).json({
         success: true,
         data: array
@@ -101,6 +108,48 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 };
 
 
+
+exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
+    console.log("Student recommendation api run")
+    const {SelectedProject,SelectedSupervisors,cd} = req.body
+    const Project = SelectedProject;
+    const SupervisorArr = SelectedSupervisors;
+    console.log(SupervisorArr)
+    let token = cd
+    
+         if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+             token = req.headers.authorization.split(" ")[1]
+         }
+
+        //console.log(" "+token+" ")
+          const decoded = jwt.verify(token,process.env.JWT_SECRET)
+          //console.log(decoded.id+"Decoded-")
+          //console.log("Decoded : "+decoded)
+          const user = await User.findById(decoded.id)
+          //console.log("User details -"+user)
+        //   console.log("Batch id: ",user.BatchID);
+        //   console.log("Group id: ",user.GroupID);
+          const BatchID = user.BatchID;
+          const GroupID = user.GroupID;
+        //   console.log("Group Details "+batchID+","+groupID)
+        const Approved = false;
+    
+    try{
+        for(let i = 0;i<SupervisorArr.length;i++){
+            let StaffID = SupervisorArr[i];
+            const user = await Supervisors.create({
+                StaffID,GroupID,BatchID,Approved, Project
+            })    
+        }
+        console.log("Student recommendation success")
+        // sendToken(user, 201, res)
+    }catch(error){
+        next(error)
+        console.log("Student recommendation error")
+    }
+}; 
+
 //******** UPDATE SPECIFIC PROJECT DETAILS  ******/
 
 exports.updateProjectDetails = async(req,res,next) => {
@@ -176,3 +225,4 @@ exports.createProjectDetails = async(req,res,next) => {
         console.log("Error in creating Project Details API");
     }
 }
+
