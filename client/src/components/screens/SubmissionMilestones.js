@@ -129,9 +129,11 @@ const SubmissionMilestones = ({history}) =>{
   <div id="back">
   
   <Header/>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
   <SideNavigationBar page="StudentMilestones"/>
-  <br></br>
-  <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
+  </div>
+  <br/>
+  <h1 id="caption" className="" style={{marginTop:"-850px"}}>RP Submissions Page {batchID}</h1>
       <br/><br/>
         
          <ul>
