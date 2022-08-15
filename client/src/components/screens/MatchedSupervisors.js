@@ -257,6 +257,8 @@ const MatchedSupervisors = ({history}) => {
 
 <br/><br/><br/><br/>
 
+{/* https://flowbite.com/docs/components/tables/ */}
+
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg w-[55rem] ml-[20rem]">
 <h1 className="text-4xl text-slate-300"> Pick Your Project</h1> <br/>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
