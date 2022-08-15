@@ -4,6 +4,7 @@ import "./PrivateScreen.css"
 import "./ViewMarks.css"
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 
 const ViewMarks = ({history}) =>{
@@ -56,8 +57,9 @@ const ViewMarks = ({history}) =>{
   ) :(
     <div className="view-feedback">
       <Header/>
+      <SideNavigationBar page="StudentViewMarks"/>
   <br/>
-      <h1 id="caption">My Marks</h1>
+      <h1 id="caption" style={{marginTop:"-850px"}}>My Marks</h1>
       <br/><br/>
       <div className="card">
       <div className="container">
@@ -94,7 +96,7 @@ const ViewMarks = ({history}) =>{
 
 
       <br/>
-      <Footer/>
+      {/* <Footer/> */}
       
 </div>
     
