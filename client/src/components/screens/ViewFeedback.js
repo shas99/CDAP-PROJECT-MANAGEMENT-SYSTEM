@@ -4,6 +4,7 @@ import "./ViewFeedback.css";
 // import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const ViewFeedback = ({history}) => { 
   const [fetchFeedbackData, setFeedbackData] = useState("")
@@ -63,6 +64,7 @@ const ViewFeedback = ({history}) => {
 
 <div className="view-feedback">
   <Header/>
+  <SideNavigationBar page="StudentFeedbacks"/>
   <br/>
       <h1 id="caption">My Feedbacks</h1>
       <br/><br/>

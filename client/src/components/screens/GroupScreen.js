@@ -5,7 +5,8 @@ import "./MatchedSupervisors.css";
 import "./GroupScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const GroupScreen = ({history}) => {
     const Swal = require('sweetalert2')
@@ -145,6 +146,7 @@ const GroupScreen = ({history}) => {
         <>
         <div id="back">
         <Header/>
+        <SideNavigationBar page="StudentGroups"/>
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
         &nbsp;&nbsp;&nbsp;&nbsp;

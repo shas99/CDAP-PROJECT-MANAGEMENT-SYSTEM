@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import React, { Component } from 'react'
-import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
+// import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
 
 export default class AvailableProjects extends Component {
 
@@ -33,7 +33,7 @@ export default class AvailableProjects extends Component {
     console.log('State: ', this.state);
     return (
       <div>AvailableProjects
-        <SideNavigationBar page="StudentViewYourAvailableProjects"/>
+        {/* <SideNavigationBar page="StudentViewYourAvailableProjects"/> */}
 
       {this.state.availableprojects}
       {console.log(this.state.availableprojects)}
