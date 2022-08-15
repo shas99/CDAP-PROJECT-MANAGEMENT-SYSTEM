@@ -59,7 +59,7 @@ const ViewMarks = ({history}) =>{
       <Header/>
       <SideNavigationBar page="StudentViewMarks"/>
   <br/>
-      <h1 id="caption">My Marks</h1>
+      <h1 id="caption" style={{marginTop:"-850px"}}>My Marks</h1>
       <br/><br/>
       <div className="card">
       <div className="container">
@@ -96,7 +96,7 @@ const ViewMarks = ({history}) =>{
 
 
       <br/>
-      <Footer/>
+      {/* <Footer/> */}
       
 </div>
     
