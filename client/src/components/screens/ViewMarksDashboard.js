@@ -4,7 +4,7 @@ import "./ViewMarksDashboard.css";
 import { Link } from "react-router-dom"
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faFileCircleCheck,faComment,faFile,faListCheck, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
@@ -48,6 +48,7 @@ const ViewMarksDashboard = ({history}) => {
         <>
         <div id = "back">
             <Header/>
+            <SideNavigationBar page="StudentGrades"/>
             <h1 id="caption">Welcome to your marks dashboard {privateData}</h1>
             <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
