@@ -50,6 +50,12 @@ const GroupSchema = new mongoose.Schema({//Group model
     name:{
         type: String
     },
+    staff:{
+        type: Array
+    },
+    bio:{
+        type:String
+    },
   
     resetPasswordToken: String,
     resetPasswordExpire: Date

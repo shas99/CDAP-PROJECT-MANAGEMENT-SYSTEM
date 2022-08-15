@@ -5,8 +5,10 @@ import "./EditProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
+import Swal from 'sweetalert2'
 
 const EditUserProfile = ({history}) => { 
+  const Swal = require('sweetalert2')
   const [fetchFeedbackData, setFeedbackData] = useState("")
   const [privateData, setPrivateData] = useState("");
   const [error, setError] = useState("");
@@ -101,6 +103,23 @@ const EditUserProfile = ({history}) => {
         userprofileconfig
       );
 
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: 'You Have Successfully Updated Your User Profile!'
+      })
+
 
 
       history.push("/");
@@ -117,25 +136,29 @@ const EditUserProfile = ({history}) => {
 
   
   return  error ? ( 
-  
+    
     <span className="error-message">{error}</span>
+  
   ) :
   (
-
+    
 <div className="userprofileClass">
   <Header/>
   <br/>
       <h1 id="userprofilecaption">Edit My Profile</h1>
       
       
-        
-        <p className="userprofilecontent1"> {fetchFeedbackData.email}</p> 
-        <p className="userprofilecontent2"> {fetchFeedbackData.username}</p> 
-        <p className="userprofilecontent1"> {fetchFeedbackData.address}</p> 
-        <p className="userprofilecontent2"> {fetchFeedbackData.phoneNumber}</p> 
+      <div className="userprofileBox77">
+      <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Bio</h2>
+        <p className="userprofilecontent1"> User Email: &nbsp;&nbsp;&nbsp;{fetchFeedbackData.email}</p> 
+        <p className="userprofilecontent2"> Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.username}</p> 
+        <p className="userprofilecontent1"> Address: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.address}</p> 
+        <p className="userprofilecontent2"> Phone Number: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{fetchFeedbackData.phoneNumber}</p> 
        
         <p className="userprofilecontent2"> {personalAddress}</p> 
         <p className="userprofilecontent2"> {phoneNumber}</p> 
+      </div>
+      <br/>
         {/* <form action="/single" method="POST" enctype="multipart/form-data">
         <input type="file" name="image"/>
         <button type="submit">Submit</button>
@@ -144,20 +167,22 @@ const EditUserProfile = ({history}) => {
 {/* <img src="images/Hamster.jpg"/> */}
 
 
-<div className="EditUserProfile">
+
+
+
      
-      <form onSubmit={editprofilehandler} id="submissionForm">
+      <form onSubmit={editprofilehandler} id="submissionForm" className="EditFormProfile">
       <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
-          className = "input" style={{color:"white"}}
+          className = "input" style={{color:"white",borderColor:"royalblue"}}
           name="name" 
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} />
-          <br></br><br/>
+          
 
     <label className="PhoneNames">Phone Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
-          className = "input" style={{color:"white"}}
+          className = "input" style={{color:"white",borderColor:"royalblue"}}
           name="name" 
           onChange={(e) => setPhoneNumber(e.target.value)}
           value={phoneNumber} />
@@ -167,7 +192,7 @@ const EditUserProfile = ({history}) => {
         </button>
 
       </form>
-    </div>
+   
       
      
       {/* <Footer/> */}

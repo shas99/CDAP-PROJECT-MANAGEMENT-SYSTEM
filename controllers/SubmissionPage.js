@@ -5,7 +5,7 @@ const SubmissionPage = require('../models/SubmissionPage')
 const User = require('../models/User')
 const jwt = require("jsonwebtoken");
 const Form = require("../models/SubmissionForm")
-
+const Group = require('../models/Group')
 
 
 
@@ -107,11 +107,31 @@ exports.viewspecificSubmission = async(req,res,next) => {
 
 //Create entries for submissions
 exports.submissionForm = async(req,res,next) => {
-    const {entries} = req.body
+    const {entries,heading} = req.body
+    let token//to retreive username in backend
+
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+    console.log(token)
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+    const id = decoded.id
+
+    const user = await User.findById(id)
+    const temp = user.heading
+    
+    temp.push(heading)
+    console.log(temp)
+    user.heading = temp
+    user.save()
+    studentID = decoded.id;
+    
     try{
         const form = await Form.create({
-            entries
+            entries,heading,studentID
         })
+        // console.log(heading)
         res.status(201).json({
             success: true,
             data:form
@@ -140,6 +160,7 @@ exports.addSubmission =async(req,res,next) => {
     }
     
     };
+
 //Delete Submissions
     exports.DeleteSubmission =async(req,res,next) => {
         const {SubmissionID} = req.body
@@ -163,12 +184,12 @@ exports.addSubmission =async(req,res,next) => {
     exports.viewSpecificSubmission =async(req,res,next) => {
             
         const SubmissionID = req.query.SubmissionID
-        console.log(SubmissionID)
+        
             try{
             
             
                 const submission = await SubmissionPage.findById(SubmissionID)
-
+                console.log(submission+"testing")
 
                 
                 res.status(201).json({
@@ -181,7 +202,31 @@ exports.addSubmission =async(req,res,next) => {
                 res.status(500).json({success:false, error:error.message})
             }
             
-            };
+    };
+
+
+    exports.StaffViewSubmission =async(req,res,next) => {
+            
+        const SubmissionID = req.query.SubmissionID
+        
+            try{
+            
+            
+                const submission = await Form.findById(SubmissionID)
+                console.log(submission+"testing")
+
+                
+                res.status(201).json({
+                    success: true,
+                    data: submission
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+    };
 
     exports.editSpecificSubmission =async(req,res,next) => {
             
@@ -220,3 +265,54 @@ exports.addSubmission =async(req,res,next) => {
             
             };
 
+            exports.viewSpecificSubmissionStudentID =async(req,res,next) => {
+                // const {id} = req.body
+                // let token = req.query.id
+                // const id = "626fad0eb10dcb7431140ab3"
+                // console.log("sfdjsljfl"+id)
+               
+
+                // if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+                    
+                //     token = req.headers.authorization.split(" ")[1]
+                // }
+                // console.log(token)
+                // const decoded = jwt.verify(token,process.env.JWT_SECRET)
+                // const id = decoded.id
+
+                const id = req.query.id
+                console.log(id)
+
+                
+                try{
+                    // ***********************IMPORTANT************************************
+                    //Group members mayhave to be put into an array to make the number of group members dynamic
+                        const group = await Group.findById(id)
+                        //retreives the user data of all the members of the group
+                        const user = await User.find({$or: [{studentID:group.member_1},{studentID:group.member_2},{studentID:group.member_3},{studentID:group.member_4},{studentID:group.member_5}]})
+                        
+                       
+                            // const form = await Form.find({studentID:user[0]._id})
+                            const arrayID = []
+                            for(let i=0;i<user.length;i++){
+                                arrayID.push({studentID:user[i]._id})
+                            }
+                            console.log(arrayID)
+                            
+                            //retreives the forms filled by all members of the group
+                        const form = await Form.find({$or: arrayID})
+                        console.log(form+"testingIDWORDS")
+                       console.log("works")
+                        // console.log(form)
+                        
+                        res.status(201).json({
+                            success: true,
+                            data: form
+                        })
+                        
+                    
+                    }catch(error){
+                        res.status(500).json({success:false, error:error.message})
+                    }
+                    
+            };

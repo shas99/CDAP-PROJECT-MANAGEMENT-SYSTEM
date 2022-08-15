@@ -1,4 +1,4 @@
-import '../../styles/main.css';
+// import '../../styles/main.css';
 import './SubmissionsM.css';
 import { format } from 'date-fns'
 
@@ -32,6 +32,7 @@ const Submission = ({history}) =>{
   const [id,setID] = useState([])
   const [flow,setFlow] = useState(0)
   const [pointer,setPointer] = useState(0)
+  const [heading,setHeading] = useState("")
 
    const params =useParams();
    const subm = params.id;
@@ -77,7 +78,7 @@ const Submission = ({history}) =>{
         setSubmissionsData(data.data.Fields);
         const sub = data.data.Fields;
         
-
+        setHeading(data.data.Heading);
 
         //https://www.w3schools.com/react/react_forms.asp
         for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
@@ -90,14 +91,14 @@ const Submission = ({history}) =>{
             setInput(label => [...label,sub[i]])
             if(sub[i] == "Normal" || sub[i] == "normal"){
           
-              formElements.push(<div><label>{sub[i-1]}:<input type="text" name={sub[i-1]} value={input.value} onChange={handleChange}></input></label><br/><br/></div>)
+              formElements.push(<div id='content'><label>{sub[i-1]}:<div className='centerTxtbox'><input type="text" name={sub[i-1]} value={input.value} onChange={handleChange} className="textbox"></input></div></label><br/><br/></div>)
             }else if(sub[i] == "Rich"|| sub[i] == "rich"){
               
               console.log(i-1)
               setTemp(sub[i-1])
 
 
-              formElements.push(<div><button name={sub[i-1]} onClick={handleClick}>{sub[i-1]}</button></div>)
+              formElements.push(<div><button name={sub[i-1]} onClick={handleClick} className="blueButton">{sub[i-1]}</button></div>)
 
             }
           }
@@ -170,17 +171,22 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
   const config = {
     header: {
       "Content-Type": "application/json",
+      Authorization:`Bearer ${localStorage.getItem("authToken")}`,
     },
   };
 
   try {
     const { data } = await axios.post(
       "/api/STDAvailableSubmissions/submissionForm",
-      {entries},
-      config
+      {entries,heading},
+      {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("authToken")}`
+        }
+      }
     );
 
-
+    alert("Successfully submitted")
     history.push("/");
   } catch (error) {
     setError(error.response.data.error);
@@ -218,7 +224,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
               
               /></label>
               
-              <button onClick={reduce}>Back</button>
+              <button onClick={reduce} className="blueButton">Back</button>
              
     {console.log(entries[pointer])}
     {console.log(entries)}
@@ -241,7 +247,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
 <br/>
 
 <div>{formElements}</div>
-<button onClick={submitHandler}>Submit</button>
+<button onClick={submitHandler} className="greenButton">Submit</button>
 {console.log(entries)}
 
           <br></br>

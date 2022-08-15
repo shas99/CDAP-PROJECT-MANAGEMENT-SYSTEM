@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from "react";
 import axios from 'axios';
-export default function PlaceAnnouncement() {
+import Swal from 'sweetalert2'
 
+
+export default function PlaceAnnouncement() {
+// CommonJS
+const Swal = require('sweetalert2')
     const [title, setTitle] = useState("");
     const [description,setDescription] = useState("")
     const [announcementDate,setDate] = useState("");
@@ -17,12 +21,26 @@ export default function PlaceAnnouncement() {
         e.preventDefault();
         try {
           
-          const { data } = await axios.put(
-            `/api/announcement/setAnnouncement/${announcementID}`,
-            { title,description,announcementDate,deadline }
-            );
-            alert("Announcement Placed")
-          console.log("Here is the data"+time)
+          
+            //SUCCESS SWEET ALERT MESSAGE
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              /* Read more about isConfirmed, isDenied below */
+              if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+                const { data } =  axios.put(
+                  `/api/announcement/setAnnouncement/${announcementID}`,
+                  { title,description,announcementDate,deadline }
+                  );
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+            })
          
         } catch (error) {
           // setError(error.response.data.error);  
@@ -40,13 +58,13 @@ export default function PlaceAnnouncement() {
 
 
   return (
-    <div className='bg-gray-900 w-130  h-[50rem] ' >
+    <div className='bg-gray-900 w-130  h-[55rem] ' >
         <br/><br/><br/><br/> <br/> 
-        <h1 className=' ml-[32rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
+        <h1 className=' ml-[37rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
 
         {/* SVG ICON */}
        
-        <div class="ml-[54rem] mt-[-3rem]">
+        <div class="ml-[60rem] mt-[-3rem]">
                                                                                     
                   <svg className="w-43 fill-indigo-500 " xmlns="http://www.w3.org/2000/svg" x="200px" y="550px " 
                          width="52px" height="52px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" >

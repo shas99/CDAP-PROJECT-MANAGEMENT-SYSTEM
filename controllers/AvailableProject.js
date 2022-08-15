@@ -108,6 +108,7 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 };
 
 
+
 exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
     console.log("Student recommendation api run")
     const {SelectedProject,SelectedSupervisors,cd} = req.body
@@ -148,3 +149,80 @@ exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
         console.log("Student recommendation error")
     }
 }; 
+
+//******** UPDATE SPECIFIC PROJECT DETAILS  ******/
+
+exports.updateProjectDetails = async(req,res,next) => {
+    const relevantProjectID =req.params.id;
+    const {projectName, projectDescription,projectType,projectSupervisedBy} = req.body
+
+    try{
+        const projectDetails = await AvailableProject.findById({
+            _id:relevantProjectID,
+           
+        })
+        // placedBid.push({allBiddings:bidPlacedGroup}) push is not a function 
+
+        if(!projectDetails){
+            return next(new ErrorResponse("Project Details not found",400))
+        }
+        // console.log(id)
+        projectDetails.projectName= projectName
+        projectDetails.projectDescription= projectDescription
+        projectDetails.projectType= projectType
+        projectDetails.projectSupervisedBy= projectSupervisedBy
+     
+       
+
+        await projectDetails.save()
+        res.status(201).json({
+            success: true,
+            data: "Project Details Updated Success"
+            
+        })
+        console.log("Success in setting Update Proect Details API");
+    }catch(error){
+        next(error)
+        console.log("Error in Update Project Details API");
+    }
+
+}
+
+//******** DELETE SPECIFIC PROJECT DETAILS  ******/
+exports.deleteProjectDetails = async(req,res,next) => {
+    AvailableProject.findByIdAndRemove(req.params.id).exec((err,deletedProject)=>{
+
+        if(err) return res.status(400).json({
+            
+        message :"Unsuccessful delete",err 
+    });
+        
+        return res.status(200).json({
+             message:"Success delete",  deletedProject
+        });
+    });
+}
+
+
+//******** CREATE PROJECT DETAILS  ******/
+exports.createProjectDetails = async(req,res,next) => {
+    const {projectName, projectDescription,projectType,projectSupervisedBy} = req.body
+    const newProject = new AvailableProject({
+        projectName,
+        projectDescription,
+        projectType,
+        projectSupervisedBy
+    })
+    try{
+        const projectDetails = await newProject.save()
+        res.status(201).json({
+            success: true,
+            data: projectDetails
+        })
+        console.log("Success in creating Project Details API");
+    }catch(error){
+        next(error)
+        console.log("Error in creating Project Details API");
+    }
+}
+

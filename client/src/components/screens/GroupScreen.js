@@ -5,8 +5,10 @@ import "./MatchedSupervisors.css";
 import "./GroupScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Swal from 'sweetalert2'
 
 const GroupScreen = ({history}) => {
+    const Swal = require('sweetalert2')
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
 
@@ -18,6 +20,7 @@ const GroupScreen = ({history}) => {
     const [member_5, setMember5] = useState("");
     const [group,setgroup] = useState("")
     const [fetchGroupData, setGroupData] = useState("");
+    const [bio,setBio] = useState("")
     useEffect(() => {
         const fetchGroupData = async () => {
             const groupconfig = {
@@ -36,6 +39,8 @@ const GroupScreen = ({history}) => {
               console.log("THis is group aarray "+group1)
               setgroup(group1)
               setGroupData(groupArray[0]);
+              setBio(groupArray[2])
+
             } catch (error) {
       
               // setError("Oops couldn't retreive group data");//fix this
@@ -88,6 +93,23 @@ const GroupScreen = ({history}) => {
             { member_1,member_2,member_3,member_4,member_5 },
             config
           );
+
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'You Have Successfully Registered Your Group!'
+          })
     
     
     
@@ -128,7 +150,6 @@ const GroupScreen = ({history}) => {
         <p style={{color:"#FFF",textAlign:"right"}}>
         {privateData}  
         &nbsp;&nbsp;&nbsp;&nbsp;
-       
         <button onClick={logOutHandler} id="logout">Log Out</button>
           </p>
           
@@ -137,12 +158,15 @@ const GroupScreen = ({history}) => {
           
           </p>
           {fetchGroupData != "" &&
-          <div id="card">
+          <div id="card" style={{height:"30rem"}}>
 
-            <h1 id="caption">Your group members are</h1>
+            <h1 id="caption" style={{color:"#8256D0"}}>Your group members are</h1>
             <hr id="hr"></hr>
             <p id="List">
-            {listHandler()}
+            <div className="grouplists">{listHandler()}</div><br/>
+            <p className="BioText">Bio</p>
+            <br/>
+            <p>{bio}</p>
             </p>
           </div>
           
@@ -154,14 +178,14 @@ const GroupScreen = ({history}) => {
           <div className="group-screen">
             
           <div>        
-          <form onSubmit={groupregisterHandler} className="group-screen__form">
+          <form onSubmit={groupregisterHandler} className="groupprofile-screen__form" style={{color:"white",boxShadow:"box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2),",background:"#161b22",borderRadius:"5px",borderWidth:"2px",borderStyle:"solid",borderColor:"#21262d",padding:"1.5rem",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontWeight:"bold",fontSize:"large",marginTop:"-300px"}}>
       <h3 className="login-screen__title">Group registration</h3>
       {error && <span className="error-message">{error}</span>}
       <div className="form-group">
         <label>
-           Member 1:</label>
+           Member 1 - Student ID:</label><br/><br/>
           <input type="text" 
-          className = "input"
+          className = "input" id="groupFormInput"
           name="name" 
           onChange={(e) => setMember1(e.target.value)}
           value={member_1} />
@@ -170,8 +194,8 @@ const GroupScreen = ({history}) => {
         </div>
         <div className="form-group">
         <label>
-           Member 2:</label>
-          <input type="text" 
+           Member 2 - Student ID:</label><br/><br/>
+          <input type="text"  id="groupFormInput"
           name="name" 
           className = "input"
           onChange={(e) => setMember2(e.target.value)}
@@ -181,8 +205,8 @@ const GroupScreen = ({history}) => {
           </div>
           <div className="form-group">
         <label>
-           Member 3:</label>
-          <input type="text" 
+           Member 3 - Student ID:</label><br/><br/>
+          <input type="text"  id="groupFormInput"
           name="name" 
           className = "input"
           onChange={(e) => setMember3(e.target.value)}
@@ -191,8 +215,8 @@ const GroupScreen = ({history}) => {
                   </div>
                   <div className="form-group">
         <label>
-           Member 4:</label>
-          <input type="text" 
+           Member 4 - Student ID:</label><br/><br/>
+          <input type="text"  id="groupFormInput"
           name="name" 
           className = "input"
           onChange={(e) => setMember4(e.target.value)}
@@ -201,8 +225,8 @@ const GroupScreen = ({history}) => {
                   </div>
                   <div className="form-group">
         <label>
-           Member 5:</label>
-          <input type="text" 
+           Member 5 - Student ID:</label><br/><br/>
+          <input type="text"  id="groupFormInput"
           name="name"
           className = "input"
           onChange={(e) => setMember5(e.target.value)}
@@ -210,7 +234,7 @@ const GroupScreen = ({history}) => {
         
         </div>
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
+      <button type="submit" className="btn btn-primary1" id="groupProfileButton">
           Group Registration
         </button>
 

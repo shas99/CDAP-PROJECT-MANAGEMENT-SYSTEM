@@ -103,13 +103,13 @@ const StudentTopicInterestingForm = ({history}) => {
           
           </p>
         
-           <h1 id="caption">Topic Interestings</h1>         
+           <h1 id="TopicInterestingscaption">Topic Interestings</h1>         
           
-          <div className="group-screen" style={{height:"70rem"}}>
+          <div className="group-screen" id="TopicInterestingsForm" style={{height:"70rem"}}>
             
-          <div>        
-          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",maxHeight:"60rem",marginTop:"-6rem"}}>
-      <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.4rem"}}>Topic Interestings Form</h3>
+          <div style={{fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>        
+          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",fontsize:"30px",maxHeight:"70rem",marginTop:"-400px",width:"1000px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>
+      <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.3rem"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group" style={{paddingTop:"1rem"}}>
@@ -124,9 +124,9 @@ const StudentTopicInterestingForm = ({history}) => {
         
         </div>
         <br/>
-        <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Tell us your project Interestings<em>(This will help you to get suggestd most interesting projects as suggestions)</em></p><br/>
+        <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Tell us your project Interestings<em>(This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
         <div className="form-group">
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
           <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -138,7 +138,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -150,7 +150,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -161,7 +161,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -172,7 +172,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -183,7 +183,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"
@@ -194,7 +194,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>
 
         <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",fontWeight:"normal"}}>7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
+        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
         <input type="range" style={{width:"80%"}}
           max="10"
           min="1"

@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 
-const {viewAvailableSubmissions,viewBatchID,viewspecificSubmission,submissionForm,addSubmission,DeleteSubmission,editSpecificSubmission} = require('../controllers/SubmissionPage')
+const {viewAvailableSubmissions,viewBatchID,viewspecificSubmission,submissionForm,addSubmission,DeleteSubmission,editSpecificSubmission,viewSpecificSubmission,viewSpecificSubmissionStudentID,StaffViewSubmission} = require('../controllers/SubmissionPage')
 
 
 
@@ -28,5 +28,8 @@ router.route("/deleteSubmission").delete(DeleteSubmission)
 
 router.route("/editSpecificSubmission").put(editSpecificSubmission)
 
+router.route("/viewSpecificSubmissionStudentID").get(viewSpecificSubmissionStudentID)
+
+router.route("/StaffViewSubmission").get(StaffViewSubmission)
 
 module.exports = router

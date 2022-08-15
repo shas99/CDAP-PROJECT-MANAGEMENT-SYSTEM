@@ -228,7 +228,7 @@ const EditSubmission = async (e) => {
 const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
-    display.push(<li>{Math.ceil((i+1)/2)}{Fields[i]} : {Fields[i+1]}</li>)
+    display.push(<li>{Math.ceil((i+1)/2)}&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
       
     i++
   }
