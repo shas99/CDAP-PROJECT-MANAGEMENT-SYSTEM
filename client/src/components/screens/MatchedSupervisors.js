@@ -192,12 +192,15 @@ const MatchedSupervisors = ({history}) => {
       ) : ( 
     
         <>
-        <div className="bg-gray-700 h-[75rem]">
+        <div className="bg-gray-900 h-[75rem]">
         <Header/>
         <SideNavigationBar page="MatchedSupervisors"/>
+
+        
         {/* Table for Supervisor select */}
-         
+        <form onSubmit={SubmitBidding}>  
 <div class="overflow-x-auto shadow-md sm:rounded-lg w-[50rem] ml-[20rem] mt-[-50rem]">
+<h1 className="text-4xl text-slate-300"> Choose Your Supervisor</h1> <br/>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -214,50 +217,20 @@ const MatchedSupervisors = ({history}) => {
               
             </tr>
         </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="py-4 px-6">
-                    Sliver
-                </td>
-                <td class="py-4 px-6">
-                    Laptop
-                </td>
-                
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="py-4 px-6">
-                    White
-                </td>
-                <td class="py-4 px-6">
-                    Laptop PC
-                </td>
-               
-            </tr>
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="py-4 px-6">
-                    Black
-                </td>
-                <td class="py-4 px-6">
-                    Accessories
-                </td>
-               
-            </tr>
-        </tbody>
+        {SupervisorName.map (supervisor => 
+                  <tr>
+                    <td className="py-4 px-6">{supervisor[1][1]}</td>
+                    <td className="w-10 items-center py-4 px-8">{supervisor[1][2]}/{batchType}</td>
+                    <td className="w-10 items-center py-4 px-8" ><input type="checkbox"  value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input></td>
+                  </tr>
+                  )}
     </table>
 </div>
 
 <br/><br/><br/><br/>
 
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg w-[55rem] ml-[20rem]">
+<h1 className="text-4xl text-slate-300"> Pick Your Project</h1> <br/>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-white-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -268,94 +241,49 @@ const MatchedSupervisors = ({history}) => {
                     Project Description
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Availability 
+                Project Category
                 </th>
                 <th scope="col" class="py-3 px-6">
-                    Project Category
+                   Availability
                 </th>
                
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="py-4 px-6">
-                    Sliver
-                </td>
-                <td class="py-4 px-6">
-                    Laptop
-                </td>
-                <td class="py-4 px-6">
-                    $2999
-                </td>
+          
+               {Projects.map (project =>{  
+                  if(project[1].projectStatus == false){
+                    return(
+                    <tr>
+                       <td className="py-4 px-6">{project[1].projectName}</td>
+                       <td>{project[1].projectDescription}</td>
+                      <td>{project[1].projectType}</td>
+                      <td className="w-10 items-center py-4 px-12" >
+                        <input type="radio" name="project" value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)}/> 
+                      </td>
+                    </tr>
+                    )
+                  }else{
+                    return(
+                    <tr>
+                     <td className="py-4 px-6 w-[23rem] text-s">{project[1].projectName}</td>
+                       <td className="py-4 px-6 w-[59rem] text-xs">{project[1].projectDescription}</td>
+                      <td className="py-2 px-2 w-[19rem] text-s">{project[1].projectType}</td>
+                      <td className="w-10 items-center py-4 px-8" >
+                        Taken 
+                      </td>
+                    </tr>
+                    )
+                  }                          
+                               
+                  })}
                 
-            </tr>
-            <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="py-4 px-6">
-                    White
-                </td>
-                <td class="py-4 px-6">
-                    Laptop PC
-                </td>
-                <td class="py-4 px-6">
-                    $1999
-                </td>
-               
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="py-4 px-6">
-                    Black
-                </td>
-                <td class="py-4 px-6">
-                    Accessories
-                </td>
-                <td class="py-4 px-6">
-                    $99
-                </td>
-               
-            </tr>
-            <tr class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Google Pixel Phone
-                </th>
-                <td class="py-4 px-6">
-                    Gray
-                </td>
-                <td class="py-4 px-6">
-                    Phone
-                </td>
-                <td class="py-4 px-6">
-                    $799
-                </td>
-                
-            </tr>
-            <tr>
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple Watch 5
-                </th>
-                <td class="py-4 px-6">
-                    Red
-                </td>
-                <td class="py-4 px-6">
-                    Wearables
-                </td>
-                <td class="py-4 px-6">
-                    $999
-                </td>
-               
-            </tr>
         </tbody>
     </table>
 </div>
+<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2">Place Bid</button>
 
+</form>
 
 
 
