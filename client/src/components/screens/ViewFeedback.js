@@ -64,9 +64,11 @@ const ViewFeedback = ({history}) => {
 
 <div className="view-feedback">
   <Header/>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
   <SideNavigationBar page="StudentFeedbacks"/>
+  </div>
   <br/>
-      <h1 id="caption">My Feedbacks</h1>
+      <h1 id="caption" style={{marginTop:"-875px"}}>My Feedbacks</h1>
       <br/><br/>
       <div className="card">
       <div className="container">
