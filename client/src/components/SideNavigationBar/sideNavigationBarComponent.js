@@ -123,7 +123,7 @@ export default function SideNavigationBar({page}) {
                         </a>
                     </div>
                 </div>
-                <a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700 " >
+                <a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700">
                     <div class="border flex px-6 py-1 rounded-lg flex items-center" onClick={logOutHandler}>
                         <span class="ml-2 text-sm font-medium w-16">Log Out</span>
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 25" stroke="currentColor">

@@ -90,36 +90,42 @@ const StudentTopicInterestingForm = ({history}) => {
       ) : ( 
     
         <>
+        
         <div id="back">
         <Header/>
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="StudentTopicInterestings"/>
-        <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
+        </div>
+        
+        {/* <p style={{color:"#FFF",textAlign:"right"}}>
+        {privateData}   */}
         &nbsp;&nbsp;&nbsp;&nbsp;
        
-        <button onClick={logOutHandler} id="logout">Log Out</button>
-          </p>
-          
+        {/* <button onClick={logOutHandler} id="logout">Log Out</button>
+          </p> */}
+         
           <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
           </p>
-        
-           <h1 id="TopicInterestingscaption">Topic Interestings</h1>         
+         
+           <h1 id="TopicInterestingscaption" style={{marginTop:"-900px"}}>Topic Interestings</h1>         
           
-          <div className="group-screen" id="TopicInterestingsForm" style={{height:"70rem"}}>
+          <div className="group-screen" id="TopicInterestingsForm" style={{height:"80rem"}}>
             
           <div style={{fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>        
-          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",fontsize:"30px",maxHeight:"70rem",marginTop:"-400px",width:"1000px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>
-      <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.3rem"}}>Topic Interestings Form</h3>
+          
+          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",fontsize:"30px",maxHeight:"70rem",marginTop:"-400px",width:"1000px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif", height:"800px"}}>
+      
+      <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.3rem", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
-      <div className="form-group" style={{paddingTop:"1rem"}}>
-        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"normal"}}>Student ID:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div className="form-group" style={{paddingTop:"1rem", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>
+        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"bold", margin:"0 auto", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif", fontSize:"large"}}>Student ID:</label><br/><br/>
+       
         
           <input type="text" 
-          className = "input" style={{height:"0.5rem",width:"20rem",color:"black"}}
+          className = "input" style={{height:"50px",width:"500px",color:"black", margin:"0 auto",color:"white"}}
           name="name" 
           onChange={(e) => setStudent_ID(e.target.value)}
           value={student_ID} />
@@ -207,7 +213,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>  
 
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button" style={{marginTop:"1rem",textAlign:"center"}}>
+      <button type="submit" className="btn btn-primary1" id="Log1Button" style={{marginTop:"-25px",textAlign:"center"}}>
           Submit
         </button>
 
