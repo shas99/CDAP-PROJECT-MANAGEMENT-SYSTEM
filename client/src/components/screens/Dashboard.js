@@ -158,11 +158,11 @@ export default function Dashboard ({history}) {
                             </svg>
                             <span class="ml-2 text-sm font-medium">Milestones</span>
                         </a>
-                        <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700" href="#">
+                        <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700" href="/status">
                             <svg class="w-6 h-6 stroke-current"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                             </svg>
-                            <span class="ml-2 text-sm font-medium">Settings</span>
+                            <span class="ml-2 text-sm font-medium">Status</span>
                         </a>
                         <a class="relative flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700" href="#">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -279,7 +279,11 @@ export default function Dashboard ({history}) {
 {/*  Grid Buttons */}
                 <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
 
-                      
+                      <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                           <button>
+                           <a href='/matchedsupervisors'> Matched Supervisors</a>
+                            </button>
+                       </div>
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
@@ -322,7 +326,7 @@ export default function Dashboard ({history}) {
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
-                           <a href='/loginNew'> Submit File</a>
+                           <a href='/submissionmilestone'> Submit File</a>
                             </button>
                        </div>
 

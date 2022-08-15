@@ -99,7 +99,7 @@ import CoordinatorViewAvailableProjects from "./components/screens/CoordinatorVi
 import UpdateProjectDetails from "./components/screens/UpdateProjectDetails";
 import CreateNewProject from "./components/screens/CreateNewProject";
 import ViewStaffForm from "./components/screens/viewStaffFormScreen";
-
+import PageNotFound from "./components/screens/PageNotFound";
 
 
 const App = () => {
@@ -233,6 +233,16 @@ const App = () => {
           <Route exact path="/createNewProject" component={CreateNewProject}/>
           <Route exact path="/viewStaffForm/:id" component={ViewStaffForm}/>
           
+
+
+
+
+
+
+
+
+          {/* Routes added under this might not work. Please add your routes above this route           */}
+          <Route path="*" component={PageNotFound}/>
         </Switch>
 
       </div>

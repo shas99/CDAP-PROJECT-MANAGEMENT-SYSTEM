@@ -8,10 +8,11 @@ import axios from "axios";
 import Header from "../Header/Header";
 import { Batch } from 'aws-sdk';
 
-import Parser from 'html-react-parser';
+//import Parser from 'html-react-parser';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import SideNavigationBar from '../SideNavigationBar/sideNavigationBarComponent';
 
 
 
@@ -128,8 +129,11 @@ const SubmissionMilestones = ({history}) =>{
   <div id="back">
   
   <Header/>
-  <br></br>
-  <h1 id="caption" className="">RP Submissions Page {batchID}</h1>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+  <SideNavigationBar page="StudentMilestones"/>
+  </div>
+  <br/>
+  <h1 id="caption" className="" style={{marginTop:"-850px"}}>RP Submissions Page {batchID}</h1>
       <br/><br/>
         
          <ul>
@@ -138,8 +142,9 @@ const SubmissionMilestones = ({history}) =>{
          {console.log("SubmissionsData")}
         {SubmissionsData.map(submission => {
           if(batchID == submission.BatchID && submission.visibility == true){
-          return (
-                     
+
+          
+            return (
 
             
             <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
@@ -149,7 +154,7 @@ const SubmissionMilestones = ({history}) =>{
               </div>
               <div id="content">
               <br></br><br></br>
-              <li className="des"><p>{Parser(submission.Description)}</p></li>
+              <li className="des"><p>{submission.Description}</p></li>
               <li className="link"><p>{submission.SubmissionPageLink}</p></li><br></br>
               </div>
               <div className="submitbtn" style={{backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />

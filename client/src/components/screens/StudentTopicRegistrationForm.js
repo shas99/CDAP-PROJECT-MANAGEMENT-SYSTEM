@@ -7,8 +7,11 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Swal from 'sweetalert2'
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const TopicRegistration = ({history}) => {
+    const Swal = require('sweetalert2')
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
     // const [fetchGroupData, setGroupData] = useState("")
@@ -96,6 +99,23 @@ const TopicRegistration = ({history}) => {
             { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
             config
           );
+
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'You Have Successfully Posted A Topic Registration Form'
+          })
     
     
     
@@ -119,27 +139,39 @@ const TopicRegistration = ({history}) => {
     
         <>
         <div id="back">
+
         <Header/>
-        <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="StudentTopicRegistrationForm"/>
+       </div>
+       
+        {/* <p style={{color:"#FFF",textAlign:"right"}}>
+        {privateData}  */}
+
         &nbsp;&nbsp;&nbsp;&nbsp;
        
-        <button onClick={logOutHandler} id="logout">Log Out</button>
-          </p>
+        
+
+        {/* <button onClick={logOutHandler} id="logout">Log Out</button> */}
+          {/* </p> */}
+        
           
-          <p style={{color:"#FFF"}}>
+          {/* <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
-          </p>
+          </p> */}
         
-           <h1 id="studentTopiccaption">Project Topic Assessment</h1>
+           <h1 id="studentTopiccaption" style={{marginTop:"-850px"}}>Project Topic Assessment</h1>
            <br/>
            
       
           
     <div className="studentTopicgroup-screen">
-            
-          <div>        
+   
+           <div>
+
+         
+
           <form onSubmit={groupregisterHandler} className="studentTopicgroup-screen__form">
       <h3 className="studentTopic-screen__title">Topic Assessment Form</h3>
       {error && <span className="error-message">{error}</span>}
@@ -251,7 +283,9 @@ const TopicRegistration = ({history}) => {
         }}
         />
         <br/>
+        
           </div>
+          
         {/* <label>
            Group ID:</label>
           <input type="text" 
@@ -260,8 +294,9 @@ const TopicRegistration = ({history}) => {
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} /> */}
           
-        
+         
           </div>
+          
           <div className="form-group">
 
 
@@ -279,7 +314,7 @@ const TopicRegistration = ({history}) => {
 
         
       </form>
-      </div>
+    </div>
           </div>
       
           <Footer/>

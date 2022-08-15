@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./EnterProgressPresentation1Marks.css";
 import Header from "../Header/Header";
+import Swal from 'sweetalert2'
 
 const EnterProgressPresentation1Marks = ({history}) => {
+    const Swal = require('sweetalert2')
     const [error,setError]= useState("");
     const [privateData, setPrivateData] = useState("");
     const [groupID, setgroupID]= useState("");
@@ -89,6 +91,25 @@ const EnterProgressPresentation1Marks = ({history}) => {
                 "/api/staffPrivate/addprogresspresentation1marks",
                 {groupID, studentIDs, studentnames, provengapmarks1, provengapmarks2, capabilitymarks1, capabilitymarks2, implementationmarks1, implementationmarks2, implementationmarks3, implementationmarks4, implementationmarks5,communicationmarks1,communicationmarks2,commercializationmarks,extrafeedback,recommendation,examiner1,examiner2, moderator,enterprogresspresentation1marks},config
             );
+
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'success',
+                title: 'Successfully added marks!!'
+              })
+
             history.push("/staffPrivate");
         }catch(error){
             setError(error.response.data.error);

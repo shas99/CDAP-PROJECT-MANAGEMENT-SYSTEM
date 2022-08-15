@@ -295,11 +295,11 @@ export default function StaffDashboard ({history}) {
 
                      
 
-                       <div class="w-36 gap-1 h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       {/* <div class="w-36 gap-1 h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/staffreport'> View Report</a>
                             </button>
-                       </div>
+                       </div> */}
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
@@ -309,7 +309,7 @@ export default function StaffDashboard ({history}) {
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
-                           <a href='/ '> View Groups</a>
+                           <a href='/staffproject'> View Groups</a>
                             </button>
                        </div>
 

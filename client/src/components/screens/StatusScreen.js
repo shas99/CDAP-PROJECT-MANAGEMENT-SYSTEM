@@ -5,6 +5,7 @@ import "./UserProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const Status = ({history}) => { 
   const [feedbackData, setFeedbackData] = useState([])
@@ -84,7 +85,7 @@ const Status = ({history}) => {
 
   }, [history]);
 
-  const Status = async () => {
+  const Status =  () => {
     try{
     let x = [];
 
@@ -102,13 +103,16 @@ const Status = ({history}) => {
       }
       
     }
-   
+
+   return x
     setStatus(x);
   }catch(error){
     console.log(error)
   }
 
   }
+
+
 
   
   return  error ? ( 
@@ -117,8 +121,11 @@ const Status = ({history}) => {
   ) :
   (
 
-<div className="userprofileClass">
+<div className="userprofileClass" style={{width:"100%",height:"140%"}}>
   <Header/>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+  <SideNavigationBar page="StudentStatus"/>
+  </div>
   <br/>
 
 
@@ -126,27 +133,10 @@ const Status = ({history}) => {
 
 <p className="userprofilecontent2"> {console.log(feedbackData)}</p>  
 
-<p className="userprofilecontent1">Status of Submissions</p>
+<p className="userprofilecontent1" style={{marginTop:"-850px"}}>Status of Submissions</p>
 <br/>
-{/* existing forms
-{feedbackData.map((data) => 
 
-        <p className="userprofilecontent1">{data.Heading}</p>
-
-)}
-
-{console.log(heading)}
-
-Completed forms
-
-{heading.map((data) =>
-  <p className="userprofilecontent1">{data}</p>
-
-
-)} */}
-<button onClick={Status} className="blueButton">Show the status of forms</button>
-{status}
-
+<ul>{Status()}</ul>
 </div>
     
 )  
