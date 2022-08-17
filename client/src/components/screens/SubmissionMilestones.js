@@ -126,9 +126,9 @@ const SubmissionMilestones = ({history}) =>{
 ) : ( 
 
   <>
-  <div id="back">
+  <div id="back" className="flex-wraph-max">
   
-  <Header/>
+  {/* <Header/> */}
   <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
   <SideNavigationBar page="StudentMilestones"/>
   </div>
@@ -147,20 +147,20 @@ const SubmissionMilestones = ({history}) =>{
             return (
 
             
-            <div className="card" style={{borderRadius:"20px",minHeight:"",width:"90%"}}>
+            <div className="lg:w-2/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-10 ml-80">
             
-              <div className="Heading">
-                <p>{submission.Heading}</p>
+              <div className="lg:w-2/1 px-8 py-5 bg-gray-900" >
+                <p className="text-1xl font-semibold text-white">{submission.Heading}</p>
               </div>
-              <div id="content">
+              <div id="content" className="">
               <br></br><br></br>
-              <li className="des"><p>{submission.Description}</p></li>
-              <li className="link"><p>{submission.SubmissionPageLink}</p></li><br></br>
+              <li className="text-white text-left"><p>{submission.Description}</p></li>
+              <li className="text-white"><p>{submission.SubmissionPageLink}</p></li><br></br>
               </div>
-              <div className="submitbtn" style={{backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"8px",padding:"2px",marginLeft:"30px"}}> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />
+              <div className="lg:w-1/6 h-6 pt-1 text-white bg-violet-700 rounded-lg mt-5" style={{}}> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />
               &nbsp;&nbsp;Add Submission&nbsp;&nbsp;</a></div>
-
-              <div className="date"><p >Updated on {submission.Date}</p></div>
+              <hr class="w-2/1 border-grey-900 my-4 mt-5"/>
+              <div className="text-white text-xs mt-1"><p >Updated on {submission.Date}</p></div>
               
             </div>
             
