@@ -337,35 +337,17 @@ exports.addSubmission =async(req,res,next) => {
                 
             
                 
-// ***********************IMPORTANT************************************
-//Group members mayhave to be put into an array to make the number of group members dynamic        
-                 let member1 = group.member_1                   
-                 let member2 = group.member_2
-                 let member3 = group.member_3
-                 let member4 = group.member_4
-                 let member5 = group.member_5
-             
-                 let user1 = await User.find({studentID:member1})
-                 let user2 = await User.find({studentID:member2})
-                 let user3 = await User.find({studentID:member3})
-                 let user4 = await User.find({studentID:member4})
-                 let user5 = await User.find({studentID:member5})
-                //  console.log("q")
-                // console.log(user1+"1"+user2+"1"+user3+"1"+user4+"1"+user5+"1")
-                // console.log("q")
-
-// ***************************************IMPORTANT**********************************
-//Submissions array should be made to contain ._id of the group in addition to the person who made it. Once that is complete This API code should be made so that it retreives group submission rather than retreiving individual submissions
 
                 
-       
+                console.log("Group:"+group._id)
+                groupid = group._id
             // //use the batchID to retreive data with the batchID
-                const batch = await SubmissionPage.find(user2.batchID)
-                console.log(user1+"999")
+                const submissions = await Form.find({groupid})
+                console.log("submissions:"+ submissions)
                 try{
                     res.status(201).json({
                         success: true,
-                        data: batch
+                        data: submissions
                     })
                 }catch(error){
                     next(error)
