@@ -29,7 +29,7 @@ const ViewGroup = ({ history, match }) => {
   const [existingForm, setExistingForm] = useState([]);
   const [feedbackData, setFeedbackData] = useState([])
   const [status, setStatus] = useState([]);
-  const [heading, setHeading] = useState([]);
+  const [heading, setHeading] = useState(["Final Submission","Final Submission","TAP123","Final Submission","TAP123","Final Submission"]);
 
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
@@ -123,7 +123,7 @@ const ViewGroup = ({ history, match }) => {
           temp.push(data.data[i].Heading)
           
         }
-
+   
         setExistingForm(temp);
         
       } catch (error) {
@@ -269,7 +269,7 @@ console.log(feedbackData+"qqq")
                     <img src={image}></img>
                     </div>))}
 
-  
+                    {console.log(existingForm+"789456")}
           {/* <button className="btn2"><a
           href={`/images/${key}`}
           download

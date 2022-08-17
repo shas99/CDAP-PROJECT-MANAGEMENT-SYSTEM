@@ -124,12 +124,15 @@ exports.submissionForm = async(req,res,next) => {
     temp.push(heading)
     console.log(temp)
     user.heading = temp
+    const group = await Group.find({g_approval:true,$or:[{member_1:user.studentID},{member_2:user.studentID},{member_3:user.studentID},{member_4:user.studentID},{member_5:user.studentID}]})
+    console.log(group+"55555555555")
     user.save()
     studentID = decoded.id;
-    
+    const groupid = group[0]._id
+    console.log("pppppppppp"+groupid)
     try{
         const form = await Form.create({
-            entries,heading,studentID
+            entries,heading,studentID,groupid
         })
         // console.log(heading)
         res.status(201).json({
@@ -139,6 +142,8 @@ exports.submissionForm = async(req,res,next) => {
     }catch(error){
         next(error)
     }
+
+    
 };
 
 //create new submission
@@ -319,14 +324,14 @@ exports.addSubmission =async(req,res,next) => {
 
 
 
-            exports.Staffstatus =async(req,res,next) => {
+            exports.Staffstatus =async(req,res,next) => {// something terriblely wrong with this method
 
 
                 let token//to retreive username in backend
 
                 id = req.query.id
                 // id = "624c4bbc63e26a49b4e2d77b"
-        
+                
             
                 const group = await Group.findById(id)
                 
@@ -345,18 +350,18 @@ exports.addSubmission =async(req,res,next) => {
                  let user3 = await User.find({studentID:member3})
                  let user4 = await User.find({studentID:member4})
                  let user5 = await User.find({studentID:member5})
-                 console.log("q")
-                console.log(user1+"1"+user2+"1"+user3+"1"+user4+"1"+user5+"1")
-                console.log("q")
+                //  console.log("q")
+                // console.log(user1+"1"+user2+"1"+user3+"1"+user4+"1"+user5+"1")
+                // console.log("q")
 
 // ***************************************IMPORTANT**********************************
 //Submissions array should be made to contain ._id of the group in addition to the person who made it. Once that is complete This API code should be made so that it retreives group submission rather than retreiving individual submissions
 
-
+                
        
             // //use the batchID to retreive data with the batchID
                 const batch = await SubmissionPage.find(user2.batchID)
-            //     console.log(batch)
+                console.log(user1+"999")
                 try{
                     res.status(201).json({
                         success: true,
