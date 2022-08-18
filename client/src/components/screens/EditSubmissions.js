@@ -246,7 +246,7 @@ const EditSubmission = async (e) => {
 const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
-    display.push(<li>{Math.ceil((i+1)/2)}&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
+    display.push(<li>{Math.ceil((i+1)/2)}&nbsp;&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
       
     i++
   }
@@ -328,25 +328,26 @@ const DeleteSubmissionHandler = async (e) => {
     
     {flow == 0 &&
     <div>
+      <div className="edit-subscreen">
     <form id="headert123">
-    <label>
+    <label className="textcolor">
         Submission Heading:
         <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading} id="input"/>
     </label>
     <br/>
     <br/>
-    <label>
+    <label className="textcolor">
         Submission Description:
         <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description} id="input"/>
     </label>
     <br/>
     <br/>
-    <label>
+    <label className="textcolor">
         Submission BatchID:
         <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID} id="input"/>
     </label>
     <br></br>
-    <label>
+    <label className="textcolor">
         Enable submission
         <input type="checkbox" name="visibility" onChange={toggle} checked={visibility}/>
     </label>
@@ -361,7 +362,7 @@ const DeleteSubmissionHandler = async (e) => {
       <button onClick={DeleteSubmissionHandler} className="redbuttons">
         Delete submission
       </button>
-
+      </div>
   </div>
     }
   
@@ -374,7 +375,7 @@ const DeleteSubmissionHandler = async (e) => {
         <label>
         Enter the number of the field you want to make change to
         <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)} id="input"/>
-    </label>
+    </label><br></br>
         <ul>{displayFields(Fields)}</ul>
         {/* />
     </label> */}
