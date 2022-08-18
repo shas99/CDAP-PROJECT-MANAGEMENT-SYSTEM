@@ -14,7 +14,7 @@ export default function SideNavigationBar({page}) {
      //Logout feature
      const logOutHandler=()=>{
         localStorage.removeItem("authToken");
-        window.location = '/';
+        window.location = '/stafflogin';
     
       };
 
@@ -51,17 +51,19 @@ export default function SideNavigationBar({page}) {
                             </svg>
                             <span class="ml-2 text-sm font-medium">Add Marks</span>
                         </a>
-                        <a class={page == "StudentViewYourAvailableProjects" ? "flex items-center w-full h-12 px-3 mt-2 text-gray-400 bg-gray-700 text-gray-100 rounded" : "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700"} href="availableProjects/:id">
+
+                        <a class={page == "StaffTopicInterestings" ? "flex items-center w-full h-12 px-3 mt-2 text-gray-400 bg-gray-700 text-gray-100 rounded" : "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700"} href="/staffrecommendationform">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 50 50" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 28.875 0 C 28.855469 0.0078125 28.832031 0.0195313 28.8125 0.03125 L 0.8125 5.34375 C 0.335938 5.433594 -0.0078125 5.855469 0 6.34375 L 0 43.65625 C -0.0078125 44.144531 0.335938 44.566406 0.8125 44.65625 L 28.8125 49.96875 C 29.101563 50.023438 29.402344 49.949219 29.632813 49.761719 C 29.859375 49.574219 29.996094 49.296875 30 49 L 30 44 L 47 44 C 48.09375 44 49 43.09375 49 42 L 49 8 C 49 6.90625 48.09375 6 47 6 L 30 6 L 30 1 C 30.003906 0.710938 29.878906 0.4375 29.664063 0.246094 C 29.449219 0.0546875 29.160156 -0.0351563 28.875 0 Z M 28 2.1875 L 28 6.6875 C 27.941406 6.882813 27.941406 7.085938 28 7.28125 L 28 42.8125 C 27.972656 42.945313 27.972656 43.085938 28 43.21875 L 28 47.8125 L 2 42.84375 L 2 7.15625 Z M 30 8 L 47 8 L 47 42 L 30 42 L 30 35.5 L 31.5 37 L 36.5 32 L 31.5 27 L 30 28.5 L 30 15 L 38 15 L 38 23 L 34 23 L 39 28 L 44 23 L 40 23 L 40 13 L 30 13 Z M 9.15625 15.65625 L 9.15625 34.375 L 13.375 34.375 L 13.375 27.9375 L 15.375 27.9375 C 17.636719 27.9375 19.460938 27.347656 20.8125 26.1875 C 22.164063 25.027344 22.84375 23.503906 22.84375 21.625 C 22.84375 17.648438 20.464844 15.65625 15.75 15.65625 Z M 13.375 18.90625 L 15.03125 18.90625 C 17.273438 18.90625 18.40625 19.859375 18.40625 21.78125 C 18.40625 23.746094 17.273438 24.71875 15.03125 24.71875 L 13.375 24.71875 Z" />
                             </svg>
-                            <span class="ml-2 text-sm font-medium">My Projects</span>
+                            <span class="ml-2 text-sm font-medium">Topic Interestings</span>
                         </a>
-                        <a class={page == "StudentViewMarks" ? "flex items-center w-full h-12 px-3 mt-2 text-gray-400 bg-gray-700 text-gray-100 rounded" : "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700"} href="/viewmarks">
+                        
+                        <a class={page == "StudentGroups" ? "flex items-center w-full h-12 px-3 mt-2 text-gray-400 bg-gray-700 text-gray-100 rounded" : "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700"} href="/staffproject">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 50 50" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 13 2 C 12.447 2 12 2.448 12 3 L 12 47 C 12 47.358 12.190953 47.689187 12.501953 47.867188 C 12.812953 48.045187 13.194906 48.043281 13.503906 47.863281 L 25 41.158203 L 36.496094 47.863281 C 36.651094 47.954281 36.826 48 37 48 C 37.172 48 37.344047 47.956187 37.498047 47.867188 C 37.809047 47.689188 38 47.358 38 47 L 38 33.167969 L 36 34.447266 L 36 45.259766 L 25.503906 39.136719 C 25.348906 39.045719 25.174 39 25 39 C 24.826 39 24.651094 39.045719 24.496094 39.136719 L 14 45.259766 L 14 4 L 36 4 L 36 13.205078 L 36.345703 12.298828 L 36.648438 11.996094 C 36.868437 11.776094 37.348953 11.365187 38.001953 11.117188 L 38.001953 3 C 38.001953 2.448 37.554953 2 37.001953 2 L 13 2 z M 39.0625 12.910156 C 38.6625 12.910156 38.2625 13.210156 38.0625 13.410156 L 35.662109 19.710938 L 28.962891 20.111328 C 28.562891 20.111328 28.1625 20.410547 28.0625 20.810547 C 27.9625 21.210547 28.062891 21.710156 28.462891 21.910156 L 33.5625 26.111328 L 31.861328 32.611328 C 31.761328 33.011328 31.961719 33.510937 32.261719 33.710938 C 32.461719 33.810938 32.661328 33.910156 32.861328 33.910156 C 33.062328 33.910156 33.263891 33.810938 33.462891 33.710938 L 39.0625 30.111328 L 44.662109 33.810547 C 44.962109 34.110547 45.461719 34.010547 45.761719 33.810547 C 46.161719 33.510547 46.262109 33.110937 46.162109 32.710938 L 44.462891 26.210938 L 49.662109 22.011719 C 49.962109 21.711719 50.062891 21.310156 49.962891 20.910156 C 49.862891 20.510156 49.4625 20.210938 49.0625 20.210938 L 42.361328 19.810547 L 39.962891 13.511719 C 39.862891 13.211719 39.4625 12.910156 39.0625 12.910156 z M 39.0625 16.710938 L 40.662109 21.210938 C 40.862109 21.510937 41.1625 21.810547 41.5625 21.810547 L 46.363281 22.111328 L 42.662109 25.111328 C 42.362109 25.311328 42.263281 25.711328 42.363281 26.111328 L 43.5625 30.710938 L 39.5625 28.111328 C 39.4625 28.011328 39.2625 27.910156 39.0625 27.910156 C 38.8615 27.910156 38.662891 28.011719 38.462891 28.011719 L 34.462891 30.611328 L 35.662109 26.011719 C 35.762109 25.711719 35.663281 25.211719 35.363281 25.011719 L 31.662109 22.011719 L 36.462891 21.810547 C 36.862891 21.710547 37.163281 21.511328 37.363281 21.111328 L 39.0625 16.710938 z" />
                             </svg>
-                            <span class="ml-2 text-sm font-medium">Milestone Marks</span>
+                            <span class="ml-2 text-sm font-medium">Student Groups</span>
                         </a>
                         <a class={page == "StudentGrades" ? "flex items-center w-full h-12 px-3 mt-2 text-gray-400 bg-gray-700 text-gray-100 rounded" : "flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700"} href="/viewmarksdashboard">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 50 50" stroke="currentColor">

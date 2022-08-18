@@ -5,6 +5,7 @@ import axios from "axios";
 import "./StaffRecommendationForm.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import SideNavigationBar from "../StaffSideNavigationBar/StaffSideNavigationBar";
 
 const StaffRcommendationInputs = ({history}) => {
     const [error, setError] = useState("");
@@ -94,32 +95,40 @@ const StaffRcommendationInputs = ({history}) => {
         <>
         <div id="back" >
         <Header/>
-        <p style={{color:"#FFF",textAlign:"right"}}>
-        {privateData}  
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="StaffTopicInterestings"/>
+        </div>
+        {/* <p style={{color:"#FFF",textAlign:"right"}}> */}
+        {/* {privateData}  
+        &nbsp;&nbsp;&nbsp;&nbsp; */}
        
-        <button onClick={logOutHandler} id="logout">Log Out</button>
-          </p>
-          
-          <p style={{color:"#FFF"}}>
+        {/* <button onClick={logOutHandler} id="logout">Log Out</button> */}
+          {/* </p>
+           */}
+          {/* <p style={{color:"#FFF"}}>
           <br/><br/>
+          </p> */}
+
+<p style={{color:"#FFF"}}>
+          <br/><br/><br/><br/>
+          
           </p>
         
-           <h1 id="caption">Topic Interestings</h1>         
+           <h1 id="caption" style={{marginTop:"-875px"}}>Topic Interestings</h1> 
           
-          <div className="group-screen" style={{height:"70rem"}}>
+          <div className="group-screen" style={{height:"80rem"}}>
             
           <div>        
-          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",width:"1000px",maxHeight:"60rem",marginTop:"-6rem"}}>
+          <form onSubmit={StaffRecommendationFormHandler} className="group-screen__form" style={{paddingTop:"2rem",fontsize:"30px",maxHeight:"70rem",marginTop:"-400px",width:"1000px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif", height:"800px"}}>
       <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.4rem"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
       
       <div className="form-group" style={{paddingTop:"1rem"}}>
-        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"normal"}}>Staff ID:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"bold", margin:"0 auto", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif", fontSize:"large"}}>Staff ID:</label> 
+        <br/><br/>
         
           <input type="text" 
-          className = "input" style={{height:"0.5rem",width:"20rem"}}
+          className = "input" style={{height:"50px",width:"500px",color:"black", margin:"0 auto",color:"white"}}
           name="name" 
           onChange={(e) => setStaffID(e.target.value)}
           value={StaffID} />
