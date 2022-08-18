@@ -127,8 +127,12 @@ exports.submissionForm = async(req,res,next) => {
     const group = await Group.find({g_approval:true,$or:[{member_1:user.studentID},{member_2:user.studentID},{member_3:user.studentID},{member_4:user.studentID},{member_5:user.studentID}]})
     console.log(group+"55555555555")
     user.save()
+    const temp1 = group[0].heading
+    temp1.push(heading)
+    group[0].heading = temp1
     studentID = decoded.id;
     const groupid = group[0]._id
+    group[0].save()
     console.log("pppppppppp"+groupid)
     try{
         const form = await Form.create({
@@ -324,7 +328,7 @@ exports.addSubmission =async(req,res,next) => {
 
 
 
-            exports.Staffstatus =async(req,res,next) => {// something terriblely wrong with this method
+            exports.Staffstatus =async(req,res,next) => {
 
 
                 let token//to retreive username in backend
@@ -334,11 +338,7 @@ exports.addSubmission =async(req,res,next) => {
                 
             
                 const group = await Group.findById(id)
-                
-            
-                
-
-                
+   
                 console.log("Group:"+group._id)
                 groupid = group._id
             // //use the batchID to retreive data with the batchID
@@ -354,3 +354,4 @@ exports.addSubmission =async(req,res,next) => {
                 }
             // }
             };
+            

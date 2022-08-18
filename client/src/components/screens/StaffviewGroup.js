@@ -29,7 +29,7 @@ const ViewGroup = ({ history, match }) => {
   const [existingForm, setExistingForm] = useState([]);
   const [feedbackData, setFeedbackData] = useState([])
   const [status, setStatus] = useState([]);
-  const [heading, setHeading] = useState(["Final Submission","Final Submission","TAP123","Final Submission","TAP123","Final Submission"]);
+  const [heading, setHeading] = useState([]);
 
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
@@ -257,8 +257,11 @@ console.log(feedbackData+"qqq")
                 <button type="submit"  className="btn1">Upload Resource</button>
 
           </form> */}
-        
+        {console.log(feedbackData+"************")}
+          {console.log(feedbackData)}
+          {console.log(feedbackData+"************")}
           
+
         {console.log(ID+"this is ID")}
        
        <br/><br/>
