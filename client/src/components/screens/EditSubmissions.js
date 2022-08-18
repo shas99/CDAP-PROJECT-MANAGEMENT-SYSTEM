@@ -246,7 +246,15 @@ const EditSubmission = async (e) => {
 const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
-    display.push(<li>{Math.ceil((i+1)/2)}&nbsp;&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
+
+    //display.push(<li>{Math.ceil((i+1)/2)}&nbsp;&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
+    display.push(<table className="tableeditsub2">
+    <tr><td style={{padding:"5px",margin:"5px"}}>{Math.ceil((i+1)/2)}</td><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr>
+    {/* <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr> */}
+      
+    
+    
+    </table>)
       
     i++
   }
@@ -328,7 +336,7 @@ const DeleteSubmissionHandler = async (e) => {
     
     {flow == 0 &&
     <div>
-      <div className="edit-subscreen">
+      
     <form id="headert123">
     <label className="textcolor">
         Submission Heading:
@@ -355,7 +363,7 @@ const DeleteSubmissionHandler = async (e) => {
     <br/>
     {/* <input type="submit" value="Submit" /> */}
     </form>
-      <button onClick={handleFlow} className="bluebuttons">
+      <button  onClick={handleFlow} className="bluebuttons">
         Next
       </button>
 
@@ -363,7 +371,7 @@ const DeleteSubmissionHandler = async (e) => {
         Delete submission
       </button>
       </div>
-  </div>
+  
     }
   
     {flow == 1 &&
@@ -383,7 +391,7 @@ const DeleteSubmissionHandler = async (e) => {
       
 
 
-
+      <br></br>
 
       <button onClick={DeleteFieldHandler} className="redbuttons1">
         Delete field
