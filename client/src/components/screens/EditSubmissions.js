@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useParams} from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import Submission from "./SubmissionScreen";
@@ -184,8 +185,9 @@ const EditSubmission = ({history}) => {
   
 };
 
-
+//added alert
 const EditSubmission = async (e) => {
+  const Swal = require('sweetalert2')
   e.preventDefault();
 
   const config = {
@@ -213,6 +215,22 @@ const EditSubmission = async (e) => {
 
 
     console.log(data);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Made changes successfully!!'
+    })
     history.push("/adminPrivate")
   } catch (error) {
     setError(error.response.data.error);
@@ -238,7 +256,9 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
 
 const DeleteSubmissionHandler = async (e) => {
+  const Swal = require('sweetalert2')
   e.preventDefault();
+  
 
  
   
@@ -261,6 +281,23 @@ const DeleteSubmissionHandler = async (e) => {
   );
   console.log(SubmissionID)
     alert("Deleted!")
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Deleted successfully!!'
+    })
 
   history.push("/adminPrivate");
 } catch (error) {
@@ -308,6 +345,7 @@ const DeleteSubmissionHandler = async (e) => {
         Submission BatchID:
         <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID} id="input"/>
     </label>
+    <br></br>
     <label>
         Enable submission
         <input type="checkbox" name="visibility" onChange={toggle} checked={visibility}/>
@@ -319,6 +357,11 @@ const DeleteSubmissionHandler = async (e) => {
       <button onClick={handleFlow} className="bluebuttons">
         Next
       </button>
+
+      <button onClick={DeleteSubmissionHandler} className="redbuttons">
+        Delete submission
+      </button>
+
   </div>
     }
   
@@ -343,10 +386,10 @@ const DeleteSubmissionHandler = async (e) => {
 
       <button onClick={DeleteFieldHandler} className="redbuttons1">
         Delete field
-      </button><br/><br/>
+      </button>
       <button onClick={addField} className="bluebuttons">
         Add a normal text box
-      </button><br/><br/>
+      </button>
 
       <button onClick={addField2} className="bluebuttons">
         Add a rich text editor
@@ -361,9 +404,7 @@ const DeleteSubmissionHandler = async (e) => {
     
 } 
 
-<button onClick={DeleteSubmissionHandler} className="redbuttons">
-        Delete submission
-      </button>
+
 
 
 
