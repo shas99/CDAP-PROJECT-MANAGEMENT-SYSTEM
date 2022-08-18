@@ -126,7 +126,7 @@ const SubmissionMilestones = ({history}) =>{
 ) : ( 
 
   <>
-  <div id="back" className="flex-wraph-max">
+  <div id="back" className="flex-wrap h-max">
   
   {/* <Header/> */}
   <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
@@ -146,7 +146,7 @@ const SubmissionMilestones = ({history}) =>{
           
             return (
 
-            
+            //Styled by Pasindu Vinod on 17/08/2022
             <div className="lg:w-2/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-10 ml-80">
             
               <div className="lg:w-2/1 px-8 py-5 bg-gray-900" >

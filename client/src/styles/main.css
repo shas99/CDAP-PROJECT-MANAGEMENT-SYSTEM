@@ -810,6 +810,10 @@ video {
   height: 75rem;
 }
 
+.h-max {
+  height: max-content;
+}
+
 .w-48 {
   width: 12rem;
 }
@@ -935,6 +939,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .items-center {
