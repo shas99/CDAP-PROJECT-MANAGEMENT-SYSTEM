@@ -120,9 +120,12 @@ const ViewGroup = ({ history, match }) => {
         // }
         var temp = []
         for(let i=0;i<data.data.length;i++){
-          temp.push(data.data[i].Heading)
+          temp.push(data.data[i].heading)
           
         }
+        console.log("temp")
+        console.log(data.data[0])
+        console.log("temp")
    
         setExistingForm(temp);
         
@@ -258,7 +261,7 @@ console.log(feedbackData+"qqq")
 
           </form> */}
         {console.log(feedbackData+"************")}
-          {console.log(feedbackData)}
+          {console.log(existingForm)}
           {console.log(feedbackData+"************")}
           
 
