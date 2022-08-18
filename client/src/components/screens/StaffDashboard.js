@@ -51,6 +51,7 @@ const StaffDashboard = ({history}) => {
     <div id="back">
 
 <Header/>
+
 <h1 id="caption">Welcome to your dashboard {privateData}</h1>
 <p style={{color:"#FFF",textAlign:"right"}}>
 
