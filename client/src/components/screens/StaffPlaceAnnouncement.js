@@ -64,7 +64,7 @@ const Swal = require('sweetalert2')
         <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="StaffPlaceAnnouncement"/>
         </div>
-        <h1 className=' ml-[32rem] text-4xl text-gray-100 ' style={{marginTop:"-900px"}}>Post Annnouncement</h1>
+        <h1 className=' ml-[32rem] text-4xl text-gray-100 ' style={{marginTop:"-450px"}}>Post Annnouncement</h1>
 
         {/* SVG ICON */}
        
@@ -86,7 +86,7 @@ const Swal = require('sweetalert2')
 <form className=' w-[35rem] absolute rounded top-[190px] right-[437px] h-auto' onSubmit={postAnnouncementHandler}>
  <br/>
   <div class="mb-6 w-56 ">
-    <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300" style={{color:"white"}}>Announcement Topic</label>
+    <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300" style={{color:"white", marginTop:"-100px"}}>Announcement Topic</label>
     <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  required="" onChange={(e) => setTitle(e.target.value)}
           style={{color:"white"}} value={title}/>
   </div>

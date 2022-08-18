@@ -114,7 +114,7 @@ const StaffRcommendationInputs = ({history}) => {
           
           </p>
         
-           <h1 id="caption" style={{marginTop:"-875px"}}>Topic Interestings</h1> 
+           <h1 id="caption" style={{marginTop:"-450px"}}>Topic Interestings</h1> 
           
           <div className="group-screen" style={{height:"80rem"}}>
             

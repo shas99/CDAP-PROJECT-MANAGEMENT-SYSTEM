@@ -52,10 +52,10 @@ const MarkDashboard = ({history}) => {
             <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
             <SideNavigationBar page="Add Marks"/>
             </div>
-            <h1 id="caption" style={{marginTop:"-850px"}}>Welcome to marking dashboard {privateData}</h1>
-            <p style={{color:"#FFF",textAlign:"right"}}>
+            <h1 id="caption" style={{marginTop:"-400px"}}>Welcome to marking dashboard {privateData}</h1>
+            {/* <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
-            </p>
+            </p> */}
             <div className="row1" style={{marginLeft:"200px"}}>
   
 
