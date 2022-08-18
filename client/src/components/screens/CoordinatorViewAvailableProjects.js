@@ -1,7 +1,7 @@
 import '../../styles/main.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 
 
@@ -97,6 +97,9 @@ const removeData = (_id) => {
     
     <div style={{backgroundColor:"#22272E"}}>
       <Header/>
+      <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="AdminProjects"/>
+       </div>
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption" className="">All projects</h1>
       <br/><br/>
