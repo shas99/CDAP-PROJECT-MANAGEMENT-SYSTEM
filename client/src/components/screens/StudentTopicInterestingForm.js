@@ -91,9 +91,9 @@ const StudentTopicInterestingForm = ({history}) => {
     
         <>
         
-        <div id="back">
+        <div id="back" className="">
       
-        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <div class="inline-block float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="StudentTopicInterestings"/>
         </div>
         
@@ -104,26 +104,31 @@ const StudentTopicInterestingForm = ({history}) => {
         {/* <button onClick={logOutHandler} id="logout">Log Out</button>
           </p> */}
          
-          <p style={{color:"#FFF"}}>
+          {/* <p style={{color:"#FFF"}}>
           <br/><br/><br/><br/>
           
-          </p>
-         
-           <h1 id="TopicInterestingscaption" style={{marginTop:"-900px"}}>Topic Interestings</h1>         
-          
-          <div className="group-screen" id="TopicInterestingsForm" style={{height:"80rem"}}>
+          </p> */}
+         <div className="inline-block lg:w-4/5  float-right place-content-center">
+
+           <div className="lg:w-4/5 px-8 py-5 rounded-lg m-0,auto">
+           <p className="mt-10 text-center font-semibold text-white font-sans text-4xl">Topic Interestings</p>         
+           </div>
+
+          <div className="">
             
-          <div style={{fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>        
+          <div className="lg:w-4/5 h-auto px-8 py-5 bg-gray-800 rounded-lg m-0,auto mt-5 pt-10 pb-16" >        
           
-          <form onSubmit={StudentTopicInterestingFormHandler} className="group-screen__form" style={{paddingTop:"2rem",fontsize:"30px",maxHeight:"70rem",marginTop:"-400px",width:"1000px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif", height:"800px"}}>
+          <form onSubmit={StudentTopicInterestingFormHandler}>
       
-      <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.3rem", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Topic Interestings Form</h3>
+      <p className="text-center font-semibold text-white font-sans text-2xl pb-5">Topic Interestings Form</p>
       {error && <span className="error-message">{error}</span>}
         <br/>
-        <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Tell us your project Interestings<em>(This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
-        <div className="form-group">
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
-          <input type="range" className="w-7 h-1 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700"
+        <p className="font-semibold text-white font-sans text-1xl text-left">Tell us your project Interestings<em> (This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
+        
+        <div className="lg:w-5/6 inline-block align-middle">
+        <div className="mt-7 lg:w-full text-left inline-block align-middle">
+        <label className="font-semibold text-white font-sans">1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label><br></br>
+          <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1}
@@ -133,9 +138,9 @@ const StudentTopicInterestingForm = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
-        <input type="range" style={{width:"80%"}}
+        <div className="pt-5 lg:w-full text-left inline-block align-middle " >
+        <label className="font-semibold text-white font-sans">2. Web Application Development&nbsp;&nbsp;&nbsp;&nbsp;{Q2}/10</label>
+        <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1} 
@@ -145,9 +150,9 @@ const StudentTopicInterestingForm = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
-        <input type="range" style={{width:"80%"}}
+        <div className="pt-5 lg:w-full text-left inline-block align-middle ">
+        <label className="font-semibold text-white font-sans">3. Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;{Q3}/10</label>
+        <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1}
@@ -156,9 +161,9 @@ const StudentTopicInterestingForm = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
-        <input type="range" style={{width:"80%"}}
+        <div className="pt-5 lg:w-full text-left inline-block align-middle " >
+        <label className="font-semibold text-white font-sans">4. Artificial Intelligence&nbsp;&nbsp;&nbsp;&nbsp;{Q4}/10</label>
+        <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1}
@@ -167,9 +172,9 @@ const StudentTopicInterestingForm = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
-        <input type="range" style={{width:"80%"}}
+        <div className="pt-5  lg:w-full text-left inline-block align-middle " >
+        <label className="font-semibold text-white font-sans" >5. Robotics&nbsp;&nbsp;&nbsp;&nbsp;{Q5}/10</label><br/>
+        <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1}
@@ -178,9 +183,9 @@ const StudentTopicInterestingForm = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
-        <input type="range" style={{width:"80%"}}
+        <div className="pt-5  lg:w-full text-left inline-block align-middle " >
+        <label className="font-semibold text-white font-sans">6. Cloud Computing&nbsp;&nbsp;&nbsp;&nbsp;{Q6}/10</label>
+        <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1}
@@ -189,9 +194,9 @@ const StudentTopicInterestingForm = ({history}) => {
         </div>
         <br/>
 
-        <div className="form-group" style={{marginTop:"-1rem"}}>
-        <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
-        <input type="range" style={{width:"80%"}}
+        <div className="pt-5  lg:w-full text-left inline-block align-middle ">
+        <label className="font-semibold text-white font-sans" >7. IOT&nbsp;&nbsp;&nbsp;&nbsp;{Q7}/10</label><br/>
+        <input type="range" className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700 mt-5"
           max="10"
           min="1"
           step={1}
@@ -199,11 +204,13 @@ const StudentTopicInterestingForm = ({history}) => {
           value={Q7} />
         </div>
         <br/>  
+      
 
-
-      <button type="submit" className="btn btn-primary1" id="Log1Button" style={{marginTop:"-25px",textAlign:"center"}}>
+      <button type="submit" className="mt-16 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-8 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
           Submit
         </button>
+
+        </div>
 
         
       </form></div>
@@ -211,6 +218,7 @@ const StudentTopicInterestingForm = ({history}) => {
       
           {/* <Footer/> */}
         </div>
+        </div> 
         </>
       );
     };
