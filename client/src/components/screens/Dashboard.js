@@ -114,7 +114,9 @@ export default function Dashboard ({history}) {
   
   (
     //         DASHBOARD SCREEN 
+
     <div className='bg-gray-900 text-gray-100 overflow-auto	' >
+
             <div class="flex ">
 
         <div x-data="{ open: true }" className="fixed top-0  z-50 ">
