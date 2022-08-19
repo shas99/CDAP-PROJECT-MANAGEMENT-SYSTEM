@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import "./SubmissionAdmin.css";
-
+import SideNavigationBar from "../AdminNavigationBar/AdminNavigationBar";
 
 const SubmissionAdmin = ({history}) =>{
   const [SubmissionsData, setSubmissionsData] = useState([])
@@ -97,7 +97,10 @@ const toggle=()=> {//normal text box
   
   <div id="back555">
   <Header/>
-  <h1 id="caption" className="">RP Submissions Page</h1>
+  <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="AdminSubmission"/>
+       </div>
+  <h1 id="caption" className="" style={{marginTop:"-475px"}}>RP Submissions Page</h1>
       <br/><br/>
 
 

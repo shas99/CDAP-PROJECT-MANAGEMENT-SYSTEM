@@ -3,7 +3,7 @@ import "./StaffDashboard.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-
+import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 
 
 export default function MarkingConfigurationsDashboard() {
@@ -11,7 +11,10 @@ export default function MarkingConfigurationsDashboard() {
     <div className="bg-gray-900 w-180  h-[55rem]">
     <div id="back ">
         <Header/>
-        <div className="ml-[40rem] mt-7">
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="AdminMarkingConfigurations"/>
+       </div>
+        <div className="ml-[40rem] mt-7" style={{marginTop:"-450px"}}>
                         <div class="w-[180px] gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100 ">
                                           <button>
                                           <a href='/proposalmarkingconfiguration'>Proposal Marking Configuration</a>
