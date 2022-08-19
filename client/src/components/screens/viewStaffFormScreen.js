@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 //import PasswordChecklist from "react-password-checklist"//password validation
 import { useEffect } from "react";
-import "./StaffviewGroup.css"
+//import "./StaffviewGroup.css"
 import {useParams} from 'react-router-dom';
 import Parser from 'html-react-parser';
+import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
+
 
 const ViewStaffForm = ({ history, match }) => {
   //const [password, setPassword] = useState("");
@@ -200,18 +202,38 @@ const download = e => {
 
   return (
     <div className="viewgroupscreen">
-      <h2 id="caption">{name}</h2>
-      <div id="container">
 
-        Student form submissions
+      <div class="inline-block float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar/>
+        </div>
+        <div className="lg:w-2/3 px-8 py-10 rounded-lg mt-1 ml-80 ">
+           <p className="text-3xl text-center">Student Form Submission</p>
+        </div>
+      
+      <div className="lg:w-2/3 h-auto px-8 py-5 rounded-lg mt-1 ml-80 bg-gray-900 rounded-lg shadow-md border-grey-900 border-1 pb-8">
+
+        <p className="font-sans text-3xl">{name}</p>
 
           {/* {forms.map((form) =><div> <button className="btn2" style={{backgroundColor:"blue"}}> <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)} */}
-         {console.log(ID)}
-         <br/> <br/>
-         {Heading}
-         {console.log(Object.keys(Fields))}
-            {Object.keys(Fields).map((key) => <div>{key} : {Parser(Fields[key])}</div>)}
-       <br/><br/>
+         {/* {console.log(ID)} */}
+         
+         <p className="font-sans text-2xl">{Heading}</p>
+
+         {/* {console.log(Object.keys(Fields))} */}
+
+         {/* <table className="lg:w-4/5 mt-5 border-none" style={{border:"none"}}> */}
+           {/* <tbody> */}
+         {/* <table class="w-full text-sm text-left text-gray-500 border-grey-900 dark:text-gray-400 mt-5"> */}
+         <div className="h-auto lg:w-90% mt-8  bg-gray-800 rounded-lg shadow-md">
+            {Object.keys(Fields).map((key) => 
+            
+            <tr className="" style={{border:"none"}}>
+              <td className="pr-5 pt-3 pl-5 pb-3" style={{border:"none"}}>{key}</td><td className="pr-5" style={{border:"none"}}> :</td><td style={{border:"none"}}> {Parser(Fields[key])}</td>
+            </tr>
+            
+            )}</div>
+            {/* </tbody> */}
+         {/* </table> */}
        
      </div>
     </div>
