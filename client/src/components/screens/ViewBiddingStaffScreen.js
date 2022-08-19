@@ -32,7 +32,7 @@ const ViewBiddingStaff = ({history}) =>{
         setError("You are not authorized please login");
       }
     };
-
+//retreive project data
     const fetchProjectsData = async () =>{
       const projectsconfig = {
         headers: {
@@ -59,7 +59,7 @@ const ViewBiddingStaff = ({history}) =>{
       }
     
     }
-
+//retreive group details
     const fetchGroupDetails = async () =>{
       const projectsconfig = {
         headers: {
@@ -119,6 +119,22 @@ const removeData = (_id) => {
   });
 };
 
+//Bidding approver
+const onClickHandler = async () => {
+
+  const projectsconfig = {
+    headers: {
+      "Content-Type":"application/json",
+      Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+    },
+  }
+
+  const{data} = await axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
+  
+alert("Approved sucessfully")
+
+}
+
 
   return  error ? ( 
   
@@ -131,37 +147,51 @@ const removeData = (_id) => {
         <SideNavigationBar page="AdminProjects"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>All projects</h1>
+      <h1 id="caption" className="" style={{marginTop:"-475px"}}>Project Bid Details</h1>
       <br/><br/>
-      <center style={{color:"white"}}>
 
-        {group.member_1}
-        </center>
         {console.log(ProjectsData)}
          <ul>
-        {ProjectsData.map(project => {
+
+
+<center style={{color:"white"}}>
+          {ProjectsData.map(project => {
           return (
-            <div className="card">
-        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px"}}>{project.GroupID}</p></center>
+  
+
       <div>
-                   
+                 {/* Return Project data */}
+                   {project.Groupid==group._id &&
+                                  
+                    <h1>
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Group Name</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.GroupID}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Batch ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.BatchID}</li>
+                    </h1>
+
+                   }
+
                    
 
       </div>
-      </div>
+  
             
             )
             
           })} 
+        Member 1: {group.member_1}<br/>
+        Member 2: {group.member_2}<br/>
+        Member 3: {group.member_3}<br/>
+        Member 4: {group.member_4}<br/>
+        Member 5: {group.member_5}
+        
+        </center>
 
-          
+          <button></button>
         
         
       </ul>  
       <br/>
-      
+      <center><button onClick={onClickHandler}>Approve</button></center>
       <br/>
      
       <br/><br/>
