@@ -64,7 +64,7 @@ const StaffRcommendationInputs = ({history}) => {
         alert("Successfully Submited!")
 
         let SID = localStorage.getItem("authToken")
-        console.log(SID)
+        //console.log(SID)
         try {
           const { data } = await axios.post(
             "http://localhost:5000/api/staff/StaffRecommendationForm",
