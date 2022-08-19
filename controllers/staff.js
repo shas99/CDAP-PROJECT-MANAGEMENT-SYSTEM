@@ -8,6 +8,7 @@ const { Console } = require('console')
 const TopicReg = require('../models/TopicReg')
 const StaffTopicInterestings = require('../models/StaffTopicInterestings')
 
+const { decode } = require('jsonwebtoken');
 
 
 exports.register = async(req,res,next) => {
@@ -130,7 +131,18 @@ exports.resetpassword = async(req, res, next) => {
 
 exports.StaffRecommendationForm = async(req,res,next) => { //Staff Recommendation Form
     console.log("Staff recommendation api run")
-    const {StaffID,Q1,Q2,Q3,Q4,Q5,Q6,Q7} = req.body
+    const {SID,Q1,Q2,Q3,Q4,Q5,Q6,Q7} = req.body
+    let token = SID;
+    //console.log(student_ID)
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+     const decoded = jwt.verify(token,process.env.JWT_SECRET)
+     const staff = await Staff.findById(decoded.id)
+    //  console.log(user._id)
+     const StaffID = staff._id;
+
     try{
         const user = await StaffTopicInterestings.create({
             StaffID,Q1,Q2,Q3,Q4,Q5,Q6,Q7
