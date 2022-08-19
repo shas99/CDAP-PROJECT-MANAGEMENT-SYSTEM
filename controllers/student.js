@@ -95,11 +95,7 @@ exports.StudentTopicInterestingForm = async(req,res,next) => { //Student Recomme
         
         token = req.headers.authorization.split(" ")[1]
     }
-
-   //console.log(" "+token+" ")
      const decoded = jwt.verify(token,process.env.JWT_SECRET)
-     //console.log(decoded.id+"Decoded-")
-     //console.log("Decoded : "+decoded)
      const user = await User.findById(decoded.id)
     //  console.log(user._id)
      const student_ID = user._id;
