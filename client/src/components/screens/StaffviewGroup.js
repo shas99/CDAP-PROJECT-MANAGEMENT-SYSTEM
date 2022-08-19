@@ -92,7 +92,7 @@ const ViewGroup = ({ history, match }) => {
         }, 5000);
       }
     };
-
+//fetch all the forms alredy completed by the group
     const fetchFeedbackData = async () => {
       const userprofileconfig = {
         headers: {
@@ -121,7 +121,7 @@ const ViewGroup = ({ history, match }) => {
         // }
         var temp = []
         for(let i=0;i<data.data.length;i++){
-          temp.push(data.data[i].heading)
+          temp.push(data.data[i].Heading)
           
         }
 
@@ -133,7 +133,7 @@ const ViewGroup = ({ history, match }) => {
 
       }
     };
-
+//fetches all the forms that are completed by the group
     const fetchGroupHeading = async () => {
       const userprofileconfig = {
         headers: {
@@ -152,16 +152,7 @@ const ViewGroup = ({ history, match }) => {
 
 
 
-        // var temp = []
-        // for(let i=0;i<data.data.length;i++){
-        //   temp.push(data.data[i].heading)
-          
-        // }
-        // console.log("temp")
-        // console.log(data.data[0])
-        // console.log("temp")
-   
-        // setExistingForm(temp);
+
         
       } catch (error) {
         console.log(error)
@@ -246,16 +237,16 @@ const download = e => {
 }
 
 
-
+//retreives and displays the stauts of each form
 const Status =  () => {
   try{
   let x = [];
 
 
 
-  for(var i=0;i<feedbackData.length;i++){
+  for(var i=0;i<existingForm.length;i++){
 
-    if(heading.includes(existingForm[i])){
+    if(groupHeading.includes(existingForm[i])){
     
       x.push(<h1 className="userprofilecontent1">{existingForm[i]} : completed</h1>)
     }
@@ -291,12 +282,7 @@ const Status =  () => {
         <li>{member5}</li>
         </ul>
        
-          {/* <form onSubmit={submit}>
-                <input onChange={fileSelected} type="file"></input>
-                <input value={description} onChange={e => setDescription(e.target.value)}type="text"></input>
-                <button type="submit"  className="btn1">Upload Resource</button>
 
-          </form> */}
     
 
           
@@ -312,14 +298,7 @@ const Status =  () => {
                     </div>))}
 
                    
-          {/* <button className="btn2"><a
-          href={`/images/${key}`}
-          download
-          onClick={e => download(e)}>
-          <i className="fa fa-download" />
-          Milestone 1
-          
-          </a></button> */}
+
           <br/>
          {images.map( image=>(
                 <div key={image}>
@@ -327,26 +306,7 @@ const Status =  () => {
                     </div>))}
 
   
-          {/* <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
-          <i className="fa fa-download" />
-          Milestone 2
-          
-          </a></button><br/>
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
-          <i className="fa fa-download" />
-          Milestone 3
-          
-          </a></button><br/>
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
-          <i className="fa fa-download" />
-          Milestone 4
-          console.log("Hello World!")
-          </a></button><br/>
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
-          <i className="fa fa-download" />
-          Milestone 5
-         
-          </a></button> */}
+
 
           <ul>{Status()}</ul>
           {forms.map((form) =><div> <button className="btn2" style={{backgroundColor:"blue"}}> <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)}

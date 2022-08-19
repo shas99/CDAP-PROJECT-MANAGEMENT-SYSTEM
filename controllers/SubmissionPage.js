@@ -327,7 +327,8 @@ exports.addSubmission =async(req,res,next) => {
             };
 
 
-
+//use the parameter to retreive the group, and then with one of the group member's student id retreive their data to get the batchid
+//with the batch id retreive the forms available to the group 
             exports.Staffstatus =async(req,res,next) => {
 
 
@@ -358,6 +359,7 @@ exports.addSubmission =async(req,res,next) => {
             // }
             };
             
+            //use the parameter to retreive the group, and with the goup id retireve all the forms already filled by the perticular group
             exports.GetGroupHeading =async(req,res,next) => {
 
 
