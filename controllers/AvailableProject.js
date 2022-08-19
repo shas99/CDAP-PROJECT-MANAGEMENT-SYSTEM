@@ -7,6 +7,7 @@ const User = require('../models/User')
 const AvailableProject = require('../models/AvailableProject');
 const Supervisors = require('../models/Supervisor');
 const Staff = require('../models/Staff');
+const Group = require('../models/Group');
 
 //*******VIEW AVAILABLE PROJECTS API *******
 exports.viewAvailableProjects =async(req,res,next) => {
@@ -109,8 +110,8 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 };
 
 
-
-exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
+//********Student Bidding************* */
+exports.StudentBidding = async(req,res,next) => { 
     console.log("Student recommendation api run")
     const {SelectedProject,SelectedSupervisors,cd} = req.body
     const Project = SelectedProject;
@@ -128,6 +129,15 @@ exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
           //console.log(decoded.id+"Decoded-")
           //console.log("Decoded : "+decoded)
           const user = await User.findById(decoded.id)
+        //retreive studentID
+          const StudentID = user.studentID
+
+
+          const group = await Group.findOne({$or: [{member_1:StudentID},{member_2:StudentID},{member_3:StudentID},{member_4:StudentID},{member_5:StudentID}]})
+
+
+          const Groupid = group._id
+        
           //console.log("User details -"+user)
         //   console.log("Batch id: ",user.BatchID);
         //   console.log("Group id: ",user.GroupID);
@@ -140,7 +150,7 @@ exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
         for(let i = 0;i<SupervisorArr.length;i++){
             let StaffID = SupervisorArr[i];
             const user = await Supervisors.create({
-                StaffID,GroupID,BatchID,Approved, Project
+                StaffID,GroupID,BatchID,Approved, Project,Groupid
             })    
         }
         console.log("Student recommendation success")
