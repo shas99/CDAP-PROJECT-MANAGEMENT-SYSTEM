@@ -100,7 +100,7 @@ import UpdateProjectDetails from "./components/screens/UpdateProjectDetails";
 import CreateNewProject from "./components/screens/CreateNewProject";
 import ViewStaffForm from "./components/screens/viewStaffFormScreen";
 import PageNotFound from "./components/screens/PageNotFound";
-
+import SupervisorViewBidding from "./components/screens/SupervisorViewBidding";
 
 const App = () => {
   return (
@@ -232,7 +232,7 @@ const App = () => {
          <Route exact path="/updateProjectDetails/:id" component={UpdateProjectDetails}/>
           <Route exact path="/createNewProject" component={CreateNewProject}/>
           <Route exact path="/viewStaffForm/:id" component={ViewStaffForm}/>
-          
+          <Route exact path="/supervisorViewBidding" component={SupervisorViewBidding}/>
 
 
 

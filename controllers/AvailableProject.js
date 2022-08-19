@@ -6,6 +6,7 @@ const User = require('../models/User')
 
 const AvailableProject = require('../models/AvailableProject');
 const Supervisors = require('../models/Supervisor');
+const Staff = require('../models/Staff');
 
 //*******VIEW AVAILABLE PROJECTS API *******
 exports.viewAvailableProjects =async(req,res,next) => {
@@ -226,3 +227,42 @@ exports.createProjectDetails = async(req,res,next) => {
     }
 }
 
+
+//******** Retreive Biddings for specific supervisor  ******/
+exports.ViewStaffBiddings =async(req,res,next) => {
+    
+    
+    try{
+    
+        let token//to retreive username in backend
+
+        if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+            
+            token = req.headers.authorization.split(" ")[1]
+        }
+    
+        const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+        const staff = await Staff.findById(decoded.id)
+        console.log("qtuopwqtuoputiopqrpruioqqr"+staff)
+        const availableProjects = await AvailableProject.find()//group that is approved and have this perticular member
+        //console.log(availableProjects[1])// 
+        const array = Object.values(availableProjects)
+    
+        //need to add batch id attribute for model and filter relevent batch related projects
+    
+        const arrayproject = JSON.stringify(array).split(',')
+        // console.log(arrayproject)
+        // console.log(typeof arrayproject)
+        //console.log(array+"back end array of projects")
+        res.status(201).json({
+            success: true,
+            data: array
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+    };
