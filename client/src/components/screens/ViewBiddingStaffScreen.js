@@ -6,11 +6,12 @@ import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
 
 
-const SupervisorViewBidding = ({history}) =>{
+const ViewBiddingStaff = ({history}) =>{
   const [ProjectsData, setProjectsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [projectarray, setprojectarray] = useState("");
+  const [ID, setID] = useState(useParams().id);
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -116,7 +117,7 @@ const removeData = (_id) => {
                    
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Group Name</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.GroupID}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Batch ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.BatchID}</li>
-                    <div className="placeBidToBtn bg-red-800 hover:bg-red-500 w-[60px] ml-[20px] rounded-[5px]" > <button > <a href={`/viewBidding/${project._id}`}>View bidding</a> </button></div>
+                    <div className="placeBidToBtn bg-red-800 hover:bg-red-500 w-[60px] ml-[20px] rounded-[5px]" > <button > <a href={`/ViewBidding/${project._id}`}>View bidding</a> </button></div>
 
 
       </div>
@@ -144,7 +145,7 @@ const removeData = (_id) => {
     
   )
 }
-export default SupervisorViewBidding;
+export default ViewBiddingStaff;
 
 
 
