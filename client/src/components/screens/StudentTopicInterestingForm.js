@@ -8,7 +8,7 @@ import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 const StudentTopicInterestingForm = ({history}) => {
     const [error, setError] = useState("");
     const [privateData, setPrivateData] = useState("");
-    const [student_ID, setStudent_ID] = useState("");
+    //const [student_ID, setStudent_ID] = useState("");
     const [Q1, setQ1] = useState("5");
     const [Q2, setQ2] = useState("5");
     const [Q3, setQ3] = useState("5");
@@ -58,11 +58,15 @@ const StudentTopicInterestingForm = ({history}) => {
           },
         };
        
+        const s_ID = localStorage.getItem("authToken");
+        //console.log(student_ID)
+
         alert("Successfully Submited!")
         try {
+          
           const { data } = await axios.post(
             "http://localhost:5000/api/student/studenttopicinterestingform",
-            { student_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7 },
+            { s_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7 },
             config
             
           );

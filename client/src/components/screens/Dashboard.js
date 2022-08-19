@@ -114,10 +114,12 @@ export default function Dashboard ({history}) {
   
   (
     //         DASHBOARD SCREEN 
-    <div className='bg-gray-900 text-gray-100 w-[100rem]'>
+
+    <div className='bg-gray-900 text-gray-100 overflow-auto	' >
+
             <div class="flex ">
 
-        <div x-data="{ open: true }" class="fixed top-0  z-50">
+        <div x-data="{ open: true }" className="fixed top-0  z-50 ">
            {/* SIDENAVBAR */}
             <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
                 <a class="flex items-center w-full px-3 mt-3" href="#">
@@ -175,7 +177,7 @@ export default function Dashboard ({history}) {
                 </div>
                 <a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700 " >
                     <div class="border flex px-2 py-1 rounded-lg flex items-center gap-2" onClick={logOutHandler}>
-                        <span class="ml-2 text-sm font-medium ">Log Out</span>
+                        <span class="ml-2 text-sm font-medium w-20 cursor-pointer">Log Out</span>
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -277,7 +279,7 @@ export default function Dashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full ml-[20rem]">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[20rem]">
 
                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
