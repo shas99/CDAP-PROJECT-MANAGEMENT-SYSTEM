@@ -55,6 +55,8 @@ const ForgotPasswordScreen = () => {
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="placeholder:text-black focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-black text-serif text-b "
+          
           />
         </div>
         <button type="submit" className="btn btn-primary" id="FogButt">
