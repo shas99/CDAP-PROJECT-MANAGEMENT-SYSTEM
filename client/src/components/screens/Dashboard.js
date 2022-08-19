@@ -115,7 +115,7 @@ export default function Dashboard ({history}) {
   (
     //         DASHBOARD SCREEN 
 
-    <div className='bg-gray-900 text-gray-100 overflow-auto	' >
+    <div className='bg-gray-900 text-gray-100 overflow-auto	 h-[53rem]' >
 
             <div class="flex ">
 
@@ -375,7 +375,18 @@ export default function Dashboard ({history}) {
 
                             <br/><br/>
                            
-                            
+                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[70rem] mt-[-15rem] '>
+                    <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md w-[20rem]">
+                                <br/>
+
+                                    <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
+                                    <h1 class="text-2xl font-semibold">{title}  </h1>
+                                    <p class="text-gray-400 text-sm">{description}</p>
+                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
+                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
+                                    <hr class="w-2/3 border-gray-500 my-4 hidden"/>
+                            </div> 
+                            </div>
                            
 
 
@@ -406,18 +417,7 @@ export default function Dashboard ({history}) {
 
 
                     </div>
-                    <div className='flex items-center gap-2 mb-3 ml-[20rem]'>
-                    <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md ">
-                                <br/>
-
-                                    <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
-                                    <h1 class="text-2xl font-semibold">{title}  </h1>
-                                    <p class="text-gray-400 text-sm">{description}</p>
-                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
-                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
-                                    <hr class="w-2/3 border-gray-500 my-4 hidden"/>
-                            </div> 
-                            </div>
+                  
                 
 
 
