@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./StudentTopicInterestingForm.css";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+//mport "./StudentTopicInterestingForm.css";
+//import Header from "../Header/Header";
+//import Footer from "../Footer/Footer";
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const StudentTopicInterestingForm = ({history}) => {
@@ -92,7 +92,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <>
         
         <div id="back">
-        <Header/>
+      
         <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="StudentTopicInterestings"/>
         </div>
@@ -119,23 +119,11 @@ const StudentTopicInterestingForm = ({history}) => {
       
       <h3 className="login-screen__title" style={{paddingTop:"1rem",fontSize:"1.3rem", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Topic Interestings Form</h3>
       {error && <span className="error-message">{error}</span>}
-      
-      <div className="form-group" style={{paddingTop:"1rem", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>
-        <label className="TopicNames" style={{paddingTop:"0.5rem",width:"70%",fontWeight:"bold", margin:"0 auto", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif", fontSize:"large"}}>Student ID:</label><br/><br/>
-       
-        
-          <input type="text" 
-          className = "input" style={{height:"50px",width:"500px",color:"black", margin:"0 auto",color:"white"}}
-          name="name" 
-          onChange={(e) => setStudent_ID(e.target.value)}
-          value={student_ID} />
-        
-        </div>
         <br/>
         <p style={{textAlign:"left",marginLeft:"5.5rem",fontSize:"1.3rem"}}>Tell us your project Interestings<em>(This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
         <div className="form-group">
         <label className="TopicNames" style={{textAlign:"left",fontSize:"1rem",width:"30rem",fontWeight:"normal"}}>1. Mobile Application Development &nbsp;&nbsp;&nbsp;&nbsp;{Q1}/10</label>
-          <input type="range" style={{width:"80%"}}
+          <input type="range" className="w-7 h-1 bg-gray-200 rounded-lg cursor-pointer dark:bg-gray-700"
           max="10"
           min="1"
           step={1}
@@ -221,7 +209,7 @@ const StudentTopicInterestingForm = ({history}) => {
       </form></div>
           </div>
       
-          <Footer/>
+          {/* <Footer/> */}
         </div>
         </>
       );
