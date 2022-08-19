@@ -108,7 +108,7 @@ const removeData = (_id) => {
      <a href="/createNewProject">Add New Project</a> 
       </button>
         </center>
-        
+        {console.log(ProjectsData)}
          <ul>
         {ProjectsData.map(project => {
           return (

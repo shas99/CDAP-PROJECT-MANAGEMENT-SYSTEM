@@ -8,6 +8,7 @@ const AvailableProject = require('../models/AvailableProject');
 const Supervisors = require('../models/Supervisor');
 const Staff = require('../models/Staff');
 const Group = require('../models/Group');
+const Supervisor = require('../models/Supervisor');
 
 //*******VIEW AVAILABLE PROJECTS API *******
 exports.viewAvailableProjects =async(req,res,next) => {
@@ -254,8 +255,8 @@ exports.ViewStaffBiddings =async(req,res,next) => {
         const decoded = jwt.verify(token,process.env.JWT_SECRET)
 
         const staff = await Staff.findById(decoded.id)
-        console.log("qtuopwqtuoputiopqrpruioqqr"+staff)
-        const availableProjects = await AvailableProject.find()//group that is approved and have this perticular member
+        console.log("qtuopwqtuoputiopqrpruioqqr"+staff._id)
+        const availableProjects = await Supervisor.find({StaffID:staff._id})//group that is approved and have this perticular member
         //console.log(availableProjects[1])// 
         const array = Object.values(availableProjects)
     
