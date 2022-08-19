@@ -13,6 +13,9 @@ const SubmissionFormSchema = new mongoose.Schema({ //SubmissionPage Schema
     groupid:{
         type:String
     },
+    BatchID:{
+        type : String
+    },
 
     
 })

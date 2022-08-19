@@ -30,6 +30,7 @@ const ViewGroup = ({ history, match }) => {
   const [feedbackData, setFeedbackData] = useState([])
   const [status, setStatus] = useState([]);
   const [heading, setHeading] = useState([]);
+  const [groupHeading, setGroupHeading] = useState([]);
 
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
@@ -56,7 +57,7 @@ const ViewGroup = ({ history, match }) => {
           setmember4(data.data.member_4)
           setmember5(data.data.member_5)
           setKey(data.data.key)
-        console.log(data);
+
         setSuccess(data.data);
       } catch (error) {
         setError(error.response.data.error);
@@ -76,11 +77,11 @@ const ViewGroup = ({ history, match }) => {
           },
         };
 
-    console.log(ID+"12312312313131")
+   
     const id = ID
     const { data} = await axios.get("/api/STDAvailableSubmissions/viewSpecificSubmissionStudentID",{params:{id:id}}, config);
     setForm(data.data)
-    console.log(data.data);
+
 
   
   
@@ -101,9 +102,9 @@ const ViewGroup = ({ history, match }) => {
       };
 
       try {
-          console.log(ID+"ppppp")
+     
         const {data} = await axios.get("/api/STDAvailableSubmissions/staffStatus",{params:{id:ID}},userprofileconfig);
-       console.log(data.data+"ooo")
+     
         setFeedbackData(data.data);
         // console.log(data.data[0].Heading)
         // let tempfeedbackData = data.data[0].Heading;
@@ -123,11 +124,44 @@ const ViewGroup = ({ history, match }) => {
           temp.push(data.data[i].heading)
           
         }
-        console.log("temp")
-        console.log(data.data[0])
-        console.log("temp")
+
    
         setExistingForm(temp);
+        
+      } catch (error) {
+        console.log(error)
+
+      }
+    };
+
+    const fetchGroupHeading = async () => {
+      const userprofileconfig = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+     
+        const {data} = await axios.get("/api/STDAvailableSubmissions/GetGroupHeading",{params:{id:ID}},userprofileconfig);
+      
+        setGroupHeading(data.data);
+
+
+
+
+
+        // var temp = []
+        // for(let i=0;i<data.data.length;i++){
+        //   temp.push(data.data[i].heading)
+          
+        // }
+        // console.log("temp")
+        // console.log(data.data[0])
+        // console.log("temp")
+   
+        // setExistingForm(temp);
         
       } catch (error) {
         console.log(error)
@@ -138,7 +172,7 @@ const ViewGroup = ({ history, match }) => {
 
   
 
-
+    fetchGroupHeading()
     fetchFeedbackData()
 
 
@@ -165,7 +199,7 @@ const ViewGroup = ({ history, match }) => {
         formData,
         config
       );
-        console.log("Hello")
+      
     return data.data 
 
     //   history.push("/");
@@ -179,7 +213,7 @@ const ViewGroup = ({ history, match }) => {
 
   const submit = async event => {
     event.preventDefault()
-    console.log(file,description)
+  
     const result = await postImage({images: file,description})
     setImages([result.image, ...images])
 }
@@ -190,7 +224,7 @@ const fileSelected = event => {
 }
 
 const download = e => {
- console.log(e.target.href);
+
  fetch(e.target.href, {
    method: "GET",
    headers: {}
@@ -218,7 +252,7 @@ const Status =  () => {
   let x = [];
 
 
-console.log(feedbackData+"qqq")
+
   for(var i=0;i<feedbackData.length;i++){
 
     if(heading.includes(existingForm[i])){
@@ -231,7 +265,10 @@ console.log(feedbackData+"qqq")
     }
     
   }
-
+{console.log(existingForm)}
+{console.log("existingform")}
+{console.log(groupHeading)}
+{console.log("groupheading")}
  return x
   setStatus(x);
 }catch(error){
@@ -260,12 +297,11 @@ console.log(feedbackData+"qqq")
                 <button type="submit"  className="btn1">Upload Resource</button>
 
           </form> */}
-        {console.log(feedbackData+"************")}
-          {console.log(existingForm)}
-          {console.log(feedbackData+"************")}
+    
+
           
 
-        {console.log(ID+"this is ID")}
+  
        
        <br/><br/>
          <h2 style={{fontSize:"22px"}}>View Reports</h2>
@@ -275,7 +311,7 @@ console.log(feedbackData+"qqq")
                     <img src={image}></img>
                     </div>))}
 
-                    {console.log(existingForm+"789456")}
+                   
           {/* <button className="btn2"><a
           href={`/images/${key}`}
           download

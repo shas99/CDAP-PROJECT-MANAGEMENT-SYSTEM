@@ -338,11 +338,14 @@ exports.addSubmission =async(req,res,next) => {
                 
             
                 const group = await Group.findById(id)
-   
+                const groupMem = group.member_2
+                const user = await User.find({username:groupMem})
+                console.log("poiuytre"+user[0].BatchID)
+                const BatchID = user[0].BatchID
                 console.log("Group:"+group._id)
                 groupid = group._id
             // //use the batchID to retreive data with the batchID
-                const submissions = await Form.find({groupid})
+                const submissions = await SubmissionPage.find({BatchID})
                 console.log("submissions:"+ submissions)
                 try{
                     res.status(201).json({
@@ -355,3 +358,29 @@ exports.addSubmission =async(req,res,next) => {
             // }
             };
             
+            exports.GetGroupHeading =async(req,res,next) => {
+
+
+                let token//to retreive username in backend
+
+                id = req.query.id
+                // id = "624c4bbc63e26a49b4e2d77b"
+                
+            
+                const group = await Group.findById(id)
+   
+                console.log("Group:"+group._id)
+                groupid = group._id
+            // //use the batchID to retreive data with the batchID
+                const submissions = await Form.find({groupid})
+                console.log("submissions:"+ submissions)
+                try{
+                    res.status(201).json({
+                        success: true,
+                        data: group.heading
+                    })
+                }catch(error){
+                    next(error)
+                }
+            // }
+            };
