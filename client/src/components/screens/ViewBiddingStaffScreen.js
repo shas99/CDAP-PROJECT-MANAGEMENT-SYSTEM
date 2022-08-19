@@ -12,6 +12,7 @@ const ViewBiddingStaff = ({history}) =>{
   const [privateData, setPrivateData] = useState("");
   const [projectarray, setprojectarray] = useState("");
   const [ID, setID] = useState(useParams().id);
+  const [group, setGroup] = useState({});
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -59,10 +60,38 @@ const ViewBiddingStaff = ({history}) =>{
     
     }
 
+    const fetchGroupDetails = async () =>{
+      const projectsconfig = {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+        },
+      }
 
+      try{
+        let id = ID
+        const{data} = await axios.get(`/api/AvailableProject/getGroupDetails/${id}`,projectsconfig);
+        
+        //console.log(typeof data.data);
+        const array = Object.entries(data.data)
+        setGroup(data.data);
+       // console.log(array);
+
+        // console.log(ProjectsData)
+        
+       //console.log(objectToArray(data.data));
+
+        
+      }catch(error){
+
+        
+      }
+    
+    }
 
 
     fetchProjectsData()
+    fetchGroupDetails()
     // fetchPrivateDate()
   }, [history])
   const objectToArray = obj => {
@@ -104,8 +133,9 @@ const removeData = (_id) => {
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption" className="" style={{marginTop:"-475px"}}>All projects</h1>
       <br/><br/>
-      <center>
+      <center style={{color:"white"}}>
 
+        {group.member_1}
         </center>
         {console.log(ProjectsData)}
          <ul>
@@ -117,15 +147,18 @@ const removeData = (_id) => {
                    
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Group Name</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.GroupID}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Batch ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.BatchID}</li>
-                    <div className="placeBidToBtn bg-red-800 hover:bg-red-500 w-[60px] ml-[20px] rounded-[5px]" > <button > <a href={`/ViewBidding/${project._id}`}>View bidding</a> </button></div>
-
+                   
 
       </div>
       </div>
             
-          )
+            )
+            
+          })} 
 
-        })} 
+          
+        
+        
       </ul>  
       <br/>
       

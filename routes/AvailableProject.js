@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 
-const {viewAvailableProjects,viewspecificproject,increasebidcount,placeBidonAvailableProject,StudentBidding,updateProjectDetails,deleteProjectDetails,createProjectDetails,ViewStaffBiddings} = require('../controllers/AvailableProject')
+const {viewAvailableProjects,viewspecificproject,increasebidcount,placeBidonAvailableProject,StudentBidding,updateProjectDetails,deleteProjectDetails,createProjectDetails,ViewStaffBiddings,getGroupDetails} = require('../controllers/AvailableProject')
 
 
 
@@ -27,5 +27,7 @@ router.route("/deleteProjectDetails/:id").delete(deleteProjectDetails)
 router.route("/addProjectDetails").post(createProjectDetails)
 //retreive supervisors biddings
 router.route("/ViewStaffBiddings").get(ViewStaffBiddings)
+//retreive group details
+router.route("/getGroupDetails/:id").get(getGroupDetails)
 
 module.exports = router

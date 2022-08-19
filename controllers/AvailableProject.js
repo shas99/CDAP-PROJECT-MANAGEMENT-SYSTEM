@@ -277,3 +277,22 @@ exports.ViewStaffBiddings =async(req,res,next) => {
     }
     
     };
+
+//Retrevie Group Details
+    exports.getGroupDetails = async(req,res,next) => {
+        const id = req.params.id
+        
+        const bidding = await Supervisor.findById(id)
+        const groupID = bidding.Groupid
+        try{
+          
+            const group = await Group.findById(groupID)//group that is approved and have this perticular member
+            console.log(id)
+            res.status(201).json({
+                success: true,
+                data:group
+            })
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+    }
