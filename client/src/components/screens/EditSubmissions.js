@@ -1,3 +1,6 @@
+
+
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./EditSubmissions.css";
@@ -6,6 +9,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {useParams} from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import Submission from "./SubmissionScreen";
@@ -184,8 +188,9 @@ const EditSubmission = ({history}) => {
   
 };
 
-
+//added alert
 const EditSubmission = async (e) => {
+  const Swal = require('sweetalert2')
   e.preventDefault();
 
   const config = {
@@ -213,6 +218,22 @@ const EditSubmission = async (e) => {
 
 
     console.log(data);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Made changes successfully!!'
+    })
     history.push("/adminPrivate")
   } catch (error) {
     setError(error.response.data.error);
@@ -228,7 +249,16 @@ const EditSubmission = async (e) => {
 const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
-    display.push(<li>{Math.ceil((i+1)/2)}&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
+
+    //display.push(<li>{Math.ceil((i+1)/2)}&nbsp;&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
+    display.push(<table className="tableeditsub2">
+    <tr><td style={{padding:"5px",margin:"5px"}}>{Math.ceil((i+1)/2)}</td></tr>
+    <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr>
+    {/* <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr> */}
+      
+    
+    
+    </table>)
       
     i++
   }
@@ -238,7 +268,9 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
 
 const DeleteSubmissionHandler = async (e) => {
+  const Swal = require('sweetalert2')
   e.preventDefault();
+  
 
  
   
@@ -261,6 +293,23 @@ const DeleteSubmissionHandler = async (e) => {
   );
   console.log(SubmissionID)
     alert("Deleted!")
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Deleted successfully!!'
+    })
 
   history.push("/adminPrivate");
 } catch (error) {
@@ -291,24 +340,26 @@ const DeleteSubmissionHandler = async (e) => {
     
     {flow == 0 &&
     <div>
+      
     <form id="headert123">
-    <label>
+    <label className="textcolor">
         Submission Heading:
         <input type="text" name="heading" onChange={(e) => setHeading(e.target.value)} value={Heading} id="input"/>
     </label>
     <br/>
     <br/>
-    <label>
+    <label className="textcolor">
         Submission Description:
         <input type="text" name="description" onChange={(e) => setDescription(e.target.value)} value={Description} id="input"/>
     </label>
     <br/>
     <br/>
-    <label>
+    <label className="textcolor">
         Submission BatchID:
         <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} value={BatchID} id="input"/>
     </label>
-    <label>
+    <br></br>
+    <label className="textcolor">
         Enable submission
         <input type="checkbox" name="visibility" onChange={toggle} checked={visibility}/>
     </label>
@@ -316,10 +367,15 @@ const DeleteSubmissionHandler = async (e) => {
     <br/>
     {/* <input type="submit" value="Submit" /> */}
     </form>
-      <button onClick={handleFlow} className="bluebuttons">
+      <button  onClick={handleFlow} className="bluebuttons">
         Next
       </button>
-  </div>
+
+      <button onClick={DeleteSubmissionHandler} className="redbuttons">
+        Delete submission
+      </button>
+      </div>
+  
     }
   
     {flow == 1 &&
@@ -331,7 +387,7 @@ const DeleteSubmissionHandler = async (e) => {
         <label>
         Enter the number of the field you want to make change to
         <input type="text" name="description" onChange={(e) => setFieldno(e.target.value)} id="input"/>
-    </label>
+    </label><br></br>
         <ul>{displayFields(Fields)}</ul>
         {/* />
     </label> */}
@@ -339,14 +395,14 @@ const DeleteSubmissionHandler = async (e) => {
       
 
 
-
+      <br></br>
 
       <button onClick={DeleteFieldHandler} className="redbuttons1">
         Delete field
-      </button><br/><br/>
+      </button>
       <button onClick={addField} className="bluebuttons">
         Add a normal text box
-      </button><br/><br/>
+      </button>
 
       <button onClick={addField2} className="bluebuttons">
         Add a rich text editor
@@ -361,9 +417,7 @@ const DeleteSubmissionHandler = async (e) => {
     
 } 
 
-<button onClick={DeleteSubmissionHandler} className="redbuttons">
-        Delete submission
-      </button>
+
 
 
 
