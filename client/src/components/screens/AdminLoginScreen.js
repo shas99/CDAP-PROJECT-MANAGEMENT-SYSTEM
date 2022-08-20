@@ -57,6 +57,8 @@ const AdminLoginScreen = ({ history }) => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             tabIndex={1}
+            className="placeholder:text-black focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-black text-serif text-b "
+
           />
         </div>
         <div className="form-group">
@@ -75,6 +77,8 @@ const AdminLoginScreen = ({ history }) => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             tabIndex={2}
+            className="placeholder:text-black focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-black text-serif text-b "
+
           />
         </div>
         <button type="submit" className="" id="Log1Button">
