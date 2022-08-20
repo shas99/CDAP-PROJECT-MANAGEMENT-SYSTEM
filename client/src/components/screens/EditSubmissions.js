@@ -1,6 +1,4 @@
 
-
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./EditSubmissions.css";
@@ -252,8 +250,9 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
     //display.push(<li>{Math.ceil((i+1)/2)}&nbsp;&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
     display.push(<table className="tableeditsub2">
-    <tr><td style={{padding:"5px",margin:"5px"}}>{Math.ceil((i+1)/2)}</td></tr>
-    <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr>
+    <tr><td style={{padding:"5px",margin:"5px"}}>{Math.ceil((i+1)/2)}</td>
+    <td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr>
+    {/* <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr> */}
     {/* <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr> */}
       
     
