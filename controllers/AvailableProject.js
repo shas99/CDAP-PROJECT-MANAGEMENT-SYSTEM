@@ -6,6 +6,9 @@ const User = require('../models/User')
 
 const AvailableProject = require('../models/AvailableProject');
 const Supervisors = require('../models/Supervisor');
+const Staff = require('../models/Staff');
+const Group = require('../models/Group');
+const Supervisor = require('../models/Supervisor');
 
 //*******VIEW AVAILABLE PROJECTS API *******
 exports.viewAvailableProjects =async(req,res,next) => {
@@ -108,8 +111,8 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 };
 
 
-
-exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
+//********Student Bidding************* */
+exports.StudentBidding = async(req,res,next) => { 
     console.log("Student recommendation api run")
     const {SelectedProject,SelectedSupervisors,cd} = req.body
     const Project = SelectedProject;
@@ -127,6 +130,15 @@ exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
           //console.log(decoded.id+"Decoded-")
           //console.log("Decoded : "+decoded)
           const user = await User.findById(decoded.id)
+        //retreive studentID
+          const StudentID = user.studentID
+
+
+          const group = await Group.findOne({$or: [{member_1:StudentID},{member_2:StudentID},{member_3:StudentID},{member_4:StudentID},{member_5:StudentID}]})
+
+
+          const Groupid = group._id
+        
           //console.log("User details -"+user)
         //   console.log("Batch id: ",user.BatchID);
         //   console.log("Group id: ",user.GroupID);
@@ -139,7 +151,7 @@ exports.StudentBidding = async(req,res,next) => { //Student Recommendation Form
         for(let i = 0;i<SupervisorArr.length;i++){
             let StaffID = SupervisorArr[i];
             const user = await Supervisors.create({
-                StaffID,GroupID,BatchID,Approved, Project
+                StaffID,GroupID,BatchID,Approved, Project,Groupid
             })    
         }
         console.log("Student recommendation success")
@@ -226,3 +238,80 @@ exports.createProjectDetails = async(req,res,next) => {
     }
 }
 
+
+//******** Retreive Biddings for specific supervisor  ******/
+exports.ViewStaffBiddings =async(req,res,next) => {
+    
+    
+    try{
+    
+        let token//to retreive username in backend
+
+        if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+            
+            token = req.headers.authorization.split(" ")[1]
+        }
+    
+        const decoded = jwt.verify(token,process.env.JWT_SECRET)
+
+        const staff = await Staff.findById(decoded.id)
+        console.log("qtuopwqtuoputiopqrpruioqqr"+staff._id)
+        const availableProjects = await Supervisor.find({StaffID:staff._id})//group that is approved and have this perticular member
+        //console.log(availableProjects[1])// 
+        const array = Object.values(availableProjects)
+    
+        //need to add batch id attribute for model and filter relevent batch related projects
+    
+        const arrayproject = JSON.stringify(array).split(',')
+        // console.log(arrayproject)
+        // console.log(typeof arrayproject)
+        //console.log(array+"back end array of projects")
+        res.status(201).json({
+            success: true,
+            data: array
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+    };
+
+//Retrevie Group Details
+exports.getGroupDetails = async(req,res,next) => {
+    const id = req.params.id
+        
+    const bidding = await Supervisor.findById(id)
+    const groupID = bidding.Groupid
+    try{
+          
+        const group = await Group.findById(groupID)//group that is approved and have this perticular member
+        console.log(id)
+        res.status(201).json({
+            success: true,
+            data:group
+        })
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
+
+//Approve the bidding
+exports.approveBidding = async(req,res,next) => {
+    const id = req.params.id
+        
+    const bidding = await Supervisor.findById(id)
+    
+    try{
+          
+        bidding.Approved = true
+        bidding.save()
+        res.status(201).json({
+            success: true,
+            data:"Success"
+        })
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}

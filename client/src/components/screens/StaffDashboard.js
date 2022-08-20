@@ -51,6 +51,7 @@ const StaffDashboard = ({history}) => {
     <div id="back">
 
 <Header/>
+
 <h1 id="caption">Welcome to your dashboard {privateData}</h1>
 <p style={{color:"#FFF",textAlign:"right"}}>
 
@@ -100,6 +101,11 @@ const StaffDashboard = ({history}) => {
 <div className="StudentRectangle-43">
 <br/><br/><br/><br/><br/><br/>
 <Link to="/submissionmilestone" id="Regs">Submit File</Link>
+</div>
+
+<div className="StudentRectangle-43">
+<br/><br/><br/><br/><br/><br/>
+<Link to="/supervisorViewBidding" id="Regs">View my biddings</Link>
 </div>
 
 <div className="StudentRectangle-43">

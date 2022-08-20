@@ -114,14 +114,16 @@ export default function Dashboard ({history}) {
   
   (
     //         DASHBOARD SCREEN 
-    <div className='bg-gray-900 text-gray-100'>
+
+    <div className='bg-gray-900 text-gray-100 w-[100rem] overflow-y-scroll-hidden	scrollbar-hide ' >
+
             <div class="flex ">
 
-        <div x-data="{ open: true }" class="fixed top-0  z-50">
+        <div x-data="{ open: true }" className="fixed top-0  z-50 ">
            {/* SIDENAVBAR */}
             <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
                 <a class="flex items-center w-full px-3 mt-3" href="#">
-                    <img src="https://cdn.discordapp.com/attachments/938131839661539339/973611175168327740/Favi.png" class="w-8 h-8" alt=""/>
+                    <img src="https://cdn.discordapp.com/attachments/929308623853723678/994252147799625768/Screenshot_2022-07-06_at_20.12.37.png" class="w-8 h-8 rounded" alt=""/>
                     <span class="ml-2 text-sm font-bold">Calibre Project Management</span>
                 </a>
                 <div class="w-full px-2">
@@ -175,7 +177,7 @@ export default function Dashboard ({history}) {
                 </div>
                 <a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700 " >
                     <div class="border flex px-2 py-1 rounded-lg flex items-center gap-2" onClick={logOutHandler}>
-                        <span class="ml-2 text-sm font-medium ">Log Out</span>
+                        <span class="ml-2 text-sm font-medium w-20 cursor-pointer">Log Out</span>
                         <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -259,7 +261,7 @@ export default function Dashboard ({history}) {
 
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[13rem]">
                 
-                <div id="col" class='lg:w-[38vw] md:-translate-y-2'>
+                <div id="col" class='lg:w-[38vw] w-[10rem] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
                     <h1 class="text-xs text-gray-400 mt-1"> Student</h1>
                     <hr class="border-gray-300 mt-2 md:w-96 lg:hidden"/>
@@ -277,7 +279,7 @@ export default function Dashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[20rem]">
 
                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
@@ -288,7 +290,7 @@ export default function Dashboard ({history}) {
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
                             <button>
-                                <a href='/viewfeedback'> My Feedbacks</a>
+                                <a href='/userprofile'> My Profile</a>
                           
                             </button>
                        </div>
@@ -337,16 +339,9 @@ export default function Dashboard ({history}) {
                        </div>
                     
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
-                           <button>
-                           <a href='/userprofile'> My Profile</a>
-                            </button>
-                           
-
-                            
-                  </div>
+                      
 {/*ANNOUNCEMENT SECTION */}
-                    <div className='ml-[20rem] w-full mt-[6rem]'>
+                    <div className='ml-[0rem] mt-[6rem]'>
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
@@ -380,7 +375,18 @@ export default function Dashboard ({history}) {
 
                             <br/><br/>
                            
-                            
+                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[70rem] mt-[-17rem] '>
+                    <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md w-[20rem]">
+                                <br/>
+
+                                    <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
+                                    <h1 class="text-2xl font-semibold">{title}  </h1>
+                                    <p class="text-gray-400 text-sm">{description}</p>
+                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
+                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
+                                    <hr class="w-2/3 border-gray-500 my-4 hidden"/>
+                            </div> 
+                            </div>
                            
 
 
@@ -411,18 +417,7 @@ export default function Dashboard ({history}) {
 
 
                     </div>
-                    <div className='flex items-center gap-2 mb-3 ml-[20rem]'>
-                    <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md ">
-                                <br/>
-
-                                    <button class=' text-xs text-orange-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Admin</button>
-                                    <h1 class="text-2xl font-semibold">{title}  </h1>
-                                    <p class="text-gray-400 text-sm">{description}</p>
-                                    <p class="text-gray-400 text-sm">Posted on : {postedDate}</p>
-                                    <p class="text-gray-400 text-sm">Deadline :   {deadline}</p>
-                                    <hr class="w-2/3 border-gray-500 my-4 hidden"/>
-                            </div> 
-                            </div>
+                  
                 
 
 

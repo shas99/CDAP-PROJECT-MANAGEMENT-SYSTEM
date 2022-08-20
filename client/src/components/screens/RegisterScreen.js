@@ -57,13 +57,24 @@ const RegisterScreen = ({ history }) => {
       <form onSubmit={registerHandler} className="register-screen__form">
         <h3 className="register-screen__title">Register</h3>
         {error && <span className="error-message">{error}</span>}
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="name">Username:</label>
           <input
             type="text"
             required
-            id="name" className="inputs"
+            className="lg:w-90% bg-white"
             placeholder="Enter username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div> */} 
+        <div className="form-group">
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            required
+            id="username" className="inputs"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -77,8 +88,10 @@ const RegisterScreen = ({ history }) => {
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="placeholder:text-black focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-black text-serif text-b "
           />
         </div>
+       
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
@@ -89,7 +102,7 @@ const RegisterScreen = ({ history }) => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            
+            className="placeholder:text-black focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-black text-serif text-b "
           />
         </div>
         <div className="form-group">
@@ -102,6 +115,7 @@ const RegisterScreen = ({ history }) => {
             placeholder="Confirm password"
             value={confirmpassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            className="placeholder:text-black focus:border-sky-500 focus:ring-sky-500 focus:ring-1 text-black text-serif text-b "
           />
         </div>
                 

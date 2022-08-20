@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
 
 
 export default function StaffPlaceAnnouncement() {
@@ -58,9 +59,12 @@ const Swal = require('sweetalert2')
 
 
   return (
-    <div className='bg-gray-900 w-180  h-[55rem] ' >
-        <br/><br/><br/><br/> <br/> 
-        <h1 className=' ml-[32rem] text-4xl text-gray-100 '>Post Annnouncement</h1>
+    <div className='bg-gray-900 w-180  h-[60rem] ' >
+        <br/><br/><br/> 
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="StaffPlaceAnnouncement"/>
+        </div>
+        <h1 className=' ml-[32rem] text-4xl text-gray-100 ' style={{marginTop:"-450px"}}>Post Annnouncement</h1>
 
         {/* SVG ICON */}
        
@@ -82,14 +86,14 @@ const Swal = require('sweetalert2')
 <form className=' w-[35rem] absolute rounded top-[190px] right-[437px] h-auto' onSubmit={postAnnouncementHandler}>
  <br/>
   <div class="mb-6 w-56 ">
-    <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Announcement Topic</label>
+    <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300" style={{color:"white", marginTop:"-100px"}}>Announcement Topic</label>
     <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  required="" onChange={(e) => setTitle(e.target.value)}
-          value={title}/>
+          style={{color:"white"}} value={title}/>
   </div>
   <div class="mb-6">
-    <label for="password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Date</label>
+    <label for="password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300" style={{color:"white"}}>Date</label>
     <input type="text" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" onChange={(e) => setDate(e.target.value)}
-          value={announcementDate}/>
+         style={{color:"white"}} value={announcementDate}/>
   </div>
   {/* <div class="mb-6">
     <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"> Time </label>
@@ -98,15 +102,15 @@ const Swal = require('sweetalert2')
   </div> */}
 
   <div class="mb-6">
-    <label for="repeat-password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Deadline</label>
+    <label for="repeat-password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300" style={{color:"white"}}>Deadline</label>
     <input type="text" id="deadline" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" onChange={(e) => setaDeadline(e.target.value)}
-          value={deadline} />
+          style={{color:"white"}} value={deadline} />
   </div>
 
 
-  <label for="message" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-400">Description</label>
+  <label for="message" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-400" style={{color:"white"}}>Description</label>
 <textarea id="message" rows="4" class="block p-2.5  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." onChange={(e) => setDescription(e.target.value)}
-          value={description}></textarea>
+         style={{color:"black"}} value={description}></textarea>
 
   
   <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Post Announcement</button>
