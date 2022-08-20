@@ -395,13 +395,14 @@ const DeleteSubmissionHandler = async (e) => {
 
 
       <br></br>
-
+    <div>
       <button onClick={DeleteFieldHandler} className="redbuttons1">
         Delete field
       </button>
       <button onClick={addField} className="bluebuttons">
         Add a normal text box
       </button>
+      </div>
 
       <button onClick={addField2} className="bluebuttons">
         Add a rich text editor
