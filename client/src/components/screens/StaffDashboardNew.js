@@ -111,7 +111,7 @@ export default function StaffDashboard ({history}) {
   
   (
     //         DASHBOARD SCREEN 
-    <div className='bg-gray-900 text-gray-100'>
+    <div className='bg-gray-900 text-gray-100 overflow-hidden' >
             <div class="flex ">
 
         <div x-data="{ open: true }" class="fixed top-0  z-50">

@@ -95,7 +95,7 @@ const removeData = (_id) => {
     <span className="error-message">{error}</span>
   ) :(
     
-    <div style={{backgroundColor:"#22272E"}}>
+    <div className='bg-gray-900 h-[55rem]'>
       <Header/>
       <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminProjects"/>
@@ -110,17 +110,23 @@ const removeData = (_id) => {
          <ul>
         {ProjectsData.map(project => {
           return (
-            <div className="card">
-        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px"}}>{project.GroupID}</p></center>
-      <div>
-                   
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Group Name</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.GroupID}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Batch ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.BatchID}</li>
-                    <div className="placeBidToBtn bg-red-800 hover:bg-red-500 w-[60px] ml-[20px] rounded-[5px]" > <button > <a href={`/viewBidding/${project._id}`}>View bidding</a> </button></div>
+            
 
+<div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[35rem]">
+    <a >
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.GroupID}</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><b>Group Name : </b> {project.GroupID} <br/>
+    <b>Batch ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {project.BatchID} </b>
+    </p>
+    <a href={`/viewBidding/${project._id}`} class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        View Bidding
+        <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </a>
+</div>
 
-      </div>
-      </div>
+    
+    
             
           )
 
