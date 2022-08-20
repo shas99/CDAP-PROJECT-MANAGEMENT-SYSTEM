@@ -138,8 +138,6 @@ const toggle=()=> {//normal text box
             </Link>
       
     </div>
-
-     
      
   </>
 );
