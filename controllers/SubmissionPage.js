@@ -124,12 +124,19 @@ exports.submissionForm = async(req,res,next) => {
     temp.push(heading)
     console.log(temp)
     user.heading = temp
+    const group = await Group.find({g_approval:true,$or:[{member_1:user.studentID},{member_2:user.studentID},{member_3:user.studentID},{member_4:user.studentID},{member_5:user.studentID}]})
+    console.log(group+"55555555555")
     user.save()
+    const temp1 = group[0].heading
+    temp1.push(heading)
+    group[0].heading = temp1
     studentID = decoded.id;
-    
+    const groupid = group[0]._id
+    group[0].save()
+    console.log("pppppppppp"+groupid)
     try{
         const form = await Form.create({
-            entries,heading,studentID
+            entries,heading,studentID,groupid
         })
         // console.log(heading)
         res.status(201).json({
@@ -139,6 +146,8 @@ exports.submissionForm = async(req,res,next) => {
     }catch(error){
         next(error)
     }
+
+    
 };
 
 //create new submission
@@ -315,4 +324,65 @@ exports.addSubmission =async(req,res,next) => {
                         res.status(500).json({success:false, error:error.message})
                     }
                     
+            };
+
+
+//use the parameter to retreive the group, and then with one of the group member's student id retreive their data to get the batchid
+//with the batch id retreive the forms available to the group 
+            exports.Staffstatus =async(req,res,next) => {
+
+
+                let token//to retreive username in backend
+
+                id = req.query.id
+                // id = "624c4bbc63e26a49b4e2d77b"
+                
+            
+                const group = await Group.findById(id)
+                const groupMem = group.member_2
+                const user = await User.find({username:groupMem})
+                console.log("poiuytre"+user[0].BatchID)
+                const BatchID = user[0].BatchID
+                console.log("Group:"+group._id)
+                groupid = group._id
+            // //use the batchID to retreive data with the batchID
+                const submissions = await SubmissionPage.find({BatchID})
+                console.log("submissions:"+ submissions)
+                try{
+                    res.status(201).json({
+                        success: true,
+                        data: submissions
+                    })
+                }catch(error){
+                    next(error)
+                }
+            // }
+            };
+            
+            //use the parameter to retreive the group, and with the goup id retireve all the forms already filled by the perticular group
+            exports.GetGroupHeading =async(req,res,next) => {
+
+
+                let token//to retreive username in backend
+
+                id = req.query.id
+                // id = "624c4bbc63e26a49b4e2d77b"
+                
+            
+                const group = await Group.findById(id)
+   
+                console.log("Group:"+group._id)
+                groupid = group._id
+            // //use the batchID to retreive data with the batchID
+                const submissions = await Form.find({groupid})
+                console.log("submissions:"+ submissions)
+                try{
+                    res.status(201).json({
+                        success: true,
+                        data: group.heading
+                    })
+                }catch(error){
+                    next(error)
+                }
+            // }
             };
