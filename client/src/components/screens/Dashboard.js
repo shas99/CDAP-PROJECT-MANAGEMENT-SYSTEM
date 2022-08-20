@@ -115,7 +115,7 @@ export default function Dashboard ({history}) {
   (
     //         DASHBOARD SCREEN 
 
-    <div className='bg-gray-900 text-gray-100 overflow-auto	 h-[53rem]' >
+    <div className='bg-gray-900 text-gray-100 w-[100rem] overflow-y-scroll-hidden	scrollbar-hide ' >
 
             <div class="flex ">
 
@@ -261,7 +261,7 @@ export default function Dashboard ({history}) {
 
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[13rem]">
                 
-                <div id="col" class='lg:w-[38vw] md:-translate-y-2'>
+                <div id="col" class='lg:w-[38vw] w-[10rem] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
                     <h1 class="text-xs text-gray-400 mt-1"> Student</h1>
                     <hr class="border-gray-300 mt-2 md:w-96 lg:hidden"/>
@@ -341,7 +341,7 @@ export default function Dashboard ({history}) {
 
                       
 {/*ANNOUNCEMENT SECTION */}
-                    <div className='ml-[0rem] w-full mt-[6rem]'>
+                    <div className='ml-[0rem] mt-[6rem]'>
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
@@ -375,7 +375,7 @@ export default function Dashboard ({history}) {
 
                             <br/><br/>
                            
-                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[70rem] mt-[-15rem] '>
+                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[70rem] mt-[-17rem] '>
                     <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md w-[20rem]">
                                 <br/>
 
