@@ -9,7 +9,13 @@ const SubmissionFormSchema = new mongoose.Schema({ //SubmissionPage Schema
     },
     studentID:{
         type:String
-    }
+    },
+    groupid:{
+        type:String
+    },
+    BatchID:{
+        type : String
+    },
 
     
 })
