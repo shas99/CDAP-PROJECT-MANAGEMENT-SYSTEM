@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const { decode } = require('jsonwebtoken');
 const User = require('../models/User')
-
+const sendEmail = require('../utils/sendEmail')
 
 const AvailableProject = require('../models/AvailableProject');
 const Supervisors = require('../models/Supervisor');
@@ -149,6 +149,37 @@ exports.StudentBidding = async(req,res,next) => {
     
     try{
         for(let i = 0;i<SupervisorArr.length;i++){
+            let staff = await Staff.findById(SupervisorArr[i])
+            let staffEmail = staff.email
+            
+            console.log("staffEmail : "+staffEmail)
+
+            const resetUrl = `http://localhost:3000/supervisorViewBidding`
+           
+            const message = `<h1>Bidding Request</h1>
+            <h3>Group members: ${group.member_1}<br/>${group.member_2}<br/>${group.member_3}<br/>${group.member_4}<br/>${group.member_5}<br/> ,</h3>
+            <p>Above group has placed a Bid</p>
+            <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+            <p>Thank you,<br/> Best Regards <br/> Developer Team
+            </p>
+            `
+            try{
+                await sendEmail({
+                    to:staffEmail,
+                    subject:"New Supervisor Bidding",
+                    text: message
+                })
+                
+                res.status(200).json({success:true,data:"Passowrd reset link sent"})
+            }catch(error){
+
+    
+        
+                return next(new ErrorResponse("Email could not be send",500))
+                
+        
+            }
+
             let StaffID = SupervisorArr[i];
             const user = await Supervisors.create({
                 StaffID,GroupID,BatchID,Approved, Project,Groupid
