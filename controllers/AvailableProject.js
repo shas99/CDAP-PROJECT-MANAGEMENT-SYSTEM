@@ -146,6 +146,8 @@ exports.StudentBidding = async(req,res,next) => {
           const GroupID = user.GroupID;
         //   console.log("Group Details "+batchID+","+groupID)
         const Approved = false;
+
+
     
     try{
         for(let i = 0;i<SupervisorArr.length;i++){
@@ -154,15 +156,28 @@ exports.StudentBidding = async(req,res,next) => {
             
             console.log("staffEmail : "+staffEmail)
 
-            const resetUrl = `http://localhost:3000/supervisorViewBidding`
+
+
+            let StaffID = SupervisorArr[i];
+            const user = await Supervisors.create({
+                StaffID,GroupID,BatchID,Approved, Project,Groupid
+            })    
+
+            const availableProjects = await AvailableProject.findById(SelectedProject)
+            const project = availableProjects.projectName
+            const resetUrl = `https://cdap-app.herokuapp.com/viewBidding/${user._id}`
            
-            const message = `<h1>Bidding Request</h1>
-            <h3>Group members: ${group.member_1}<br/>${group.member_2}<br/>${group.member_3}<br/>${group.member_4}<br/>${group.member_5}<br/> ,</h3>
-            <p>Above group has placed a Bid</p>
-            <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+            const message = `
+
+            <center><h1>Bidding Request</h1>
+            <h3>Group members: ${group.member_1}<br/>${group.member_2}<br/>${group.member_3}<br/>${group.member_4}<br/>${group.member_5}<br/></h3>
+            <p>Above group has placed a Bid for ${project}<br/>Click the below link to view the Bidding in more detail</p>
+            <a href=${resetUrl} clicktracking=off>View Bidding</a>
             <p>Thank you,<br/> Best Regards <br/> Developer Team
-            </p>
-            `
+            </p></center>
+            `//Styling from https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_image
+
+
             try{
                 await sendEmail({
                     to:staffEmail,
@@ -179,11 +194,6 @@ exports.StudentBidding = async(req,res,next) => {
                 
         
             }
-
-            let StaffID = SupervisorArr[i];
-            const user = await Supervisors.create({
-                StaffID,GroupID,BatchID,Approved, Project,Groupid
-            })    
         }
         console.log("Student recommendation success")
         // sendToken(user, 201, res)

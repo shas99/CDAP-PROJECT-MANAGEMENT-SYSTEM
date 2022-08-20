@@ -4,6 +4,7 @@ import axios from "axios";
 import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
+import Login from "./StaffLoginScreen"
 
 
 const ViewBiddingStaff = ({history}) =>{
@@ -24,7 +25,7 @@ const ViewBiddingStaff = ({history}) =>{
       };
 
       try {
-        const { data} = await axios.get("/api/adminPrivate/adminPrivate", config);
+        const { data} = await axios.get("/api/staffPrivate/staffPrivate", config);
         
         setPrivateData(data.data);
       } catch (error) {
@@ -89,7 +90,7 @@ const ViewBiddingStaff = ({history}) =>{
     
     }
 
-
+    fetchPrivateDate()
     fetchProjectsData()
     fetchGroupDetails()
     // fetchPrivateDate()
@@ -137,8 +138,12 @@ alert("Approved sucessfully")
 
 
   return  error ? ( 
-  
-    <span className="error-message">{error}</span>
+  <>
+  <span className="error-message">{error}</span>
+        {localStorage.removeItem("authToken")};
+        <Login/>
+    
+    </>
   ) :(
     
     <div style={{backgroundColor:"#22272E"}}>
