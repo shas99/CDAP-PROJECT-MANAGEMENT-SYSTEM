@@ -10,7 +10,7 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     // Name: {
     //     type: String
     // },
-    GroupID: {
+    GroupID: {//Group name
         type : String
     },
     BatchID: {
@@ -25,6 +25,9 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     Project: {
         type: String
     },
+    Groupid: {//Group object ID
+        type: String
+    }
 })
 
 const Supervisor = mongoose.model("Supervisor", SupervisorSchema)
