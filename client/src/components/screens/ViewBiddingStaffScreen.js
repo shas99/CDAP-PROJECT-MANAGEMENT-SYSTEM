@@ -4,7 +4,7 @@ import axios from "axios";
 import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
-import Login from "./StaffLoginScreen"
+import Login from "./StaffExpiredLoginScreen"
 
 
 const ViewBiddingStaff = ({history}) =>{
@@ -142,6 +142,7 @@ alert("Approved sucessfully")
   <span className="error-message">{error}</span>
         {localStorage.removeItem("authToken")};
         <Login/>
+        
     
     </>
   ) :(
