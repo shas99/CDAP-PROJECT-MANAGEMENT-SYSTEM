@@ -123,7 +123,8 @@ exports.viewstatusdocument1marks =async(req,res,next) => {
         
         )
 
-        const setmarksdata ="Gantt Chart marks"+":"+matchentry3.ganttchartmarks+",  "
+        const setmarksdata  =//<tr><td>"Gantt Chart marks"</td><td> {matchentry3.ganttchartmarks}</td></tr>
+                           "Gantt chart marks"+":"+matchentry3.ganttchartmarks+", "
                             +"Actual time marks"+":"+matchentry3.actualtimemarks+",  "
                             +"Break down marks"+":"+matchentry3.breakdownmarks+",  "
                             +"Capability in applying knowledge B"+":"+matchentry3.capabilitymarks2+",  "

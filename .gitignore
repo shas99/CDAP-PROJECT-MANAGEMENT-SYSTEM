@@ -50,3 +50,6 @@ yarn-error.log*
 
 # Config Files
 *.env
+
+#Tailwind Main File
+client/src/styles/main.css

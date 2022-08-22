@@ -46,6 +46,8 @@ const ViewStatusDocument1Marks = ({history}) => {
                 //newly added
                 console.log(viewstatusdocument1marksArray[0])
                 const viewstatusdocument1marks1=viewstatusdocument1marksArray[0].split(",")
+                // console.log(viewstatusdocument1marks1)
+             
                 setstatusdocument1marks(viewstatusdocument1marks1)
 
             }catch(error){
@@ -71,6 +73,7 @@ const ViewStatusDocument1Marks = ({history}) => {
             return(
                 <ul>{lists}</ul>
             )
+            // let varr = statusdocument1marks;
         }catch(e){
             console.error(e)
         }
@@ -96,6 +99,15 @@ const ViewStatusDocument1Marks = ({history}) => {
                 <h1 id="caption">Your Status Document 1 marks are</h1><br/>
                 <hr id="hr"></hr>
                 <p id="List"> {listHandler()}</p>
+                
+                {/* {statusdocument1marks.map(marks => 
+
+                
+
+                    
+                    )} */}
+
+                
 
                 </div>
 
