@@ -140,9 +140,9 @@ exports.viewproposalreportmarks =async(req,res,next) => {
 
         try{
     
-        const studentPropReportCollection = await ProposalReportMarks.find()
-        const abd = Object.values(studentPropReportCollection)
-        console.log(abd + "This is an array")
+        const studentPropReportCollection = await ProposalReportMarks.findOne({studentIDs:retrievestudentid})
+        // const abd = Object.values(studentPropReportCollection)
+        // console.log(abd + "This is an array")
         // let matchentry2;
         // const matchedID = studentPropReportCollection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
         //     console.log(collectionEntry)
@@ -170,7 +170,7 @@ exports.viewproposalreportmarks =async(req,res,next) => {
        
         res.status(201).json({
             success: true,
-           data:setmarksdata
+           data:studentPropReportCollection
                 
            
         })

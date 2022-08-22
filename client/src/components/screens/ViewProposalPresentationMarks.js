@@ -41,12 +41,12 @@ const ViewProposalPresentationMarks = ({history}) => {
 
             try{
                 const { data } = await axios.get("/api/ViewMarks/viewproposalpresentationmarks",viewproposalpresentationmarksconfig);
-                const viewproposalpresentationmarksArray = data.data.split("/")
-                setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
+                const viewproposalpresentationmarksArray = data.data
+                //setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
                 //newly added
-                console.log(viewproposalpresentationmarksArray[0])
-                const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
-                setproposalpresentationmarks(viewproposalpresentationmarks1)
+                console.log(viewproposalpresentationmarksArray)
+                // const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
+                setproposalpresentationmarks(viewproposalpresentationmarksArray)
 
             }catch(error){
 
