@@ -509,6 +509,10 @@ video {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-0 {
   top: 0px;
   right: 0px;
@@ -833,6 +837,10 @@ video {
   height: 75rem;
 }
 
+.h-\[60rem\] {
+  height: 60rem;
+}
+
 .h-\[78px\] {
   height: 78px;
 }
@@ -849,8 +857,12 @@ video {
   height: 3.8rem;
 }
 
-.h-\[60rem\] {
-  height: 60rem;
+.h-\[4rem\] {
+  height: 4rem;
+}
+
+.h-\[45rem\] {
+  height: 45rem;
 }
 
 .w-48 {
