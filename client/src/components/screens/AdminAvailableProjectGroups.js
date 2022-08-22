@@ -95,7 +95,7 @@ const AdminAvailableProjectGroups = ({history}) =>{
         <SideNavigationBar page="AdminStudentGroups"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>All Groups</h1>
+      <h1 id="caption" className="" style={{marginTop:"-575px"}}>All Groups</h1>
       <br/><br/>
 
 

@@ -761,6 +761,14 @@ video {
   margin-right: 67rem;
 }
 
+.mt-\[-600px\] {
+  margin-top: -600px;
+}
+
+.mt-\[-575px\] {
+  margin-top: -575px;
+}
+
 .block {
   display: block;
 }

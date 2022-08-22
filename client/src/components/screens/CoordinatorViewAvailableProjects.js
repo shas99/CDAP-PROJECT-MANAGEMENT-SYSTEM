@@ -101,7 +101,7 @@ const removeData = (_id) => {
         <SideNavigationBar page="AdminProjects"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>All projects</h1>
+      <h1 id="caption" className="" style={{marginTop:"-575px"}}>All projects</h1>
       <br/><br/>
       <center>
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
