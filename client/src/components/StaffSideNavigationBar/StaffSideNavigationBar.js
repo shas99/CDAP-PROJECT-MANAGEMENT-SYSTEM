@@ -22,7 +22,7 @@ export default function SideNavigationBar({page}) {
 
 
    
-<div class="sidebar" style={{position:"sticky"}}>
+<div className="sidebar">
   {/* <a class="active" href="#home">Home</a>
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
