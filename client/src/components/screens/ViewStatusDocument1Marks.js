@@ -43,7 +43,7 @@ const ViewStatusDocument1Marks = ({history}) => {
             try{
                 const { data } = await axios.get("/api/ViewMarks/viewstatusdocument1marks",viewstatusdocument1marksconfig);
                 const viewstatusdocument1marksArray = data.data
-                console.log(viewstatusdocument1marksArray.projectNo)
+                //console.log(viewstatusdocument1marksArray.projectNo)
                 //const arr = data.data
                
 
