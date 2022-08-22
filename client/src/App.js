@@ -102,6 +102,8 @@ import ViewStaffForm from "./components/screens/viewStaffFormScreen";
 import PageNotFound from "./components/screens/PageNotFound";
 import SupervisorViewBidding from "./components/screens/SupervisorViewBidding";
 import ViewBiddingStaff from "./components/screens/ViewBiddingStaffScreen";
+import StaffLoginExpiredScreen from "./components/screens/StaffExpiredLoginScreen";
+
 
 const App = () => {
   return (
@@ -238,9 +240,10 @@ const App = () => {
           <Route exact path="/ViewBidding/:id" component={ViewBiddingStaff}/>
 
          
+          <Route exact path="/StaffLoginExpiredScreen/" component={StaffLoginExpiredScreen}/>
 
 
-
+          
 
           {/* Routes added under this might not work. Please add your routes above this route           */}
           <Route path="*" component={PageNotFound}/>
