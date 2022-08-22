@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer";
 import { render } from "@testing-library/react";
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 import Swal from 'sweetalert2'
+import Login from "./LoginScreen"
 
 const MatchedSupervisors = ({history}) => {
   const Swal = require('sweetalert2')
@@ -215,11 +216,16 @@ const MatchedSupervisors = ({history}) => {
 
   
     return  error ? ( 
-  
+  <>
         <span className="error-message">{error}</span>
+
+        
+        {localStorage.removeItem("authToken")};
+        <Login/>
+        </>
       ) : ( 
-    
         <>
+       
         <div className="bg-gray-900 h-[75rem]">
         <Header/>
         <SideNavigationBar page="MatchedSupervisors"/>

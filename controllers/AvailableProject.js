@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const { decode } = require('jsonwebtoken');
 const User = require('../models/User')
-
+const sendEmail = require('../utils/sendEmail')
 
 const AvailableProject = require('../models/AvailableProject');
 const Supervisors = require('../models/Supervisor');
@@ -146,13 +146,54 @@ exports.StudentBidding = async(req,res,next) => {
           const GroupID = user.GroupID;
         //   console.log("Group Details "+batchID+","+groupID)
         const Approved = false;
+
+
     
     try{
         for(let i = 0;i<SupervisorArr.length;i++){
+            let staff = await Staff.findById(SupervisorArr[i])
+            let staffEmail = staff.email
+            
+            console.log("staffEmail : "+staffEmail)
+
+
+
             let StaffID = SupervisorArr[i];
             const user = await Supervisors.create({
                 StaffID,GroupID,BatchID,Approved, Project,Groupid
             })    
+
+            const availableProjects = await AvailableProject.findById(SelectedProject)
+            const project = availableProjects.projectName
+            const resetUrl = `https://cdap-app.herokuapp.com/viewBidding/${user._id}`
+           
+            const message = `
+
+            <center><h1>Bidding Request</h1>
+            <h3>Group members: ${group.member_1}<br/>${group.member_2}<br/>${group.member_3}<br/>${group.member_4}<br/>${group.member_5}<br/></h3>
+            <p>Above group has placed a Bid for ${project}<br/>Click the below link to view the Bidding in more detail</p>
+            <a href=${resetUrl} clicktracking=off>View Bidding</a>
+            <p>Thank you,<br/> Best Regards <br/> Developer Team
+            </p></center>
+            `//Styling from https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_image
+
+
+            try{
+                await sendEmail({
+                    to:staffEmail,
+                    subject:"New Supervisor Bidding",
+                    text: message
+                })
+                
+                res.status(200).json({success:true,data:"Passowrd reset link sent"})
+            }catch(error){
+
+    
+        
+                return next(new ErrorResponse("Email could not be send",500))
+                
+        
+            }
         }
         console.log("Student recommendation success")
         // sendToken(user, 201, res)
