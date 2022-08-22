@@ -1097,6 +1097,10 @@ video {
   width: 10rem;
 }
 
+.w-\[90rem\] {
+  width: 90rem;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -1147,6 +1151,10 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.grid-flow-row {
+  grid-auto-flow: row;
 }
 
 .grid-cols-1 {
@@ -2123,6 +2131,11 @@ video {
   .dark\:focus\:ring-gray-500:focus {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(107 114 128 / var(--tw-ring-opacity));
+  }
+
+  .dark\:focus\:ring-red-800:focus {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(153 27 27 / var(--tw-ring-opacity));
   }
 }
 
