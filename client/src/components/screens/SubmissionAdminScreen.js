@@ -100,7 +100,7 @@ const toggle=()=> {//normal text box
   <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminSubmission"/>
        </div>
-  <h1 id="caption" className="" style={{marginTop:"-475px"}}>RP Submissions Page</h1>
+  <h1 id="caption" className="" style={{marginTop:"-575px"}}>RP Submissions Page</h1>
       <br/><br/>
 
 
