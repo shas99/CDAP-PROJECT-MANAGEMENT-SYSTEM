@@ -97,10 +97,7 @@ const ViewProgressPresentation1Marks = ({history}) => {
                 <hr id="hr"></hr>
                 <p id="List"> {listHandler()}</p>
 
-                </div>
-
-               {/* {fetchProposalPresentationMarksData}<br/><br/><br/><br/> */}
-                
+                </div>                
             
             <Footer/>
         </div>

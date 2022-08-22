@@ -39,38 +39,39 @@ exports.viewprogresspresentation1marks =async(req,res,next) => {
 
         try{
     
-        const progresspresentation1Collection = await ProgressPresentation1Marks.find()
-    
-        let matchentry4;
-        const matchedID = progresspresentation1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
-            console.log(collectionEntry)
-            matchentry4=collectionEntry
+        const progresspresentation1Collection = await ProgressPresentation1Marks.findOne({studentIDs:retrievestudentid})
+        //const array1 = Object.values(progresspresentation1Collection)
+        console.log(progresspresentation1Collection+"THis is array")
+        // let matchentry4;
+        // const matchedID = progresspresentation1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
+        //     console.log(collectionEntry)
+        //     matchentry4=collectionEntry
 
-        }}
+        // }}
         
-        )
+        // )
 
-        const setmarksdata ="Proven Gap A"+":"+matchentry4.provengapmarks1+",  "
-                            +"Proven Gap B"+":"+matchentry4.provengapmarks2+",  "
-                            +"Capability A"+":"+matchentry4.capabilitymarks1+",  "
-                            +"Capability B"+":"+matchentry4.capabilitymarks2+",  "
-                            +"Implementation A"+":"+matchentry4.implementationmarks1+",  "
-                            +"Implementation B"+":"+matchentry4.implementationmarks2+",  "
-                            +"Implementation C"+":"+matchentry4.implementationmarks3+",  "
-                            +"Implementation D"+":"+matchentry4.implementationmarks4+",  "
-                            +"Implemetation E"+":"+matchentry4.implementationmarks5+",  "
-                            +"Communication A"+":"+matchentry4.communicationmarks1+",  "
-                            +"Communication B"+":"+matchentry4.communicationmarks2+",  "
-                            +"Commercialization A"+":"+matchentry4.commercializationmarks1+",  "
-                            +"Extra feedback"+":"+matchentry4.extrafeedback+",  "
-                            +"Recommendation"+":"+matchentry4.recommendation+",  "
+        // const setmarksdata ="Proven Gap A"+":"+matchentry4.provengapmarks1+",  "
+        //                     +"Proven Gap B"+":"+matchentry4.provengapmarks2+",  "
+        //                     +"Capability A"+":"+matchentry4.capabilitymarks1+",  "
+        //                     +"Capability B"+":"+matchentry4.capabilitymarks2+",  "
+        //                     +"Implementation A"+":"+matchentry4.implementationmarks1+",  "
+        //                     +"Implementation B"+":"+matchentry4.implementationmarks2+",  "
+        //                     +"Implementation C"+":"+matchentry4.implementationmarks3+",  "
+        //                     +"Implementation D"+":"+matchentry4.implementationmarks4+",  "
+        //                     +"Implemetation E"+":"+matchentry4.implementationmarks5+",  "
+        //                     +"Communication A"+":"+matchentry4.communicationmarks1+",  "
+        //                     +"Communication B"+":"+matchentry4.communicationmarks2+",  "
+        //                     +"Commercialization A"+":"+matchentry4.commercializationmarks1+",  "
+        //                     +"Extra feedback"+":"+matchentry4.extrafeedback+",  "
+        //                     +"Recommendation"+":"+matchentry4.recommendation+",  "
 
                             
                             
        
         res.status(201).json({
             success: true,
-           data:setmarksdata
+           data:progresspresentation1Collection
                 
            
         })
