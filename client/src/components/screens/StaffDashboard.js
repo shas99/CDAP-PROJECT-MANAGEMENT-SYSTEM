@@ -105,6 +105,11 @@ const StaffDashboard = ({history}) => {
 
 <div className="StudentRectangle-43">
 <br/><br/><br/><br/><br/><br/>
+<Link to="/supervisorViewBidding" id="Regs">View my biddings</Link>
+</div>
+
+<div className="StudentRectangle-43">
+<br/><br/><br/><br/><br/><br/>
 <a target="_blank" href="https://cdap-app-365.herokuapp.com/" id="Regs">Schedule Meeting</a>
 
 </div>

@@ -31,7 +31,7 @@ export default function SideNavigationBar({page}) {
 
 <div  class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded">
                 <a class="flex items-center w-full px-3 mt-3" href="/dashboard">
-                    <img src="https://cdn.discordapp.com/attachments/938131839661539339/973611175168327740/Favi.png" class="w-8 h-8" alt=""/>
+                    <img src="https://cdn.discordapp.com/attachments/929308623853723678/994252147799625768/Screenshot_2022-07-06_at_20.12.37.png" class="w-8 h-8" alt=""/>
                     <span class="ml-2 text-sm font-bold">Calibre Project Management</span>
                 </a>
                 <div class="w-full px-2">

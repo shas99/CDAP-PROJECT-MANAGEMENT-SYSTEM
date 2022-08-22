@@ -30,6 +30,17 @@ const EnterProgressPresentation1Marks = ({history}) => {
     const [moderator, setmoderator] = useState("");
     const [enterprogresspresentation1marks, setenterprogresspresentation1marks]= useState("");
     const[fetchenterprogresspresentation1marksData, setenterprogresspresentationmarksData] = useState("");
+    const[excellent,setExcellentGrade] = useState("");
+    const[good,setGoodRange] = useState("");
+    const[average,setAverageRange] = useState("");
+    const[belowAverage,setBelowAvg] = useState("");
+    const[lO1,setl01] = useState("");
+    const[l02,setl02] = useState("");
+    const[l03,setl03] = useState("");
+    const[l04,setl04] = useState("");
+    const [l05,setl05]=useState("");
+    const [totalContribution,setTotalContribution]=useState("");
+    const progressPresentationMarkingDocumentID = "62bff056d30adeec12925a07";
 
     useEffect(() => {
         const fetchenterprogresspresentation1marksData = async () => {
@@ -118,7 +129,41 @@ const EnterProgressPresentation1Marks = ({history}) => {
             },5000)
 
         }
+
+        
     }
+
+
+
+     //********* RETRIEVE STATUS DOCUMENT 1 CONFIGURATION DETAILS  *********/
+     const getRelevantProgressPresentation01MarkingConfigData =async ()=>{
+     
+        try{
+          const{data}=await axios.get(`/api/markingRubrik/progressPresentationMarkingConfiguration/${progressPresentationMarkingDocumentID}`);
+         
+        // console.log(data.StatusDocumentDetails.affectedTotalContribution)
+        setTotalContribution(data.ProgressPresentation01Details.affectedTotalContribution)
+        setExcellentGrade(data.ProgressPresentation01Details.excellentGradeRange)
+        setGoodRange(data.ProgressPresentation01Details.goodGradeRange)
+        setAverageRange(data.ProgressPresentation01Details.averageGradeRange)
+        setBelowAvg(data.ProgressPresentation01Details.belowAverageGradeRange)
+        setl01(data.ProgressPresentation01Details.affectedL01Grade)
+        setl02(data.ProgressPresentation01Details.affectedL02Grade)
+        setl03(data.ProgressPresentation01Details.affectedL03Grade)
+        setl04(data.ProgressPresentation01Details.affectedL04Grade)
+        setl05(data.ProgressPresentation01Details.affectedL05Grade)
+        
+         
+        console.log()
+        }catch(error){
+          
+            
+          
+        }
+        
+  
+      }
+      getRelevantProgressPresentation01MarkingConfigData();
 
 
 return  error ? ( 
@@ -144,7 +189,7 @@ return  error ? (
         
       <div className="enterprogresspresentation1marksbackground">        
       <form onSubmit={enterprogresspresentation1marksHandler} className="group-screen__form_Enterprogress_marks">
-  <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>CDAP -Progress Presentation 1 - Mark Sheet [Total contribution = 15%]</h3>
+  <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>CDAP -Progress Presentation 1 - Mark Sheet [Total contribution = {totalContribution}]</h3>
   {error && <span className="error-message">{error}</span>}
   <div className="form-group">
     <table className="progresstablemarks1">
@@ -187,14 +232,14 @@ return  error ? (
     <table className="proposalpresentationmarking">
     <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-    <th className="proposalpresentationmarking"> Excellent[100-75] </th>
-    <th className="proposalpresentationmarking"> Good[74-60] </th>
-    <th className="proposalpresentationmarking"> Average[59-40] </th>
-    <th className="proposalpresentationmarking"> Below Average[39-0] </th>
+    <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
+    <th className="proposalpresentationmarking"> Good[{good}] </th>
+    <th className="proposalpresentationmarking"> Average[{average}] </th>
+    <th className="proposalpresentationmarking"> Below Average [{ belowAverage}] </th>
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
     </tr>
     <tr>  <br></br>
-    <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [10%]</div>
+    <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [{lO1}%]</div>
     <br></br><br></br><br/>
 
 
@@ -282,7 +327,7 @@ return  error ? (
     </tr> */}
     <tr> <br></br>
     <div className="l0percentage">
-    Capability in applying the knowledge in particular stream [Based on LO2] - [25%]
+    Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}%]
     </div><br></br><br></br>
     </tr>
     <tr>
@@ -367,7 +412,7 @@ return  error ? (
 
     <tr> <br></br>
     <div className="l0percentage"> 
-        Solution Implementation [Based on LO3] - [40%]    
+        Solution Implementation [Based on LO3] - [{l03}]    
         </div><br></br><br></br>
     {/* <th  className="tableheading">Solution Implementation [Based on LO3] - [{l03}]</th> */}
 
@@ -556,7 +601,7 @@ return  error ? (
 
     <tr> <br></br>
     <div className="l2percentage">
-        Effective communication [Based on LO4]-[15%]
+        Effective communication [Based on LO4]-[{l04}%]
     </div><br></br><br></br>
     {/* <th>
     Effective Communication [Based on LO4] - [{l04}]
@@ -643,7 +688,7 @@ return  error ? (
 
     <tr> <br></br>
     <div className="l3percentage">
-    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [10%]
+    Ability of commercialization / potential for entrepreneurship [Based on LO5] - [{l05}]
 
     </div><br></br><br></br>
     {/* <th>

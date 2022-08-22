@@ -112,22 +112,26 @@ const AssignStaff = ({history}) =>{
       <h1 id="caption" className="">All Groups</h1>
       <br/><br/>
 
-{/* {console.log(ProjectsData)} */}
         
          <ul>
         {ProjectsData.map(project => {
+
           return (
-            <div className="card" style={{borderRadius:"20px",height:"225px",width:"30rem",margin:"15px auto"}}>
-        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",paddingTop:"01px",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px",width:"30rem",margin:"0 auto",textAlign:"center",alignContent:"center"}}>{project.name}</p></center>
-      <div>
-                   
-                    {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Staff ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project._id}</li>  */}
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>username</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.username}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>email</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.email}</li>
-                    <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"120px",textAlign:"center",margin:"0 auto"}}> <button onClick={e => assignController(`${project._id}`)}>Assign staff</button></div>
-      </div>
-      </div>
-            
+            <div>
+                <div className="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[35rem]">
+                  <center><p className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>{project.name}</p></center>
+                <div className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
+                            
+                              {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Staff ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project._id}</li>  */}
+                              <li ><b>username</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.username}</li> 
+                              <li ><b>email</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.email}</li>
+                              <br/>
+                              <div className=" ml-[7rem] inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > <button onClick={e => assignController(`${project._id}`)}>Assign staff</button></div>
+                </div>
+               
+                </div>
+                <br/>
+           </div>
           )
 
         })} 

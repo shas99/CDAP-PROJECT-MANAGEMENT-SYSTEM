@@ -9,6 +9,8 @@ const StudentTopicInterestingForm = require('../models/StudentTopicInteresting')
 const SubmissionPage = require('../models/SubmissionPage')
 const imgModel = require('../models/ImageUpload');
 
+const { decode } = require('jsonwebtoken');
+
 //To view feedback
 exports.viewfeedback =async(req,res,next) => {
 
@@ -86,7 +88,17 @@ exports.viewmarks =async(req,res,next) => {
 //Student topic interesting
 exports.StudentTopicInterestingForm = async(req,res,next) => { //Student Recommendation Form
     console.log("Student recommendation api run")
-    const {student_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7} = req.body
+    const {s_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7} = req.body
+    let token = s_ID;
+    //console.log(student_ID)
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+     const decoded = jwt.verify(token,process.env.JWT_SECRET)
+     const user = await User.findById(decoded.id)
+    //  console.log(user._id)
+     const student_ID = user._id;
     try{
         const user = await StudentTopicInterestingForm.create({
             student_ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 //import PasswordChecklist from "react-password-checklist"//password validation
 import { useEffect } from "react";
-import "./StaffviewGroup.css"
+// import "./StaffviewGroup.css"
 
 const AdminViewGroup = ({ history, match }) => {
   //const [password, setPassword] = useState("");
@@ -131,13 +131,13 @@ const download = e => {
       <h2 id="caption">{name}</h2>
       <div id="container">
        
-        <h2 style={{fontSize:"22px"}}>Group members</h2><br/>
+        <h2 style={{fontSize:"25px", marginLeft:"-400px", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Group members</h2><br/>
         <ul>
-        <li style={{color:"white"}}>{member1}</li>
-        <li>{member2}</li>
-        <li>{member3}</li>
-        <li>{member4}</li>
-        <li>{member5}</li>
+        <li style={{color:"white",fontSize:"25px",marginLeft:"-400px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>{member1}</li>
+        <li style={{color:"white",fontSize:"25px",marginLeft:"-400px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>{member2}</li>
+        <li style={{color:"white",fontSize:"25px",marginLeft:"-400px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>{member3}</li>
+        <li style={{color:"white",fontSize:"25px",marginLeft:"-400px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>{member4}</li>
+        <li style={{color:"white",fontSize:"25px",marginLeft:"-400px",fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>{member5}</li>
         </ul>
        
           {/* <form onSubmit={submit}>
@@ -150,15 +150,15 @@ const download = e => {
             
        
        <br/><br/>
-         <h2 style={{fontSize:"22px"}}>View Reports</h2>
+         <h2 style={{fontSize:"25px",marginTop:"-299px",marginRight:"-400px", fontFamily:"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>View Reports</h2>
          <br/>
          {images.map( image=>(
                 <div key={image}>
                     <img src={image}></img>
                     </div>))}
 
-  
-          <button className="btn2"><a
+          <div className="rounded-md shadow-sm">
+          <button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" style={{marginLeft:"450px"}}><a
           href={`/images/${key}`}
           download
           onClick={e => download(e)}>
@@ -166,34 +166,34 @@ const download = e => {
           Milestone 1
           
           </a></button>
-          <br/>
+          &nbsp;
          {images.map( image=>(
                 <div key={image}>
                     <img src={image}></img>
                     </div>))}
 
-  
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+                    
+          <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" ><a href="#">
           <i className="fa fa-download" />
           Milestone 2
           
-          </a></button><br/>
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          </a></button>&nbsp;
+          <button className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900" style={{marginLeft:"450px"}}><a href="#">
           <i className="fa fa-download" />
           Milestone 3
           
-          </a></button><br/>
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          </a></button>
+          <button className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" ><a href="#">
           <i className="fa fa-download" />
           Milestone 4
           
-          </a></button><br/>
-          <button className="btn2" style={{backgroundColor:"gray"}}><a href="#">
+          </a></button>
+          <button className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2" style={{marginLeft:"450px"}}><a href="#">
           <i className="fa fa-download" />
           Milestone 5
           
-          </a></button><br/>
-       <button className="btn2" style={{backgroundColor:"blue"}}><a href="/adminAssignStaff">
+          </a></button>
+       <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="/adminAssignStaff">
 
       Assign Staff
       {/* ****************IMPORTANT************************* */}
@@ -201,6 +201,7 @@ const download = e => {
       {/* Once database refinement is complete make sure to change this so that ID doesn't save in localStorage */}
           {localStorage.setItem("groupId",match.params.id)}
           </a></button>
+          </div>
        <br/><br/>
      </div>
     </div>
