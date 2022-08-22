@@ -100,44 +100,49 @@ exports.viewstatusdocument1marks =async(req,res,next) => {
     }
     else{
         const decoded = jwt.verify(token,process.env.JWT_SECRET)
-        console.log(decoded)
+        // console.log(decoded)
         
         const user = await User.findById(decoded.id)
        const retrievestudentid = user.studentID
-       console.log(retrievestudentid) 
+    //    console.log(retrievestudentid) 
 
         
 
    
 
         try{
+        // console.log(retrievestudentid+"This is logged in std id")
+        const statusDoc1Collection = await StatusDocument1Marks.findOne({studentIDs:retrievestudentid})
+        //added by pasindu vinod
+        const array = Object.values(statusDoc1Collection)
+        // const arrayproject = JSON.stringify(array).split(',')
+        // console.log("this is datas "+arrayproject)
     
-        const statusDoc1Collection = await StatusDocument1Marks.find()
-    
-        let matchentry3;
-        const matchedID = statusDoc1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
-            console.log(collectionEntry)
-            matchentry3=collectionEntry
+        // let matchentry3 = arrayproject;
+        // const matchedID = statusDoc1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
+        //     console.log(collectionEntry)
+        //     matchentry3=collectionEntry
 
-        }}
+        // }}
         
-        )
+        // )
 
-        const setmarksdata ="Gantt Chart marks"+":"+matchentry3.ganttchartmarks+",  "
-                            +"Actual time marks"+":"+matchentry3.actualtimemarks+",  "
-                            +"Break down marks"+":"+matchentry3.breakdownmarks+",  "
-                            +"Capability in applying knowledge B"+":"+matchentry3.capabilitymarks2+",  "
-                            +"Management tool marks"+":"+matchentry3.managementtoolmarks+",  "
-                            +"Gantt chart remarks"+":"+matchentry3.ganttchartremarks+",  "
-                            +"Actual time remarks"+":"+matchentry3.actualtimeremarks+",  "
-                            +"Break down remarks"+":"+matchentry3.breakdownremarks+",  "
-                            +"Management tool remarks"+":"+matchentry3.managementtoolremarks+",  "
+        // const setmarksdata ="Gantt Chart marks"+":"+matchentry3.ganttchartmarks+",  "
+        //                     +"Actual time marks"+":"+matchentry3.actualtimemarks+",  "
+        //                     +"Break down marks"+":"+matchentry3.breakdownmarks+",  "
+        //                     +"Capability in applying knowledge B"+":"+matchentry3.capabilitymarks2+",  "
+        //                     +"Management tool marks"+":"+matchentry3.managementtoolmarks+",  "
+        //                     +"Gantt chart remarks"+":"+matchentry3.ganttchartremarks+",  "
+        //                     +"Actual time remarks"+":"+matchentry3.actualtimeremarks+",  "
+        //                     +"Break down remarks"+":"+matchentry3.breakdownremarks+",  "
+        //                     +"Management tool remarks"+":"+matchentry3.managementtoolremarks+",  "
                             
                             
        
         res.status(201).json({
             success: true,
-           data:setmarksdata
+        //    data:setmarksdata
+            data:statusDoc1Collection
                 
            
         })
