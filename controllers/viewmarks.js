@@ -118,24 +118,9 @@ exports.viewstatusdocument1marks =async(req,res,next) => {
         // const arrayproject = JSON.stringify(array).split(',')
         // console.log("this is datas "+arrayproject)
     
-        // let matchentry3 = arrayproject;
-        // const matchedID = statusDoc1Collection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
-        //     console.log(collectionEntry)
-        //     matchentry3=collectionEntry
+        //Buddhisha old part deleted by pasindu
 
-        // }}
         
-        // )
-
-        // const setmarksdata ="Gantt Chart marks"+":"+matchentry3.ganttchartmarks+",  "
-        //                     +"Actual time marks"+":"+matchentry3.actualtimemarks+",  "
-        //                     +"Break down marks"+":"+matchentry3.breakdownmarks+",  "
-        //                     +"Capability in applying knowledge B"+":"+matchentry3.capabilitymarks2+",  "
-        //                     +"Management tool marks"+":"+matchentry3.managementtoolmarks+",  "
-        //                     +"Gantt chart remarks"+":"+matchentry3.ganttchartremarks+",  "
-        //                     +"Actual time remarks"+":"+matchentry3.actualtimeremarks+",  "
-        //                     +"Break down remarks"+":"+matchentry3.breakdownremarks+",  "
-        //                     +"Management tool remarks"+":"+matchentry3.managementtoolremarks+",  "
                             
                             
        
