@@ -4,7 +4,7 @@ import "./StaffDashboard.css";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-
+import SideNavigationBar from "../StaffSideNavigationBar/StaffSideNavigationBar";
 
 
 const StaffDashboard = ({history}) => {

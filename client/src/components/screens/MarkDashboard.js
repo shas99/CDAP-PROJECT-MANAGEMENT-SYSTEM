@@ -47,12 +47,12 @@ const MarkDashboard = ({history}) => {
         <span className="error-message">{error}</span>
     ) : (
         <>
-        <div id = "back">
+        <div id = "back" style={{height:"45rem"}}>
             <Header/>
-            <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+            <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded">
             <SideNavigationBar page="Add Marks"/>
             </div>
-            <h1 id="caption" style={{marginTop:"-400px"}}>Welcome to marking dashboard {privateData}</h1>
+            <h1 id="caption" style={{marginTop:"-600px"}}>Welcome to marking dashboard {privateData}</h1>
             {/* <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
             </p> */}
@@ -123,7 +123,7 @@ const MarkDashboard = ({history}) => {
 
                   
   
-    <Footer/>
+    {/* <Footer/> */}
 
      </div>
      </div>
