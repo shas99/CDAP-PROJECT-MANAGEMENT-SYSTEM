@@ -138,37 +138,34 @@ exports.viewproposalreportmarks =async(req,res,next) => {
        const retrievestudentid = user.studentID
        console.log(retrievestudentid) 
 
-        
-
-   
-
         try{
     
         const studentPropReportCollection = await ProposalReportMarks.find()
-    
-        let matchentry2;
-        const matchedID = studentPropReportCollection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
-            console.log(collectionEntry)
-            matchentry2=collectionEntry
+        const abd = Object.values(studentPropReportCollection)
+        console.log(abd + "This is an array")
+        // let matchentry2;
+        // const matchedID = studentPropReportCollection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
+        //     console.log(collectionEntry)
+        //     matchentry2=collectionEntry
 
-        }}
+        // }}
         
-        )
+        // )
 
-        const setmarksdata ="Proven gap A   "+"  "+":"+matchentry2.provengapmarks1+",  "
-                            +"                                  "+",   "
-                            +"Proven gap B  "+":"+" "+matchentry2.provengapmarks2+",  "
+        // const setmarksdata ="Proven gap A   "+"  "+":"+matchentry2.provengapmarks1+",  "
+        //                     +"                                  "+",   "
+        //                     +"Proven gap B  "+":"+" "+matchentry2.provengapmarks2+",  "
                             
-                            +"Capability in applying knowledge A  "+" "+":"+"  "+matchentry2.capabilitymarks1+",  "
-                            +"Capability in applying knowledge B  "+"  "+":"+"  "+matchentry2.capabilitymarks2+",  "
-                            +"Solution implementation A  "+":"+"  "+matchentry2.implementationmarks1+",  "
-                            +"Solution implementation B  "+":"+"  "+matchentry2.implementationmarks2+",  "
-                            +"Solution implementation C  "+":"+"  "+matchentry2.implementationmarks3+",  "
-                            +"Effective Communication A  "+":"+"  "+matchentry2.communicationmarks1+",  "
-                            +"Effective Communication B  "+":"+"  "+matchentry2.communicationmarks2+",  "
-                            +"Effective Communication C  "+":"+"  "+matchentry2.communicationmarks3+",  "
-                            +"Ability of commercialization marks  "+":"+matchentry2.commercializationmarks1+",  "
-                            +"Feedback  "+":"+matchentry2.extrafeedback+",  "
+        //                     +"Capability in applying knowledge A  "+" "+":"+"  "+matchentry2.capabilitymarks1+",  "
+        //                     +"Capability in applying knowledge B  "+"  "+":"+"  "+matchentry2.capabilitymarks2+",  "
+        //                     +"Solution implementation A  "+":"+"  "+matchentry2.implementationmarks1+",  "
+        //                     +"Solution implementation B  "+":"+"  "+matchentry2.implementationmarks2+",  "
+        //                     +"Solution implementation C  "+":"+"  "+matchentry2.implementationmarks3+",  "
+        //                     +"Effective Communication A  "+":"+"  "+matchentry2.communicationmarks1+",  "
+        //                     +"Effective Communication B  "+":"+"  "+matchentry2.communicationmarks2+",  "
+        //                     +"Effective Communication C  "+":"+"  "+matchentry2.communicationmarks3+",  "
+        //                     +"Ability of commercialization marks  "+":"+matchentry2.commercializationmarks1+",  "
+        //                     +"Feedback  "+":"+matchentry2.extrafeedback+",  "
                             
        
         res.status(201).json({
