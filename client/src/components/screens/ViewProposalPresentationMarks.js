@@ -41,12 +41,12 @@ const ViewProposalPresentationMarks = ({history}) => {
 
             try{
                 const { data } = await axios.get("/api/ViewMarks/viewproposalpresentationmarks",viewproposalpresentationmarksconfig);
-                const viewproposalpresentationmarksArray = data.data.split("/")
-                setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
+                const viewproposalpresentationmarksArray = data.data
+                //setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
                 //newly added
-                console.log(viewproposalpresentationmarksArray[0])
-                const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
-                setproposalpresentationmarks(viewproposalpresentationmarks1)
+                console.log(viewproposalpresentationmarksArray)
+                //const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
+                setproposalpresentationmarks(viewproposalpresentationmarksArray)
 
             }catch(error){
 
@@ -64,17 +64,17 @@ const ViewProposalPresentationMarks = ({history}) => {
     };
 
     //newly added
-    const listHandler=()=>{
-        try{
-            const lists = proposalpresentationmarks.map((n)=>
-            <li>{n}</li>)
-            return(
-                <ul>{lists}</ul>
-            )
-        }catch(e){
-            console.error(e)
-        }
-    }
+    // const listHandler=()=>{
+    //     try{
+    //         const lists = proposalpresentationmarks.map((n)=>
+    //         <li>{n}</li>)
+    //         return(
+    //             <ul>{lists}</ul>
+    //         )
+    //     }catch(e){
+    //         console.error(e)
+    //     }
+    // }
 
     return error ? (
         <span className="error-message">{error}</span>
@@ -92,10 +92,24 @@ const ViewProposalPresentationMarks = ({history}) => {
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
                 </p>
-                <div id="card">
+                <div className="lg:w-2/3 pb-5 px-8 py-6 bg-gray-800 rounded-lg shadow-md mt-6 ml-80 h-auto text-white text-serif">
                 <h1 id="caption">Your Proposal Presentation marks are</h1><br/>
                 <hr id="hr"></hr>
-                <p id="List"> {listHandler()}</p>
+                {/* <p id="List"> {listHandler()}</p> */}
+
+                <table className="mt-5 lg:w-4/5 m-auto border-none">
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap A</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.provengapmarks1</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap B</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.provengapmarks2</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability in applying knowledge A</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.capabilitymarks1</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability in applying knowledge B</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.capabilitymarks2</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Solution implementation A</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.implementationmarks1</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Solution implementation B</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.implementationmarks2</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Solution implementation C</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.implementationmarks3</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Effective Communication A</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.communicationmarks1</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Effective Communication B</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.communicationmarks2</td></tr>
+                    <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Ability of commercialization marks</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.commercializationmarks1</td></tr>
+                    <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Feedback</td><td className="py-3 border-none text-left pl-16">proposalpresentationmarks.extrafeedback</td></tr>
+                </table>
 
                 </div>
                 {/* // const setmarksdata ="Proven gap A"+":"+matchentry.provengapmarks1+",  "
