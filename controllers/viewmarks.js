@@ -37,7 +37,6 @@ exports.viewprogresspresentation1marks =async(req,res,next) => {
         try{
     
         const progresspresentation1Collection = await ProgressPresentation1Marks.findOne({studentIDs:retrievestudentid})
-        //console.log(progresspresentation1Collection+"THis is array")
         
         res.status(201).json({
             success: true,
@@ -73,26 +72,16 @@ exports.viewstatusdocument1marks =async(req,res,next) => {
         // console.log(decoded)
         
         const user = await User.findById(decoded.id)
-       const retrievestudentid = user.studentID
-    //    console.log(retrievestudentid) 
-
-        
-
-   
+       const retrievestudentid = user.studentID   
 
         try{
         // console.log(retrievestudentid+"This is logged in std id")
         const statusDoc1Collection = await StatusDocument1Marks.findOne({studentIDs:retrievestudentid})
         //added by pasindu vinod
         const array = Object.values(statusDoc1Collection)
-        // const arrayproject = JSON.stringify(array).split(',')
-        // console.log("this is datas "+arrayproject)
-    
+            
         //Buddhisha old part deleted by pasindu
-
-        
-                            
-                            
+                           
        
         res.status(201).json({
             success: true,
@@ -107,12 +96,6 @@ exports.viewstatusdocument1marks =async(req,res,next) => {
     }
 }
 };
-
-
-
-
-
-
 
 
 
@@ -141,32 +124,7 @@ exports.viewproposalreportmarks =async(req,res,next) => {
         try{
     
         const studentPropReportCollection = await ProposalReportMarks.findOne({studentIDs:retrievestudentid})
-        // const abd = Object.values(studentPropReportCollection)
-        // console.log(abd + "This is an array")
-        // let matchentry2;
-        // const matchedID = studentPropReportCollection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
-        //     console.log(collectionEntry)
-        //     matchentry2=collectionEntry
-
-        // }}
-        
-        // )
-
-        // const setmarksdata ="Proven gap A   "+"  "+":"+matchentry2.provengapmarks1+",  "
-        //                     +"                                  "+",   "
-        //                     +"Proven gap B  "+":"+" "+matchentry2.provengapmarks2+",  "
-                            
-        //                     +"Capability in applying knowledge A  "+" "+":"+"  "+matchentry2.capabilitymarks1+",  "
-        //                     +"Capability in applying knowledge B  "+"  "+":"+"  "+matchentry2.capabilitymarks2+",  "
-        //                     +"Solution implementation A  "+":"+"  "+matchentry2.implementationmarks1+",  "
-        //                     +"Solution implementation B  "+":"+"  "+matchentry2.implementationmarks2+",  "
-        //                     +"Solution implementation C  "+":"+"  "+matchentry2.implementationmarks3+",  "
-        //                     +"Effective Communication A  "+":"+"  "+matchentry2.communicationmarks1+",  "
-        //                     +"Effective Communication B  "+":"+"  "+matchentry2.communicationmarks2+",  "
-        //                     +"Effective Communication C  "+":"+"  "+matchentry2.communicationmarks3+",  "
-        //                     +"Ability of commercialization marks  "+":"+matchentry2.commercializationmarks1+",  "
-        //                     +"Feedback  "+":"+matchentry2.extrafeedback+",  "
-                            
+                   
        
         res.status(201).json({
             success: true,
@@ -180,10 +138,6 @@ exports.viewproposalreportmarks =async(req,res,next) => {
     }
 }
 };
-
-
-
-
 
 
 
@@ -209,39 +163,15 @@ exports.viewproposalpresentationmarks =async(req,res,next) => {
        const retrievestudentid = user.studentID
        console.log(retrievestudentid) 
 
-        
-
-   
-
         try{
     
-        const studentProposalCollection = await ProposalPresentationMarks.find()
-    
-        let matchentry;
-        const matchedID = studentProposalCollection.map(collectionEntry =>{if(collectionEntry.studentIDs==retrievestudentid){
-            console.log(collectionEntry)
-            matchentry=collectionEntry
-
-        }}
-        
-        )
-
-        const setmarksdata ="Proven gap A"+":"+matchentry.provengapmarks1+",  "
-                            +"Proven gap B"+":"+matchentry.provengapmarks2+",  "
-                            +"Capability in applying knowledge A"+":"+matchentry.capabilitymarks1+",  "
-                            +"Capability in applying knowledge B"+":"+matchentry.capabilitymarks2+",  "
-                            +"Solution implementation A"+":"+matchentry.implementationmarks1+",  "
-                            +"Solution implementation B"+":"+matchentry.implementationmarks2+",  "
-                            +"Solution implementation C"+":"+matchentry.implementationmarks3+",  "
-                            +"Effective Communication A"+":"+matchentry.communicationmarks1+",  "
-                            +"Effective Communication B"+":"+matchentry.communicationmarks2+",  "
-                            +"Ability of commercialization marks"+":"+matchentry.commercializationmarks1+",  "
-                            +"Feedback"+":"+matchentry.extrafeedback+",  "
-                            
+        const studentProposalCollection = await ProposalPresentationMarks.findOne({studentIDs:retrievestudentid})
+        //console.log(studentProposalCollection+"This is proposal presentation marks")  
+                                   
        
         res.status(201).json({
             success: true,
-           data:setmarksdata
+           data:studentProposalCollection
                 
            
         })

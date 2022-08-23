@@ -41,12 +41,12 @@ const ViewProposalPresentationMarks = ({history}) => {
 
             try{
                 const { data } = await axios.get("/api/ViewMarks/viewproposalpresentationmarks",viewproposalpresentationmarksconfig);
-                const viewproposalpresentationmarksArray = data.data
-                //setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
+                const viewproposalpresentationmarksArray = data.data.split("/")
+                setProposalPresentationMarksData(viewproposalpresentationmarksArray[0]);
                 //newly added
-                console.log(viewproposalpresentationmarksArray)
-                // const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
-                setproposalpresentationmarks(viewproposalpresentationmarksArray)
+                console.log(viewproposalpresentationmarksArray[0])
+                const viewproposalpresentationmarks1=viewproposalpresentationmarksArray[0].split(",")
+                setproposalpresentationmarks(viewproposalpresentationmarks1)
 
             }catch(error){
 
@@ -98,6 +98,17 @@ const ViewProposalPresentationMarks = ({history}) => {
                 <p id="List"> {listHandler()}</p>
 
                 </div>
+                {/* // const setmarksdata ="Proven gap A"+":"+matchentry.provengapmarks1+",  "
+        //                     +"Proven gap B"+":"+matchentry.provengapmarks2+",  "
+        //                     +"Capability in applying knowledge A"+":"+matchentry.capabilitymarks1+",  "
+        //                     +"Capability in applying knowledge B"+":"+matchentry.capabilitymarks2+",  "
+        //                     +"Solution implementation A"+":"+matchentry.implementationmarks1+",  "
+        //                     +"Solution implementation B"+":"+matchentry.implementationmarks2+",  "
+        //                     +"Solution implementation C"+":"+matchentry.implementationmarks3+",  "
+        //                     +"Effective Communication A"+":"+matchentry.communicationmarks1+",  "
+        //                     +"Effective Communication B"+":"+matchentry.communicationmarks2+",  "
+        //                     +"Ability of commercialization marks"+":"+matchentry.commercializationmarks1+",  "
+        //                     +"Feedback"+":"+matchentry.extrafeedback+",  " */}
 
                {/* {fetchProposalPresentationMarksData}<br/><br/><br/><br/> */}
                 
