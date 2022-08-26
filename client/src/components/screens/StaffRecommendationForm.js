@@ -215,10 +215,10 @@ const StaffRcommendationInputs = ({history}) => {
 
           {/* <Footer/> */}
 
-        </div>
+        {/* </div> */}
     
         {/* <Footer/> */}
-      </div>
+      {/* </div> */}
       </div> 
         </>
       );
