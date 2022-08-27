@@ -153,19 +153,20 @@ alert("Approved sucessfully")
         <SideNavigationBar page="AdminProjects"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>Project Bid Details</h1>
+      <h1 id="caption" className="" style={{marginTop:"-34rem"}}>Project Bid Details</h1>
       <br/><br/>
 
         {console.log(ProjectsData)}
-         <ul>
+         
 
 
-<center style={{color:"white"}}>
+<div className="lg:w-2/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-10 ml-80 text-white">
+  <div className="lg:w-1/2"><ul>
           {ProjectsData.map(project => {
           return (
   
-
-      <div>
+            <div>
+      
                  {/* Return Project data */}
                    {project.Groupid==group._id &&
                                   
@@ -177,29 +178,33 @@ alert("Approved sucessfully")
                    }
 
                    
-
-      </div>
+                  </div>
+      
   
             
             )
             
-          })} 
-        Member 1: {group.member_1}<br/>
+          })}  </ul>
+          </div>
+          <div className="lg:w-1/2 ">
+         Member 1: {group.member_1}<br/>
         Member 2: {group.member_2}<br/>
         Member 3: {group.member_3}<br/>
         Member 4: {group.member_4}<br/>
         Member 5: {group.member_5}
+        </div>
+      
+     
         
-        </center>
 
-          <button></button>
+          
         
         
-      </ul>  
+       
       <br/>
       <center><button onClick={onClickHandler}>Approve</button></center>
       <br/>
-     
+     </div>
       <br/><br/>
     
 

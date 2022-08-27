@@ -65,9 +65,9 @@ const UserProfile = ({history}) => {
       };
 
       try {
-          
+
         const {data} = await axios.get("/api/student/retrieveImages",userprofileconfig);
-       
+ 
         setimageUploadData(data.data);
         // data.data.array.forEach(function(image) { 
         //   console.log(image.name)
@@ -118,24 +118,11 @@ const UserProfile = ({history}) => {
   }
 })
 
-    
-
-   
-
-      
   };
-
-  
-
- 
 
   // localStorage.setItem("authToken", data.token);
 
   // history.push("/");
-
-  
-  
-
   
   return  error ? ( 
   
@@ -144,7 +131,6 @@ const UserProfile = ({history}) => {
   ) :
   (
 
-
  <div id="userprofileClass" className="">
    {/* <Header/> */}
    {/* <div class="flex float-left items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded" > */}
@@ -152,7 +138,6 @@ const UserProfile = ({history}) => {
   
     <SideNavigationBar page="StudentProfile"/>
    {/* </div> */}
-
 
   <div className="float-right lg:w-4/5 mt-[-50rem] ml-20rem2 pl-24 pt-20 bg-gray-800">
      
@@ -166,10 +151,8 @@ const UserProfile = ({history}) => {
         <form action="/api/imageUpload" method="POST" enctype="multipart/form-data" className="mt-5 pb-20 ">
         {/* <input type="file" name="image" style={{marginBottom:"10px"}} placeholder="upd"/> */}
 
-
          <label className="text-white block mb-2 text-sm font-medium dark:text-gray-300" for="file_input">Upload / Update Image</label>
         <input name="image"  className="block w-[13rem] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
-
         
         {/* <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label> */}
         <br/>
