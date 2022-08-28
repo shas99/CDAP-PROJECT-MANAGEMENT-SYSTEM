@@ -2,6 +2,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./Dashboard.css";
 export default function Dashboard ({history}) {
 
 
@@ -114,8 +115,8 @@ export default function Dashboard ({history}) {
   
   (
     //         DASHBOARD SCREEN 
-
-    <div className='bg-gray-900 text-gray-100 w-[100rem] overflow-y-scroll-hidden	scrollbar-hide ' >
+    
+    <div className='ml-50rem bg-gray-900  text-gray-100 w-auto  overflow-y-scroll-hidden	scrollbar-hide ' style={{overflowX:"hidden"}}> 
 
             <div class="flex ">
 
@@ -259,7 +260,7 @@ export default function Dashboard ({history}) {
 
 
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[13rem]">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[30rem] lg:w-4/6" style={{overflowX:"hidden"}}>
                 
                 <div id="col" class='lg:w-[38vw] w-[10rem] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
@@ -279,13 +280,8 @@ export default function Dashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[20rem]">
+                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[30rem]">
 
-                      <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
-                           <button>
-                           <a href='/matchedsupervisors'> Matched Supervisors</a>
-                            </button>
-                       </div>
 
                        <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
@@ -337,11 +333,13 @@ export default function Dashboard ({history}) {
                            <a href="https://cdap-app-365.herokuapp.com/"> Schedule Meeting</a>
                             </button>
                        </div>
+
+                       </div>
                     
 
                       
 {/*ANNOUNCEMENT SECTION */}
-                    <div className='ml-[0rem] mt-[6rem]'>
+                    <div className='ml-[30rem] mt-[6rem] overflow-hidden' >
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
@@ -361,7 +359,7 @@ export default function Dashboard ({history}) {
                                                                            
                         </div>
                                               
-                           <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
+                           <div class=" lg:w-1/4 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
 
                                     <button class=' text-xs text-blue-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Staff</button>
                                     <h1 class="text-2xl font-semibold">{stafftitle}  </h1>
@@ -375,7 +373,7 @@ export default function Dashboard ({history}) {
 
                             <br/><br/>
                            
-                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[70rem] mt-[-17rem] '>
+                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[50rem] mt-[-17rem] '>
                     <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md w-[20rem]">
                                 <br/>
 
@@ -443,7 +441,9 @@ export default function Dashboard ({history}) {
 
             
 
-</div>
+
+
+
         
 
 
