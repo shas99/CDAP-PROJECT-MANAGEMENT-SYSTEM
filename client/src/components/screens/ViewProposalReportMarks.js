@@ -41,12 +41,12 @@ const ViewProposalReportMarks = ({history}) => {
 
             try{
                 const { data } = await axios.get("/api/ViewMarks/viewproposalreportmarks",viewproposalreportmarksconfig);
-                const viewproposalreportmarksArray = data.data.split("/")
-                setProposalReportMarksData(viewproposalreportmarksArray[0]);
+                const viewproposalreportmarksArray = data.data
+                // setProposalReportMarksData(viewproposalreportmarksArray[0]);
                 //newly added
-                console.log(viewproposalreportmarksArray[0])
-                const viewproposalreportmarks1=viewproposalreportmarksArray[0].split(",")
-                setproposalreportmarks(viewproposalreportmarks1)
+                console.log(viewproposalreportmarksArray+"this is an array")
+                //const viewproposalreportmarks1=viewproposalreportmarksArray[0].split(",")
+                setproposalreportmarks(viewproposalreportmarksArray)
 
             }catch(error){
 
@@ -64,17 +64,17 @@ const ViewProposalReportMarks = ({history}) => {
     };
 
     //newly added
-    const listHandler=()=>{
-        try{
-            const lists = proposalreportmarks.map((n)=>
-            <li>{n}</li>)
-            return(
-                <ul>{lists}</ul>
-            )
-        }catch(e){
-            console.error(e)
-        }
-    }
+    // const listHandler=()=>{
+    //     try{
+    //         const lists = proposalreportmarks.map((n)=>
+    //         <li>{n}</li>)
+    //         return(
+    //             <ul>{lists}</ul>
+    //         )
+    //     }catch(e){
+    //         console.error(e)
+    //     }
+    // }
 
     return error ? (
         <span className="error-message">{error}</span>
@@ -92,12 +92,26 @@ const ViewProposalReportMarks = ({history}) => {
             <p style={{color:"#FFF"}}>
                 <br/><br/><br/><br/>
                 </p>
-                <div id="propreportcard">
+                <div className="lg:w-2/3 px-8 py-6 bg-gray-800 rounded-lg shadow-md mt-6 ml-80 h-auto text-white text-serif">
                 <h1 id="caption">Your Proposal Report marks are</h1><br/>
                 <hr id="hr"></hr>
-                <div className='mr-[67rem]' >
-                <p id="List"> {listHandler()}</p>
-                </div>
+                <table className="mt-5 lg:w-4/5 m-auto border-none">
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap A</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.provengapmarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap B</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.provengapmarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability in applying knowledge A</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.capabilitymarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability in applying knowledge B</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.capabilitymarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Solution implementation A</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.implementationmarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Solution implementation B</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.implementationmarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Solution implementation C</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.implementationmarks3}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Effective Communication A</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.communicationmarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Effective Communication B</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.communicationmarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Effective Communication C</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.communicationmarks3}</td></tr>
+
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Ability of commercialization marks</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.commercializationmarks1}</td></tr>
+                <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Feedback </td><td className="py-3 border-none text-left pl-16s">{proposalreportmarks.extrafeedback}</td></tr>
+                </table>
+                {/* <p id="List"> {listHandler()}</p> */}
+                
                 </div>
 
                {/* {fetchProposalPresentationMarksData}<br/><br/><br/><br/> */}

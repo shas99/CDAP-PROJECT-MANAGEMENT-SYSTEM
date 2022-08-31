@@ -12,6 +12,7 @@ const ViewStatusDocument1Marks = ({history}) => {
     const [statusdocument1marks,setstatusdocument1marks]=useState("");
 
     const [fetchStatusDocument1MarksData, setStatusDocument1MarksData] = useState("");
+    //const [statusDocument1MarksData, setStatusDocument1MarksData] = useState([]);
 
     useEffect(() => {
         const fetchPrivateDate = async () => {
@@ -41,12 +42,13 @@ const ViewStatusDocument1Marks = ({history}) => {
 
             try{
                 const { data } = await axios.get("/api/ViewMarks/viewstatusdocument1marks",viewstatusdocument1marksconfig);
-                const viewstatusdocument1marksArray = data.data.split("/")
-                setStatusDocument1MarksData(viewstatusdocument1marksArray[0]);
-                //newly added
-                console.log(viewstatusdocument1marksArray[0])
-                const viewstatusdocument1marks1=viewstatusdocument1marksArray[0].split(",")
-                setstatusdocument1marks(viewstatusdocument1marks1)
+                const viewstatusdocument1marksArray = data.data
+                //console.log(viewstatusdocument1marksArray.projectNo)
+                //const arr = data.data
+               
+
+                setstatusdocument1marks(viewstatusdocument1marksArray);
+                
 
             }catch(error){
 
@@ -63,18 +65,24 @@ const ViewStatusDocument1Marks = ({history}) => {
         history.push("/login");
     };
 
-    //newly added
-    const listHandler=()=>{
-        try{
-            const lists = statusdocument1marks.map((n)=>
-            <li>{n}</li>)
-            return(
-                <ul>{lists}</ul>
-            )
-        }catch(e){
-            console.error(e)
-        }
-    }
+    //newly added -  commented by pasindu vinod
+    // const listHandler=()=>{
+    //     try{
+    //         const lists = statusdocument1marks.map((n)=>
+    //         <li>{n}</li>)
+    //         return(
+    //             <ul>{lists}</ul>
+    //         )
+    //     }catch(e){
+    //         console.error(e)
+    //     }
+    // }
+
+    
+
+            
+    
+
 
     return error ? (
         <span className="error-message">{error}</span>
@@ -90,16 +98,27 @@ const ViewStatusDocument1Marks = ({history}) => {
             </p>
 
             <p style={{color:"#FFF"}}>
-                <br/><br/><br/><br/>
+                <br/><br/>
                 </p>
-                <div id="card">
+                <div className="lg:w-2/3 px-8 py-6 bg-gray-800 rounded-lg shadow-md mt-6 ml-80 h-auto text-white text-serif">
                 <h1 id="caption">Your Status Document 1 marks are</h1><br/>
                 <hr id="hr"></hr>
-                <p id="List"> {listHandler()}</p>
+                {/* <p id="List"> {listHandler()}</p>  commented by pasindu vinod */}
 
+                <table className="mt-5 lg:w-4/5 m-auto border-none">
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Gantt chart remarks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.ganttchartremarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Actual time marks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.actualtimeremarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Break down remarks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.breakdownremarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Management tool marks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.managementtoolremarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Gantt chart remarks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.ganttchartremarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Actual time marks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.actualtimeremarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Break down remarks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.breakdownremarks}</td></tr>
+                <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Management tool remarks</td><td className="py-3 border-none text-left pl-16">{statusdocument1marks.managementtoolremarks}</td></tr>
+                </table>
+                
+                
                 </div>
 
-               {/* {fetchProposalPresentationMarksData}<br/><br/><br/><br/> */}
                 
             
             <Footer/>
