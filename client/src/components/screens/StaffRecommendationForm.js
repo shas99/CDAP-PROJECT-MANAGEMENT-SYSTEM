@@ -112,9 +112,14 @@ const StaffRcommendationInputs = ({history}) => {
         {/* <p style={{color:"#FFF"}}>
         <br/><br/><br/><br/>
         
+        </p> */}
+       <div className="inline-block lg:w-4/5  float-right place-content-center">
 
-           <h1 id="caption" style={{marginTop:"-675px"}}>Topic Interestings</h1> 
+         <div className="lg:w-4/5 px-8 py-5 rounded-lg m-0,auto">
+         <p className="mt-10 text-center font-semibold text-white font-sans text-4xl">Topic Interestings</p>         
+         </div>
 
+        <div className="">
           
         <div className="lg:w-4/5 h-auto px-8 py-5 bg-gray-800 rounded-lg m-0,auto mt-5 pt-10 pb-16" >        
         
@@ -212,9 +217,8 @@ const StaffRcommendationInputs = ({history}) => {
 
       </div>
 
-
-          {/* <Footer/> */}
-
+      
+    </form></div>
         </div>
     
         {/* <Footer/> */}
