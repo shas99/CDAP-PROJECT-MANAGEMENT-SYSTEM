@@ -95,7 +95,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
         <SideNavigationBar page="StudentGroups"/>
         </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-400px"}}>All Groups</h1>
+      <h1 id="caption" className="" style={{marginTop:"-775px"}}>All Groups</h1>
       <br/><br/>
 
 

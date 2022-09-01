@@ -61,10 +61,10 @@ const Swal = require('sweetalert2')
   return (
     <div className='bg-gray-900 w-180  h-[60rem] ' >
         <br/><br/><br/> 
-        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded mt-[-5rem]">
         <SideNavigationBar page="StaffPlaceAnnouncement"/>
         </div>
-        <h1 className=' ml-[32rem] text-4xl text-gray-100 ' style={{marginTop:"-450px"}}>Post Annnouncement</h1>
+        <h1 className=' ml-[32rem] text-4xl text-gray-100 mt-[-725px]'>Post Annnouncement</h1>
 
         {/* SVG ICON */}
        
