@@ -93,7 +93,7 @@ const EditUserProfile = ({history}) => {
           Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
       };
-
+    alert("Successfully Updated!")
     try {
         
         
