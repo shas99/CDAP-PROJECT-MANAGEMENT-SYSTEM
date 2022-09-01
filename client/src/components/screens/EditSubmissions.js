@@ -252,7 +252,9 @@ const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guid
 
     //display.push(<li>{Math.ceil((i+1)/2)}&nbsp;&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
     display.push(<table className="tableeditsub2">
-    <tr><td style={{width:"10px",padding:"5px",margin:"5px"}}>{Math.ceil((i+1)/2)}</td><td style={{width:"200px",padding:"5px",margin:"5px"}}>{Fields[i]} </td><td style={{width:"150px"}}> {Fields[i+1]}</td></tr>
+     <tr><th>Index</th><th>Field</th><th>Type</th></tr>  
+       
+   <tr><td style={{width:"10px",padding:"5px",margin:"5px"}}>{Math.ceil((i+1)/2)}</td><td style={{width:"200px",padding:"5px",margin:"5px"}}>{Fields[i]} </td><td style={{width:"150px"}}> {Fields[i+1]}</td></tr> 
     {/* <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr> */}
     {/* <tr><td style={{padding:"5px",margin:"5px"}}>{Fields[i]} : {Fields[i+1]}</td></tr> */}
       
