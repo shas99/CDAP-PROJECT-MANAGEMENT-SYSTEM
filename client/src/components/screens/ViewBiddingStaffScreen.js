@@ -5,6 +5,7 @@ import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
 import Login from "./StaffExpiredLoginScreen"
+import Swal from 'sweetalert2';
 
 
 const ViewBiddingStaff = ({history}) =>{
@@ -15,6 +16,7 @@ const ViewBiddingStaff = ({history}) =>{
   const [ID, setID] = useState(useParams().id);
   const [group, setGroup] = useState({});
   useEffect(() => {
+    const Swal = require('sweetalert2')
 
     const fetchPrivateDate = async () => {
       const config = {
@@ -130,7 +132,27 @@ const onClickHandler = async () => {
     },
   }
 
-  const{data} = await axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
+  try{
+    Swal.fire({
+      title:'Do you want to save the changes?',
+      showDenyButton:true,
+      showCancelButton:true,
+      confirmButtonText:'Save',
+      denyButtonText:'Dont save'
+
+    }).then((result) => {
+      if(result.isConfirmed){
+        Swal.fire('Saved!','','success')
+        const{data} = axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
+      }else if(result.isDenied){
+        Swal.fire('Changesa re not saved','','info')
+      }
+    })
+  }catch(error){
+      alert("Error approval not set")
+  }
+
+  
   
 alert("Approved sucessfully")
 
