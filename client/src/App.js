@@ -103,6 +103,7 @@ import PageNotFound from "./components/screens/PageNotFound";
 import SupervisorViewBidding from "./components/screens/SupervisorViewBidding";
 import ViewBiddingStaff from "./components/screens/ViewBiddingStaffScreen";
 import StaffLoginExpiredScreen from "./components/screens/StaffExpiredLoginScreen";
+import Calibre from "./components/screens/Calibre";
 
 
 const App = () => {
@@ -112,7 +113,8 @@ const App = () => {
      
 
       <div className="app">
-        <Switch>
+      <Switch>
+          <Route exact path="/calibre" component={Calibre} />
           <PrivateRoute exact path="/" component={Dashboard} />
           <Route exact path="/login" component={LoginScreen} />
           <Route exact path="/register" component={RegisterScreen} />
