@@ -358,7 +358,8 @@ export default function Dashboard ({history}) {
                                         
                                                                            
                         </div>
-                                              
+
+                                              {/* Added some tailwind by pasindu vinod 03/09/2022 */}
                            <div className=" lg:w-1/4 px-8 h-auto pt-5 pb-5 bg-gray-800 rounded-lg shadow-md">
 
                                     <button class=' text-xs text-blue-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Staff</button>
