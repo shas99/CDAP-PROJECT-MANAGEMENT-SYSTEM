@@ -61,7 +61,7 @@ export default function StatusDocumentMarkingConfiguration() {
 
   return (
 
-    <div id='back'>  
+    <div className="bg-gray-900">  
         <Header />
         <br/> <br/>
         <h1 id="caption">Status Document Details Configuration</h1>
@@ -69,16 +69,16 @@ export default function StatusDocumentMarkingConfiguration() {
            
       
            <br/> <br/> 
-    <div className="group-screen ">
+    <div className="bg-gray-800 ml-[35rem] mt-[20rem]">
             
-          <div>        
-          <form onSubmit={statusDocumentMarkingHandler} className="group-screen__form">
-      <h3 className="login-screen__title">Topic Assessment Form</h3>
+          <div className="bg-gray-900 mt-[-22rem]">        
+          <form onSubmit={statusDocumentMarkingHandler} className="w-[20rem]">
+      <h3 className="login-screen__title"></h3>
       {error && <span className="error-message">{error}</span>}
       
       
       <div className="form-group">
-        <label className="TopicNames">Total Contribution %</label> <br/>
+        <label className="TopicNames">Total Contribution %</label> <br/><br/>
           <input type="text" 
           className = "input" style={{color:"white"}}
           name="name" 
@@ -88,7 +88,7 @@ export default function StatusDocumentMarkingConfiguration() {
         <br/>
 
         <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 01</label> <br/>
+        <label className="TopicNames">Marks Entitled for Section 01</label><br/><br/>
           <input type="text" 
           className = "input" style={{color:"white"}}
           name="name" 
@@ -98,7 +98,7 @@ export default function StatusDocumentMarkingConfiguration() {
 
         <br/>
         <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 02</label> <br/>
+        <label className="TopicNames">Marks Entitled for Section 02</label> <br/><br/>
           <input type="text" 
           className = "input" style={{color:"white"}}
           name="name" 
@@ -107,7 +107,7 @@ export default function StatusDocumentMarkingConfiguration() {
         </div>
         <br/>
         <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 03</label>  <br/>
+        <label className="TopicNames">Marks Entitled for Section 03</label>  <br/><br/>
           <input type="text" 
           className = "input" style={{color:"white"}}
           name="name" 
@@ -116,7 +116,7 @@ export default function StatusDocumentMarkingConfiguration() {
         </div>
         <br/>
         <div className="form-group">
-        <label className="TopicNames">Marks Entitled for Section 04</label>  <br/>
+        <label className="TopicNames">Marks Entitled for Section 04</label>  <br/><br/>
           <input type="text" 
           className = "input" style={{color:"white"}}
           name="name" 
@@ -127,7 +127,7 @@ export default function StatusDocumentMarkingConfiguration() {
         <center/>
         <div className="form-group">
           <div className="editor">
-          <label className="TopicNames">Section 01</label>  <br/>
+          <label className="TopicNames">Section 01</label>  <br/><br/>
         <CKEditor 
         editor={ClassicEditor}
         data={stdesc01}
@@ -138,7 +138,7 @@ export default function StatusDocumentMarkingConfiguration() {
         />
         <br/>
 
-        <label className="TopicNames">Section 02</label>  <br/>
+        <label className="TopicNames">Section 02</label> <br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={stdesc02}
@@ -148,7 +148,7 @@ export default function StatusDocumentMarkingConfiguration() {
         }}
         />
         <br/>
-        <label className="TopicNames">Section 03</label>  <br/>
+        <label className="TopicNames">Section 03</label> <br/><br/>
                 <CKEditor
         editor={ClassicEditor}
         data={stdesc03}
@@ -158,7 +158,7 @@ export default function StatusDocumentMarkingConfiguration() {
         }}
         />
         <br/>
-        <label className="TopicNames">Section 04</label>  <br/>
+        <label className="w-[30rem] text-slate-50">Section 04</label> <br/><br/>
                 <CKEditor className="section-content"
         editor={ClassicEditor}
         data={stdesc04}
@@ -182,19 +182,16 @@ export default function StatusDocumentMarkingConfiguration() {
 
 
 
-      <button type="submit" className="btn btn-primary1" id="Log1Button">
+      <button type="submit" className="ml-[5rem]" id="Log1Button">
           Submit!
         </button>
+        <br/>  <br/>
 
         
       </form>
       </div>
           </div>
 
-
-
-
-        <Footer />
     </div>
   )
 }
