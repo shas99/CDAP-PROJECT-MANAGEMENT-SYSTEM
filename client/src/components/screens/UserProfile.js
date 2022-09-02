@@ -179,7 +179,7 @@ const UserProfile = ({history}) => {
 
       </div>
 
-      <div className="flex float-right h-auto  lg:w-3/5">
+      <div className="flex float-right h-auto  lg:w-3/5 pb-5">
       <div className="h-auto pl-10 pr-10 pt-5 pb-10 bg-gray-900	 text-white">
 
       <h2 id="userprofilecaption" >Bio</h2>
@@ -194,7 +194,7 @@ const UserProfile = ({history}) => {
       
       
       </table>
-     <button className="mt-5 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-7 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></button>
+     <button className="mt-5 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:ring-purple-400 font-medium rounded-lg text-sm px-7 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> <a href={`/edituserprofile/${fetchFeedbackData._id}`}> Update Your Profile!</a></button>
      
       </div>
 
