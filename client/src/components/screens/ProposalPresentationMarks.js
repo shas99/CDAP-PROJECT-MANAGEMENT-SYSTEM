@@ -207,7 +207,7 @@ const ProposalPresentationMarks = ({history}) => {
             <b style={{fontSize:"medium"}}>Student Name:</b></label><br/><br/>
             <input type="text" style={{marginLeft:"100px",borderColor:"royalblue"}}
             name="name" required
-            pattern = "[a-zA-Z]{3,}"
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setstudentnames(e.target.value)}
             value={studentnames} />
@@ -845,7 +845,7 @@ const ProposalPresentationMarks = ({history}) => {
             <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner :</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
             name="name"  required
-            pattern = "[a-zA-Z]{3,}"
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setexaminer1(e.target.value)}
             value={examiner1} />
@@ -856,7 +856,7 @@ const ProposalPresentationMarks = ({history}) => {
             <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
             name="name" required
-            pattern = "[a-zA-Z]{3,}"
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setexaminer2(e.target.value)}
             value={examiner2} />
@@ -866,7 +866,7 @@ const ProposalPresentationMarks = ({history}) => {
             <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Supervisor:</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
             name="name" required
-            pattern = "[a-zA-Z]{3,}"
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setmoderator(e.target.value)}
             value={moderator} />
