@@ -95,14 +95,14 @@ const removeData = (_id) => {
     <span className="error-message">{error}</span>
   ) :(
     
-    <div className='bg-gray-900 h-[55rem]'>
+    <div className='bg-gray-900 h-[auto]'>
       <Header/>
       <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminProjects"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>All projects</h1>
-      <br/><br/>
+      <h1 id="caption" className="ml-auto" style={{marginTop:"-35rem"}}>All Biddings</h1>
+      
       <center>
 
         </center>
@@ -112,11 +112,11 @@ const removeData = (_id) => {
           return (
             
 
-<div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[35rem]">
+<div class="lg:w-2/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-5 ml-80">
     <a >
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.GroupID}</h5>
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-600 dark:text-white">{project.GroupID}</h5>
     </a>
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><b>Group Name : </b> {project.GroupID} <br/>
+    <p class="mb-3 font-normal text-white dark:text-gray-400"><b>Group Name : </b> {project.GroupID} <br/>
     <b>Batch ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {project.BatchID} </b>
     </p>
     <a href={`/viewBidding/${project._id}`} class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

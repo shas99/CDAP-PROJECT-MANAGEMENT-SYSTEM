@@ -5,6 +5,7 @@ import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
 import Login from "./StaffExpiredLoginScreen"
+import Swal from 'sweetalert2';
 
 
 const ViewBiddingStaff = ({history}) =>{
@@ -15,6 +16,7 @@ const ViewBiddingStaff = ({history}) =>{
   const [ID, setID] = useState(useParams().id);
   const [group, setGroup] = useState({});
   useEffect(() => {
+    const Swal = require('sweetalert2')
 
     const fetchPrivateDate = async () => {
       const config = {
@@ -130,7 +132,27 @@ const onClickHandler = async () => {
     },
   }
 
-  const{data} = await axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
+  try{
+    Swal.fire({
+      title:'Do you want to save the changes?',
+      showDenyButton:true,
+      showCancelButton:true,
+      confirmButtonText:'Save',
+      denyButtonText:'Dont save'
+
+    }).then((result) => {
+      if(result.isConfirmed){
+        Swal.fire('Saved!','','success')
+        const{data} = axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
+      }else if(result.isDenied){
+        Swal.fire('Changesa re not saved','','info')
+      }
+    })
+  }catch(error){
+      alert("Error approval not set")
+  }
+
+  
   
 alert("Approved sucessfully")
 
@@ -147,65 +169,65 @@ alert("Approved sucessfully")
     </>
   ) :(
     
-    <div style={{backgroundColor:"#22272E"}}>
+    <div style={{backgroundColor:"#22272E",minHeight:"50rem"}}>
       <Header/>
       <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminProjects"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>Project Bid Details</h1>
-      <br/><br/>
+      <h1 id="caption" className="" style={{marginTop:"-34rem"}}>Project Bid Details</h1>
+      
 
         {console.log(ProjectsData)}
-         <ul>
+         
 
 
-<center style={{color:"white"}}>
+<div className="lg:w-1/2 px-8 py-24 bg-gray-800 rounded-lg shadow-md mt-5 ml-80 text-white">
+  <div className="lg:w-1/2 mt-[-3rem] float-left">
+         
           {ProjectsData.map(project => {
           return (
   
-
-      <div>
+            
+            <table className="border-none">
+           
                  {/* Return Project data */}
                    {project.Groupid==group._id &&
                                   
-                    <h1>
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Group Name</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.GroupID}</li> 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Batch ID</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{project.BatchID}</li>
-                    </h1>
+                   <tbody className="border-none">
+                    <tr className="border-none" ><td className="border-none">Group Name:</td> <td className="border-none pl-10">{project.GroupID}</td></tr> 
+                    <tr className="border-none" ><td className="border-none">Batch ID:</td><td className="border-none pl-10">{project.BatchID}</td></tr>
+                  </tbody>
 
                    }
 
-                   
-
-      </div>
+               </table>    
+             
+      
   
             
             )
             
-          })} 
-        Member 1: {group.member_1}<br/>
-        Member 2: {group.member_2}<br/>
-        Member 3: {group.member_3}<br/>
-        Member 4: {group.member_4}<br/>
-        Member 5: {group.member_5}
-        
-        </center>
-
-          <button></button>
-        
-        
-      </ul>  
-      <br/>
-      <center><button onClick={onClickHandler}>Approve</button></center>
-      <br/>
+          })}  
+          </div>
+          <div className="lg:w-1/2 flex float-right h-auto ">
+            <p className="ml-auto">Member 1: {group.member_1}<br/>
+            Member 2: {group.member_2}<br/>
+            Member 3: {group.member_3}<br/>
+            Member 4: {group.member_4}<br/>
+            Member 5: {group.member_5}</p>
+          </div>
+      
      
-      <br/><br/>
-    
+        
 
-
-      <br/>
-    
+          
+        
+        
+       
+      <center><button className="ml-[20rem] mt-10 text-white bg-purple-900 hover:bg-purple-800/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 " onClick={onClickHandler}>Approve</button></center>
+     </div>
+      
 
 </div>
     

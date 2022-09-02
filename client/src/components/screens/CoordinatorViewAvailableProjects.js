@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
+import Swal from 'sweetalert2'
 
 
 
@@ -11,6 +12,8 @@ const CoordinatorViewAvailableProjects = ({history}) =>{
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [projectarray, setprojectarray] = useState("");
+
+  const Swal = require('sweetalert2');
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -82,11 +85,33 @@ const CoordinatorViewAvailableProjects = ({history}) =>{
  
  
 const removeData = (_id) => {
-  alert("Deleted Successfully");
-  console.log(_id)
-  axios.delete(`/api/AvailableProject/deleteProjectDetails/${_id}`).then((res) => {
-    this.fetchProjectsData();
-  });
+  // alert("Deleted Successfully");
+  // console.log(_id)
+  // axios.delete(`/api/AvailableProject/deleteProjectDetails/${_id}`).then((res) => {
+  //   this.fetchProjectsData();
+  // });
+  try{
+    Swal.fire({
+      title:'Do you want to remove the project?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      denyButtonText:`Don't delete`,
+
+    }).then((result) =>{
+      if(result.isConfirmed){
+        Swal.fire('Deleted!','','success')
+        axios.delete(`/api/AvailableProject/deleteProjectDetails/${_id}`).then((res) => {
+            this.fetchProjectsData();
+          });
+
+      }else if(result.isDenied){
+        Swal.fire('Not deleted','','info')
+      }
+    })
+  }catch(error){
+    alert("Delete not set");
+  }
 };
 
 
@@ -101,7 +126,7 @@ const removeData = (_id) => {
         <SideNavigationBar page="AdminProjects"/>
        </div>
    {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-475px"}}>All projects</h1>
+      <h1 id="caption" className="" style={{marginTop:"-575px"}}>All projects</h1>
       <br/><br/>
       <center>
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">

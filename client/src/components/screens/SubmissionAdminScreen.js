@@ -100,38 +100,64 @@ const toggle=()=> {//normal text box
   <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminSubmission"/>
        </div>
-  <h1 id="caption" className="" style={{marginTop:"-475px"}}>RP Submissions Page</h1>
+  <h1 id="caption" className="" style={{marginTop:"-575px"}}>RP Submissions Page</h1>
       <br/><br/>
+
+{/* <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+    <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Read more
+        <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </a>
+</div> */}
+
 
 
         
          <ul>
+         <br/>
         {SubmissionsData.map(submission => {
+          
           return (
-            <div className="card" style={{borderRadius:"20px",height:"550px"}}>
-        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px",width:"30rem",margin:"0 auto",textAlign:"center",alignContent:"center"}}>{submission.BatchID}</p></center>
-      <div>
+
+  <div className="p-6 ml-[35rem] w-[100rem] max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" >
+
+        <center><p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{submission.BatchID}</p></center>
+      <div><br/>
                    
                     {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Date       </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li>&nbsp;
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Heading    </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li>&nbsp;
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Links      </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li>&nbsp; 
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
+                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400"><b>Date       </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li>&nbsp;
+                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
+                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Heading    </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li>&nbsp;
+                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Links      </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li>&nbsp; 
+                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
                     <label>
               
-                    <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"120px",textAlign:"center",margin:"0 auto"}}> <a href={`/editSubmission/${submission._id}`}>Edit/Remove submission</a></div>&nbsp;&nbsp;
+                    <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <a href={`/editSubmission/${submission._id}`}>Edit/Remove submission</a></div>&nbsp;&nbsp;<br/>
         <br/> <p style={{fontWeight:"bold",color:"black",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"300px",textAlign:"center",margin:"0 auto"}}>Submission Enabled?</p>
+      <br/>
         <input type="checkbox" name="visibility" onChange={toggle} checked ={submission.visibility}/>
+        <br/>
     </label>
-
+    
       </div>
-      </div>
+   
+ </div>
+     
             
           )
 
-        })} 
+        }
+        
+        )
+        
+        } 
+        <br/>
       </ul>
+      
 
         <Link to="/addSubmission" className="login-screen__forgotpassword" id="link">
               Create new submission
