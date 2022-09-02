@@ -102,7 +102,7 @@ const Swal = require('sweetalert2')
 
   <div class="mb-6">
     <label for="repeat-password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300" style={{color:"white"}}>Deadline</label>
-    <input type="date" id="deadline" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50" require="" onChange={(e) => setaDeadline(e.target.value)}
+    <input type="date" id="deadline" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50" required="" onChange={(e) => setaDeadline(e.target.value)}
      value={deadline} />
   </div>
 
