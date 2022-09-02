@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
 import Swal from 'sweetalert2';
+//import PasswordChecklist from "react-password-checklist"//validate phone
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const EditUserProfile = ({history}) => { 
@@ -94,9 +95,7 @@ const EditUserProfile = ({history}) => {
         },
       };
 
-    try {
-        
-        
+    try {      
 
       const { data1 } = await axios.put(
         "/api/student/edituserprofile",
@@ -173,13 +172,18 @@ const EditUserProfile = ({history}) => {
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} /></td></tr> 
       
-      <tr className="py-3 border-none"> <td className="py-3 border-none text-left ">Phone Number:</td><td className="py-3 border-none text-left pl-16"> <input type="text" 
+      <tr className="py-3 border-none"> <td className="py-3 border-none text-left ">Phone Number:</td><td className="py-3 border-none text-left pl-16"> 
+          <input type="text" 
           className = "" style={{color:"white",borderColor:"royalblue",width:"300px",borderRadius:"5px"}}
           name="name" 
           required
           placeholder={fetchFeedbackData.phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
-          value={phoneNumber} /></td></tr>
+          pattern="^-?[0-9]\d*\.?\d*$"
+          maxLength = "10"
+          value={phoneNumber} /></td>
+      </tr>
+
           <tr className="py-3 border-none ">
             <td className="py-3 border-none text-left ">
               <a href={`/userprofile`}>
