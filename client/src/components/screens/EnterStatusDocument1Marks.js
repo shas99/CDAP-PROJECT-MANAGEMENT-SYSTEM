@@ -252,9 +252,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
     <td className="proposalpresentationmarking">
    
-          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-          name="name" required
-          className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
           onChange={(e) => setganttchartmarks(e.target.value)}
           value={ganttchartmarks} />
           
@@ -292,9 +293,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
     <td className="proposalpresentationmarking">
    
-   <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-   name="name" required
-   className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
    onChange={(e) => setganttchartremarks(e.target.value)}
    value={ganttchartremarks} />
    
@@ -323,9 +325,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
     <td className="proposalpresentationmarking">
    
-          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-          name="name" required
-          className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
           onChange={(e) => setactualtimemarks(e.target.value)}
           value={actualtimemarks} />
           
@@ -335,9 +338,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
     
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-            name="name" required
-            className = "proposalpresentationinput"
+            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setactualtimeremarks(e.target.value)}
             value={actualtimeremarks} />
             
@@ -362,9 +366,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
     <td className="proposalpresentationmarking">
    
-          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-          name="name" required
-          className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
           onChange={(e) => setbreakdownmarks(e.target.value)}
           value={breakdownmarks} />
           
@@ -375,9 +380,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
     
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-            name="name" required
-            className = "proposalpresentationinput"
+            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setbreakdownremarks(e.target.value)}
             value={breakdownremarks} />
             
@@ -462,9 +468,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
             
-                    <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-                    name="name" required
-                    className = "proposalpresentationinput"
+            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
                     onChange={(e) => setmanagementtoolmarks(e.target.value)}
                     value={managementtoolmarks} />
                     
@@ -474,9 +481,10 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
         
-                <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-                name="name" required
-                className = "proposalpresentationinput"
+            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
                 onChange={(e) => setmanagementtoolremarks(e.target.value)}
                 value={managementtoolremarks} />
                 
@@ -526,6 +534,7 @@ const EnterStatusDocument1Marks = ({history}) => {
                         <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
                         name="name" required
                         className = "input"
+                        pattern = "[a-zA-Z\s]{3,}"
                         onChange={(e) => setcosupervisor(e.target.value)}
                         value={cosupervisor} />
 
@@ -535,6 +544,7 @@ const EnterStatusDocument1Marks = ({history}) => {
                         <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Supervisor:</b></label><br/><br/>
                         <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
                         name="name" required
+                        pattern = "[a-zA-Z\s]{3,}"
                         className = "input"
                         onChange={(e) => setsupervisor(e.target.value)}
                         value={supervisor} />
