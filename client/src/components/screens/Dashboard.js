@@ -57,7 +57,7 @@ export default function Dashboard ({history}) {
     //Logout feature
     const logOutHandler=()=>{
       localStorage.removeItem("authToken");
-      history.push("/login");
+      history.push("/calibre");
   
     };
 
