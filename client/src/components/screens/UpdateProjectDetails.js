@@ -7,6 +7,8 @@ import  {useEffect } from 'react';
 
 export default function UpdateProjectDetails() {
 
+  const Swal = require('sweetalert2')
+
     // Need to set form variables
     const [oldprojectName, oldsetProjectName] = useState("");
     const [oldprojectDescription, oldsetProjectDescription] = useState("");
@@ -29,6 +31,7 @@ export default function UpdateProjectDetails() {
    const getRelevantProjectData =async ()=>{
      
     try{
+      
       const{data}=await axios.get(`/api/AvailableProject/availableProjects/${projectID}`);
       //setvalues for form
       oldsetProjectName(data.availableProjects.projectName)
@@ -52,13 +55,33 @@ export default function UpdateProjectDetails() {
  const updateProjectDetailsHandler = async (e) => {
   e.preventDefault();
   try {
+    //SUCCESS SWEET ALERT MESSAGE
+    Swal.fire({
+      title:'Are you sure you want to update?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText:'Save',
+      denyButtonText: `Don't save`,
+    }).then((result)=>{
+      if(result.isConfirmed){
+        Swal.fire('Saved!','','success')
+        const { data } = axios.put(
+          `/api/AvailableProject/updateProjectDetails/${projectID}`,
+          { projectName ,projectSupervisedBy , projectType ,projectDescription }
+          );
+
+      }else if(result.isDenied){
+        Swal.fire('Changes are not saved','','info')
+
+      }
+    })
     
-    const { data } = await axios.put(
-      `/api/AvailableProject/updateProjectDetails/${projectID}`,
-      { projectName ,projectSupervisedBy , projectType ,projectDescription }
-      );
-      alert("Project Details Updated Successfully")
-    console.log(data)
+    // const { data } = await axios.put(
+    //   `/api/AvailableProject/updateProjectDetails/${projectID}`,
+    //   { projectName ,projectSupervisedBy , projectType ,projectDescription }
+    //   );
+    //   alert("Project Details Updated Successfully")
+    // console.log(data)
   } catch (error) {
     alert("Error Updating notset")
         
