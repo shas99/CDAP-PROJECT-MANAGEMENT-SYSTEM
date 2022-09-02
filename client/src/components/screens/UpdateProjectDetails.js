@@ -91,7 +91,9 @@ export default function UpdateProjectDetails() {
   <div class="mb-6">
     <label for="password" className="block mb-2 text-l font-medium text-white dark:text-gray-300">Supervised By</label>
     <input type="text" id="password" required className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" 
-      placeholder={oldprojectSupervisedBy} onChange={(e) => setProjectSupervisedBy(e.target.value)}
+      placeholder={oldprojectSupervisedBy} 
+      pattern = "[a-zA-Z\s]{3,}"
+      onChange={(e) => setProjectSupervisedBy(e.target.value)}
       value={projectSupervisedBy} />
   </div>
   {/* <div class="mb-6">
