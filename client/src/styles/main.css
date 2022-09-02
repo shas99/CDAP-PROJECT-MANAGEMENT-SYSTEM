@@ -837,6 +837,18 @@ video {
   margin-left: 24;
 }
 
+.ml-20 {
+  margin-left: 5rem;
+}
+
+.ml-44 {
+  margin-left: 11rem;
+}
+
+.ml-48 {
+  margin-left: 12rem;
+}
+
 .block {
   display: block;
 }
