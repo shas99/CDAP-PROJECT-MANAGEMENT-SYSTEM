@@ -216,10 +216,7 @@ const UserProfile = ({history}) => {
         </input>
               <input type="hidden"  id="ID" name="ID" value={fetchFeedbackData._id} style={{marginBottom:"10px"}}></input> */}
         {/* <button type="submit"  className="ml-[rem] mt-7 text-white bg-[#121518] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2" >Submit!</button>
-<<<<<<< HEAD
-=======
 
->>>>>>> d1c46a9cdc756a2c28367144df51107c4a372967
         </form>
         </div> */}
 
