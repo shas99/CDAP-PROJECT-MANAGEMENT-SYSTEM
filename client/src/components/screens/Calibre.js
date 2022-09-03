@@ -1,5 +1,15 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
+import "./Calibrebuddhisha.css"
+// import {
+//     MDBFooter,
+//     MDBContainer,
+//     MDBIcon,
+//     MDBInput,
+//     MDBCol,
+//     MDBRow,
+//     MDBBtn
+//   } from 'mdb-react-ui-kit';
 
 
 function Calibre() {
@@ -31,7 +41,7 @@ function Calibre() {
         <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-[10rem]  mt-[rem]'> <a href='https://www.sliit.lk/'>Visit SLIIT Portal</a>  </button>
 
         <div id='hero-image'>
-            <img src='https://static.sliit.lk/wp-content/uploads/2018/10/02051658/SLIIT-Building.jpg' className='w-[30rem] h-[40rem] ml-[64rem] mt-[-29rem]'/>
+            <img src='https://static.sliit.lk/wp-content/uploads/2018/10/02051658/SLIIT-Building.jpg' className='w-[34rem] h-[40rem] ml-[62rem] mt-[-29rem] overflow-hidden'/>
 
             
         </div>
@@ -90,14 +100,180 @@ function Calibre() {
     </div>
 
     <div id='below-section' className='bg-slate-800 h-[30rem]' >
+
         Buddisha
+        <p className="footer">Calibre project management system is dedicated to helping students and lectures efficiently manage
+        the 4th year SLIIT Research projects , and provides many services and facilities such as topic registration, submission configurations
+        , group registration, rubric marking , teams meeting scheduling and many more. 
+
+        
+        
+        
+        
+         </p>
+         <br></br>
+         <p className="footer">You can sign up as a student, staff member or admin</p>
+         
+
+         <div lg='3' md='6' className='mb-4 mb-md-0'>
+              <h5  className='text-uppercase ml-[50rem] text-white'> Useful Links</h5>
+              <br></br>
+
+              <ul className='list-unstyled mb-0 ml-[70rem]'>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 1
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 2
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 3
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 4
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 5
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 6
+                  </a>
+                </li>
+              </ul>
+              </div>
+
+              <div  lg='3' md='6' className='mb-4  md:align-top'>
+           
+
+              <ul className='list-unstyled mb-0 mt-[-10rem] ml-[50rem]'>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 1
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 2
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 3
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 4
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 5
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 6
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+
+            <div  lg='3' md='6' className='mb-4 mt-[-10rem] md:align-top'>
+           
+
+              <ul className='list-unstyled mb-0 mt-[-7rem] ml-[30rem]'>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 1
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 2
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 3
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 4
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 5
+                  </a>
+                </li>
+                <li>
+                  <a href='#!' className='text-white'>
+                    Link 6
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+           
+
+
+            </div>
+            <br></br>
+
+            <div class="grid md:grid-cols-3 text-white gird-cols-1 gap-4 flex justify-center mt-[-8rem] ml-[20rem] items-center">
+          <div class="md:ml-auto md:mb-6">
+            <p class="">
+              <strong>Sign up for our newsletter</strong>
+            </p>
+          </div>
+          </div>
+
+          <div class="md:mb-6 ml-[45rem] mt-[-4rem]" >
+            <input
+              type="text"
+              class="
+                form-control
+                block
+                w-10px
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+              "
+              id="exampleFormControlInput1"
+              placeholder="Email address"/>
+          </div>
+
+
+          
+         
     </div>
 
 
 
-
-   </div>
-    
+  
  
  
         

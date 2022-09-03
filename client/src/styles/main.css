@@ -576,6 +576,10 @@ video {
   margin: auto;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -859,6 +863,46 @@ video {
 
 .mt-\[16rem\] {
   margin-top: 16rem;
+}
+
+.ml-\[62rem\] {
+  margin-left: 62rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.ml-\[50rem\] {
+  margin-left: 50rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.ml-\[70rem\] {
+  margin-left: 70rem;
+}
+
+.mt-\[-10rem\] {
+  margin-top: -10rem;
+}
+
+.mt-\[-7rem\] {
+  margin-top: -7rem;
+}
+
+.mt-\[-8rem\] {
+  margin-top: -8rem;
+}
+
+.ml-\[45rem\] {
+  margin-left: 45rem;
+}
+
+.mt-\[-4rem\] {
+  margin-top: -4rem;
 }
 
 .block {
@@ -1153,6 +1197,10 @@ video {
   width: 15rem;
 }
 
+.w-\[34rem\] {
+  width: 34rem;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -1247,6 +1295,10 @@ video {
 
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .gap-y-4 {
@@ -1538,6 +1590,10 @@ video {
   background-size: cover;
 }
 
+.bg-clip-padding {
+  background-clip: padding-box;
+}
+
 .bg-center {
   background-position: center;
 }
@@ -1810,6 +1866,11 @@ video {
   line-height: 1;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2080,6 +2141,21 @@ video {
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
+.focus\:border-blue-600:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity));
+}
+
+.focus\:bg-white:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.focus\:text-gray-700:focus {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2348,6 +2424,14 @@ video {
     margin-left: 5rem;
   }
 
+  .md\:ml-auto {
+    margin-left: auto;
+  }
+
+  .md\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -2367,6 +2451,10 @@ video {
 
   .md\:text-right {
     text-align: right;
+  }
+
+  .md\:align-top {
+    vertical-align: top;
   }
 
   .md\:text-3xl {
