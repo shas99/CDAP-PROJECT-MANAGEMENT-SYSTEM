@@ -123,47 +123,92 @@ function Calibre() {
      &nbsp;
     <div>
 
-    <center className='mt-20 ml-[0rem] text-3xl text-white font-serif font-extrabold'>Services</center>
+    <center className='mt-[-30] ml-[0rem] text-3xl text-white font-serif font-extrabold'>Services</center>
     </div>
         
-      <div>
-        <button class="mt-20 ml-[8rem] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Schedule meetings
-        </button>
-        <button class="ml-[10rem] bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Get Supervisor suggestions
-        </button>
-        <button class="ml-[10rem] bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Submit project ideas
-        </button>
+      <div className='ml-20'>
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+          <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Schedule meetings</h5>
+          <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+
+        <br></br>
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Get Supervisor suggestions</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Submit project ideas</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        
       </div>
       <br/>
-      <div>
-        <button class="mt-10 ml-[8rem] bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Customise rubrics
-        </button>
-        <button class="ml-[10rem] bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          View Your grades
-        </button>
-        <button class="ml-[10rem] bg-stone-500 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Customisable forms
-        </button>
+      <div style={{marginTop:"-437px",marginLeft:"500px"}}>
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customise rubrics</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>View Your grades</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customisable forms</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
 
       </div>
       <br/>
-      <div>
-        <button class="mt-10 ml-[8rem] bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Register to group
-        </button>
-        <button class="mt-10 ml-[10rem] bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Notify students
-        </button>
-        <button class="ml-[10rem] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
-          Bid for projects
-        </button>
+      <div style={{marginTop:"-438px",marginLeft:"950px"}}>
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Register to group</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Notify students</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Bid for projects</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
 
       </div>
     </div>
+    
 
     <div id='below-section' className='bg-slate-800 h-[30rem]' >
 
@@ -339,11 +384,7 @@ function Calibre() {
 
 
 
-<<<<<<< HEAD
-
-=======
   
->>>>>>> f4c4595aa4bca395149bb2db7388990319797739
  
  
         
