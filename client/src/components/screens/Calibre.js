@@ -73,9 +73,12 @@ function Calibre() {
     <div id='below-section' className='bg-slate-800 h-[30rem]' >
 
         Buddisha
-        <p className="footer">Calibre project management system is dedicated to helping students and lectures efficiently manage
+        <p className="footer text-white ml-[2rem]">Calibre project management system is dedicated to helping students and lectures efficiently manage
         the 4th year SLIIT Research projects , and provides many services and facilities such as topic registration, submission configurations
         , group registration, rubric marking , teams meeting scheduling and many more. 
+        Admin features include available project management, configuring the marking, configuring the submissions, viewing groups and placing
+        announcements. Staff features include adding marks and viewing their biddings. Student features include viewing marks and features, viewing their
+        matched supervisors and submitting files.
 
         
         
@@ -83,42 +86,42 @@ function Calibre() {
         
          </p>
          <br></br>
-         <p className="footer">You can sign up as a student, staff member or admin</p>
+
          
 
-         <div lg='3' md='6' className='mb-4 mb-md-0'>
-              <h5  className='text-uppercase ml-[50rem] text-white'> Useful Links</h5>
+         <div lg='3' md='6' className='mb-4 mb-md-0 '>
+              <h5  className='text-uppercase ml-[30rem] text-white'> <strong>Useful Links</strong></h5>
               <br></br>
 
-              <ul className='list-unstyled mb-0 ml-[70rem]'>
+              <ul className='list-unstyled mb-0 ml-[20rem]'>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 1
+                    Staff
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 2
+                    Students
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 3
+                    Research Project coordinators
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 4
+                    Alumni
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 5
+                   Student Achievements
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 6
+                    Popular Research interests
                   </a>
                 </li>
               </ul>
@@ -127,35 +130,35 @@ function Calibre() {
               <div  lg='3' md='6' className='mb-4  md:align-top'>
            
 
-              <ul className='list-unstyled mb-0 mt-[-10rem] ml-[50rem]'>
+              <ul className='list-unstyled mb-0 mt-[-10rem] ml-[60rem]'>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 1
+                    Our sponsored internships
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 2
+                    Our head office
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 3
+                    Our developer team
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 4
+                    Best technology stacks
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 5
+                    Best project web frameworks
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 6
+                    About Us
                   </a>
                 </li>
               </ul>
@@ -165,35 +168,35 @@ function Calibre() {
             <div  lg='3' md='6' className='mb-4 mt-[-10rem] md:align-top'>
            
 
-              <ul className='list-unstyled mb-0 mt-[-7rem] ml-[30rem]'>
+              <ul className='list-unstyled mb-0 mt-[-7rem] ml-[40rem]'>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 1
+                    Contact Us
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 2
+                    File a complaint
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 3
+                    Help and Support
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 4
+                    Our Chat Bot
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 5
+                    Our campaigns
                   </a>
                 </li>
                 <li>
                   <a href='#!' className='text-white'>
-                    Link 6
+                   Coding contests and hackathons
                   </a>
                 </li>
               </ul>
@@ -204,22 +207,23 @@ function Calibre() {
 
             </div>
             <br></br>
-
-            <div class="grid md:grid-cols-3 text-white gird-cols-1 gap-4 flex justify-center mt-[-8rem] ml-[20rem] items-center">
+            <br></br><br></br>
+            <div class="grid md:grid-cols-3 text-white gird-cols-1 gap-4 flex justify-center mt-[-11rem] ml-[20rem] items-center">
           <div class="md:ml-auto md:mb-6">
             <p class="">
               <strong>Sign up for our newsletter</strong>
             </p>
           </div>
           </div>
+          <br></br><br></br>
 
-          <div class="md:mb-6 ml-[45rem] mt-[-4rem]" >
+          <div class="md:mb-6 ml-[30rem] mt-[-4rem]" >
             <input
               type="text"
               class="
                 form-control
                 block
-                w-10px
+                w-5px
                 px-3
                 py-1.5
                 text-base
@@ -237,6 +241,16 @@ function Calibre() {
               placeholder="Email address"/>
           </div>
 
+          <div class="flex space-x-2 justify-center ml-[25rem] mt-[-4rem]">
+  <button type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Subscribe</button>
+</div>
+
+
+
+
+
+
+
 
           
          
@@ -244,13 +258,7 @@ function Calibre() {
 
 
 
-<<<<<<< HEAD
   
-=======
-
-   </div>
-    
->>>>>>> e76fcd6f3eaf992bb1cce183cc5d14f294710814
  
  
         
