@@ -23,12 +23,34 @@ function Calibre() {
             CDAP platform  empowers project roadmap <br/>to actual motivated software,  Inspiring students and lecturers 
         </p>
         <br/><br/><br/>
-       <div>
+       {/* <div>
             <img  src="https://media-exp2.licdn.com/dms/image/C560BAQEIerI4wDXA3w/company-logo_200_200/0/1643683606424?e=2147483647&v=beta&t=9SnPqaf6jG4vAoup_dlhdanepjK2ALMhU-Qicgjz0ZY" width="200" height="200" className='ml-[10rem]  rounded w-[5rem] h-[5rem]' />
-            </div>
+            </div> */}
         
 
-        <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-[25rem]  mt-[rem]'> <a href='https://www.sliit.lk/'>Visit SLIIT Portal</a>  </button>
+        <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-[10rem]  mt-[rem]'> <a href='https://www.sliit.lk/'>Visit SLIIT Portal</a>  </button>
+
+        <div id='hero-image'>
+            <img src='https://static.sliit.lk/wp-content/uploads/2018/10/02051658/SLIIT-Building.jpg' className='w-[30rem] h-[40rem] ml-[64rem] mt-[-29rem]'/>
+
+            
+        </div>
+
+        <div id='statistic-row ' className='bg-black-400 h-[80rem]'>
+            <hr className='mt-[6rem] w-[70rem] ml-[9rem] border-gray-700 '/>
+                 <p className='ml-[20rem] text-3xl text-white font-serif font-extrabold mt-[2rem]'>
+                200+ <br/>Students
+                </p>
+                <p className='ml-[40rem] text-3xl text-white font-serif font-extrabold mt-[-4.5rem]'>
+                40+ <br/> Lecturers
+                </p>
+                <p className='ml-[60rem] text-3xl text-white font-serif font-extrabold mt-[-4.7rem]'>
+                4+ <br/> Panels
+                </p>
+                
+                    
+
+        </div>
     </div>
 
     <div id='information-section' className='bg-slate-600 h-[30rem]' >
@@ -41,6 +63,7 @@ function Calibre() {
     <div id='below-section' className='bg-slate-800 h-[30rem]' >
         Buddisha
     </div>
+
 
 
 
