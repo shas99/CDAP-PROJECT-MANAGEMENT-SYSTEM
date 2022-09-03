@@ -63,8 +63,37 @@ function Calibre() {
         </div>
     </div>
 
-    <div id='information-section' className='bg-slate-600 h-[30rem]' >
-        Pasindu
+    <div id='information-section' className='bg-slate-600 w-full  h-[auto] border-2 border-solid border-blue-900 mt-[16rem]' >
+        <div className="inline-block w-full h-auto border-2 border-solid border-red-900"> 
+            <div className="flex lg:w-2/3 float-left border-solid border-2 border-green-600">
+            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673384939540/Milestones.jpg" width="94%" height="auto" style={{marginLeft:"3%", marginTop:"20px", marginBottom:"20px"}}></img>
+
+            </div>
+            <div className="flex lg:w-1/3 float-right border-solid border-2">
+            <p className="w-full h-full">This is sample data for now</p>
+            </div>
+        </div>    
+
+        <div className="inline-block w-full h-auto border-2 border-solid border-red-900"> 
+            <div className="flex lg:w-2/5 float-left border-solid border-2">
+            <p className="w-full h-full">This is sample data for now</p>
+            </div>
+
+            <div className="flex lg:w-3/5 float-right border-solid border-2 border-green-600">
+            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673619824700/Assesments.jpg" className="" width="90%"  style={{marginBottom:"15px", marginLeft:"5%"}}></img>
+
+            </div>
+            
+        </div>    
+        {/* <div className="w-full border-2 border-solid border-red-900">
+            <div className="flex lg:w-2/3 float-right border-solid border-2 h-auto">
+            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673619824700/Assesments.jpg"  className="w-80% h-auto"></img>
+
+            </div>
+            <div className="flex lg:w-1/3 float-left border-solid border-2">
+            <p className="w-full h-full">This is sample data for now</p>
+            </div>
+        </div>     */}
     </div>
     <div id='services-section' className='bg-slate-700 h-[30rem]' >
         Shasvathan
