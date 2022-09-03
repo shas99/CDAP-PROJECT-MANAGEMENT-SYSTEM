@@ -31,8 +31,27 @@ function Calibre() {
         <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-[25rem]  mt-[rem]'> <a href='https://www.sliit.lk/'>Visit SLIIT Portal</a>  </button>
     </div>
 
-    <div id='information-section' className='bg-slate-600 h-[30rem]' >
-        Pasindu
+    <div id='information-section' className='bg-slate-600 w-full h-auto border-2 border-solid' >
+        <div>
+            <div className="flex lg:w-2/3 float-left border-solid border-2 h-auto">
+            {/* <img src={"../../images/Milestones.jpg"} width="50px"/> */}
+            {/* <img src="" width="100px" height="auto"></img> */}
+
+            </div>
+            <div className="flex lg:w-1/3 float-right border-solid border-2">
+
+            </div>
+        </div>    
+        <div>
+            <div className="flex lg:w-2/3 float-left border-solid border-2 h-auto">
+            {/* <img src="../../images/Milestones.jpg" width="50px"/> */}
+            {/* <img src="https://lms.sliit.lk/pluginfile.php/276627/mod_label/intro/Milestones%20Without%20SR_RP.jpg" width="100px" height="auto"></img> */}
+
+            </div>
+            <div className="flex lg:w-1/3 float-right border-solid border-2">
+
+            </div>
+        </div>    
     </div>
     <div id='services-section' className='bg-slate-700 h-[30rem]' >
         Shasvathan
