@@ -63,37 +63,44 @@ function Calibre() {
         </div>
     </div>
 
-    <div id='information-section' className='bg-slate-600 w-full  h-[auto] border-2 border-solid border-blue-900 mt-[16rem]' >
-        <div className="inline-block w-full h-auto border-2 border-solid border-red-900"> 
-            <div className="flex lg:w-2/3 float-left border-solid border-2 border-green-600">
-            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673384939540/Milestones.jpg" width="94%" height="auto" style={{marginLeft:"3%", marginTop:"20px", marginBottom:"20px"}}></img>
+    <div id='information-section' className='bg-slate-800 w-full  h-[auto] mt-[16rem]' >
+        <div>
+           <p className="w-full py-4 text-5xl font-serif font-extrabold  font-bold text-white text-center pt-10 pb-10"> What is the procedure ?</p>
+        </div>
+        <div className="inline-block w-full h-auto "> 
+            <div className="flex lg:w-2/3 float-left ">
+            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673384939540/Milestones.jpg" width="94%" height="auto" className="shadow-xl shadow-slate-900 border-2 border-radius-5" style={{marginLeft:"3%", marginTop:"20px", marginBottom:"20px",borderRadius:"8px"}}></img>
 
             </div>
-            <div className="flex lg:w-1/3 float-right border-solid border-2">
-            <p className="w-full h-full">This is sample data for now</p>
+            <div className="relative lg:w-1/3 float-right mt-14 pb-10">
+            <div className="lg:w-[28rem] bg-slate-900 pt-5 pb-9 shadow-xl shadow-gray-800" style={{borderRadius:"6px"}}> 
+            <p className="text-center w-full mt-5 text-white font-serif text-xl font-extrabold  font-bold">The Research Project Milestones</p>
+            <p className="text-center w-full mt-10 text-white text-serif text-md">Students have to do some stuff before the 4<sup>th</sup> year first <br/>semester. They should engage to workshops and <br/>after that select a supervisor for their 
+            Research. After<br/> that they should Search about a Research Title and Fill<br/>  out the Topic Assesment Form. After that students should <br/> upload the Charter Documment. </p>
+            <p className="text-center w-full mt-10 text-white text-serif text-md">In 4<sup>th</sup> year 1<sup>st</sup> semester students must submit and present<br/> Project Proposel and end of the semester <br/>
+            publish the Research Paper.</p>
+            <p className="text-center w-full mt-10 text-white text-serif text-md">In 4<sup>th</sup> year 2<sup>nd</sup> semester Students must do the<br/> Final Evaluation and Finishing.</p>
+            </div>
             </div>
         </div>    
-
-        <div className="inline-block w-full h-auto border-2 border-solid border-red-900"> 
-            <div className="flex lg:w-2/5 float-left border-solid border-2">
-            <p className="w-full h-full">This is sample data for now</p>
+        <hr style={{width:"96%",margin:"auto",borderWidth:"2px", borderColor:"gray",marginTop:"5px",marginBottom:"5px"}}></hr>
+        <div className="inline-block w-full h-auto pb-10"> 
+        <div className="relative lg:w-1/3 float-left mt-64 ml-auto pb-10">
+            <div className="lg:w-[28rem] bg-slate-900 pt-5 pb-9 shadow-xl shadow-gray-800 ml-auto" style={{borderRadius:"6px"}}> 
+            <p className="text-center w-full mt-5 text-white font-serif text-xl font-extrabold  font-bold">Get an clear idea about Milestones</p>
+            <p className="text-center w-full mt-6 text-white text-serif text-md">You can get a proper idea about Milestones by<br/> studying this Diagram.
+            </p></div>
             </div>
 
-            <div className="flex lg:w-3/5 float-right border-solid border-2 border-green-600">
-            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673619824700/Assesments.jpg" className="" width="90%"  style={{marginBottom:"15px", marginLeft:"5%"}}></img>
+            <div className="flex lg:w-3/5 float-right">
+            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673619824700/Assesments.jpg"  className="shadow-xl shadow-slate-900 " style={{ marginTop:"20px", marginBottom:"20px",borderRadius:"8px",width:"97%",height:"auto"}}></img>
 
             </div>
             
         </div>    
-        {/* <div className="w-full border-2 border-solid border-red-900">
-            <div className="flex lg:w-2/3 float-right border-solid border-2 h-auto">
-            <img src="https://cdn.discordapp.com/attachments/929308623853723678/1015512673619824700/Assesments.jpg"  className="w-80% h-auto"></img>
+        
+        
 
-            </div>
-            <div className="flex lg:w-1/3 float-left border-solid border-2">
-            <p className="w-full h-full">This is sample data for now</p>
-            </div>
-        </div>     */}
     </div>
     <div id='services-section' className='bg-slate-700 h-[30rem]' >
         Shasvathan
