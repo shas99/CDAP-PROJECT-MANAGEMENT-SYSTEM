@@ -67,7 +67,49 @@ function Calibre() {
         Pasindu
     </div>
     <div id='services-section' className='bg-slate-700 h-[30rem]' >
-        Shasvathan
+     &nbsp;
+    <div>
+
+    <center className='mt-20 ml-[0rem] text-3xl text-white font-serif font-extrabold'>Services</center>
+    </div>
+        
+      <div>
+        <button class="mt-20 ml-[8rem] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Schedule meetings
+        </button>
+        <button class="ml-[10rem] bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Get Supervisor suggestions
+        </button>
+        <button class="ml-[10rem] bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Submit project ideas
+        </button>
+      </div>
+      <br/>
+      <div>
+        <button class="mt-10 ml-[8rem] bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Customise rubrics
+        </button>
+        <button class="ml-[10rem] bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          View Your grades
+        </button>
+        <button class="ml-[10rem] bg-stone-500 hover:bg-stone-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Customisable forms
+        </button>
+
+      </div>
+      <br/>
+      <div>
+        <button class="mt-10 ml-[8rem] bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Register to group
+        </button>
+        <button class="mt-10 ml-[10rem] bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Notify students
+        </button>
+        <button class="ml-[10rem] bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[16rem]">
+          Bid for projects
+        </button>
+
+      </div>
     </div>
 
     <div id='below-section' className='bg-slate-800 h-[30rem]' >
@@ -244,13 +286,7 @@ function Calibre() {
 
 
 
-<<<<<<< HEAD
-  
-=======
 
-   </div>
-    
->>>>>>> e76fcd6f3eaf992bb1cce183cc5d14f294710814
  
  
         
