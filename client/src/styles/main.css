@@ -497,6 +497,10 @@ video {
   visibility: visible;
 }
 
+.static {
+  position: static;
+}
+
 .fixed {
   position: fixed;
 }
@@ -817,6 +821,46 @@ video {
   margin-top: 2rem;
 }
 
+.ml-\[64rem\] {
+  margin-left: 64rem;
+}
+
+.mt-\[-29rem\] {
+  margin-top: -29rem;
+}
+
+.ml-\[9rem\] {
+  margin-left: 9rem;
+}
+
+.mt-\[2rem\] {
+  margin-top: 2rem;
+}
+
+.mt-\[-4\.7rem\] {
+  margin-top: -4.7rem;
+}
+
+.mt-\[60rem\] {
+  margin-top: 60rem;
+}
+
+.mt-\[20rem\] {
+  margin-top: 20rem;
+}
+
+.mt-\[18rem\] {
+  margin-top: 18rem;
+}
+
+.mt-\[17rem\] {
+  margin-top: 17rem;
+}
+
+.mt-\[16rem\] {
+  margin-top: 16rem;
+}
+
 .block {
   display: block;
 }
@@ -957,6 +1001,14 @@ video {
   height: 1rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
 .w-48 {
   width: 12rem;
 }
@@ -1087,6 +1139,18 @@ video {
 
 .w-\[13rem\] {
   width: 13rem;
+}
+
+.w-\[30rem\] {
+  width: 30rem;
+}
+
+.w-\[70rem\] {
+  width: 70rem;
+}
+
+.w-60 {
+  width: 15rem;
 }
 
 .min-w-full {
@@ -1297,6 +1361,26 @@ video {
   border-color: currentColor;
 }
 
+.border-red-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(254 202 202 / var(--tw-border-opacity));
+}
+
+.border-red-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity));
+}
+
+.border-blue-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 58 138 / var(--tw-border-opacity));
+}
+
+.border-green-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(22 163 74 / var(--tw-border-opacity));
+}
+
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -1435,6 +1519,11 @@ video {
 .bg-\[\#121518\] {
   --tw-bg-opacity: 1;
   background-color: rgb(18 21 24 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -1675,6 +1764,10 @@ video {
 
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .text-sm {
