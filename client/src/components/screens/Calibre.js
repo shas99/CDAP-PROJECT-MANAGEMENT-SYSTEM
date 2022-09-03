@@ -18,12 +18,36 @@ function Calibre() {
       
    <div className=' bg-gray-900'>
     
-    <div id='navigation-bar' className=' h-[7.2rem] bg-slate-50'>
-        Chamath
+    <div id='navigation-bar' className=' h-[5rem] bg-gradient-to-r from-blue-900 mt-50rem'>
+    <nav class="p-3 bg-gradient-to-r from-blue-900 border-gray-200 dark:bg-gray-800 dark:border-gray-700 h-[5rem]">
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <a href="#" class="flex items-center">
+        <img src="https://media.discordapp.net/attachments/929308623853723678/994252147799625768/Screenshot_2022-07-06_at_20.12.37.png" className="mr-3 h-6 sm:h-10 rounded" alt="Flowbite Logo" />
+        <span class="self-center text-xl font-semibold whitespace-nowrap text-white font-sans text-4xl font-bold">Calibre</span>
+    </a>
+    <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex justify-center items-center ml-3 text-gray-400 rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500" aria-controls="navbar-solid-bg" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+      <ul class="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-1 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+        <li>
+          <button className='text-white bg-[#24292F] hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/adminLogin" aria-current="page">Login As Admin</a></button>
+        </li>
+        <li>
+          <button className='text-white bg-[#24292F] hover:hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/stafflogin">Login As Staff</a></button>
+        </li>
+        <li>
+        <button className='text-white bg-[#24292F] hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/login">Login As Student</a></button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     </div>
 
     <div id='hero-section' className='   h-[40rem] bg-gray-900'>
-        Chathushka 
+        &nbsp; 
 
         <h1 className=' text-7xl text-slate-50 font-extrabold mt-[6rem] ml-[10rem] '>
             Lets get started !<br/> Its now or never
@@ -103,8 +127,95 @@ function Calibre() {
 
     </div>
     <div id='services-section' className='bg-slate-700 h-[30rem]' >
-        Shasvathan
+     &nbsp;
+    <div>
+
+    <center className='mt-[-30] ml-[0rem] text-3xl text-white font-serif font-extrabold'>Services</center>
     </div>
+        
+      <div className='ml-20'>
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+          <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Schedule meetings</h5>
+          <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+
+        <br></br>
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Get Supervisor suggestions</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Submit project ideas</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        
+      </div>
+      <br/>
+      <div style={{marginTop:"-437px",marginLeft:"500px"}}>
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customise rubrics</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>View Your grades</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customisable forms</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+
+      </div>
+      <br/>
+      <div style={{marginTop:"-438px",marginLeft:"950px"}}>
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Register to group</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Notify students</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+        <br></br>
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Bid for projects</h5>
+        <p className="text-gray-700 text-base mb-4">
+          Some quick example text to build on the card title and make up the bulk of the card's
+          content.
+    </p>
+        </div>
+
+      </div>
+    </div>
+    
 
     <div id='below-section' className='bg-slate-800 h-[30rem]' >
 
