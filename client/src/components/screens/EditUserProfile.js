@@ -95,7 +95,10 @@ const EditUserProfile = ({history}) => {
         },
       };
 
+
     try {      
+
+
 
       const { data1 } = await axios.put(
         "/api/student/edituserprofile",

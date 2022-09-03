@@ -87,7 +87,7 @@ const GroupScreen = ({history}) => {
             "Content-Type": "application/json",
           },
         };
-    
+        alert("Successfully Submited!")
         try {
           const { data } = await axios.post(
             "/api/group/groupregister",
