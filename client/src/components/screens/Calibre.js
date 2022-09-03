@@ -16,7 +16,7 @@ function Calibre() {
     return (
 
       
-   <div className=' bg-gray-900 h-[275rem]' >
+   <div className=' bg-gray-900 h-[277rem]' >
     
     <div id='navigation-bar' className=' h-[5rem] bg-gradient-to-r from-blue-900 mt-50rem'>
     <nav class="p-3 bg-gradient-to-r from-blue-900 border-gray-200 dark:bg-gray-800 dark:border-gray-700 h-[5rem]">
@@ -32,13 +32,13 @@ function Calibre() {
     <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
       <ul class="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-1 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
         <li>
-          <button className='text-white bg-[#24292F] hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/adminLogin" aria-current="page">Login As Admin</a></button>
+          <button className='text-white bg-[#24292F] ring-1 ring-blue-700 hover:bg-sky-800 focus:ring-4  focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/adminLogin" aria-current="page">Login As Admin</a></button>
         </li>
         <li>
-          <button className='text-white bg-[#24292F] hover:hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/stafflogin">Login As Staff</a></button>
+          <button className='text-white bg-[#24292F] ring-1 ring-blue-700 hover:hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/stafflogin">Login As Staff</a></button>
         </li>
         <li>
-        <button className='text-white bg-[#24292F] hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/login">Login As Student</a></button>
+        <button className='text-white bg-[#24292F] ring-1 ring-blue-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2'><a href="/login">Login As Student</a></button>
         </li>
       </ul>
     </div>
@@ -53,7 +53,7 @@ function Calibre() {
             Lets get started !<br/> Its now or never
         </h1>
 <br/>
-        <p className=' text-2xl  font-bold text-gray-500  ml-[10rem]'>
+        <p className=' text-2xl  font-bold text-gray-500  ml-[10rem] pt-0'>
             CDAP platform  empowers project roadmap <br/>to actual motivated software,  Inspiring students and lecturers 
         </p>
         <br/><br/><br/>
@@ -65,7 +65,7 @@ function Calibre() {
         <button className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-[10rem]  mt-[rem]'> <a href='https://www.sliit.lk/'>Visit SLIIT Portal</a>  </button>
 
         <div id='hero-image'>
-            <img src='https://static.sliit.lk/wp-content/uploads/2018/10/02051658/SLIIT-Building.jpg' className='w-[34rem] h-[40rem] ml-[62rem] mt-[-29rem] overflow-hidden'/>
+            <img src='https://static.sliit.lk/wp-content/uploads/2018/10/02051658/SLIIT-Building.jpg' className='w-auto h-[40rem] ml-[62rem] mt-[-29rem] '/>
 
             
         </div>
@@ -107,7 +107,7 @@ function Calibre() {
             </div>
             </div>
         </div>    
-        <hr style={{width:"96%",margin:"auto",borderWidth:"2px", borderColor:"gray",marginTop:"5px",marginBottom:"5px"}}></hr>
+        <hr style={{width:"90%",margin:"auto", borderColor:"gray",marginTop:"18px",marginBottom:"18px"}}></hr>
         <div className="inline-block w-full h-auto pb-10"> 
         <div className="relative lg:w-1/3 float-left mt-64 ml-auto pb-10">
             <div className="lg:w-[28rem] bg-slate-900 pt-5 pb-9 shadow-xl shadow-gray-800 ml-auto" style={{borderRadius:"6px"}}> 
@@ -126,15 +126,15 @@ function Calibre() {
         
 
     </div>
-    <div id='services-section' className='bg-slate-700 h-[40rem]' >
+    <div id='services-section' className='bg-slate-700 h-[45rem]' >
      &nbsp;
-    <div>
+    <div className="mt-5 mb-8">
 
     <center className='mt-[-70] ml-[0rem] text-7xl text-white font-serif font-extrabold  '>Services</center>
     </div>
         
       <div className='ml-20 mt-[1rem]' >
-        <div className=" block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <div className=" block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
           <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Schedule meetings</h5>
           <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -143,7 +143,7 @@ function Calibre() {
         </div>
 
         <br></br>
-        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Get Supervisor suggestions</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -151,7 +151,7 @@ function Calibre() {
     </p>
         </div>
         <br></br>
-        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
+        <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Submit project ideas</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -162,7 +162,7 @@ function Calibre() {
       </div>
       <br/>
       <div style={{marginTop:"-437px",marginLeft:"500px"}}>
-        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customise rubrics</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -170,7 +170,7 @@ function Calibre() {
     </p>
         </div>
         <br></br>
-        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>View Your grades</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -178,7 +178,7 @@ function Calibre() {
     </p>
         </div>
         <br></br>
-        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customisable forms</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -190,7 +190,7 @@ function Calibre() {
       <br/>
       
       <div style={{marginTop:"-438px",marginLeft:"950px"}}>
-        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Register to group</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -198,7 +198,7 @@ function Calibre() {
     </p>
         </div>
         <br></br>
-        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md  shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Notify students</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -206,7 +206,7 @@ function Calibre() {
     </p>
         </div>
         <br></br>
-        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Bid for projects</h5>
         <p className="text-gray-700 text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
@@ -219,12 +219,13 @@ function Calibre() {
     </div>
     
 
-    <div id='below-section' className='bg-slate-800 h-[30rem] ' >
+    <div id='below-section' className='bg-slate-800 h-[32rem]' >
 
-        Buddisha
-        <p className="footer text-white ml-[2rem] mt-[2rem]">Calibre project management system is dedicated to helping students and lectures efficiently manage
-        the 4th year SLIIT Research projects , and provides many services and facilities such as topic registration, submission configurations
-        , group registration, rubric marking , teams meeting scheduling and many more. 
+        &nbsp;
+        
+        <p className="footer text-white ml-[2rem] mr-[2rem] mt-[2rem] text-justify font-sans"><b className="text-5xl font-serif">Calibre</b> project management system is dedicated to helping students and lectures efficiently manage
+        the 4th year SLIIT Research projects, and provides many services and facilities such as topic registration, submission configurations, 
+        group registration, rubric marking, teams meeting scheduling and many more. 
         Admin features include available project management, configuring the marking, configuring the submissions, viewing groups and placing
         announcements. Staff features include adding marks and viewing their biddings. Student features include viewing marks and features, viewing their
         matched supervisors and submitting files.
@@ -234,12 +235,14 @@ function Calibre() {
         
         
          </p>
+         <br/><br/> 
+         <hr style={{width:"90%",margin:"auto", borderColor:"gray"}}/>
          <br></br>
 
          
 
-         <div lg='3' md='6' className='mb-4 mb-md-0 '>
-              <h5  className='text-uppercase ml-[30rem] text-white'> <strong>Useful Links</strong></h5>
+         <div lg='3' md='6' className='mb-4 mb-md-0 mt-5 '>
+              <h5  className='text-uppercase ml-[20rem] text-white'> <strong>Useful Links</strong></h5>
               <br></br>
 
               <ul className='list-unstyled mb-0 ml-[20rem]'>
@@ -362,22 +365,19 @@ function Calibre() {
             <br></br>
             <br></br><br></br>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="grid md:grid-cols-3 text-white gird-cols-1 gap-4 flex justify-center mt-[-11rem] ml-[20rem] items-center">
+         <div class="grid md:grid-cols-3 text-white gird-cols-1 gap-4 flex justify-center mt-[-11rem] ml-[20rem] items-center">
           <div class="md:ml-auto md:mb-6 mt-[7rem]">
-            <p class="mt-[-5rem]">
+            <p class="mt-[-4rem]">
               <strong>Sign up for our newsletter</strong>
             </p>
           </div>
           </div>
           <br></br><br></br>
 
-          <div class="md:mb-6 ml-[30rem] mt-[-8rem]" >
+          <div class="md:mb-6 ml-[30rem] mt-[-6rem]" >
             <input
               type="text"
-              class="
-                form-control
-                block
-                w-5px
+              className="
                 px-3
                 py-1.5
                 text-base
@@ -386,10 +386,7 @@ function Calibre() {
                 bg-white bg-clip-padding
                 border border-solid border-gray-300
                 rounded
-                transition
-                ease-in-out
-                m-0
-                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                focus:text-white
               "
               id="exampleFormControlInput1"
               placeholder="Email address"/>
@@ -397,8 +394,8 @@ function Calibre() {
 
           
 
-          <div class="flex space-x-2 justify-center ml-[25rem] mt-[-4rem]">
-  <button type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Subscribe</button>
+          <div class="flex space-x-2 justify-center ml-[30rem] mt-[-4rem]">
+  <button type="button" class="inline-block px-6 py-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Subscribe</button>
 </div>
 
 
