@@ -58,7 +58,7 @@ const Swal = require('sweetalert2')
 
 
   return (
-    <div className='bg-gray-900 w-130  h-[45rem] ' >
+    <div className='bg-gray-900 w-130  h-[55rem] ' >
         <br/><br/><br/>  
         <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded mt-[-75px]">
         <SideNavigationBar page="AdminPlaceAnnouncement"/>
