@@ -226,7 +226,7 @@ const MatchedSupervisors = ({history}) => {
       ) : ( 
         <>
        
-        <div className="bg-gray-900 h-[75rem]">
+        <div className="bg-gray-900 h-[80rem]">
         <Header/>
         <SideNavigationBar page="MatchedSupervisors"/>
 
@@ -319,7 +319,7 @@ const MatchedSupervisors = ({history}) => {
         </tbody>
     </table>
 </div>
-<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2">Place Bid</button>
+<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 hover:ring-2 hover-ring-gray-900 mr-2 mb-2">Place Bid</button>
 
 </form>
 

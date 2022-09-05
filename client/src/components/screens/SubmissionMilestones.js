@@ -152,11 +152,11 @@ const SubmissionMilestones = ({history}) =>{
             <div className="lg:w-2/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-10 ml-80">
             
               <div className="lg:w-2/1 px-8 py-5 bg-gray-900" >
-                <p className="text-1xl font-semibold text-white font-sans">{submission.Heading}</p>
+                <p className="text-lg font-semibold text-white font-sans">{submission.Heading}</p>
               </div>
               <div id="content" className="">
               <br></br><br></br>
-              <li className="text-white text-left font-sans"><p>{submission.Description}</p></li>
+              <li className="text-white text-left font-sans leading-5"><p>{submission.Description}</p></li>
               <li className="text-white font-sans"><p>{submission.SubmissionPageLink}</p></li><br></br>
               </div>
               <div className="lg:w-1/6 h-8 pt-2 text-white bg-violet-600 rounded-lg mt-5 font-sans"> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />

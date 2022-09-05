@@ -235,11 +235,11 @@ const AdminDashboard = ({history}) => {
                 
 {/*  Grid Buttons */}
   
-                <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4 w-full">
 
                       
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-60 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
                             <button>
                                 <a href='/coordinatorViewProjects'> Available Projects</a>
@@ -247,14 +247,14 @@ const AdminDashboard = ({history}) => {
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-60 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                           <button>
                           <a href='/markingconfiguations'>Marking Configurations</a>
                            
                            </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-60 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                            <button>
                            <a href='/adminAvailableProjectGroups'>View Groups</a>
                             </button>
@@ -262,20 +262,20 @@ const AdminDashboard = ({history}) => {
 
                       
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-60 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/placeAnnouncement'> Place Announcement</a>
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-60 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/submissionadmin'> Submissions Configurations</a>
                             </button>
                        </div>
 
                      
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-60 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href="https://cdap-app-365.herokuapp.com/"> Schedule Meeting</a>
                             </button>
