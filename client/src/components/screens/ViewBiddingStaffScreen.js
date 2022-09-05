@@ -5,7 +5,6 @@ import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
 import Login from "./StaffExpiredLoginScreen"
-import Swal from 'sweetalert2';
 
 
 const ViewBiddingStaff = ({history}) =>{
@@ -16,7 +15,6 @@ const ViewBiddingStaff = ({history}) =>{
   const [ID, setID] = useState(useParams().id);
   const [group, setGroup] = useState({});
   useEffect(() => {
-    const Swal = require('sweetalert2')
 
     const fetchPrivateDate = async () => {
       const config = {
@@ -132,66 +130,12 @@ const onClickHandler = async () => {
     },
   }
 
-  try{
-    Swal.fire({
-      title:'Do you want to save the changes?',
-      showDenyButton:true,
-      showCancelButton:true,
-      confirmButtonText:'Save',
-      denyButtonText:'Dont save'
-
-    }).then((result) => {
-      if(result.isConfirmed){
-        Swal.fire('Saved!','','success')
-        const{data} = axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
-      }else if(result.isDenied){
-        Swal.fire('Changesa re not saved','','info')
-      }
-    })
-  }catch(error){
-      alert("Error approval not set")
-  }
-
-  
+  const{data} = await axios.get(`/api/AvailableProject/approveBidding/${ID}`,projectsconfig);
   
 alert("Approved sucessfully")
 
 }
 
-const onClickRejectHandler = async () => {
-
-  const projectsconfig = {
-    headers: {
-      "Content-Type":"application/json",
-      Authorization:`Bearer ${localStorage.getItem("authToken")}`,
-    },
-  }
-
-  try{
-    Swal.fire({
-      title:'Do you want to save the changes?',
-      showDenyButton:true,
-      showCancelButton:true,
-      confirmButtonText:'Save',
-      denyButtonText:'Dont save'
-
-    }).then((result) => {
-      if(result.isConfirmed){
-        Swal.fire('Saved!','','success')
-        const{data} = axios.get(`/api/AvailableProject/rejectBidding/${ID}`,projectsconfig);
-      }else if(result.isDenied){
-        Swal.fire('Changesa re not saved','','info')
-      }
-    })
-  }catch(error){
-      alert("Error approval not set")
-  }
-
-  
-  
-alert("Rejected sucessfully")
-
-}
 
   return  error ? ( 
   <>
@@ -260,7 +204,6 @@ alert("Rejected sucessfully")
         
        
       <center><button className="ml-[20rem] mt-10 text-white bg-purple-900 hover:bg-purple-800/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 " onClick={onClickHandler}>Approve</button></center>
-      <center><button className="ml-[20rem] mt-10 text-white bg-purple-900 hover:bg-purple-800/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 " onClick={onClickRejectHandler}>Reject</button></center>
      </div>
       
 
