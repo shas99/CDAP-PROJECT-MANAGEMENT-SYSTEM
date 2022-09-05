@@ -127,7 +127,7 @@ const StudentTopicInterestingForm = ({history}) => {
       <p className="text-center font-semibold text-white font-sans text-2xl pb-5">Topic Interestings Form</p>
       {error && <span className="error-message">{error}</span>}
         <br/>
-        <p className="font-semibold text-white font-sans text-1xl text-left">Tell us your project Interestings<em> (This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
+        <p className="font-semibold text-white font-sans text-1xl text-left ml-16">Tell us your project Interestings<em> (This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
         
         <div className="lg:w-5/6 inline-block align-middle">
         <div className="mt-7 lg:w-full text-left inline-block align-middle">
@@ -210,7 +210,7 @@ const StudentTopicInterestingForm = ({history}) => {
         <br/>  
       
 
-      <button type="submit" className="mt-16 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-8 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+      <button type="submit" className="mt-16 focus:outline-none text-white bg-purple-800 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300  rounded-lg text-lg px-10 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
           Submit
         </button>
 
