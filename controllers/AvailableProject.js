@@ -159,8 +159,9 @@ exports.StudentBidding = async(req,res,next) => {
 
 
             let StaffID = SupervisorArr[i];
+            const rejected = false;
             const user = await Supervisors.create({
-                StaffID,GroupID,BatchID,Approved, Project,Groupid
+                StaffID,GroupID,BatchID,Approved, Project,Groupid,rejected
             })    
 
             const availableProjects = await AvailableProject.findById(SelectedProject)
