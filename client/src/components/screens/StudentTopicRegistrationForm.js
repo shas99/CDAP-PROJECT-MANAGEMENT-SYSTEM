@@ -92,7 +92,7 @@ const TopicRegistration = ({history}) => {
             "Content-Type": "application/json",
           },
         };
-    
+        alert("Successfully Submited!")
         try {
           const { data } = await axios.post(
             "/api/group/topicregister",
@@ -181,6 +181,7 @@ const TopicRegistration = ({history}) => {
           <input type="text" 
           className = "input" style={{color:"white",width:"700px"}}
           name="name" 
+          required
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
         
@@ -192,6 +193,7 @@ const TopicRegistration = ({history}) => {
           <input type="text" 
           className = "input" style={{color:"white",width:"700px"}}
           name="name" 
+          required
           onChange={(e) => setTopic(e.target.value)}
           value={Topic} />
         </div>
@@ -302,11 +304,6 @@ const TopicRegistration = ({history}) => {
 
                   </div>
                   <br/>
-
-
-        
-
-
 
       <button type="submit" className="btn btn-primary1" id="Log1Button">
           Submit!

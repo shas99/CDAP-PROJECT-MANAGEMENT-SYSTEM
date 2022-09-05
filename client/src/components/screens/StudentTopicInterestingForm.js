@@ -4,6 +4,7 @@ import axios from "axios";
 //import Header from "../Header/Header";
 //import Footer from "../Footer/Footer";
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
+import Swal from 'sweetalert2'
 
 const StudentTopicInterestingForm = ({history}) => {
     const [error, setError] = useState("");
@@ -16,7 +17,7 @@ const StudentTopicInterestingForm = ({history}) => {
     const [Q5, setQ5] = useState("5");
     const [Q6, setQ6] = useState("5");
     const [Q7, setQ7] = useState("5");
-
+    const Swal = require('sweetalert2')
     useEffect(() => {
         const fetchPrivateDate = async () => {
             const config = {
@@ -51,6 +52,32 @@ const StudentTopicInterestingForm = ({history}) => {
     
     const StudentTopicInterestingFormHandler = async (e) => {
          e.preventDefault();
+
+         try{
+          //SUCCESS SWEET ALERT MESSAGE
+          Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire('Saved!', '', 'success')
+              const { data } =  axios.put(
+                `/api/student/studenttopicinterestingform`,
+                { Q1,Q2,Q3,Q4,Q5,Q6,Q7 }
+                );
+            } else if (result.isDenied) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+         }catch(error){
+          // setError(error.response.data.error);  
+          // console.log(error.response.data.error)
+          alert("Error Announcement notset")
+         }
     
         const config = {
           header: {
@@ -61,7 +88,7 @@ const StudentTopicInterestingForm = ({history}) => {
         const s_ID = localStorage.getItem("authToken");
         //console.log(student_ID)
 
-        alert("Successfully Submited!")
+        // alert("Successfully Submited!")
         try {
           
           const { data } = await axios.post(
@@ -72,6 +99,8 @@ const StudentTopicInterestingForm = ({history}) => {
           );
           console.log(data)
             alert("Submitted!")
+
+            
 
           history.push("/");
         } catch (error) {

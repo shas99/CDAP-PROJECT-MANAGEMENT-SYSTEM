@@ -36,3 +36,5 @@ typings/
 
 #EslintCache
 .eslintcache
+#Main CSS TailwindCSS
+client/src/styles/main

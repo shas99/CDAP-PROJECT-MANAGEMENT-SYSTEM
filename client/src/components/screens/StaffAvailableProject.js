@@ -103,9 +103,9 @@ const ViewAvailableProjectsStaff = ({history}) =>{
          <ul>
         {ProjectsData.map(project => {
           return (
-            <div className="card" style={{borderRadius:"20px",height:"225px",width:"30rem",margin:"15px auto"}}>
-        <center><p style={{backgroundColor: "#8256D0",fontSize:"large",paddingTop:"01px",fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",borderRadius:"2px",width:"30rem",margin:"0 auto",textAlign:"center",alignContent:"center"}}>{project.name}</p></center>
-      <div>
+            <div className="lg:w-3/5 h-auto m-auto bg-gray-900 mb-3 pt-1 pb-5 text-white">
+        <center><p className="bg-gray-600 py-3">{project.name}</p></center>
+      <div >
                    
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 1</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_1}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 2</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_2}</li> 

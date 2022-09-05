@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.6 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -552,6 +552,14 @@ video {
   right: 350px;
 }
 
+.right-\[437px\] {
+  right: 437px;
+}
+
+.top-\[110px\] {
+  top: 110px;
+}
+
 .left-2 {
   left: 0.5rem;
 }
@@ -562,14 +570,6 @@ video {
 
 .bottom-3 {
   bottom: 0.75rem;
-}
-
-.right-\[437px\] {
-  right: 437px;
-}
-
-.top-\[110px\] {
-  top: 110px;
 }
 
 .z-50 {
@@ -994,6 +994,10 @@ video {
   height: 2.5rem;
 }
 
+.h-\[275rem\] {
+  height: 275rem;
+}
+
 .h-\[277rem\] {
   height: 277rem;
 }
@@ -1024,10 +1028,6 @@ video {
 
 .h-\[55rem\] {
   height: 55rem;
-}
-
-.h-96 {
-  height: 24rem;
 }
 
 .h-\[100px\] {
@@ -1070,8 +1070,20 @@ video {
   height: 1rem;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
 .h-20 {
   height: 5rem;
+}
+
+.h-\[120rem\] {
+  height: 120rem;
+}
+
+.h-\[160rem\] {
+  height: 160rem;
 }
 
 .w-48 {
@@ -1112,6 +1124,10 @@ video {
 
 .w-36 {
   width: 9rem;
+}
+
+.w-\[96rem\] {
+  width: 96rem;
 }
 
 .w-\[5rem\] {
@@ -1170,20 +1186,12 @@ video {
   width: 20rem;
 }
 
-.w-3\/4 {
-  width: 75%;
+.w-\[180px\] {
+  width: 180px;
 }
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-80 {
-  width: 20rem;
-}
-
-.w-\[180px\] {
-  width: 180px;
 }
 
 .w-\[55rem\] {
@@ -1222,12 +1230,12 @@ video {
   width: 13rem;
 }
 
-.w-40 {
-  width: 10rem;
+.w-3\/4 {
+  width: 75%;
 }
 
-.w-60 {
-  width: 15rem;
+.w-80 {
+  width: 20rem;
 }
 
 .w-52 {
@@ -1466,13 +1474,13 @@ video {
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
+.border-current {
+  border-color: currentColor;
+}
+
 .border-indigo-500 {
   --tw-border-opacity: 1;
   border-color: rgb(99 102 241 / var(--tw-border-opacity));
-}
-
-.border-current {
-  border-color: currentColor;
 }
 
 .bg-gray-800 {
@@ -1575,16 +1583,6 @@ video {
   background-color: rgb(88 28 135 / var(--tw-bg-opacity));
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#1A2238\] {
   --tw-bg-opacity: 1;
   background-color: rgb(26 34 56 / var(--tw-bg-opacity));
@@ -1593,6 +1591,11 @@ video {
 .bg-\[\#FF6A3D\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 106 61 / var(--tw-bg-opacity));
+}
+
+.bg-indigo-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -1613,6 +1616,11 @@ video {
 .bg-\[\#121518\] {
   --tw-bg-opacity: 1;
   background-color: rgb(18 21 24 / var(--tw-bg-opacity));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-blue-800 {
@@ -1806,14 +1814,6 @@ video {
   padding-bottom: 2.25rem;
 }
 
-.pl-2 {
-  padding-left: 0.5rem;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1846,6 +1846,14 @@ video {
   padding-left: 4rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -1866,12 +1874,12 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.pt-6 {
-  padding-top: 1.5rem;
-}
-
 .pb-2 {
   padding-bottom: 0.5rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 .text-left {
@@ -2056,11 +2064,6 @@ video {
   color: rgb(251 146 60 / var(--tw-text-opacity));
 }
 
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
-}
-
 .text-slate-300 {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
@@ -2074,6 +2077,11 @@ video {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .underline {
