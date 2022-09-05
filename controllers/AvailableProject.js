@@ -357,3 +357,21 @@ exports.approveBidding = async(req,res,next) => {
         res.status(500).json({success:false, error:error.message})
     }
 }
+
+exports.rejectBidding = async(req,res,next) => {
+    const id = req.params.id
+        
+    const bidding = await Supervisor.findById(id)
+    
+    try{
+          
+        bidding.rejected = true
+        bidding.save()
+        res.status(201).json({
+            success: true,
+            data:"Success"
+        })
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+}
