@@ -27,7 +27,11 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     },
     Groupid: {//Group object ID
         type: String
+    },
+    rejected: {
+        type: Boolean
     }
+
 })
 
 const Supervisor = mongoose.model("Supervisor", SupervisorSchema)

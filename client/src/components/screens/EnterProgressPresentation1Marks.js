@@ -189,7 +189,7 @@ return  error ? (
         
       <div className="enterprogresspresentation1marksbackground">        
       <form onSubmit={enterprogresspresentation1marksHandler} className="group-screen__form_Enterprogress_marks">
-  <h3 className="login-screen__title" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>CDAP -Progress Presentation 1 - Mark Sheet [Total contribution = {totalContribution}]</h3>
+  <h3 className="login-screen__title" style={{marginTop:"20px",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>CDAP -Progress Presentation 1 - Mark Sheet [Total contribution = {totalContribution}]</h3>
   {error && <span className="error-message">{error}</span>}
   <div className="form-group">
     <table className="progresstablemarks1">
@@ -198,7 +198,7 @@ return  error ? (
             <label>
        <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student ID:</b></label><br/><br/>
       <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
-      name="name" 
+      name="name" required
       className = "input" id="StudentIDInput"
       onChange={(e) => setstudentIDs(e.target.value)}
       value={studentIDs} />
@@ -209,7 +209,8 @@ return  error ? (
             <label>
        <b style={{fontSize:"medium"}}>Student Name:</b></label><br/><br/>
       <input type="text" style={{marginLeft:"100px",borderColor:"royalblue"}}
-      name="name" 
+      name="name" required
+      pattern = "[a-zA-Z\s]{3,}"
       className = "input"
       onChange={(e) => setstudentnames(e.target.value)}
       value={studentnames} />
@@ -221,15 +222,15 @@ return  error ? (
        <b style={{fontSize:"medium",marginLeft:"65px"}}>Group ID:</b></label><br/><br/>
       <input type="text" style={{marginLeft:"475px",borderColor:"royalblue"}}
       className = "input"
-      name="name" 
+      name="name" required
       onChange={(e) => setgroupID(e.target.value)}
       value={groupID} />
       
     
     </div>
    
-
-    <table className="proposalpresentationmarking">
+    <div className="form-group">
+    <table className="proposalpresentationmarking" style={{width:"100%",marginLeft:"0"}}>
     <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
     <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
@@ -238,16 +239,15 @@ return  error ? (
     <th className="proposalpresentationmarking"> Below Average [{ belowAverage}] </th>
     <th className="proposalpresentationmarking"> Marks[out of 100] </th>
     </tr>
-    <tr>  <br></br>
-    <div className="l0percentage" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Proven gap/Creative Solution [Based on LO1] - [{lO1}%]</div>
-    <br></br><br></br><br/>
-
-
-
-
-
-
-    </tr> 
+    </table>
+    </div>
+    <table className="border-none">
+    <tr className="border-none">  
+    <p className="text-2xl text-center pt-3 pb-3 ">Proven gap/Creative Solution [Based on LO1] - [{lO1}%]</p>
+    
+    </tr>
+    </table>
+    <table  style={{width:"100%",marginLeft:"0"}}> 
     <tr>
     <td className="proposalpresentationmarking" >
     Problem definition (30%)
@@ -270,9 +270,10 @@ return  error ? (
 
     <td colspan="2" className="proposalpresentationmarking">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setprovengapmarks1(e.target.value)}
         value={provengapmarks1} />
         
@@ -308,9 +309,10 @@ return  error ? (
 
     <td colspan="2" className="proposalpresentationmarking">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setprovengapmarks2(e.target.value)}
         value={provengapmarks2} />
         
@@ -319,17 +321,23 @@ return  error ? (
     </td>
 
     </tr>
+    </table>
 
     {/* <tr>
     <td className="proposalpresentationmarking">
 
     </td>
     </tr> */}
-    <tr> <br></br>
-    <div className="l0percentage">
+
+<table className="border-none">
+    <tr className="border-none">  
+    <p className="text-2xl text-center pt-3 pb-3 ">
     Capability in applying the knowledge in particular stream [Based on LO2] - [{l02}%]
-    </div><br></br><br></br>
+    </p>
     </tr>
+    </table>
+
+    <table  style={{width:"100%",marginLeft:"0"}}>
     <tr>
     <td className="proposalpresentationmarking">
     Application of key pillars
@@ -358,9 +366,10 @@ return  error ? (
 
     <td colspan="2" className="proposalpresentationmarking">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setcapabilitymarks1(e.target.value)}
         value={capabilitymarks1} />
         
@@ -397,9 +406,10 @@ return  error ? (
 
     <td colspan="2" className="proposalpresentationmarking">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setcapabilitymarks2(e.target.value)}
         value={capabilitymarks2} />
       
@@ -408,7 +418,9 @@ return  error ? (
     </td>
 
     </tr>
+    </table>
 
+    <table>
 
     <tr> <br></br>
     <div className="l0percentage"> 
@@ -441,9 +453,10 @@ return  error ? (
 
     <td colspan="2" className="proposalpresentationmarking">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setimplementationmarks1(e.target.value)}
         value={implementationmarks1} />
         
@@ -473,9 +486,10 @@ return  error ? (
 
     <td colspan="2" className="proposalpresentationmarking">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setimplementationmarks2(e.target.value)}
         value={implementationmarks2} />
         
@@ -508,9 +522,10 @@ return  error ? (
 
     <td colspan="2">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setimplementationmarks3(e.target.value)}
         value={implementationmarks3} />
         
@@ -543,9 +558,10 @@ return  error ? (
 
     <td colspan="2">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setimplementationmarks4(e.target.value)}
         value={implementationmarks4} />
         
@@ -580,9 +596,10 @@ return  error ? (
 
     <td colspan="2">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setimplementationmarks5(e.target.value)}
         value={implementationmarks5} />
         
@@ -633,9 +650,10 @@ return  error ? (
 
     <td colspan="2">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setcommunicationmarks1(e.target.value)}
         value={communicationmarks1} />
         
@@ -668,9 +686,10 @@ return  error ? (
 
     <td colspan="2">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setcommunicationmarks2(e.target.value)}
         value={communicationmarks2} />
         
@@ -737,9 +756,10 @@ return  error ? (
 
         <td colspan="2">
 
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setcommercializationmarks(e.target.value)}
         value={commercializationmarks} />
         
@@ -749,23 +769,23 @@ return  error ? (
 
     </tr>
 
-        <tr><br></br>
+        <tr style={{borderStyle:"none"}}>
+            <br/>
         <label>
         <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Extra feedback:</b></label><br/><br/>
         
-        <input type="text" style={{borderColor:"royalblue"}}
-        name="name"
+        <input type="text" style={{borderColor:"royalblue",marginLeft:"50px"}}
+        name="name" required
         className = "proposalpresentationfeedback"
         onChange={(e) => setextrafeedback(e.target.value)}
         value={extrafeedback} />
 
-        <br></br><br></br>
 
         <label>
         <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Recommend for NBQSA (Yes/No)</b></label><br/><br/>
         
-        <input type="text" style={{borderColor:"royalblue"}}
-        name="name"
+        <input type="text" style={{borderColor:"royalblue",marginLeft:"50px"}}
+        name="name" required
         className = "proposalpresentationfeedback"
         onChange={(e) => setrecommendation(e.target.value)}
         value={recommendation} />
@@ -773,20 +793,21 @@ return  error ? (
 
         </tr>
         </table>
-
+        <br></br>
 
     
    
-    <div className="form-group">
+  
 
-        <table className="tablemarks1">
+        <table  style={{width:"100%",marginLeft:"0"}}>
             <tr>
-                <td style={{padding:"5px",margin:"5px"}}>
+                <td style={{padding:"5px"}}>
                 <label>
        <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 1:</b></label><br/><br/>
       <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-      name="name" 
+      name="name" required
       className = "input"
+      pattern = "[a-zA-Z\s]{3,}"
       onChange={(e) => setexaminer1(e.target.value)}
       value={examiner1} />
 
@@ -795,8 +816,9 @@ return  error ? (
             <label>
        <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Examiner 2:</b></label><br/><br/>
       <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-      name="name"
+      name="name" required
       className = "input"
+      pattern = "[a-zA-Z\s]{3,}"
       onChange={(e) => setexaminer2(e.target.value)}
       value={examiner2} />
             </td>
@@ -805,7 +827,8 @@ return  error ? (
             <label>
        <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Moderator:</b></label><br/><br/>
       <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-      name="name"
+      name="name" required
+      pattern = "[a-zA-Z\s]{3,}"
       className = "input"
       onChange={(e) => setmoderator(e.target.value)}
       value={moderator} />
@@ -814,11 +837,11 @@ return  error ? (
         </table>
    
               
-        </div>
+     
              
 
 
-    <button type="submit" style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}} className="btn btn-primary1" id="Log1Button">
+    <button type="submit" className="btn btn-primary1" id="Log1Button" style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px",paddingTop:"5px"}}>
       Enter marks
     </button>
 
