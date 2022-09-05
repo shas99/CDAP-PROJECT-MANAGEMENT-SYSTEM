@@ -255,7 +255,9 @@ const MatchedSupervisors = ({history}) => {
                   <tr>
                     <td className="py-4 px-6">{supervisor[1][1]}</td>
                     <td className="w-10 items-center py-4 px-8">{supervisor[1][2]}/{batchType}</td>
-                    <td className="w-10 items-center py-4 px-8" ><input type="checkbox"  value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input></td>
+                    <td className="w-10 items-center py-4 px-8" >
+                      <input type="checkbox" value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input>
+                    </td>
                   </tr>
                   )}
     </table>
@@ -295,7 +297,7 @@ const MatchedSupervisors = ({history}) => {
                        <td>{project[1].projectDescription}</td>
                       <td>{project[1].projectType}</td>
                       <td className="w-10 items-center py-4 px-12" >
-                        <input type="radio" name="project" value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)}/> 
+                        <input type="radio" name="project" required value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)} /> 
                       </td>
                     </tr>
                     )

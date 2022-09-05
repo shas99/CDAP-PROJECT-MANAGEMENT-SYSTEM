@@ -5,8 +5,11 @@
                     import {useParams} from 'react-router-dom';
                     import { useState } from "react";
                     import axios from 'axios';
+                    import Swal from 'sweetalert2'
 
                     export default function ProgressPresentationMarkingConfiguration() {
+
+                        const Swal = require('sweetalert2');
                         const [totalContribution ,setTotalContribution] = useState("");
                         const [excellent,setExcellent] = useState("");
                         const [good,setGood] = useState("");
@@ -25,19 +28,30 @@
                         //************* UPDATE PROPOSAL MARKING RUBRIK HANDLER  **********/ 
                         const progressPresentationMarkingHandler = async (e) => {
                             e.preventDefault();
-                            try {
-                                const { data } = await axios.put(
-                                    `/api/markingRubrik/progressPresentationMarkingConfiguration/update/${progressPresentationMarkingID}`,
-                                    { totalContribution,excellent,good,average,belowAverage,l01,l02,l03,l04,l05 }
-                                    );
-                                    alert("marking updated success")
-                            
-                            
-                            
-                            } catch (error) {
-                                alert("Error updating marking notset")
-                                
+                            try{
+                                Swal.fire({
+                                    title:'Do you want to save the changes?',
+                                    showDenyButton:true,
+                                    showCancelButton:true,
+                                    confirmButtonText:'Save',
+                                    denyButtonText:`Don't save`,
+                                }).then((result) => {
+                                    if(result.isConfirmed){
+                                        Swal.fire('Saved!','','success')
+                                        const { data } = axios.put(
+                                            `/api/markingRubrik/progressPresentationMarkingConfiguration/update/${progressPresentationMarkingID}`,
+                                            { totalContribution,excellent,good,average,belowAverage,l01,l02,l03,l04,l05 }
+                                            );
+
+                                    }else if(result.isDenied){
+                                        Swal.fire('Changes are saved','','info')
+
+                                    }
+                                })
+                            }catch(error){
+                                alert('Error update not set')
                             }
+                            
                         };
 
 

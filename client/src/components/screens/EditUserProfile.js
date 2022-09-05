@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
 import Swal from 'sweetalert2';
+//import PasswordChecklist from "react-password-checklist"//validate phone
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const EditUserProfile = ({history}) => { 
@@ -94,9 +95,10 @@ const EditUserProfile = ({history}) => {
         },
       };
 
-    try {
-        
-        
+
+    try {      
+
+
 
       const { data1 } = await axios.put(
         "/api/student/edituserprofile",
@@ -143,7 +145,7 @@ const EditUserProfile = ({history}) => {
   ) :
   (
     
-  <div className="userprofileClass" style={{height:"1050px"}}>
+<div className="userprofileClass" style={{height:"1050px"}}>
   <Header/>
   <SideNavigationBar page="UpdateProfile"/>
   <br/>
@@ -159,11 +161,11 @@ const EditUserProfile = ({history}) => {
 
       <table className="mt-10 lg:w-5/5 m-auto border-none">
 
-
+      
       <tr className="py-3 border-none"><td className="py-3 px5 border-none text-left"> User Email:</td><td className="py-3 border-none text-left pl-16">{fetchFeedbackData.email}</td></tr> 
-
+      
       <tr className="py-3 border-none"><td className="py-3 border-none text-left "> Username:</td><td className="py-3 border-none text-left pl-16">{fetchFeedbackData.username}</td></tr>
-
+      
       <tr className="py-3 border-none "><td className="py-3 border-none text-left "> Address:</td><td className="py-3 border-none text-left pl-16 pt-6"> <input type="text" 
           className = "" style={{color:"white",borderColor:"royalblue",width:"300px",borderRadius:"5px"}}
           name="name" 
@@ -172,14 +174,19 @@ const EditUserProfile = ({history}) => {
           placeholder={fetchFeedbackData.address}
           onChange={(e) => setPersonalAddress(e.target.value)}
           value={personalAddress} /></td></tr> 
-
-      <tr className="py-3 border-none"> <td className="py-3 border-none text-left ">Phone Number:</td><td className="py-3 border-none text-left pl-16"> <input type="text" 
+      
+      <tr className="py-3 border-none"> <td className="py-3 border-none text-left ">Phone Number:</td><td className="py-3 border-none text-left pl-16"> 
+          <input type="text" 
           className = "" style={{color:"white",borderColor:"royalblue",width:"300px",borderRadius:"5px"}}
           name="name" 
           required
           placeholder={fetchFeedbackData.phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
-          value={phoneNumber} /></td></tr>
+          pattern="^-?[0-9]\d*\.?\d*$"
+          maxLength = "10"
+          value={phoneNumber} /></td>
+      </tr>
+
           <tr className="py-3 border-none ">
             <td className="py-3 border-none text-left ">
               <a href={`/userprofile`}>
@@ -207,8 +214,8 @@ const EditUserProfile = ({history}) => {
 
 
 
-     {/* <div className="ml-[2rem]"> */}
-      {/* <form onSubmit={editprofilehandler} id="submissionForm" className="EditFormProfile">
+     {/* <div className="ml-[2rem]">
+      <form onSubmit={editprofilehandler} id="submissionForm" className="EditFormProfile">
       <label className="AddressNames">Address</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="text" 
           className = "input" style={{color:"white",borderColor:"royalblue"}}
@@ -229,8 +236,8 @@ const EditUserProfile = ({history}) => {
           Submit
         </button>
         </div>
-      </form> */}
-      {/* </div> */}
+      </form>
+      </div> */}
    
       
      

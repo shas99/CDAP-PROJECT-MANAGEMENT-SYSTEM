@@ -5,9 +5,11 @@
             import {useParams} from 'react-router-dom';
             import { useState } from "react";
             import axios from 'axios';
-
+            import Swal from 'sweetalert2'
 
             export default function ProposalReportMarkingConfiguration() {
+
+                const Swal = require('sweetalert2');
                 const [totalContribution ,setTotalContribution] = useState("");
                 const [excellent,setExcellent] = useState("");
                 const [good,setGood] = useState("");
@@ -24,20 +26,32 @@
               //************* UPDATE PROPOSAL REPORT MARKING RUBRIK HANDLER  **********/ 
               const proposalReportMarkingHandler = async (e) => {
                 e.preventDefault();
-                try {
-                    const { data } = await axios.put(
+                try{
+                  Swal.fire({
+                    title:'Do you want to save the changes?',
+                    showDenyButton:true,
+                    showCancelButton:true,
+                    confirmButtonText:'Save',
+                    denyButtonText:`Don't save`,
+                  }).then((result) =>{
+                    if(result.isConfirmed) {
+                      Swal.fire('Saved!','','success')
+                      const { data } = axios.put(
                         `/api/markingRubrik/proposalReportMarkingConfiguration/update/${proposalReportMarkingID}`,
                         { totalContribution,excellent,good,average,belowAverage,l01,l02,l03,l04,l05 }
                         );
                         alert("marking report updated success")
-                  
-                
-                  
-                } catch (error) {
-                    alert("Error updating marking notset")
-                      
+
+
+                    }else if(result.isDenied){
+                      Swal.fire('Changes are not saved','','info')
+                    }
+                  })
+                }catch(error){
+                  alert("Error update not set");
                 }
-              };
+               
+              }
 
 
 

@@ -7,6 +7,8 @@ import  {useEffect } from 'react';
 
 export default function UpdateProjectDetails() {
 
+  const Swal = require('sweetalert2')
+
     // Need to set form variables
     const [oldprojectName, oldsetProjectName] = useState("");
     const [oldprojectDescription, oldsetProjectDescription] = useState("");
@@ -29,6 +31,7 @@ export default function UpdateProjectDetails() {
    const getRelevantProjectData =async ()=>{
      
     try{
+      
       const{data}=await axios.get(`/api/AvailableProject/availableProjects/${projectID}`);
       //setvalues for form
       oldsetProjectName(data.availableProjects.projectName)
@@ -52,13 +55,33 @@ export default function UpdateProjectDetails() {
  const updateProjectDetailsHandler = async (e) => {
   e.preventDefault();
   try {
+    //SUCCESS SWEET ALERT MESSAGE
+    Swal.fire({
+      title:'Are you sure you want to update?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText:'Save',
+      denyButtonText: `Don't save`,
+    }).then((result)=>{
+      if(result.isConfirmed){
+        Swal.fire('Saved!','','success')
+        const { data } = axios.put(
+          `/api/AvailableProject/updateProjectDetails/${projectID}`,
+          { projectName ,projectSupervisedBy , projectType ,projectDescription }
+          );
+
+      }else if(result.isDenied){
+        Swal.fire('Changes are not saved','','info')
+
+      }
+    })
     
-    const { data } = await axios.put(
-      `/api/AvailableProject/updateProjectDetails/${projectID}`,
-      { projectName ,projectSupervisedBy , projectType ,projectDescription }
-      );
-      alert("Project Details Updated Successfully")
-    console.log(data)
+    // const { data } = await axios.put(
+    //   `/api/AvailableProject/updateProjectDetails/${projectID}`,
+    //   { projectName ,projectSupervisedBy , projectType ,projectDescription }
+    //   );
+    //   alert("Project Details Updated Successfully")
+    // console.log(data)
   } catch (error) {
     alert("Error Updating notset")
         
@@ -84,14 +107,16 @@ export default function UpdateProjectDetails() {
         <form className=' w-[35rem] absolute rounded top-[110px] right-[350px] h-auto' onSubmit={updateProjectDetailsHandler} >
  <br/> <br/>
   <div class="mb-6 w-56 ">
-    <label for="email" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Project Name</label>
-    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  required="" onChange={(e) => setProjectName(e.target.value)} placeholder={oldprojectName}
+    <label for="email" className="block mb-2 text-l font-medium text-white dark:text-gray-300">Project Name</label>
+    <input type="text" id="email" required className="shadow-sm bg-gray-50 border border-gray-300 text-white text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-500 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light left-50"  onChange={(e) => setProjectName(e.target.value)} placeholder={oldprojectName}
           value={projectName} />
   </div>
   <div class="mb-6">
-    <label for="password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Supervised By</label>
-    <input type="text" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required=""
-      placeholder={oldprojectSupervisedBy} onChange={(e) => setProjectSupervisedBy(e.target.value)}
+    <label for="password" className="block mb-2 text-l font-medium text-white dark:text-gray-300">Supervised By</label>
+    <input type="text" id="password" required className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" 
+      placeholder={oldprojectSupervisedBy} 
+      pattern = "[a-zA-Z\s]{3,}"
+      onChange={(e) => setProjectSupervisedBy(e.target.value)}
       value={projectSupervisedBy} />
   </div>
   {/* <div class="mb-6">
@@ -101,8 +126,8 @@ export default function UpdateProjectDetails() {
   </div> */}
 
   <div class="mb-6">
-    <label for="repeat-password" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-300">Project Type</label>
-    <input type="text" id="deadline" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required="" 
+    <label for="repeat-password" className="block mb-2 text-l font-medium text-white dark:text-gray-300">Project Type</label>
+    <input type="text" id="deadline" required className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" 
         placeholder={oldprojectType} onChange={(e) => setProjectType(e.target.value)}
         value={projectType}   />
   </div>
@@ -110,14 +135,16 @@ export default function UpdateProjectDetails() {
   
 
 
-  <label for="message" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-400">Description</label>
-<textarea id="message" rows="4" class="block p-2.5  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." 
+  <label for="message" className="block mb-2 text-l font-medium text-white dark:text-gray-300">Description</label>
+<textarea id="message" rows="4" required className="block p-2.5  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." 
    placeholder={oldprojectDescription}   onChange={(e) => setProjectDescription(e.target.value)}
   value={projectDescription}     ></textarea>
 
-  
-  <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Update Details</button> &nbsp;
-  <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">  <a href='/coordinatorViewProjects'> Projects</a></button>
+  <a href="/coordinatorViewProjects">
+  <button class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">  <a href='/coordinatorViewProjects'> Cancel</a></button>
+  </a>
+  <button type="submit" class="ml-10 text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Update Details</button> &nbsp;
+  <button type="submit" class=" ml-10 text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">  <a href='/coordinatorViewProjects'> Projects</a></button>
 
 </form>
 
