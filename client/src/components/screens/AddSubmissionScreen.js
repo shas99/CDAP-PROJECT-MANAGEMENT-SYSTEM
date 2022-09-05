@@ -57,7 +57,7 @@ const AddSubmission = ({history}) => {
     
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/STDAvailableSubmissions/addSubmission",
+        "/api/STDAvailableSubmissions/addSubmission",
         { Heading,Description,BatchID,Fields,visibility },
         config
         
