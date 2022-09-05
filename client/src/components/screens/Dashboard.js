@@ -2,9 +2,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import "./Dashboard.css";
-
 export default function Dashboard ({history}) {
 
 
@@ -341,7 +339,7 @@ export default function Dashboard ({history}) {
 
                       
 {/*ANNOUNCEMENT SECTION */}
-                    <div className='ml-[30rem] mt-[6rem] ' >
+                    <div className='ml-[30rem] mt-[6rem] overflow-hidden' >
                        <div class="flex items-center gap-2 mb-3">
                      
                                                                         
@@ -360,9 +358,8 @@ export default function Dashboard ({history}) {
                                         
                                                                            
                         </div>
-
-                                              {/* Added some tailwind by pasindu vinod 03/09/2022 */}
-                           <div className=" lg:w-1/4 px-8 h-auto pt-5 pb-5 bg-gray-800 rounded-lg shadow-md">
+                                              
+                           <div class=" lg:w-1/4 px-8 bg-gray-800 h-auto rounded-lg shadow-md pt-2 pb-2">
 
                                     <button class=' text-xs text-blue-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Staff</button>
                                     <h1 class="text-2xl font-semibold">{stafftitle}  </h1>
