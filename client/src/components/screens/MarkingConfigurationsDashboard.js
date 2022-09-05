@@ -14,8 +14,8 @@ export default function MarkingConfigurationsDashboard() {
         <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminMarkingConfigurations"/>
        </div>
-        <div className="ml-[40rem] mt-7" style={{marginTop:"-450px"}}>
-                        <div class="w-[180px] gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100 ">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[30rem]" style={{marginTop:"-450px"}}>
+                        <div class="w-64 gap-1  h-[100px] text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100 ">
                                           <button>
                                           <a href='/proposalmarkingconfiguration'>Proposal Marking Configuration</a>
                                           
@@ -25,19 +25,19 @@ export default function MarkingConfigurationsDashboard() {
                         <br/>
                      
 
-                       <div class="w-[180px] gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-64 gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/proposalreportmarkingconfiguration'> Proposal Report Marking Configuration</a>
                             </button>
                        </div>
                        <br/>
-                       <div class="w-[180px] gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-64 gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/statusdocumentmarkingconfiguration'>Status Document Marking Configuration</a>
                             </button>
                        </div>
                        <br/>
-                       <div class="w-[180px] gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-64 gap-1  h-[100px] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/progresspresentationmarkingconfiguration'> Progress Presentation Marking Configuration</a>
                             </button>
