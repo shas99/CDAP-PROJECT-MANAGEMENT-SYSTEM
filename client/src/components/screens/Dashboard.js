@@ -260,7 +260,7 @@ export default function Dashboard ({history}) {
 
 
 
-            <div className=" grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[30rem] lg:w-4/6" style={{overflowX:"hidden"}}>
+            <div className=" grid grid-cols-1 lg:grid-cols-2 items-center mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[30rem] lg:w-4/6" style={{overflowX:"hidden"}}>
                 
                 <div id="col" class='lg:w-[38vw] w-[10rem] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData2}</span></h1>
@@ -283,7 +283,7 @@ export default function Dashboard ({history}) {
                 <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[30rem]">
 
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
                             <button>
                                 <a href='/userprofile'> My Profile</a>
@@ -291,44 +291,44 @@ export default function Dashboard ({history}) {
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                           <button>
                           <a href='/studenttopicinterestingform'> My Topic Preference</a>
                            
                            </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                            <button>
                            <a href='/viewmarksdashboard'> My Grades</a>
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1 h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-52 gap-1 h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/groupscreen'> My Group</a>
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/matchedsupervisors'> Matched Supervisors</a>
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/topicregistration'> Topic Registration Form</a>
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/submissionmilestone'> Submit File</a>
                             </button>
                        </div>
 
-                       <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href="https://cdap-app-365.herokuapp.com/"> Schedule Meeting</a>
                             </button>
@@ -359,7 +359,7 @@ export default function Dashboard ({history}) {
                                                                            
                         </div>
                                               
-                           <div class=" lg:w-1/4 px-8 py-5 bg-gray-800 rounded-lg shadow-md">
+                           <div class=" lg:w-1/4 px-8 bg-gray-800 h-auto rounded-lg shadow-md pt-2 pb-2">
 
                                     <button class=' text-xs text-blue-400 bg-gray-900 px-2 py-0.5 rounded-xl -translate-x-1'>News Staff</button>
                                     <h1 class="text-2xl font-semibold">{stafftitle}  </h1>
@@ -385,6 +385,10 @@ export default function Dashboard ({history}) {
                                     <hr class="w-2/3 border-gray-500 my-4 hidden"/>
                             </div> 
                             </div>
+
+
+                            
+
                            
 
 
