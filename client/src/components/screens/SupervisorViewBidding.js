@@ -95,7 +95,7 @@ const removeData = (_id) => {
     <span className="error-message">{error}</span>
   ) :(
     
-    <div className='bg-gray-900 h-[auto]'>
+    <div className='bg-gray-900 h-[80rem]'>
       <Header/>
       <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminProjects"/>

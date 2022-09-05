@@ -16,7 +16,7 @@ function Calibre() {
     return (
 
       
-   <div className=' bg-gray-900 h-[277rem]' >
+   <div className=' bg-gray-900 h-[287rem]' >
     
     <div id='navigation-bar' className=' h-[5rem] bg-gradient-to-r from-blue-900 mt-50rem'>
     <nav class="p-3 bg-gradient-to-r from-blue-900 border-gray-200 dark:bg-gray-800 dark:border-gray-700 h-[5rem]">
@@ -136,7 +136,7 @@ function Calibre() {
       <div className='ml-20 mt-[1rem]' >
         <div className=" block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
           <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Schedule meetings</h5>
-          <p className="text-gray-700 text-base mb-4">
+          <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -145,7 +145,7 @@ function Calibre() {
         <br></br>
         <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Get Supervisor suggestions</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -153,7 +153,7 @@ function Calibre() {
         <br></br>
         <div className="block p-2 w-3/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 ml-10">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Submit project ideas</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -164,7 +164,7 @@ function Calibre() {
       <div style={{marginTop:"-437px",marginLeft:"500px"}}>
         <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customise rubrics</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -172,7 +172,7 @@ function Calibre() {
         <br></br>
         <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>View Your grades</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -180,7 +180,7 @@ function Calibre() {
         <br></br>
         <div className="block p-2 w-5/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Customisable forms</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -192,7 +192,7 @@ function Calibre() {
       <div style={{marginTop:"-438px",marginLeft:"950px"}}>
         <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Register to group</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -200,7 +200,7 @@ function Calibre() {
         <br></br>
         <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md  shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Notify students</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
@@ -208,7 +208,7 @@ function Calibre() {
         <br></br>
         <div className="block p-2 w-9/12 bg-white rounded-lg border border-gray-200 shadow-md shadow-slate-900 hover:bg-gray-300 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white font-sans text-center'>Bid for projects</h5>
-        <p className="text-gray-700 text-base mb-4">
+        <p className="text-white text-base mb-4">
           Some quick example text to build on the card title and make up the bulk of the card's
           content.
     </p>
