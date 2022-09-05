@@ -298,7 +298,7 @@ exports.ViewStaffBiddings =async(req,res,next) => {
 
         const staff = await Staff.findById(decoded.id)
         console.log("qtuopwqtuoputiopqrpruioqqr"+staff._id)
-        const availableProjects = await Supervisor.find({StaffID:staff._id})//group that is approved and have this perticular member
+        const availableProjects = await Supervisor.find({StaffID:staff._id,rejected:false})//group that is approved and have this perticular member
         //console.log(availableProjects[1])// 
         const array = Object.values(availableProjects)
     
