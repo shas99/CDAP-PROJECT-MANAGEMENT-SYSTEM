@@ -108,7 +108,7 @@ const ViewProposalReportMarks = ({history}) => {
                 <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Effective Communication C</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.communicationmarks3}</td></tr>
 
                 <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Ability of commercialization marks</td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.commercializationmarks1}</td></tr>
-                <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Feedback </td><td className="py-3 border-none text-left pl-16s">{proposalreportmarks.extrafeedback}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Feedback </td><td className="py-3 border-none text-left pl-16">{proposalreportmarks.extrafeedback}</td></tr>
                 </table>
                 {/* <p id="List"> {listHandler()}</p> */}
                 

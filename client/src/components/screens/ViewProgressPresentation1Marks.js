@@ -96,7 +96,7 @@ const ViewProgressPresentation1Marks = ({history}) => {
                 <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 5</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.implementationmarks5}</td></tr>
                 <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Communication marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.communicationmarks1}</td></tr>
                 <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Communication marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.communicationmarks2}</td></tr>
-                <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Commercialization marks</td><td className="py-3 border-none text-left pl-16s">{progresspresentation1marks.commercializationmarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Commercialization marks</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.commercializationmarks}</td></tr>
                 </table>
 
                 </div>                
