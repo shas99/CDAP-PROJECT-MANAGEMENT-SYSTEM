@@ -232,12 +232,12 @@ return  error ? (
     <div className="form-group">
     <table className="progresspresentation1marking" style={{width:"100%",marginLeft:"0"}}>
     <tr>
-    <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
-    <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
-    <th className="proposalpresentationmarking"> Good[{good}] </th>
-    <th className="proposalpresentationmarking"> Average[{average}] </th>
-    <th className="proposalpresentationmarking"> Below Average [{ belowAverage}] </th>
-    <th className="proposalpresentationmarking"> Marks[out of 100] </th>
+    <th  style={{width:"25%"}} className="proposalpresentationmarking">Sub Assessment Criteria </th>
+    <th style={{width:"8%"}} className="proposalpresentationmarking"> Excellent[{excellent}] </th>
+    <th style={{width:"7%"}} className="proposalpresentationmarking"> Good[{good}] </th>
+    <th style={{width:"7%"}} className="proposalpresentationmarking"> Average[{average}] </th>
+    <th style={{width:"8%"}}  className="proposalpresentationmarking"> Below Average [{ belowAverage}] </th>
+    <th style={{width:"8%"}} className="proposalpresentationmarking"> Marks[out of 100] </th>
     </tr>
     </table>
     </div>
@@ -249,10 +249,10 @@ return  error ? (
     </table>
     <table  style={{width:"100%",marginLeft:"0"}}> 
     <tr>
-    <td className="proposalpresentationmarking" >
+    <td style={{width:"25%"}} className="proposalpresentationmarking" >
     Problem definition (30%)
     </td>
-    <td className="proposalpresentationmarking">
+    <td style={{width:"8%"}} className="proposalpresentationmarking">
     The identified problem is clearly presented referring to the current implementation
 
     </td>
