@@ -13,6 +13,19 @@ const ViewProgressPresentation1Marks = ({history}) => {
 
     const [fetchProgressPresentation1MarksData, setProgressPresentation1MarksData] = useState("");
 
+    const [provengapmarks1,setprovengapmarks1]=useState("");
+    const [provengapmarks2,setprovengapmarks2]=useState("");
+    const [capabilitymarks1,setcapabilitymarks1]=useState("");
+    const [capabilitymarks2,setcapabilitymarks2]=useState("");
+    const [implementationmarks1,setimplementationmarks1]=useState("");
+    const [implementationmarks2,setimplementationmarks2]=useState("");
+    const [implementationmarks3,setimplementationmarks3]=useState("");
+    const [implementationmarks4,setimplementationmarks4]=useState("");
+    const [implementationmarks5,setimplementationmarks5]=useState("");
+    const [communicationmarks1,setcommunicationmarks1]=useState("");
+    const [communicationmarks2,setcommunicationmarks2]=useState("");
+    const [commercializationmarks,setcommercializationmarks]=useState("");
+
     useEffect(() => {
         const fetchPrivateDate = async () => {
             const config = {
@@ -47,6 +60,18 @@ const ViewProgressPresentation1Marks = ({history}) => {
                 // console.log(viewprogresspresentation1marksArray)
                 // const viewprogresspresentation1marks1=viewprogresspresentation1marksArray[0].split(",")
                 setprogresspresentation1marks(viewprogresspresentation1marksArray)
+                setprovengapmarks1(viewprogresspresentation1marksArray.provengapmarks1)
+                setprovengapmarks2(viewprogresspresentation1marksArray.provengapmarks2)
+                setcapabilitymarks1(viewprogresspresentation1marksArray.capabilitymarks1)
+                setcapabilitymarks2(viewprogresspresentation1marksArray.capabilitymarks2)
+                setimplementationmarks1(viewprogresspresentation1marksArray.implementationmarks1)
+                setimplementationmarks2(viewprogresspresentation1marksArray.implementationmarks2)
+                setimplementationmarks3(viewprogresspresentation1marksArray.implementationmarks3)
+                setimplementationmarks4(viewprogresspresentation1marksArray.implementationmarks4)
+                setimplementationmarks5(viewprogresspresentation1marksArray.implementationmarks5)
+                setcommunicationmarks1(viewprogresspresentation1marksArray.communicationmarks1)
+                setcommunicationmarks2(viewprogresspresentation1marksArray.communicationmarks2)
+                setcommercializationmarks(viewprogresspresentation1marksArray.commercializationmarks)
 
             }catch(error){
 
@@ -85,18 +110,18 @@ const ViewProgressPresentation1Marks = ({history}) => {
                 <h1 id="caption">Your Progress Presentation 1 marks are</h1><br/>
                 <hr id="hr"></hr>
                 <table className="mt-5 lg:w-4/5 m-auto border-none">
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.provengapmarks1}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap marks 2</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.provengapmarks2}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.capabilitymarks1}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability marks 2</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.capabilitymarks2}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.implementationmarks1}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 2</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.implementationmarks2}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 3</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.implementationmarks3}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 4</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.implementationmarks4}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 5</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.implementationmarks5}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Communication marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.communicationmarks1}</td></tr>
-                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Communication marks 1</td><td className="py-3 border-none text-left pl-16">{progresspresentation1marks.communicationmarks2}</td></tr>
-                <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Commercialization marks</td><td className="py-3 border-none text-left pl-16s">{progresspresentation1marks.commercializationmarks}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap marks 1</td><td className="py-3 border-none text-left pl-16">{provengapmarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Proven gap marks 2</td><td className="py-3 border-none text-left pl-16">{provengapmarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability marks 1</td><td className="py-3 border-none text-left pl-16">{capabilitymarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Capability marks 2</td><td className="py-3 border-none text-left pl-16">{capabilitymarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 1</td><td className="py-3 border-none text-left pl-16">{implementationmarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 2</td><td className="py-3 border-none text-left pl-16">{implementationmarks2}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 3</td><td className="py-3 border-none text-left pl-16">{implementationmarks3}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 4</td><td className="py-3 border-none text-left pl-16">{implementationmarks4}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Implementation marks 5</td><td className="py-3 border-none text-left pl-16">{implementationmarks5}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Communication marks 1</td><td className="py-3 border-none text-left pl-16">{communicationmarks1}</td></tr>
+                <tr className="py-3 border-b hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Communication marks 1</td><td className="py-3 border-none text-left pl-16">{communicationmarks2}</td></tr>
+                <tr className="py-3 hover:bg-gray-600"><td className="py-3 border-none text-left pl-16">Commercialization marks</td><td className="py-3 border-none text-left pl-16s">{commercializationmarks}</td></tr>
                 </table>
 
                 </div>                
