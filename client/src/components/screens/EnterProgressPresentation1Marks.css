@@ -55,7 +55,9 @@
     margin: auto;
   
     position: absolute;
-    left: 500px;
+    /* left: 500px; */
+    left:700px;
+    align:center;
     font-size: x-large;
   
   
