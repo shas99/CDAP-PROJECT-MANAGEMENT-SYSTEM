@@ -572,6 +572,22 @@ video {
   bottom: 0.75rem;
 }
 
+.right-\[300px\] {
+  right: 300px;
+}
+
+.right-\[400px\] {
+  right: 400px;
+}
+
+.right-\[40px\] {
+  right: 40px;
+}
+
+.right-auto {
+  right: auto;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -1331,6 +1347,10 @@ video {
 
 .place-content-center {
   place-content: center;
+}
+
+.content-center {
+  align-content: center;
 }
 
 .items-center {
