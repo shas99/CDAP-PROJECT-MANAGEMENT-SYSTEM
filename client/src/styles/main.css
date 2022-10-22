@@ -942,6 +942,18 @@ video {
   margin-top: 2rem;
 }
 
+.mt-\[-0rem\] {
+  margin-top: -0rem;
+}
+
+.mt-\[-30rem\] {
+  margin-top: -30rem;
+}
+
+.mt-\[-40rem\] {
+  margin-top: -40rem;
+}
+
 .block {
   display: block;
 }
@@ -1309,6 +1321,10 @@ video {
   cursor: pointer;
 }
 
+.appearance-none {
+  appearance: none;
+}
+
 .grid-flow-row {
   grid-auto-flow: row;
 }
@@ -1640,6 +1656,11 @@ video {
 .bg-\[\#121518\] {
   --tw-bg-opacity: 1;
   background-color: rgb(18 21 24 / var(--tw-bg-opacity));
+}
+
+.bg-blue-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
@@ -2140,6 +2161,12 @@ video {
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
