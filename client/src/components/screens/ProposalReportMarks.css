@@ -2,7 +2,8 @@
    .enterproposalreportmarksbackground {
     width: 100%;
     /* height: 400%;  */
-    height:4500px;
+    /* height:4500px; */
+    height: 4300px;
    
     display:block;
     justify-content: center;
@@ -15,6 +16,8 @@
   .tablemarks1{
     width: 100%;
     column-gap: 5px;
+
+
     
 
 
@@ -24,6 +27,7 @@
     background-color: #22272E;
     /* height: 5000px;  */
     height:2000px;
+
   
     text-align: center;
   }

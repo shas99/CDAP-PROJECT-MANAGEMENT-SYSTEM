@@ -230,7 +230,7 @@ return  error ? (
     </div>
    
     <div className="form-group">
-    <table className="proposalpresentationmarking" style={{width:"100%",marginLeft:"0"}}>
+    <table className="progresspresentation1marking" style={{width:"100%",marginLeft:"0"}}>
     <tr>
     <th className="proposalpresentationmarking">Sub Assessment Criteria </th>
     <th className="proposalpresentationmarking"> Excellent[{excellent}] </th>
