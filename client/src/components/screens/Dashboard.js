@@ -373,7 +373,7 @@ export default function Dashboard ({history}) {
 
                             <br/><br/>
                            
-                            <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[50rem] mt-[-17rem] '>
+                    <div className='flex items-center gap-2 mb-3 ml-[30rem] w-[50rem] mt-[-14rem] '>
                     <div class=" lg:w-3/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md w-[20rem]">
                                 <br/>
 
