@@ -7,7 +7,8 @@ import { useEffect } from "react";
 import {useParams} from 'react-router-dom';
 import Parser from 'html-react-parser';
 import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
-
+import jsPDF from 'jspdf';
+import logo from './favicon.png';
 
 const ViewStaffForm = ({ history, match }) => {
   //const [password, setPassword] = useState("");
@@ -199,6 +200,18 @@ const download = e => {
  });
  
 }
+const pdfHandler=()=>{
+  var doc = new jsPDF('landscape','px','a4','false');
+  doc.addImage(logo,'PNG',65,29,500,400);
+  //add text
+  doc.setFontSize(20);
+  doc.text(250, 100, 'Submission Entries');
+
+
+  
+  doc.save('a.pdf');
+
+}
 
   return (
     <div className="viewgroupscreen">
@@ -218,7 +231,7 @@ const download = e => {
          {/* {console.log(ID)} */}
          
          <p className="font-sans text-2xl">{Heading}</p>
-
+        <button onClick={pdfHandler}>click!</button>
          {/* {console.log(Object.keys(Fields))} */}
 
          {/* <table className="lg:w-4/5 mt-5 border-none" style={{border:"none"}}> */}
