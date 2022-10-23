@@ -59,7 +59,7 @@ const ProposalReportMarks = ({history}) => {
                 setenterproposalreportmarksData(enterproposalreportmarksArray[0]);
                
             }catch(error){
-                
+                console.log(error)
             }
         }
         const fetchPrivateDate = async () => {
@@ -98,7 +98,7 @@ const ProposalReportMarks = ({history}) => {
             },
          }
          try{
-            const {data}=await axios.post(
+            const {data} = await axios.post(
                 "/api/staffPrivate/addproposalreportmarks",
                 { groupID, studentIDs, studentnames,  cosupervisor, supervisor, extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,communicationmarks3,commercializationmarks1,enterproposalreportmarks},
                 config
