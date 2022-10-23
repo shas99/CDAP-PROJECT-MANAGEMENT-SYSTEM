@@ -108,8 +108,8 @@ const Swal = require('sweetalert2')
 
 
   <label for="message" class="block mb-2 text-l font-medium text-gray-900 dark:text-gray-400" style={{color:"white"}}>Description</label>
-<textarea id="message" rows="4" className="block p-2.5  text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." onChange={(e) => setDescription(e.target.value)}
-        required style={{color:"black"}} value={description}></textarea>
+<textarea id="message" rows="4" className="block p-2.5  text-sm text-white-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..." onChange={(e) => setDescription(e.target.value)}
+        required style={{color:"white"}} value={description}></textarea>
 
   
   <button type="submit" class="text-white bg-purple-900 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Post Announcement</button>

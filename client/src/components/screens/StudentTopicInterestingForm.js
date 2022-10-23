@@ -144,7 +144,7 @@ const StudentTopicInterestingForm = ({history}) => {
          <div className="inline-block lg:w-4/5  float-right place-content-center">
 
            <div className="lg:w-4/5 px-8 py-5 rounded-lg m-0,auto">
-           <p className="mt-10 text-center font-semibold text-white font-sans text-4xl">Topic Interestings</p>         
+           <p className="mt-10 text-center font-semibold text-white font-sans text-4xl">Select your Preference</p>         
            </div>
 
           <div className="">
@@ -153,7 +153,6 @@ const StudentTopicInterestingForm = ({history}) => {
           
           <form onSubmit={StudentTopicInterestingFormHandler}>
       
-      <p className="text-center font-semibold text-white font-sans text-2xl pb-5">Topic Interestings Form</p>
       {error && <span className="error-message">{error}</span>}
         <br/>
         <p className="font-semibold text-white font-sans text-1xl text-left ml-16">Tell us your project Interestings<em> (This will help you to get suggested with most interesting projects as suggestions)</em></p><br/>
