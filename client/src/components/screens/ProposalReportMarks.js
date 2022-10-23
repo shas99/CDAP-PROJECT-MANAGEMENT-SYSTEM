@@ -43,25 +43,25 @@ const ProposalReportMarks = ({history}) => {
     const proposalReportMarkingID = "62b5f7ef425a8a64871de741";
     
     useEffect(() => {
-        const fetchenterproposalreportmarksData= async () => {
-            const enterproposalreportmarksconfig = {
-                headers: {
-                    "Content-Type":"application/json",
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                }
-            }
-            try{
-                const { data} = await axios.get("/api/staffPrivate/addproposalreportmarks", enterproposalreportmarksconfig);
-                const enterproposalreportmarksArray = data.data.split("/")
-                console.log(enterproposalreportmarksArray[0])
-                const enterproposalreportmarks1 =enterproposalreportmarksArray[0].split(",")
-                setenterproposalreportmarks(enterproposalreportmarks1)
-                setenterproposalreportmarksData(enterproposalreportmarksArray[0]);
+        // const fetchenterproposalreportmarksData= async () => {
+        //     const enterproposalreportmarksconfig = {
+        //         headers: {
+        //             "Content-Type":"application/json",
+        //             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        //         }
+        //     }
+        //     try{
+        //         const { data} = await axios.get("/api/staffPrivate/addproposalreportmarks", enterproposalreportmarksconfig);
+        //         const enterproposalreportmarksArray = data.data.split("/")
+        //         console.log(enterproposalreportmarksArray[0])
+        //         const enterproposalreportmarks1 =enterproposalreportmarksArray[0].split(",")
+        //         setenterproposalreportmarks(enterproposalreportmarks1)
+        //         setenterproposalreportmarksData(enterproposalreportmarksArray[0]);
                
-            }catch(error){
-                console.log(error)
-            }
-        }
+        //     }catch(error){
+        //         console.log(error)
+        //     }
+        // }
         const fetchPrivateDate = async () => {
             const config = {
                 headers:{
@@ -78,11 +78,35 @@ const ProposalReportMarks = ({history}) => {
             }
 
         }
-
+    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
+    const getRelevantProposaReportlMarkingConfigData = async ()=>{
+     
+        try{
+          const{data} = await axios.get(`/api/MarkingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
+          console.log("sdf" + data)
+         setTotalContribution(data.proposalDetails.affectedTotalContribution)
+         setExcellent(data.proposalDetails.excellentGradeRange)
+         setGood(data.proposalDetails.goodGradeRange)
+         setAverage(data.proposalDetails.averageGradeRange)
+         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
+         setl01(data.proposalDetails.affectedL01Grade)
+         setl02(data.proposalDetails.affectedL02Grade)
+         setl03(data.proposalDetails.affectedL03Grade)
+         setl04(data.proposalDetails.affectedL04Grade)
+         setl05(data.proposalDetails.affectedL05Grade)
+         
+        }catch(error){
+          console.log(error)
+          
+        }
+        
+  
+      }
+      getRelevantProposaReportlMarkingConfigData();
 
 
         fetchPrivateDate();
-        fetchenterproposalreportmarksData()
+        // fetchenterproposalreportmarksData()
     }, [history])
 
     const logOutHandler = () => {
@@ -131,31 +155,7 @@ const ProposalReportMarks = ({history}) => {
          }
     }
 
-    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
-    const getRelevantProposaReportlMarkingConfigData =async ()=>{
-     
-        try{
-          const{data}=await axios.get(`/api/markingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
-         
-         setTotalContribution(data.proposalDetails.affectedTotalContribution)
-         setExcellent(data.proposalDetails.excellentGradeRange)
-         setGood(data.proposalDetails.goodGradeRange)
-         setAverage(data.proposalDetails.averageGradeRange)
-         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
-         setl01(data.proposalDetails.affectedL01Grade)
-         setl02(data.proposalDetails.affectedL02Grade)
-         setl03(data.proposalDetails.affectedL03Grade)
-         setl04(data.proposalDetails.affectedL04Grade)
-         setl05(data.proposalDetails.affectedL05Grade)
-         
-        }catch(error){
-          
-          
-        }
-        
-  
-      }
-      getRelevantProposaReportlMarkingConfigData();
+
 
   
 
