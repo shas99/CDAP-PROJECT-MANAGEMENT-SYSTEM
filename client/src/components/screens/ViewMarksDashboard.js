@@ -51,7 +51,7 @@ const ViewMarksDashboard = ({history}) => {
             <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
             <SideNavigationBar page="StudentGrades"/>
             </div>
-            <h1 id="caption" style={{marginTop:"-850px"}}>Welcome to your marks dashboard {privateData}</h1>
+            <h1 id="caption" style={{marginTop:"-675px"}}>Welcome to your marks dashboard {privateData}</h1>
             {/* <p style={{color:"#FFF",textAlign:"right"}}>
                 <button onClick={logOutHandler} id="logout">Log Out</button>
             </p> */}

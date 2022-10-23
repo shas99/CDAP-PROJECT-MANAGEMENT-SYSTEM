@@ -42,6 +42,7 @@ const MarkDashboard = ({ history }) => {
       }
     };
 
+
     fetchPrivateDate();
   }, [history]);
 
@@ -64,6 +65,7 @@ const MarkDashboard = ({ history }) => {
           Welcome to marking dashboard {privateData}
         </h1>
         {/* <p style={{color:"#FFF",textAlign:"right"}}>
+
                 <button onClick={logOutHandler} id="logout">Log Out</button>
             </p> */}
         <div className='row1' style={{ marginLeft: '200px' }}>

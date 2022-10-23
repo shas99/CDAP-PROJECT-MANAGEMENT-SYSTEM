@@ -147,7 +147,7 @@ alert("Approved sucessfully")
     </>
   ) :(
     
-    <div style={{backgroundColor:"#22272E",minHeight:"50rem"}}>
+    <div style={{backgroundColor:"#22272E",minHeight:"60rem"}}>
       <Header/>
       <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminProjects"/>

@@ -142,7 +142,7 @@ const UserProfile = ({history}) => {
     <SideNavigationBar page="StudentProfile"/>
    {/* </div> */}
 
-  <div className="float-right lg:w-4/5 mt-[-50rem] ml-20rem2 pl-24 pt-20 bg-gray-800">
+  <div className="float-right lg:w-4/5 mt-[-40rem] ml-5rem pl-24 pt-20 bg-gray-800">
      
       {/* profile image */}
       <div className="float-left  lg:w-2/5  ">
