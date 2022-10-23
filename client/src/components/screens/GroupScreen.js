@@ -228,13 +228,13 @@ const GroupScreen = ({history}) => {
                   
                   </div>
                   <div className="form-group">
-        <label>
+        {/* <label>
            Member 5 - Student ID:</label><br/><br/>
           <input type="text"  id="groupFormInput"
           name="name"
           className = "input"
           onChange={(e) => setMember5(e.target.value)}
-          value={member_5} />
+          value={member_5} /> */}
         
         </div>
 
