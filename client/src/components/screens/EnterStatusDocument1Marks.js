@@ -293,7 +293,7 @@ const EnterStatusDocument1Marks = ({history}) => {
 
     <td className="proposalpresentationmarking">
    
-    <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+    <input type="text" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"90%",margin:"0 auto",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
             min="0" max="100"
             className = "bg-black py-2 pl-2 text-right"
@@ -338,7 +338,7 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
     
-            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            <input type="text" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"90%",margin:"0 auto",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
             min="0" max="100"
             className = "bg-black py-2 pl-2 text-right"
@@ -380,7 +380,7 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
     
-            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            <input type="text" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"90%",margin:"0 auto",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
             min="0" max="100"
             className = "bg-black py-2 pl-2 text-right"
@@ -481,7 +481,7 @@ const EnterStatusDocument1Marks = ({history}) => {
 
             <td  className="proposalpresentationmarking">
         
-            <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            <input type="text" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"90%",margin:"0 auto",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
             min="0" max="100"
             className = "bg-black py-2 pl-2 text-right"
