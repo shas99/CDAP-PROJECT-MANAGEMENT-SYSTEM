@@ -123,7 +123,7 @@ const Status = ({history}) => {
   ) :
   (
 
-<div className="statusClass" style={{width:"100%",height:"auto",backgroundColor:"#22272E"}}>
+<div className="statusClass" style={{width:"100%",height:"60rem",backgroundColor:"#22272E"}}>
   <Header/>
   <div className="inline-box float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
   <SideNavigationBar page="StudentStatus"/>

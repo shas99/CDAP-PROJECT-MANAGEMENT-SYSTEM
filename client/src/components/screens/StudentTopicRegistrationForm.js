@@ -161,12 +161,12 @@ const TopicRegistration = ({history}) => {
           
           </p> */}
         
-           <h1 id="studentTopiccaption" style={{marginTop:"-850px"}}>Project Topic Assessment</h1>
+           
            <br/>
            
       
           
-    <div className="studentTopicgroup-screen">
+    <div className="studentTopicgroup-screen" style={{marginTop:"-675px"}}>
    
            <div>
 
