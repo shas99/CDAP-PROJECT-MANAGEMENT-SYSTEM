@@ -47,7 +47,7 @@ const MarkDashboard = ({history}) => {
         <span className="error-message">{error}</span>
     ) : (
         <>
-        <div id = "back" style={{height:"45rem"}}>
+        <div id = "back" style={{height:"70rem"}}>
             <Header/>
             <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded">
             <SideNavigationBar page="Add Marks"/>
