@@ -92,7 +92,7 @@ const TopicRegistration = ({history}) => {
             "Content-Type": "application/json",
           },
         };
-    
+        alert("Successfully Submited!")
         try {
           const { data } = await axios.post(
             "/api/group/topicregister",
@@ -161,12 +161,12 @@ const TopicRegistration = ({history}) => {
           
           </p> */}
         
-           <h1 id="studentTopiccaption" style={{marginTop:"-850px"}}>Project Topic Assessment</h1>
+           
            <br/>
            
       
           
-    <div className="studentTopicgroup-screen">
+    <div className="studentTopicgroup-screen" style={{marginTop:"-675px"}}>
    
            <div>
 
@@ -181,6 +181,7 @@ const TopicRegistration = ({history}) => {
           <input type="text" 
           className = "input" style={{color:"white",width:"700px"}}
           name="name" 
+          required
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
         
@@ -192,6 +193,7 @@ const TopicRegistration = ({history}) => {
           <input type="text" 
           className = "input" style={{color:"white",width:"700px"}}
           name="name" 
+          required
           onChange={(e) => setTopic(e.target.value)}
           value={Topic} />
         </div>
@@ -302,11 +304,6 @@ const TopicRegistration = ({history}) => {
 
                   </div>
                   <br/>
-
-
-        
-
-
 
       <button type="submit" className="btn btn-primary1" id="Log1Button">
           Submit!

@@ -7,6 +7,7 @@ import Header from "../Header/Header";
 // import image from "../../images/Bunny.jpg"
 import Swal from 'sweetalert2'
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
+import { set } from "mongoose";
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 
 const UserProfile = ({history}) => { 
@@ -16,6 +17,7 @@ const UserProfile = ({history}) => {
   const [error, setError] = useState("");
   const [fileData, setFileData] = useState("");
   const [imageUploadData, setimageUploadData] = useState({img:{data:{data:""}}});
+  //const [isDisabled, setDisabled] = useState(false);
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -85,6 +87,7 @@ const UserProfile = ({history}) => {
 
   const fileChangeHandler = (e) => {
     setFileData(e.target.files[0]);
+    //setDisabled(false);
   };
 
   const onSubmitHandler = (e) => {
@@ -139,7 +142,7 @@ const UserProfile = ({history}) => {
     <SideNavigationBar page="StudentProfile"/>
    {/* </div> */}
 
-  <div className="float-right lg:w-4/5 mt-[-50rem] ml-20rem2 pl-24 pt-20 bg-gray-800">
+  <div className="float-right lg:w-4/5 mt-[-40rem] ml-5rem pl-24 pt-20 bg-gray-800">
      
       {/* profile image */}
       <div className="float-left  lg:w-2/5  ">
@@ -152,7 +155,12 @@ const UserProfile = ({history}) => {
         {/* <input type="file" name="image" style={{marginBottom:"10px"}} placeholder="upd"/> */}
 
          <label className="text-white block mb-2 text-sm font-medium dark:text-gray-300" for="file_input">Upload / Update Image</label>
-        <input name="image"  className="block w-[13rem] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+        <input name="image" 
+       // onChange={setDisabled(true)} 
+        className="block w-[13rem] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+        id="file_input" 
+        required
+        type="file"/>
         
         {/* <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label> */}
         <br/>
@@ -160,7 +168,10 @@ const UserProfile = ({history}) => {
          
         </input>
               <input type="hidden"  id="ID" name="ID" value={fetchFeedbackData._id} style={{marginBottom:"10px"}}></input> */}
-        <button type="submit"  className="ml-[rem] mt-3 text-white bg-[#121518] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2" >Submit!</button>
+        <button type="submit"
+        //disabled={isDisabled()}
+        className="ml-[rem] mt-3 text-white bg-[#121518] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2" 
+        >Submit!</button>
 
         </form>
         </div>
@@ -168,7 +179,7 @@ const UserProfile = ({history}) => {
 
       </div>
 
-      <div className="flex float-right h-auto  lg:w-3/5">
+      <div className="flex float-right h-auto  lg:w-3/5 pb-5">
       <div className="h-auto pl-10 pr-10 pt-5 pb-10 bg-gray-900	 text-white">
 
       <h2 id="userprofilecaption" >Bio</h2>
@@ -183,7 +194,7 @@ const UserProfile = ({history}) => {
       
       
       </table>
-     <button className="mt-5 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-7 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> <a href={`/edituserprofile/${fetchFeedbackData._id}`}>  Update Your Profile!</a></button>
+     <button className="mt-5 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-2 focus:ring-purple-400 font-medium rounded-lg text-sm px-7 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> <a href={`/edituserprofile/${fetchFeedbackData._id}`}> Update Your Profile!</a></button>
      
       </div>
 

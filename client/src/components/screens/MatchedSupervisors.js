@@ -226,7 +226,7 @@ const MatchedSupervisors = ({history}) => {
       ) : ( 
         <>
        
-        <div className="bg-gray-900 h-[75rem]">
+        <div className="bg-gray-900 h-[85rem]">
         <Header/>
         <SideNavigationBar page="MatchedSupervisors"/>
 
@@ -255,7 +255,9 @@ const MatchedSupervisors = ({history}) => {
                   <tr>
                     <td className="py-4 px-6">{supervisor[1][1]}</td>
                     <td className="w-10 items-center py-4 px-8">{supervisor[1][2]}/{batchType}</td>
-                    <td className="w-10 items-center py-4 px-8" ><input type="checkbox"  value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input></td>
+                    <td className="w-10 items-center py-4 px-8" >
+                      <input type="checkbox" value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input>
+                    </td>
                   </tr>
                   )}
     </table>
@@ -295,7 +297,7 @@ const MatchedSupervisors = ({history}) => {
                        <td>{project[1].projectDescription}</td>
                       <td>{project[1].projectType}</td>
                       <td className="w-10 items-center py-4 px-12" >
-                        <input type="radio" name="project" value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)}/> 
+                        <input type="radio" name="project" required value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)} /> 
                       </td>
                     </tr>
                     )
@@ -317,7 +319,7 @@ const MatchedSupervisors = ({history}) => {
         </tbody>
     </table>
 </div>
-<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2">Place Bid</button>
+<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 hover:ring-2 hover-ring-gray-900 mr-2 mb-2">Place Bid</button>
 
 </form>
 

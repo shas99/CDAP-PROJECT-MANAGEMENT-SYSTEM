@@ -43,25 +43,25 @@ const ProposalReportMarks = ({history}) => {
     const proposalReportMarkingID = "62b5f7ef425a8a64871de741";
     
     useEffect(() => {
-        const fetchenterproposalreportmarksData= async () => {
-            const enterproposalreportmarksconfig = {
-                headers: {
-                    "Content-Type":"application/json",
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-                }
-            }
-            try{
-                const { data} = await axios.get("/api/staffPrivate/addproposalreportmarks", enterproposalreportmarksconfig);
-                const enterproposalreportmarksArray = data.data.split("/")
-                console.log(enterproposalreportmarksArray[0])
-                const enterproposalreportmarks1 =enterproposalreportmarksArray[0].split(",")
-                setenterproposalreportmarks(enterproposalreportmarks1)
-                setenterproposalreportmarksData(enterproposalreportmarksArray[0]);
+        // const fetchenterproposalreportmarksData= async () => {
+        //     const enterproposalreportmarksconfig = {
+        //         headers: {
+        //             "Content-Type":"application/json",
+        //             Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        //         }
+        //     }
+        //     try{
+        //         const { data} = await axios.get("/api/staffPrivate/addproposalreportmarks", enterproposalreportmarksconfig);
+        //         const enterproposalreportmarksArray = data.data.split("/")
+        //         console.log(enterproposalreportmarksArray[0])
+        //         const enterproposalreportmarks1 =enterproposalreportmarksArray[0].split(",")
+        //         setenterproposalreportmarks(enterproposalreportmarks1)
+        //         setenterproposalreportmarksData(enterproposalreportmarksArray[0]);
                
-            }catch(error){
-                
-            }
-        }
+        //     }catch(error){
+        //         console.log(error)
+        //     }
+        // }
         const fetchPrivateDate = async () => {
             const config = {
                 headers:{
@@ -78,11 +78,35 @@ const ProposalReportMarks = ({history}) => {
             }
 
         }
-
+    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
+    const getRelevantProposaReportlMarkingConfigData = async ()=>{
+     
+        try{
+          const{data} = await axios.get(`/api/MarkingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
+          console.log("sdf" + data)
+         setTotalContribution(data.proposalDetails.affectedTotalContribution)
+         setExcellent(data.proposalDetails.excellentGradeRange)
+         setGood(data.proposalDetails.goodGradeRange)
+         setAverage(data.proposalDetails.averageGradeRange)
+         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
+         setl01(data.proposalDetails.affectedL01Grade)
+         setl02(data.proposalDetails.affectedL02Grade)
+         setl03(data.proposalDetails.affectedL03Grade)
+         setl04(data.proposalDetails.affectedL04Grade)
+         setl05(data.proposalDetails.affectedL05Grade)
+         
+        }catch(error){
+          console.log(error)
+          
+        }
+        
+  
+      }
+      getRelevantProposaReportlMarkingConfigData();
 
 
         fetchPrivateDate();
-        fetchenterproposalreportmarksData()
+        // fetchenterproposalreportmarksData()
     }, [history])
 
     const logOutHandler = () => {
@@ -98,7 +122,7 @@ const ProposalReportMarks = ({history}) => {
             },
          }
          try{
-            const {data}=await axios.post(
+            const {data} = await axios.post(
                 "/api/staffPrivate/addproposalreportmarks",
                 { groupID, studentIDs, studentnames,  cosupervisor, supervisor, extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,communicationmarks3,commercializationmarks1,enterproposalreportmarks},
                 config
@@ -131,31 +155,7 @@ const ProposalReportMarks = ({history}) => {
          }
     }
 
-    // //*********** GET PROPOSAL REPORT MARKING CONFIGURATION DATA *********** */
-    const getRelevantProposaReportlMarkingConfigData =async ()=>{
-     
-        try{
-          const{data}=await axios.get(`/api/markingRubrik/proposalReportMarkingConfiguration/${proposalReportMarkingID}`);
-         
-         setTotalContribution(data.proposalDetails.affectedTotalContribution)
-         setExcellent(data.proposalDetails.excellentGradeRange)
-         setGood(data.proposalDetails.goodGradeRange)
-         setAverage(data.proposalDetails.averageGradeRange)
-         setBelowAverage(data.proposalDetails.belowAverageGradeRange)
-         setl01(data.proposalDetails.affectedL01Grade)
-         setl02(data.proposalDetails.affectedL02Grade)
-         setl03(data.proposalDetails.affectedL03Grade)
-         setl04(data.proposalDetails.affectedL04Grade)
-         setl05(data.proposalDetails.affectedL05Grade)
-         
-        }catch(error){
-          
-          
-        }
-        
-  
-      }
-      getRelevantProposaReportlMarkingConfigData();
+
 
   
 
@@ -197,7 +197,7 @@ const ProposalReportMarks = ({history}) => {
                 <label>
            <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Student IDs:</b></label><br/><br/>
           <input type="text" style={{marginLeft:"150px",borderColor:"royalblue"}} 
-          name="name" 
+          name="name" required 
           className = "input" id="StudentIDInput"
           onChange={(e) => setstudentIDs(e.target.value)}
           value={studentIDs} />
@@ -209,7 +209,8 @@ const ProposalReportMarks = ({history}) => {
                     <label>
             <b style={{fontSize:"medium"}}>Student Name:</b></label><br/><br/>
             <input type="text" style={{marginLeft:"100px",borderColor:"royalblue"}}
-            name="name" 
+            name="name" required
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setstudentnames(e.target.value)}
             value={studentnames} />
@@ -221,7 +222,7 @@ const ProposalReportMarks = ({history}) => {
             <b style={{fontSize:"medium",marginLeft:"65px"}}>Group ID:</b></label><br/><br/>
             <input type="text" style={{marginLeft:"475px",borderColor:"royalblue"}}
             className = "input"
-            name="name" 
+            name="name" required
             onChange={(e) => setgroupID(e.target.value)}
             value={groupID} />
             
@@ -294,9 +295,10 @@ const ProposalReportMarks = ({history}) => {
         <td colspan="2" className="proposalpresentationmarking">
     
 
-          <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-          name="name" 
-          className = "proposalpresentationinput"
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
           onChange={(e) => setprovengapmarks1(e.target.value)}
           value={provengapmarks1} />
           
@@ -348,9 +350,10 @@ const ProposalReportMarks = ({history}) => {
 
         <td colspan="2" className="proposalpresentationmarking">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setprovengapmarks2(e.target.value)}
             value={provengapmarks2} />
             
@@ -407,9 +410,10 @@ identified.
         </td>
         <td colspan="2" className="proposalpresentationmarking">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setcapabilitymarks1(e.target.value)}
             value={capabilitymarks1} />
             
@@ -461,9 +465,10 @@ identified.
 
         <td colspan="2" className="proposalpresentationmarking">
     
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setcapabilitymarks2(e.target.value)}
             value={capabilitymarks2} />
             
@@ -523,9 +528,10 @@ identified.
 
         <td colspan="2" className="proposalpresentationmarking">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setimplementationmarks1(e.target.value)}
             value={implementationmarks1} />
             
@@ -575,9 +581,10 @@ identified.
 
         <td colspan="2" className="proposalpresentationmarking">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setimplementationmarks2(e.target.value)}
             value={implementationmarks2} />
             
@@ -630,9 +637,10 @@ identified.
 
         <td colspan="2">
     
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setimplementationmarks3(e.target.value)}
             value={implementationmarks3} />
             
@@ -703,9 +711,10 @@ identified.
 
         <td colspan="2">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setcommunicationmarks1(e.target.value)}
             value={communicationmarks1} />
             
@@ -758,9 +767,10 @@ identified.
 
         <td colspan="2">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setcommunicationmarks2(e.target.value)}
             value={communicationmarks2} />
             
@@ -800,9 +810,10 @@ identified.
 
         <td colspan="2">
         
-        <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
-        name="name" 
-        className = "proposalpresentationinput"
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
+            name="name" 
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
         onChange={(e) => setcommunicationmarks3(e.target.value)}
         value={communicationmarks3} />
         
@@ -867,9 +878,10 @@ identified.
 
         <td colspan="2">
         
-            <input type="text" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderColor:"royalblue"}}
+        <input type="number" required style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",width:"75px",margin:"100px",borderWidth:"1px",borderStyle:"solid",borderColor:"royalblue"}}
             name="name" 
-            className = "proposalpresentationinput"
+            min="0" max="100"
+            className = "bg-black py-2 pl-2 text-right"
             onChange={(e) => setcommercializationmarks1(e.target.value)}
             value={commercializationmarks1} />
             
@@ -884,7 +896,7 @@ identified.
     <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"}}>Extra feedback:</b></label><br/><br/>
             
             <input type="text" style={{borderColor:"royalblue"}}
-            name="name"
+            name="name" required
             className = "proposalpresentationfeedback"
             onChange={(e) => setextrafeedback(e.target.value)}
             value={extrafeedback} />
@@ -906,7 +918,8 @@ identified.
                         <label>
             <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Co supervisor:</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-            name="name" 
+            name="name" required
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setcosupervisor(e.target.value)}
             value={cosupervisor} />
@@ -916,7 +929,8 @@ identified.
                     <label>
             <b style={{fontSize:"medium",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",fontSize:"medium",marginLeft:"-25px"}}>Supervisor:</b></label><br/><br/>
             <input type="text" style={{margin:"10px",borderColor:"royalblue"}}
-            name="name"
+            name="name" required
+            pattern = "[a-zA-Z\s]{3,}"
             className = "input"
             onChange={(e) => setsupervisor(e.target.value)}
             value={supervisor} />

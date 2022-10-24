@@ -95,15 +95,15 @@ const Submission = ({history}) =>{
             setInput(label => [...label,sub[i]])
             if(sub[i] == "Normal" || sub[i] == "normal"){
           
-              formElements.push(<div id='content'><label>{sub[i-1]}:<div className='centerTxtbox'><input type="text" name={sub[i-1]} value={input.value} onChange={handleChange} className="textbox"></input></div></label><br/><br/></div>)
+              formElements.push(<div id='content' style={{width:"180%",marginLeft:"-60%",textAlign:"left"}}><label style={{color:"white"}}>{sub[i-1]}:<div className='centerTxtbox' style={{width:"100%"}}><input type="text" style={{width:"100%",height:"40px"}} name={sub[i-1]} value={input.value} onChange={handleChange} required className="textbox"/></div></label><br/><br/></div>)
             }else if(sub[i] == "Rich"|| sub[i] == "rich"){
               
               console.log(i-1)
               setTemp(sub[i-1])
 
 
-              formElements.push(<div> <button name={sub[i-1]} onClick={handleClick} className="w-[280px] gap-1  h-[78px] ml-[-2rem] text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">{sub[i-1]}</button> <br/></div>)
-
+              formElements.push(<div style={{width:"180%",marginLeft:"-60%"}}> <button name={sub[i-1]} onClick={handleClick} className="w-[100%] gap-1  h-[78px] m-0-auto text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5" >{sub[i-1]}</button> <br/></div>)
+ 
             }
           }
        }
@@ -272,7 +272,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
 
 <div className=''>{formElements}</div>
 <br/>
-<button onClick={submitHandler} className="bg-green-700 w-[15rem] h-[3.8rem] ml-[-0.5rem] rounded hover:bg-green-600" >Submit</button>
+<button onClick={submitHandler} className="bg-green-700 h-[3.8rem] m-0-auto rounded hover:bg-green-600" style={{width:"90%", margin:"-15%"}}>Submit</button>
 {console.log(entries)}
 
           <br></br>

@@ -125,15 +125,15 @@ exports.viewProposalReportMarkingDetails = async(req,res,next) => {
         const relevantProposalID = req.params.id;
         const proposalDetails = await MarkingRubrik.findById(relevantProposalID)
 
-        console.log(proposalDetails.markingRubrikType)
+        console.log(proposalDetails)
 
-        if(proposalDetails.markingRubrikType=="proposalReport"){
+        // if(proposalDetails.markingRubrikType=="proposalReport"){
 
         res.status(201).json({
             success: true,
             proposalDetails
         })
-    }
+    // }
     }catch(error){
         res.status(500).json({success:false, error:error.message})
     }
