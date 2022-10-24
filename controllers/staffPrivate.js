@@ -56,7 +56,8 @@ exports.addproposalreportmarks = async(req,res,next) => {
         const proposalreportmarksadd = await enterproposalreportmarks.create({
             groupID,studentIDs,studentnames,cosupervisor,supervisor,extrafeedback,provengapmarks1,provengapmarks2,capabilitymarks1,capabilitymarks2,implementationmarks1,implementationmarks2,implementationmarks3,communicationmarks1,communicationmarks2,communicationmarks3,commercializationmarks1
         })
-        res.status(210).json({
+        console.log(proposalreportmarksadd)
+        res.status(200).json({
             success: true,
             data: "Added marks successfully"
         })

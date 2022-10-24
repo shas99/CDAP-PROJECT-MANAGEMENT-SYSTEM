@@ -4,7 +4,7 @@ const MarkingRubrikSchema = new mongoose.Schema({ //Rubrik Schema
 
     //Append fields based on marking rubrik variables
     markingRubrikType:{
-        type:"String"
+        type:String
     },
     affectedTotalContribution:{
         type:String
@@ -37,41 +37,41 @@ const MarkingRubrikSchema = new mongoose.Schema({ //Rubrik Schema
         type:String
      },
      statusDocumentDescription01:{
-      type:"String"
+      type:String
      },
      statusDocumentDescription02:{
-      type:"String"
+      type:String
      },
      statusDocumentDescription03:{
-      type:"String"
+      type:String
      },
      statusDocumentDescription04:{
-      type:"String"
+      type:String
      },
      statusDocumentDescription05:{
-      type:"String"
+      type:String
        },
      statusDocumentDescription06:{
-      type:"String"
+      type:String
        },
 
       marksEntitledForStatusDocumentDescription01:{
-      type:"String"
+      type:String
       },
       marksEntitledForStatusDocumentDescription02:{
-         type:"String"
+         type:String
       },
       marksEntitledForStatusDocumentDescription03:{
-         type:"String"
+         type:String
       },
       marksEntitledForStatusDocumentDescription04:{
-         type:"String"
+         type:String
       },
       marksEntitledForStatusDocumentDescription05:{
-         type:"String"
+         type:String
       },
       marksEntitledForStatusDocumentDescription06:{
-         type:"String"
+         type:String
       }
 
 
