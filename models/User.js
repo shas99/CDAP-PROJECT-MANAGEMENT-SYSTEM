@@ -60,7 +60,9 @@ const UserSchema = new mongoose.Schema({
     heading:{
         type: Array
 
-
+    },
+    batch:{
+        type: String
     },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
