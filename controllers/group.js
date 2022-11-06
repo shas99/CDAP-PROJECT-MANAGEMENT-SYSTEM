@@ -67,9 +67,39 @@ exports.groupregister = async(req,res,next) => {//group registration
     const mem4_approve = false
     const mem5_approve = false
     const g_approval = false
+
+
+    
     try{
+
+
+            //find out the month
+            let month = new Date().getMonth() + 1
+            let year = new Date().getFullYear()
+    
+            let batch
+            //count of the groups collection in mongdb cloud
+            const count = await Group.countDocuments()
+
+
+            if(month < 5){
+                //make year string and set to batch
+                batch = year.toString() + "-" + count.toString()
+                //find the count of the group collection
+
+
+            }
+            else{
+                //get the last two digits of year
+                let lastTwo = year.toString().slice(2)
+                batch = year + "/" +(parseInt(lastTwo) + 1).toString()+"J"+ "-" + count.toString()
+                
+            }
+
+
+
         const group = await Group.create({
-            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve,g_approval//new
+            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve,g_approval,batch//new
         })
         var email = []
         email[0] = member_1
