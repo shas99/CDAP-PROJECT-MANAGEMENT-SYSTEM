@@ -39,8 +39,6 @@ exports.GroupregisterConfirm = async(req, res, next) => {
             group.mem3_approve = true
         }else if(username == group.member_4){
             group.mem4_approve = true
-        }else if(username == group.member_5){
-            group.mem5_approve = true
         }
 
        
@@ -59,13 +57,13 @@ exports.GroupregisterConfirm = async(req, res, next) => {
 }
 
 exports.groupregister = async(req,res,next) => {//group registration
-    const {member_1, member_2,member_3,member_4,member_5} = req.body
+    const {member_1, member_2,member_3,member_4} = req.body
 
     const mem1_approve = false
     const mem2_approve = false
     const mem3_approve = false
     const mem4_approve = false
-    const mem5_approve = false
+
     const g_approval = false
 
 
@@ -99,14 +97,16 @@ exports.groupregister = async(req,res,next) => {//group registration
 
 
         const group = await Group.create({
-            member_1,member_2,member_3,member_4,member_5,mem1_approve,mem2_approve,mem3_approve,mem4_approve,mem5_approve,g_approval,batch//new
+
+            member_1,member_2,member_3,member_4,mem1_approve,mem2_approve,mem3_approve,mem4_approve,g_approval//new
+
         })
         var email = []
         email[0] = member_1
         email[1] = member_2
         email[2] = member_3
         email[3] = member_4
-        email[4] = member_5
+
         
         const resetToken = group.getResetPasswordToken()
         const resetUrl = `https://cdap-app.herokuapp.com/groupconfirm/${resetToken}`
@@ -187,19 +187,19 @@ exports.group = async (req, res, next) => {//suggest supervisor
     member_2=user.username
     member_3=user.username
     member_4=user.username
-    member_5=user.username
+
     const g_approval =true//check if group is approved by coordinator
 
     try{
         
-        const group = await Group.find({g_approval,$or:[{member_1},{member_2},{member_3},{member_4},{member_5}]})//group that is approved and have this perticular member
+        const group = await Group.find({g_approval,$or:[{member_1},{member_2},{member_3},{member_4}]})//group that is approved and have this perticular member
         console.log(group[0].g_members+"fffggdf")
 
         console.log(group[0].suggestions)// 
 
         const bio = group[0].bio
         console.log(bio)
-        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+", "+group[0].member_5+"/"+group[0].suggestions+"/"+group[0].bio
+        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+"/"+group[0].suggestions+"/"+group[0].bio
         res.status(201).json({
             success: true,
             data: setdata
@@ -254,7 +254,7 @@ exports.autoapprove = async(req, res, next) => {
         if(!group){
             return next(new ErrorResponse("Invalid Reset Token",400))
         }
-        if(group.mem1_approve == true && group.mem2_approve == true && group.mem3_approve == true && group.mem4_approve == true && group.mem5_approve == true){
+        if(group.mem1_approve == true && group.mem2_approve == true && group.mem3_approve == true && group.mem4_approve == true){
             group.g_approval = true
         }
         console.log(group+"this is group")
