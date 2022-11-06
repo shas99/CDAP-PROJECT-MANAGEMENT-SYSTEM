@@ -226,14 +226,14 @@ const MatchedSupervisors = ({history}) => {
       ) : ( 
         <>
        
-        <div className="bg-gray-900 h-[80rem]">
+        <div className="bg-gray-900 h-[85rem]">
         <Header/>
         <SideNavigationBar page="MatchedSupervisors"/>
 
         
         {/* Table for Supervisor select */}
         <form onSubmit={SubmitBidding}>  
-<div class="overflow-x-auto shadow-md sm:rounded-lg w-[50rem] ml-[20rem] mt-[-50rem]">
+<div class="overflow-x-auto shadow-md sm:rounded-lg w-[50rem] ml-[20rem] mt-[-42rem]">
 <h1 className="text-4xl text-slate-300"> Choose Your Supervisor</h1> <br/>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -319,7 +319,7 @@ const MatchedSupervisors = ({history}) => {
         </tbody>
     </table>
 </div>
-<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 hover:ring-2 hover-ring-gray-900 mr-2 mb-2">Place Bid</button>
+<button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 hover:ring-2 hover-ring-blue-900 mr-2 mb-2">Place Bid</button>
 
 </form>
 

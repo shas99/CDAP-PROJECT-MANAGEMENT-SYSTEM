@@ -12,8 +12,24 @@ const TopicReg = require('../models/TopicReg')
 exports.register = async(req,res,next) => {
     const {username, email, password} = req.body
     try{
+        //find out the month
+        let month = new Date().getMonth() + 1
+        let year = new Date().getFullYear()
+
+        let batch
+
+        if(month < 5){
+            //make year string and set to batch
+            batch = year.toString()
+        }
+        else{
+            //get the last two digits of year
+            let lastTwo = year.toString().slice(2)
+            batch = year + "/" +(parseInt(lastTwo) + 1).toString()+"J"
+        }
+
         const user = await User.create({
-            username,email,password
+            username,email,password,batch
         })
         sendToken(user, 201, res)
     }catch(error){

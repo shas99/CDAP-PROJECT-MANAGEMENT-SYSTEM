@@ -254,7 +254,7 @@ export default function StaffDashboard ({history}) {
 
 
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-indigo-700 shadow-md pb-5 ml-[10rem]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center  mt-5 px-3 rounded-2xl bg-gray-800 lg:bg-orange-800 shadow-md pb-5 ml-[10rem]">
                 
                 <div id="col" class='ml-10 lg:w-[39.5vw] md:-translate-y-2'>
                     <h1 class="text-xl md:text-3xl mt-3 md:mt-10 ">Greetings , Mr. <span class="font-semibold"> {privateData}</span></h1>

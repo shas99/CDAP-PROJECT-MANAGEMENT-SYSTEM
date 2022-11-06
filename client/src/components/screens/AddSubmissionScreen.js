@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddSubmission.css";
-import { Link } from "react-router-dom";
+
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'

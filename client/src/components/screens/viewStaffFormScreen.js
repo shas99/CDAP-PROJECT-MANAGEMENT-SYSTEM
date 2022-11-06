@@ -7,7 +7,8 @@ import { useEffect } from "react";
 import {useParams} from 'react-router-dom';
 import Parser from 'html-react-parser';
 import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
-
+import jsPDF from 'jspdf';
+import logo from './favicon.png';
 
 const ViewStaffForm = ({ history, match }) => {
   //const [password, setPassword] = useState("");
@@ -199,6 +200,65 @@ const download = e => {
  });
  
 }
+function convertToPlain(html){
+
+  // Create a new div element
+  var tempDivElement = document.createElement("div");
+
+  // Set the HTML content with the given value
+  tempDivElement.innerHTML = html;
+
+  // Retrieve the text property of the element 
+  return tempDivElement.textContent || tempDivElement.innerText || "";
+}
+const pdfHandler=()=>{
+  var doc = new jsPDF('landscape','px','a4','false');
+  doc.addImage(logo,'PNG',300,10,10,10);
+  //add png with 10px
+  
+
+
+  //add text
+  doc.setFontSize(10);
+  doc.text(312, 17, 'Calibre reports');
+  var x = 50
+console.log(Fields)
+//create a list
+const pdfFields = [];
+const pdfContent = [];
+
+  {Object.keys(Fields).map((key) => 
+            
+//     doc.text(310, x, key),
+//      console.log(x),
+// //increment x by 10 during each iteration of the map
+//     x += 20
+//add all the keys to the list
+pdfFields.push(key)
+    )}
+    {Object.keys(Fields).map((key) => 
+      pdfContent.push(convertToPlain(Fields[key]))
+    )}
+//loop through pdfFields and print on console
+var contentIndex = 0
+pdfFields.forEach((item, index) => {
+  console.log(item, index);
+
+  // console.log(x);
+  // x += 20
+      doc.text(310, x, item + " : " + pdfContent[contentIndex])
+      contentIndex++
+    //   x += 10
+    //   doc.text(310, x, " : ")
+    //   x += 10
+    //  console.log(x)
+//increment x by 10 during each iteration of the map
+    x += 10
+});
+
+  doc.save('report.pdf');
+
+}
 
   return (
     <div className="viewgroupscreen">
@@ -234,7 +294,7 @@ const download = e => {
             )}</div>
             {/* </tbody> */}
          {/* </table> */}
-       
+         <button onClick={pdfHandler}>Generate report!</button>
      </div>
     </div>
   );
