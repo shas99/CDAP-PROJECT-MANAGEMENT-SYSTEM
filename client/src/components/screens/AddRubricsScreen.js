@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
-const AddRubrics = ({history}) => {
+const MarkingRubricsAdmin = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [Heading,setHeading] = useState("")
@@ -17,6 +17,7 @@ const AddRubrics = ({history}) => {
   const [flow,setFlow] = useState(0)
   const [Fields,setField] = useState([])
   const [temp,setTemp] = useState("")
+  const [tempMarks,setTempMarks] = useState("")
   const [visibility,setVisibility] = useState(false)
 
   useEffect(() => {
@@ -82,7 +83,7 @@ const AddRubrics = ({history}) => {
 
   const addField=()=> {//normal text box
     setField(Array=> [...Array,temp])
-    // setField(Array=> [...Array,"Normal"])
+    setField(Array=> [...Array,tempMarks])
   }
 
   const addField2=()=> {//rich text box
@@ -108,9 +109,9 @@ const AddRubrics = ({history}) => {
   const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
-    display.push(<li style={{color:"white"}}>&nbsp;{Fields[i]}</li>)
+    display.push(<li style={{color:"white"}}>{ Math.ceil((i+1)/2)}&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
       
-
+    i++
   }
   return display
  
@@ -174,7 +175,9 @@ const AddRubrics = ({history}) => {
             Enter field name:
         <input type="text" name="description" onChange={(e) => setTemp(e.target.value)} id="input"
         
-         
+        />
+        Enter Marks:
+                <input type="text" name="marks" onChange={(e) => setTempMarks(e.target.value)} id="input"
         
         />
     </label>
@@ -214,4 +217,4 @@ const AddRubrics = ({history}) => {
   );
 };
 
-export default AddRubrics;
+export default MarkingRubricsAdmin;
