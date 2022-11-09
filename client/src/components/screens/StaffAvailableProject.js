@@ -4,6 +4,7 @@ import axios from "axios";
 import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
 import Header from "../Header/Header";
 import './StaffAvailableProject.css'
+import e from 'cors';
 
 
 const ViewAvailableProjectsStaff = ({history}) =>{
@@ -12,6 +13,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
   const [privateData, setPrivateData] = useState("");
   const [projectarray, setprojectarray] = useState("");
   const [handleSearchArea, useHandleSearchArea] = useState("");
+  const [searchtext, setSearchText] = useState("");
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -82,6 +84,10 @@ const ViewAvailableProjectsStaff = ({history}) =>{
 
  };
 
+ const searchBox = (e) =>{
+
+  setSearchText(e.target.value)
+ }
 
   return  error ? ( 
   
@@ -96,23 +102,31 @@ const ViewAvailableProjectsStaff = ({history}) =>{
 
     <div className="col-lg-3 mt-2 mb-2" id="searchingBox" style={{marginTop:"-750px"}}>
     
+    {/* change the value of the variable when something is type in */}
     <input
     className="form-control"
     id = "groupSearch"
     type="search"
     placeholder="Search By Group ID"
-    name="searchQuery">
+    name="searchQuery"
+    onChange={searchBox}>
+    
     </input>
+
 
   </div>
    {/* <br/><ul>{projectitems}</ul>  */}
       <h1 id="caption" className="">All Groups</h1>
       <br/><br/>
-
+{searchtext}
     
         
          <ul>
         {ProjectsData.map(project => {
+
+          if (typeof project.name === 'string') {
+            console.log(project.name)
+          if(project.name.includes(searchtext)){
           return (
             <div className="lg:w-1/5 h-auto bg-gray-900 mb-3 pt-1 pb-5 text-white rounded-lg hover:bg-gray-800 inline-block" style={{marginLeft:"195px"}}>
         <center><p className="bg-gray-600 py-3 rounded-lg">{project.name}</p></center>
@@ -128,7 +142,8 @@ const ViewAvailableProjectsStaff = ({history}) =>{
       </div>
             
           )
-
+          }
+          }
         })} 
       </ul>  
       <br/>
