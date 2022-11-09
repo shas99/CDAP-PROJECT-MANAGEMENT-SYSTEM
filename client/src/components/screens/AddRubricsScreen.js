@@ -56,7 +56,7 @@ const AddRubrics = ({history}) => {
     //potential bug remove http://localhost:5000 after consideration
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/STDAvailableSubmissions/addSubmission",
+        "/api/markingRubrik/addRubrics",
         { Heading,Description,BatchID,Fields,visibility },
         config
         
@@ -82,7 +82,7 @@ const AddRubrics = ({history}) => {
 
   const addField=()=> {//normal text box
     setField(Array=> [...Array,temp])
-    setField(Array=> [...Array,"Normal"])
+    // setField(Array=> [...Array,"Normal"])
   }
 
   const addField2=()=> {//rich text box
@@ -108,9 +108,9 @@ const AddRubrics = ({history}) => {
   const displayFields = (Fields) =>{//https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
     let display = []
   for(let i = 0; i < Fields.length; i++){
-    display.push(<li style={{color:"white"}}>{ Math.ceil((i+1)/2)}&nbsp;{Fields[i]} : {Fields[i+1]}</li>)
+    display.push(<li style={{color:"white"}}>&nbsp;{Fields[i]}</li>)
       
-    i++
+
   }
   return display
  
@@ -182,16 +182,16 @@ const AddRubrics = ({history}) => {
     <ul>{displayFields(Fields)}</ul>
     <br/><br/>
       <button onClick={addField} className="greenbuttons">
-Add new Fields
+        Add a normal text box
       </button>
 
       {/* <button onClick={addField2} className="greenbuttons">
         Add a rich text editor
       </button> */}
 {/* create new field */}
-      {/* <button onClick={CreateSubmissionHandler} className="greenbuttons">
+      <button onClick={CreateSubmissionHandler} className="greenbuttons">
         Create new submission
-      </button> */}
+      </button>
 
     </div>
     

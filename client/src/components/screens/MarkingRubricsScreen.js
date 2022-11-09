@@ -42,7 +42,7 @@ const MarkingRubricsAdmin = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.get("/api/STDAvailableSubmissions/availableSubmissions",submissionsconfig);
+        const{data} = await axios.get("/api/STDAvailableSubmissions/addRubrics",submissionsconfig);
         const array = Object.entries(data.data)
         setSubmissionsData(data.data);
 
@@ -159,8 +159,8 @@ const toggle=()=> {//normal text box
       </ul>
       
 
-        <Link to="/addSubmission" className="login-screen__forgotpassword" id="link">
-              Create new submission
+        <Link to="/addRubrics" className="login-screen__forgotpassword" id="link">
+              Create New rubrics
             </Link>
       
     </div>
