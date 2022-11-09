@@ -124,12 +124,12 @@ const ViewAvailableProjectsStaff = ({history}) =>{
          <ul>
         {ProjectsData.map(project => {
 
-          if (typeof project.name === 'string') {
-            console.log(project.name)
-          if(project.name.includes(searchtext)){
+          if (typeof project.batch === 'string') {
+            console.log(project.batch)
+          if(project.batch.includes(searchtext)){
           return (
             <div className="lg:w-1/5 h-auto bg-gray-900 mb-3 pt-1 pb-5 text-white rounded-lg hover:bg-gray-800 inline-block" style={{marginLeft:"195px"}}>
-        <center><p className="bg-gray-600 py-3 rounded-lg">{project.name}</p></center>
+        <center><p className="bg-gray-600 py-3 rounded-lg">{project.batch}</p></center>
       <div >
                    
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 1</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_1}</li> 
