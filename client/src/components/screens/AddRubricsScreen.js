@@ -8,7 +8,7 @@ import Footer from "../Footer/Footer";
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 
-const AddSubmission = ({history}) => {
+const AddRubrics = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [Heading,setHeading] = useState("")
@@ -134,7 +134,7 @@ const AddSubmission = ({history}) => {
     </p>
 
     
-    {flow == 0 &&
+    {/* {flow == 0 &&
     <div id="headert123">
     <form>
     <label>
@@ -158,16 +158,16 @@ const AddSubmission = ({history}) => {
         <input type="checkbox" name="visibility" onChange={toggle}/>
     </label>
     <br/>
-    <br/>
+    <br/> */}
     {/* <input type="submit" value="Submit" /> */}
-    </form>
+    {/* </form>
       <button onClick={handleFlow} className="bluebuttons">
         Next
       </button>
   </div>
-    }
+    } */}
   
-    {flow == 1 &&
+    {/* {flow == 1 && */}
     <div>
       {/* create new field */}
         <label id="headert123">
@@ -182,20 +182,20 @@ const AddSubmission = ({history}) => {
     <ul>{displayFields(Fields)}</ul>
     <br/><br/>
       <button onClick={addField} className="greenbuttons">
-        Add a normal text box
+Add new Fields
       </button>
 
-      <button onClick={addField2} className="greenbuttons">
+      {/* <button onClick={addField2} className="greenbuttons">
         Add a rich text editor
-      </button>
+      </button> */}
 {/* create new field */}
-      <button onClick={CreateSubmissionHandler} className="greenbuttons">
+      {/* <button onClick={CreateSubmissionHandler} className="greenbuttons">
         Create new submission
-      </button>
+      </button> */}
 
     </div>
     
-}
+{/* } */}
 {/* {console.log(Fields)} */}
 
 
@@ -214,4 +214,4 @@ const AddSubmission = ({history}) => {
   );
 };
 
-export default AddSubmission;
+export default AddRubrics;
