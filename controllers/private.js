@@ -19,12 +19,13 @@ exports.getPrivateData = async (req,res,next) => {
         data: user.email,
         data2: user.username,
         data3: user.phoneNumber,
+        data4: user.GroupID,
       
     })
 
 
 exports.getGroupID = async (req,res,next) => {
-    let token
+    let token = req.query.ab
 
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
         
@@ -35,7 +36,7 @@ exports.getGroupID = async (req,res,next) => {
     const decoded = jwt.verify(token,process.env.JWT_SECRET)
     
     const user = await User.findById(decoded.id)
-    console.log("Student Batch : "+ user.GroupID)
+    console.log("Student GroupID : "+ user.GroupID)
     
     res.status(200).json({
         sucess: true,
