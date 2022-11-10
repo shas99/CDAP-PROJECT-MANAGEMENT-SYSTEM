@@ -106,6 +106,7 @@ import StaffLoginExpiredScreen from "./components/screens/StaffExpiredLoginScree
 import Calibre from "./components/screens/Calibre";
 import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
 import AddRubrics from "./components/screens/AddRubricsScreen";
+import EditRubrics from "./components/screens/EditRubricsScreen";
 
 const App = () => {
   return (
@@ -248,6 +249,8 @@ const App = () => {
           <Route exact path="/MarkingRubricsAdmin" component={MarkingRubricsAdmin}/>
 
           <Route exact path="/Addrubrics" component={AddRubrics}/>
+
+          <Route exact path="/editRubrics/:id" component={EditRubrics}/>
 
           
 

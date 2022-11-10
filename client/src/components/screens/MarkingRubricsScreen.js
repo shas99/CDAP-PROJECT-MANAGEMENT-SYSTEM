@@ -136,7 +136,7 @@ const toggle=()=> {//normal text box
                     <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
                     <label>
               
-                    <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <a href={`/editSubmission/${submission._id}`}>Edit/Remove submission</a></div>&nbsp;&nbsp;<br/>
+                    <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <a href={`/editRubrics/${submission._id}`}>Edit/Remove Rubrics</a></div>&nbsp;&nbsp;<br/>
         <br/> <p style={{fontWeight:"bold",color:"black",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"300px",textAlign:"center",margin:"0 auto"}}>Submission Enabled?</p>
       <br/>
         <input type="checkbox" name="visibility" onChange={toggle} checked ={submission.visibility}/>
