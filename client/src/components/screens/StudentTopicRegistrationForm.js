@@ -59,6 +59,7 @@ const TopicRegistration = ({history}) => {
           },
         };
   
+        
         try {
           const { data} = await axios.get("/api/private", config);
           
@@ -68,12 +69,31 @@ const TopicRegistration = ({history}) => {
           setError("You are not authorized please login");
         }
       };
+
+      const fetchGroupID = async () => {
+        const conf = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        };
+
+        try{
+          const { data} = await axios.get("/api/private/getGroupID", config);   
+          setgroupID(data.data);
+
+        } catch (error) {
+          setError("You are not authorized please login");
+        }
+
+      };
   
 
 
     //   fetchGroupData()
 
       fetchPrivateDate();
+      fetchGroupData();
       fetchGroupData()
     }, [history]);
   
