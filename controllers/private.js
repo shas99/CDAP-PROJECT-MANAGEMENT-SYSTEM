@@ -19,11 +19,31 @@ exports.getPrivateData = async (req,res,next) => {
         data: user.email,
         data2: user.username,
         data3: user.phoneNumber,
+        data4: user.GroupID,
       
     })
 
 
+exports.getGroupID = async (req,res,next) => {
+    let token = req.query.ab
 
+    if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
+        
+        token = req.headers.authorization.split(" ")[1]
+    }
+
+    
+    const decoded = jwt.verify(token,process.env.JWT_SECRET)
+    
+    const user = await User.findById(decoded.id)
+    console.log("Student GroupID : "+ user.GroupID)
+    
+    res.status(200).json({
+        sucess: true,
+        data: user.GroupID,
+      
+    })
+}
 
     // const x = await User.findOne({email})
     // console.log(User.resetPasswordToken)
