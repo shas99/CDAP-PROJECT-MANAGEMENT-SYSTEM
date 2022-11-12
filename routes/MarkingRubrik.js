@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
+const {viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
 
 
 //Proposal Presentation Routes
@@ -21,6 +21,18 @@ router.route("/statusDocumentMarkingConfiguration/:id").get(viewStatusDocumentMa
 router.route("/progressPresentationMarkingConfiguration/update/:id").put(progressPresentationMarkingConfiguration)
 router.route("/progressPresentationMarkingConfiguration/:id").get(ViewProgressPresentationMarkingDetails)
 
+//customisable rubrics
+router.route("/addRubrics").post(addRubrics)
+
+router.route("/viewRubrics").get(viewRubrics)
+
+router.route("/viewSpecificAbstractRubrics").get(viewSpecificAbstractRubrics)
+
+router.route("/editRubrics").put(editRubrics)
+
+router.route("/addRubricsfromtemplate").post(addRubricsfromtemplate)
+
+router.route("/viewRubricsCreatedFromTemplate").get(viewRubricsCreatedFromTemplate)
 module.exports = router
 
 
