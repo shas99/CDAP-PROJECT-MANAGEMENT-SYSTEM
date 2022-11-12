@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
+const {viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
 
 
 //Proposal Presentation Routes
@@ -33,6 +33,9 @@ router.route("/editRubrics").put(editRubrics)
 router.route("/addRubricsfromtemplate").post(addRubricsfromtemplate)
 
 router.route("/viewRubricsCreatedFromTemplate").get(viewRubricsCreatedFromTemplate)
+
+router.route("/viewRubricsCreatedFromTemplateByID/:id").get(viewRubricsCreatedFromTemplateByID)
+
 module.exports = router
 
 
