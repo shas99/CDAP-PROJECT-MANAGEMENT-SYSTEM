@@ -200,7 +200,13 @@ const download = e => {
       {/* Potential Security Vulnerability */}
       {/* Once database refinement is complete make sure to change this so that ID doesn't save in localStorage */}
           {localStorage.setItem("groupId",match.params.id)}
+
+
           </a></button>
+<br/><br/>
+                    
+          {/* redirect to /marking:id using Link */}
+          <Link to={`/marking/${match.params.id}`}>Marking</Link>
           </div>
        <br/><br/>
      </div>
