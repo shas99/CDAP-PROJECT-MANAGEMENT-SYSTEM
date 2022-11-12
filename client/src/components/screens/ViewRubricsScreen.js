@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 import "./SubmissionAdmin.css";
 import SideNavigationBar from "../AdminNavigationBar/AdminNavigationBar";
 
-const MarkingRubricsAdmin = ({history}) =>{
+const ViewMarkingRubricsAdmin = ({history}) =>{
   const [SubmissionsData, setSubmissionsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
@@ -42,7 +42,7 @@ const MarkingRubricsAdmin = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.get("/api/markingRubrik/viewRubricsCreatedFromTemplate",submissionsconfig);
+        const{data} = await axios.get("/api/markingRubrik/viewRubrics",submissionsconfig);
         const array = Object.entries(data.data)
         setSubmissionsData(data.data);
 
@@ -161,13 +161,13 @@ const toggle=()=> {//normal text box
       </ul>
       
 
-        {/* <Link to="/addRubrics" className="login-screen__forgotpassword" id="link">
+        <Link to="/addRubrics" className="login-screen__forgotpassword" id="link">
               Create New rubrics
-            </Link> */}
+            </Link>
       
     </div>
      
   </>
 );
 };
-export default MarkingRubricsAdmin;
+export default ViewMarkingRubricsAdmin;

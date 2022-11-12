@@ -394,3 +394,27 @@ exports.addRubrics =async(req,res,next) => {
             }
             
             };
+//View Rubrics that are created from template
+            exports.viewRubricsCreatedFromTemplate =async(req,res,next) => {
+                try{
+                
+                
+                    const availableSubmissions = await TemplateRubric.find()//group that is approved and have this perticular member
+                    //console.log(availableProjects[1])// 
+                    const array = Object.values(availableSubmissions)
+                    //console.log(availableSubmissions);
+                    const arraySubmission = JSON.stringify(array).split(',')
+                    // console.log(arrayproject)
+                    // console.log(typeof arrayproject)
+                    console.log(array)
+                    res.status(201).json({
+                        success: true,
+                        data: array
+                    })
+                    
+                
+                }catch(error){
+                    res.status(500).json({success:false, error:error.message})
+                }
+                
+                };

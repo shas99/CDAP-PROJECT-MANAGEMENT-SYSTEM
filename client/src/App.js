@@ -108,7 +108,7 @@ import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
 import AddRubrics from "./components/screens/AddRubricsScreen";
 import EditRubrics from "./components/screens/EditRubricsScreen";
 import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
-
+import ViewMarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
 const App = () => {
   return (
     <Router>
@@ -254,6 +254,8 @@ const App = () => {
           <Route exact path="/editRubrics/:id" component={EditRubrics}/>
           
           <Route exact path="/CustomRubricsAdmin/:id" component={CustomRubricsAdmin}/>
+
+          <Route exact path="/CustomisedMarkingRubrics" component={ViewMarkingRubricsAdmin}/>
           
 
           {/* Routes added under this might not work. Please add your routes above this route           */}
