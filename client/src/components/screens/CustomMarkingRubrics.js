@@ -204,8 +204,8 @@ const EditSubmission = async (e) => {
 
   try {
     const token = localStorage.getItem("authToken")
-    const { data } = await axios.put(
-      `http://localhost:5000/api/markingRubrik/editRubrics`,
+    const { data } = await axios.post(
+      `http://localhost:5000/api/markingRubrik/addRubricsfromtemplate`,
       {
         SubmissionID,
         Fields,
