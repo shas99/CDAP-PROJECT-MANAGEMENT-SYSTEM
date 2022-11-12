@@ -108,7 +108,8 @@ import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
 import AddRubrics from "./components/screens/AddRubricsScreen";
 import EditRubrics from "./components/screens/EditRubricsScreen";
 import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
-import ViewMarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
+import ViewMarkingRubricsAdmin from "./components/screens/ViewRubricsScreen";
+
 const App = () => {
   return (
     <Router>
