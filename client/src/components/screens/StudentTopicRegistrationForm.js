@@ -59,22 +59,46 @@ const TopicRegistration = ({history}) => {
           },
         };
   
+        
         try {
           const { data} = await axios.get("/api/private", config);
           
           setPrivateData(data.data);
+          setgroupID(data.data4);
+          console.log("Group ID: ",groupID)
         } catch (error) {
           localStorage.removeItem("authToken");
           setError("You are not authorized please login");
         }
       };
+
+      // const fetchGroupID = async () => {
+      //   const conf = {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      //     },
+      //   };
+
+
+      //   const ab = localStorage.getItem("authToken")
+      //   try{
+      //     const { data} = await axios.get("/api/private/getGroupID",{params: {ab}}, conf);   
+      //     setgroupID(data.data);
+
+      //   } catch (error) {
+      //     setError("Error");
+      //   }
+
+      // };
   
 
 
     //   fetchGroupData()
 
       fetchPrivateDate();
-      fetchGroupData()
+      fetchGroupData();
+      // fetchGroupID()
     }, [history]);
   
     //Logout feature
@@ -182,6 +206,7 @@ const TopicRegistration = ({history}) => {
           className = "input" style={{color:"white",width:"700px"}}
           name="name" 
           required
+          readOnly
           onChange={(e) => setgroupID(e.target.value)}
           value={groupID} />
         
