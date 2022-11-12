@@ -42,7 +42,7 @@ const MarkingRubricsAdmin = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.get("/api/markingRubrik/viewRubricsCreatedFromTemplate",submissionsconfig);
+        const{data} = await axios.get("/api/markingRubrik/viewRubrics",submissionsconfig);
         const array = Object.entries(data.data)
         setSubmissionsData(data.data);
 
