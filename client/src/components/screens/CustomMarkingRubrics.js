@@ -14,7 +14,7 @@ import Swal from 'sweetalert2'
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import Submission from "./SubmissionScreen";
 
-const EditRubrics = ({history}) => {
+const CustomRubricsAdmin = ({history}) => {
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [Heading,setHeading] = useState("")
@@ -372,12 +372,9 @@ const DeleteSubmissionHandler = async (e) => {
         Next
       </button>
 
-      
       <button onClick={DeleteSubmissionHandler} className="redbuttons">
         Delete submission
       </button>
-      {/* change the color of the link text to white */}
-      <Link to={`/CustomRubricsAdmin/${SubmissionID}`} style={{color:"#FFF"}}>Use this as template</Link>
       </div>
   
     }
@@ -419,11 +416,6 @@ const DeleteSubmissionHandler = async (e) => {
         Make changes
       </button>
 
-      {/* use link to redirect to /CustomRubricsAdmin:id */}
-
-      <Link to={`/CustomRubricsAdmin/${SubmissionID}`}>Use this as template</Link>
-      
-
     </div>
     
 } 
@@ -440,4 +432,4 @@ const DeleteSubmissionHandler = async (e) => {
   );
 };
 
-export default EditRubrics;
+export default CustomRubricsAdmin;

@@ -107,6 +107,7 @@ import Calibre from "./components/screens/Calibre";
 import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
 import AddRubrics from "./components/screens/AddRubricsScreen";
 import EditRubrics from "./components/screens/EditRubricsScreen";
+import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
 
 const App = () => {
   return (
@@ -251,7 +252,8 @@ const App = () => {
           <Route exact path="/Addrubrics" component={AddRubrics}/>
 
           <Route exact path="/editRubrics/:id" component={EditRubrics}/>
-
+          
+          <Route exact path="/CustomRubricsAdmin/:id" component={CustomRubricsAdmin}/>
           
 
           {/* Routes added under this might not work. Please add your routes above this route           */}

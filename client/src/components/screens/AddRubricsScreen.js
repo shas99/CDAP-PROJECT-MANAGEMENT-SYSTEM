@@ -185,7 +185,7 @@ const MarkingRubricsAdmin = ({history}) => {
     <ul>{displayFields(Fields)}</ul>
     <br/><br/>
       <button onClick={addField} className="greenbuttons">
-        Add a normal text box
+        Add a new field
       </button>
 
       {/* <button onClick={addField2} className="greenbuttons">
@@ -193,7 +193,7 @@ const MarkingRubricsAdmin = ({history}) => {
       </button> */}
 {/* create new field */}
       <button onClick={CreateSubmissionHandler} className="greenbuttons">
-        Create new submission
+        Create new rubrics
       </button>
 
     </div>
