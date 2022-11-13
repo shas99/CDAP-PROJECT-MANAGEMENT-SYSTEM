@@ -16,6 +16,7 @@ const MarkRubric = ({history}) =>{
   const [formElements,setFormElements] = useState([]);
   const [labels,setLabel] = useState([]);
   const [inputBoxs,setInuptBoxs] = useState([]);
+  const [entries,setEntries] = useState({})
 //   const [batchID,setbatchID] = useState(history.location.state.id)
 
   useEffect(() => {
@@ -116,6 +117,15 @@ const toggle=()=> {//normal text box
   }
 }
 
+const handleChange = (event) => {//for normal textbox
+  const name = event.target.name
+  const value = event.target.value
+  setEntries(entries => ({...entries, [name]:value}))
+  // console.log(event.target)
+  // console.log(entries)
+
+}
+
 
 
  return error ? ( 
@@ -160,11 +170,15 @@ const toggle=()=> {//normal text box
               // <div id='content' style={{width:"180%",marginLeft:"-60%",textAlign:"left"}}><label style={{color:"white"}}>{label}:<div className='centerTxtbox' style={{width:"100%"}}></div></label><br/><br/></div>
               <div>
               <label style={{color:"#fff"}}>{label}</label>
+              {/* input box with centered */}
+              <span>
               <h1 style={{color:"#fff"}}>{inputBoxs[index]}</h1>
+              <div className='centerTxtbox' style={{width:"30%"}}><input name={label} type="text" id="inputBox" style={{width:"100%"}} onChange={handleChange}/></div>
+              </span>
               </div>
 
             ))}
-      
+      {console.log(entries)}
     </div>
      
   </>
