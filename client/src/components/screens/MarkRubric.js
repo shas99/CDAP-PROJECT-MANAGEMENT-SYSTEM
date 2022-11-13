@@ -126,6 +126,18 @@ const handleChange = (event) => {//for normal textbox
 
 }
 
+const PostRubric = () => {
+  console.log(entries)
+  const { data } =  axios.post(
+    "/api/MarkingRubrik/markpost",
+    {entries},
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
+  );
+}
 
 
  return error ? ( 
@@ -178,6 +190,10 @@ const handleChange = (event) => {//for normal textbox
               </div>
 
             ))}
+
+              {/* button to trigger postmark function when clicked */}
+              <button onClick={PostRubric} style={{color:"#fff"}}>Post Mark</button>
+            
       {console.log(entries)}
     </div>
      
