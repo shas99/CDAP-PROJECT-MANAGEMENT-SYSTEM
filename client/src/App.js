@@ -104,7 +104,11 @@ import SupervisorViewBidding from "./components/screens/SupervisorViewBidding";
 import ViewBiddingStaff from "./components/screens/ViewBiddingStaffScreen";
 import StaffLoginExpiredScreen from "./components/screens/StaffExpiredLoginScreen";
 import Calibre from "./components/screens/Calibre";
-
+import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
+import AddRubrics from "./components/screens/AddRubricsScreen";
+import EditRubrics from "./components/screens/EditRubricsScreen";
+import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
+import ViewMarkingRubricsAdmin from "./components/screens/ViewRubricsScreen";
 
 const App = () => {
   return (
@@ -244,7 +248,15 @@ const App = () => {
          
           <Route exact path="/StaffLoginExpiredScreen/" component={StaffLoginExpiredScreen}/>
 
+          <Route exact path="/MarkingRubricsAdmin" component={MarkingRubricsAdmin}/>
 
+          <Route exact path="/Addrubrics" component={AddRubrics}/>
+
+          <Route exact path="/editRubrics/:id" component={EditRubrics}/>
+          
+          <Route exact path="/CustomRubricsAdmin/:id" component={CustomRubricsAdmin}/>
+
+          <Route exact path="/CustomisedMarkingRubrics" component={ViewMarkingRubricsAdmin}/>
           
 
           {/* Routes added under this might not work. Please add your routes above this route           */}
