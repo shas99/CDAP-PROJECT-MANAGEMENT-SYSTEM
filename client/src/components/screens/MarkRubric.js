@@ -15,6 +15,7 @@ const MarkRubric = ({history}) =>{
   const {id} = useParams();
   const [formElements,setFormElements] = useState([]);
   const [labels,setLabel] = useState([]);
+  const [inputBoxs,setInuptBoxs] = useState([]);
 //   const [batchID,setbatchID] = useState(history.location.state.id)
 
   useEffect(() => {
@@ -55,22 +56,7 @@ const MarkRubric = ({history}) =>{
         setFields(fields => data.data.Fields)
 
 
-          // else{
-          //   setInput(label => [...label,sub[i]])
-          //   if(sub[i] == "Normal" || sub[i] == "normal"){
-          
-          //     formElements.push(<div id='content' style={{width:"180%",marginLeft:"-60%",textAlign:"left"}}><label style={{color:"white"}}>{sub[i-1]}:<div className='centerTxtbox' style={{width:"100%"}}><input type="text" style={{width:"100%",height:"40px"}} name={sub[i-1]} value={input.value} onChange={handleChange} required className="textbox"/></div></label><br/><br/></div>)
-          //   }else if(sub[i] == "Rich"|| sub[i] == "rich"){
-              
-          //     console.log(i-1)
-          //     setTemp(sub[i-1])
 
-
-          //     formElements.push(<div style={{width:"180%",marginLeft:"-60%"}}> <button name={sub[i-1]} onClick={handleClick} className="w-[100%] gap-1  h-[78px] m-0-auto text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5" >{sub[i-1]}</button> <br/></div>)
- 
-          //   }
-          // }
-      //  }
         
       }catch(error){
         // setError("Data not fetched");
@@ -89,7 +75,7 @@ const MarkRubric = ({history}) =>{
   useEffect(() => {
     //make labels empty array
     labels.length = 0;
-
+    inputBoxs.length = 0;
     for(var i = 0;i <fields.length;i++){//set arrays for inputboxes and labels
       if(i%2==0){
 
@@ -98,6 +84,9 @@ const MarkRubric = ({history}) =>{
         //push fields to labels array
         labels.push(fields[i])
 
+      }
+      else{
+        inputBoxs.push(fields[i])
       }
     }
   }, [fields]);
@@ -167,9 +156,13 @@ const toggle=()=> {//normal text box
 <br/>
 
             {/* render all the elements of labels of labels array using map */}
-            {labels.map((label) => (
+            {labels.map((label,index) => (
               // <div id='content' style={{width:"180%",marginLeft:"-60%",textAlign:"left"}}><label style={{color:"white"}}>{label}:<div className='centerTxtbox' style={{width:"100%"}}></div></label><br/><br/></div>
-              <h1 style={{color:"#fff"}}>{label}</h1>
+              <div>
+              <label style={{color:"#fff"}}>{label}</label>
+              <h1 style={{color:"#fff"}}>{inputBoxs[index]}</h1>
+              </div>
+
             ))}
       
     </div>
