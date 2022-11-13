@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const MarkingRubrik = require('../models/MarkingRubrik')
 const CustomRubrics = require('../models/CustomRubrics')
 const TemplateRubric = require('../models/Rubricsfromtemplate')
+const Marking = require('../models/Marking')
 
 //******** Update Existing Marking Configuration for Proposal Presentation *********
 exports.proposalMarkingConfiguration = async(req,res,next) =>{
@@ -418,3 +419,39 @@ exports.addRubrics =async(req,res,next) => {
                 }
                 
                 };
+
+
+                exports.viewRubricsCreatedFromTemplateByID =async(req,res,next) => {
+                    try{
+                        const id = req.params.id
+                    
+                        const availableSubmissions = await TemplateRubric.findById(id)//group that is approved and have this perticular member
+                        //console.log(availableProjects[1])// 
+                        // const array = Object.values(availableSubmissions)
+                        //console.log(availableSubmissions);
+                        // const arraySubmission = JSON.stringify(array).split(',')
+                        // console.log(arrayproject)
+                        // console.log(typeof arrayproject)
+                        console.log(availableSubmissions)
+                        res.status(201).json({
+                            success: true,
+                            data: availableSubmissions
+                        })
+                        
+                    
+                    }catch(error){
+                        res.status(500).json({success:false, error:error.message})
+                    }
+                    
+                    };  
+
+        //post the marks          
+        exports.markpost = async(req,res,next) => {
+            const entries = req.body
+            try{
+            console.log(entries)
+            const user = await Marking.create(entries)
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
