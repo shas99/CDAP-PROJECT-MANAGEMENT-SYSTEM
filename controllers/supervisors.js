@@ -1,8 +1,9 @@
 const { Batch } = require('aws-sdk');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User')
-
+const User = require('../models/User');
+const BidProject = require('../models/BidProjects');
+const AvailableProjects = require('../models/AvailableProject');
 
 
 const Supervisors = require('../models/Supervisor')
@@ -11,11 +12,13 @@ const { decode } = require('jsonwebtoken');
 
 
 //*******Place Bid *******
-exports.placeBid =async(req,res,next) => { // to use for bidders
-    const {StaffID,GroupID,BatchID,Approved,Recommended,Project} = req.body
+exports.placeBid =async(req,res,next) => { // to use for bidd for a supervisor
+    const {StaffID,GroupID,BatchID} = req.body
+    const rejected = false
+    const Approved = false
 try{
     const bids = await Supervisors.create({
-        StaffID,GroupID,BatchID,Approved,Recommended,Project
+        StaffID,GroupID,BatchID,Approved,rejected
         
 
     })
@@ -24,6 +27,21 @@ try{
     next(error)
     console.log("Student Bidding error")
 }
+};
+
+exports.bidProject = async(req,res,next) => {  //use for bid available projects
+    const {GroupID,BatchID,ProjectID} = req.body
+    const {Approved,rejected} = false
+
+    try{
+        const bid = await BidProject.create({
+            GroupID,BatchID,ProjectID,Approved,rejected
+    })
+    console.log("Bidding successfull! "+bid)
+    }catch(error){
+        next(error)
+        console.log("Bidding error")
+    }
 };
         
         
@@ -71,8 +89,9 @@ exports.showSupervisors = async(req,res,next) => {
                 //console.log(name)
                 //console.log(i)
 
-                const biddingdata = await Supervisors.count({StaffID:ID,Approved:true,BatchID:batchID});
-            
+                const biddingCount = await Supervisors.count({StaffID:ID,Approved:true,BatchID:batchID}); //total approved supervisor biddings
+                const biddngPCount = await AvailableProjects.count({StaffID:ID,Approved:true,batch:batchID}); //total groups appproved for projects
+                const biddingdata = biddingCount + biddngPCount; //sum of approved groups for batch
                 let add = [array[i]._id,array[i].username,biddingdata]
                 name.push(add)
                 //name.push(biddingdata)
@@ -136,13 +155,13 @@ exports.showSupervisors = async(req,res,next) => {
 
 //Place bid
 exports.placeBidonAvailableProject = async(req,res,next) =>{
-    const relevantProjectID =req.params.id;
+    //const PID =req.params.id;
     // const _id =relevantProjectID
-    const {bidPlacedGroup,date,time} = req.body
+    const {GroupID,date,time,PID} = req.body
     
     try{
         const placedBid = await AvailableProject.findById({
-            _id:relevantProjectID,
+            _id:PID,
            
         })
         // placedBid.push({allBiddings:bidPlacedGroup}) push is not a function 
@@ -152,10 +171,10 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
         }
         // console.log(id)
         
-       placedBid.bidding.biddingPlacedGroup= bidPlacedGroup
+       placedBid.bidding.GroupID= GroupID
        placedBid.bidding.date=date
        placedBid.bidding.time=time
-    placedBid.allBiddings.push(bidPlacedGroup)
+       placedBid.allBiddings.push(GroupID)
 
         await placedBid.save()
         res.status(201).json({
@@ -169,3 +188,13 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
         console.log("Error in placing bid API");
     }
 };
+
+
+//TAF Bidding
+
+
+
+//Available project Bidding
+exports.ProjectBID = async(req, res, next) => {
+    
+}

@@ -105,6 +105,9 @@ import ViewBiddingStaff from "./components/screens/ViewBiddingStaffScreen";
 import StaffLoginExpiredScreen from "./components/screens/StaffExpiredLoginScreen";
 import Calibre from "./components/screens/Calibre";
 
+//student new bidding
+import BiddingHome from "./components/screens/StudentBidding";
+
 
 const App = () => {
   return (
@@ -244,6 +247,8 @@ const App = () => {
          
           <Route exact path="/StaffLoginExpiredScreen/" component={StaffLoginExpiredScreen}/>
 
+          {/* new bidding page */}
+          <Route exact path="/studentBidding" component={BiddingHome}/>
 
           
 
