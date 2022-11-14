@@ -1305,6 +1305,10 @@ video {
   cursor: pointer;
 }
 
+.resize {
+  resize: both;
+}
+
 .appearance-none {
   appearance: none;
 }
