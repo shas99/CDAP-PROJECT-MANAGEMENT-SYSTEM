@@ -130,10 +130,10 @@ const PostRubric = () => {
   console.log(entries)
   const { data } =  axios.post(
     "/api/MarkingRubrik/markpost",
-    {entries},
+    {entries,groupid:`${localStorage.getItem("groupId")}`},
     {
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem("authToken")}`
+        'groupID': `${localStorage.getItem("groupId")}`,
       }
     }
   );

@@ -1,9 +1,16 @@
 const mongoose = require('mongoose')
 
 const RubricsfromtemplateSchema = new mongoose.Schema({ //CustomRubrics Schema
+    groupid: {
+        type: String
+    },
     entries: {
         type: Object
     },
+    totalmarks:{
+        type: Number
+    }
+
     // visibility: {
     //     type: Boolean
     // },

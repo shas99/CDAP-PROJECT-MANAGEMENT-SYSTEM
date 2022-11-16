@@ -4,7 +4,9 @@ const MarkingRubrik = require('../models/MarkingRubrik')
 const CustomRubrics = require('../models/CustomRubrics')
 const TemplateRubric = require('../models/Rubricsfromtemplate')
 const Marking = require('../models/Marking')
-
+const User = require('../models/User')
+const Group = require('../models/Group')
+const jwt = require("jsonwebtoken");
 //******** Update Existing Marking Configuration for Proposal Presentation *********
 exports.proposalMarkingConfiguration = async(req,res,next) =>{
 
@@ -447,10 +449,30 @@ exports.addRubrics =async(req,res,next) => {
 
         //post the marks          
         exports.markpost = async(req,res,next) => {
-            const entries = req.body
+            const {entries,groupid} = req.body
+            
+            //read all the fields in entries objects store the add all the marks and store it in totalmarks
+            const array = Object.values(entries)
+            console.log(array)
+            //read all the values in array and add them to totalmarks
+            var totalmarks = 0
+            for(var i=0;i<array.length;i++){
+                totalmarks = totalmarks + parseInt(array[i])
+
+            }
+            console.log(totalmarks)
+
             try{
-            console.log(entries)
-            const user = await Marking.create(entries)
+            // console.log(entries)
+            const user = await Marking.create({entries,groupid,totalmarks})
+
+            console.log(user)
+            
+            res.status(200).json({
+                success: true,
+                data: "Success"
+            })
+
         }catch(error){
             res.status(500).json({success:false, error:error.message})
         }

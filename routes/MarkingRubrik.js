@@ -19,7 +19,7 @@ router.route("/statusDocumentMarkingConfiguration/:id").get(viewStatusDocumentMa
 
 //Progress Presentation 01 Routes
 router.route("/progressPresentationMarkingConfiguration/update/:id").put(progressPresentationMarkingConfiguration)
-router.route("/progressPresentationMarkingConfiguration/:id").get(ViewProgressPresentationMarkingDetails)
+router.route("/progressPresentationMarkinsgConfiguration/:id").get(ViewProgressPresentationMarkingDetails)
 
 //customisable rubrics
 router.route("/addRubrics").post(addRubrics)
