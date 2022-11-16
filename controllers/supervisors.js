@@ -1,14 +1,16 @@
+//Student and supervisor bidding related APIs will be implemented in this file
 const { Batch } = require('aws-sdk');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const BidProject = require('../models/BidProjects');
 const AvailableProjects = require('../models/AvailableProject');
-
+const Group = require('../models/Group');
 
 const Supervisors = require('../models/Supervisor')
 const Staff = require('../models/Staff');
 const { decode } = require('jsonwebtoken');
+const { response } = require('express');
 
 
 //*******Place Bid *******
@@ -90,7 +92,7 @@ exports.showSupervisors = async(req,res,next) => {
                 //console.log(i)
 
                 const biddingCount = await Supervisors.count({StaffID:ID,Approved:true,BatchID:batchID}); //total approved supervisor biddings
-                const biddngPCount = await AvailableProjects.count({StaffID:ID,Approved:true,batch:batchID}); //total groups appproved for projects
+                const biddngPCount = await BidProject.count({StaffID:ID,Approved:true,BatchID:batchID}); //total groups appproved for projects
                 const biddingdata = biddingCount + biddngPCount; //sum of approved groups for batch
                 let add = [array[i]._id,array[i].username,biddingdata]
                 name.push(add)
@@ -190,11 +192,125 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 };
 
 
-//TAF Bidding
+//-------- Check whether the group already has a supervisor(student) --------------
+exports.supervisorStatus = async(req, res, next) => {
+    const {group} = req.body;
+    let anyApproved;
+    try{
+        const GroupDetails = await Group.findOne({GroupID:group})
+        if (GroupDetails.GroupID == "null"){
+            anyApproved = false;            
+        }
+        else{
+            anyApproved = true;
+        }
+        res.status(201).json({
+            success: true,
+            data: anyApproved
+        })
+    }catch(error){
+        next(error)
+        console.log("Group error")
+    }
+};
 
 
 
-//Available project Bidding
+//-------------------------- TAF Bidding(student) ---------------------------------
+exports.SupervisorBID = async(req, res, next) => {
+    const {SupervisorArr, GroupID, BatchID, Project} = req.body;  //StaffID, GroupID, BatchID, Project = TAFID
+    const Approved = false;
+    const rejected = false;
+
+    try{
+        for(let i = 0;i<SupervisorArr.length;i++){
+            let StaffID = SupervisorArr[i];
+            const user = await Supervisors.create({
+                StaffID,GroupID,BatchID,Approved,Project,rejected
+            })    
+        }
+        res.status(201).json({
+            success: true,
+            data: "Bid set Success"
+            
+        })
+        console.log("Bidding success! "+user);
+    }catch(error){
+        next(error)
+        console.log("Student Bidding error")
+    }
+
+};
+
+
+//-------------------------- Available project Bidding(student) ---------------------
 exports.ProjectBID = async(req, res, next) => {
-    
-}
+    const {GroupID, BatchID, ProjectID} = req.body;
+    const Approved = false;
+    const rejected = false;
+    try{
+        const projectdata = await AvailableProjects.findById({_id:ProjectID});
+        var stfID = projectdata.StID    //Get relevent supervisor id
+        console.log("pdata "+projectdata)
+        console.log("staff id : "+ stfID)
+    }catch(error){
+        next(error)
+        console.log("Staff id error")
+    };
+    console.log("staff id : "+ stfID)
+    try{
+        console.log("staff id : "+ stfID)
+        const StaffID = stfID
+        const bid = await BidProject.create({
+            GroupID,StaffID,BatchID,ProjectID,Approved,rejected
+    })
+    res.status(201).json({
+        success: true,
+        data: "Bid set Success"
+        
+    })
+    console.log("Bidding successfull! "+bid)
+     }catch(error){
+        next(error)
+        console.log("Bidding error")
+    }
+  
+};
+
+
+//-------------------------- Get batches -----------------------------
+//regular batch and Jul batch. For now no need to implement
+
+
+//------------------- Get all project biddings for supervisors -----------
+
+
+
+//------------------- Get special project bidding for supervisors -------
+
+
+//------------------- Get all TAF biddings for supervisors -------------
+
+
+
+
+//------------------- Accept Project bidding -----------------------
+
+
+
+
+//------------------- Reject Project bidding -----------------------
+
+
+
+//------------------- Accept TAF biddings ---------------------------
+
+
+
+//------------------- Reject TAF biddings --------------------------
+
+
+
+
+
+

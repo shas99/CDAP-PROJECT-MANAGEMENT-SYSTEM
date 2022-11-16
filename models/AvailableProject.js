@@ -25,7 +25,7 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
   projectSupervisedBy:{
     type:String
   },
-  StaffID:{
+  StID:{
     type:String
   },
   publishedDate:{
