@@ -166,6 +166,30 @@
     align-items: center;
   }
 
+  .Collapsible__trigger {
+/* cover 50% of the screen width */
+  }
 
 
-  
+
+/* collapsable__trigger hover */
+.Collapsible__trigger:hover {
+    color: #69ad83;
+    font-size: 1.2em;
+    
+}
+
+.Collapsible__trigger.is-open svg {    
+    transform: rotate(180deg);
+    /* move this to the line before */
+    transition: transform 0.3s ease-in-out;
+    /* move to the 80% of the screen */
+    margin-left: 100%;
+  }
+
+  .Collapsible__trigger.is-closed svg {    
+    /* move this to the line before */
+    transition: transform 0.3s ease-in-out;
+    /* move to the 80% of the screen */
+    margin-left: 100%;
+  }
