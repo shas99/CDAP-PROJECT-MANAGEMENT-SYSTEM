@@ -477,3 +477,25 @@ exports.addRubrics =async(req,res,next) => {
             res.status(500).json({success:false, error:error.message})
         }
         }
+
+        
+        exports.getRubricbyBatch = async(req,res,next) => {
+        
+            //get params
+            const test = req.query.hello
+            try{
+                // console.log(hello)
+            //get all the rubrics with BatchID hello
+            const rubrics = await TemplateRubric.find({BatchID:test})
+
+            console.log(rubrics)
+            
+            res.status(200).json({
+                success: true,
+                data: "Success"
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
