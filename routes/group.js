@@ -3,7 +3,7 @@ const { route } = require('express/lib/application');
 const router = express.Router()
 
 const {GroupregisterConfirm,groupregister,suggestsupervisor,group,topicregister,autoapprove,viewAvailableGroups,viewgroup} = require('../controllers/group')
-const {placeBid,showSupervisors,bidProject,ProjectBID,SupervisorBID} = require('../controllers/supervisors')
+const {placeBid,showSupervisors,bidProject,ProjectBID,SupervisorBID,supervisorStatus,viewStudentTAF,viewStudentProjectBids,StaffViewBiddings,StaffViewPBiddings,AcceptBid} = require('../controllers/supervisors')
 
 
 router.route("/groupconfirm/:resetToken").put(GroupregisterConfirm)
@@ -34,6 +34,18 @@ router.route("/bidonproject").post(ProjectBID)       //Available project bidding
 router.route("/supervisorBID").post(SupervisorBID)   //Bid for supervisor
 router.route("/showSupervisors").get(showSupervisors)//show supervisors from staff cluster
 
+//bidding status
+router.route("/supervisorStatus").get(supervisorStatus) //check about previous bids and approved supervisors
 
+//show TAF biddings on student
+router.route("/viewStudentTAF").get(viewStudentTAF)
+router.route("/viewStudentProjectBids").get(viewStudentProjectBids)
+
+//view all biddings staff
+router.route("/staffViewBiddings").get(StaffViewBiddings)
+router.route("/staffViewPBiddings").get(StaffViewPBiddings)
+
+//accept bids
+router.route("/acceptBid/:id").put(AcceptBid)
 
 module.exports = router

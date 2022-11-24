@@ -6,11 +6,15 @@ const User = require('../models/User');
 const BidProject = require('../models/BidProjects');
 const AvailableProjects = require('../models/AvailableProject');
 const Group = require('../models/Group');
+const TAF = require('../models/TopicReg');
 
 const Supervisors = require('../models/Supervisor')
 const Staff = require('../models/Staff');
 const { decode } = require('jsonwebtoken');
 const { response } = require('express');
+const Supervisor = require('../models/Supervisor');
+const AvailableProject = require('../models/AvailableProject');
+//const TopicReg = require('../models/TopicReg');
 
 
 //*******Place Bid *******
@@ -56,8 +60,7 @@ exports.showSupervisors = async(req,res,next) => {
     try{ 
 
         //need to get a parameter passed from front end (batch id)
-        let token = req.query.ab
-    
+        let token = req.query.ab 
          if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
         
              token = req.headers.authorization.split(" ")[1]
@@ -192,21 +195,33 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 };
 
 
+
+//New controllers
+
+//check whether group has done any bid before
 //-------- Check whether the group already has a supervisor(student) --------------
 exports.supervisorStatus = async(req, res, next) => {
     const {group} = req.body;
-    let anyApproved;
+    let anyApproved, doneBids;
     try{
-        const GroupDetails = await Group.findOne({GroupID:group})
-        if (GroupDetails.GroupID == "null"){
-            anyApproved = false;            
+        const GroupDetails = await Group.findOne({name:group})
+        if (GroupDetails.GroupID != null){
+            anyApproved = GroupDetails.staff;            
         }
         else{
-            anyApproved = true;
+            anyApproved = "Not assigned";
+            const bidsDone = await Supervisor.findOne({GroupID:group})
+            if (bidsDone != null){
+                doneBids = true;
+            }else{
+                doneBids = false;
+            }
         }
+        dataa = {anyApproved, doneBids}
+        console.log("Dataa : "+dataa)
         res.status(201).json({
             success: true,
-            data: anyApproved
+            data: dataa
         })
     }catch(error){
         next(error)
@@ -278,24 +293,167 @@ exports.ProjectBID = async(req, res, next) => {
 };
 
 
+//------------------- View TAF Bidding details ---------------------------
+exports.viewStudentTAF = async(req, res, next) =>{
+    const {gID} = req.body;
+    let BiddigData = [];
+    try{
+        const TAFDetetails = await TAF.find({groupID:gID})
+        const sbiddingsCount = await Supervisors.count({GroupID:gID})
+        const SDetails = await Supervisors.find({GroupID:gID})
+        
+        if(sbiddingsCount != 0){
+            for(let i = 0; i < sbiddingsCount; i++){
+                BiddigData.push(SDetails[i].StaffID)
+                //console.log("Total biddings "+sbiddingsCount)
+                //console.log("SDetails "+SDetails[i].StaffID)
+                // console.log("gID "+gID)
+            }  
+            const Bids = {BiddigData,TAFDetetails}
+            //console.log("TAFDetetails "+ TAFDetetails)
+            //console.log("Total biddings "+sbiddingsCount)
+            console.log("BiddigData "+ BiddigData)
+            res.status(201).json({
+                success: true,
+                data: Bids
+            })
+        }
+        
+            
+    }catch(error){
+        next(error)
+        console.log("Vie Bidding error")
+    }
+
+};
+
+
+//------------------- View Projects biddings -----------------------------
+exports.viewStudentProjectBids = async(req, res, next) => {
+    const {gID} = req.body;
+    let result = [];
+    try{
+        const Biddings = await BidProject.find({GroupID:gID});
+        for (let i = 0; i < Biddings.length;i++){
+            let pID = Biddings[i].ProjectID;
+            const pDetails = await AvailableProjects.findById({_id:pID,})
+            let stBidApp = Biddings[i].Approved; 
+            let stBidRej = Biddings[i].rejected;
+            let prDetails = [];
+            prDetails = [pDetails.projectName,pDetails.projectDescription,pDetails.projectType,pDetails.projectSupervisedBy,stBidApp,stBidRej];
+            result.push(prDetails);
+            //console.log("Project details "+ pDetails)
+        }
+        res.status(201).json({
+            success: true,
+            data: result
+        })
+
+        console.log("Biddings: "+ Biddings)
+    }catch(error){
+        next(error)
+        console.log("View Bidding error")
+    }
+
+};
+
+
+//Supervisor Functions
+
 //-------------------------- Get batches -----------------------------
 //regular batch and Jul batch. For now no need to implement
 
 
-//------------------- Get all project biddings for supervisors -----------
+//------------------- Get all TAF biddings for supervisors -----------
+exports.StaffViewBiddings = async(req, res, next) => {
+    const {staffID,batch} = req.body;
+    const TAFall = []
+     try{
+        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:batch})
+       // console.log("BiddingList is" + biddingsList)
+        for(let i = 0; i < biddingsList.length; i++){
+            let bidID = biddingsList[i]._id
+            let TAFID = biddingsList[i].Project
+            //console.log("BID ID: ",bidID)
+            try{
+                const tafDetails = await TAF.find({_id:TAFID,})
+                let all = {tafDetails, bidID}
+                TAFall.push(all)
+                //console.log("TAF details are "+tafDetails)
+            }catch(error){
+                next(error)
+                console.log("TAF view Bidding error")
+            }
+        }
+        
+        res.status(201).json({
+            success: true,
+            data: TAFall 
+        })
+        
+     }catch(error){
+        next(error)
+        console.log("staff view Bidding error")
+     }
 
+};
 
 
 //------------------- Get special project bidding for supervisors -------
+// no need to implement because in the previous api have been already implemented can be used
 
 
-//------------------- Get all TAF biddings for supervisors -------------
 
-
+//------------------- Get all project biddings for supervisors -------------
+exports.StaffViewPBiddings = async(req,res,next) => {
+    const {staffID,batch} = req.body;
+    try{
+        const biddngs = await BidProject.find({StaffID:staffID,BatchID:batch})
+        const bidData = []
+        for(let i = 0 ; i < biddngs.length; i++){
+            try{
+                let bid = biddngs[i];
+                const project = await AvailableProjects.findById({_id:biddngs[i].ProjectID})
+                let all = {bid,project}
+                bidData.push(all)
+                //console.log(bid)
+            }catch(error){
+                next(error)
+                console.log("Staff view project biddings error")
+            }
+        }
+        res.status(201).json({
+            success: true,
+            data : bidData
+        })           
+    }catch(error){
+        next(error)
+        console.log("Staff view project biddings error")
+    }
+};
 
 
 //------------------- Accept Project bidding -----------------------
+exports.AcceptBid = async(req,res,next) => {
 
+    //for(let i=0; i<bidID.length;i++){
+        try{
+            const bidID = req.params.id;
+            const bid = await BidProject.findById({_id:bidID})
+            console.log("Bid: "+bid)
+            bid.Approved = true;
+            await bid.save();
+            res.status(201).json({
+                success:true,
+                data: "updated!"
+            })  
+        }catch(error){
+            next(error)
+            console.log("Staff approve biddings error")
+        }
+    //}
+    
+};
 
 
 
@@ -303,7 +461,28 @@ exports.ProjectBID = async(req, res, next) => {
 
 
 
+
 //------------------- Accept TAF biddings ---------------------------
+exports.AcceptBid = async(req,res,next) => {
+
+    //for(let i=0; i<bidID.length;i++){
+        try{
+            const bidID = req.params.id;
+            const bid = await Supervisors.findById({_id:bidID})
+            console.log("Bid: "+bid)
+            bid.Approved = true;
+            await bid.save();
+            res.status(201).json({
+                success:true,
+                data: "updated!"
+            })  
+        }catch(error){
+            next(error)
+            console.log("Staff approve biddings error")
+        }
+    //}
+    
+};
 
 
 
