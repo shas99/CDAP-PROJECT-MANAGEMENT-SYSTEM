@@ -506,12 +506,12 @@ exports.addRubrics =async(req,res,next) => {
         exports.addSelectedRubrics = async(req,res,next) => {
         
             // get the body
-            const {BatchID,selectedRubric} = req.body
+            const {batchID,selectedRubric} = req.body
 
             try{
                 // console.log(hello)
             //get all the rubrics with BatchID hello
-            const rubrics = await MarkingComposition.create({BatchID,selectedRubric})
+            const rubrics = await MarkingComposition.create({batchID,selectedRubric})
 
             console.log(rubrics)
             

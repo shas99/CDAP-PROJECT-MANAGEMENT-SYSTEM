@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const markingCompositionfromtemplateSchema = new mongoose.Schema({ //CustomRubrics Schema
-    BatchID: {
+    batchID: {
         type: String
     },
     selectedRubric:{
