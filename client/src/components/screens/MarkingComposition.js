@@ -15,6 +15,7 @@ const MarkingComposition = ({history}) =>{
   const [visibility, setVisibility] = useState(false);
   const [rubricsData,setRubicsData] = useState([]);
   const [html,setHtmlcontent] = useState([]);
+  const [selectedRubric,setSelectedRubric] = useState([]);
 
   useEffect(() => {
 
@@ -92,12 +93,60 @@ const MarkingComposition = ({history}) =>{
     setHtmlcontent(html => [])
 
     for(let i=0;i<data.data.length;i++){
-        setHtmlcontent(html => [...html,(setHtml())])
+         
+        setHtmlcontent(html => [...html,(<div className="flex justify-center">
+        <div className="text-white" style={{width:"30%"}}>
+            <Collapsible trigger={["2022-Reg",<BsChevronDown />]}>
+                {/* white background */}
+                <div className="bg-black">
+                  {console.log(data.data)}
+                  {data.data[i].Fields.map((field,index) => (
+                  <div>
+                    {field}
+                  </div>
+                  ))}
+                </div>
+        
+            </Collapsible>
+
+            
+                    {/* <input type="checkbox" className="form-checkbox h-5 w-5 text-white"/> */}
+
+            {/* tick box when clicked add the id to the array*/}
+                    <input type="checkbox" className="form-checkbox h-5 w-5 text-white" onChange={(e) => {
+
+                      //see if checkbox is checked
+                      //if checked add to array
+                      //if unchecked remove from array
+                      if(e.target.checked){
+                        // console.log(e.target.value)
+                        // console.log(data.data[i]._id)
+                        Clicked(e.target.value,i)
+                        //add id to the selectedRubric array
+                        setSelectedRubric(selectedRubric => [...selectedRubric,data.data[i]._id])
+                      }
+                      else{
+                        console.log("unchecked")
+                        //remove the id from the array selectedRubric
+                        setSelectedRubric(selectedRubric => selectedRubric.filter(item => item !== data.data[i]._id))
+
+                      }
+                    }}/>
+
+        
+            </div>
+            </div>)])
+
     }
 
 //   add data to the array in the state
 //   setRubicsData(rubricsData => [...rubricsData, data.data])
 
+}
+
+const Clicked = (e,i) => {
+  console.log(e)
+  console.log(i)
 }
 
 const setHtml = () => {
@@ -132,13 +181,13 @@ const setHtml = () => {
 <div className="flex justify-center">
 <input type="text" id="myInput" onChange={getRubrics}/>
 </div>
-
+{console.log(selectedRubric)}
 {/* center */}
-<div className="flex justify-center">
+{/* <div className="flex justify-center">
 <div className="text-white" style={{width:"30%"}}>
-    <Collapsible trigger={["2022-Reg",<BsChevronDown />]}>
+    <Collapsible trigger={["2022-Reg",<BsChevronDown />]}> */}
         {/* white background */}
-        <div className="bg-black">
+        {/* <div className="bg-black">
       <p>
         This is the collapsible content. It can be any element or React
         component you like.
@@ -152,7 +201,7 @@ const setHtml = () => {
     </Collapsible>
 
     </div>
-    </div>
+    </div> */}
 
     
     {html}
