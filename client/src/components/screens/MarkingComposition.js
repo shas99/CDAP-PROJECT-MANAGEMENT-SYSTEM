@@ -6,6 +6,7 @@ import "./SubmissionAdmin.css";
 import SideNavigationBar from "../AdminNavigationBar/AdminNavigationBar";
 import Collapsible from 'react-collapsible';
 import { BsChevronDown } from "react-icons/bs";
+import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 
 const MarkingComposition = ({history}) =>{
   const [SubmissionsData, setSubmissionsData] = useState([])
@@ -18,6 +19,7 @@ const MarkingComposition = ({history}) =>{
   const [selectedRubric,setSelectedRubric] = useState([]);
   const [totalMarks,setMarks] = useState(0);
   const [batchID, setBatchID] = useState("");
+  // const [addorRemove, setAddorRemove] = useState(false);
 
   useEffect(() => {
 
@@ -122,6 +124,31 @@ const MarkingComposition = ({history}) =>{
                           (e) => {
                             // uncheck the checkbox with id checkbox+index
                             document.getElementById("checkbox"+i).checked = false;
+
+                            var indexi = -1;
+
+                            // //iterate through the selected rubric array
+                            // for(let j=0;j<selectedRubric.length;j++){
+                            //   if(selectedRubric[j] == data.data[i]._id){
+                            //     indexi = j
+                            //   }
+                            //   console.log("pop")
+                            //   console.log(selectedRubric[j])
+                            //   console.log("pop")
+                            // }
+                            console.log("pop")
+                            console.log(selectedRubric)
+                            console.log("pop")
+                            console.log(indexi)
+
+                            setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => index !== indexi))
+                            setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => item !== data.data[i]._id))
+                            
+                                                    //remove the weight from the array
+                        // setSelectedRubric(selectedRubric => selectedRubric.filter(item => item !== document.getElementById("inputbox"+i).value))
+                        // console.log(selectedRubric)
+                        // console.log("xxx")
+
                           }
                         }/>
 
@@ -140,13 +167,33 @@ const MarkingComposition = ({history}) =>{
                         //get the weight of the rubric
                         let weight = document.getElementById("inputbox"+i).value
                         // add to the array
+                        // setAddorRemove(addorRemove => true)
                         setSelectedRubric(selectedRubric => [...selectedRubric,weight])
+
+                      //   selectedRubric.map((data,index) => {
+                      //     if(index % 2 != 0){
+                      //       console.log(data)
+                      //       setMarks(total => total + parseInt(data))
+                      //     }
+                  
+                      //  })
 
 
                       }
                       else{
-
-                        setSelectedRubric(selectedRubric => selectedRubric.filter(item => item !== data.data[i]._id))
+                        // setAddorRemove(addorRemove => true)
+                        setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => item !== data.data[i]._id && 
+                        item !== data.data[i]._id ? selectedRubric[index]:null
+                        ))
+                        //remove the weight from the array
+                        setSelectedRubric(selectedRubric => selectedRubric.filter(item => item !== document.getElementById("inputbox"+i).value))
+                      //   selectedRubric.map((data,index) => {
+                      //     if(index % 2 != 0){
+                      //       console.log(data)
+                      //       setMarks(total => total + parseInt(data))
+                      //     }
+                  
+                      //  })
 
                       }
                     }}/>
@@ -157,11 +204,34 @@ const MarkingComposition = ({history}) =>{
 
     }
 
-//   add data to the array in the state
-//   setRubicsData(rubricsData => [...rubricsData, data.data])
+    
+    //   add data to the array in the state
+    //   setRubicsData(rubricsData => [...rubricsData, data.data])
+    
+  }
+  
+  useEffect (() => {
+    setMarks(0)
+    // if(addorRemove){
+      selectedRubric.map((data,index) => {
+        if(index % 2 != 0){
+          console.log(data)
+          setMarks(total => total + parseInt(data))
+        }
+  
+     })
+    // }
+    // else{
+    //   selectedRubric.map((data,index) => {
+    //     if(index % 2 != 0){
+    //       console.log(data)
+    //       setMarks(total => total + parseInt(data))
+    //     }
+  
+    //  })
 
-}
-
+    // }
+  },[selectedRubric])
 
 
 const setHtml = () => {
@@ -178,7 +248,7 @@ const setHtml = () => {
 const onSubmition = async (e) => {
 
   const { data } =  axios.post(
-    "/api/selectedRubrics/addSelectedRubrics",
+    "/api/markingRubrik/addSelectedRubrics",
     {selectedRubric,batchID},
     {
       headers: {
@@ -240,18 +310,18 @@ const onSubmition = async (e) => {
 Total marks: {totalMarks}
 </div>
 </div>
-    
+    {selectedRubric}
     {html}
 
     {/* get all the odd number elements from rubrics data add them and render */}
-     {selectedRubric.map((data,index) => {
+     {/* {selectedRubric.map((data,index) => {
         if(index % 2 != 0){
           console.log(data)
-          setMarks(total => total + parseInt(data))
+        //   setMarks(total => total + parseInt(data))
         }
 
      })
-     }
+     } */}
 
 
 

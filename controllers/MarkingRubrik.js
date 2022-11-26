@@ -6,6 +6,7 @@ const TemplateRubric = require('../models/Rubricsfromtemplate')
 const Marking = require('../models/Marking')
 const User = require('../models/User')
 const Group = require('../models/Group')
+const MarkingComposition = require('../models/markingComposition')
 const jwt = require("jsonwebtoken");
 //******** Update Existing Marking Configuration for Proposal Presentation *********
 exports.proposalMarkingConfiguration = async(req,res,next) =>{
@@ -487,6 +488,30 @@ exports.addRubrics =async(req,res,next) => {
                 // console.log(hello)
             //get all the rubrics with BatchID hello
             const rubrics = await TemplateRubric.find({BatchID:batch})
+
+            console.log(rubrics)
+            
+            res.status(200).json({
+                success: true,
+                data: rubrics
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
+
+        
+
+        exports.addSelectedRubrics = async(req,res,next) => {
+        
+            // get the body
+            const {BatchID,selectedRubric} = req.body
+
+            try{
+                // console.log(hello)
+            //get all the rubrics with BatchID hello
+            const rubrics = await MarkingComposition.create({BatchID,selectedRubric})
 
             console.log(rubrics)
             

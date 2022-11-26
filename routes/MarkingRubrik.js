@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {getRubricbyBatch,markpost,viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
+const {addSelectedRubrics,getRubricbyBatch,markpost,viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
 
 
 //Proposal Presentation Routes
@@ -39,6 +39,8 @@ router.route("/viewRubricsCreatedFromTemplateByID/:id").get(viewRubricsCreatedFr
 router.route("/markpost").post(markpost)
 
 router.route("/getRubricbyBatch").get(getRubricbyBatch)
+
+router.route("/addSelectedRubrics").post(addSelectedRubrics)
 module.exports = router
 
 
