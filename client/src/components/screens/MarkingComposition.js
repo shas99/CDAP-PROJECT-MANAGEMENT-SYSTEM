@@ -16,6 +16,8 @@ const MarkingComposition = ({history}) =>{
   const [rubricsData,setRubicsData] = useState([]);
   const [html,setHtmlcontent] = useState([]);
   const [selectedRubric,setSelectedRubric] = useState([]);
+  const [totalMarks,setMarks] = useState(0);
+  const [batchID, setBatchID] = useState("");
 
   useEffect(() => {
 
@@ -84,6 +86,10 @@ const MarkingComposition = ({history}) =>{
 //  };
  
  const getRubrics = async (e)=> {//normal text box
+
+  //set batch id
+  setBatchID(e.target.value)
+
     
   console.log(e.target.value)
   const{data} = await axios.get("/api/markingRubrik/getRubricbyBatch",{params:{batch:e.target.value}});
@@ -96,7 +102,7 @@ const MarkingComposition = ({history}) =>{
          
         setHtmlcontent(html => [...html,(<div className="flex justify-center">
         <div className="text-white" style={{width:"30%"}}>
-            <Collapsible trigger={["2022-Reg",<BsChevronDown />]}>
+            <Collapsible trigger={[data.data[i].Heading,<BsChevronDown />]}>
                 {/* white background */}
                 <div className="bg-black">
                   {console.log(data.data)}
@@ -110,24 +116,36 @@ const MarkingComposition = ({history}) =>{
             </Collapsible>
 
             
-                    {/* <input type="checkbox" className="form-checkbox h-5 w-5 text-white"/> */}
 
-            {/* tick box when clicked add the id to the array*/}
-                    <input type="checkbox" className="form-checkbox h-5 w-5 text-white" onChange={(e) => {
+                        {/* input box to enter the marks */}
+                        <input type="text" id={"inputbox"+i} className="form-input rounded-md shadow-sm mt-1 block w-full" placeholder="Enter weight" onChange={
+                          (e) => {
+                            // uncheck the checkbox with id checkbox+index
+                            document.getElementById("checkbox"+i).checked = false;
+                          }
+                        }/>
+
+
+                    {/* tick box when clicked add the id to the array*/}
+                    <input type="checkbox" className="form-checkbox h-5 w-5 text-white" id={"checkbox"+i} onChange={(e) => {
 
                       //see if checkbox is checked
                       //if checked add to array
                       //if unchecked remove from array
                       if(e.target.checked){
-                        // console.log(e.target.value)
-                        // console.log(data.data[i]._id)
-                        Clicked(e.target.value,i)
+                        
                         //add id to the selectedRubric array
                         setSelectedRubric(selectedRubric => [...selectedRubric,data.data[i]._id])
+
+                        //get the weight of the rubric
+                        let weight = document.getElementById("inputbox"+i).value
+                        // add to the array
+                        setSelectedRubric(selectedRubric => [...selectedRubric,weight])
+
+
                       }
                       else{
-                        console.log("unchecked")
-                        //remove the id from the array selectedRubric
+
                         setSelectedRubric(selectedRubric => selectedRubric.filter(item => item !== data.data[i]._id))
 
                       }
@@ -144,10 +162,7 @@ const MarkingComposition = ({history}) =>{
 
 }
 
-const Clicked = (e,i) => {
-  console.log(e)
-  console.log(i)
-}
+
 
 const setHtml = () => {
     console.log("set html")
@@ -157,6 +172,22 @@ const setHtml = () => {
     //   setHtmlcontent(<h1>Ge</h1>)
     }
     return (<h1>Hello</h1>)
+}
+
+
+const onSubmition = async (e) => {
+
+  const { data } =  axios.post(
+    "/api/selectedRubrics/addSelectedRubrics",
+    {selectedRubric,batchID},
+    {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("authToken")}`
+      }
+    }
+  );
+  
+
 }
 
 
@@ -203,14 +234,35 @@ const setHtml = () => {
     </div>
     </div> */}
 
+{/* white color */}
+<div className="flex justify-center">
+<div className="text-white" style={{width:"30%"}}>
+Total marks: {totalMarks}
+</div>
+</div>
     
     {html}
+
+    {/* get all the odd number elements from rubrics data add them and render */}
+     {selectedRubric.map((data,index) => {
+        if(index % 2 != 0){
+          console.log(data)
+          setMarks(total => total + parseInt(data))
+        }
+
+     })
+     }
+
+
 
       {console.log(rubricsData)}
 
         {/* <Link to="/addRubrics" className="login-screen__forgotpassword" id="link">
               Create New rubrics
             </Link> */}
+
+      {/* button */}
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={onSubmition}>Submit</button>
 
       
     </div>
