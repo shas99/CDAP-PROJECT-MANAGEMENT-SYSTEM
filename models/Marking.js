@@ -9,6 +9,9 @@ const RubricsfromtemplateSchema = new mongoose.Schema({ //CustomRubrics Schema
     },
     totalmarks:{
         type: Number
+    },
+    RubricID:{
+        type: String
     }
 
     // visibility: {

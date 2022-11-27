@@ -450,7 +450,7 @@ exports.addRubrics =async(req,res,next) => {
 
         //post the marks          
         exports.markpost = async(req,res,next) => {
-            const {entries,groupid} = req.body
+            const {entries,groupid,id} = req.body
             
             //read all the fields in entries objects store the add all the marks and store it in totalmarks
             const array = Object.values(entries)
@@ -465,7 +465,7 @@ exports.addRubrics =async(req,res,next) => {
 
             try{
             // console.log(entries)
-            const user = await Marking.create({entries,groupid,totalmarks})
+            const user = await Marking.create({entries,groupid,totalmarks,RubricID:id})
 
             console.log(user)
             
@@ -512,6 +512,40 @@ exports.addRubrics =async(req,res,next) => {
                 // console.log(hello)
             //get all the rubrics with BatchID hello
             const rubrics = await MarkingComposition.create({batchID,selectedRubric})
+
+            console.log(rubrics)
+            
+            res.status(200).json({
+                success: true,
+                data: rubrics
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
+
+        exports.getSelectedRubrics = async(req,res,next) => {
+        
+            // get the body
+            const {batchID,groupid} = req.body
+
+            try{
+            // console.log(hello)
+            //get all the rubrics with BatchID hello
+            const rubrics = await MarkingComposition.findOne({batchID})
+
+            //iterate and use the even entries to retreive the marking rubrics
+            for(var i=0;i<rubrics.selectedRubric.length;i++){
+                if(i%2==0){
+                    //get the rubric id
+                    var id = rubrics.selectedRubric[i]
+                    //get the rubric
+                    var marks = await Marking.findOne({groupid,RubricID:rubrics.selectedRubric[i]})//start from here
+                    console.log(marks)
+            }
+        }
+
 
             console.log(rubrics)
             
