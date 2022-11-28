@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.2.2 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
 *//*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
@@ -24,7 +24,6 @@
 2. Prevent adjustments of font size after orientation changes in iOS.
 3. Use a more readable tab size.
 4. Use the user's configured `sans` font-family by default.
-5. Use the user's configured `sans` font-feature-settings by default.
 */
 
 html {
@@ -32,7 +31,6 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */ /* 3 */
   tab-size: 4; /* 3 */
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
-  font-feature-settings: normal; /* 5 */
 }
 
 /*
@@ -62,8 +60,7 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 
 /*
@@ -361,11 +358,6 @@ img,
 video {
   max-width: 100%;
   height: auto;
-}
-
-/* Make elements with the HTML hidden attribute stay hidden by default */
-[hidden] {
-  display: none;
 }
 
 *, ::before, ::after {
@@ -858,6 +850,10 @@ video {
   margin-left: 8rem;
 }
 
+.-mr-1 {
+  margin-right: -0.25rem;
+}
+
 .mt-\[-42rem\] {
   margin-top: -42rem;
 }
@@ -930,10 +926,6 @@ video {
   margin-left: 40.5rem;
 }
 
-.-mr-1 {
-  margin-right: -0.25rem;
-}
-
 .ml-\[rem\] {
   margin-left: rem;
 }
@@ -944,14 +936,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
-.ml-5 {
-  margin-left: 1.25rem;
 }
 
 .block {
@@ -980,10 +964,6 @@ video {
 
 .grid {
   display: grid;
-}
-
-.inline-grid {
-  display: inline-grid;
 }
 
 .hidden {
@@ -1066,6 +1046,10 @@ video {
   height: 100px;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
 .h-\[85rem\] {
   height: 85rem;
 }
@@ -1092,10 +1076,6 @@ video {
 
 .h-\[3\.8rem\] {
   height: 3.8rem;
-}
-
-.h-4 {
-  height: 1rem;
 }
 
 .w-48 {
@@ -1214,6 +1194,14 @@ video {
   width: 16rem;
 }
 
+.w-4 {
+  width: 1rem;
+}
+
+.w-\[100rem\] {
+  width: 100rem;
+}
+
 .w-\[55rem\] {
   width: 55rem;
 }
@@ -1248,14 +1236,6 @@ video {
 
 .w-\[15rem\] {
   width: 15rem;
-}
-
-.w-4 {
-  width: 1rem;
-}
-
-.w-\[100rem\] {
-  width: 100rem;
 }
 
 .w-\[13rem\] {
@@ -1323,6 +1303,10 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.resize {
+  resize: both;
 }
 
 .appearance-none {
@@ -2313,6 +2297,11 @@ video {
   background-color: rgb(36 41 47 / 0.9);
 }
 
+.hover\:bg-gray-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
@@ -2330,21 +2319,6 @@ video {
 
 .hover\:bg-purple-800\/90:hover {
   background-color: rgb(107 33 168 / 0.9);
-}
-
-.hover\:bg-gray-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-900:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-900:hover {
@@ -2843,6 +2817,10 @@ video {
     width: 25%;
   }
 
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+
   .lg\:w-\[39\.5vw\] {
     width: 39.5vw;
   }
@@ -2873,10 +2851,6 @@ video {
 
   .lg\:w-1\/2 {
     width: 50%;
-  }
-
-  .lg\:w-1\/5 {
-    width: 20%;
   }
 
   .lg\:grid-cols-2 {
