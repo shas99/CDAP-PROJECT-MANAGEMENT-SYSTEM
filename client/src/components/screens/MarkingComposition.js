@@ -261,13 +261,22 @@ const setHtml = () => {
 
 const onSubmition = async (e) => {
 
+  //set selectedRubric to empty
+  setSelectedRubric(selectedRubric => [])
+
   //convert obj to array and set it's value and entry to the state
-  setSelectedRubric(Object.entries(obj))
-  
+  setSelectedRubric(selectedRubric => Object.entries(obj))
+  console.log(selectedRubric)
+
+  //read the object and add entries next to values
+  var temp = Object.entries(obj)
+
+  //convert the 2d array to 1d array
+  var temp2 = temp.flat()
 
   const { data } =  axios.post(
     "/api/markingRubrik/addSelectedRubrics",
-    {selectedRubric,batchID},
+    {selectedRubric:temp2,batchID},
     {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("authToken")}`
