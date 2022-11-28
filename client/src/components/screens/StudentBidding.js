@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
+import { render } from "@testing-library/react";
 // import { set } from "mongoose";
 
 const StudentBidding = ({history}) => {
@@ -9,8 +10,8 @@ const StudentBidding = ({history}) => {
     const [error, setError] = useState("");
     //const [heading, setHeading] = useState([]);
     const [groupID, setgroupID] = useState("");
-    const [approved,setApproved] = useState("Not Assiged");
-    const [anybids, setAnyBids] = useState(true);
+    const [approved,setApproved] = useState("false");
+    const [anybids, setAnyBids] = useState(false);
     const [showMySupervisor, setShowMySupervisor] = useState(false);
     const [TAFdetails, setTAFdetails] = useState({"TAFDetetails": [
         ]});
@@ -99,8 +100,19 @@ const StudentBidding = ({history}) => {
           const {data} = await axios.get("/api/group/supervisorStatus/"+groupName)
           //console.log("Data"+JSON.stringify(data.data))
           console.log("STATUS DATA : "+JSON.stringify(data.data))
+          console.log(data.data.doneBids)
           //setBiddings(data.data)
-
+          if(data.data.anyApproved == "Not assigned"){
+              setApproved("false")
+              if(data.data.doneBids == true){
+                setAnyBids(true)
+                
+                
+              }
+          }else{
+                setApproved(data.data.anyApproved)
+                //approved project details rendering function
+          }
         }catch(error){
           setError("Error")
         }
@@ -155,11 +167,22 @@ const StudentBidding = ({history}) => {
             <div className="inline-box float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
                  <SideNavigationBar page="MatchedSupervisors"/>
             </div>
-            <p style={{color:"white"}}>{groupID}<br/>
+            {/* <p style={{color:"white"}}>{groupID}<br/> */}
+            {console.log("any bids? "+anybids)}
             <div id="supervisorName" className="text-white w-80% h-20rem">
-      Your supervisor is : Pending
+              {approved != "false" ?(
+                <p>Your supervisor is : {approved}</p>
+                  
+                
+
+      ) : (
        
+      <div>
+      {anybids == true ? (    
+           
+      <div>
       <div className="text-white">
+        Your supervisor is : Pending
         <table>
           <thead>
           <tr>
@@ -207,25 +230,39 @@ const StudentBidding = ({history}) => {
           <table>
             <thead>
               <tr>
-                <td className="py-4 px-6">Project Name</td>
-                <td className="py-4 px-6">Project Type</td>
-                <td className="py-4 px-6">Category</td>
-                <td className="py-4 px-6">Supervisor</td>
-                <td className="py-4 px-6">Approval</td>
+                <th className="py-4 px-6">#</th>
+                <th className="py-4 px-6">Project Name</th>
+                <th className="py-4 px-6">Project Type</th>
+                <th className="py-4 px-6">Category</th>
+                <th className="py-4 px-6">Supervisor</th>
               </tr>
             </thead>
-          {ProjectDetails.map ((proj) => 
+          {ProjectDetails.map ((proj, index) => 
                   <tr>
+                    <th className="py-4 px-6">{index+1}</th>
                     <td className="py-4 px-6">{proj[1][0]}</td>
                     <td className="py-4 px-6">{proj[1][1]}</td>
                     <td className="py-4 px-6">{proj[1][2]}</td>
                     <td className="py-4 px-6">{proj[1][3]}</td>
                   </tr>
-                  )}
+           ) }
           </table>
       </div>
+      </div>
+      ) : ( 
+      <div>
+        <p>Place a Bid</p>
 
-     </div></p></div>
+        <button>Place bid on available Projects</button><br/>
+        <a href='/topicregistration'> <button >Topic Assessment Form</button></a>
+        
+
+      </div> )}</div>
+      )}
+     </div>
+     
+     </div>
+     
             /* <div id="supervisorName" className="text-white w-80% h-20rem">
               Your supervisor is : {approved}
             </div> */
