@@ -535,23 +535,31 @@ exports.addRubrics =async(req,res,next) => {
             //get all the rubrics with BatchID hello
             const rubrics = await MarkingComposition.findOne({batchID})
 
+            //define an object to store marks
+            var marks = {}
+
             //iterate and use the even entries to retreive the marking rubrics
             for(var i=0;i<rubrics.selectedRubric.length;i++){
                 if(i%2==0){
                     //get the rubric id
                     var id = rubrics.selectedRubric[i]
                     //get the rubric
-                    var marks = await Marking.findOne({groupid,RubricID:rubrics.selectedRubric[i]})//start from here
-                    console.log(marks)
+                    var mark = await Marking.findOne({groupid,RubricID:rubrics.selectedRubric[i]})//start from here
+                    var rubricsName = await TemplateRubric.findById(id)
+                    // console.log(rubricsName.Heading)
+                    // console.log(mark)
+
+                    // add rubricsName.Heading as field and marks as value to the object
+                    marks[rubricsName.Heading] = mark.totalmarks
             }
         }
 
 
-            console.log(rubrics)
+            console.log(marks)
             
             res.status(200).json({
                 success: true,
-                data: rubrics
+                data: marks
             })
 
         }catch(error){

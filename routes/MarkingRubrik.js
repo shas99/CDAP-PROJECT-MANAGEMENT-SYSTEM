@@ -42,7 +42,7 @@ router.route("/getRubricbyBatch").get(getRubricbyBatch)
 
 router.route("/addSelectedRubrics").post(addSelectedRubrics)
 
-router.route("/getSelectedRubrics").get(getSelectedRubrics)
+router.route("/getSelectedRubrics").post(getSelectedRubrics)
 module.exports = router
 
 
