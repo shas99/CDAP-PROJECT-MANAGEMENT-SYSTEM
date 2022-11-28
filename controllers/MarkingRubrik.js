@@ -550,10 +550,18 @@ exports.addRubrics =async(req,res,next) => {
                     // console.log(mark)
 
                     // add rubricsName.Heading as field and marks as value to the object
-                    marks[rubricsName.Heading] = mark.totalmarks
+                    marks[rubricsName.Heading] = mark.totalmarks * (rubrics.selectedRubric[i+1])/100
             }
         }
 
+        //get the total marks
+        var totalmarks = 0
+        for(var i=0;i<Object.values(marks).length;i++){
+            totalmarks = totalmarks + parseFloat(Object.values(marks)[i])
+        }
+
+        //add total marks to the object
+        marks["Total Marks"] = totalmarks
 
             console.log(marks)
             
