@@ -1,0 +1,20 @@
+#searchingBox {
+    /* border-width: 1px; */
+    /* margin-top: -300px; */
+    margin-left: 77.5%;
+  }
+  #groupSearch {
+    width: 330px;
+    padding: 15px;
+    background: white;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    -moz-border-radius: 10px;
+    font-weight: bolder;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 2px 2px aliceblue inset, 0 2px 0 aliceblue;
+    -webkit-box-shadow: 0 2px 2px aliceblue inset, 0 2px 0 aliceblue;
+    box-shadow: 0 2px 2px aliceblue inset, 0 2px 0 aliceblue;
+  }
