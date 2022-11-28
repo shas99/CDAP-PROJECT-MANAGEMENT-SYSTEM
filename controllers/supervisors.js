@@ -101,7 +101,7 @@ exports.showSupervisors = async(req,res,next) => {
                 name.push(add)
                 //name.push(biddingdata)
                 //console.log(biddings)
-
+                
                 //recommended supervisors not shown yet
 
             } 
@@ -201,23 +201,31 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 //check whether group has done any bid before
 //-------- Check whether the group already has a supervisor(student) --------------
 exports.supervisorStatus = async(req, res, next) => {
-    const {group} = req.body;
+    const groupName = req.params.id;
     let anyApproved, doneBids;
     try{
-        const GroupDetails = await Group.findOne({name:group})
-        if (GroupDetails.GroupID != null){
-            anyApproved = GroupDetails.staff;            
+        const gCount = await Group.find({name:groupName,staff:{ $exists: true, $ne: null }})
+        console.log("Count : "+gCount)
+        if (gCount != 0){
+            const GroupDetails = await Group.findOne({name:groupName})
+            const details = await Staff.findById({_id:GroupDetails.staff}); 
+            const name = details.username
+            anyApproved = name   
+            console.log("Any approved : "+anyApproved)  
+            dataa = {anyApproved}       
         }
         else{
             anyApproved = "Not assigned";
-            const bidsDone = await Supervisor.findOne({GroupID:group})
-            if (bidsDone != null){
+            const bids = await Supervisor.findOne({GroupID:groupName})
+            const Bids = await BidProject.findOne({GroupID:groupName})
+            if ((bids != null) || (Bids != null)){
                 doneBids = true;
             }else{
                 doneBids = false;
             }
+            dataa = {anyApproved, doneBids}
         }
-        dataa = {anyApproved, doneBids}
+       
         console.log("Dataa : "+dataa)
         res.status(201).json({
             success: true,
@@ -295,34 +303,45 @@ exports.ProjectBID = async(req, res, next) => {
 
 //------------------- View TAF Bidding details ---------------------------
 exports.viewStudentTAF = async(req, res, next) =>{
-    const {gID} = req.body;
+    const groupName = req.params.id;
     let BiddigData = [];
+    
     try{
-        const TAFDetetails = await TAF.find({groupID:gID})
-        const sbiddingsCount = await Supervisors.count({GroupID:gID})
-        const SDetails = await Supervisors.find({GroupID:gID})
-        
+        console.log("Gid: "+groupName)
+        const TAFDetetails = await TAF.find({groupID:groupName})
+        // const sbiddingsCount = await Supervisors.count({GroupID:gID})
+        const SDetails = await Supervisors.find({GroupID:groupName})
+        const sbiddingsCount = SDetails.length
+        let Bids = []
         if(sbiddingsCount != 0){
             for(let i = 0; i < sbiddingsCount; i++){
-                BiddigData.push(SDetails[i].StaffID)
+                try{
+                    let supervisor = await Staff.findById({_id:SDetails[i].StaffID})
+                    let SName = supervisor.username
+                    BiddigData.push(SName)
+                }catch(error){
+                    next(error)
+                }
+                //BiddigData.push(SDetails[i].StaffID)
                 //console.log("Total biddings "+sbiddingsCount)
                 //console.log("SDetails "+SDetails[i].StaffID)
                 // console.log("gID "+gID)
             }  
-            const Bids = {BiddigData,TAFDetetails}
+            Bids = {BiddigData,TAFDetetails}
             //console.log("TAFDetetails "+ TAFDetetails)
             //console.log("Total biddings "+sbiddingsCount)
-            console.log("BiddigData "+ BiddigData)
-            res.status(201).json({
+            console.log("BiddigData "+ BiddigData)  
+        }else{
+            Bids = "No"
+        }
+        res.status(201).json({
                 success: true,
                 data: Bids
-            })
-        }
-        
+        })
             
     }catch(error){
         next(error)
-        console.log("Vie Bidding error")
+        console.log("View Bidding error")
     }
 
 };
@@ -330,10 +349,11 @@ exports.viewStudentTAF = async(req, res, next) =>{
 
 //------------------- View Projects biddings -----------------------------
 exports.viewStudentProjectBids = async(req, res, next) => {
-    const {gID} = req.body;
+    //const {gID} = req.body;
+    const groupName = req.params.id;
     let result = [];
     try{
-        const Biddings = await BidProject.find({GroupID:gID});
+        const Biddings = await BidProject.find({GroupID:groupName});
         for (let i = 0; i < Biddings.length;i++){
             let pID = Biddings[i].ProjectID;
             const pDetails = await AvailableProjects.findById({_id:pID,})
@@ -357,6 +377,11 @@ exports.viewStudentProjectBids = async(req, res, next) => {
 
 };
 
+//view approved bidding
+exports.showApprovedBidding = async(req,res,next) => {
+
+}
+
 
 //Supervisor Functions
 
@@ -369,7 +394,7 @@ exports.StaffViewBiddings = async(req, res, next) => {
     const {staffID,batch} = req.body;
     const TAFall = []
      try{
-        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:batch})
+        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:batch,Approved:false})
        // console.log("BiddingList is" + biddingsList)
         for(let i = 0; i < biddingsList.length; i++){
             let bidID = biddingsList[i]._id
@@ -408,7 +433,7 @@ exports.StaffViewBiddings = async(req, res, next) => {
 exports.StaffViewPBiddings = async(req,res,next) => {
     const {staffID,batch} = req.body;
     try{
-        const biddngs = await BidProject.find({StaffID:staffID,BatchID:batch})
+        const biddngs = await BidProject.find({StaffID:staffID,BatchID:batch,Approved:false})
         const bidData = []
         for(let i = 0 ; i < biddngs.length; i++){
             try{
@@ -434,7 +459,7 @@ exports.StaffViewPBiddings = async(req,res,next) => {
 
 
 //------------------- Accept Project bidding -----------------------
-exports.AcceptBid = async(req,res,next) => {
+exports.AcceptPBid = async(req,res,next) => {
 
     //for(let i=0; i<bidID.length;i++){
         try{
@@ -442,48 +467,74 @@ exports.AcceptBid = async(req,res,next) => {
             const bid = await BidProject.findById({_id:bidID})
             console.log("Bid: "+bid)
             bid.Approved = true;
-            await bid.save();
+
+            const updateGr = await Group.findOne({name:bid.GroupID})
+            console.log("Group name: "+bid.GroupID)
+            updateGr.staff = bid.StaffID
+            console.log("STAFF: "+bid.StaffID)
+            await bid.save();  
+                // try{
+            //const gname =      
+            await updateGr.save();
+                // }catch(error){
+                //     next(error)
+                //     console.log("Staff approve(update group) error")
+                // }
             res.status(201).json({
                 success:true,
                 data: "updated!"
-            })  
+            })                
         }catch(error){
             next(error)
             console.log("Staff approve biddings error")
-        }
-    //}
-    
+        }   
 };
 
-
-
 //------------------- Reject Project bidding -----------------------
-
-
-
-
 //------------------- Accept TAF biddings ---------------------------
 exports.AcceptBid = async(req,res,next) => {
-
-    //for(let i=0; i<bidID.length;i++){
         try{
             const bidID = req.params.id;
             const bid = await Supervisors.findById({_id:bidID})
             console.log("Bid: "+bid)
             bid.Approved = true;
-            await bid.save();
+            // const updateGr = await Group.find({name:bid.GroupID})
+            // updateGr.staff = bid.StaffID
+            // await bid.save();
+            
+            // //try{
+                
+            // await updateGr.save();
+            // // }catch(error){
+            // //     next(error)
+            // //     console.log("Staff approve(update group) error")
+            // // }          
+            // res.status(201).json({
+            //     success:true,
+            //     data: "updated!"
+            // }) 
+            const updateGr = await Group.findOne({name:bid.GroupID})
+            console.log("Group name: "+bid.GroupID)
+            updateGr.staff = bid.StaffID
+            console.log("STAFF: "+bid.StaffID)
+            await bid.save();  
+                // try{
+            //const gname =      
+            await updateGr.save();
+                // }catch(error){
+                //     next(error)
+                //     console.log("Staff approve(update group) error")
+                // }
             res.status(201).json({
                 success:true,
                 data: "updated!"
-            })  
+            })                
         }catch(error){
             next(error)
             console.log("Staff approve biddings error")
         }
-    //}
-    
+    //}    
 };
-
 
 
 //------------------- Reject TAF biddings --------------------------
