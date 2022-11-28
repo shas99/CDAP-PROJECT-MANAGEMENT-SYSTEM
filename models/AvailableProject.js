@@ -19,7 +19,13 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
   projectType:{
     type:String
   },
+  batch:{
+    trype:String
+  },
   projectSupervisedBy:{
+    type:String
+  },
+  StID:{
     type:String
   },
   publishedDate:{
@@ -28,8 +34,11 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
   projectStatus:{
     type:Boolean
   },
+  Approved:{ //is approved? once supervisor approved a team this should be updated
+    type:Boolean
+  },
   bidding:{
-    biddingPlacedGroup:{
+    GroupID:{
       type:String
     },
     date:{
@@ -37,8 +46,13 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
     },
     time:{
       type:String
+    },
+    approved:{
+      type:Boolean
+    },
+    rejected:{
+      type:Boolean
     }
-
   },
   allBiddings:[]
 })

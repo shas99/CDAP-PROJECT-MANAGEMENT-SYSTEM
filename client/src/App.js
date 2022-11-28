@@ -104,6 +104,12 @@ import SupervisorViewBidding from "./components/screens/SupervisorViewBidding";
 import ViewBiddingStaff from "./components/screens/ViewBiddingStaffScreen";
 import StaffLoginExpiredScreen from "./components/screens/StaffExpiredLoginScreen";
 import Calibre from "./components/screens/Calibre";
+
+
+//student new bidding
+import BiddingHome from "./components/screens/StudentBidding";
+
+
 import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
 import AddRubrics from "./components/screens/AddRubricsScreen";
 import EditRubrics from "./components/screens/EditRubricsScreen";
@@ -111,6 +117,7 @@ import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
 import ViewMarkingRubricsAdmin from "./components/screens/ViewRubricsScreen";
 import Marking from "./components/screens/MarkingScreen";
 import MarkRubric from "./components/screens/MarkRubric"
+
 
 const App = () => {
   return (
@@ -250,9 +257,14 @@ const App = () => {
          
           <Route exact path="/StaffLoginExpiredScreen/" component={StaffLoginExpiredScreen}/>
 
+
+          {/* new bidding page */}
+          <Route exact path="/studentBidding" component={BiddingHome}/>
+
           <Route exact path="/MarkingRubricsAdmin" component={MarkingRubricsAdmin}/>
 
           <Route exact path="/Addrubrics" component={AddRubrics}/>
+
 
           <Route exact path="/editRubrics/:id" component={EditRubrics}/>
           

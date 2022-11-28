@@ -20,6 +20,7 @@ exports.getPrivateData = async (req,res,next) => {
         data2: user.username,
         data3: user.phoneNumber,
         data4: user.GroupID,
+        data5: user.BatchID,
       
     })
 

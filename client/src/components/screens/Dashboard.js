@@ -312,7 +312,7 @@ export default function Dashboard ({history}) {
 
                        <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
-                           <a href='/matchedsupervisors'> Matched Supervisors</a>
+                           <a href='/studentBidding'> Matched Supervisors</a>
                             </button>
                        </div>
 

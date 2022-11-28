@@ -260,12 +260,17 @@ exports.deleteProjectDetails = async(req,res,next) => {
 
 //******** CREATE PROJECT DETAILS  ******/
 exports.createProjectDetails = async(req,res,next) => {
-    const {projectName, projectDescription,projectType,projectSupervisedBy} = req.body
+    const {projectName, projectDescription,projectType,batch,projectSupervisedBy,StaffID} = req.body
+    const Approved = false
     const newProject = new AvailableProject({
         projectName,
-        projectDescription,
+        projectDescription, 
         projectType,
-        projectSupervisedBy
+        batch,
+        projectSupervisedBy,
+        StaffID,
+        Approved
+
     })
     try{
         const projectDetails = await newProject.save()
