@@ -4,7 +4,10 @@ const MarkingRubrik = require('../models/MarkingRubrik')
 const CustomRubrics = require('../models/CustomRubrics')
 const TemplateRubric = require('../models/Rubricsfromtemplate')
 const Marking = require('../models/Marking')
-
+const User = require('../models/User')
+const Group = require('../models/Group')
+const MarkingComposition = require('../models/markingComposition')
+const jwt = require("jsonwebtoken");
 //******** Update Existing Marking Configuration for Proposal Presentation *********
 exports.proposalMarkingConfiguration = async(req,res,next) =>{
 
@@ -447,10 +450,126 @@ exports.addRubrics =async(req,res,next) => {
 
         //post the marks          
         exports.markpost = async(req,res,next) => {
-            const entries = req.body
+            const {entries,groupid,id} = req.body
+            
+            //read all the fields in entries objects store the add all the marks and store it in totalmarks
+            const array = Object.values(entries)
+            console.log(array)
+            //read all the values in array and add them to totalmarks
+            var totalmarks = 0
+            for(var i=0;i<array.length;i++){
+                totalmarks = totalmarks + parseInt(array[i])
+
+            }
+            console.log(totalmarks)
+
             try{
-            console.log(entries)
-            const user = await Marking.create(entries)
+            // console.log(entries)
+            const user = await Marking.create({entries,groupid,totalmarks,RubricID:id})
+
+            console.log(user)
+            
+            res.status(200).json({
+                success: true,
+                data: "Success"
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
+
+        
+        exports.getRubricbyBatch = async(req,res,next) => {
+        
+            //get params
+            const batch = req.query.batch
+            try{
+                // console.log(hello)
+            //get all the rubrics with BatchID hello
+            const rubrics = await TemplateRubric.find({BatchID:batch})
+
+            console.log(rubrics)
+            
+            res.status(200).json({
+                success: true,
+                data: rubrics
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
+
+        
+
+        exports.addSelectedRubrics = async(req,res,next) => {
+        
+            // get the body
+            const {batchID,selectedRubric} = req.body
+
+            try{
+                // console.log(hello)
+            //get all the rubrics with BatchID hello
+            const rubrics = await MarkingComposition.create({batchID,selectedRubric})
+
+            console.log(rubrics)
+            
+            res.status(200).json({
+                success: true,
+                data: rubrics
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
+
+        exports.getSelectedRubrics = async(req,res,next) => {
+        
+            // get the body
+            const {batchID,groupid} = req.body
+
+            try{
+            // console.log(hello)
+            //get all the rubrics with BatchID hello
+            const rubrics = await MarkingComposition.findOne({batchID})
+
+            //define an object to store marks
+            var marks = {}
+
+            //iterate and use the even entries to retreive the marking rubrics
+            for(var i=0;i<rubrics.selectedRubric.length;i++){
+                if(i%2==0){
+                    //get the rubric id
+                    var id = rubrics.selectedRubric[i]
+                    //get the rubric
+                    var mark = await Marking.findOne({groupid,RubricID:rubrics.selectedRubric[i]})//start from here
+                    var rubricsName = await TemplateRubric.findById(id)
+                    // console.log(rubricsName.Heading)
+                    // console.log(mark)
+
+                    // add rubricsName.Heading as field and marks as value to the object
+                    marks[rubricsName.Heading] = mark.totalmarks * (rubrics.selectedRubric[i+1])/100
+            }
+        }
+
+        //get the total marks
+        var totalmarks = 0
+        for(var i=0;i<Object.values(marks).length;i++){
+            totalmarks = totalmarks + parseFloat(Object.values(marks)[i])
+        }
+
+        //add total marks to the object
+        marks["Total Marks"] = totalmarks
+
+            console.log(marks)
+            
+            res.status(200).json({
+                success: true,
+                data: marks
+            })
+
         }catch(error){
             res.status(500).json({success:false, error:error.message})
         }

@@ -20,7 +20,7 @@ const AdminViewGroup = ({ history, match }) => {
   const [member5,setmember5] = useState("")
   const [key,setKey] = useState("")
   const [batchID,setbatchID] = useState("")
-
+  const [marks,setMarks] = useState({})
   const [file, setFile] = useState()
   const [description,setDescription] = useState("")
   const [images,setImages] = useState([])
@@ -128,6 +128,31 @@ const download = e => {
  
 }
 
+const retreiveMarks = async () => {
+  //get request to backend with body
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+
+
+
+    const { data } = await axios.post(
+      `/api/MarkingRubrik/getSelectedRubrics/`,
+      {
+        batchID,groupid:"628db5bc8fcfac348c624a34"
+      }
+    );
+
+      console.log(data.data)
+      //render the object from data.data to the screen
+
+  setMarks(marks => data.data)
+}
+
+
+
   return (
     <div className="viewgroupscreen">
       <h2 id="caption">{name}</h2>
@@ -209,6 +234,17 @@ const download = e => {
           
           {/* redirect to /marking:id using Link */}
           <Link to={{pathname:`/marking/${match.params.id}`,state:{id:batchID}}}>Marking</Link>
+
+          {/* button to view marks*/}
+          <br/>
+          <button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" style={{marginLeft:"450px"}} onClick={retreiveMarks}>View marks</button>
+          {/* {marks} */}
+          {/* render the object */}
+          {Object.keys(marks).map((key) => {
+              return <div key={key}>
+                  <p>{key} : {marks[key]}</p>
+              </div>
+          })}
           </div>
        <br/><br/>
      </div>
