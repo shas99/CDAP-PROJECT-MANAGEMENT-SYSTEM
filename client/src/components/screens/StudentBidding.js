@@ -160,7 +160,7 @@ const StudentBidding = ({history}) => {
       Your supervisor is : Pending
        
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
-        <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
+        <table className="w-full text-sm text-centre text-gray-500 dark:text-gray-400 font-sans">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
           <tr>
           <th className="py-3 px-6 font-sans text-white font-bold">Topic</th>
