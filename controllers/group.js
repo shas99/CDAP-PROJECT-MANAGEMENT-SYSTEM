@@ -98,7 +98,7 @@ exports.groupregister = async(req,res,next) => {//group registration
 
         const group = await Group.create({
 
-            member_1,member_2,member_3,member_4,mem1_approve,mem2_approve,mem3_approve,mem4_approve,g_approval//new
+            member_1,member_2,member_3,member_4,mem1_approve,mem2_approve,mem3_approve,mem4_approve,g_approval,batch//new
 
         })
         var email = []

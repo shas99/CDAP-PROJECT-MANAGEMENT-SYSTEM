@@ -19,6 +19,7 @@ const AdminViewGroup = ({ history, match }) => {
   const [member4,setmember4] = useState("")
   const [member5,setmember5] = useState("")
   const [key,setKey] = useState("")
+  const [batchID,setbatchID] = useState("")
 
   const [file, setFile] = useState()
   const [description,setDescription] = useState("")
@@ -49,6 +50,7 @@ const AdminViewGroup = ({ history, match }) => {
           setmember4(data.data.member_4)
           setmember5(data.data.member_5)
           setKey(data.data.key)
+          setbatchID(batchID => data.data.batch)
         console.log(data);
         setSuccess(data.data);
       } catch (error) {
@@ -200,7 +202,13 @@ const download = e => {
       {/* Potential Security Vulnerability */}
       {/* Once database refinement is complete make sure to change this so that ID doesn't save in localStorage */}
           {localStorage.setItem("groupId",match.params.id)}
+
+
           </a></button>
+<br/><br/>
+          
+          {/* redirect to /marking:id using Link */}
+          <Link to={{pathname:`/marking/${match.params.id}`,state:{id:batchID}}}>Marking</Link>
           </div>
        <br/><br/>
      </div>

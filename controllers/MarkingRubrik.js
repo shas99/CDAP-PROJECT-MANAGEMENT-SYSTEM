@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const MarkingRubrik = require('../models/MarkingRubrik')
+const CustomRubrics = require('../models/CustomRubrics')
+const TemplateRubric = require('../models/Rubricsfromtemplate')
+const Marking = require('../models/Marking')
 
 //******** Update Existing Marking Configuration for Proposal Presentation *********
 exports.proposalMarkingConfiguration = async(req,res,next) =>{
@@ -265,3 +268,190 @@ exports.progressPresentationMarkingConfiguration = async(req,res,next) =>{
 }
 
 
+
+//Add customisable rubrics
+exports.addRubrics =async(req,res,next) => {
+    const {BatchID,visibility,Heading,Description,Fields} = req.body
+    
+    try{
+        const user = await CustomRubrics.create({
+            BatchID,visibility,Heading,Description,Fields
+        })
+        res.status(201).json({
+            success: true,
+            data: "Success"
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+    
+    };
+
+//View all abstract rubrics
+    exports.viewRubrics =async(req,res,next) => {
+        try{
+        
+        
+            const availableSubmissions = await CustomRubrics.find()//group that is approved and have this perticular member
+            //console.log(availableProjects[1])// 
+            const array = Object.values(availableSubmissions)
+            //console.log(availableSubmissions);
+            const arraySubmission = JSON.stringify(array).split(',')
+            // console.log(arrayproject)
+            // console.log(typeof arrayproject)
+            console.log(array)
+            res.status(201).json({
+                success: true,
+                data: array
+            })
+            
+        
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        
+        };
+
+//view specific abstract rubrics
+        exports.viewSpecificAbstractRubrics =async(req,res,next) => {
+            
+            const SubmissionID = req.query.SubmissionID
+            
+                try{
+                
+                
+                    const submission = await CustomRubrics.findById(SubmissionID)
+                    console.log(submission+"testing")
+    
+                    
+                    res.status(201).json({
+                        success: true,
+                        data: submission
+                    })
+                    
+                
+                }catch(error){
+                    res.status(500).json({success:false, error:error.message})
+                }
+                
+        };
+
+//edit abstract rubrics
+        exports.editRubrics =async(req,res,next) => {
+            
+            const {SubmissionID,Fields,Description,Heading,BatchID,visibility} = req.body
+    
+    
+            console.log(SubmissionID)
+            console.log(Fields)
+            console.log(Description)
+            console.log(Heading)
+            console.log(BatchID)
+    
+                try{
+                
+                
+                    const submission = await CustomRubrics.findById(SubmissionID)
+                    
+                    submission.BatchID = BatchID
+                    submission.Fields = Fields
+                    submission.Heading = Heading
+                    submission.Description = Description
+                    submission.visibility = visibility
+    
+                    await submission.save()
+    
+                    
+                    res.status(201).json({
+                        success: true,
+                        data: submission
+                    })
+                    
+                
+                }catch(error){
+                    res.status(500).json({success:false, error:error.message})
+                }
+                
+                };
+
+        //Add created rubrics from template
+        exports.addRubricsfromtemplate =async(req,res,next) => {
+            const {BatchID,visibility,Heading,Description,Fields} = req.body
+            
+            try{
+                const user = await TemplateRubric.create({
+                    BatchID,visibility,Heading,Description,Fields
+                })
+                res.status(201).json({
+                    success: true,
+                    data: "Success"
+                })
+                
+            
+            }catch(error){
+                res.status(500).json({success:false, error:error.message})
+            }
+            
+            };
+//View Rubrics that are created from template
+            exports.viewRubricsCreatedFromTemplate =async(req,res,next) => {
+                try{
+                
+                
+                    const availableSubmissions = await TemplateRubric.find()//group that is approved and have this perticular member
+                    //console.log(availableProjects[1])// 
+                    const array = Object.values(availableSubmissions)
+                    //console.log(availableSubmissions);
+                    const arraySubmission = JSON.stringify(array).split(',')
+                    // console.log(arrayproject)
+                    // console.log(typeof arrayproject)
+                    console.log(array)
+                    res.status(201).json({
+                        success: true,
+                        data: array
+                    })
+                    
+                
+                }catch(error){
+                    res.status(500).json({success:false, error:error.message})
+                }
+                
+                };
+
+
+                exports.viewRubricsCreatedFromTemplateByID =async(req,res,next) => {
+                    try{
+                        const id = req.params.id
+                    
+                        const availableSubmissions = await TemplateRubric.findById(id)//group that is approved and have this perticular member
+                        //console.log(availableProjects[1])// 
+                        // const array = Object.values(availableSubmissions)
+                        //console.log(availableSubmissions);
+                        // const arraySubmission = JSON.stringify(array).split(',')
+                        // console.log(arrayproject)
+                        // console.log(typeof arrayproject)
+                        console.log(availableSubmissions)
+                        res.status(201).json({
+                            success: true,
+                            data: availableSubmissions
+                        })
+                        
+                    
+                    }catch(error){
+                        res.status(500).json({success:false, error:error.message})
+                    }
+                    
+                    };  
+
+        //post the marks          
+        exports.markpost = async(req,res,next) => {
+            const entries = req.body
+            try{
+            console.log(entries)
+            const user = await Marking.create(entries)
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
