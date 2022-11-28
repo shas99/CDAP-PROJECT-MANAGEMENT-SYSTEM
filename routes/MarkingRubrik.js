@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {markpost,viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
+const {getSelectedRubrics,addSelectedRubrics,getRubricbyBatch,markpost,viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
 
 
 //Proposal Presentation Routes
@@ -19,7 +19,7 @@ router.route("/statusDocumentMarkingConfiguration/:id").get(viewStatusDocumentMa
 
 //Progress Presentation 01 Routes
 router.route("/progressPresentationMarkingConfiguration/update/:id").put(progressPresentationMarkingConfiguration)
-router.route("/progressPresentationMarkingConfiguration/:id").get(ViewProgressPresentationMarkingDetails)
+router.route("/progressPresentationMarkinsgConfiguration/:id").get(ViewProgressPresentationMarkingDetails)
 
 //customisable rubrics
 router.route("/addRubrics").post(addRubrics)
@@ -38,6 +38,11 @@ router.route("/viewRubricsCreatedFromTemplateByID/:id").get(viewRubricsCreatedFr
 
 router.route("/markpost").post(markpost)
 
+router.route("/getRubricbyBatch").get(getRubricbyBatch)
+
+router.route("/addSelectedRubrics").post(addSelectedRubrics)
+
+router.route("/getSelectedRubrics").post(getSelectedRubrics)
 module.exports = router
 
 
