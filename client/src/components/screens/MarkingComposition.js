@@ -19,6 +19,7 @@ const MarkingComposition = ({history}) =>{
   const [selectedRubric,setSelectedRubric] = useState([]);
   const [totalMarks,setMarks] = useState(0);
   const [batchID, setBatchID] = useState("");
+  const [obj,setObj] = useState({});
   // const [addorRemove, setAddorRemove] = useState(false);
 
   useEffect(() => {
@@ -126,25 +127,35 @@ const MarkingComposition = ({history}) =>{
                             document.getElementById("checkbox"+i).checked = false;
 
                             var indexi = -1;
+                            
+                            // remove entry data.data[i]._id from object if it exists using setObj
+                            setObj(obj => {
+                              // check if data.data[i]._id exists in object
+                              if(obj[data.data[i]._id] != undefined){
+                                // if it exists, remove it
+                                delete obj[data.data[i]._id];
+                              }
+                              return obj;
+                            })
 
-                            // //iterate through the selected rubric array
-                            // for(let j=0;j<selectedRubric.length;j++){
-                            //   if(selectedRubric[j] == data.data[i]._id){
-                            //     indexi = j
-                            //   }
-                            //   console.log("pop")
-                            //   console.log(selectedRubric[j])
-                            //   console.log("pop")
-                            // }
+
                             console.log("pop")
                             console.log(selectedRubric)
                             console.log("pop")
                             console.log(indexi)
 
-                            setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => index !== indexi))
+                            //find the index of the selectrubric that matches data.data[i]._id
+                            var test = selectedRubric.indexOf(data.data[i]._id)
+                            
+                            // setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => index !== indexi))
+                            // setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => indexi != index))
+                            console.log("indexi")
+                            console.log(test)
+                            console.log("indexi")
+
                             setSelectedRubric(selectedRubric => selectedRubric.filter((item,index) => item !== data.data[i]._id))
                             
-                                                    //remove the weight from the array
+                        //remove the weight from the array
                         // setSelectedRubric(selectedRubric => selectedRubric.filter(item => item !== document.getElementById("inputbox"+i).value))
                         // console.log(selectedRubric)
                         // console.log("xxx")
@@ -160,6 +171,9 @@ const MarkingComposition = ({history}) =>{
                       //if checked add to array
                       //if unchecked remove from array
                       if(e.target.checked){
+
+                        //construct an object with the rubric heading and the marks setObj
+                        setObj(obj => ({...obj,[data.data[i]._id]:weight}))
                         
                         //add id to the selectedRubric array
                         setSelectedRubric(selectedRubric => [...selectedRubric,data.data[i]._id])
@@ -247,9 +261,22 @@ const setHtml = () => {
 
 const onSubmition = async (e) => {
 
+  //set selectedRubric to empty
+  setSelectedRubric(selectedRubric => [])
+
+  //convert obj to array and set it's value and entry to the state
+  setSelectedRubric(selectedRubric => Object.entries(obj))
+  console.log(selectedRubric)
+
+  //read the object and add entries next to values
+  var temp = Object.entries(obj)
+
+  //convert the 2d array to 1d array
+  var temp2 = temp.flat()
+
   const { data } =  axios.post(
     "/api/markingRubrik/addSelectedRubrics",
-    {selectedRubric,batchID},
+    {selectedRubric:temp2,batchID},
     {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("authToken")}`
@@ -310,7 +337,9 @@ Total marks: {totalMarks}
 </div>
     {selectedRubric}
     {html}
-
+    {console.log("obj")}
+    {console.log(obj)}
+    {console.log("obj")}
     {/* get all the odd number elements from rubrics data add them and render */}
      {/* {selectedRubric.map((data,index) => {
         if(index % 2 != 0){
