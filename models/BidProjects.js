@@ -21,7 +21,10 @@ const BidProjectSchema = new mongoose.Schema({//Available project bidding
     },
     rejected: {
         type: Boolean
-    }
+    },
+    CosuperID:{
+        type: String
+    },
 
 })
 
