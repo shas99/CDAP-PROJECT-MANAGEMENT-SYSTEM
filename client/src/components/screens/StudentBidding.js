@@ -167,6 +167,7 @@ const StudentBidding = ({history}) => {
             <div className="inline-box float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
                  <SideNavigationBar page="MatchedSupervisors"/>
             </div>
+
             {/* <p style={{color:"white"}}>{groupID}<br/> */}
             {console.log("any bids? "+anybids)}
             <div id="supervisorName" className="text-white w-80% h-20rem">
@@ -185,51 +186,61 @@ const StudentBidding = ({history}) => {
         Your supervisor is : Pending
         <table>
           <thead>
+
+            <p className="font-sans font-bold" style={{color:"white"}}>{groupID}<br/>
+            <div id="supervisorName" className="text-white w-80% h-20rem font-sans font-bold">
+      Your supervisor is : Pending
+       
+      <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
+        <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
+
           <tr>
-          <th>Topic</th>
-          <th>Topic Description</th>
-          <th>Abstract</th>
-          <th>Research Problem</th>
-          <th>Solution</th>
-          <th>System Overview</th>
-          <th>Objective</th>
-          <th>Project Task</th>
-          <th>Technologies</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Topic</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Topic Description</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">Abstract</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">Research Problem</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">Solution</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">System Overview</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">Objective</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">Project Task</th>
+          <th  className="py-3 px-6 font-sans text-white font-bold">Technologies</th>
           </tr>
           </thead>
           <tbody>
         {TAFdetails.TAFDetetails.map((TAF) =>
-          <tr>
-          <td>{TAF.Topic}</td>
-          <td>{TAF.topicdescription}</td>
-          <td>{TAF.abstract}</td>
-          <td>{TAF.researchProblem}</td>
-          <td>{TAF.solution}</td>
-          <td>{TAF.systemOverview}</td>
-          <td>{TAF.objective}</td>
-          <td>{TAF.projecttask}</td>
-          <td>{TAF.technologies}</td>
+          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.Topic}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.topicdescription}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.abstract}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.researchProblem}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.solution}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.systemOverview}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.objective}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.projecttask}</td>
+          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.technologies}</td>
         </tr>
         )}
         </tbody>
         </table>
         
       </div>
-
-      <div className="border-solid border-white border-2 w-50% ml-5rem">
-        <p>Bidded Supervisors :</p>
+<br/>
+      <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
+        <p className="font-sans font-bold">Bidded Supervisors :</p><br/>
         <span><ul>
         {Biddings.BiddigData.map ((biddings) => 
           
-            <li>{biddings}</li>
+            <li className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700" style={{margin:"5px"}}>{biddings}</li>
           
         )}</ul></span>
 
-      </div>
-      <div className="border-solid border-white border-2 w-50% ml-5rem">
-          <table>
-            <thead>
+      </div><br/>
+      <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
+          <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
               <tr>
+
                 <th className="py-4 px-6">#</th>
                 <th className="py-4 px-6">Project Name</th>
                 <th className="py-4 px-6">Project Type</th>
@@ -246,6 +257,21 @@ const StudentBidding = ({history}) => {
                     <td className="py-4 px-6">{proj[1][2]}</td>
                     <td className="py-4 px-6">{proj[1][3]}</td>
                     <td className="py-4 px-6">{proj[1][4]}</td>
+
+
+                <td className="py-3 px-6 font-sans text-white font-bold">Project Name</td>
+                <td className="py-3 px-6 font-sans text-white font-bold">Project Type</td>
+                <td className="py-3 px-6 font-sans text-white font-bold">Category</td>
+                <td className="py-3 px-6 font-sans text-white font-bold">Supervisor</td>
+                <td className="py-3 px-6 font-sans text-white font-bold">Approval</td>
+              </tr>
+            </thead>
+          {ProjectDetails.map ((proj) => 
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
+                    <td className="py-3 px-6 font-sans text-white">{proj[1][0]}</td>
+                    <td className="py-3 px-6 font-sans text-white ">{proj[1][1]}</td>
+                    <td className="py-3 px-6 font-sans text-white ">{proj[1][2]}</td>
+                    <td className="py-3 px-6 font-sans text-white ">{proj[1][3]}</td>
 
                   </tr>
            ) }
