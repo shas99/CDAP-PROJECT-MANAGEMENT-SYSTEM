@@ -254,7 +254,7 @@ const StudentBidding = ({history}) => {
       </div><br/>
         <div>
           <h2 className="font-sans font-bold" style={{marginLeft:"460px",display:"inline-grid"}}>Place New Bidding</h2><br/><br/>
-          <a href='/matchedsupervisors'><button  style={{marginLeft:"190px",display:"inline-grid"}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 px-4 py-2.5 ">New bid on available Projects
+          <a href='/matchedsupervisors'><button  style={{marginLeft:"190px",display:"inline-grid"}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 px-4 py-2.5 ">New Bid On Available Projects
           </button></a>
           <a href='/topicregistration'> <button  style={{marginLeft:"190px",display:"inline-grid"}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 px-4 py-2.5 ">Edit Topic Assessment Details</button></a>
         </div>
