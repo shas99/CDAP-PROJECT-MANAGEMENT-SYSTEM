@@ -116,40 +116,43 @@ const TopicRegistration = ({history}) => {
             "Content-Type": "application/json",
           },
         };
-        alert("Successfully Submited!")
-        try {
-          const { data } = await axios.post(
-            "/api/group/topicregister",
-            { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
-            config
-          );
-
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-          
-          Toast.fire({
-            icon: 'success',
-            title: 'You Have Successfully Posted A Topic Registration Form'
-          })
-    
-    
-    
-          history.push("/");
-        } catch (error) {
-          setError(error.response.data.error);
-          setTimeout(() => {
-            setError("");
-          }, 5000);
+        
+        if(groupID != "" && Topic != "" && topicdescription != "" && abstract != "" && researchProblem != "" && solution != "" && systemOverview != "" && objective != "" && projecttask != "" && technologies != ""){
+          try {
+            const { data } = await axios.post(
+              "/api/group/topicregister",
+              { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
+              config
+            );alert("Successfully Submited! ")
+  
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+            
+            Toast.fire({
+              icon: 'success',
+              title: 'You Have Successfully Posted A Topic Registration Form'
+            })
+      
+            history.push("/");
+          } catch (error) {
+            setError(error.response.data.error);
+            setTimeout(() => {
+              setError("");
+            }, 5000);
+          }
+        }else{
+          alert("One or more fields empty")
         }
+        
       };
 
      

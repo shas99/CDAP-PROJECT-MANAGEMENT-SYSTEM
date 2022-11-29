@@ -28,6 +28,9 @@ const AvailableProjectSchema = new mongoose.Schema({ //AvailableProject Schema
   StID:{
     type:String
   },
+  coSuper:{
+    tpe:String
+  },
   publishedDate:{
     type:String
   },

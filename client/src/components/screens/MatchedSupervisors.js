@@ -18,14 +18,15 @@ const MatchedSupervisors = ({history}) => {
     const [suggestions,setsuggestions] = useState([]);
     const [SupervisorName, setSupervisorName] = useState([]);
     const [SupervisorBatch, setSupervisorBatch] = useState([]);
-    const [batchID, setBatchID] = useState("");
+    const [BatchID, setBatchID] = useState("");
+    const [GroupID, setGroupID] = useState("");
     const [batchType, setBatchType] = useState("");
     const [Projects, setProjects] = useState([]);
-    const [ProjectID, setProjectID] = useState("");
+    //const [ProjectID, setProjectID] = useState("");
     const [ProjectName, setProjectName] = useState("");
     const [ProjectDescription, setProjectDescription] = useState("");
-    const [SelectedSupervisors, setSelectedSupervisors] = useState([]);
-    const [SelectedProject, setSelectedProject] = useState("");
+    const [CosuperID, setSelectedSupervisors] = useState("");
+    const [ProjectID, setSelectedProject] = useState("");
     // const [visible, setVisible] = React.useState(false);
 
     
@@ -42,6 +43,9 @@ const MatchedSupervisors = ({history}) => {
           const { data} = await axios.get("/api/private", config);
           
           setPrivateData(data.data);
+          setGroupID(data.data4)
+          setBatchID(data.data5)
+          //alert(groupID)
         } catch (error) {
           localStorage.removeItem("authToken");
           setError("You are not authorized please login");
@@ -64,7 +68,8 @@ const MatchedSupervisors = ({history}) => {
           const array = Object.entries(data.data)
 
           setSupervisorName(array);
-          //console.log(array)
+
+          console.log(array)
           
         }
         catch(error){}
@@ -151,7 +156,7 @@ const MatchedSupervisors = ({history}) => {
          },
        };
     
-       const cd = localStorage.getItem("authToken")
+       //const cd = localStorage.getItem("authToken")
        //console.log("PVT details: "+cd);
        try {
 
@@ -168,8 +173,8 @@ const MatchedSupervisors = ({history}) => {
 
               Swal.fire('Saved!', '', 'success')
                  const { data } =  axios.post(
-           "http://localhost:5000/api/AvailableProject/bid",
-           { SelectedProject,SelectedSupervisors,cd },
+           "http://localhost:5000/api/group/bidonproject",
+           { GroupID,BatchID,ProjectID,CosuperID},
            pconfig
            
          );
@@ -203,12 +208,12 @@ const MatchedSupervisors = ({history}) => {
 
 //https://stackoverflow.com/questions/71679422/checkbox-check-and-uncheck-to-remove-values-in-react-js
 
-    const updateSupervisors = (e) => { 
-      if (e.target.checked) { setSelectedSupervisors((oldArray) => [...oldArray, e.target.value]); } 
-      else { removesupervisor(e); console.log(SelectedSupervisors) } 
-  }
-  const removesupervisor = (e) => { setSelectedSupervisors([...SelectedSupervisors.filter((supervisor) =>
-     supervisor !== e.target.value)]) }
+  //   const updateSupervisors = (e) => { 
+  //     if (e.target.checked) { setSelectedSupervisors((oldArray) => [...oldArray, e.target.value]); } 
+  //     else { removesupervisor(e); console.log(CosuperID) } 
+  // }
+  // const removesupervisor = (e) => { setSelectedSupervisors([...CosuperID.filter((supervisor) =>
+  //    supervisor !== e.target.value)]) }
   
    
 
@@ -234,6 +239,70 @@ const MatchedSupervisors = ({history}) => {
         {/* Table for Supervisor select */}
         <form onSubmit={SubmitBidding}>  
 <div class="overflow-x-auto shadow-md sm:rounded-lg w-[50rem] ml-[20rem] mt-[-42rem]">
+<h1 className="text-4xl text-slate-300"> Pick Your Project</h1> <br/>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Project Name
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Project Description
+                </th>
+                <th scope="col" class="py-3 px-6">
+                Project Category
+                </th>
+                <th scope="col" class="py-3 px-6">
+                Supervisor
+                </th>
+                <th scope="col" class="py-3 px-6">
+                   Availability
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+          
+               {Projects.map (project =>{  
+                  if(project[1].projectStatus == false){
+                    return(
+                    <tr>
+                       <td className="py-4 px-6">{project[1].projectName}</td>
+                       <td>{project[1].projectDescription}</td>
+                      <td>{project[1].projectType}</td>
+                      <td>{project[1].projectSupervisedBy}</td>
+                      <td className="w-10 items-center py-4 px-12" >
+                        <input type="radio" name="project" required value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)} /> 
+                      </td>
+                    </tr>
+                    )
+                  }else{
+                    return(
+                    <tr>
+                     <td className="py-4 px-6 w-[23rem] text-s">{project[1].projectName}</td>
+                       <td className="py-4 px-6 w-[59rem] text-xs">{project[1].projectDescription}</td>
+                      <td className="py-2 px-2 w-[19rem] text-s">{project[1].projectType}</td>
+                      <td>{project[1].projectSupervisedBy}</td>
+                      <td className="w-10 items-center py-4 px-8" >
+                        Taken 
+                      </td>
+                    </tr>
+                    )
+                  }                          
+                               
+                  })}
+                
+        </tbody>
+    </table>
+
+
+</div>
+
+<br/><br/><br/>
+
+{/* https://flowbite.com/docs/components/tables/ */}
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg w-[55rem] ml-[20rem]">
 <h1 className="text-4xl text-slate-300"> Choose Your Supervisor</h1> <br/>
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -256,67 +325,12 @@ const MatchedSupervisors = ({history}) => {
                     <td className="py-4 px-6">{supervisor[1][1]}</td>
                     <td className="w-10 items-center py-4 px-8">{supervisor[1][2]}/{batchType}</td>
                     <td className="w-10 items-center py-4 px-8" >
-                      <input type="checkbox" value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input>
+                      {/* <input type="radio" value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input> */}
+                      <input type="radio" value={supervisor[1][0]} name="supervisor" onChange={(e) => setSelectedSupervisors(e.target.value)}></input>
+
                     </td>
                   </tr>
                   )}
-    </table>
-</div>
-
-<br/><br/><br/><br/>
-
-{/* https://flowbite.com/docs/components/tables/ */}
-
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg w-[55rem] ml-[20rem]">
-<h1 className="text-4xl text-slate-300"> Pick Your Project</h1> <br/>
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-white-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="py-3 px-6">
-                    Project Name
-                </th>
-                <th scope="col" class="py-3 px-6">
-                    Project Description
-                </th>
-                <th scope="col" class="py-3 px-6">
-                Project Category
-                </th>
-                <th scope="col" class="py-3 px-6">
-                   Availability
-                </th>
-               
-            </tr>
-        </thead>
-        <tbody>
-          
-               {Projects.map (project =>{  
-                  if(project[1].projectStatus == false){
-                    return(
-                    <tr>
-                       <td className="py-4 px-6">{project[1].projectName}</td>
-                       <td>{project[1].projectDescription}</td>
-                      <td>{project[1].projectType}</td>
-                      <td className="w-10 items-center py-4 px-12" >
-                        <input type="radio" name="project" required value={project[1]._id} onChange={(e) => setSelectedProject(e.target.value)} /> 
-                      </td>
-                    </tr>
-                    )
-                  }else{
-                    return(
-                    <tr>
-                     <td className="py-4 px-6 w-[23rem] text-s">{project[1].projectName}</td>
-                       <td className="py-4 px-6 w-[59rem] text-xs">{project[1].projectDescription}</td>
-                      <td className="py-2 px-2 w-[19rem] text-s">{project[1].projectType}</td>
-                      <td className="w-10 items-center py-4 px-8" >
-                        Taken 
-                      </td>
-                    </tr>
-                    )
-                  }                          
-                               
-                  })}
-                
-        </tbody>
     </table>
 </div>
 <button type="submit" className="ml-[20rem] mt-10 text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 hover:ring-2 hover-ring-blue-900 mr-2 mb-2">Place Bid</button>

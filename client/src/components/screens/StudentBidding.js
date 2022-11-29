@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
+import { render } from "@testing-library/react";
 // import { set } from "mongoose";
 
 const StudentBidding = ({history}) => {
@@ -9,8 +10,8 @@ const StudentBidding = ({history}) => {
     const [error, setError] = useState("");
     //const [heading, setHeading] = useState([]);
     const [groupID, setgroupID] = useState("");
-    const [approved,setApproved] = useState("Not Assiged");
-    const [anybids, setAnyBids] = useState(true);
+    const [approved,setApproved] = useState("false");
+    const [anybids, setAnyBids] = useState(false);
     const [showMySupervisor, setShowMySupervisor] = useState(false);
     const [TAFdetails, setTAFdetails] = useState({"TAFDetetails": [
         ]});
@@ -99,8 +100,19 @@ const StudentBidding = ({history}) => {
           const {data} = await axios.get("/api/group/supervisorStatus/"+groupName)
           //console.log("Data"+JSON.stringify(data.data))
           console.log("STATUS DATA : "+JSON.stringify(data.data))
+          console.log(data.data.doneBids)
           //setBiddings(data.data)
-
+          if(data.data.anyApproved == "Not assigned"){
+              setApproved("false")
+              if(data.data.doneBids == true){
+                setAnyBids(true)
+                
+                
+              }
+          }else{
+                setApproved(data.data.anyApproved)
+                //approved project details rendering function
+          }
         }catch(error){
           setError("Error")
         }
@@ -155,6 +167,26 @@ const StudentBidding = ({history}) => {
             <div className="inline-box float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
                  <SideNavigationBar page="MatchedSupervisors"/>
             </div>
+
+            {/* <p style={{color:"white"}}>{groupID}<br/> */}
+            {console.log("any bids? "+anybids)}
+            <div id="supervisorName" className="text-white w-80% h-20rem">
+              {approved != "false" ?(
+                <p>Your supervisor is : {approved}</p>
+                  
+                
+
+      ) : (
+       
+      <div>
+      {anybids == true ? (    
+           
+      <div>
+      <div className="text-white">
+        Your supervisor is : Pending
+        <table>
+          <thead>
+
             <p className="font-sans font-bold" style={{color:"white"}}>{groupID}<br/>
             <div id="supervisorName" className="text-white w-80% h-20rem font-sans font-bold">
       Your supervisor is : Pending
@@ -162,6 +194,7 @@ const StudentBidding = ({history}) => {
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
         <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
+
           <tr>
           <th className="py-3 px-6 font-sans text-white font-bold">Topic</th>
           <th className="py-3 px-6 font-sans text-white font-bold">Topic Description</th>
@@ -207,6 +240,25 @@ const StudentBidding = ({history}) => {
           <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
               <tr>
+
+                <th className="py-4 px-6">#</th>
+                <th className="py-4 px-6">Project Name</th>
+                <th className="py-4 px-6">Project Type</th>
+                <th className="py-4 px-6">Category</th>
+                <th className="py-4 px-6">Supervisor</th>
+                <th className="py-4 px-6">Co-Supervisor</th>
+              </tr>
+            </thead>
+          {ProjectDetails.map ((proj, index) => 
+                  <tr>
+                    <th className="py-4 px-6">{index+1}</th>
+                    <td className="py-4 px-6">{proj[1][0]}</td>
+                    <td className="py-4 px-6">{proj[1][1]}</td>
+                    <td className="py-4 px-6">{proj[1][2]}</td>
+                    <td className="py-4 px-6">{proj[1][3]}</td>
+                    <td className="py-4 px-6">{proj[1][4]}</td>
+
+
                 <td className="py-3 px-6 font-sans text-white font-bold">Project Name</td>
                 <td className="py-3 px-6 font-sans text-white font-bold">Project Type</td>
                 <td className="py-3 px-6 font-sans text-white font-bold">Category</td>
@@ -220,12 +272,33 @@ const StudentBidding = ({history}) => {
                     <td className="py-3 px-6 font-sans text-white ">{proj[1][1]}</td>
                     <td className="py-3 px-6 font-sans text-white ">{proj[1][2]}</td>
                     <td className="py-3 px-6 font-sans text-white ">{proj[1][3]}</td>
-                  </tr>
-                  )}
-          </table>
-      </div>
 
-     </div></p></div>
+                  </tr>
+           ) }
+          </table>
+          
+      </div>
+        <div>
+          <h2>Place new Bidding</h2>
+          <a href='/matchedsupervisors'><button>New bid on available Projects</button></a><br/>
+          <a href='/topicregistration'> <button >Edit Topic Assessment Details</button></a>
+        </div>
+      </div>
+      ) : ( 
+      <div>
+        <p>Place a Bid</p>
+
+        
+        <a href='/matchedsupervisors'><button>Place bid on available Projects</button></a><br/>
+        <a href='/topicregistration'> <button >Topic Assessment Form</button></a>
+        
+
+      </div> )}</div>
+      )}
+     </div>
+     
+     </div>
+     
             /* <div id="supervisorName" className="text-white w-80% h-20rem">
               Your supervisor is : {approved}
             </div> */
