@@ -95,7 +95,9 @@ exports.showSupervisors = async(req,res,next) => {
                 //console.log(i)
 
                 const biddingCount = await Supervisors.count({StaffID:ID,Approved:true,BatchID:batchID}); //total approved supervisor biddings
+               // console.log("biddingCount "+biddingCount)
                 const biddngPCount = await BidProject.count({StaffID:ID,Approved:true,BatchID:batchID}); //total groups appproved for projects
+               // console.log("biddingPCount "+biddngPCount)
                 const biddingdata = biddingCount + biddngPCount; //sum of approved groups for batch
                 let add = [array[i]._id,array[i].username,biddingdata]
                 name.push(add)
@@ -268,25 +270,28 @@ exports.SupervisorBID = async(req, res, next) => {
 
 //-------------------------- Available project Bidding(student) ---------------------
 exports.ProjectBID = async(req, res, next) => {
-    const {GroupID, BatchID, ProjectID} = req.body;
+    const {GroupID, BatchID, ProjectID,CosuperID} = req.body;
     const Approved = false;
     const rejected = false;
+    console.log(req.body);
     try{
         const projectdata = await AvailableProjects.findById({_id:ProjectID});
         var stfID = projectdata.StID    //Get relevent supervisor id
         console.log("pdata "+projectdata)
-        console.log("staff id : "+ stfID)
+        //console.log("staff id : "+ stfID)
     }catch(error){
         next(error)
         console.log("Staff id error")
     };
-    console.log("staff id : "+ stfID)
+    //console.log("staff id : "+ stfID)
     try{
         console.log("staff id : "+ stfID)
         const StaffID = stfID
+        console.log("GroupID: "+GroupID,"StaffID: "+StaffID,"BatchID: "+BatchID,"ProjectID: "+ProjectID,"Approved: "+Approved,"rejected: "+rejected,"CosuperID: "+CosuperID)
         const bid = await BidProject.create({
-            GroupID,StaffID,BatchID,ProjectID,Approved,rejected
+            GroupID,StaffID,BatchID,ProjectID,Approved,rejected,CosuperID
     })
+    
     res.status(201).json({
         success: true,
         data: "Bid set Success"
@@ -356,11 +361,16 @@ exports.viewStudentProjectBids = async(req, res, next) => {
         const Biddings = await BidProject.find({GroupID:groupName});
         for (let i = 0; i < Biddings.length;i++){
             let pID = Biddings[i].ProjectID;
+            let CosuperID = Biddings[i].CosuperID
+            console.log("Cosuper: "+CosuperID)
+            const cosup = await Staff.findById({_id:CosuperID,})
+            let Cosupervisor = cosup.username
+            console.log("Co sup name: "+Cosupervisor)
             const pDetails = await AvailableProjects.findById({_id:pID,})
             let stBidApp = Biddings[i].Approved; 
             let stBidRej = Biddings[i].rejected;
             let prDetails = [];
-            prDetails = [pDetails.projectName,pDetails.projectDescription,pDetails.projectType,pDetails.projectSupervisedBy,stBidApp,stBidRej];
+            prDetails = [pDetails.projectName,pDetails.projectDescription,pDetails.projectType,pDetails.projectSupervisedBy,Cosupervisor,stBidApp,stBidRej];
             result.push(prDetails);
             //console.log("Project details "+ pDetails)
         }

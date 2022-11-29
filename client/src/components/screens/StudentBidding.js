@@ -235,6 +235,7 @@ const StudentBidding = ({history}) => {
                 <th className="py-4 px-6">Project Type</th>
                 <th className="py-4 px-6">Category</th>
                 <th className="py-4 px-6">Supervisor</th>
+                <th className="py-4 px-6">Co-Supervisor</th>
               </tr>
             </thead>
           {ProjectDetails.map ((proj, index) => 
@@ -244,16 +245,25 @@ const StudentBidding = ({history}) => {
                     <td className="py-4 px-6">{proj[1][1]}</td>
                     <td className="py-4 px-6">{proj[1][2]}</td>
                     <td className="py-4 px-6">{proj[1][3]}</td>
+                    <td className="py-4 px-6">{proj[1][4]}</td>
+
                   </tr>
            ) }
           </table>
+          
       </div>
+        <div>
+          <h2>Place new Bidding</h2>
+          <a href='/matchedsupervisors'><button>New bid on available Projects</button></a><br/>
+          <a href='/topicregistration'> <button >Edit Topic Assessment Details</button></a>
+        </div>
       </div>
       ) : ( 
       <div>
         <p>Place a Bid</p>
 
-        <button>Place bid on available Projects</button><br/>
+        
+        <a href='/matchedsupervisors'><button>Place bid on available Projects</button></a><br/>
         <a href='/topicregistration'> <button >Topic Assessment Form</button></a>
         
 

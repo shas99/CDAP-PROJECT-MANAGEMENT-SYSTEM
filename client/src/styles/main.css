@@ -1202,10 +1202,6 @@ video {
   width: 100rem;
 }
 
-.w-\[55rem\] {
-  width: 55rem;
-}
-
 .w-\[23rem\] {
   width: 23rem;
 }
@@ -1216,6 +1212,10 @@ video {
 
 .w-\[19rem\] {
   width: 19rem;
+}
+
+.w-\[55rem\] {
+  width: 55rem;
 }
 
 .w-36 {
