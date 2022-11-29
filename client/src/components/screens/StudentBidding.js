@@ -163,11 +163,10 @@ const StudentBidding = ({history}) => {
       ) :
       (
     
-      <div className="statusClass" style={{width:"100%",height:"80rem",backgroundColor:"#22272E"}}>
-            <div className="inline-box float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+      <div className="statusClass" style={{width:"100%",height:"90rem",backgroundColor:"#22272E"}}>
+            <div className="inline-box float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
                  <SideNavigationBar page="MatchedSupervisors"/>
             </div>
-
             {/* <p style={{color:"white"}}>{groupID}<br/> */}
             {console.log("any bids? "+anybids)}
             <div id="supervisorName" className="text-white w-80% h-20rem">
@@ -181,30 +180,21 @@ const StudentBidding = ({history}) => {
       <div>
       {anybids == true ? (    
            
-      <div>
-      <div className="text-white">
-        Your supervisor is : Pending
-        <table>
-          <thead>
-
-            <p className="font-sans font-bold" style={{color:"white"}}>{groupID}<br/>
-            <div id="supervisorName" className="text-white w-80% h-20rem font-sans font-bold">
-      Your supervisor is : Pending
-       
+      <div className="text-white w-80% h-20rem font-sans font-bold">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
-        <table className="w-full text-sm text-centre text-gray-500 dark:text-gray-400 font-sans">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
-
+        Your supervisor is : Pending
+        <table className="w-200px text-sm text-centre text-gray-500 dark:text-gray-400 font-sans"  style={{width:"50%"}} >
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans" >
           <tr>
           <th className="py-3 px-6 font-sans text-white font-bold">Topic</th>
           <th className="py-3 px-6 font-sans text-white font-bold">Topic Description</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Abstract</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Research Problem</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Solution</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">System Overview</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Objective</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Project Task</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Technologies</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Abstract</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Research Problem</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Solution</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">System Overview</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Objective</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Project Task</th>
+          <th className="py-3 px-6 font-sans text-white font-bold">Technologies</th>
           </tr>
           </thead>
           <tbody>
@@ -227,8 +217,8 @@ const StudentBidding = ({history}) => {
       </div>
 <br/>
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
-        <p className="font-sans font-bold">Bidded Supervisors :</p><br/>
-        <span><ul>
+        <p className="font-sans font-bold" style={{marginLeft:"190px",display:"inline-grid"}}>Bidded Supervisors :</p>
+        <span><ul style={{marginLeft:"50px",display:"inline-grid"}} >
         {Biddings.BiddigData.map ((biddings) => 
           
             <li className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700" style={{margin:"5px"}}>{biddings}</li>
@@ -237,51 +227,36 @@ const StudentBidding = ({history}) => {
 
       </div><br/>
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
-          <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
+          <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans" style={{width:"50%", margin:"0 auto"}}>
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
               <tr>
-
-                <th className="py-4 px-6">#</th>
-                <th className="py-4 px-6">Project Name</th>
-                <th className="py-4 px-6">Project Type</th>
-                <th className="py-4 px-6">Category</th>
-                <th className="py-4 px-6">Supervisor</th>
-                <th className="py-4 px-6">Co-Supervisor</th>
+                <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">#</th>
+                <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">Project Name</th>
+                <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">Project Type</th>
+                <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">Category</th>
+                <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">Supervisor</th>
+                <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">Co-Supervisor</th>
               </tr>
             </thead>
           {ProjectDetails.map ((proj, index) => 
-                  <tr>
-                    <th className="py-4 px-6">{index+1}</th>
-                    <td className="py-4 px-6">{proj[1][0]}</td>
-                    <td className="py-4 px-6">{proj[1][1]}</td>
-                    <td className="py-4 px-6">{proj[1][2]}</td>
-                    <td className="py-4 px-6">{proj[1][3]}</td>
-                    <td className="py-4 px-6">{proj[1][4]}</td>
-
-
-                <td className="py-3 px-6 font-sans text-white font-bold">Project Name</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Project Type</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Category</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Supervisor</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Approval</td>
-              </tr>
-            </thead>
-          {ProjectDetails.map ((proj) => 
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
-                    <td className="py-3 px-6 font-sans text-white">{proj[1][0]}</td>
-                    <td className="py-3 px-6 font-sans text-white ">{proj[1][1]}</td>
-                    <td className="py-3 px-6 font-sans text-white ">{proj[1][2]}</td>
-                    <td className="py-3 px-6 font-sans text-white ">{proj[1][3]}</td>
+                    <th className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{index+1}</th>
+                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{proj[1][0]}</td>
+                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{proj[1][1]}</td>
+                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{proj[1][2]}</td>
+                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{proj[1][3]}</td>
+                    <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{proj[1][4]}</td>
 
                   </tr>
            ) }
           </table>
           
-      </div>
+      </div><br/>
         <div>
-          <h2>Place new Bidding</h2>
-          <a href='/matchedsupervisors'><button>New bid on available Projects</button></a><br/>
-          <a href='/topicregistration'> <button >Edit Topic Assessment Details</button></a>
+          <h2 className="font-sans font-bold" style={{marginLeft:"460px",display:"inline-grid"}}>Place New Bidding</h2><br/><br/>
+          <a href='/matchedsupervisors'><button  style={{marginLeft:"190px",display:"inline-grid"}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 px-4 py-2.5 ">New bid on available Projects
+          </button></a>
+          <a href='/topicregistration'> <button  style={{marginLeft:"190px",display:"inline-grid"}} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 px-4 py-2.5 ">Edit Topic Assessment Details</button></a>
         </div>
       </div>
       ) : ( 
@@ -289,8 +264,8 @@ const StudentBidding = ({history}) => {
         <p>Place a Bid</p>
 
         
-        <a href='/matchedsupervisors'><button>Place bid on available Projects</button></a><br/>
-        <a href='/topicregistration'> <button >Topic Assessment Form</button></a>
+        <a href='/matchedsupervisors'><button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">Place bid on available Projects</button></a><br/>
+        <a href='/topicregistration'> <button  className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">Topic Assessment Form</button></a>
         
 
       </div> )}</div>

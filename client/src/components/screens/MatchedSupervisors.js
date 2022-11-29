@@ -231,7 +231,7 @@ const MatchedSupervisors = ({history}) => {
       ) : ( 
         <>
        
-        <div className="bg-gray-900 h-[85rem]">
+        <div className="bg-gray-900 h-[100rem]">
         <Header/>
         <SideNavigationBar page="MatchedSupervisors"/>
 
