@@ -32,6 +32,8 @@ const ViewStaffForm = ({ history, match }) => {
   const [ID,setID] = useState(useParams().id)
   const [Heading,setHeading] = useState("")
   const [Fields,setFields] = useState({})
+  const [requiredDate,setRequiredDate] = useState()
+  const [submissionDate,setSubmittedDate] = useState()
 
   useEffect(() => {
     // const resetPasswordHandler = async (e) => {
@@ -124,6 +126,8 @@ const ViewStaffForm = ({ history, match }) => {
         //   setDescription(data.data.Description)
           setHeading(data.data.heading)
           setFields(data.data.entries)
+          setRequiredDate(data.data.requiredDate)
+          setSubmittedDate(data.data.submissionDate)
         //   if(data.data.visibility){
         //     setVisibility(1)
         //   }else{
@@ -294,6 +298,19 @@ pdfFields.forEach((item, index) => {
             )}</div>
             {/* </tbody> */}
          {/* </table> */}
+
+                       {/* check if the deadline has passed */}
+                       {new Date(requiredDate).getTime() < new Date(submissionDate).getTime() ? <p>Late submission</p> : <p>Submitted on time</p>}
+
+                       <br/>
+
+              {/* formate the date to display in d/m/y format */}
+              Deadline:{new Date(requiredDate).toLocaleDateString()}<br/>
+              Submitted Date:{new Date(submissionDate).toLocaleDateString()}<br/>
+
+
+
+<br/>
          <button onClick={pdfHandler}>Generate report!</button>
      </div>
     </div>

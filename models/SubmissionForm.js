@@ -20,8 +20,10 @@ const SubmissionFormSchema = new mongoose.Schema({ //SubmissionPage Schema
     {
         type: Date
     },
-
-    
+    requiredDate:
+    {
+        type: Date
+    },
 })
 const SubmissionForm = mongoose.model("submissionForm", SubmissionFormSchema)
 module.exports = SubmissionForm

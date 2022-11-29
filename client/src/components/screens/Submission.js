@@ -37,6 +37,7 @@ const Submission = ({history}) =>{
   const [flow,setFlow] = useState(0)
   const [pointer,setPointer] = useState(0)
   const [heading,setHeading] = useState("")
+  const [requiredDate,setRequiredDate] = useState()
 
    const params =useParams();
    const subm = params.id;
@@ -85,7 +86,7 @@ const Submission = ({history}) =>{
         setHeading(data.data.Heading);
 
         formElements.push(<h1 style={{color:"white"}}>{data.data.Heading}</h1>)
-
+        setRequiredDate(data.data.Deadline)
         // check if the deadline has passed
         const deadline = new Date(data.data.Deadline);
         const today = new Date();
@@ -210,7 +211,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
         Swal.fire('Saved!', '', 'success')
         const { data } =  axios.post(
           "/api/STDAvailableSubmissions/submissionForm",
-          {entries,heading,submissionDate},
+          {entries,heading,submissionDate,requiredDate},
           {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem("authToken")}`
