@@ -161,8 +161,10 @@ const SubmissionMilestones = ({history}) =>{
               </div>
               <div className="lg:w-1/6 h-8 pt-2 text-white bg-violet-600 rounded-lg mt-5 font-sans"> <a href={`/Submission/${submission._id}`}>&nbsp;&nbsp;      <FontAwesomeIcon className="btnicon" icon={faArrowUpFromBracket} />
               &nbsp;&nbsp;Add Submission&nbsp;&nbsp;</a></div>
+              <div style={{color:"white"}}>Deadline: {submission.Deadline}</div>
               <hr class="w-2/1 border-grey-900 my-4 mt-5"/>
               <div className="text-white text-xs mt-1 font-sans"><p >Updated on {submission.Date}</p></div>
+              
               
             </div>
             

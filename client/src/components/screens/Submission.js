@@ -84,6 +84,19 @@ const Submission = ({history}) =>{
         
         setHeading(data.data.Heading);
 
+        formElements.push(<h1 style={{color:"white"}}>{data.data.Heading}</h1>)
+
+        // check if the deadline has passed
+        const deadline = new Date(data.data.Deadline);
+        const today = new Date();
+        if (today > deadline) {
+          formElements.push(<h1 style={{color:"red"}}>Deadline has passed, Late submission</h1>)
+          
+        }
+        else {
+          formElements.push(<h1 style={{color:"white"}}>Deadline: {format(new Date(data.data.Deadline), 'dd/MM/yyyy')}</h1>)
+        }
+
         //https://www.w3schools.com/react/react_forms.asp
         for(var i = 0;i <sub.length;i++){//set arrays for inputboxes and labels
           if(i%2==0){
