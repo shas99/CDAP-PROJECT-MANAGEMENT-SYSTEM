@@ -18,6 +18,7 @@ const AddSubmission = ({history}) => {
   const [Fields,setField] = useState([])
   const [temp,setTemp] = useState("")
   const [visibility,setVisibility] = useState(false)
+  const [Deadline,setDeadline] = useState()
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -57,7 +58,7 @@ const AddSubmission = ({history}) => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/api/STDAvailableSubmissions/addSubmission",
-        { Heading,Description,BatchID,Fields,visibility },
+        { Heading,Description,BatchID,Fields,visibility,Deadline },
         config
         
       );
@@ -153,6 +154,15 @@ const AddSubmission = ({history}) => {
         Submission BatchID:
         <input type="text" name="batchID" onChange={(e) => setBatchID(e.target.value)} id="input"/>
     </label>
+    {/* calender */}
+    <br/>
+    <br/>
+    <label>
+      Deadline:
+      <input type="date" name="deadline" id="input" style={{color:"black"}} onChange={(e) => setDeadline(e.target.value)} />
+    </label>
+    <br/>
+    <br/>
     <label>
         Enable submission
         <input type="checkbox" name="visibility" onChange={toggle}/>

@@ -24,9 +24,10 @@ const SubmissionPageSchema = new mongoose.Schema({ //SubmissionPage Schema
     },
     heading:{
         type: String
-    }
-
-    
+    },
+    Deadline:{
+        type: Date
+    },
 })
 const SubmissionPage = mongoose.model("submissionPageStructure", SubmissionPageSchema)
 module.exports = SubmissionPage
