@@ -16,6 +16,10 @@ const SubmissionFormSchema = new mongoose.Schema({ //SubmissionPage Schema
     BatchID:{
         type : String
     },
+    submissionDate:
+    {
+        type: Date
+    },
 
     
 })

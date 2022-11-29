@@ -107,7 +107,7 @@ exports.viewspecificSubmission = async(req,res,next) => {
 
 //Create entries for submissions
 exports.submissionForm = async(req,res,next) => {
-    const {entries,heading} = req.body
+    const {entries,heading,submissionDate} = req.body
     let token//to retreive username in backend
 
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer")){
@@ -136,7 +136,7 @@ exports.submissionForm = async(req,res,next) => {
     console.log("pppppppppp"+groupid)
     try{
         const form = await Form.create({
-            entries,heading,studentID,groupid
+            entries,heading,studentID,groupid,submissionDate
         })
         // console.log(heading)
         res.status(201).json({

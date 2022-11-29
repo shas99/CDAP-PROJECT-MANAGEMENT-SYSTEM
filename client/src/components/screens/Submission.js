@@ -185,6 +185,8 @@ const Submission = ({history}) =>{
 const submitHandler = async (e) => {//post api to create an entry in mongodb
   e.preventDefault();
 
+  const submissionDate = new Date();
+
   const config = {
     header: {
       "Content-Type": "application/json",
@@ -208,7 +210,7 @@ const submitHandler = async (e) => {//post api to create an entry in mongodb
         Swal.fire('Saved!', '', 'success')
         const { data } =  axios.post(
           "/api/STDAvailableSubmissions/submissionForm",
-          {entries,heading},
+          {entries,heading,submissionDate},
           {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem("authToken")}`
