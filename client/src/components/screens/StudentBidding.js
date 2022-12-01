@@ -182,12 +182,12 @@ const StudentBidding = ({history}) => {
       {anybids == true ? (    
            
       <div>
-      <div className="text-white">
-        Your supervisor is : Pending
-        <table>
+      {/* <div className="text-white">
+        Your supervisor is : Pending */}
+        {/* <table>
           <thead>
 
-            <p className="font-sans font-bold" style={{color:"white"}}>{groupID}<br/>
+            <p className="font-sans font-bold" style={{color:"white"}}>{groupID}<br/> */}
             <div id="supervisorName" className="text-white w-80% h-20rem font-sans font-bold">
       Your supervisor is : Pending
        
@@ -265,15 +265,15 @@ const StudentBidding = ({history}) => {
                 <td className="py-3 px-6 font-sans text-white font-bold">Supervisor</td>
                 <td className="py-3 px-6 font-sans text-white font-bold">Approval</td>
               </tr>
-            </thead>
-          {ProjectDetails.map ((proj) => 
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
-                    <td className="py-3 px-6 font-sans text-white">{proj[1][0]}</td>
-                    <td className="py-3 px-6 font-sans text-white ">{proj[1][1]}</td>
-                    <td className="py-3 px-6 font-sans text-white ">{proj[1][2]}</td>
-                    <td className="py-3 px-6 font-sans text-white ">{proj[1][3]}</td>
+          //   </thead>
+          // {ProjectDetails.map ((proj) => 
+          //         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
+          //           <td className="py-3 px-6 font-sans text-white">{proj[1][0]}</td>
+          //           <td className="py-3 px-6 font-sans text-white ">{proj[1][1]}</td>
+          //           <td className="py-3 px-6 font-sans text-white ">{proj[1][2]}</td>
+          //           <td className="py-3 px-6 font-sans text-white ">{proj[1][3]}</td>
 
-                  </tr>
+          //         </tr>
            ) }
           </table>
           
@@ -284,7 +284,7 @@ const StudentBidding = ({history}) => {
           <a href='/topicregistration'> <button >Edit Topic Assessment Details</button></a>
         </div>
       </div>
-      ) : ( 
+      </div>) : ( 
       <div>
         <p>Place a Bid</p>
 
@@ -295,113 +295,11 @@ const StudentBidding = ({history}) => {
 
       </div> )}</div>
       )}
-     </div>
      
-     </div>
+     </div></div>
      
-            /* <div id="supervisorName" className="text-white w-80% h-20rem">
-              Your supervisor is : {approved}
-            </div> */
-    /* {showMySupervisor != false ? (
-    <div id="supervisorName" className="text-white w-90% h-20rem">
-    Your supervisor is : {approved}
-    <br/>
-    Approved Project 
-    <br/>
-    <table className="w-80% text-sm text-left text-white dark:text-white bg-black border-white border-solid">
-        <thead className="text-xs text-white uppercase bg-black dark:bg-white dark:text-white">
-            <tr>
-                <th scope="col" className="py-3 px-6">
-                    Project Name
-                </th>
-                <th scope="col" className="py-3 px-6">
-                    Description
-                </th>
-                <th scope="col" className="py-3 px-6">
-                    Supervisor
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr className="bg-black border-b dark:bg-black dark:border-gray-700 hover:bg-gray-6000 dark:hover:bg-gray-600">
-                <td className="py-4 px-6">
-                     
-                </td>
-                <td className="py-4 px-6">
-                     
-                </td>
-                <td className="py-4 px-6">
-                     
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-  </div>
-  ) : (
-    anybids = true ? (
-
-   
-    <div id="supervisorName" className="text-white w-80% h-20rem">
-      Your supervisor is : Pending
-
-      <div className="text-white">
-        <tr>
-          <th>Topic</th>
-          <td>{TAFdetails.Topic}</td>
-        </tr>
-
-        <tr>
-          <th>Topic Description</th>
-          <td>{TAFdetails.topicdescription}</td>
-        </tr>       
-
-        <tr>
-          <th>Abstract</th>
-          <td>{TAFdetails.abstract}</td>
-        </tr>
+     
           
-        <tr>
-          <th>Research Problem</th>
-          <td>{TAFdetails.researchProblem}</td>
-        </tr>
-          
-        <tr>
-          <th>Solution</th>
-          <td>{TAFdetails.solution}</td>
-        </tr>
-          
-        <tr>
-          <th>System Overview</th>
-          <td>{TAFdetails.systemOverview}</td>
-        </tr>
-          
-        <tr>
-          <th>Objective</th>
-          <td>{TAFdetails.objective}</td>
-        </tr>
-          
-        <tr>
-          <th>Project Task</th>
-          <td>{TAFdetails.projecttask}</td>
-        </tr>
-          
-        <tr>
-          <th>Technologies</th>
-          <td>{TAFdetails.technologies}</td>
-        </tr>
-      </div>
-
-    </div>   
-    ) : (
-      <p>
-
-        Place Bid for supervisor
-
-      </p>
-
-    ) 
-  )} */
 
 
 

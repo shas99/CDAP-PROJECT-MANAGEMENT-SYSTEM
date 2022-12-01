@@ -443,7 +443,7 @@ exports.StaffViewBiddings = async(req, res, next) => {
 //------------------- Get all project biddings for supervisors -------------
 exports.StaffViewPBiddings = async(req,res,next) => {
     const {staffID,BatchID} = req.body
-    console.log("Staff : "+staffID)
+    console.log("BatchID : "+BatchID)
     try{
         const biddngs = await BidProject.find({StaffID:staffID,BatchID:BatchID,Approved:false})
         console.log("biddings: "+biddngs)
