@@ -246,7 +246,7 @@ exports.SupervisorBID = async(req, res, next) => {
     const {SupervisorArr, GroupID, BatchID, Project} = req.body;  //StaffID, GroupID, BatchID, Project = TAFID
     const Approved = false;
     const rejected = false;
-
+    console.log(req.body)
     try{
         for(let i = 0;i<SupervisorArr.length;i++){
             let StaffID = SupervisorArr[i];
@@ -355,7 +355,7 @@ exports.viewStudentTAF = async(req, res, next) =>{
 //------------------- View Projects biddings -----------------------------
 exports.viewStudentProjectBids = async(req, res, next) => {
     //const {gID} = req.body;
-    const groupName = req.params.id;
+    const groupName = req.query.id;
     let result = [];
     try{
         const Biddings = await BidProject.find({GroupID:groupName});
@@ -401,7 +401,8 @@ exports.showApprovedBidding = async(req,res,next) => {
 
 //------------------- Get all TAF biddings for supervisors -----------
 exports.StaffViewBiddings = async(req, res, next) => {
-    const {staffID,batch} = req.body;
+    const {staffID,batch} = req.params;
+    console.log(req.params)
     const TAFall = []
      try{
         const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:batch,Approved:false})
@@ -441,22 +442,26 @@ exports.StaffViewBiddings = async(req, res, next) => {
 
 //------------------- Get all project biddings for supervisors -------------
 exports.StaffViewPBiddings = async(req,res,next) => {
-    const {staffID,batch} = req.body;
+    const {staffID,BatchID} = req.body
+    console.log("Staff : "+staffID)
     try{
-        const biddngs = await BidProject.find({StaffID:staffID,BatchID:batch,Approved:false})
+        const biddngs = await BidProject.find({StaffID:staffID,BatchID:BatchID,Approved:false})
+        console.log("biddings: "+biddngs)
         const bidData = []
         for(let i = 0 ; i < biddngs.length; i++){
             try{
                 let bid = biddngs[i];
+                console.log("Bid[1] : "+bid)
                 const project = await AvailableProjects.findById({_id:biddngs[i].ProjectID})
                 let all = {bid,project}
                 bidData.push(all)
-                //console.log(bid)
+                console.log("all : "+all)
             }catch(error){
                 next(error)
                 console.log("Staff view project biddings error")
             }
         }
+        console.log("Bid Data: "+bidData)
         res.status(201).json({
             success: true,
             data : bidData

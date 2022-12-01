@@ -42,8 +42,8 @@ router.route("/viewStudentTAF/:id").get(viewStudentTAF)
 router.route("/viewStudentProjectBids/:id").get(viewStudentProjectBids)
 
 //view all biddings staff
-router.route("/staffViewBiddings").get(StaffViewBiddings)
-router.route("/staffViewPBiddings").get(StaffViewPBiddings)
+router.route("/staffViewBiddings").post(StaffViewBiddings)
+router.route("/staffViewPBiddings").post(StaffViewPBiddings)
 
 //accept taf bids
 router.route("/acceptBid/:id").put(AcceptBid)

@@ -229,10 +229,10 @@ exports.topicregister = async(req,res,next) => {//topic registration
            groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies
         //    car
         })
-        console.log(TopicReg._id);
+        console.log(topicR._id);
         res.status(201).json({
             success: true,
-            data: TopicReg._id
+            data: topicR._id
         })
 
         // alert("Submission Successfull")

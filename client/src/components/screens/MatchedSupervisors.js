@@ -146,18 +146,12 @@ const MatchedSupervisors = ({history}) => {
     
     // Submit form
       const SubmitBidding = async (e) => {
-        e.preventDefault();
-
-        
-        
+        e.preventDefault();  
        const pconfig = {
          header: {
            "Content-Type": "application/json",
          },
        };
-    
-       //const cd = localStorage.getItem("authToken")
-       //console.log("PVT details: "+cd);
        try {
 
           //SUCCESS SWEET ALERT MESSAGE
@@ -182,19 +176,6 @@ const MatchedSupervisors = ({history}) => {
               Swal.fire('Changes are not saved', '', 'info')
             }
           })
-
-
-        
-        
-        //  const { data } = await axios.post(
-        //    "http://localhost:5000/api/AvailableProject/bid",
-        //    { SelectedProject,SelectedSupervisors,cd },
-        //    pconfig
-           
-        //  );
-        //  console.log(data)
-        //    alert("Submitted!")
-
         
        } catch (error) {
          setError(error.response.data.error);
@@ -208,12 +189,12 @@ const MatchedSupervisors = ({history}) => {
 
 //https://stackoverflow.com/questions/71679422/checkbox-check-and-uncheck-to-remove-values-in-react-js
 
-  //   const updateSupervisors = (e) => { 
-  //     if (e.target.checked) { setSelectedSupervisors((oldArray) => [...oldArray, e.target.value]); } 
-  //     else { removesupervisor(e); console.log(CosuperID) } 
-  // }
-  // const removesupervisor = (e) => { setSelectedSupervisors([...CosuperID.filter((supervisor) =>
-  //    supervisor !== e.target.value)]) }
+    const updateSupervisors = (e) => { 
+      if (e.target.checked) { setSelectedSupervisors((oldArray) => [...oldArray, e.target.value]); } 
+      else { removesupervisor(e); console.log(CosuperID) } 
+  }
+  const removesupervisor = (e) => { setSelectedSupervisors([...CosuperID.filter((supervisor) =>
+     supervisor !== e.target.value)]) }
   
    
 
