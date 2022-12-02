@@ -19,6 +19,8 @@ const SupervisorViewBidding = ({history}) =>{
 
   useEffect(() => {
 
+    var staffID
+
     const fetchPrivateDate = async () => {
       const config = {
         headers: {
@@ -32,6 +34,8 @@ const SupervisorViewBidding = ({history}) =>{
         
         setPrivateData(data.data);
         setStaffID(data.data2)
+        staffID = data.data2
+        fetchProjectsData()
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not authorized please login");
@@ -47,7 +51,8 @@ const SupervisorViewBidding = ({history}) =>{
       }
 
       try{
-        
+        console.log("fetching projects data")
+        console.log(staffID)
         const{data} = await axios.post(
           "/api/group/staffViewPBiddings",
             {staffID,BatchID},projectsconfig
@@ -59,7 +64,8 @@ const SupervisorViewBidding = ({history}) =>{
        // console.log("DATA: "+JSON.stringify(data.data[0].bid));
         //console.log(data.data[0].bid.BatchID)
         setProjectDetails(ProjectDetails=>(data.data))
-        console.log(ProjectDetails[0].bid.BatchID)
+        
+        // console.log(ProjectDetails[0].bid.BatchID)
         //console.log(data.data[0].bid.GroupID)
         
        //console.log(objectToArray(data.data));
@@ -67,7 +73,7 @@ const SupervisorViewBidding = ({history}) =>{
         
       }catch(error){
 
-        
+        setError(""+error)
       }
     
     }
@@ -75,7 +81,7 @@ const SupervisorViewBidding = ({history}) =>{
 
 
     fetchPrivateDate()
-    fetchProjectsData()
+
   }, [history])
 //   const objectToArray = obj => {
 //     const keys = Object.keys(obj);
@@ -195,20 +201,22 @@ const SupervisorViewBidding = ({history}) =>{
         </thead>
         <tbody>
           {ProjectDetails.map ((Pdetails,i) => {
-         
+            console.log(Pdetails)
+            return(
             <tr>
-              
-              <td>{Pdetails[i].bid.GroupID}</td>
-
-              {/* for accept use api "AcceptPBid" */}
+              <td>{i+1}</td>
+              <td>{Pdetails.bid.GroupID}</td>
+              <td>{Pdetails.bid.BatchID}</td>
+              <td>{Pdetails.project.projectName}</td>
             </tr>
+            )
           })}
         </tbody>
       </table>
 
 
 
-
+{/* {console.log(ProjectDetails)} */}
       </div>   
       {/* :null
       } */}
@@ -223,7 +231,7 @@ const SupervisorViewBidding = ({history}) =>{
       } */}
 
 </div>
-    
+    {console.log(staffID)}
 
 </div>
     
