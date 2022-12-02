@@ -199,6 +199,8 @@ const SupervisorViewBidding = ({history}) =>{
             <tr>
               
               <td>{Pdetails[i].bid.GroupID}</td>
+
+              {/* for accept use api "AcceptPBid" */}
             </tr>
           })}
         </tbody>
@@ -215,7 +217,7 @@ const SupervisorViewBidding = ({history}) =>{
       {/* {shw2? */}
       <div>
         <p>Student Bids</p>
-        
+        {/* All the taf biddings will show in this div. use "AcceptBid" api for accept bids*/}
       </div>   
       {/* :null
       } */}
