@@ -13,8 +13,8 @@ pipeline {
       steps {
         // Clean before build
         cleanWs()
-        git branch: 'develop',
-          credentialsId: 'credentials',
+        git branch: 'master',
+          credentialsId: '49620939-7d4b-4e5b-ac2a-8abb34c2ff3b',
           url: 'https://github.com/ChathushkaRodrigo/CDAP-PROJECT-MANAGEMENT-SYSTEM.git'
       }
     }
