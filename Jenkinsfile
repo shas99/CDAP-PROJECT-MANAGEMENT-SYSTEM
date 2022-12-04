@@ -18,16 +18,18 @@ pipeline {
           url: 'https://github.com/ChathushkaRodrigo/CDAP-PROJECT-MANAGEMENT-SYSTEM.git'
       }
     }
+
+    node{
     stage('SonarQube analysis') {
-      steps {
-        script {
+    
+      
           def scannerHome = tool 'SonarQube Scanner 2.8';
           withSonarQubeEnv() {
             sh '${scannerHome}/bin/sonar-scanner --version'
           }
-        }
-      }
     }
+    }
+   
     stage("Quality gate") {
       steps {
         script {
