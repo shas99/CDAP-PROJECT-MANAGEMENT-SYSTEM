@@ -1,18 +1,46 @@
+properties([disableConcurrentBuilds()])
 pipeline {
-    agent { docker { image 'node:16.17.1-alpine' } }
-    options {
-        disableConcurrentBuilds()
+  agent { docker { image 'node:16.17.1-alpine' } }
+  tools {
+    nodejs 'nodejs'
+  }
+  options {
+    // This is required if you want to clean before build
+    skipDefaultCheckout(true)
+  }
+  stages {
+    stage('Clone SCM for sonar') {
+      steps {
+        // Clean before build
+        cleanWs()
+        git branch: 'develop',
+          credentialsId: 'credentials',
+          url: 'git@bitbucket.org:Company-Bucket/reactapp.git'
+      }
     }
-    stages {
-        stage('build') {
-            steps {
-                sh 'node --version'
-            }
+    stage('SonarQube analysis') {
+      steps {
+        script {
+          def scannerHome = tool 'sonarscan';
+          withSonarQubeEnv('sonarqube') {
+            sh "${tool("sonarscan ")}/bin/sonar-scanner -Dsonar.projectKey=reactapp -Dsonar.projectName=reactapp"
+          }
         }
-        stage('Test'){
-            steps{
-                echo "Looks good to me !"
-            }
-        }
+      }
     }
+    stage("Quality gate") {
+      steps {
+        script {
+          def qualitygate = waitForQualityGate()
+          sleep(10)
+          if (qualitygate.status != "OK") {
+            waitForQualityGate abortPipeline: true
+          }
+        }
+      }
+    }
+  }
 }
+
+
+
