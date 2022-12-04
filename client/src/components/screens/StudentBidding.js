@@ -11,7 +11,7 @@ const StudentBidding = ({history}) => {
     //const [heading, setHeading] = useState([]);
     const [groupID, setgroupID] = useState("");
     const [approved,setApproved] = useState("false");
-    const [anybids, setAnyBids] = useState(false);
+    const [anybids, setAnyBids] = useState(true);
     const [showMySupervisor, setShowMySupervisor] = useState(false);
     const [TAFdetails, setTAFdetails] = useState({"TAFDetetails": [
         ]});
@@ -97,7 +97,9 @@ const StudentBidding = ({history}) => {
         try{
           console.log("Group NAme: "+groupName)
           //let gID = groupID
-          const {data} = await axios.get("/api/group/supervisorStatus/"+groupName)
+          const {data} = await axios.post(
+            "/api/group/supervisorStatus/",
+            {groupName})
           //console.log("Data"+JSON.stringify(data.data))
           console.log("STATUS DATA : "+JSON.stringify(data.data))
           console.log(data.data.doneBids)
@@ -129,7 +131,7 @@ const StudentBidding = ({history}) => {
           setTAFdetails(data.data)
 
         }catch(error){
-          setError("Data not fetched")
+          setError("TAF Data not fetched")
         }
       }
 
@@ -137,7 +139,9 @@ const StudentBidding = ({history}) => {
         try{
           console.log("Group NAme: "+groupName)
           //let gID = groupID
-          const {data} = await axios.get("/api/group/viewStudentProjectBids/"+groupName)
+          const {data} = await axios.post(
+            `http://localhost:5000/api/group/viewStudentProjectBids`,
+            {groupName});
           const array = Object.entries(data.data)
           // console.log("Project Data: "+JSON.stringify(data.data))
           console.log("Project Data: "+array)
@@ -148,7 +152,7 @@ const StudentBidding = ({history}) => {
          // setBiddings(data.data)
 
         }catch(error){
-          setError("Data not fetched")
+          setError("Project Data not fetched")
         }
       }
 
@@ -171,7 +175,7 @@ const StudentBidding = ({history}) => {
             {/* <p style={{color:"white"}}>{groupID}<br/> */}
             {console.log("any bids? "+anybids)}
             <div id="supervisorName" className="text-white w-80% h-20rem">
-              {approved != "false" ?(
+              {approved != "Not assigned" ?(
                 <p>Your supervisor is : {approved}</p>
                   
                 
@@ -258,12 +262,6 @@ const StudentBidding = ({history}) => {
                     <td className="py-4 px-6">{proj[1][3]}</td>
                     <td className="py-4 px-6">{proj[1][4]}</td>
 
-
-                <td className="py-3 px-6 font-sans text-white font-bold">Project Name</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Project Type</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Category</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Supervisor</td>
-                <td className="py-3 px-6 font-sans text-white font-bold">Approval</td>
               </tr>
           //   </thead>
           // {ProjectDetails.map ((proj) => 

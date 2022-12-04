@@ -35,11 +35,11 @@ router.route("/supervisorBID").post(SupervisorBID)   //Bid for supervisor
 router.route("/showSupervisors").get(showSupervisors)//show supervisors from staff cluster
 
 //bidding status
-router.route("/supervisorStatus/:id").get(supervisorStatus) //check about previous bids and approved supervisors
+router.route("/supervisorStatus").post(supervisorStatus) //check about previous bids and approved supervisors
 
 //show TAF biddings on student
 router.route("/viewStudentTAF/:id").get(viewStudentTAF)
-router.route("/viewStudentProjectBids/:id").get(viewStudentProjectBids)
+router.route("/viewStudentProjectBids").post(viewStudentProjectBids)
 
 //view all biddings staff
 router.route("/staffViewBiddings").post(StaffViewBiddings)

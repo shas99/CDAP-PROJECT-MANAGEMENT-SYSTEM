@@ -4,6 +4,8 @@ import axios from "axios";
 import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
 
 
 const SupervisorViewBidding = ({history}) =>{
@@ -16,6 +18,8 @@ const SupervisorViewBidding = ({history}) =>{
   const [shw2,setShw2] = useState(false)
   const [staffID, setStaffID] = useState("");
   const [ProjectDetails, setProjectDetails] = useState([])
+  const [supervisor, setSupervisor] = useState([])
+  // const [bidID, setBidID] = useState("")
 
   useEffect(() => {
 
@@ -36,6 +40,7 @@ const SupervisorViewBidding = ({history}) =>{
         setStaffID(data.data2)
         staffID = data.data2
         fetchProjectsData()
+        fetchSupervisorData()
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not authorized please login");
@@ -62,7 +67,7 @@ const SupervisorViewBidding = ({history}) =>{
         //setProjectsData(JSON.stringify(data.data));
         //console.log(data.data)
        // console.log("DATA: "+JSON.stringify(data.data[0].bid));
-        //console.log(data.data[0].bid.BatchID)
+        console.log("ID: "+data.data[0].bid._id)
         setProjectDetails(ProjectDetails=>(data.data))
         
         // console.log(ProjectDetails[0].bid.BatchID)
@@ -78,11 +83,91 @@ const SupervisorViewBidding = ({history}) =>{
     
     }
 
+    const fetchSupervisorData = async () =>{
+      const supconfig = {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+        },
+      }
+
+      try{
+        console.log("fetching projects data")
+        console.log(staffID)
+        const{data} = await axios.post(
+          "/api/group/staffViewBiddings",
+            {staffID,BatchID},supconfig
+        );
+        //console.log(typeof data.data);
+        //const array = Object.entries(data.data)
+        //setProjectsData(JSON.stringify(data.data));
+        console.log(data.data)
+        //                                console.log(data.data[0].tafDetails[0].groupID)
+        //console.log("DATA: "+JSON.stringify(data.data));
+        //console.log(data.data[0].bid.BatchID)
+        setSupervisor(supervisor => (data.data))
+        
+        // console.log(ProjectDetails[0].bid.BatchID)
+       //console.log(supervisor)
+        
+       //console.log(objectToArray(data.data));
+
+        
+      }catch(error){
+
+        setError(""+error)
+      }
+    
+    }
 
 
     fetchPrivateDate()
 
   }, [history])
+
+  const SubmitBidding = async (id) => {
+    // e.preventDefault();  
+   
+   const pconfig = {
+     header: {
+       "Content-Type": "application/json",
+     },
+   };
+   try {
+
+     // SUCCESS SWEET ALERT MESSAGE
+      Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+
+          Swal.fire('Saved!', '', 'success')
+          
+             const { data } =  axios.put(
+       `http://localhost:5000/api/group/acceptpBid/${id}`,
+       pconfig
+     );
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
+    
+   } catch (error) {
+     setError(error.response.data.error);
+     setTimeout(() => {
+       setError("");
+       console.log(error)
+     }, 5000);
+   }
+   
+ };
+
+
 //   const objectToArray = obj => {
 //     const keys = Object.keys(obj);
 //     const res = [];
@@ -163,7 +248,7 @@ const SupervisorViewBidding = ({history}) =>{
       {/* <button onClick = {shw2=> true}>TAF Biddings</button> */}
 
       {/* {shw1 ? */}
-      <div>
+      <div className="text-white">
         <p>Bids for Supervisor Projects</p>
         <br/>
         {/* <table>
@@ -189,14 +274,16 @@ const SupervisorViewBidding = ({history}) =>{
         )}
         </tbody>
 </table> */}
-      <table>
-        <thead>
+
+      <table className="w-fit text-sm text-left text-gray-500 dark:text-gray-400 font-sans">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
+
           <tr>
-            <th>#</th>
-            <th>Group</th>
-            <th>Batch</th>
-            <th>Project</th>
-            <th>Action</th>
+            <th className="py-3 px-6 font-sans text-black font-bold">#</th>
+            <th className="py-3 px-6 font-sans text-black font-bold">Group</th>
+            <th className="py-3 px-6 font-sans text-black font-bold">Batch</th>
+            <th className="py-3 px-6 font-sans text-black font-bold">Project</th>
+            <th className="py-3 px-6 font-sans text-black font-bold">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -204,16 +291,23 @@ const SupervisorViewBidding = ({history}) =>{
             console.log(Pdetails)
             return(
             <tr>
-              <td>{i+1}</td>
-              <td>{Pdetails.bid.GroupID}</td>
-              <td>{Pdetails.bid.BatchID}</td>
-              <td>{Pdetails.project.projectName}</td>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">{i+1}</td>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">{Pdetails.bid.GroupID}</td>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">{Pdetails.bid.BatchID}</td>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">{Pdetails.project.projectName}</td>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">
+                <button type="button" 
+                onClick={() => SubmitBidding(Pdetails.bid._id)} 
+                className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+                >
+                  Accept
+                </button> 
+               </td>
             </tr>
             )
           })}
         </tbody>
       </table>
-
 
 
 {/* {console.log(ProjectDetails)} */}
@@ -223,9 +317,48 @@ const SupervisorViewBidding = ({history}) =>{
 
 
       {/* {shw2? */}
-      <div>
+      <br/><br/>
+      <div className="text-white">
         <p>Student Bids</p>
         {/* All the taf biddings will show in this div. use "AcceptBid" api for accept bids*/}
+        <div>
+
+        <table>
+          <thead>
+            <tr>
+            <th>#</th>
+            <th>Group</th>
+          </tr>
+          </thead>
+          <tbody>
+          {/* {supervisor.map ((Pdetails,i) => {
+            console.log(Pdetails)
+            return(
+            <tr>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">{i+1}</td>
+              <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">{Pdetails.tafDetails.GroupID}</td>
+            </tr>
+            )
+          })} */}
+          </tbody> 
+
+        </table>
+      {/* { console.log(supervisor[0].tafDetails[0].groupID)} */} 
+          {/* {supervisor.map ((Super,i) => {
+            // console.log(Super[0][1][1])
+            return(
+                
+                <tr>
+                  <td></td>
+                </tr>
+                
+              )
+            })}
+         </table> */}
+
+        </div>
+
+
       </div>   
       {/* :null
       } */}
@@ -246,4 +379,4 @@ export default SupervisorViewBidding;
 
 
    
-  
+  // need to link group id to relevent group profiles

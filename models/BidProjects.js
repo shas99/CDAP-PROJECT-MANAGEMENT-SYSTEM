@@ -23,7 +23,8 @@ const BidProjectSchema = new mongoose.Schema({//Available project bidding
         type: Boolean
     },
     CosuperID:{
-        type: String
+        type: String,
+        required: [true, "Not selected yet"]
     },
 
 })

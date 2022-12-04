@@ -203,11 +203,11 @@ exports.placeBidonAvailableProject = async(req,res,next) =>{
 //check whether group has done any bid before
 //-------- Check whether the group already has a supervisor(student) --------------
 exports.supervisorStatus = async(req, res, next) => {
-    const groupName = req.params.id;
+    const {groupName} = req.body;
     let anyApproved, doneBids;
     try{
         const gCount = await Group.find({name:groupName,staff:{ $exists: true, $ne: null }})
-        console.log("Count : "+gCount)
+        console.log("Count : "+gCount.length)
         if (gCount != 0){
             const GroupDetails = await Group.findOne({name:groupName})
             const details = await Staff.findById({_id:GroupDetails.staff}); 
@@ -355,17 +355,23 @@ exports.viewStudentTAF = async(req, res, next) =>{
 //------------------- View Projects biddings -----------------------------
 exports.viewStudentProjectBids = async(req, res, next) => {
     //const {gID} = req.body;
-    const groupName = req.query.id;
+    const groupName = req.body.groupName
+    console.log("Group name: "+groupName)
     let result = [];
     try{
-        const Biddings = await BidProject.find({GroupID:groupName});
+        const Biddings = await BidProject.find({GroupID:groupName, CosuperID: { $ne: "" }});
+        if(Biddings.length != 0){
+        console.log("Inside the if statement!")
         for (let i = 0; i < Biddings.length;i++){
             let pID = Biddings[i].ProjectID;
             let CosuperID = Biddings[i].CosuperID
             console.log("Cosuper: "+CosuperID)
+            // if(CosuperID != null){
+            // console.log("Damn")
             const cosup = await Staff.findById({_id:CosuperID,})
             let Cosupervisor = cosup.username
             console.log("Co sup name: "+Cosupervisor)
+            // }
             const pDetails = await AvailableProjects.findById({_id:pID,})
             let stBidApp = Biddings[i].Approved; 
             let stBidRej = Biddings[i].rejected;
@@ -377,7 +383,7 @@ exports.viewStudentProjectBids = async(req, res, next) => {
         res.status(201).json({
             success: true,
             data: result
-        })
+        })}
 
         console.log("Biddings: "+ Biddings)
     }catch(error){
@@ -400,22 +406,45 @@ exports.showApprovedBidding = async(req,res,next) => {
 
 
 //------------------- Get all TAF biddings for supervisors -----------
+// exports.TafAll = async(req,res,next) => {
+//     const {staffID,BatchID} = req.body
+//     console.log(req.body)
+//     try{
+//         const Biddings = await Supervisor.find({StaffID:staffID,BatchID:BatchID,Approved:false})
+//         res.status(201).json({
+//             success:true,
+//             data:Biddings
+//         })
+//     }catch(error){
+//         next(error)
+//         console.log("Error")
+//     }
+// }
+
 exports.StaffViewBiddings = async(req, res, next) => {
-    const {staffID,batch} = req.params;
-    console.log(req.params)
+    const {staffID,BatchID} = req.body
+    console.log(req.body)
     const TAFall = []
      try{
-        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:batch,Approved:false})
+        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:BatchID,Approved:false})
        // console.log("BiddingList is" + biddingsList)
+
+        if(biddingsList.length == 0){
+            res.status(201).json({
+                success:true,
+                data:"No data"
+            })
+        }else{
+
         for(let i = 0; i < biddingsList.length; i++){
             let bidID = biddingsList[i]._id
             let TAFID = biddingsList[i].Project
-            //console.log("BID ID: ",bidID)
+            console.log("BID ID: ",bidID)
             try{
                 const tafDetails = await TAF.find({_id:TAFID,})
                 let all = {tafDetails, bidID}
                 TAFall.push(all)
-                //console.log("TAF details are "+tafDetails)
+                console.log("TAF details are "+tafDetails)
             }catch(error){
                 next(error)
                 console.log("TAF view Bidding error")
@@ -425,7 +454,7 @@ exports.StaffViewBiddings = async(req, res, next) => {
         res.status(201).json({
             success: true,
             data: TAFall 
-        })
+        })}
         
      }catch(error){
         next(error)
@@ -443,15 +472,20 @@ exports.StaffViewBiddings = async(req, res, next) => {
 //------------------- Get all project biddings for supervisors -------------
 exports.StaffViewPBiddings = async(req,res,next) => {
     const {staffID,BatchID} = req.body
+    console.log("BatchID : "+BatchID)
     console.log("Staff : "+staffID)
+
     try{
         const biddngs = await BidProject.find({StaffID:staffID,BatchID:BatchID,Approved:false})
         console.log("biddings: "+biddngs)
         const bidData = []
         for(let i = 0 ; i < biddngs.length; i++){
+            // const gCount = await Group.find({name:biddings.GroupID,staff:{ $ne: "" }})
+            // console.log(gCount+" Gcount")
+            // if(gCount != 0){
             try{
                 let bid = biddngs[i];
-                console.log("Bid[1] : "+bid)
+                // console.log("Bid[1] : "+bid)
                 const project = await AvailableProjects.findById({_id:biddngs[i].ProjectID})
                 let all = {bid,project}
                 bidData.push(all)
@@ -461,6 +495,7 @@ exports.StaffViewPBiddings = async(req,res,next) => {
                 console.log("Staff view project biddings error")
             }
         }
+    // }
         console.log("Bid Data: "+bidData)
         res.status(201).json({
             success: true,
@@ -482,15 +517,25 @@ exports.AcceptPBid = async(req,res,next) => {
             const bid = await BidProject.findById({_id:bidID})
             console.log("Bid: "+bid)
             bid.Approved = true;
+            
+            console.log("Triggre")
 
             const updateGr = await Group.findOne({name:bid.GroupID})
             console.log("Group name: "+bid.GroupID)
             updateGr.staff = bid.StaffID
             console.log("STAFF: "+bid.StaffID)
+
+            const projectDe = await AvailableProjects.findById({_id:bid.ProjectID,})
+            console.log("PrjectDe: "+projectDe)
+            projectDe.projectStatus = true;
+            console.log("ProjectStatus : "+projectDe.projectStatus)
+            
             await bid.save();  
                 // try{
             //const gname =      
             await updateGr.save();
+
+            await projectDe.save();
                 // }catch(error){
                 //     next(error)
                 //     console.log("Staff approve(update group) error")

@@ -31,6 +31,9 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     // },
     rejected: {
         type: Boolean
+    },
+    feedback: {
+        type: String
     }
 
 })
