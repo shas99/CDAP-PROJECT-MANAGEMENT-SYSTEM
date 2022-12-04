@@ -15,7 +15,7 @@ pipeline {
         cleanWs()
         git branch: 'develop',
           credentialsId: 'credentials',
-          url: 'git@bitbucket.org:Company-Bucket/reactapp.git'
+          url: 'https://github.com/ChathushkaRodrigo/CDAP-PROJECT-MANAGEMENT-SYSTEM.git'
       }
     }
     stage('SonarQube analysis') {
