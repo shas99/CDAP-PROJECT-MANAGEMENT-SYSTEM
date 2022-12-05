@@ -6,7 +6,7 @@ pipeline {
         stage('Check node version') {
             steps {
                 echo 'Hello, Node'
-                sh 'node --v'
+                sh 'node --version'
             }
         }
         stage('Install Backend node modules') {
