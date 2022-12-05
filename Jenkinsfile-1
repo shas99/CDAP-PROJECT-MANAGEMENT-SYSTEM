@@ -1,6 +1,6 @@
 pipeline {
      agent {
-        docker { image 'linux:16.13.1-alpine' }
+        docker { image 'node:16.13.1-alpine' }
     }
     stages {
         stage('Check node version') {
@@ -11,10 +11,8 @@ pipeline {
         }
         stage('Install Backend node modules') {
             steps {
-                sh 'sudo chown -R 501:20 "/.npm"'
                 echo 'Installing backend  modules'
-                sh 'npm install'
-                sh 'echo Done!'
+               
                 
 
             }
@@ -22,9 +20,7 @@ pipeline {
         stage('Install Frontend node modules') {
             steps {
                 echo 'Installing frontend modules'
-                sh 'cd client'
-                sh 'npm install'
-                sh 'echo Done!'
+               
 
             }          
         }
@@ -32,10 +28,8 @@ pipeline {
           stage('Run backend and front end') {
             steps {
                 echo 'Running npm concurrent ...'
-                sh 'npm run concurrent'
-                sh 'echo Done!'
-                
-
+             
+       
             }
         }
     }
