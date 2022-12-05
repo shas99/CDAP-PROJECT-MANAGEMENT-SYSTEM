@@ -6,4 +6,8 @@ node {
             echo 'I execute elsewhere'
         }
     }
+     stage('Echo user') {
+     echo "Do Build for ${PLATFORM} - ${BROWSER}"
+    }
+
 }
