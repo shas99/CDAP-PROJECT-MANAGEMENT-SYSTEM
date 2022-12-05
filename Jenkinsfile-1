@@ -11,6 +11,7 @@ pipeline {
         }
         stage('Install Backend node modules') {
             steps {
+                sh 'sudo chown -R 501:20 "/.npm"'
                 echo 'Installing backend  modules'
                 sh 'npm install'
                 sh 'echo Done!'
