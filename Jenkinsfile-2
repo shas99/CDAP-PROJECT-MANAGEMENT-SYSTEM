@@ -7,7 +7,7 @@ node {
         }
     }
      stage('Echo user') {
-        sh 'User echoing ....'
+        echo 'User echoing ....'
     }
 
 }
