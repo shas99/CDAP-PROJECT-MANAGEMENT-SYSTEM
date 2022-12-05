@@ -7,7 +7,7 @@ node {
         }
     }
      stage('Echo user') {
-     echo "Do Build for ${PLATFORM} - ${BROWSER}"
+        sh 'User echoing ....'
     }
 
 }
