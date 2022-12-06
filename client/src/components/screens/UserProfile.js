@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./UserProfile.css";
-// import { Link } from "react-router-dom";
-import Header from "../Header/Header";
-// import Footer from "../Footer/Footer";
-// import image from "../../images/Bunny.jpg"
-import Swal from 'sweetalert2'
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
-import { set } from "mongoose";
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 
 const UserProfile = ({history}) => { 
@@ -85,43 +79,6 @@ const UserProfile = ({history}) => {
     fetchImages()
   }, [history]);
 
-  const fileChangeHandler = (e) => {
-    setFileData(e.target.files[0]);
-    //setDisabled(false);
-  };
-
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
- //SUCCESS SWEET ALERT MESSAGE
- Swal.fire({
-  title: 'Do you want to save the changes?',
-  showDenyButton: true,
-  showCancelButton: true,
-  confirmButtonText: 'Save',
-  denyButtonText: `Don't save`,
-}).then((result) => {
-  /* Read more about isConfirmed, isDenied below */
-  if (result.isConfirmed) {
-    Swal.fire('Saved!', '', 'success')
-    // Handle File Data from the state Before Sending
-    const data = new FormData();
-    data.append("image", fileData);
-    fetch("http://localhost:5000/single", {
-      method: "POST",
-      body: data,
-    })
-      .then((result) => {
-        console.log("File Sent Successful");
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  } else if (result.isDenied) {
-    Swal.fire('Changes are not saved', '', 'info')
-  }
-})
-
-  };
 
   // localStorage.setItem("authToken", data.token);
 
@@ -162,12 +119,8 @@ const UserProfile = ({history}) => {
         required
         type="file"/>
         
-        {/* <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label> */}
         <br/>
-        {/* <input type="text" id="name" placeholder="Name" name="name" required>
-         
-        </input>
-              <input type="hidden"  id="ID" name="ID" value={fetchFeedbackData._id} style={{marginBottom:"10px"}}></input> */}
+
         <button type="submit"
         //disabled={isDisabled()}
         className="ml-[rem] mt-3 text-white bg-[#121518] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2" 
@@ -198,49 +151,8 @@ const UserProfile = ({history}) => {
      
       </div>
 
-      {/* <div className="userprofileBox1">
-      <h2 id="userprofilecaption" style={{marginLeft:"-375px"}}>Skills</h2>
-        <button type="button" class="btn btn-primary" id="firstButt">Coding</button>
-        <button type="button" class="btn btn-primary" id="secondButt">DevOps</button>
-        <button type="button" class="btn btn-primary" id="thirdButt">SQL</button>
-        <button type="button" class="btn btn-primary" id="fourthButt">Algorithms</button>
-        <button type="button" class="btn btn-primary" id="fifthButt">Heroku</button>
-        <button type="button" class="btn btn-primary" id="sixthButt">Java</button>
-         
-      </div> */}
-      </div>
-
-      {/* <div className="ml-[-45rem]">
       
-      <form action="/api/imageUpload" method="POST" enctype="multipart/form-data" className="ImageSubmitProfile"> */}
-        {/* <input type="file" name="image" style={{marginBottom:"10px"}} placeholder="upd"/> */}
-
-
-{/* <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload file</label>
-<input name="image"  class="block w-[13rem] text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/> */}
-
-        
-        {/* <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label> */}
-        {/* <br/> */}
-        {/* <input type="text" id="name" placeholder="Name" name="name" required>
-         
-        </input>
-              <input type="hidden"  id="ID" name="ID" value={fetchFeedbackData._id} style={{marginBottom:"10px"}}></input> */}
-        {/* <button type="submit"  className="ml-[rem] mt-7 text-white bg-[#121518] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2" >Submit!</button>
-
-        </form>
-        </div> */}
-
-       
-
- 
-
-        
-   
-      
-      
-     
-     
+      </div>  
 </div>
 </div>
 
