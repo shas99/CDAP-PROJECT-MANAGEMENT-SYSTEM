@@ -3,7 +3,7 @@ const { route } = require('express/lib/application');
 const router = express.Router()
 
 const {GroupregisterConfirm,groupregister,suggestsupervisor,group,topicregister,autoapprove,viewAvailableGroups,viewgroup} = require('../controllers/group')
-const {placeBid,showSupervisors,bidProject,ProjectBID,SupervisorBID,supervisorStatus,viewStudentTAF,viewStudentProjectBids,StaffViewBiddings,StaffViewPBiddings,AcceptBid,AcceptPBid} = require('../controllers/supervisors')
+const {placeBid,showSupervisors,bidProject,ProjectBID,SupervisorBID,supervisorStatus,viewStudentTAF,viewStudentProjectBids,StaffViewBiddings,StaffViewPBiddings,AcceptBid,AcceptPBid,TAFFeed} = require('../controllers/supervisors')
 
 
 router.route("/groupconfirm/:resetToken").put(GroupregisterConfirm)
@@ -23,7 +23,7 @@ router.route("/add")
 
 router.route("/autoapprove/:resetToken").put(autoapprove)
 
-router.route("/viewgroups").get(viewAvailableGroups)//view groups
+router.route("/viewgroups").post(viewAvailableGroups)//view groups
 
 router.route("/viewgroup/:id").get(viewgroup)
 
@@ -49,5 +49,9 @@ router.route("/staffViewPBiddings").post(StaffViewPBiddings)
 router.route("/acceptBid/:id").put(AcceptBid)
 //accept project bids
 router.route("/acceptpBid/:id").put(AcceptPBid)
+
+//TAF feedback
+router.route("/TAFFeed").put(TAFFeed)
+
 
 module.exports = router

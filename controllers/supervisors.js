@@ -600,6 +600,26 @@ exports.AcceptBid = async(req,res,next) => {
 //------------------- Reject TAF biddings --------------------------
 
 
+// ------------------ Add feedback to TAF Biddings -----------------
+exports.TAFFeed = async(req,res,next) => {
+    try {
+        const {TAFID,Feed} = req.body
+        const bid = await Supervisors.findById({_id:TAFID})
+        console.log("Bid: "+bid)
+        bid.feedback = Feed
+        console.log("Feedback: ")
+        await bid.save()
+
+        res.status(201).json({
+            success:true,
+            data: "updated!"
+        })  
+    }catch(error){
+            next(error)
+            console.log("Staff Feedback error")
+    }
+}
+
 
 
 

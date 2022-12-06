@@ -5,8 +5,7 @@ import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2'
-
-
+import Popup from './Popup'
 
 const SupervisorViewBidding = ({history}) =>{
   //const [ProjectsData, setProjectsData] = useState([])
@@ -18,7 +17,11 @@ const SupervisorViewBidding = ({history}) =>{
   const [shw2,setShw2] = useState(false)
   const [staffID, setStaffID] = useState("");
   const [ProjectDetails, setProjectDetails] = useState([])
-  const [supervisor, setSupervisor] = useState([])
+  const [Supervisor, setSupervisor] = useState([])
+  const [isOpen, setIsOpen] = useState(false);
+  const [vID, setVID] = useState("")
+  const [Feed, setFeed] = useState("")
+  const [TAFID,setTAFID] = useState("")
   // const [bidID, setBidID] = useState("")
 
   useEffect(() => {
@@ -95,7 +98,7 @@ const SupervisorViewBidding = ({history}) =>{
         console.log("fetching projects data")
         console.log(staffID)
         const{data} = await axios.post(
-          "/api/group/staffViewBiddings",
+          `/api/group/staffViewBiddings`,
             {staffID,BatchID},supconfig
         );
         //console.log(typeof data.data);
@@ -105,7 +108,7 @@ const SupervisorViewBidding = ({history}) =>{
         //                                console.log(data.data[0].tafDetails[0].groupID)
         //console.log("DATA: "+JSON.stringify(data.data));
         //console.log(data.data[0].bid.BatchID)
-        setSupervisor(supervisor => (data.data))
+        setSupervisor(Supervisor => (data.data))
         
         // console.log(ProjectDetails[0].bid.BatchID)
        //console.log(supervisor)
@@ -167,6 +170,99 @@ const SupervisorViewBidding = ({history}) =>{
    
  };
 
+ const SubmitTAFBidding = async (id) => {
+  // e.preventDefault();  
+ 
+ const pconfig = {
+   header: {
+     "Content-Type": "application/json",
+   },
+ };
+ try {
+
+   // SUCCESS SWEET ALERT MESSAGE
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+
+        Swal.fire('Saved!', '', 'success')
+        
+           const { data } =  axios.put(
+     `http://localhost:5000/api/group/acceptBid/${id}`,
+     pconfig
+   );
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+  
+ } catch (error) {
+   setError(error.response.data.error);
+   setTimeout(() => {
+     setError("");
+     console.log(error)
+   }, 5000);
+ }
+ 
+};
+
+const submitFeed = async (e) => {
+  // e.preventDefault();  
+  e.preventDefault();
+  
+ const pconfigs = {
+   header: {
+     "Content-Type": "application/json",
+   },
+ };
+ try {
+      console.log("+++++++++++++++++")
+        console.log(Feed,TAFID)
+        console.log("+++++++++++++++++")
+   // SUCCESS SWEET ALERT MESSAGE
+    Swal.fire({
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+
+        Swal.fire('Saved!', '', 'success')
+        
+           const { data } =  axios.put(
+     `http://localhost:5000/api/group/TAFFeed`,
+     {TAFID,Feed},
+     pconfigs
+   );
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+  
+ } catch (error) {
+   setError(error.response.data.error);
+   setTimeout(() => {
+     setError("");
+     console.log(error)
+   }, 5000);
+ }
+ 
+};
+
+
+ const togglePopup = (id) => {
+  setIsOpen(!isOpen);
+  setVID(id)
+}
 
 //   const objectToArray = obj => {
 //     const keys = Object.keys(obj);
@@ -326,11 +422,102 @@ const SupervisorViewBidding = ({history}) =>{
         <table>
           <thead>
             <tr>
-            <th>#</th>
-            <th>Group</th>
+            <th className="py-3 px-2 font-medium text-white whitespace-nowrap dark:text-white font-sans">#</th>
+            <th  className="py-3 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">Group</th>
           </tr>
           </thead>
           <tbody>
+            {Supervisor.map ((supervi, i) => {
+              // console.log(supervi[].tafDetails.GroupID)
+              return(
+                <tr>
+                  <td>{i+1}</td>
+                  <td className="py-2 px-3 font-medium text-white whitespace-nowrap dark:text-white font-sans">{supervi.tafDetails[0].groupID}</td>
+                  <td className="py-4 px-6 font-medium text-white whitespace-nowrap dark:text-white font-sans">
+                    <button  className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+                     value="Click to Open Popup"
+                     onClick={() => togglePopup(supervi.tafDetails[0]._id)}>
+                      view
+                    </button>
+                    <div>
+                      
+                    {isOpen && <Popup
+                    content={<>
+                    
+                    {Supervisor.map ((supe) => {
+                      console.log("Vid"+vID)
+                      if(supe.tafDetails[0]._id == vID){
+                        return(
+                          <><b>Group : {supe.tafDetails[0].groupID}</b><ol><li style={{marginTop:"20px"}}><b>1. Topic:</b> {supe.tafDetails[0].Topic}</li><li style={{marginTop:"10px"}}><b>2. Topic Description:</b>  {supe.tafDetails[0].topicdescription}</li><li  style={{marginTop:"10px"}}><b>3. Abstract:</b> {supe.tafDetails[0].abstract}</li><li style={{marginTop:"10px"}}><b>4. Research Problem:</b> {supe.tafDetails[0].researchProblem}</li><li style={{marginTop:"10px"}}><b>5. Solution:</b> {supe.tafDetails[0].solution}</li><li style={{marginTop:"10px"}}><b>6. System Overview:</b> {supe.tafDetails[0].systemOverview}</li><li style={{marginTop:"10px"}}><b>7. Objective:</b> {supe.tafDetails[0].objective}</li><li style={{marginTop:"10px"}}><b>8. Project Task:</b> {supe.tafDetails[0].projecttask}</li><li style={{marginTop:"10px"}}><b>9. Technologies:</b>  {supe.tafDetails[0].technologies}</li>
+                          </ol><br/><br/>
+                          <button
+                        className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+                        onClick={() => SubmitTAFBidding(supe.bidID)} 
+                        >
+                          Approve
+                        </button>
+                        <br/>
+                        <br/>
+                        <form onSubmit={submitFeed}>
+                          <label>Add Feedback:</label><br/>
+                          <input type="text" 
+                          className = "input" style={{color:"white",width:"700px"}}
+                           name="name" 
+                           required
+                            onChange={(e) => setFeed(e.target.value)}
+                            value={Feed} />
+                          <button type='submit'
+                          onClick={() => setTAFID(supe.bidID)}
+                          className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+                          >
+                            Submit
+                          </button>
+                        </form>
+                          </>
+                        )
+                      }
+                    })}
+                       {/* <b>Group - {supervi.tafDetails[0].groupID}</b><br/><br/>
+                       
+                       <b>Topic:</b> {supervi.tafDetails[0].Topic} <br/>
+                       <b>Topic Description:</b>  {supervi.tafDetails[0].topicdescription}<br/>
+                       <b>Abstract:</b> {supervi.tafDetails[0].abstraction}<br/>
+                       <b>Research Problem:</b> {supervi.tafDetails[0].researchProblem}<br/>
+                       <b>Solution:</b> {supervi.tafDetails[0].solution}<br/>
+                       <b>System Overview:</b> {supervi.tafDetails[0].systemOverview}<br/>
+                       <b>Objective:</b> {supervi.tafDetails[0].objective}<br/>
+                       <b>Project Task:</b> {supervi.tafDetails[0].projecttask}<br/>
+                       <b>Technologies:</b>  {supervi.tafDetails[0].technologies}<br/><br/>
+                       <button
+                        className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+                        onClick={() => SubmitTAFBidding(supervi.bidID)} 
+                        >
+                          Approve
+                        </button>
+
+                        <br/>
+                        <br/>
+                        <form>
+                          <label>Add Feedback:</label><br/>
+                          <input type="text"/>
+                          <button 
+                          className="py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-700"
+                          >
+                            Submit
+                          </button>
+                        </form> */}
+
+                    </>}
+                     handleClose={togglePopup}
+                    />}</div>
+
+
+
+
+                  </td>
+                </tr>
+              )
+            })}
           {/* {supervisor.map ((Pdetails,i) => {
             console.log(Pdetails)
             return(
