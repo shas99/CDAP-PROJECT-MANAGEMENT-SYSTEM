@@ -17,6 +17,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
   const [stID, setStID] = useState("")
   useEffect(() => {
 
+    var staffID
     const fetchPrivateDate = async () => {
       const config = {
         headers: {
@@ -30,6 +31,8 @@ const ViewAvailableProjectsStaff = ({history}) =>{
         
         setPrivateData(data.data);
         setStID(data.data2)
+        staffID = data.data2
+        fetchProjectsData()
       } catch (error) {
         localStorage.removeItem("authToken");
         setError("You are not authorized please login");
@@ -49,10 +52,13 @@ const ViewAvailableProjectsStaff = ({history}) =>{
       try{
         const{data} = await axios.post(
           `/api/group/viewgroups`,
-          {stID},
+          {stID:staffID},
           projectsconfig);
         console.log(data)
         //console.log(typeof data.data);
+        console.log("stID")
+        console.log(stID)
+        console.log("stID")
         const array = Object.entries(data.data)
         setProjectsData(data.data);
        // console.log(array);
@@ -70,7 +76,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
     }
 
 
-    fetchProjectsData()
+    // fetchProjectsData()
     fetchPrivateDate()
   }, [history])
   const objectToArray = obj => {

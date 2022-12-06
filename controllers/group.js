@@ -278,11 +278,11 @@ exports.viewAvailableGroups =async(req,res,next) => {
     try{
     
 
-        const {sID} = req.body
-        const group = await Group.find()//group that is approved and have this perticular member
+        const {stID} = req.body
+        const group = await Group.find({Supervisor:stID})//group that is approved and have this perticular member
         //console.log(availableProjects[1])// 
         const array = Object.values(group)
-        console.log("Groups: "+array)
+        console.log("Groups: "+group)
         // console.log(array)
         // const arrayproject = JSON.stringify(array).split(',')
         // console.log(arrayproject)
