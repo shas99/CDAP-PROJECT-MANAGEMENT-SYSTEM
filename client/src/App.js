@@ -117,6 +117,8 @@ import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
 import ViewMarkingRubricsAdmin from "./components/screens/ViewRubricsScreen";
 import Marking from "./components/screens/MarkingScreen";
 import MarkRubric from "./components/screens/MarkRubric"
+import MarkingDashboard from "./components/screens/MarkingDashboard";
+import PanelAvailableProjectsStaff from "./components/screens/PanelAvailableProject";
 
 
 const App = () => {
@@ -275,6 +277,10 @@ const App = () => {
           <Route exact path="/marking/:id" component={Marking}/>
           
           <Route exact path="/MarkRubric/:id" component={MarkRubric}/>
+
+          <Route exact path="/markingDashboard" component={MarkingDashboard}/>
+
+          <Route exact path="/PanelProject" component={PanelAvailableProjectsStaff}/>
 
           {/* Routes added under this might not work. Please add your routes above this route           */}
           <Route path="*" component={PageNotFound}/>
