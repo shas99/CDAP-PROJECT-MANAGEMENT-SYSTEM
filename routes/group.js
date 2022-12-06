@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {GroupregisterConfirm,groupregister,suggestsupervisor,group,topicregister,autoapprove,viewAvailableGroups,viewgroup} = require('../controllers/group')
+const {viewAvailableGroupsPanel,GroupregisterConfirm,groupregister,suggestsupervisor,group,topicregister,autoapprove,viewAvailableGroups,viewgroup} = require('../controllers/group')
 const {placeBid,showSupervisors,bidProject,ProjectBID,SupervisorBID,supervisorStatus,viewStudentTAF,viewStudentProjectBids,StaffViewBiddings,StaffViewPBiddings,AcceptBid,AcceptPBid,TAFFeed} = require('../controllers/supervisors')
 
 
@@ -52,6 +52,9 @@ router.route("/acceptpBid/:id").put(AcceptPBid)
 
 //TAF feedback
 router.route("/TAFFeed").put(TAFFeed)
+
+//panel view group
+router.route("/viewAvailableGroupsPanel").post(viewAvailableGroupsPanel)
 
 
 module.exports = router

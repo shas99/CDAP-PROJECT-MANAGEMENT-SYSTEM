@@ -51,7 +51,7 @@ const PanelAvailableProjectsStaff = ({history}) =>{
 
       try{
         const{data} = await axios.post(
-          `/api/group/viewgroups`,
+          `/api/group/viewAvailableGroupsPanel`,
           {stID:staffID},
           projectsconfig);
         console.log(data)

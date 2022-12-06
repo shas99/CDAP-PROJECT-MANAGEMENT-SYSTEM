@@ -328,6 +328,41 @@ exports.viewgroup = async (req, res, next) => {
 };
 
 
+//retreive all groups
+exports.viewAvailableGroupsPanel =async(req,res,next) => {
+    
+    try{
+    
+
+        const {stID} = req.body
+        // const group = await Group.find({Supervisor:stID})//group that is approved and have this perticular member
+
+        // find if stID is in the array of staff
+        // if yes, then return the group
+        // if no, then return null
+        const group = await Group.find({staff:{$in:[stID]}})
+
+        //console.log(availableProjects[1])// 
+        const array = Object.values(group)
+        console.log("Groups: "+group)
+        // console.log(array)
+        // const arrayproject = JSON.stringify(array).split(',')
+        // console.log(arrayproject)
+        // console.log(typeof arrayproject)
+    
+        res.status(201).json({
+            success: true,
+            data: array
+        })
+        
+    
+    }catch(error){
+        res.status(500).json({success:false, error:error.message})
+    }
+
+}
+
+
 
 // exports.retreiveBio = async (req, res, next) => {//suggest supervisor
 //     // const {member_1} = req.body
