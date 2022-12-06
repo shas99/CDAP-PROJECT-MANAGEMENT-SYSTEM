@@ -70,7 +70,7 @@ const SupervisorViewBidding = ({history}) =>{
         //setProjectsData(JSON.stringify(data.data));
         //console.log(data.data)
        // console.log("DATA: "+JSON.stringify(data.data[0].bid));
-        console.log("ID: "+data.data[0].bid._id)
+        //console.log("ID: "+data.data[0].bid._id)
         setProjectDetails(ProjectDetails=>(data.data))
         
         // console.log(ProjectDetails[0].bid.BatchID)
@@ -215,7 +215,7 @@ const SupervisorViewBidding = ({history}) =>{
 const submitFeed = async (e) => {
   // e.preventDefault();  
   e.preventDefault();
-  
+
  const pconfigs = {
    header: {
      "Content-Type": "application/json",

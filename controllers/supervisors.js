@@ -426,7 +426,7 @@ exports.StaffViewBiddings = async(req, res, next) => {
     console.log(req.body)
     const TAFall = []
      try{
-        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:BatchID,Approved:false})
+        const biddingsList = await Supervisor.find({StaffID:staffID,BatchID:BatchID})
        // console.log("BiddingList is" + biddingsList)
 
         if(biddingsList.length == 0){
@@ -436,7 +436,13 @@ exports.StaffViewBiddings = async(req, res, next) => {
             })
         }else{
 
+            
         for(let i = 0; i < biddingsList.length; i++){
+            
+            const bids = await Supervisor.count({GroupID:biddingsList[i].GroupID,Approved:true})
+            console.log("+++++++"+bids+"++++++++"+biddingsList[i].GroupID)
+        if(bids < 1){
+
             let bidID = biddingsList[i]._id
             let TAFID = biddingsList[i].Project
             console.log("BID ID: ",bidID)
@@ -449,7 +455,7 @@ exports.StaffViewBiddings = async(req, res, next) => {
                 next(error)
                 console.log("TAF view Bidding error")
             }
-        }
+        }}
         
         res.status(201).json({
             success: true,
@@ -476,13 +482,18 @@ exports.StaffViewPBiddings = async(req,res,next) => {
     console.log("Staff : "+staffID)
 
     try{
-        const biddngs = await BidProject.find({StaffID:staffID,BatchID:BatchID,Approved:false})
+        const biddngs = await BidProject.find({StaffID:staffID,BatchID:BatchID})
         console.log("biddings: "+biddngs)
         const bidData = []
         for(let i = 0 ; i < biddngs.length; i++){
             // const gCount = await Group.find({name:biddings.GroupID,staff:{ $ne: "" }})
             // console.log(gCount+" Gcount")
             // if(gCount != 0){
+        const bids = await BidProject.count({GroupID:biddngs[i].GroupID,Approved:true})
+        console.log("+++++++"+bids+"++++++++"+biddngs[i].GroupID)
+        if(bids < 1){
+
+            console.log("inside the if")
             try{
                 let bid = biddngs[i];
                 // console.log("Bid[1] : "+bid)
@@ -494,6 +505,7 @@ exports.StaffViewPBiddings = async(req,res,next) => {
                 next(error)
                 console.log("Staff view project biddings error")
             }
+          }  
         }
     // }
         console.log("Bid Data: "+bidData)

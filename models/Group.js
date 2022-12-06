@@ -62,6 +62,13 @@ const GroupSchema = new mongoose.Schema({//Group model
     batch:{
         type:String
     },
+    Supervisor:{
+        type:String
+    },
+    CoSupervisor:{
+        type:String
+    },
+    
     resetPasswordToken: String,
     resetPasswordExpire: Date
 
