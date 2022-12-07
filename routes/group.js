@@ -38,7 +38,7 @@ router.route("/showSupervisors").get(showSupervisors)//show supervisors from sta
 router.route("/supervisorStatus").post(supervisorStatus) //check about previous bids and approved supervisors
 
 //show TAF biddings on student
-router.route("/viewStudentTAF/:id").get(viewStudentTAF)
+router.route("/viewStudentTAF").post(viewStudentTAF)
 router.route("/viewStudentProjectBids").post(viewStudentProjectBids)
 
 //view all biddings staff

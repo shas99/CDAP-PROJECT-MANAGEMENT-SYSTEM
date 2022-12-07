@@ -108,8 +108,6 @@ const StudentBidding = ({history}) => {
               setApproved("false")
               if(data.data.doneBids == true){
                 setAnyBids(true)
-                
-                
               }
           }else{
                 setApproved(data.data.anyApproved)
@@ -124,10 +122,13 @@ const StudentBidding = ({history}) => {
         try{
           console.log("Group NAme: "+groupName)
           //let gID = groupID
-          const {data} = await axios.get("/api/group/viewStudentTAF/"+groupName)
+          const {data} = await axios.post(
+            `/api/group/viewStudentTAF`,
+            {groupName})
           console.log("Data"+JSON.stringify(data.data))
           
           setBiddings(data.data)
+          //console.log(Biddings)
           setTAFdetails(data.data)
 
         }catch(error){
@@ -175,7 +176,7 @@ const StudentBidding = ({history}) => {
             {/* <p style={{color:"white"}}>{groupID}<br/> */}
             {console.log("any bids? "+anybids)}
             <div id="supervisorName" className="text-white w-80% h-20rem">
-              {approved != "Not assigned" ?(
+              {approved != "false" ?(
                 <p>Your supervisor is : {approved}</p>
                   
                 
@@ -200,29 +201,29 @@ const StudentBidding = ({history}) => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 font-sans">
 
           <tr>
-          <th className="py-3 px-6 font-sans text-white font-bold">Topic</th>
-          <th className="py-3 px-6 font-sans text-white font-bold">Topic Description</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Abstract</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Research Problem</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Solution</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">System Overview</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Objective</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Project Task</th>
-          <th  className="py-3 px-6 font-sans text-white font-bold">Technologies</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Topic</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Topic Description</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Abstract</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Research Problem</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Solution</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">System Overview</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Objective</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Project Task</th>
+          <th  className="py-3 px-6 font-sans text-black font-bold">Technologies</th>
           </tr>
           </thead>
           <tbody>
         {TAFdetails.TAFDetetails.map((TAF) =>
-          <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.Topic}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.topicdescription}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.abstract}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.researchProblem}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.solution}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.systemOverview}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.objective}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.projecttask}</td>
-          <td className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white font-sans">{TAF.technologies}</td>
+          <tr className="bg-gray-800 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-sans">
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.Topic}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.topicdescription}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.abstract}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.researchProblem}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.solution}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.systemOverview}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.objective}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.projecttask}</td>
+          <td className="py-4 px-6 font-medium text-gray-500 whitespace-nowrap dark:text-white font-sans">{TAF.technologies}</td>
         </tr>
         )}
         </tbody>
@@ -231,11 +232,11 @@ const StudentBidding = ({history}) => {
       </div>
 <br/>
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg text-white font-sans">
-        <p className="font-sans font-bold">Bidded Supervisors :</p><br/>
+        <p className="font-sans font-bold">Bidded Supervisors : </p><br/>
         <span><ul>
         {Biddings.BiddigData.map ((biddings) => 
           
-            <li className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700" style={{margin:"5px"}}>{biddings}</li>
+            <li className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700" style={{margin:"5px"}}>{biddings.SName} : {biddings.feedback}</li>
           
         )}</ul></span>
 

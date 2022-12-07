@@ -215,7 +215,7 @@ const SupervisorViewBidding = ({history}) =>{
 const submitFeed = async (e) => {
   // e.preventDefault();  
   e.preventDefault();
-
+  
  const pconfigs = {
    header: {
      "Content-Type": "application/json",
