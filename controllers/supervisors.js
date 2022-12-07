@@ -239,6 +239,8 @@ exports.supervisorStatus = async(req, res, next) => {
     }
 };
 
+//find approved project
+
 
 
 //-------------------------- TAF Bidding(student) ---------------------------------
@@ -267,6 +269,10 @@ exports.SupervisorBID = async(req, res, next) => {
     }
 
 };
+
+
+//edit TAF
+
 
 
 //-------------------------- Available project Bidding(student) ---------------------
@@ -450,8 +456,10 @@ exports.StaffViewBiddings = async(req, res, next) => {
         for(let i = 0; i < biddingsList.length; i++){
             
             const bids = await Supervisor.count({GroupID:biddingsList[i].GroupID,Approved:true})
-            console.log("+++++++"+bids+"++++++++"+biddingsList[i].GroupID)
-        if(bids < 1){
+            const Pbids = await BidProject.count({GroupID:biddingsList[i].GroupID,Approved:true})
+
+            console.log("+++++++"+bids+"++++++++"+Pbids+biddingsList[i].GroupID)
+        if(bids < 1 && Pbids < 1){
 
             let bidID = biddingsList[i]._id
             let TAFID = biddingsList[i].Project
@@ -500,8 +508,9 @@ exports.StaffViewPBiddings = async(req,res,next) => {
             // console.log(gCount+" Gcount")
             // if(gCount != 0){
         const bids = await BidProject.count({GroupID:biddngs[i].GroupID,Approved:true})
-        console.log("+++++++"+bids+"++++++++"+biddngs[i].GroupID)
-        if(bids < 1){
+        const Pbids = await Supervisors.count({GroupID:biddngs[i].GroupID,Approved:true})
+        console.log("+++++++"+bids+"++++++++"+Pbids+biddngs[i].GroupID)
+        if(bids < 1 && Pbids < 1){
 
             console.log("inside the if")
             try{
