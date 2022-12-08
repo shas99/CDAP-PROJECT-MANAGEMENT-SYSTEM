@@ -27,9 +27,20 @@ const TopicRegistration = ({history}) => {
     const [objective, setobjective] = useState("");
     const [projecttask, setprojecttask] = useState("");
     const [technologies, settechnologies] = useState("");
+    const [batchID,setBatchID] = useState("")
+    const [projectID, setProjectID] = useState("")
+    const [batchType, setBatchType] = useState("");
+    //const [enable, setEnable] = useState(false);
 
+    const [enableBid, setEnableBid] = useState(false);
     const [group,setgroup] = useState("")
     const [fetchGroupData, setGroupData] = useState("");
+    
+    const [supervisorName, setSupervisorName] = useState([]);
+    //const [supervisorName, setSupervisorName] = useState([]);
+    //const [selectedSupervisors,setSelectedSupervisors] = useState([]);
+
+    const [SupervisorArr,setSupervisorArr] = useState([]);
     useEffect(() => {
         const fetchGroupData = async () => {
             const groupconfig = {
@@ -65,11 +76,45 @@ const TopicRegistration = ({history}) => {
           
           setPrivateData(data.data);
           setgroupID(data.data4);
+          const batch = data.data5
+          const b = batch.split("-");
+          //console.log(b+"batch")
+          if(b[1]=="Reg" || b[1]=="reg"){
+            setBatchType(6);
+            
+          }
+          else if(b[1]=="June" || b[1]=="june"){
+            setBatchType(2);
+          };
+           
           console.log("Group ID: ",groupID)
         } catch (error) {
           localStorage.removeItem("authToken");
           setError("You are not authorized please login");
         }
+      };
+
+
+      const fetchAvailableSupervisors = async () => {
+        const supconfig = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        };
+
+
+        const ab = localStorage.getItem("authToken")
+        try {
+          const {data} =  await axios.get("/api/group/showSupervisors",{params: {ab}}, supconfig); //need to pass the batch id as a parameter to backend
+          const array = Object.entries(data.data)
+
+          setSupervisorName(array);
+
+          console.log(array)
+          
+        }
+        catch(error){}
       };
 
       // const fetchGroupID = async () => {
@@ -98,6 +143,7 @@ const TopicRegistration = ({history}) => {
 
       fetchPrivateDate();
       fetchGroupData();
+      fetchAvailableSupervisors()
       // fetchGroupID()
     }, [history]);
   
@@ -116,43 +162,101 @@ const TopicRegistration = ({history}) => {
             "Content-Type": "application/json",
           },
         };
-        alert("Successfully Submited!")
-        try {
-          const { data } = await axios.post(
-            "/api/group/topicregister",
-            { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
-            config
-          );
-
-          const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-          
-          Toast.fire({
-            icon: 'success',
-            title: 'You Have Successfully Posted A Topic Registration Form'
-          })
-    
-    
-    
-          history.push("/");
-        } catch (error) {
-          setError(error.response.data.error);
-          setTimeout(() => {
-            setError("");
-          }, 5000);
+        
+        if(groupID != "" && Topic != "" && topicdescription != "" && abstract != "" && researchProblem != "" && solution != "" && systemOverview != "" && objective != "" && projecttask != "" && technologies != ""){
+          try {
+            const { data } = await axios.post(
+              "/api/group/topicregister",
+              { groupID,Topic,topicdescription,abstract,researchProblem,solution,systemOverview,objective,projecttask,technologies },
+              config
+            );
+            //alert("Successfully Submited! "+data.data)
+            setProjectID(data.data)
+            setEnableBid(true)
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+            
+            Toast.fire({
+              icon: 'success',
+              title: 'You Have Successfully Posted A Topic Registration Form'
+            })
+      
+            //history.push("/");
+          } catch (error) {
+            setError(error.response.data.error);
+            setTimeout(() => {
+              setError("");
+            }, 5000);
+          }
+        }else{
+          alert("One or more fields empty")
         }
+        
       };
 
-     
+      // Submit form
+      const SubmitBidding = async (e) => {
+        e.preventDefault();  
+       const pconfig = {
+         header: {
+           "Content-Type": "application/json",
+         },
+       };
+       try {
+         //const SupervisorArr = []
+         //SupervisorArr = selectedSupervisors
+         const GroupID = groupID
+         const BatchID = batchID
+         const ProjectID = projectID
+          console.log(GroupID,BatchID,ProjectID,SupervisorArr)
+          //SUCCESS SWEET ALERT MESSAGE
+          Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+
+              Swal.fire('Saved!', '', 'success')
+                 const { data } =  axios.post(
+           "http://localhost:5000/api/group/supervisorBID",
+           {SupervisorArr,GroupID,BatchID,ProjectID}, //projectID need to get using response of TAF submit response
+           pconfig
+           
+         );
+            } else if (result.isDenied) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+        
+       } catch (error) {
+         //setError(error.response.data.error);
+         setTimeout(() => {
+           setError("");
+           //onsole.log(error)
+         }, 5000);
+       }
+       
+     };
+
+       const updateSupervisors = (e) => { 
+      if (e.target.checked) { setSupervisorArr((oldArray) => [...oldArray, e.target.value]); } 
+      else { removesupervisor(e); console.log(SupervisorArr) } 
+  }
+  const removesupervisor = (e) => { setSupervisorArr([...SupervisorArr.filter((supervisor) =>
+     supervisor !== e.target.value)]) }
 
       
   
@@ -331,12 +435,53 @@ const TopicRegistration = ({history}) => {
                   <br/>
 
       <button type="submit" className="btn btn-primary1" id="Log1Button">
-          Submit!
+          Submit
         </button>
 
-        
       </form>
+    {enableBid ?  
+    <div>
+      <h1 className="text-4xl text-slate-300"> Choose Your Supervisor</h1> <br/>
+      <form onSubmit={SubmitBidding}>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="py-3 px-6">
+                    Supervisor name
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Taken Projects
+                </th>
+                <th scope="col" class="py-3 px-6">
+                    Select
+                </th>
+               
+              
+            </tr>
+        </thead>
+        {supervisorName.map (supervisor => 
+                  <tr>
+                    <td className="py-4 px-6">{supervisor[1][1]}</td>
+                    <td className="w-10 items-center py-4 px-8">{supervisor[1][2]}/{batchType}</td>
+                    <td className="w-10 items-center py-4 px-8" >
+                      <input type="checkbox" value={supervisor[1][0]} name="supervisor" onChange={(e) => {updateSupervisors(e)}}></input>
+                      {/*dont want <input type="radio" value={supervisor[1][0]} name="supervisor" onChange={(e) => setSelectedSupervisors(e.target.value)}></input> */}
+
+                    </td>
+                  </tr>
+                  )}
+
+    </table>
+    <button type="submit" className="btn btn-primary1" id="Log1Button">
+          Submit
+        </button>
+    </form>
     </div>
+     :null 
+    }
+    </div>
+
+    
           </div>
       
           <Footer/>

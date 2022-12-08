@@ -19,17 +19,21 @@ const SupervisorSchema = new mongoose.Schema({//Topic Registration Model
     Approved: {
         type : Boolean
     },
-    Recommended: {
-        type : Boolean
-    },
-    Project: {
+    //recommended and project removed by pasinduV 10/11/22 for new bidding system
+    // Recommended: {
+    //     type : Boolean
+    // },
+    Project: {  //taf object id
         type: String
     },
-    Groupid: {//Group object ID
-        type: String
-    },
+    // Groupid: {//Group object ID
+    //     type: String
+    // },
     rejected: {
         type: Boolean
+    },
+    feedback: {
+        type: String
     }
 
 })

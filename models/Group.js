@@ -47,7 +47,7 @@ const GroupSchema = new mongoose.Schema({//Group model
     mem5_approve:{
         type: Boolean
     },
-    name:{
+    name:{ //group  id
         type: String
     },
     staff:{
@@ -62,7 +62,13 @@ const GroupSchema = new mongoose.Schema({//Group model
     batch:{
         type:String
     },
-  
+    Supervisor:{
+        type:String
+    },
+    CoSupervisor:{
+        type:String
+    },
+    
     resetPasswordToken: String,
     resetPasswordExpire: Date
 

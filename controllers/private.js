@@ -13,6 +13,8 @@ exports.getPrivateData = async (req,res,next) => {
     
     const user = await User.findById(decoded.id)
     console.log("Logged in user-email : "+ user.email)
+    //console.log("Logged in user-email : "+ user.phoneNumber)
+     console.log("Logged in user-email : "+ user.GroupID)
     
     res.status(200).json({
         sucess: true,
@@ -20,6 +22,7 @@ exports.getPrivateData = async (req,res,next) => {
         data2: user.username,
         data3: user.phoneNumber,
         data4: user.GroupID,
+        data5: user.BatchID,
       
     })
 
