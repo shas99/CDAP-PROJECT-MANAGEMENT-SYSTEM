@@ -56,7 +56,7 @@ router.route("/TAFFeed").put(TAFFeed)
 //panel view group
 router.route("/viewAvailableGroupsPanel").post(viewAvailableGroupsPanel)
 
-router.route("/viewAvailableGroupsAdmin").post(viewAvailableGroupsAdmin)
+router.route("/viewAvailableGroupsAdmin").get(viewAvailableGroupsAdmin)
 
 
 module.exports = router

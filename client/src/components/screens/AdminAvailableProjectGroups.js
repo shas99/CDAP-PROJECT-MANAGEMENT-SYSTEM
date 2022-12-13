@@ -40,7 +40,7 @@ const AdminAvailableProjectGroups = ({history}) =>{
       }
 
       try{
-        const{data} = await axios.post("/api/group/viewAvailableGroupsAdmin",projectsconfig);
+        const{data} = await axios.get("/api/group/viewAvailableGroupsAdmin",projectsconfig);
         console.log(data)
         //console.log(typeof data.data);
         const array = Object.entries(data.data)
