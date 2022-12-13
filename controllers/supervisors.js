@@ -206,11 +206,11 @@ exports.supervisorStatus = async(req, res, next) => {
     const {groupName} = req.body;
     let anyApproved, doneBids;
     try{
-        const gCount = await Group.find({name:groupName,staff:{ $exists: true, $ne: null }})
+        const gCount = await Group.find({name:groupName,Supervisor:{ $exists: true, $ne: null }})
         console.log("Count : "+gCount.length)
         if (gCount != 0){
             const GroupDetails = await Group.findOne({name:groupName})
-            const details = await Staff.findById({_id:GroupDetails.staff}); 
+            const details = await Staff.findById({_id:GroupDetails.Supervisor}); 
             const name = details.username
             anyApproved = name   
             console.log("Any approved : "+anyApproved)  
@@ -239,6 +239,8 @@ exports.supervisorStatus = async(req, res, next) => {
     }
 };
 
+//find approved project
+
 
 
 //-------------------------- TAF Bidding(student) ---------------------------------
@@ -246,12 +248,13 @@ exports.SupervisorBID = async(req, res, next) => {
     const {SupervisorArr, GroupID, BatchID, Project} = req.body;  //StaffID, GroupID, BatchID, Project = TAFID
     const Approved = false;
     const rejected = false;
+    const feedback = "";
     console.log(req.body)
     try{
         for(let i = 0;i<SupervisorArr.length;i++){
             let StaffID = SupervisorArr[i];
             const user = await Supervisors.create({
-                StaffID,GroupID,BatchID,Approved,Project,rejected
+                StaffID,GroupID,BatchID,Approved,Project,rejected,feedback
             })    
         }
         res.status(201).json({
@@ -266,6 +269,10 @@ exports.SupervisorBID = async(req, res, next) => {
     }
 
 };
+
+
+//edit TAF
+
 
 
 //-------------------------- Available project Bidding(student) ---------------------
@@ -308,7 +315,7 @@ exports.ProjectBID = async(req, res, next) => {
 
 //------------------- View TAF Bidding details ---------------------------
 exports.viewStudentTAF = async(req, res, next) =>{
-    const groupName = req.params.id;
+    const {groupName} = req.body;
     let BiddigData = [];
     
     try{
@@ -321,9 +328,18 @@ exports.viewStudentTAF = async(req, res, next) =>{
         if(sbiddingsCount != 0){
             for(let i = 0; i < sbiddingsCount; i++){
                 try{
+                    console.log("+++++++++++++++++")
+                    console.log(SDetails[i].feedback)
                     let supervisor = await Staff.findById({_id:SDetails[i].StaffID})
+                    let feedback = SDetails[i].feedback
+                    if(feedback == ""){
+                        feedback = "[0]"
+                        
+                    }
+                    console.log("**********"+feedback)
                     let SName = supervisor.username
-                    BiddigData.push(SName)
+                    let details = {SName,feedback}
+                    BiddigData.push(details)
                 }catch(error){
                     next(error)
                 }
@@ -440,8 +456,10 @@ exports.StaffViewBiddings = async(req, res, next) => {
         for(let i = 0; i < biddingsList.length; i++){
             
             const bids = await Supervisor.count({GroupID:biddingsList[i].GroupID,Approved:true})
-            console.log("+++++++"+bids+"++++++++"+biddingsList[i].GroupID)
-        if(bids < 1){
+            const Pbids = await BidProject.count({GroupID:biddingsList[i].GroupID,Approved:true})
+
+            console.log("+++++++"+bids+"++++++++"+Pbids+biddingsList[i].GroupID)
+        if(bids < 1 && Pbids < 1){
 
             let bidID = biddingsList[i]._id
             let TAFID = biddingsList[i].Project
@@ -490,8 +508,9 @@ exports.StaffViewPBiddings = async(req,res,next) => {
             // console.log(gCount+" Gcount")
             // if(gCount != 0){
         const bids = await BidProject.count({GroupID:biddngs[i].GroupID,Approved:true})
-        console.log("+++++++"+bids+"++++++++"+biddngs[i].GroupID)
-        if(bids < 1){
+        const Pbids = await Supervisors.count({GroupID:biddngs[i].GroupID,Approved:true})
+        console.log("+++++++"+bids+"++++++++"+Pbids+biddngs[i].GroupID)
+        if(bids < 1 && Pbids < 1){
 
             console.log("inside the if")
             try{
@@ -534,7 +553,7 @@ exports.AcceptPBid = async(req,res,next) => {
 
             const updateGr = await Group.findOne({name:bid.GroupID})
             console.log("Group name: "+bid.GroupID)
-            updateGr.staff = bid.StaffID
+            updateGr.Supervisor = bid.StaffID
             console.log("STAFF: "+bid.StaffID)
 
             const projectDe = await AvailableProjects.findById({_id:bid.ProjectID,})
@@ -587,7 +606,7 @@ exports.AcceptBid = async(req,res,next) => {
             // }) 
             const updateGr = await Group.findOne({name:bid.GroupID})
             console.log("Group name: "+bid.GroupID)
-            updateGr.staff = bid.StaffID
+            updateGr.Supervisor = bid.StaffID
             console.log("STAFF: "+bid.StaffID)
             await bid.save();  
                 // try{
