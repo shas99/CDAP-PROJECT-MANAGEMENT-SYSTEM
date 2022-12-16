@@ -7,7 +7,7 @@ import './StaffAvailableProject.css'
 import e from 'cors';
 
 
-const ViewAvailableProjectsStaff = ({history}) =>{
+const PanelAvailableProjectsStaff = ({history}) =>{
   const [ProjectsData, setProjectsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
@@ -51,7 +51,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
 
       try{
         const{data} = await axios.post(
-          `/api/group/viewgroups`,
+          `/api/group/viewAvailableGroupsPanel`,
           {stID:staffID},
           projectsconfig);
         console.log(data)
@@ -177,7 +177,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
     
   )
 }
-export default ViewAvailableProjectsStaff;
+export default PanelAvailableProjectsStaff;
 
 
 
