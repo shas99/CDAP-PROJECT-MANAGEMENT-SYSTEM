@@ -300,34 +300,6 @@ exports.viewAvailableGroups =async(req,res,next) => {
 
 }
 
-//retreive all groups
-exports.viewAvailableGroupsAdmin =async(req,res,next) => {
-    
-    try{
-    
-
-        // const {stID} = req.body
-        const group = await Group.find()//group that is approved and have this perticular member
-        //console.log(availableProjects[1])// 
-        const array = Object.values(group)
-        console.log("Groups: "+group)
-        // console.log(array)
-        // const arrayproject = JSON.stringify(array).split(',')
-        // console.log(arrayproject)
-        // console.log(typeof arrayproject)
-    
-        res.status(201).json({
-            success: true,
-            data: array
-        })
-        
-    
-    }catch(error){
-        res.status(500).json({success:false, error:error.message})
-    }
-
-}
-
 
 //view specific group
 exports.viewgroup = async (req, res, next) => {
