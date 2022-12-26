@@ -130,6 +130,12 @@ const PanelAvailableProjectsStaff = ({history}) =>{
       <h1 id="caption" className="">All Groups</h1>
       <br/><br/>
 {searchtext}
+
+<div className="flex flex-row-reverse">
+  <button className="btn btn-primary" id="addProjectButton" onClick={() => history.push("/staffProject")} style={{ marginLeft: 'auto'}}>
+Go to supervisor marking
+  </button>
+</div>
     
         
          <ul>

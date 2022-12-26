@@ -7,6 +7,8 @@ import './StaffAvailableProject.css'
 import e from 'cors';
 
 
+
+
 const ViewAvailableProjectsStaff = ({history}) =>{
   const [ProjectsData, setProjectsData] = useState([])
   const [error, setError] = useState("");
@@ -131,6 +133,17 @@ const ViewAvailableProjectsStaff = ({history}) =>{
       <br/><br/>
 {searchtext}
     
+    {/* button to navigate to /panelProject with an arrow pointing to the right*/}
+    <div className="flex flex-row-reverse">
+  <button className="btn btn-primary" id="addProjectButton" onClick={() => history.push("/panelProject")} style={{ marginLeft: 'auto'}}>
+Go to pannel marking
+  </button>
+</div>
+
+
+
+
+
         
          <ul>
         {ProjectsData.map(project => {

@@ -309,7 +309,7 @@ export default function StaffDashboard ({history}) {
 
                        <div class="w-56 gap-2 h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-2">
                            <button>
-                           <a href='/markingDashboard'> Marking</a>
+                           <a href='/staffProject'> Marking</a>
                             </button>
                        </div>
 
