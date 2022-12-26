@@ -3,6 +3,8 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Dashboard.css";
+import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
+
 export default function Dashboard ({history}) {
 
 
@@ -116,13 +118,14 @@ export default function Dashboard ({history}) {
   (
     //         DASHBOARD SCREEN 
     
-    <div className='ml-50rem bg-gray-900  text-gray-100 w-auto  overflow-y-scroll-hidden	scrollbar-hide ' style={{overflowX:"hidden"}}> 
-
+    <div className='ml-50rem bg-gray-900  text-gray-100 w-auto h-[65rem] overflow-y-scroll-hidden	scrollbar-hide ' style={{overflowX:"hidden"}}> 
+        
             <div class="flex ">
-
-        <div x-data="{ open: true }" className="fixed top-0  z-50 ">
+                <SideNavigationBar page="StudentDashboard"/>
+            </div>
+        {/* <div x-data="{ open: true }" className="fixed top-0  z-50 "> */}
            {/* SIDENAVBAR */}
-            <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
+            {/* <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >
                 <a class="flex items-center w-full px-3 mt-3" href="#">
                     <img src="https://cdn.discordapp.com/attachments/929308623853723678/994252147799625768/Screenshot_2022-07-06_at_20.12.37.png" class="w-8 h-8 rounded" alt=""/>
                     <span class="ml-2 text-sm font-bold">Calibre Project Management</span>
@@ -140,7 +143,7 @@ export default function Dashboard ({history}) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                             <span class="ml-2 text-sm font-medium">CourseWeb</span>
-                        </a>
+                        </a> */}
                         {/* <a class="flex items-center w-full h-12 px-3 mt-2 text-gray-400 bg-gray-700 text-gray-100 rounded" href="#">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -153,7 +156,7 @@ export default function Dashboard ({history}) {
                             </svg>
                             <span class="ml-2 text-sm font-medium">Forms</span>
                         </a> */}
-                    </div>
+                    {/* </div>
                     <div class="flex flex-col items-center w-full mt-2 border-t border-gray-700">
                         <a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700" href="/submissionmilestone">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -166,7 +169,7 @@ export default function Dashboard ({history}) {
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                             </svg>
                             <span class="ml-2 text-sm font-medium">Status</span>
-                        </a>
+                        </a> */}
                         {/* <a class="relative flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-gray-700" href="#">
                             <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
@@ -174,7 +177,7 @@ export default function Dashboard ({history}) {
                             <span class="ml-2 text-sm font-medium">Messages</span>
                             <span class="absolute top-0 left-0 w-2 h-2 mt-2 ml-2 bg-gray-500 rounded-full "></span>
                         </a> */}
-                    </div>
+                    {/* </div>
                 </div>
                 <a class="flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-gray-700 " >
                     <div class="border flex px-2 py-1 rounded-lg flex items-center gap-2" onClick={logOutHandler}>
@@ -185,12 +188,12 @@ export default function Dashboard ({history}) {
                     </div>
                     
                 </a>
-            </div>
+            </div> */}
            
-        </div>
-        </div>
+        {/* </div> */}
+        {/* </div> */}
                 {/* Mobile View  */}
-                <div   class="flex flex-col items-center w-12  overflow-hidden text-gray-300 bg-gray-800 rounded h-[80rem] " >
+                {/* <div   class="flex flex-col items-center w-12  overflow-hidden text-gray-300 bg-gray-800 rounded h-[80rem] " >
                     <a class="flex items-center justify-center mt-3" href="#">
                         <img class="w-8 h-8" src="https://cdn.discordapp.com/attachments/938131839661539339/973611175168327740/Favi.png" alt=""/>
                     </a>
@@ -239,15 +242,15 @@ export default function Dashboard ({history}) {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </a>
-                </div>
+                </div> */}
                 <div class="md:ml-60 ml-16 mr-1 mt-3">
             
-            <div class="absolute top-0 right-0 ">
+            {/* <div class="absolute top-0 right-0 ">
                 <div class="w-screen flex justify-end items-center bg-gray-800 text-white h-10 md:hidden">
                    
                         
                 </div>
-            </div>
+            </div> */}
 
             <div class="absolute top-0 right-0 ">
                 <div class="w-screen flex justify-end items-center bg-gray-800 text-white h-10 md:hidden">
@@ -280,10 +283,10 @@ export default function Dashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-center gap-x-180 gap-y-4  ml-[30rem]">
+                <div class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-2 items-center gap-x-180 gap-y-4  ml-[30rem]">
 
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
 
                             <button>
                                 <a href='/userprofile'> My Profile</a>
@@ -291,44 +294,44 @@ export default function Dashboard ({history}) {
                             </button>
                        </div>
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       {/* <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                           <button>
                           <a href='/studenttopicinterestingform'> My Topic Preference</a>
                            
                            </button>
-                       </div>
+                       </div> */}
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
+                       {/* <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-180">
                            <button>
                            <a href='/viewmarksdashboard'> My Grades</a>
                             </button>
-                       </div>
+                       </div> */}
 
-                       <div class="w-52 gap-1 h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/groupscreen'> My Group</a>
                             </button>
                        </div>
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/studentBidding'> Matched Supervisors</a>
                             </button>
                        </div>
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/topicregistration'> Topic Registration Form</a>
                             </button>
                        </div>
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/submissionmilestone'> Submissions</a>
                             </button>
                        </div>
 
-                       <div class="w-52 gap-1  h-20 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href="https://cdap-app-365.herokuapp.com/"> Schedule Meeting</a>
                             </button>
