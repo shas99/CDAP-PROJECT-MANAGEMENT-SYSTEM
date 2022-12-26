@@ -116,31 +116,42 @@ const toggle=()=> {//normal text box
 
 
 
-        
+        <Link to="/addSubmission" className="login-screen__forgotpassword" id="link">
+             <button className="bg-blue-700 text-white  text-lg px-5 py-2.5 rounded hover:bg-green-600">
+              Create new submission
+             </button> 
+            </Link>
          <ul>
          <br/>
         {SubmissionsData.map(submission => {
           
           return (
 
-  <div className="p-6 ml-[35rem] w-[100rem] max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" >
+            <div className="lg:w-2/3 px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-10 ml-80">
 
-        <center><p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{submission.BatchID}</p></center>
-      <div><br/>
+        {/* <center> */}
+        <p className="flex flex-row text-xl font-semibold text-white font-sans">
+          {submission.Heading}
+          &nbsp; ({submission.BatchID})
+        </p>             
+        <p style={{fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",textAlign:"right"}}>
+          Submission Enabled? &nbsp; 
+        <input type="checkbox" name="visibility" onChange={toggle} checked ={submission.visibility}/>
+        </p>
+        <br/> <hr class="w-2/1 border-grey-900 my-4 mt-5"/>
+          {/* </center> */}
+        <div><br/>
                    
                     {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400"><b>Date       </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li>&nbsp;
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Heading    </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li>&nbsp;
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Links      </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li>&nbsp; 
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
+                    <li class="mb-3 font-normal text-gray-200 dark:text-gray-400" ><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
+                    <li class="mb-3 font-normal text-gray-200 dark:text-gray-400" ><b>Links      </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li>&nbsp; 
+                    <li class="mb-3 font-normal text-gray-200 dark:text-gray-400" ><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
+                    <li class="mb-3 font-normal text-gray-200 dark:text-gray-400"><b>Date       </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li>&nbsp;
+
                     <label>
               
                     <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <a href={`/editSubmission/${submission._id}`}>Edit/Remove submission</a></div>&nbsp;&nbsp;<br/>
-        <br/> <p style={{fontWeight:"bold",color:"black",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"300px",textAlign:"center",margin:"0 auto"}}>Submission Enabled?</p>
-      <br/>
-        <input type="checkbox" name="visibility" onChange={toggle} checked ={submission.visibility}/>
-        <br/>
+        
     </label>
     
       </div>
@@ -159,9 +170,7 @@ const toggle=()=> {//normal text box
       </ul>
       
 
-        <Link to="/addSubmission" className="login-screen__forgotpassword" id="link">
-              Create new submission
-            </Link>
+        
       
     </div>
      

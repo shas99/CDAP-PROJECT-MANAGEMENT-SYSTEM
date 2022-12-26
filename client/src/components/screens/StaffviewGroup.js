@@ -272,14 +272,16 @@ const Status =  () => {
     <div className="bg-gray-900 h-[70rem]">
       <h2 id="caption">{name}</h2>
       <br/>
-      <div className=" ml-[24rem] ">
+      <div className="w-100% m-auto">
 
 
-  <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[12.5rem] h-[50rem]">
+  <div class="flex flex-row max-w-6xl text-gray-200 bg-gray-800 rounded-sm border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-auto">
+
+    <div className="">
     <a href="#">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ml-[4rem]">Group Members </h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white ml-[4rem]">Group Members </h5>
     </a>
-    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+    <p class="mb-3 font-normal text-gray-200 dark:text-gray-400">
 
     <ul className="ml-[7rem]">
         <li style={{color:"white"}}>{member1}</li>
@@ -289,15 +291,15 @@ const Status =  () => {
         <li>{member5}</li>
         </ul>
     </p>
-
-
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ml-[5rem]">View Reports </h5>
-    <ul className="text-sm ml-[4rem]">{Status()}</ul> <br/>
+</div>
+<div className="ml-[5rem] border border-gray-300 w-full">
+    <h5 class="text-2xl font-bold tracking-tight text-gray-200 dark:text-white ml-[5rem]">View Reports </h5><br/>
+    <ul className="text-sm ml-[4rem] text-gray-700 ">{Status()}</ul> <br/>
     {forms.map((form) =><div> <br/><button className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700  rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " > <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)}
        <br/><br/>
 </div>
        
-     
+</div>     
          
         
        

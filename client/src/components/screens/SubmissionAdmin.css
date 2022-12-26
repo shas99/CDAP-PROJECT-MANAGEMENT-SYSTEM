@@ -3,7 +3,8 @@
     text-align: center;
     position: relative;
     margin:0;
-    height:100%;
+    min-height: 50rem;
+    height:auto;
     width:100%;
     
 }

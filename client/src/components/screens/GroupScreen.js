@@ -22,6 +22,8 @@ const GroupScreen = ({history}) => {
     const [group,setgroup] = useState("")
     const [fetchGroupData, setGroupData] = useState("");
     const [bio,setBio] = useState("")
+    const [supervisor, setSupervisor] = useState("");
+    const [coSupervisor, setCoSupervisor] = useState("");
     useEffect(() => {
         const fetchGroupData = async () => {
             const groupconfig = {
@@ -41,6 +43,10 @@ const GroupScreen = ({history}) => {
               setgroup(group1)
               setGroupData(groupArray[0]);
               setBio(groupArray[2])
+
+              //Set data
+              setSupervisor();
+              setCoSupervisor()
 
             } catch (error) {
       
@@ -168,10 +174,19 @@ const GroupScreen = ({history}) => {
             <hr id="hr"></hr>
             <p id="List">
             <div className="grouplists">{listHandler()}</div><br/>
-            <p className="BioText">Bio</p>
+
+            <h1 id="caption" style={{color:"#8256D0"}}>Supervisor Details</h1>
+            <hr id="hr"></hr>
+            {/* <p className="BioText">Supervisor Details</p> */}
+            <br/>
+            <p>Supervisor : {supervisor} <br/> Co-Supervisor : {coSupervisor}</p>
+            </p>
+
+{/* Do we need to add this ? */}
+
+            <p className="BioText">Bio</p> 
             <br/>
             <p>{bio}</p>
-            </p>
           </div>
           
           }

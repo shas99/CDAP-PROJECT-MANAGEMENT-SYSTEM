@@ -90,12 +90,12 @@ const Marking = ({history}) =>{
 
   <>
   
-  <div id="back555">
+  <div id="back555" className="">
   <Header/>
   <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="AdminSubmission"/>
        </div>
-  <h1 id="caption" className="" style={{marginTop:"-575px"}}>Marking</h1>
+  <h1 id="caption" className="ml-auto" style={{marginTop:"-575px"}}>Marking</h1>
       <br/><br/>
   {/* <Link to="/CustomisedMarkingRubrics" style={{color:"#fff"}}>View Marking Rubrics</Link> */}
 {/* <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -128,10 +128,10 @@ const Marking = ({history}) =>{
                     <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
                     <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Heading    </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li>&nbsp;
                     <label>
-              
-                    <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <a href={`/markRubric/${submission._id}`}>Mark</a></div>&nbsp;&nbsp;
-
-    </label>
+                    <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> 
+                      <a href={`/markRubric/${submission._id}`}>Mark</a>
+                    </div>&nbsp;&nbsp;
+      </label>
 
       </div>
    

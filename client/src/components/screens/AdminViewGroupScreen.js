@@ -185,7 +185,7 @@ const retreiveMarks = async () => {
                     </div>))}
 
           <div className="rounded-md shadow-sm">
-          <button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" style={{marginLeft:"450px"}}><a
+          {/* <button className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" style={{marginLeft:"450px"}}><a
           href={`/images/${key}`}
           download
           onClick={e => download(e)}>
@@ -219,7 +219,7 @@ const retreiveMarks = async () => {
           <i className="fa fa-download" />
           Milestone 5
           
-          </a></button>
+          </a></button> */}
        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><a href="/adminAssignStaff">
 
       Assign Staff
@@ -233,7 +233,7 @@ const retreiveMarks = async () => {
 <br/><br/>
           
           {/* redirect to /marking:id using Link */}
-          <Link to={{pathname:`/marking/${match.params.id}`,state:{id:batchID}}}>Marking</Link>
+          <Link to={{pathname:`/marking/${match.params.id}`,state:{id:batchID}}}><button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Marking</button></Link>
 
           {/* button to view marks*/}
           <br/>
