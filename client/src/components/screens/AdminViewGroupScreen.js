@@ -252,6 +252,4 @@ const retreiveMarks = async () => {
   );
 };
 
-
-
 export default AdminViewGroup;

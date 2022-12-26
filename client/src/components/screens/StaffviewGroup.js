@@ -31,6 +31,7 @@ const ViewGroup = ({ history, match }) => {
   const [status, setStatus] = useState([]);
   const [heading, setHeading] = useState([]);
   const [groupHeading, setGroupHeading] = useState([]);
+  const [batchID, setBatchID] = useState("");
 
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
@@ -56,6 +57,7 @@ const ViewGroup = ({ history, match }) => {
           setmember3(data.data.member_2)
           setmember4(data.data.member_4)
           setmember5(data.data.member_5)
+          setBatchID(batchID => data.data.batch)
           setKey(data.data.key)
 
         setSuccess(data.data);
@@ -273,7 +275,7 @@ const Status =  () => {
       <h2 id="caption">{name}</h2>
       <br/>
       <div className="w-100% m-auto">
-
+      <Link to={{pathname:`/marking/${match.params.id}`,state:{id:batchID}}}><button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Marking</button></Link>
 
   <div class="flex flex-row max-w-6xl text-gray-200 bg-gray-800 rounded-sm border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 m-auto">
 

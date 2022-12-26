@@ -59,7 +59,7 @@ const Marking = ({history}) =>{
 
 
     fetchSubmissionsData()
-    fetchPrivateDate()
+    // fetchPrivateDate()
   }, [history])
 
 //   const objectToArray = obj => {
