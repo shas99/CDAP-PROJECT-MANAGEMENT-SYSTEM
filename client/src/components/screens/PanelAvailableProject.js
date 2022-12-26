@@ -105,7 +105,7 @@ const PanelAvailableProjectsStaff = ({history}) =>{
     <span className="error-message">{error}</span>
   ) :(
     
-    <div style={{backgroundColor:"#22272E"}}>
+    <div style={{backgroundColor:"#22272E",minHeight:"55rem"}}>
       <Header/>
       <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
         <SideNavigationBar page="StudentGroups"/>
@@ -131,11 +131,13 @@ const PanelAvailableProjectsStaff = ({history}) =>{
       <br/><br/>
 {searchtext}
 
-<div className="flex flex-row-reverse">
-  <button className="btn btn-primary" id="addProjectButton" onClick={() => history.push("/staffProject")} style={{ marginLeft: 'auto'}}>
+<div className="flex flex-row">
+  <button className="bg-green-700 px-6 py-2.5 rounded hover:bg-green-600 ml-80%" id="addProjectButton" onClick={() => history.push("/staffProject")} style={{ marginLeft: '80%'}}>
 Go to supervisor marking
   </button>
 </div>
+
+<br/>
     
         
          <ul>
@@ -155,7 +157,6 @@ Go to supervisor marking
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 2</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_2}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 3</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_3}</li>
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 4</b>:&nbsp;&nbsp;&nbsp;&nbsp;{project.member_4}</li>
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 5</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_5}</li>
                     <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"120px",textAlign:"center",margin:"0 auto"}}> <a href={`/viewgroup/${project._id}`}>View Group</a></div>
       </div>
       </div>

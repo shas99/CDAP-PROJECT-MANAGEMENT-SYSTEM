@@ -121,6 +121,7 @@ const ViewAvailableProjectsStaff = ({history}) =>{
     id = "groupSearch"
     type="search"
     placeholder="Search By Group ID"
+    style={{placeholder:"black"}}
     name="searchQuery"
     onChange={searchBox}>
     
@@ -134,12 +135,12 @@ const ViewAvailableProjectsStaff = ({history}) =>{
 {searchtext}
     
     {/* button to navigate to /panelProject with an arrow pointing to the right*/}
-    <div className="flex flex-row-reverse">
-  <button className="btn btn-primary" id="addProjectButton" onClick={() => history.push("/panelProject")} style={{ marginLeft: 'auto'}}>
+    <div className="flex flex-row">
+  <button className="bg-green-700 px-6 py-2.5 rounded hover:bg-green-600 ml-80%" id="addProjectButton" onClick={() => history.push("/panelProject")} style={{marginLeft: '80%'}}>
 Go to pannel marking
   </button>
 </div>
-
+<br/>
 
 
 
@@ -162,7 +163,6 @@ Go to pannel marking
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 2</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_2}</li> 
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 3</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_3}</li>
                     <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 4</b>:&nbsp;&nbsp;&nbsp;&nbsp;{project.member_4}</li>
-                    <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px",textAlign:"center"}}><b>Member 5</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_5}</li>
                     <div className="placeBidToBtn" style={{fontWeight:"bold",backgroundColor:'#8256D0',width:"80px",borderRadius:"5px",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"120px",textAlign:"center",margin:"0 auto"}}> <a href={`/viewgroup/${project._id}`}>View Group</a></div>
       </div>
       </div>
