@@ -300,6 +300,14 @@ exports.viewAvailableGroups =async(req,res,next) => {
 
 }
 
+// exports.viewGroupDetails = async(req,res,next) => {
+//     try{
+//         const group = await Group.find()
+//     }catch(error){
+
+//     }
+// }
+
 //retreive all groups
 exports.viewAvailableGroupsAdmin =async(req,res,next) => {
     

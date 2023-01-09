@@ -14,6 +14,7 @@ const { decode } = require('jsonwebtoken');
 const { response } = require('express');
 const Supervisor = require('../models/Supervisor');
 const AvailableProject = require('../models/AvailableProject');
+const { update } = require('../models/User');
 //const TopicReg = require('../models/TopicReg');
 
 
@@ -551,16 +552,18 @@ exports.AcceptPBid = async(req,res,next) => {
             
             console.log("Triggre")
 
-            const updateGr = await Group.findOne({name:bid.GroupID})
-            console.log("Group name: "+bid.GroupID)
-            updateGr.Supervisor = bid.StaffID
-            console.log("STAFF: "+bid.StaffID)
-
             const projectDe = await AvailableProjects.findById({_id:bid.ProjectID,})
             console.log("PrjectDe: "+projectDe)
             projectDe.projectStatus = true;
             console.log("ProjectStatus : "+projectDe.projectStatus)
-            
+
+            const updateGr = await Group.findOne({name:bid.GroupID})
+            console.log("Group name: "+bid.GroupID)
+            updateGr.Supervisor = bid.StaffID
+            updateGr.projectID = bid.ProjectID
+            updateGr.projectName = projectDe.projectName
+            console.log("STAFF: "+bid.StaffID)
+
             await bid.save();  
                 // try{
             //const gname =      
@@ -604,9 +607,14 @@ exports.AcceptBid = async(req,res,next) => {
             //     success:true,
             //     data: "updated!"
             // }) 
+
+            const tafDetails = await TAF.findById({_id:bid.Project})            
+
             const updateGr = await Group.findOne({name:bid.GroupID})
             console.log("Group name: "+bid.GroupID)
             updateGr.Supervisor = bid.StaffID
+            updateGr.projectID = bid.Project
+            updateGr.projectName = tafDetails.Topic
             console.log("STAFF: "+bid.StaffID)
             await bid.save();  
                 // try{

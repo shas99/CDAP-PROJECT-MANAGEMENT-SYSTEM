@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { groupregister } = require('../controllers/auth')
 const crypto = require('crypto')
+const { stringify } = require('querystring')
 
 const GroupSchema = new mongoose.Schema({//Group model
 
@@ -66,6 +67,12 @@ const GroupSchema = new mongoose.Schema({//Group model
         type:String
     },
     CoSupervisor:{
+        type:String
+    },
+    projectID:{
+        type:String
+    },
+    projectName:{
         type:String
     },
     

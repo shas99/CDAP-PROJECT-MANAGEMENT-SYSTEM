@@ -89,26 +89,36 @@ const AdminAvailableProjectGroups = ({history}) =>{
     <span className="error-message">{error}</span>
   ) :(
     
-    <div style={{backgroundColor:"#22272E"}}>
-      <Header/>
-      <div class="flex flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+    <div className='w-full-screen' style={{backgroundColor:"#22272E"}}>
+      {/* <Header/> */}
+      <div className="overflow-hidden text-gray-300 sticky float-left">
         <SideNavigationBar page="AdminStudentGroups"/>
        </div>
-   {/* <br/><ul>{projectitems}</ul>  */}
-      <h1 id="caption" className="" style={{marginTop:"-575px"}}>All Groups</h1>
-      <br/><br/>
+       <div className="text-gray-300  flex flex-col">
+           {/* <br/><ul>{projectitems}</ul>  */}<br/>
+           <div className=' box-border w-80%  top-0'>
+      <h1 id="caption" className="text-center " >All Groups
+  
+    &nbsp;    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
 
-
-    
-
-        
-         <ul>
+    <a href={`/report`}>
+      <button  className="py-2 px-3  text-sm font-medium text-center text-white bg-blue-700  rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Generate full report</button>
+    </a>
+      </h1><br></br><hr/><br/>
+      </div>
+        <div className='grid grid-cols-3 gap-1'>
+         
         {ProjectsData.map(project => {
           return (
-           <div>
-      <div className="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ml-[35rem]" >
-              <center><p className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>{project.name}</p></center>
-            <div className='mb-3 font-normal text-gray-700 dark:text-gray-400 ml-[4rem]'>
+          
+      <div className="p-6 max-w-xl mt-10 bg-gray-700 rounded-lg border border-gray-800 shadow-md dark:bg-gray-800 dark:border-gray-700" >
+              <center><p className='mb-2 text-2xl font-bold tracking-tight text-gray-200 dark:text-white'>{project.name}</p></center>
+            <div className='mb-3 font-normal text-gray-200 dark:text-gray-400 ml-[4rem]'>
                         
                           <li ><b>Member 1</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_1}</li> 
                           <li><b>Member 2</b>: &nbsp;&nbsp;&nbsp;&nbsp;{project.member_2}</li> 
@@ -120,13 +130,11 @@ const AdminAvailableProjectGroups = ({history}) =>{
             </div>
    
       </div>
-      <br/>
-      </div>
-          )
+                )
          
         })} 
        
-      </ul>  
+      </div>
       <br/>
       
       <br/>
@@ -136,7 +144,7 @@ const AdminAvailableProjectGroups = ({history}) =>{
 
 
       <br/>
-    
+    </div>
 
 </div>
     
