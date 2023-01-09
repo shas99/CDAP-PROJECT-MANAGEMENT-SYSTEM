@@ -66,7 +66,13 @@ const GroupSchema = new mongoose.Schema({//Group model
     Supervisor:{
         type:String
     },
+    supervisorName:{
+        type: String
+    },
     CoSupervisor:{
+        type:String
+    },
+    cosupervisorName:{
         type:String
     },
     projectID:{

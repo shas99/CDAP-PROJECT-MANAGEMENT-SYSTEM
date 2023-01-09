@@ -103,8 +103,8 @@ const FullReport = ({history}) => {
                       <td>{project.name}</td>
                       <td>{project.projectID}</td>
                       <td>{project.projectName}</td>
-                      <td>{project.Supervisor}</td>
-                      <td>{project.CoSupervisor}</td>
+                      <td>{project.supervisorName}</td>
+                      <td>{project.cosupervisorName}</td>
                       <td>{project.member_1}</td>
                       <td>{project.member_1}@my.sliit.lk</td>
                       <td>{project.member_2}</td>

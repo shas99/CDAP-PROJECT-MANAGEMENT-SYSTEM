@@ -552,6 +552,8 @@ exports.AcceptPBid = async(req,res,next) => {
             
             console.log("Triggre")
 
+            const staffDeta = await Staff.findById({_id:bid.StaffID})
+
             const projectDe = await AvailableProjects.findById({_id:bid.ProjectID,})
             console.log("PrjectDe: "+projectDe)
             projectDe.projectStatus = true;
@@ -562,6 +564,7 @@ exports.AcceptPBid = async(req,res,next) => {
             updateGr.Supervisor = bid.StaffID
             updateGr.projectID = bid.ProjectID
             updateGr.projectName = projectDe.projectName
+            updateGr.cosupervisorName = staffDeta.username
             console.log("STAFF: "+bid.StaffID)
 
             await bid.save();  
@@ -607,6 +610,7 @@ exports.AcceptBid = async(req,res,next) => {
             //     success:true,
             //     data: "updated!"
             // }) 
+            const staffDeta = await Staff.findById({_id:bid.StaffID})
 
             const tafDetails = await TAF.findById({_id:bid.Project})            
 
@@ -615,6 +619,7 @@ exports.AcceptBid = async(req,res,next) => {
             updateGr.Supervisor = bid.StaffID
             updateGr.projectID = bid.Project
             updateGr.projectName = tafDetails.Topic
+            updateGr.supervisorName = staffDeta.username
             console.log("STAFF: "+bid.StaffID)
             await bid.save();  
                 // try{
