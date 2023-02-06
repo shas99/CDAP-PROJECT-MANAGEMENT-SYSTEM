@@ -274,7 +274,7 @@ export default function StaffDashboard ({history}) {
              <div className="w-full">
                 
 {/*  Grid Buttons */}
-                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 items-center gap-x-200 gap-y-4 ml-[15rem]">
+                <div class="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-2 items-center gap-x-200 gap-y-4 ml-[15rem]">
 
                       
 
@@ -286,12 +286,12 @@ export default function StaffDashboard ({history}) {
                             </button>
                        </div> */}
 
-                       <div class="w-52 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
+                       {/* <div class="w-56 gap-1  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-100">
                           <button>
                           <a href='/markdashboard'>Add marks</a>
                            
                            </button>
-                       </div>
+                       </div> */}
 
                      
 
@@ -301,30 +301,39 @@ export default function StaffDashboard ({history}) {
                             </button>
                        </div> */}
 
-                       <div class="w-52 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       {/* <div class="w-52 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/staffrecommendationform'>Staff Topic Interest Form</a>
                             </button>
-                       </div>
+                       </div> */}
 
-                       <div class="w-52 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-2 h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-2">
                            <button>
-                           <a href='/staffproject'> View Groups</a>
+                           <a href='/markingDashboard'> Marking</a>
                             </button>
                        </div>
 
-                       <div class="w-52 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-2  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-2">
                            <button>
                            <a href='/staffplaceannouncement'> Place Announcement</a>
                             </button>
                        </div>
 
 
-                       <div class="w-52 gap-1  h-16 text-md rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                       <div class="w-56 gap-2  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href='/supervisorViewBidding'> View my biddings</a>
                             </button>
                        </div>
+
+
+                       <div class="w-56 gap-2  h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                           <button>
+                           <a href='/coordinatorViewProjects'> Add new Project</a>
+                            </button>
+                       </div>
+
+                       
                        {/* <div class="w-36 gap-1  h-12 text-sm rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
                            <button>
                            <a href="https://cdap-app-365.herokuapp.com/"> Schedule Meeting</a>

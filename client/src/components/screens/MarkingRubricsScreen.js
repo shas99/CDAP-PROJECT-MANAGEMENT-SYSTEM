@@ -102,8 +102,19 @@ const toggle=()=> {//normal text box
        </div>
   <h1 id="caption" className="" style={{marginTop:"-575px"}}>Rubrics templates</h1>
       <br/><br/>
-  <Link to="/CustomisedMarkingRubrics" style={{color:"#fff"}}>View Marking Rubrics</Link><br/>
-  <Link to="/markingComposition" style={{color:"#fff"}}>Set making composition</Link>
+      
+  <Link to="/CustomisedMarkingRubrics" style={{color:"#fff"}}>
+  <button className="bg-blue-700 text-white  text-lg px-5 py-2.5 rounded hover:bg-green-600">
+    View Marking Rubrics
+  </button>
+  </Link>&nbsp;
+  
+  
+  <Link to="/markingComposition" style={{color:"#fff"}}>
+  <button className="bg-blue-700 text-white  text-lg px-5 py-2.5 rounded hover:bg-green-600">
+    Set making composition
+  </button>
+  </Link>
 {/* <div class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
@@ -123,28 +134,38 @@ const toggle=()=> {//normal text box
         {SubmissionsData.map(submission => {
           
           return (
-<div>
-  <div className="p-6 ml-[35rem] w-[100rem] max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" >
+            <div className="lg:w-2/3 text-white px-8 py-5 bg-gray-800 rounded-lg shadow-md mt-10 ml-80">
+  {/* <div className="p-6 ml-[35rem] w-[100rem] max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700" > */}
 
-        <center><p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{submission.BatchID}</p></center>
+        {/* <center> */}
+        <p className="flex flex-row text-xl font-semibold text-white font-sans">
+        {submission.Heading} &nbsp;{submission.BatchID}
+            </p>
+
+            <p style={{fontWeight:"bold",color:"white",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",textAlign:"right"}}>
+          Submission Enabled? &nbsp;
+          <input type="checkbox" name="visibility" onChange={toggle} checked ={submission.visibility}/>
+        </p>
+      <br/>
+        
+      <hr class="w-2/1 border-grey-900 my-4 mt-5"/>
+        {/* </center> */}
       <div><br/>
                    
                     {/* <li className="markscontent" style={{fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",margin:"7px"}}><b>Visibility</b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>  */}
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400"><b>Date       </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li>&nbsp;
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Heading    </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li>&nbsp;
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Links      </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li>&nbsp; 
-                    <li class="mb-3 font-normal text-gray-700 dark:text-gray-400" ><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
+                    <li ><b>Description</b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Description}</li>&nbsp;
+                    {/* <li ><b>Heading    </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Heading}</li>&nbsp; */}
+                    <li ><b>Links      </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.SubmissionPageLink}</li>&nbsp; 
+                    <li ><b>Visibility </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.visibility}</li>&nbsp; 
+                    <li><b>Date       </b>: &nbsp;&nbsp;&nbsp;&nbsp;{submission.Date}</li>&nbsp;
+
                     <label>
               
                     <div class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <a href={`/editRubrics/${submission._id}`}>Edit/Remove Rubrics</a></div>&nbsp;&nbsp;<br/>
-        <br/> <p style={{fontWeight:"bold",color:"black",fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",padding:"2px",width:"300px",textAlign:"center",margin:"0 auto"}}>Submission Enabled?</p>
-      <br/>
-        <input type="checkbox" name="visibility" onChange={toggle} checked ={submission.visibility}/>
-        <br/>
+        
     </label>
     
-      </div>
+      {/* </div> */}
    
  </div>
  <br/>
