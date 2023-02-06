@@ -199,7 +199,14 @@ exports.group = async (req, res, next) => {//suggest supervisor
 
         const bio = group[0].bio
         console.log(bio)
-        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+"/"+group[0].suggestions+"/"+group[0].bio
+
+        const supervisor = group[0].Supervisor
+        console.log(supervisor)
+
+        const cosupervisor = group[0].cosupervisorName
+        console.log(cosupervisor)
+
+        const setdata = group[0].member_1+", "+group[0].member_2+", "+group[0].member_3+", "+group[0].member_4+"/"+group[0].suggestions+"/"+group[0].Supervisor+group[0].cosupervisorName
         res.status(201).json({
             success: true,
             data: setdata
@@ -309,16 +316,15 @@ exports.viewAvailableGroups =async(req,res,next) => {
 // }
 
 //retreive all groups
-exports.viewAvailableGroupsAdmin =async(req,res,next) => {
+exports.viewAvailableGroupsAdmin =async(req, res, next) => {
     
     try{
-    
-
         // const {stID} = req.body
         const group = await Group.find()//group that is approved and have this perticular member
         //console.log(availableProjects[1])// 
         const array = Object.values(group)
-        console.log("Groups: "+group)
+        console.log("Groups: "+group[1])
+        
         // console.log(array)
         // const arrayproject = JSON.stringify(array).split(',')
         // console.log(arrayproject)
@@ -368,8 +374,6 @@ exports.viewgroup = async (req, res, next) => {
 exports.viewAvailableGroupsPanel =async(req,res,next) => {
     
     try{
-    
-
         const {stID} = req.body
         // const group = await Group.find({Supervisor:stID})//group that is approved and have this perticular member
 
@@ -377,7 +381,7 @@ exports.viewAvailableGroupsPanel =async(req,res,next) => {
         // if yes, then return the group
         // if no, then return null
         const group = await Group.find({staff:{$in:[stID]}})
-
+        
         //console.log(availableProjects[1])// 
         const array = Object.values(group)
         console.log("Groups: "+group)
@@ -391,7 +395,6 @@ exports.viewAvailableGroupsPanel =async(req,res,next) => {
             data: array
         })
         
-    
     }catch(error){
         res.status(500).json({success:false, error:error.message})
     }

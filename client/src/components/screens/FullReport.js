@@ -68,7 +68,7 @@ const FullReport = ({history}) => {
             <span className="error-message">{error}</span>
         ) :(
             
-            <div className='w-full-screen' style={{backgroundColor:"#22272E",width:"100%",overflowX:"scroll"}}>
+            <div className='w-full-screen' style={{backgroundColor:"#22272E",height: "60rem",width:"100%",overflowX:"scroll"}}>
               <div className="overflow-hidden text-gray-300 sticky float-left">
                 <SideNavigationBar page="AdminStudentGroups"/>
               </div>

@@ -207,18 +207,27 @@ exports.supervisorStatus = async(req, res, next) => {
     const {groupName} = req.body;
     let anyApproved, doneBids;
     try{
+        var cosuper = ""
         const gCount = await Group.find({name:groupName,Supervisor:{ $exists: true, $ne: null }})
         console.log("Count : "+gCount.length)
         if (gCount != 0){
             const GroupDetails = await Group.findOne({name:groupName})
+            
             const details = await Staff.findById({_id:GroupDetails.Supervisor}); 
+            try{
+                const cosup = await Staff.findById({_id:GroupDetails.cosupervisorName})
+                cosuper = cosup.username
+            }catch(err){
+                cosuper = "No Co-Supervisor yet"
+            }
             const name = details.username
-            anyApproved = name   
+            anyApproved = name
             console.log("Any approved : "+anyApproved)  
-            dataa = {anyApproved}       
+            dataa = {anyApproved,cosuper}       
         }
         else{
             anyApproved = "Not assigned";
+            cosuper = "No Co-Supervisor yet"
             const bids = await Supervisor.findOne({GroupID:groupName})
             const Bids = await BidProject.findOne({GroupID:groupName})
             if ((bids != null) || (Bids != null)){
@@ -226,7 +235,7 @@ exports.supervisorStatus = async(req, res, next) => {
             }else{
                 doneBids = false;
             }
-            dataa = {anyApproved, doneBids}
+            dataa = {anyApproved, doneBids,cosuper}
         }
        
         console.log("Dataa : "+dataa)

@@ -862,6 +862,10 @@ video {
   margin-left: 8rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .-mr-1 {
   margin-right: -0.25rem;
 }
@@ -944,10 +948,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 
 .box-border {
