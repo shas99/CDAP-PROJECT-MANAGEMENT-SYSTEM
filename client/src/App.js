@@ -123,6 +123,8 @@ import PanelAvailableProjectsStaff from "./components/screens/PanelAvailableProj
 
 import MarkingComposition from "./components/screens/MarkingComposition";
 
+import FullReport from "./components/screens/FullReport";
+
 
 
 const App = () => {
@@ -289,9 +291,7 @@ const App = () => {
 
           <Route exact path="/MarkingComposition/" component={MarkingComposition}/>
 
-          
-          
-
+          <Route exact path="/report" component={FullReport}/>
 
           {/* Routes added under this might not work. Please add your routes above this route           */}
           <Route path="*" component={PageNotFound}/>
