@@ -30,6 +30,8 @@ const StudentBidding = ({history}) => {
     const [ProjectDetails, setProjectDetails] = useState([])
     const [enableBid, setEnableBid] = useState(false)
 
+    const [cosuper, setCoSupervisor] = useState("")
+
     useEffect(() => {
   
       // const fetchPrivateDate = async () => {
@@ -150,6 +152,7 @@ const StudentBidding = ({history}) => {
           //console.log("Data"+JSON.stringify(data.data))
           console.log("STATUS DATA : "+JSON.stringify(data.data))
           console.log(data.data.doneBids)
+          setCoSupervisor(data.data.cosuper)
           //setBiddings(data.data)
           if(data.data.anyApproved == "Not assigned"){
               setApproved("false")
@@ -280,8 +283,8 @@ const removesupervisor = (e) => { setSupervisorArr([...SupervisorArr.filter((sup
             {console.log("any bids? "+anybids)}
             <div id="supervisorName" className="text-white w-80% h-20rem">
               {approved != "false" ?(
-                <p>Your supervisor is : {approved}</p>
-                  
+                <p>Your supervisor is : {approved} <br/> Your co-supervisor is : {cosuper}</p>  
+                
                 
 
       ) : (

@@ -120,9 +120,12 @@ export default function Dashboard ({history}) {
     
     <div className='ml-50rem bg-gray-900  text-gray-100 w-auto h-[65rem] overflow-y-scroll-hidden	scrollbar-hide ' style={{overflowX:"hidden"}}> 
         
-            <div class="flex ">
-                <SideNavigationBar page="StudentDashboard"/>
-            </div>
+        <div class="inline-block float-left flex-col items-center w-48 h-full-screen overflow-hidden text-gray-300 bg-gray-800 rounded  ">
+        <SideNavigationBar page="StudentDashboard"/>
+        </div>
+            {/* // <div class="flex ">
+            //     <SideNavigationBar page="StudentDashboard"/>
+            // </div> */}
         {/* <div x-data="{ open: true }" className="fixed top-0  z-50 "> */}
            {/* SIDENAVBAR */}
             {/* <div  class="flex flex-col items-center w-48 h-screen overflow-hidden text-gray-300 bg-gray-800 rounded  " >

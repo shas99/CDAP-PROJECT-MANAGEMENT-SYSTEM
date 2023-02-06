@@ -39,7 +39,7 @@ const GroupScreen = ({history}) => {
               const groupArray = data.data.split("/")
               //console.log("This is groupID"+groupArray[0])
               const group1 = groupArray[0].split(",")
-              console.log("THis is group aarray "+group1)
+              console.log("THis is group array ")
               setgroup(group1)
               setGroupData(groupArray[0]);
               setBio(groupArray[2])
@@ -184,9 +184,9 @@ const GroupScreen = ({history}) => {
 
 {/* Do we need to add this ? */}
 
-            <p className="BioText">Bio</p> 
-            <br/>
-            <p>{bio}</p>
+            {/* <p className="BioText">Bio</p> 
+            <br/> */}
+            {/* <p>{bio}</p> */}
           </div>
           
           }
