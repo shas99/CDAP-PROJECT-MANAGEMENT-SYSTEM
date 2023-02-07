@@ -111,6 +111,7 @@ import BiddingHome from "./components/screens/StudentBidding";
 
 
 import MarkingRubricsAdmin from "./components/screens/MarkingRubricsScreen";
+import AddStudentsAdmin from "./components/screens/AddStudentsAdmin";
 import AddRubrics from "./components/screens/AddRubricsScreen";
 import EditRubrics from "./components/screens/EditRubricsScreen";
 import CustomRubricsAdmin from "./components/screens/CustomMarkingRubrics";
@@ -270,6 +271,8 @@ const App = () => {
           <Route exact path="/studentBidding" component={BiddingHome}/>
 
           <Route exact path="/MarkingRubricsAdmin" component={MarkingRubricsAdmin}/>
+
+          <Route exact path="/AddStudentsAdmin" component={AddStudentsAdmin}/>
 
           <Route exact path="/Addrubrics" component={AddRubrics}/>
 

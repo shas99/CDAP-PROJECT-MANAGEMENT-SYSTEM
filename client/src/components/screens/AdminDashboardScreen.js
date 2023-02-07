@@ -287,6 +287,12 @@ const AdminDashboard = ({history}) => {
                             </button>
                        </div>
 
+                       <div class="w-57 gap-2 h-40 text-lg rounded-lg flex justify-center items-center shadow-md bg-blue-700 lg:bg-gray-800 hover:bg-blue-700 duration-300 gap-x-0.5">
+                           <button>
+                           <a href="/AddStudentsAdmin"> Add Students</a>
+                            </button>
+                       </div>
+
                        </div>     
 {/*ANNOUNCEMENT SECTION */}
   
