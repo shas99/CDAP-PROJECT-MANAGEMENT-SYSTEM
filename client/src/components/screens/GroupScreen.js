@@ -24,6 +24,9 @@ const GroupScreen = ({history}) => {
     const [bio,setBio] = useState("")
     const [supervisor, setSupervisor] = useState("");
     const [coSupervisor, setCoSupervisor] = useState("");
+    const [marks, setMarks] = useState({})
+
+
     useEffect(() => {
         const fetchGroupData = async () => {
             const groupconfig = {
@@ -73,11 +76,43 @@ const GroupScreen = ({history}) => {
   
 
 
-    //   fetchGroupData()
+    
 
-      fetchPrivateDate();
-      fetchGroupData()
-    }, [history]);
+    
+    fetchPrivateDate();
+    fetchGroupData()
+  }, [history]);
+
+
+
+  const retreiveMarks = async () => {
+    //get request to backend with body
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+  
+  
+  
+      const { data } = await axios.post(
+        `/api/MarkingRubrik/getSelectedRubrics/`,
+        {
+          batchID:"2022-Reg",groupid:"628db5bc8fcfac348c624a34"
+        }
+      );
+  
+        // console.log(data.data)
+        //render the object from data.data to the screen
+  
+    setMarks(marks => data.data)
+    console.log("Marks55")
+    console.log(marks)
+    console.log("Marks55")
+  }
+
+
+
   
     //Logout feature
     const logOutHandler=()=>{
@@ -171,6 +206,18 @@ const GroupScreen = ({history}) => {
           <div id="card" style={{height:"30rem",marginTop:"-700px"}}>
 
             <h1 id="caption" style={{color:"#8256D0"}}>Your group members are</h1>
+            <button onClick={retreiveMarks}>Get Marks</button>
+            {/* display marks */}
+            <div>
+              {Object.keys(marks).map((key) => {
+                return (
+                  <div>
+                    <p>{key}</p>
+                    <p>{marks[key]}</p>
+                  </div>
+                );
+              })}
+            </div>
             <hr id="hr"></hr>
             <p id="List">
             <div className="grouplists">{listHandler()}</div><br/>
@@ -245,10 +292,10 @@ const GroupScreen = ({history}) => {
                   <div className="form-group">
         {/* <label>
            Member 5 - Student ID:</label><br/><br/>
-          <input type="text"  id="groupFormInput"
-          name="name"
-          className = "input"
-          onChange={(e) => setMember5(e.target.value)}
+           <input type="text"  id="groupFormInput"
+           name="name"
+           className = "input"
+           onChange={(e) => setMember5(e.target.value)}
           value={member_5} /> */}
         
         </div>
@@ -257,7 +304,28 @@ const GroupScreen = ({history}) => {
           Group Registration
         </button>
 
-        
+        {/* display all the marks, marks is an object */}
+        {/* {Object.keys(marks).map((key) => (
+          <div>
+            <p>{key}</p>
+            <p>{marks[key]}</p>
+          </div>
+        ))} */}
+
+{/* <ul>
+      {Object.entries(marks).map(([key, value]) => (
+        <li key={key}>
+          {key}: {value}
+          {console.log(key)}
+        </li>
+
+      ))}
+    </ul> */}
+
+
+{/* retreiveMarks triggers when button clicked */}
+
+
       </form></div>
           </div>
       }

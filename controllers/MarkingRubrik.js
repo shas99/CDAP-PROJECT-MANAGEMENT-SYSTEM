@@ -530,10 +530,14 @@ exports.addRubrics =async(req,res,next) => {
             // get the body
             const {batchID,groupid} = req.body
 
+            console.log(batchID)
+            console.log(groupid)
+
             try{
-            // console.log(hello)
-            //get all the rubrics with BatchID hello
-            const rubrics = await MarkingComposition.findOne({batchID})
+                //get all the rubrics with BatchID hello
+                const rubrics = await MarkingComposition.findOne({batchID})
+                console.log(rubrics+"check")
+            
 
             //define an object to store marks
             var marks = {}
