@@ -56,12 +56,24 @@ const AddStudentsAdmin = ({history}) =>{
 
   const header = data.length > 0 ? Object.keys(data[0]) : [];
   
+  // const rows = data.map((row) => {
+  //   return (
+  //     <tr key={row.id}>
+  //       {header.map((key) => (
+  //         <td key={key}>{key}{row[key]}</td>
+  //       ))}
+  //     </tr>
+  //   );
+  // });
+
   const rows = data.map((row) => {
     return (
       <tr key={row.id}>
-        {header.map((key) => (
-          <td key={key}>{row[key]}</td>
-        ))}
+        {header.map((key) => {
+          if (key === "Group Leader's Name" || key === "Group Leader's Registration Number (E.g. IT12345678)" || key === "Member 2 Name" || key === "Member 2 Registration Number" || key === "Member 3 Name" || key === "Member 3 Registration Number" || key === "Member 4 Name" || key === "Member 4 Registration Number") {
+            return <td key={key}>{row[key]}</td>;
+          }
+        })}
       </tr>
     );
   });
@@ -88,11 +100,40 @@ const AddStudentsAdmin = ({history}) =>{
   <table style={{color:"white",backgroundColor:"black"}}>
         <thead>
           <tr>
-            {header.map((key) => (
-              <th key={key}>{key}</th>
-            ))}
+                        {/* {header.map((key) => {
+
+                return <th key={key}>{key}</th>;
+
+            })} */}
+            <th>
+            Group Leader
+          </th>
+          <th>
+            Group Leader's ID
+          </th>
+          <th>
+            Member 2 Name
+          </th>
+          <th>
+            Member 2 ID
+          </th>
+          <th>
+            Member 3 Name
+          </th>
+          <th>
+            Member 3 ID
+          </th>
+          <th>
+            Member 4 Name
+          </th>
+          <th>
+            Member 4 ID
+          </th>
           </tr>
         </thead>
+
+
+
         <tbody>{rows}</tbody>
       </table>
      
