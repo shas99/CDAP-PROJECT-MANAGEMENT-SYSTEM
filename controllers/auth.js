@@ -145,6 +145,271 @@ exports.resetpassword = async(req, res, next) => {
 }
 
 
+exports.registerwithExcel = async(req,res,next) => {
+    // const {username, email, password} = req.body
+    // try{
+    //     //find out the month
+    //     let month = new Date().getMonth() + 1
+    //     let year = new Date().getFullYear()
+
+    //     let batch
+
+    //     if(month < 5){
+    //         //make year string and set to batch
+    //         batch = year.toString()
+    //     }
+    //     else{
+    //         //get the last two digits of year
+    //         let lastTwo = year.toString().slice(2)
+    //         batch = year + "/" +(parseInt(lastTwo) + 1).toString()+"J"
+    //     }
+
+    //     const user = await User.create({
+    //         username,email,password,batch
+    //     })
+    //     sendToken(user, 201, res)
+
+    try{
+        const {array} = req.body
+        
+        //find out the month
+        let month = new Date().getMonth() + 1
+        let year = new Date().getFullYear()
+
+        let batch
+        
+        if(month < 5){
+            //make year string and set to batch
+            batch = year.toString()
+        }
+        else{
+            //get the last two digits of year
+            let lastTwo = year.toString().slice(2)
+            batch = year + "/" +(parseInt(lastTwo) + 1).toString()+"J"
+        }
+
+        // create random password
+        
+        
+        for(let i = 0; i < array.length; i++){
+            
+            var password = Math.random().toString(36).slice(-8)
+            
+            // access each Object in the array
+
+            if(!isValidEmail(array[i]["Group Leader's Registration Number (E.g. IT12345678)"]+"@my.sliit.lk")){
+                console.log("Invalid Email")
+                const user1nomail = await User.create({
+                    username: array[i]["Group Leader's Registration Number (E.g. IT12345678)"],
+                    password: password,
+                    batch: batch,
+                    email: password + "test@my.sliit.lk"
+                })
+                // return next(new ErrorResponse("Invalid Email",400))
+            }
+            
+            const user1 = await User.create({
+                username: array[i]["Group Leader's Registration Number (E.g. IT12345678)"],
+                password: password,
+                batch: batch,
+                email: array[i]["Group Leader's Registration Number (E.g. IT12345678)"]+"@my.sliit.lk"
+            })
+            console.log(password)
+            console.log(user1)
+            var password = Math.random().toString(36).slice(-8)
+            console.log(password)
+
+            if(!isValidEmail(array[i]["Member 2 Registration Number"] + "@my.sliit.lk")){
+                console.log("Invalid Email")
+                const user2nomail = await User.create({
+                    username: array[i]["Member 2 Registration Number"],
+                    password: password,
+                    batch: batch,
+                    email: password + "test@my.sliit.lk"
+                })
+                // return next(new ErrorResponse("Invalid Email",400))
+            }
+
+            const user2 = await User.create({
+                username: array[i]["Member 2 Registration Number"],
+                password: password,
+                batch: batch,
+                email: array[i]["Member 2 Registration Number"] + "@my.sliit.lk"
+            })
+            console.log(user2)
+            var password = Math.random().toString(36).slice(-8)
+            console.log(password)
+
+            if(!isValidEmail(array[i]["Member 3 Registration Number"] + "@my.sliit.lk")){
+                console.log("Invalid Email")
+                const user3nomail = await User.create({
+                    username: array[i]["Member 3 Registration Number"],
+                    password: password,
+                    batch: batch,
+                    email: password + "test@my.sliit.lk"
+                })
+                // return next(new ErrorResponse("Invalid Email",400))
+            }
+
+            const user3 = await User.create({
+                username: array[i]["Member 3 Registration Number"],
+                password: password,
+                batch: batch,
+                email: array[i]["Member 3 Registration Number"] + "@my.sliit.lk"
+            })
+            console.log(user3)
+            var password = Math.random().toString(36).slice(-8)
+            console.log(password)
+
+            if(!array[i]["Member 4 Registration Number"] + "@my.sliit.lk"){
+                console.log("Invalid Email")
+                const user3 = await User.create({
+                    username: array[i]["Member 3 Registration Number"],
+                    password: password,
+                    batch: batch,
+                    email: password + array[i]["Member 4 Registration Number"] + "@my.sliit.lk"
+                })
+                // return next(new ErrorResponse("Invalid Email",400))
+            }
+
+            const user4 = await User.create({
+                username: array[i]["Member 4 Registration Number"],
+                password: password,
+                batch: batch,
+                email: array[i]["Member 4 Registration Number"] + "@my.sliit.lk"
+            })
+            console.log(user4)
+            console.log(password)
+            // sendToken(user, 201, res)
+        
+        }
+
+        
+
+        // const user = await User.create({
+        //     username,email,password,batch
+        // })
+        // sendToken(user, 201, res)
+
+        // console.log(array)
+        console.log("done")
+
+    }catch(error){
+        next(error)
+    }
+};
+
+
+// exports.registerwithExcel = async(req,res,next) => {
+//     // const {username, email, password} = req.body
+//     // try{
+//     //     //find out the month
+//     //     let month = new Date().getMonth() + 1
+//     //     let year = new Date().getFullYear()
+
+//     //     let batch
+
+//     //     if(month < 5){
+//     //         //make year string and set to batch
+//     //         batch = year.toString()
+//     //     }
+//     //     else{
+//     //         //get the last two digits of year
+//     //         let lastTwo = year.toString().slice(2)
+//     //         batch = year + "/" +(parseInt(lastTwo) + 1).toString()+"J"
+//     //     }
+
+//     //     const user = await User.create({
+//     //         username,email,password,batch
+//     //     })
+//     //     sendToken(user, 201, res)
+
+//     try{
+//         const {array} = req.body
+        
+//         //find out the month
+//         let month = new Date().getMonth() + 1
+//         let year = new Date().getFullYear()
+
+//         let batch
+        
+//         if(month < 5){
+//             //make year string and set to batch
+//             batch = year.toString()
+//         }
+//         else{
+//             //get the last two digits of year
+//             let lastTwo = year.toString().slice(2)
+//             batch = year + "/" +(parseInt(lastTwo) + 1).toString()+"J"
+//         }
+
+//         // create random password
+        
+        
+//         for(let i = 0; i < array.length; i++){
+            
+//             var password = Math.random().toString(36).slice(-8)
+            
+//             // access each Object in the array
+
+
+
+//             // array[i]["Group Leader's Registration Number (E.g. IT12345678)"]+"@my.sliit.lk see if this is valid email
+            
+//             const user1 = await User.create({
+//                 username: array[i]["Group Leader's Registration Number (E.g. IT12345678)"],
+//                 password: password,
+//                 batch: batch,
+//                 email: array[i]["Group Leader's Registration Number (E.g. IT12345678)"]+"@my.sliit.lk"
+//             })
+//             console.log(user1)
+//             var password = Math.random().toString(36).slice(-8)
+
+//             const user2 = await User.create({
+//                 username: array[i]["Member 2 Registration Number"],
+//                 password: password,
+//                 batch: batch,
+//                 email: array[i]["Member 2 Registration Number"] + "@my.sliit.lk"
+//             })
+//             console.log(user2)
+//             var password = Math.random().toString(36).slice(-8)
+
+//             const user3 = await User.create({
+//                 username: array[i]["Member 3 Registration Number"],
+//                 password: password,
+//                 batch: batch,
+//                 email: array[i]["Member 3 Registration Number"] + "@my.sliit.lk"
+//             })
+//             console.log(user3)
+//             var password = Math.random().toString(36).slice(-8)
+
+//             const user4 = await User.create({
+//                 username: array[i]["Member 4 Registration Number"],
+//                 password: password,
+//                 batch: batch,
+//                 email: array[i]["Member 4 Registration Number"] + "@my.sliit.lk"
+//             })
+//             console.log(user4)
+
+//             // sendToken(user, 201, res)
+        
+//         }
+
+        
+
+//         // const user = await User.create({
+//         //     username,email,password,batch
+//         // })
+//         // sendToken(user, 201, res)
+
+//         // console.log(array)
+
+//     }catch(error){
+//         next(error)
+//     }
+// };
+
+
 
 
 const sendToken = (user, statusCode, res) => {
@@ -159,4 +424,13 @@ const logged = (token,res) => {//check if token is null
         console.log("You are not logged in")
         res.status(500).json({success:false})
     }
+}
+
+
+function isValidEmail(email) {
+  // Regular expression for validating an email address
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  // Test the email address against the regular expression
+  return emailRegex.test(email);
 }

@@ -13,6 +13,8 @@ const AddStudentsAdmin = ({history}) =>{
   const [submissionArray, setSubmissionArray] = useState("");
   const [visibility, setVisibility] = useState(false);
   const [data, setData] = useState([]);
+  const [updatedData, setupdatedData] = useState([]);
+
 
   useEffect(() => {
 
@@ -56,28 +58,47 @@ const AddStudentsAdmin = ({history}) =>{
 
   const header = data.length > 0 ? Object.keys(data[0]) : [];
   
-  // const rows = data.map((row) => {
-  //   return (
-  //     <tr key={row.id}>
-  //       {header.map((key) => (
-  //         <td key={key}>{key}{row[key]}</td>
-  //       ))}
-  //     </tr>
-  //   );
-  // });
-
-  const rows = data.map((row) => {
+  const displayRows = data.map((row) => {
     return (
       <tr key={row.id}>
-        {header.map((key) => {
-          if (key === "Group Leader's Name" || key === "Group Leader's Registration Number (E.g. IT12345678)" || key === "Member 2 Name" || key === "Member 2 Registration Number" || key === "Member 3 Name" || key === "Member 3 Registration Number" || key === "Member 4 Name" || key === "Member 4 Registration Number") {
-            return <td key={key}>{row[key]}</td>;
-          }
-        })}
+        {header.map((key) => (
+          <td key={key}>{key}{row[key]}</td>
+        ))}
       </tr>
     );
   });
+useEffect(() => {
+  const rows = data.map((row) => {
 
+        var temp = {}
+        header.map((key) => {
+          if (key === "Group Leader's Name" || key === "Group Leader's Registration Number (E.g. IT12345678)" || key === "Member 2 Name" || key === "Member 2 Registration Number" || key === "Member 3 Name" || key === "Member 3 Registration Number" || key === "Member 4 Name" || key === "Member 4 Registration Number") {
+            // {row[key]}
+            temp[key] = row[key]
+          }
+        })
+        //push temp to array updatedData
+        setupdatedData(updatedData => [...updatedData, temp])
+  });
+}
+, [data])
+
+
+const addUsers = async (e) => {
+  e.preventDefault();
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  };
+  try {
+    const { data } = await axios.post("/api/auth/registerwithExcel", {array : updatedData}, config);
+    console.log(updatedData)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
 
@@ -133,9 +154,13 @@ const AddStudentsAdmin = ({history}) =>{
         </thead>
 
 
-
-        <tbody>{rows}</tbody>
+            {console.log(updatedData)}
+        <tbody>{displayRows}</tbody>
       </table>
+
+      {/* button that triggers a function*/}
+      <button onClick={addUsers} style={{color:"white",backgroundColor:"black"}}>Submit</button>
+      
      
   </>
 );

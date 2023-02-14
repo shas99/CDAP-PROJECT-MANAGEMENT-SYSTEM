@@ -30,7 +30,7 @@ const multer  = require('multer')
 // Step 4 - set up EJS
 
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '1mb' }))
 
 // Set EJS as templating engine
 // app.set("view engine", "ejs");
