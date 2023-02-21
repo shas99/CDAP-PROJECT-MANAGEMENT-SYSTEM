@@ -29,6 +29,9 @@ const EditRubrics = ({history}) => {
   const [ID,setID] = useState(useParams().id)
   const [Fieldno,setFieldno] = useState()
   const [allcatedMarks,setallcatedMarks] = useState()
+  const [Rubrics,setRubrics] = useState([])
+  const [Submissions,setSubmissions] = useState("")
+  const [SelectedSubmission,setSelectedSubmission] = useState("")
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -77,6 +80,7 @@ const EditRubrics = ({history}) => {
         setDescription(data.data.Description)
         setHeading(data.data.Heading)
         setField(data.data.Fields)
+        setSelectedSubmission(data.data.Submissions)
         if(data.data.visibility){
           setVisibility(1)
         }else{
@@ -88,9 +92,28 @@ const EditRubrics = ({history}) => {
     };
 
 
+    const fetchRubrics = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+        const { data} = await axios.get("/api/markingRubrik/viewRubrics", config);
+        console.log(data)
+        console.log("hello")
+        setRubrics(data.data);
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
 
     fetchPrivateDate();
     fetchSubmissionData();
+    fetchRubrics();
   }, [history]);
 
 
@@ -202,6 +225,7 @@ const EditSubmission = async (e) => {
 
 
 
+
   try {
     const token = localStorage.getItem("authToken")
     const { data } = await axios.put(
@@ -213,6 +237,7 @@ const EditSubmission = async (e) => {
         Heading,
         BatchID,
         visibility,
+        Submissions
       },
       config
     );
@@ -338,7 +363,7 @@ const DeleteSubmissionHandler = async (e) => {
     <button onClick={logOutHandler} id="logout">Log Out</button>
     </p>
 
-    
+
     {flow == 0 &&
     <div>
       
@@ -399,6 +424,14 @@ const DeleteSubmissionHandler = async (e) => {
     </label> */}
     {console.log(Fieldno)}
       
+    Connect rubrics
+
+  <select style={{color:"#000"}} onChange={(e) => setSubmissions(e.target.value)} id="input">
+      <option value="0">Select field</option>
+      {Rubrics.map((field,index) => {
+        return <option value={field._id} selected={field._id === SelectedSubmission}>{field._id}:{field.Heading}</option>
+      })}
+    </select>
 
 
       <br></br>
@@ -415,14 +448,18 @@ const DeleteSubmissionHandler = async (e) => {
       </button> */}
 
 
+
       <button onClick={EditSubmission} className="bluebuttons">
         Make changes
       </button>
 
       {/* use link to redirect to /CustomRubricsAdmin:id */}
 
-      <Link to={`/CustomRubricsAdmin/${SubmissionID}`}>Use this as template</Link>
+      <Link to={`/CustomRubricsAdmin/${SubmissionID}`}>Use this as template</Link><br/>
       
+
+      
+
 
     </div>
     

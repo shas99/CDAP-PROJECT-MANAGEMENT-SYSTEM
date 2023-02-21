@@ -304,7 +304,9 @@ exports.addRubrics =async(req,res,next) => {
             const arraySubmission = JSON.stringify(array).split(',')
             // console.log(arrayproject)
             // console.log(typeof arrayproject)
+            console.log("testing55")
             console.log(array)
+            console.log("testing1")
             res.status(201).json({
                 success: true,
                 data: array
@@ -344,7 +346,7 @@ exports.addRubrics =async(req,res,next) => {
 //edit abstract rubrics
         exports.editRubrics =async(req,res,next) => {
             
-            const {SubmissionID,Fields,Description,Heading,BatchID,visibility} = req.body
+            const {SubmissionID,Fields,Description,Heading,BatchID,visibility,Submissions} = req.body
     
     
             console.log(SubmissionID)
@@ -352,6 +354,7 @@ exports.addRubrics =async(req,res,next) => {
             console.log(Description)
             console.log(Heading)
             console.log(BatchID)
+            console.log(Submissions)
     
                 try{
                 
@@ -363,6 +366,7 @@ exports.addRubrics =async(req,res,next) => {
                     submission.Heading = Heading
                     submission.Description = Description
                     submission.visibility = visibility
+                    submission.Submissions = Submissions
     
                     await submission.save()
     

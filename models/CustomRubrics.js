@@ -24,6 +24,9 @@ const CustomRubricsSchema = new mongoose.Schema({ //CustomRubrics Schema
     },
     heading:{
         type: String
+    },
+    Submissions: {
+        type: String
     }
 
     
