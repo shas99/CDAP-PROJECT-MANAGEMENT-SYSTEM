@@ -13,7 +13,7 @@ const Group = require('../models/Group')
 exports.viewAvailableSubmissions =async(req,res,next) => {
 try{
 
-
+    console.log("view available submissions")
     const availableSubmissions = await SubmissionPage.find()//group that is approved and have this perticular member
     //console.log(availableProjects[1])// 
     const array = Object.values(availableSubmissions)

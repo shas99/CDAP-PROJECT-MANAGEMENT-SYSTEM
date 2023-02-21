@@ -101,7 +101,7 @@ const EditRubrics = ({history}) => {
       };
 
       try {
-        const { data} = await axios.get("/api/markingRubrik/viewRubrics", config);
+        const { data} = await axios.get("/api/STDAvailableSubmissions/availableSubmissions", config);
         console.log(data)
         console.log("hello")
         setRubrics(data.data);
