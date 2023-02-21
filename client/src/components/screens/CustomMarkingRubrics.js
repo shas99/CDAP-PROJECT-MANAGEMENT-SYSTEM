@@ -29,6 +29,9 @@ const CustomRubricsAdmin = ({history}) => {
   const [ID,setID] = useState(useParams().id)
   const [Fieldno,setFieldno] = useState()
   const [allcatedMarks,setallcatedMarks] = useState()
+  const [Submissions,setSubmissions] = useState("")
+  const [SelectedSubmission,setSelectedSubmission] = useState("")
+  const [Rubrics,setRubrics] = useState([])
 
   useEffect(() => {
     const fetchPrivateDate = async () => {
@@ -77,6 +80,7 @@ const CustomRubricsAdmin = ({history}) => {
         setDescription(data.data.Description)
         setHeading(data.data.Heading)
         setField(data.data.Fields)
+        
         if(data.data.visibility){
           setVisibility(1)
         }else{
@@ -88,9 +92,29 @@ const CustomRubricsAdmin = ({history}) => {
     };
 
 
+    const fetchRubrics = async () => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      };
+
+      try {
+        const { data} = await axios.get("/api/STDAvailableSubmissions/availableSubmissions", config);
+        console.log(data)
+        console.log("hello")
+        setRubrics(data.data);
+      } catch (error) {
+        console.log(error)
+      }
+    };
+
+
 
     fetchPrivateDate();
     fetchSubmissionData();
+    fetchRubrics();
   }, [history]);
 
 
@@ -107,7 +131,7 @@ const CustomRubricsAdmin = ({history}) => {
     try {
       const { data } = await axios.post(
         "http://localhost:5000/api/STDAvailableSubmissions/addSubmission",
-        { Heading,Description,BatchID,Fields,visibility },
+        { Heading,Description,BatchID,Fields,visibility,Submissions },
         config
         
       );
@@ -213,6 +237,7 @@ const EditSubmission = async (e) => {
         Heading,
         BatchID,
         visibility,
+        Submissions,
       },
       config
     );
@@ -396,6 +421,12 @@ const DeleteSubmissionHandler = async (e) => {
     </label> */}
     {console.log(Fieldno)}
       
+  <select style={{color:"#000"}} onChange={(e) => setSubmissions(e.target.value)} id="input">
+      <option value="0">Select field</option>
+      {Rubrics.map((field,index) => {
+        return <option value={field._id} selected={field._id === SelectedSubmission}>{field._id}:{field.Heading}</option>
+      })}
+    </select>
 
 
       <br></br>

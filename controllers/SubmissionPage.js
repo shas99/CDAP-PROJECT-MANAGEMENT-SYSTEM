@@ -152,11 +152,14 @@ exports.submissionForm = async(req,res,next) => {
 
 //create new submission
 exports.addSubmission =async(req,res,next) => {
-    const {BatchID,visibility,Heading,Description,Fields} = req.body
+    const {BatchID,visibility,Heading,Description,Fields,Submissions} = req.body
     
     try{
+        console.log(Submissions+"testing")
+
+
         const user = await SubmissionPage.create({
-            BatchID,visibility,Heading,Description,Fields
+            BatchID,visibility,Heading,Description,Fields,Submissions
         })
         res.status(201).json({
             success: true,

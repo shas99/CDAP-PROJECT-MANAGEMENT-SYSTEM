@@ -385,11 +385,11 @@ exports.addRubrics =async(req,res,next) => {
 
         //Add created rubrics from template
         exports.addRubricsfromtemplate =async(req,res,next) => {
-            const {BatchID,visibility,Heading,Description,Fields} = req.body
+            const {BatchID,visibility,Heading,Description,Fields,Submissions} = req.body
             
             try{
                 const user = await TemplateRubric.create({
-                    BatchID,visibility,Heading,Description,Fields
+                    BatchID,visibility,Heading,Description,Fields,Submissions
                 })
                 res.status(201).json({
                     success: true,
