@@ -4,13 +4,16 @@ import axios from "axios";
 import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
 import Header from "../Header/Header";
 
-
+const pageSize = 10;
 
 const AdminAvailableProjectGroups = ({history}) =>{
   const [ProjectsData, setProjectsData] = useState([])
   const [error, setError] = useState("");
   const [privateData, setPrivateData] = useState("");
   const [projectarray, setprojectarray] = useState("");
+  const [numPages, setNumPages] = useState(0);
+  const [renderingArray, setRenderingArray] = useState([]);
+
   useEffect(() => {
 
     const fetchPrivateDate = async () => {
@@ -45,6 +48,8 @@ const AdminAvailableProjectGroups = ({history}) =>{
         //console.log(typeof data.data);
         const array = Object.entries(data.data)
         setProjectsData(data.data);
+        setNumPages(Math.ceil(array.length / pageSize));
+        setRenderingArray(array.slice(0, pageSize));
        // console.log(array);
 
         // console.log(ProjectsData)
@@ -80,6 +85,14 @@ const AdminAvailableProjectGroups = ({history}) =>{
     return res; 
 
  };
+
+ const changePage = (e) => {
+  const page = e.target.innerText;
+  // alert(page);
+
+  // set the renderingarray from page-1 * pageSize to page * pageSize of ProjectData
+  setRenderingArray(ProjectsData.slice((page - 1) * pageSize, page * pageSize));
+};
  
 
 
@@ -111,9 +124,24 @@ const AdminAvailableProjectGroups = ({history}) =>{
     </a>
       </h1><br></br><hr/><br/>
       </div>
+          {/* number of pages */}
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+  {Array.from(Array(numPages).keys()).map((x) => (
+    <div key={x} className="flex justify-center">
+      <button
+        className="bg-gray-700 text-white font-bold py-2 px-4 rounded"
+        onClick={changePage}
+      >
+        {x + 1}
+      </button>
+      &nbsp;
+    </div>
+  ))}
+</div>
         <div className='grid grid-cols-3 gap-1'>
+
          
-        {ProjectsData.map(project => {
+        {renderingArray.map(project => {
           return (
           
       <div className="p-6 max-w-xl mt-10 bg-gray-700 rounded-lg border border-gray-800 shadow-md dark:bg-gray-800 dark:border-gray-700" >
