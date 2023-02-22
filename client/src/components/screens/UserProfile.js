@@ -263,7 +263,7 @@ function calc_image_size(image) {
         required
         type="file"
         accept=".jpg, .png, .jpeg"
-        onChange={preview_image()}/>
+        onChange={preview_image}/>
         
         {/* <label for="name" style={{color:"royalblue",fontSize:"large",fontWeight:"bold"}}>Image Title</label> */}
         <br/>
