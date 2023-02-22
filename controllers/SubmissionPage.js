@@ -6,7 +6,7 @@ const User = require('../models/User')
 const jwt = require("jsonwebtoken");
 const Form = require("../models/SubmissionForm")
 const Group = require('../models/Group')
-
+const sendEmail = require('../utils/sendEmail')
 
 
 //*******VIEW AVAILABLE Submissions API *******
@@ -389,3 +389,20 @@ exports.addSubmission =async(req,res,next) => {
                 }
             // }
             };
+
+            exports.sendEmail =async(req,res,next) => {
+
+                try{
+                const {message,subject} = req.body
+                console.log(message)
+                console.log(subject)
+
+                sendEmail({
+                    subject: subject,
+                    message: message
+                })
+            }catch(error){
+                next(error)
+
+            }
+            }

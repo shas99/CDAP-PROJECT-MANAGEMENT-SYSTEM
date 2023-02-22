@@ -31,6 +31,8 @@ const ViewGroup = ({ history, match }) => {
   const [status, setStatus] = useState([]);
   const [heading, setHeading] = useState([]);
   const [groupHeading, setGroupHeading] = useState([]);
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const resetPasswordHandler = async (e) => {
@@ -268,6 +270,35 @@ const Status =  () => {
 
 }
 
+
+const sendEmail = async (e) => {
+  e.preventDefault();
+  alert(subject)
+  alert(message)
+  
+
+  // get all the students
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    //send message using the body to the api
+    const { data } = await axios.post(
+      "/api/STDAvailableSubmissions/sendEmail",
+      {subject,message},
+      config
+    );
+
+  }
+  catch (error) {
+    console.log(error)
+  }
+
+}
+
   return (
     <div className="bg-gray-900 h-[70rem]">
       <h2 id="caption">{name}</h2>
@@ -298,7 +329,23 @@ const Status =  () => {
     {forms.map((form) =><div> <br/><button className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700  rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " > <a href={`/viewStaffForm/${form._id}`}>{form.heading}</a></button></div>)}
        <br/><br/>
 </div>
+
        
+{/* form to get details message and subject */}
+<div className="ml-[5rem] border border-gray-300 w-full" style={{margin:20}}>
+    <h5 class="text-2xl font-bold tracking-tight text-gray-200 dark:text-white ml-[5rem]" style={{margin:20}}>Send Message </h5><br/>
+    <form className="ml-[4rem]">
+    <div className="flex flex-col" style={{margin:20}}>
+    <label className="text-sm text-gray-700">Subject</label>
+    <input type="text" className="w-96 h-10 px-3 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" placeholder="Subject" onChange={(e) => setSubject(e.target.value)} />
+
+    <label className="text-sm text-gray-700">Message</label>
+    <textarea className="w-96 h-20 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" placeholder="Message" onChange={(e) => setMessage(e.target.value)}></textarea>
+    
+    <button className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700  rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " onClick={sendEmail}>Send</button>
+    </div>
+    </form>
+</div>
 </div>     
          
         

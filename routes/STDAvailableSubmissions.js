@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 
-const {viewAvailableSubmissions,viewBatchID,viewspecificSubmission,submissionForm,addSubmission,DeleteSubmission,editSpecificSubmission,viewSpecificSubmission,viewSpecificSubmissionStudentID,StaffViewSubmission,Staffstatus,GetGroupHeading} = require('../controllers/SubmissionPage')
+const {sendEmail,viewAvailableSubmissions,viewBatchID,viewspecificSubmission,submissionForm,addSubmission,DeleteSubmission,editSpecificSubmission,viewSpecificSubmission,viewSpecificSubmissionStudentID,StaffViewSubmission,Staffstatus,GetGroupHeading} = require('../controllers/SubmissionPage')
 
 
 
@@ -35,6 +35,8 @@ router.route("/StaffViewSubmission").get(StaffViewSubmission)
 router.route("/staffStatus").get(Staffstatus)
 
 router.route("/GetGroupHeading").get(GetGroupHeading)
+
+router.route("/sendEmail").post(sendEmail)
 
 
 
