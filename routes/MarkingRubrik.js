@@ -2,7 +2,7 @@ const express = require('express');
 const { route } = require('express/lib/application');
 const router = express.Router()
 
-const {getSelectedRubrics,addSelectedRubrics,getRubricbyBatch,markpost,viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
+const {viewSubmissionForm,getSelectedRubrics,addSelectedRubrics,getRubricbyBatch,markpost,viewRubricsCreatedFromTemplateByID,viewRubricsCreatedFromTemplate,addRubricsfromtemplate,editRubrics,viewSpecificAbstractRubrics,viewRubrics,addRubrics,proposalMarkingConfiguration,viewProposalMarkingDetails,proposalReportMarkingConfiguration,viewProposalReportMarkingDetails,statusDocumentMarkingConfiguration,viewStatusDocumentMarkingDetails,progressPresentationMarkingConfiguration,ViewProgressPresentationMarkingDetails} = require('../controllers/MarkingRubrik')
 
 
 //Proposal Presentation Routes
@@ -43,6 +43,8 @@ router.route("/getRubricbyBatch").get(getRubricbyBatch)
 router.route("/addSelectedRubrics").post(addSelectedRubrics)
 
 router.route("/getSelectedRubrics").post(getSelectedRubrics)
+
+router.route("/viewSubmissionForm/:id").get(viewSubmissionForm)
 module.exports = router
 
 

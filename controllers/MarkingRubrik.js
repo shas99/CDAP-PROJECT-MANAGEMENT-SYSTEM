@@ -7,6 +7,8 @@ const Marking = require('../models/Marking')
 const User = require('../models/User')
 const Group = require('../models/Group')
 const MarkingComposition = require('../models/markingComposition')
+const SubmissionForm = require('../models/SubmissionForm')
+const SubmissionPage = require('../models/SubmissionPage')
 const jwt = require("jsonwebtoken");
 //******** Update Existing Marking Configuration for Proposal Presentation *********
 exports.proposalMarkingConfiguration = async(req,res,next) =>{
@@ -576,6 +578,36 @@ exports.addRubrics =async(req,res,next) => {
             res.status(200).json({
                 success: true,
                 data: marks
+            })
+
+        }catch(error){
+            res.status(500).json({success:false, error:error.message})
+        }
+        }
+
+
+
+        exports.viewSubmissionForm = async(req,res,next) => {
+
+            try{
+
+                // get the id from the params
+                const id = req.params.id
+                console.log(id)
+
+                //get all the rubrics with BatchID hello
+                const rubrics = await SubmissionPage.findById(id)
+                let heading = rubrics.Heading
+
+                //using the heading get the submission forms
+                const submissionForm = await SubmissionForm.find({Heading:heading})
+
+
+                console.log(submissionForm+"check")
+            
+            res.status(200).json({
+                success: true,
+                data: rubrics
             })
 
         }catch(error){

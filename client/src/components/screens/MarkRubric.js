@@ -17,6 +17,7 @@ const MarkRubric = ({history}) =>{
   const [labels,setLabel] = useState([]);
   const [inputBoxs,setInuptBoxs] = useState([]);
   const [entries,setEntries] = useState({})
+  const [Submission,setSubmission] = useState()
 //   const [batchID,setbatchID] = useState(history.location.state.id)
 
   useEffect(() => {
@@ -56,9 +57,11 @@ const MarkRubric = ({history}) =>{
         setSubmissionsData(data.data);
         setFields(fields => data.data.Fields)
 
+        setSubmission(Submission => data.data.Submissions)
 
 
-        
+        fetchSubmissionform(data.data.Submissions)
+
       }catch(error){
         // setError("Data not fetched");
         
@@ -66,11 +69,32 @@ const MarkRubric = ({history}) =>{
     
     }
 
+    const fetchSubmissionform = async (submissionId) =>{
+      const submissionsconfig = {
+        headers: {
+          "Content-Type":"application/json",
+          Authorization:`Bearer ${localStorage.getItem("authToken")}`,
+        },
+      }
+
+      try{
+        console.log("Hello")
+        console.log(submissionId)  
+        console.log("Hello")
+
+        const{data} = await axios.get(`/api/markingRubrik/viewSubmissionForm/${submissionId}`,submissionsconfig);
+
+      }
+      catch(error){
+      
+      }
+    }
 
 
 
     fetchSubmissionsData()
     fetchPrivateDate()
+
   }, [history])
 
   useEffect(() => {
@@ -190,6 +214,7 @@ const PostRubric = () => {
               </div>
 
             ))}
+            {Submission}<br/>
 
               {/* button to trigger postmark function when clicked */}
               <button onClick={PostRubric} style={{color:"#fff"}}>Post Mark</button>
