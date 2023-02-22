@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import "./SubmissionAdmin.css";
 import SideNavigationBar from "../AdminNavigationBar/AdminNavigationBar";
+import sanitizeHtml from 'sanitize-html';
 
 const MarkRubric = ({history}) =>{
   const [SubmissionsData, setSubmissionsData] = useState([])
@@ -18,6 +19,7 @@ const MarkRubric = ({history}) =>{
   const [inputBoxs,setInuptBoxs] = useState([]);
   const [entries,setEntries] = useState({})
   const [Submission,setSubmission] = useState()
+  const [form,setForm] = useState({})
 //   const [batchID,setbatchID] = useState(history.location.state.id)
 
   useEffect(() => {
@@ -81,8 +83,12 @@ const MarkRubric = ({history}) =>{
         console.log("Hello")
         console.log(submissionId)  
         console.log("Hello")
+        console.log(localStorage.getItem("groupId"))
 
-        const{data} = await axios.get(`/api/markingRubrik/viewSubmissionForm/${submissionId}`,submissionsconfig);
+        const{data} = await axios.get(`/api/markingRubrik/viewSubmissionForm/${submissionId}/${localStorage.getItem("groupId")}`,submissionsconfig);
+        
+        console.log(data.data)
+        setForm(form => data.data.entries)
 
       }
       catch(error){
@@ -163,6 +169,10 @@ const PostRubric = () => {
   );
 }
 
+function stripHtmlTags(str) {
+  return str.replace(/(<([^>]+)>)/gi, "");
+}
+
 
  return error ? ( 
   
@@ -218,6 +228,15 @@ const PostRubric = () => {
 
               {/* button to trigger postmark function when clicked */}
               <button onClick={PostRubric} style={{color:"#fff"}}>Post Mark</button>
+
+              {/* form is an object render the values and keys of the object */}
+              <div>
+              {Object.keys(form).map((key) => (
+                <span>
+                  <h1 style={{color:"#fff"}}>{stripHtmlTags(key)}: {stripHtmlTags(form[key])}</h1>
+                </span>
+              ))}
+              </div>
             
       {console.log(entries)}
     </div>

@@ -45,6 +45,8 @@ router.route("/addSelectedRubrics").post(addSelectedRubrics)
 router.route("/getSelectedRubrics").post(getSelectedRubrics)
 
 router.route("/viewSubmissionForm/:id").get(viewSubmissionForm)
+
+router.route("/viewSubmissionForm/:id/:groupId").get(viewSubmissionForm)
 module.exports = router
 
 

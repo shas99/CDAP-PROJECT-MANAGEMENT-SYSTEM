@@ -594,20 +594,23 @@ exports.addRubrics =async(req,res,next) => {
                 // get the id from the params
                 const id = req.params.id
                 console.log(id)
+                const groupId = req.params.groupId
+                console.log(groupId)
+
 
                 //get all the rubrics with BatchID hello
                 const rubrics = await SubmissionPage.findById(id)
                 let heading = rubrics.Heading
 
-                //using the heading get the submission forms
-                const submissionForm = await SubmissionForm.find({Heading:heading})
+                // use both heading and groupid to get the submission form
+                const submissionForm = await SubmissionForm.findOne({Heading:heading,groupid:groupId})
 
 
                 console.log(submissionForm+"check")
             
             res.status(200).json({
                 success: true,
-                data: rubrics
+                data: submissionForm
             })
 
         }catch(error){
