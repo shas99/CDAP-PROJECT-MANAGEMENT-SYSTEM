@@ -397,7 +397,8 @@ exports.addSubmission =async(req,res,next) => {
                 console.log(message)
                 console.log(subject)
 
-                sendEmail({
+                await sendEmail({
+                    to:`${email}@my.sliit.lk`,
                     subject: subject,
                     message: message
                 })
