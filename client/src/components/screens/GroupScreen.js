@@ -5,7 +5,7 @@ import "./MatchedSupervisors.css";
 import "./GroupScreen.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Swal from 'sweetalert2';
+
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const GroupScreen = ({history}) => {

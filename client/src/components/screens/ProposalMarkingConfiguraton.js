@@ -5,7 +5,7 @@
         import {useParams} from 'react-router-dom';
         import { useState } from "react";
         import axios from 'axios';
-        import Swal from 'sweetalert2';
+   
 
         export default function ProposalMarkingConfiguraton() {
 

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from "../Header/Header";
-import { Batch } from 'aws-sdk';
+// import { Batch } from 'aws-sdk';
 
 //import Parser from 'html-react-parser';
 

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 import Header from "../Header/Header";
 import "./SubmissionAdmin.css";
 import SideNavigationBar from "../AdminNavigationBar/AdminNavigationBar";
 import Collapsible from 'react-collapsible';
 import { BsChevronDown } from "react-icons/bs";
-import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
+
 
 const MarkingComposition = ({history}) =>{
   const [SubmissionsData, setSubmissionsData] = useState([])

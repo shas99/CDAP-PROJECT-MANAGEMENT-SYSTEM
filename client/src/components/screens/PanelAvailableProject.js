@@ -4,7 +4,7 @@ import axios from "axios";
 import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
 import Header from "../Header/Header";
 import './StaffAvailableProject.css'
-import e from 'cors';
+
 
 
 const PanelAvailableProjectsStaff = ({history}) =>{

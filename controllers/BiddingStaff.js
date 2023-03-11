@@ -1,4 +1,4 @@
-const { Batch } = require('aws-sdk');
+
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 //const User = require('../models/User');

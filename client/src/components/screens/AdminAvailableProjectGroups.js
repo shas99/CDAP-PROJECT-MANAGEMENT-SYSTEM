@@ -2,7 +2,7 @@ import '../../styles/main.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SideNavigationBar from '../AdminNavigationBar/AdminNavigationBar';
-import Header from "../Header/Header";
+
 
 const pageSize = 10;
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import './MarkDashboard.css';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+
 import SideNavigationBar from '../StaffSideNavigationBar/StaffSideNavigationBar';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

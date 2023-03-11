@@ -1,6 +1,6 @@
 //Student and supervisor bidding related APIs will be implemented in this file
-const { Batch } = require('aws-sdk');
-const mongoose = require('mongoose');
+
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const BidProject = require('../models/BidProjects');

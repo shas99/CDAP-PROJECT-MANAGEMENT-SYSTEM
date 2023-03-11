@@ -4,12 +4,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./EditSubmissions.css";
-import { Link } from "react-router-dom";
+
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import {useParams} from 'react-router-dom';
-import Swal from 'sweetalert2'
+
 
 import { faDiagramProject,faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import Submission from "./SubmissionScreen";

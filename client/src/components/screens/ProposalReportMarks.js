@@ -3,7 +3,7 @@ import axios from "axios";
 // import "./MatchedSupervisors.css";
 import "./ProposalReportMarks.css";
 import Header from "../Header/Header";
-import Swal from 'sweetalert2'
+
 // import Footer from "../Footer/Footer";
 
 const ProposalReportMarks = ({history}) => {

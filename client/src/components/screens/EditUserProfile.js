@@ -5,7 +5,7 @@ import "./EditProfile.css";
 import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
 // import image from "../../images/Bunny.jpg"
-import Swal from 'sweetalert2';
+
 import SideNavigationBar from "../SideNavigationBar/sideNavigationBarComponent";
 
 const EditUserProfile = ({history}) => { 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './EnterProgressPresentation1Marks.css';
 import Header from '../Header/Header';
-import Swal from 'sweetalert2';
+
 
 const EnterProgressPresentation1Marks = ({ history }) => {
   const Swal = require('sweetalert2');

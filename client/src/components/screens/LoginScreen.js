@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./LoginScreen.css";
-import Swal from 'sweetalert2'
+
 
 const LoginScreen = ({ history }) => {
   const Swal = require('sweetalert2')

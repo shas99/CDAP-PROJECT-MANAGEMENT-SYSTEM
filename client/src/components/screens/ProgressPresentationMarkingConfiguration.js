@@ -2,10 +2,12 @@
                     import "./ProposalMarkingConfiguration.css";
                     import Header from "../Header/Header";
                     import Footer from "../Footer/Footer";
-                    import {useParams} from 'react-router-dom';
+                  
+                    
                     import { useState } from "react";
                     import axios from 'axios';
-                    import Swal from 'sweetalert2'
+                  
+                    
 
                     export default function ProgressPresentationMarkingConfiguration() {
 

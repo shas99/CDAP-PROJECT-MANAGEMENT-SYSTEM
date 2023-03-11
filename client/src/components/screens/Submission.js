@@ -7,7 +7,7 @@ import axios from "axios";
 import React from 'react';
 
 import Header from "../Header/Header";
-import { Batch } from 'aws-sdk';
+// import { Batch } from 'aws-sdk';
 import {useParams} from 'react-router-dom';
 
 //import Parser from 'html-react-parser';

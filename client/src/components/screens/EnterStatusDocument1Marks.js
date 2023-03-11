@@ -3,7 +3,7 @@ import axios from "axios";
 // import "./MatchedSupervisors.css";
 import "./EnterStatusDocument1Marks.css";
 import Header from "../Header/Header";
-import Swal from 'sweetalert2'
+
 
 const EnterStatusDocument1Marks = ({history}) => {
     const Swal = require('sweetalert2')

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import PasswordChecklist from "react-password-checklist"//password validation
+
 import { useEffect } from "react";
 
 
