@@ -31,7 +31,7 @@ jobs:
     - name: Build frontend Docker image
       uses: docker/build-push-action@v2
       with:
-        context: frontend
+        context: ./client
         push: false
         tags: chathushkarodrigo/frontend:latest
     
