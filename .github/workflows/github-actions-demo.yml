@@ -13,7 +13,20 @@ jobs:
     # Checkout the code from the repository
     - name: Checkout code
       uses: actions/checkout@v2
+     
+    # Build the Docker image for the backend
+    - name: Build backend Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: backend
+        push: false
+        tags: chathushkarodrigo/backend:latest
+      
+    #Specified path to client folder  
+    - name: Build and test
+      run: cd client/
     
+
     # Build the Docker image for the frontend
     - name: Build frontend Docker image
       run: cd client/
@@ -22,14 +35,6 @@ jobs:
         context: frontend
         push: false
         tags: chathushkarodrigo/frontend:latest
-    
-    # Build the Docker image for the backend
-    - name: Build backend Docker image
-      uses: docker/build-push-action@v2
-      with:
-        context: backend
-        push: false
-        tags: chathushkarodrigo/backend:latest
     
     # Log in to Docker Hub
     - name: Log in to Docker Hub
