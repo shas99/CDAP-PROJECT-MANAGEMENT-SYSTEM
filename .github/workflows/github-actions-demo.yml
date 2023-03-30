@@ -45,4 +45,4 @@ jobs:
         push: true
         tags: |
           chathushkarodrigo/frontend:latest
-         chathushkarodrigo/backend:latest
+          chathushkarodrigo/backend:latest
