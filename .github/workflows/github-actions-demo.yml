@@ -29,7 +29,6 @@ jobs:
 
     # Build the Docker image for the frontend
     - name: Build frontend Docker image
-      run: cd client/
       uses: docker/build-push-action@v2
       with:
         context: frontend
