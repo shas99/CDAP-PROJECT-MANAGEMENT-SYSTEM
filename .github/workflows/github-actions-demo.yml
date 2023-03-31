@@ -56,24 +56,18 @@ jobs:
           chathushkarodrigo/cdap-frontend:${{ github.sha }}
           chathushkarodrigo/cdap-backend:${{ github.sha }}
   
-    # Install DigitalOcean CLI
-    - name: Install DigitalOcean CLI
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y curl
-        sudo curl -sL https://repos.insights.digitalocean.com/install.sh | sudo bash
-    
-    # Authenticate DigitalOcean
-    - name: Authenticate with DigitalOcean
-      run: |
-        doctl auth init -t ${{ secrets.DIGITALOCEAN_TOKEN }}
-    
-    #Deploy to DigitalOcean pull & run backend
-    - name: Deploy Docker image to DigitalOcean backend
-      run: |
-        doctl compute ssh ubuntu-s-1vcpu-512mb-10gb-nyc1-01 --ssh-command "docker pull chathushkarodrigo/cdap-frontend:${{ github.sha }} && docker run -d -p 80:80 chathushkarodrigo/cdap-frontend:${{ github.sha }}"
+     - name: Install SSH client
+        run: sudo apt-get update && sudo apt-get install -y ssh
 
-    #Deploy to DigitalOcean pull & run frontend
-    - name: Deploy Docker image to DigitalOcean frontend
-      run: |
-        doctl compute ssh ubuntu-s-1vcpu-512mb-10gb-nyc1-01 --ssh-command "docker pull chathushkarodrigo/cdap-backend:${{ github.sha }} && docker run -d -p 80:80 chathushkarodrigo/cdap-backend:${{ github.sha }}"
+      - name: Deploy Docker image
+        run: |
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} root@104.248.52.110 << EOF
+            # Pull the updated Docker image
+            docker pull chathushkarodrigo/cdap-backend:${{ github.sha }}
+            docker pull chathushkarodrigo/cdap-frontend:${{ github.sha }}
+            # Start a new container with the updated image
+            docker run -d --name cdap-backend -p 5000:5000 chathushkarodrigo/cdap-frontend:${{ github.sha }}
+            docker run -d --name cdap-frontend -p 3000:3000 chathushkarodrigo/cdap-backend:${{ github.sha }}
+          EOF
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
