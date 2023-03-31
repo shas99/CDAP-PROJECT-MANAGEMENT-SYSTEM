@@ -59,6 +59,7 @@ jobs:
     - name: Install SSH client
       run: chmod 400 ${{ secrets.SSH_PRIVATE_KEY }}
 
+
     - name: Deploy Docker image
       run: |
           ssh -i ${{ secrets.SSH_PRIVATE_KEY }} root@104.248.52.110 << EOF
