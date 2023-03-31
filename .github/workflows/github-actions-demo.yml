@@ -55,9 +55,9 @@ jobs:
     - name: SSH into remote server
       uses: appleboy/ssh-action@master
       with:
-      host: 104.248.52.110
-      username: root
-      key: ${{ secrets.SSH_PRIVATE_KEY }}
-      port: 22
-      script: |
-        ls -ltr
+        host: 104.248.52.110
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          ls -ltr
