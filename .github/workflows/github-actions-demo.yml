@@ -7,12 +7,16 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-22.10
+    runs-on: ubuntu-latest
     
     steps:
     # Checkout the code from the repository
     - name: Checkout code
       uses: actions/checkout@v2
+    # Check ubuntu version
+    - name: Check Ubuntu Version 
+      run: lsb_release -a
+      
      
     # Build the Docker image for the backend
     - name: Build backend Docker image
