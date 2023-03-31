@@ -52,6 +52,7 @@ jobs:
           chathushkarodrigo/cdap-frontend:${{ github.sha }}
           chathushkarodrigo/cdap-backend:${{ github.sha }}
   
+    # Deploy Docker images to DigitalOcean Droplet
     - name: SSH into remote server
       uses: appleboy/ssh-action@master
       with:
