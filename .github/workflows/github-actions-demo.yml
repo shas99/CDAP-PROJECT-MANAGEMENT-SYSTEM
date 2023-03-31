@@ -61,3 +61,10 @@ jobs:
         port: 22
         script: |
           ls -ltr
+          docker pull chathushkarodrigo/cdap-frontend:${{ github.sha }}
+          docker pull chathushkarodrigo/cdap-backend:${{ github.sha }}
+          docker run -d -p 5000:5000 chathushkarodrigo/cdap-backend:${{ github.sha }}
+          docker run -d -p 3000:5000 chathushkarodrigo/cdap-backend:${{ github.sha }}
+          
+
+    
