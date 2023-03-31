@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.10
     
     steps:
     # Checkout the code from the repository
@@ -57,7 +57,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y curl
-        curl -sL https://repos.insights.digitalocean.com/install.sh | sudo bash
+        sudo curl -sL https://repos.insights.digitalocean.com/install.sh | sudo bash
     
     # Authenticate DigitalOcean
     - name: Authenticate with DigitalOcean
