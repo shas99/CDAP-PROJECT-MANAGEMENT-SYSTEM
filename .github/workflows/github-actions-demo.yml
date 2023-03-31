@@ -58,7 +58,7 @@ jobs:
      - name: Install SSH client
         run: sudo apt-get update && sudo apt-get install -y ssh
 
-      - name: Deploy Docker image
+     - name: Deploy Docker image
         run: |
           ssh -i ${{ secrets.SSH_PRIVATE_KEY }} root@104.248.52.110 << EOF
             # Pull the updated Docker image
