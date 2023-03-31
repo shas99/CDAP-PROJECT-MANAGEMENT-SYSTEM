@@ -51,3 +51,25 @@ jobs:
         tags: |
           chathushkarodrigo/cdap-frontend:${{ github.sha }}
           chathushkarodrigo/cdap-backend:${{ github.sha }}
+  
+    # Install DigitalOcean CLI
+    - name: Install DigitalOcean CLI
+      run: |
+        apt-get update
+        apt-get install -y curl
+        curl -sL https://repos.insights.digitalocean.com/install.sh | sudo bash
+    
+    # Authenticate DigitalOcean
+    - name: Authenticate with DigitalOcean
+      run: |
+        doctl auth init -t ${{ secrets.DIGITALOCEAN_TOKEN }}
+    
+    #Deploy to DigitalOcean pull & run backend
+    - name: Deploy Docker image to DigitalOcean backend
+      run: |
+        doctl compute ssh ubuntu-s-1vcpu-512mb-10gb-nyc1-01 --ssh-command "docker pull chathushkarodrigo/cdap-frontend:${{ github.sha }} && docker run -d -p 80:80 chathushkarodrigo/cdap-frontend:${{ github.sha }}"
+
+    #Deploy to DigitalOcean pull & run frontend
+    - name: Deploy Docker image to DigitalOcean frontend
+      run: |
+        doctl compute ssh ubuntu-s-1vcpu-512mb-10gb-nyc1-01 --ssh-command "docker pull chathushkarodrigo/cdap-backend:${{ github.sha }} && docker run -d -p 80:80 chathushkarodrigo/cdap-backend:${{ github.sha }}"
