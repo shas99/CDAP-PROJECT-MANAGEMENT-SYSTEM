@@ -53,11 +53,11 @@ jobs:
           chathushkarodrigo/cdap-backend:${{ github.sha }}
   
     - name: SSH into Remote Server and Run Command
-        uses: appleboy/ssh-action@master
-        with:
-          host: 104.248.52.110
-          username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: |
-            whomai
+      uses: appleboy/ssh-action@master
+      with:
+        host: 104.248.52.110
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+           whomai
