@@ -65,3 +65,5 @@ jobs:
             docker run -d --name cdap-backend -p 5000:5000 chathushkarodrigo/cdap-frontend:${{ github.sha }}
             docker run -d --name cdap-frontend -p 3000:3000 chathushkarodrigo/cdap-backend:${{ github.sha }}
           EOF
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
