@@ -64,6 +64,8 @@ jobs:
           ls -ltr
           docker pull chathushkarodrigo/cdap-frontend:${{ github.sha }}
           docker pull chathushkarodrigo/cdap-backend:${{ github.sha }}
+          docker rmi -f chathushkarodrigo/cdap-backend$(git log -1 --pretty=format:"%h")
+          docker rmi -f chathushkarodrigo/cdap-frontend$(git log -1 --pretty=format:"%h")
           docker run -d -p 5000:5000 chathushkarodrigo/cdap-backend:${{ github.sha }}
           docker run -d -p 3001:3000 chathushkarodrigo/cdap-frontend:${{ github.sha }}
           
