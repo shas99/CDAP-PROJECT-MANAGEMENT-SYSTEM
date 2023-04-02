@@ -22,16 +22,13 @@ jobs:
         push: false
         tags: chathushkarodrigo/cdap-backend:${{ github.sha }}
       
-    #Specified path to client folder  
-    - name: Build and test
-      run: cd client/
-    
 
     # Build the Docker image for the frontend
     - name: Build frontend Docker image
       uses: docker/build-push-action@v2
       with:
         context: ./client
+        file: ./client/Dockerfile
         push: false
         tags: chathushkarodrigo/cdap-frontend:${{ github.sha }}
     
