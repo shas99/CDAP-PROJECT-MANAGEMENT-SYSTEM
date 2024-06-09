@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import "./MatchedSupervisors.css";
-// import { Link } from "react-router-dom";
 import "./StudentTopicRegistrationForm.css";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { setMaxListeners } from "nodemailer/lib/xoauth2";
-import Swal from 'sweetalert2'
+
 
 
 export default function StatusDocumentMarkingConfiguration() {
